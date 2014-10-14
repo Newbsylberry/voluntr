@@ -1,7 +1,54 @@
 <h1 class="landing_header">VOLUNTR</h1>
-        <div ng-repeat="event in events">
-            <p class="lead">{{event.name}}</p>
+<p class="lead" ng-if="!facebook_token">
+    VOLUNTR is a non-profit, open source, mobile and desktop platform that enables
+    non-profit organizations to easily reach volunteers and plan smarter events.  Getting started
+    is easy, and due to its open source nature, the possibilities of VOLUNTR are endless.
+</p>
+<div class="row" ng-if="!facebook_token">
+    <div class="col-xs-6">
+        <h2>For Organizations:</h2>
+        <p class="lead">
+            Log in with a Facebook account that has administrator privileges to
+            your Facebook page and start adding events you need volunteers for.  Your
+            personal Facebook information will not be stored.
+        </p>
+        <button ng-click="organizationLogIn()"
+                class="btn btn-lg btn-default"
+                type="submit">Sign In With Facebook</button>
+    </div>
+    <div class="col-xs-6">
+        <h2>For Volunteers:</h2>
+        <p class="lead">
+            Sign up for a VOLUNTR account and see what volunteer events are happening close by,
+            record your volunteer hours, organize teams, and see the effect your
+            volunteering has on the community.
+        </p>
+        <button ng-click="volunteer == true"
+                class="btn btn-lg btn-default"
+                type="submit">Sign Up As A Volunteer</button>
+    </div>
+</div>
+<div ng-if="facebook_token">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul     class="list-group"
+                    ng-repeat="organization in organizations">
+                <li class="list-group-item">
+                    <button ng-if="organization.exists === false"
+                            class="btn btn-default pull-right"
+                            ng-click="addOrganization(organization)">
+                        Add Organization
+                    </button>
+                    <p class="lead text-left">{{organization.name}} {{organization.v_id}}</p>
+                    <p class="small text-danger text-right"
+                       ng-if="organization.exists === false">
+                        Organization has not been added to voluntr
+                    </p>
+                </li>
+            </ul>
         </div>
+    </div>
+</div>
 
 
 

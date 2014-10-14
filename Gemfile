@@ -9,6 +9,8 @@ gem 'spring', :group => :development
 gem 'pg'
 
 
+# Use active model serializers to serve JSON
+gem "active_model_serializers"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
