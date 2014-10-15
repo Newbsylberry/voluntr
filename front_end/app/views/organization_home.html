@@ -1,0 +1,8 @@
+<h1>{{organization.name}}</h1>
+        <h5>{{organization.location.latitude}}, {{organization.location.longitude}}</h5>
+<a ng-if="organization.link" href='{{organization.link}}'>{{organization.name}}'s Facebook Page</a>
+        <ul class="list-group" ng-repeat="event in events">
+            <li class="list-group-item">
+            {{event.name}}
+            </li>
+        </ul>

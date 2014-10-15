@@ -31,10 +31,31 @@ angular
 
         $stateProvider
             .state('landing_page', {
+                abstract: true,
                 url: '/',
                 templateUrl: 'views/landing_page.html',
                 controller: 'LandingPageCtrl'
             })
+
+            .state('landing_page.initial_page', {
+                url: '',
+                templateUrl: 'views/landing_page_initial.html',
+                controller: 'LandingPageCtrl'
+            })
+
+            .state('landing_page.organization_landing', {
+                url: 'organizations',
+                templateUrl: 'views/landing_page_organizations.html',
+                controller: 'LandingPageOrganizationsCtrl'
+            })
+
+            .state('organization_home', { //default page loaded for landing state
+                url: '/organization_home/:organization_Id',
+                templateUrl: 'views/organization_home.html', // url for partial
+                controller: 'OrganizationHomeCtrl'
+            })
+
+
 
 
 
