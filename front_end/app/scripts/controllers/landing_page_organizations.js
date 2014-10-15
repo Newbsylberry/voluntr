@@ -9,7 +9,6 @@
  */
 angular.module('voluntrApp')
     .controller('LandingPageOrganizationsCtrl', function ($scope, Facebook, $http) {
-
         var listOrganization = function(organization) {
             if (!$scope.organizations) {
                 var organizations = [];
@@ -36,9 +35,9 @@ angular.module('voluntrApp')
                 Facebook.api('/me/accounts', function(response) {
                     angular.forEach(response.data, listOrganization)
                 });
-                Facebook.api('/me/groups', function(response) {
-                    angular.forEach(response.data, listOrganization)
-                });
+//                Facebook.api('/me/groups', function(response) {
+//                    angular.forEach(response.data, listOrganization)
+//                });
             }
         })
     });

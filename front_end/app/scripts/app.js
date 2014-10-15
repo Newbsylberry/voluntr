@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'facebook',
-    'ui.router'
+    'ui.router',
+        'ngMap'
   ])
     .config(function(FacebookProvider) {
         // Set your appId through the setAppId method or

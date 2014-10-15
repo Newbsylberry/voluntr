@@ -13,7 +13,8 @@
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
     "angular-ui-router": "~0.2.11",
-    "angular-facebook": "~0.2.3"
+    "angular-facebook": "~0.2.3",
+    "ngmap": "~0.21.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

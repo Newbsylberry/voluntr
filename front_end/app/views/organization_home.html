@@ -1,8 +1,16 @@
 <h1>{{organization.name}}</h1>
-        <h5>{{organization.location.latitude}}, {{organization.location.longitude}}</h5>
 <a ng-if="organization.link" href='{{organization.link}}'>{{organization.name}}'s Facebook Page</a>
-        <ul class="list-group" ng-repeat="event in events">
-            <li class="list-group-item">
-            {{event.name}}
-            </li>
-        </ul>
+<div class="col-xs-3">
+    <ul ng-repeat="event in events">
+        <p>{{event.name}}</p>
+    </ul>
+</div>
+<div class="col-xs-9">
+    <map    map-type-id="SATELLITE"
+            center="{{organization.location.latitude}}, {{organization.location.longitude}}">
+        <marker
+                position="{{organization.location.latitude}}, {{organization.location.longitude}}"
+                title="{{organization.name}}"
+                animation="Animation.DROP"></marker>
+    </map>
+</div>
