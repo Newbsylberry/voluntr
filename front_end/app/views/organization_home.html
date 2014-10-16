@@ -1,8 +1,14 @@
 <h1>{{organization.name}}</h1>
-<a ng-if="organization.link" href='{{organization.link}}'>{{organization.name}}'s Facebook Page</a>
+<a ng-if="organization.link"
+   href='{{organization.link}}'>
+    Your Facebook Page</a>
 <div class="col-xs-3">
-    <ul ng-repeat="event in events">
-        <p>{{event.name}}</p>
+    <ul ng-repeat="event in events" style="margin-top: 2.5%;">
+        <a      class="small text-left"
+                href=''
+           ng-click="addEvent(event)">
+            Add {{event.name}}
+        </a>
     </ul>
 </div>
 <div class="col-xs-9">
@@ -11,6 +17,14 @@
         <marker
                 position="{{organization.location.latitude}}, {{organization.location.longitude}}"
                 title="{{organization.name}}"
-                animation="Animation.DROP"></marker>
+                animation="Animation.DROP"
+                icon="../images/home.png"></marker>
+        <div ng-repeat="event in events">
+            <marker
+                position="{{event.location}}"
+                title="{{event.name}}"
+                animation="Animation.DROP"
+                    icon="../images/spaceport.png"></marker>
+        </div>
     </map>
 </div>

@@ -8,15 +8,17 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-    .controller('OrganizationHomeCtrl', function ($scope, Facebook, Organization, $stateParams, $state) {
+    .controller('OrganizationHomeCtrl', function ($scope, Facebook, Organization, $stateParams, $state, Event) {
 
         var addEvents = function(event) {
-            console.log(event)
             if (!$scope.events) {
                 var events = [];
                 $scope.events = events;
             };
-            $scope.events.push(event);
+            Facebook.api('/' + event.id, function(response) {
+                $scope.events.push(response);
+                console.log($scope.events)
+            })
         };
 
 
@@ -42,5 +44,20 @@ angular.module('voluntrApp')
                 $state.go('landing_page.initial_page')
             }
         });
+
+        $scope.addEvent = function(event) {
+            var attr = {};
+            attr.fb_id = event.id;
+            attr.name = event.name;
+            attr.location = event.location;
+            attr.description = event.description;
+            attr.latitude = event.venue.latitude;
+            attr.longitude = event.venue.longitude;
+            attr.start_time = event.start_time;
+            attr.end_time = event.end_time;
+            attr.timezone = event.timezone;
+        var newEvent = Event.create(attr);
+        };
+
     });
 

@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/app.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/bower.json" afterPath="$PROJECT_DIR$/front_end/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/organization_home.html" afterPath="$PROJECT_DIR$/front_end/app/views/organization_home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +21,7 @@
     <file path="/landing_page.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413166328758" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/header.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413224282097" ignored="false" />
     <file path="/landingpage.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413394122781" ignored="false" />
-    <file path="/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413340417705" ignored="false" />
+    <file path="/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413423803809" ignored="false" />
     <file path="/organizations_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413318173794" ignored="false" />
     <file path="/organizations.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413308906634" ignored="false" />
     <file path="/20141014185037_add_fbid_to_organizations.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413312669567" ignored="false" />
@@ -49,9 +50,11 @@
     <file path="/footer.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413379077214" ignored="false" />
     <file path="/landing_page_initial.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413382322928" ignored="false" />
     <file path="/landing_page_organizations.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413396005083" ignored="false" />
-    <file path="/landing_page_organizations.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413404604969" ignored="false" />
-    <file path="/organization_home.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413404843312" ignored="false" />
-    <file path="/organization_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413412818352" ignored="false" />
+    <file path="/landing_page_organizations.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413420216150" ignored="false" />
+    <file path="/organization_home.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413426987837" ignored="false" />
+    <file path="/organization_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413421916990" ignored="false" />
+    <file path="/events_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413426891211" ignored="false" />
+    <file path="/events.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413414672308" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,53 +73,117 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="19" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organization_home.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front_end/app/views/organization_home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="10" selection-start="201" selection-end="201" vertical-scroll-proportion="0.09693053">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="113" selection-start="4191" selection-end="4191" vertical-scroll-proportion="-14.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="landing_page_organizations.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="29" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organization_home.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="99" selection-start="1126" selection-end="1126" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.7140575">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="20" column="19" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="organizations.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="43" column="9" selection-start="173" selection-end="1606" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="organizations_controller.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="1" column="18" selection-start="56" selection-end="72" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="organization_home.html" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/views/organization_home.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="35" selection-start="405" selection-end="428" vertical-scroll-proportion="0.1509434">
+                  <folding>
+                    <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="82" column="113" selection-start="4355" selection-end="4355" vertical-scroll-proportion="-30.958334">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="organization_home.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="52" column="43" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="events_controller.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="51" column="46" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="landing_page_organizations.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="46" column="41" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="landingpage.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="35" column="0" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="events_controller.rb" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="1" column="18" selection-start="65" selection-end="65" vertical-scroll-proportion="0.104166664">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config/routes.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="4" column="72" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -134,30 +201,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/front_end/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20141014185037_add_fbid_to_organizations.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page.html" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/db/migrate/20141015230036_create_events.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/events.js" />
         <option value="$PROJECT_DIR$/front_end/app/index.html" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/organization_home.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="102" />
-    <option name="y" value="36" />
-    <option name="width" value="1180" />
-    <option name="height" value="768" />
+    <option name="x" value="24" />
+    <option name="y" value="27" />
+    <option name="width" value="1226" />
+    <option name="height" value="723" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -215,7 +282,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -226,10 +293,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -247,37 +310,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -384,6 +417,26 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
@@ -538,14 +591,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="102" y="36" width="1180" height="768" extended-state="0" />
+    <frame x="24" y="27" width="1226" height="723" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2680776" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23474576" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -622,58 +675,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="31" selection-start="209" selection-end="209" vertical-scroll-proportion="0.20761245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="30" selection-start="621" selection-end="630" vertical-scroll-proportion="0.75842696" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="30" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="40" selection-end="40" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="56" selection-start="344" selection-end="388" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_initial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="81" selection-start="1102" selection-end="1102" vertical-scroll-proportion="-13.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="71" selection-start="862" selection-end="862" vertical-scroll-proportion="-10.0">
@@ -695,20 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="113" selection-start="4191" selection-end="4191" vertical-scroll-proportion="-14.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="99" selection-start="1126" selection-end="1126" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="19" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
@@ -716,17 +703,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20141014185037_add_fbid_to_organizations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="57" selection-start="105" selection-end="125" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20141015230036_create_events.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="2" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="47" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.6122449">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="113" selection-start="4355" selection-end="4355" vertical-scroll-proportion="-30.958334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="9" selection-start="173" selection-end="1606" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="29" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
+        <state line="46" column="41" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="56" selection-end="72" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="72" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="46" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="43" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/views/organization_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="10" selection-start="201" selection-end="201" vertical-scroll-proportion="0.09693053">
-          <folding />
+        <state line="14" column="35" selection-start="405" selection-end="428" vertical-scroll-proportion="0.1509434">
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

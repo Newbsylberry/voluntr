@@ -50,10 +50,12 @@ class OrganizationsController < ApplicationController
 
     head :no_content
   end
-end
+
 
 private
 
 def organization_params
   params.require(:organization).permit(:fb_id)
+end
+
 end

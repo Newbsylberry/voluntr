@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
+      resources :events, except: [:new, :edit], defaults: {format: :json}
       match '/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
     end
   end

@@ -33,16 +33,7 @@ angular.module('voluntrApp')
         };
 
 
-        $scope.addOrganization = function(organization) {
-            $scope.organization = organization;
-            var attr = {};
-            attr.fb_id = organization.id;
-            var newOrganization = Organization.create(attr)
-            newOrganization.$promise.then(function(data) {
-                $scope.organization.v_id = data.id;
-                $scope.organization.exists = true;
-            })
-        };
+
 
         $scope.logout = function() {
             $scope.facebook_token = null;

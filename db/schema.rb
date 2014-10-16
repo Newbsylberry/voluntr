@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014185037) do
+ActiveRecord::Schema.define(version: 20141016023559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: true do |t|
+    t.integer  "fb_id",       limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "timezone"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "description"
+  end
 
   create_table "organizations", force: true do |t|
     t.datetime "created_at"
