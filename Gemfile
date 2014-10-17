@@ -15,6 +15,9 @@ gem 'jwt'
 # Use active model serializers to serve JSON
 gem "active_model_serializers"
 
+#Deployment Gems
+gem 'rails_12factor', group: :production
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

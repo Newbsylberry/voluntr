@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.buildpacks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/auth_token.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/services/authinterceptor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/422.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/app.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/bower.json" afterPath="$PROJECT_DIR$/front_end/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/event_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/event_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" afterPath="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/organization_home.html" afterPath="$PROJECT_DIR$/front_end/app/views/organization_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/package.json" afterPath="$PROJECT_DIR$/front_end/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,7 +83,7 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.1">
+    <splitter split-orientation="vertical" split-proportion="0.47603834">
       <split-first>
         <leaf>
           <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
@@ -124,7 +98,7 @@
           <file leaf-file-name="organization_home.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/front_end/app/views/organization_home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="16" column="50" selection-start="587" selection-end="587" vertical-scroll-proportion="26.666666">
+                <state line="16" column="50" selection-start="587" selection-end="587" vertical-scroll-proportion="0.97959185">
                   <folding>
                     <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#map#0;n#div#1;n#!!top" expanded="true" />
@@ -196,10 +170,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Gemfile">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="40" selection-start="277" selection-end="277" vertical-scroll-proportion="0.46075085">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="0.05952381">
+                <state line="2" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25">
                   <folding />
                 </state>
               </provider>
@@ -234,7 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
         <option value="$PROJECT_DIR$/front_end/app/index.html" />
@@ -250,6 +232,7 @@
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
         <option value="$PROJECT_DIR$/front_end/package.json" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -302,34 +285,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -693,13 +648,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="32" selection-start="843" selection-end="843" vertical-scroll-proportion="0.5487805">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="55" selection-start="416" selection-end="416" vertical-scroll-proportion="0.12541807">
@@ -805,7 +753,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="0.05952381">
+        <state line="2" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="40" selection-start="277" selection-end="277" vertical-scroll-proportion="0.46075085">
           <folding />
         </state>
       </provider>
