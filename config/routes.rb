@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
+      devise_for :users, defaults: {format: :json},
+                 :controllers => { registrations: 'registrations',
+                                   sessions: 'sessions'}, defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
       resources :events, except: [:new, :edit], defaults: {format: :json}
       match '/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}

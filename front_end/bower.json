@@ -14,7 +14,9 @@
     "angular-route": "~1.2.0",
     "angular-ui-router": "~0.2.11",
     "angular-facebook": "~0.2.3",
-    "ngmap": "~0.21.0"
+    "ngmap": "~0.21.0",
+    "angular-devise": "~0.6.1",
+    "angularjs-geolocation": "git://github.com/arunisrael/angularjs-geolocation.git#~0.1.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

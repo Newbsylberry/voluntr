@@ -18,12 +18,23 @@ angular
     'ngTouch',
     'facebook',
     'ui.router',
-        'ngMap'
+        'ngMap',
+        'Devise',
+        'geolocation'
   ])
     .config(function(FacebookProvider) {
         // Set your appId through the setAppId method or
         // use the shortcut in the initialize method directly.
         FacebookProvider.init('1478625579067596');
+    })
+
+    .config(function($httpProvider, AuthProvider) {
+        AuthProvider.registerPath('/api/v1/users.json');
+        AuthProvider.loginPath('/api/v1/users/sign_in.json');
+        //        AuthProvider.logoutPath('/api/users/sign_out.json');
+        //authInterceptor to handle 401 errors and intercept the requests/responses
+        $httpProvider.interceptors.push('authInterceptor');
+        //401Interceptor to handle 401 errors
     })
 
 
@@ -42,6 +53,18 @@ angular
                 url: '',
                 templateUrl: 'views/landing_page_initial.html',
                 controller: 'LandingPageCtrl'
+            })
+
+            .state('landing_page.volunteer_landing', {
+                url: 'volunteers',
+                templateUrl: 'views/landing_page_volunteers.html',
+                controller: 'LandingPageCtrl'
+            })
+
+            .state('volunteer_home', { //default page loaded for landing state
+                url: '/volunteer_home/:user_Id',
+                templateUrl: 'views/volunteer_home.html', // url for partial
+                controller: 'VolunteerHomeCtrl'
             })
 
             .state('landing_page.organization_landing', {

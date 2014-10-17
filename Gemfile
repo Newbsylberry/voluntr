@@ -8,6 +8,9 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
+gem 'devise'
+gem 'jwt'
+
 
 # Use active model serializers to serve JSON
 gem "active_model_serializers"

@@ -8,7 +8,7 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-    .controller('LandingPageOrganizationsCtrl', function ($scope, Facebook, $http) {
+    .controller('LandingPageOrganizationsCtrl', function ($scope, Facebook, $http, Organization) {
         var listOrganization = function(organization) {
             if (!$scope.organizations) {
                 var organizations = [];
