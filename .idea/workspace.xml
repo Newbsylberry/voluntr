@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141016021832_remove_long_lat_from_events.rb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,22 +83,22 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.47603834">
+    <splitter split-orientation="vertical" split-proportion="0.44089457">
       <split-first>
         <leaf>
-          <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="21" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
+                <state line="27" column="47" selection-start="553" selection-end="569" vertical-scroll-proportion="0.66964287">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="organization_home.html" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="organization_home.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/app/views/organization_home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="16" column="50" selection-start="587" selection-end="587" vertical-scroll-proportion="-0.4784689">
+                <state line="16" column="50" selection-start="587" selection-end="587" vertical-scroll-proportion="-10.0">
                   <folding>
                     <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#map#0;n#div#1;n#!!top" expanded="true" />
@@ -178,10 +179,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="31" column="49" selection-start="1011" selection-end="1011" vertical-scroll-proportion="2.0852017">
+                <state line="31" column="49" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-19.375">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="83" column="113" selection-start="4458" selection-end="4458" vertical-scroll-proportion="0.7058824">
                   <folding />
                 </state>
               </provider>
@@ -218,7 +228,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
-        <option value="$PROJECT_DIR$/front_end/app/index.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/services/authinterceptor.js" />
         <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html" />
@@ -226,18 +235,19 @@
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/organization_home.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/serializers/event_serializer.rb" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/front_end/package.json" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/front_end/app/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="120" />
-    <option name="y" value="45" />
+    <option name="x" value="101" />
+    <option name="y" value="61" />
     <option name="width" value="1226" />
     <option name="height" value="723" />
   </component>
@@ -297,25 +307,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -595,14 +587,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="120" y="45" width="1226" height="723" extended-state="0" />
-    <editor active="false" />
+    <frame x="101" y="61" width="1226" height="723" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6110169" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3644068" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -700,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="21" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="95" selection-start="367" selection-end="367" vertical-scroll-proportion="-1.4">
@@ -784,7 +769,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="49" selection-start="1011" selection-end="1011" vertical-scroll-proportion="2.0852017">
+        <state line="31" column="49" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-19.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="47" selection-start="553" selection-end="569" vertical-scroll-proportion="0.66964287">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="113" selection-start="4458" selection-end="4458" vertical-scroll-proportion="0.7058824">
           <folding />
         </state>
       </provider>
