@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-    </list>
+    <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="" />
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413401414731" ignored="false" />
@@ -170,19 +167,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Gemfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="40" selection-start="277" selection-end="277" vertical-scroll-proportion="0.46075085">
+                <state line="18" column="40" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/package.json">
+          <file leaf-file-name="Gruntfile.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/Gruntfile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-9.238908">
                   <folding />
                 </state>
               </provider>
@@ -285,6 +282,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -648,13 +659,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="55" selection-start="416" selection-end="416" vertical-scroll-proportion="0.12541807">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="48" selection-start="812" selection-end="812" vertical-scroll-proportion="0.37625417">
@@ -751,6 +755,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="40" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25">
@@ -758,9 +769,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/front_end/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="40" selection-start="277" selection-end="277" vertical-scroll-proportion="0.46075085">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-9.238908">
           <folding />
         </state>
       </provider>
