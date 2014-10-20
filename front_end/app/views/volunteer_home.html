@@ -26,7 +26,7 @@
                 icon="../images/home.png"></marker>
         <div ng-repeat="event in events">
             <marker
-                    position="{{event.location}}"
+                    position="{{event.latitude}},{{event.longitude}}"
                     title="{{event.name}}"
                     animation="Animation.DROP"
                     icon="../images/spaceport.png"></marker>

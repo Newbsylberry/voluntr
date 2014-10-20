@@ -27,7 +27,7 @@ angular.module('voluntrApp')
         $scope.getDistance = function(event) {
             $timeout(
             function() {
-                var origin = '235 Harrison St. Syracuse, NY'
+                var origin = '165 Walton St, Syracuse, NY 13202'
                 var destination = new google.maps.LatLng(event.latitude, event.longitude);
                 var distanceMatrix = new google.maps.DistanceMatrixService();
                 distanceMatrix.getDistanceMatrix(
