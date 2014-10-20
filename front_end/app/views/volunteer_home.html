@@ -1,8 +1,10 @@
-<div class="col-xs-4">
-    <h3>Upcoming Volunteer Events:</h3>
+<div class="col-xs-4" ng-init="getEvents()">
+    <h3>Upcoming Volunteer Events: {{distance_calculated}} </h3>
     <ul class="list-group" ng-repeat="event in events">
-        <li class="list-group-item" ng-init="getDistance(event)">
-        <p>{{event.name}}</p>
+        <li class="list-group-item"
+            ng-init="getDistance(event)"
+            >
+            <p>{{event.name}}</p>
 
             <p>Start Date: {{event.start_time | date : 'shortDate'}}
                 {{event.start_time | date : 'h:mm'}}</p>
@@ -14,8 +16,8 @@
     <button ui-sref='landing_page.initial_page'>Go Back to Home Page</button>
 </div>
 <div class="col-xs-8">
-    <map    map-type-id="SATELLITE"
-            center="{{user.location}}"
+    <!--<map    map-type-id="SATELLITE"
+            center="{{user_location.lat}},{{user_location.long}}"
             style="height: 500px"
             zoom="14"
             tilt="45"
@@ -31,5 +33,5 @@
                     animation="Animation.DROP"
                     icon="../images/spaceport.png"></marker>
         </div>
-    </map>
+    </map>-->
 </div>

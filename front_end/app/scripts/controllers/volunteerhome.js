@@ -8,44 +8,49 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('VolunteerHomeCtrl', function ($scope, geolocation, Event,
-                                             Organization, $http, $timeout) {
-        geolocation.getLocation().then(function(data){
-            $scope.user_location = {lat:data.coords.latitude,long:data.coords.longitude};
+    .controller('VolunteerHomeCtrl', function ($scope, geolocation, Event,
+                                               Organization, $http, $timeout,
+                                                userLocation) {
 
-            console.log($scope.user_location)
-        });
-
-        $scope.events = Event.all();
-
-        $scope.$on('mapInitialized', function(event, map) {
-
-
-
-        });
-
-        $scope.getDistance = function(event) {
+        var getDistance = function(event) {
+            console.log("Get Distance")
+            if (!$scope.events) {
+                $scope.events = Array.new
+            }
             $timeout(
-            function() {
-                var origin = '235 Harrison St. Syracuse, NY'
-                var destination = new google.maps.LatLng(event.latitude, event.longitude);
-                var distanceMatrix = new google.maps.DistanceMatrixService();
-                distanceMatrix.getDistanceMatrix(
-                     {
-                         origins: [(origin)],
-                         destinations: [(destination)],
-                         travelMode: google.maps.TravelMode.DRIVING,
-                         unitSystem: google.maps.UnitSystem.IMPERIAL
-                     }, callback);
-                function callback(response, status) {
-                    event.distance = response.rows[0].elements[0].distance.text;
-                    console.log(event)
-                    return $scope.event = event;
-                }
-            }, 250);
+                function() {
+                    var origin = userLocation;
+                    var destination = new google.maps.LatLng(event.latitude, event.longitude);
+                    var distanceMatrix = new google.maps.DistanceMatrixService();
+                    distanceMatrix.getDistanceMatrix(
+                        {
+                            origins: [(origin)],
+                            destinations: [(destination)],
+                            travelMode: google.maps.TravelMode.DRIVING,
+                            unitSystem: google.maps.UnitSystem.IMPERIAL
+                        }, callback);
+                    function callback(response, status) {
+                        if (status == google.maps.DistanceMatrixStatus.OK) {
+                            event.distance = response.rows[0].elements[0].distance.text;
+                            $scope.events.push(event);
+                        }
+                    }
+                }, 250);
         };
 
 
+        $scope.raw_events = Event.all()
 
-  });
+         $scope.getEvents = function() {
+            angular.forEach($scope.raw_events, getDistance)
+         };
+
+
+
+
+
+
+
+
+    });
 
