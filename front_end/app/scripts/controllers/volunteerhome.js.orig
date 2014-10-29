@@ -23,6 +23,25 @@ angular.module('voluntrApp')
         $scope.getDistance = function(event) {
             console.log("Get Distance")
             $timeout(
+<<<<<<< HEAD
+            function() {
+                var origin = '165 Walton St, Syracuse, NY 13202'
+                var destination = new google.maps.LatLng(event.latitude, event.longitude);
+                var distanceMatrix = new google.maps.DistanceMatrixService();
+                distanceMatrix.getDistanceMatrix(
+                     {
+                         origins: [(origin)],
+                         destinations: [(destination)],
+                         travelMode: google.maps.TravelMode.DRIVING,
+                         unitSystem: google.maps.UnitSystem.IMPERIAL
+                     }, callback);
+                function callback(response, status) {
+                    event.distance = response.rows[0].elements[0].distance.text;
+                    console.log(event)
+                    return $scope.event = event;
+                }
+            }, 250);
+=======
                 function() {
                     var origin = userLocation;
                     var destination = new google.maps.LatLng(event.latitude, event.longitude);
@@ -42,6 +61,7 @@ angular.module('voluntrApp')
                         }
                     }
                 }, 2000);
+>>>>>>> organizationHome
         };
 
 

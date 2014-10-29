@@ -58,12 +58,20 @@ angular
             .state('landing_page.volunteer_landing', {
                 url: 'volunteers',
                 templateUrl: 'views/landing_page_volunteers.html',
-                controller: 'LandingPageCtrl'
+                controller: 'LandingPageVolunteerCtrl'
             })
 
             .state('volunteer_home', { //default page loaded for landing state
                 url: '/volunteer_home/:user_Id',
                 templateUrl: 'views/volunteer_home.html', // url for partial
+                resolve:{
+                    userLocation: function(geolocation) {
+                        return geolocation.getLocation().then(function(data){
+                            var origin = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
+                            return origin;
+                        })
+                    }
+                },
                 controller: 'VolunteerHomeCtrl'
             })
 

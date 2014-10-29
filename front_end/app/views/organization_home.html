@@ -1,20 +1,58 @@
-<h1>{{organization.name}}</h1>
-<a ng-if="organization.link"
-   href='{{organization.link}}'>
-    Your Facebook Page</a>
-<div class="col-xs-2">
-    <ul ng-repeat="event in events" style="margin-top: 2.5%;">
-        <a      class="small text-left"
-                href=''
-           ng-click="addEvent(event)">
-            Add {{event.name}}
-        </a>
-    </ul>
+<div class="col-xs-3">
+
+    <!-- Top panel with organization name -->
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h1>{{organization.name}}</h1>
+            <a ng-if="organization.link"
+               href='{{organization.link}}'>
+                Your Facebook Page</a><br>
+            <a ui-sref='landing_page.initial_page'>Back to Landing Page</a>
+        </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+
+        <!-- Panel Body containing events side bar -->
+        <div class="panel-body">
+
+            <!-- Events that have been added to the DB-->
+            <h5>Events on VOLU:</h5>
+            <div ng-repeat="event in events" style="margin-top: 2.5%;">
+                <div ng-if="event.exists">
+                    <p >
+                        {{event.name}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Events that have yet to be added to DB -->
+            <h5 style="margin-top: 60%;">Add these events from Facebook:</h5>
+            <div ng-repeat="event in events">
+                <div ng-if="!event.exists">
+                    <a      class="small"
+                            href=''
+                            ng-click="addEvent(event)">
+                        Add {{event.name}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="col-xs-10" ng-if="organization.location">
-    <map    map-type-id="SATELLITE"
+
+<!-- Column with Google Map -->
+<div class="col-xs-8" >
+    <map    id="googlemap"
+            ng-if="organization.location"
+            map-type-id="SATELLITE"
             center="{{organization.location.latitude}}, {{organization.location.longitude}}"
-            style="height: 500px">
+            zoom="12"
+            style="height: 575px"
+            >
         <marker
                 position="{{organization.location.latitude}}, {{organization.location.longitude}}"
                 title="{{organization.name}}"
@@ -22,13 +60,13 @@
                 icon="../images/home.png"></marker>
         <div ng-repeat="event in events">
             <marker
-                position="{{event.location}}"
-                title="{{event.name}}"
-                animation="Animation.DROP"
+                    position="{{event.venue.latitude}},{{event.venue.longitude}}"
+                    title="{{event.name}}"
+                    animation="Animation.DROP"
                     icon="../images/spaceport.png"></marker>
         </div>
     </map>
-</div>
-<div class="col-xs-10" ng-if="organization && !organization.location">
-    <h3>We don't have your location on Facebook, please enter it and then refresh this page.</h3>
+    <div ng-if="organization && !organization.location">
+        <h3>We don't have your location on Facebook, please enter it and then refresh this page.</h3>
+    </div>
 </div>

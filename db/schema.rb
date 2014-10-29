@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016132717) do
+ActiveRecord::Schema.define(version: 20141029140604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
-    t.integer  "fb_id",       limit: 8
+    t.integer  "fb_id",           limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141016132717) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "description"
+    t.integer  "organization_id"
   end
 
   create_table "organizations", force: true do |t|
