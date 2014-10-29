@@ -15,7 +15,7 @@ angular.module('voluntrApp')
                 $scope.organizations = organizations;
             };
             $http({method: 'GET',
-                url: '/api/v1/existence_check/' + organization.id}).
+                url: '/api/v1/organizations/existence_check/' + organization.id}).
                 success(function(data, status, headers, config) {
                     if (data.fb_id) {
                         organization.exists = true

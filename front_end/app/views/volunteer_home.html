@@ -1,9 +1,16 @@
-<div class="col-xs-4" ng-init="getEvents()">
-    <h3>Upcoming Volunteer Events: {{distance_calculated}} </h3>
+<div class="col-xs-3">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>Upcoming Volunteer Events: </h3>
+            <a ui-sref='landing_page.initial_page'>Go Back to Home Page</a>
+        </div>
+    </div>
     <ul class="list-group" ng-repeat="event in events">
         <li class="list-group-item"
-            ng-init="getDistance(event)"
             >
+            <div ng-if="!event.distance" data-ng-disabled="event.distance">
+            {{getDistance(event)}}
+            </div>
             <p>{{event.name}}</p>
 
             <p>Start Date: {{event.start_time | date : 'shortDate'}}
@@ -13,25 +20,28 @@
             <p>Distance: {{event.distance}} </p>
         </li>
     </ul>
-    <button ui-sref='landing_page.initial_page'>Go Back to Home Page</button>
 </div>
-<div class="col-xs-8">
-    <!--<map    map-type-id="SATELLITE"
-            center="{{user_location.lat}},{{user_location.long}}"
-            style="height: 500px"
-            zoom="14"
-            tilt="45"
+<div class="col-xs-9">
+        <map
+            map-type-id="SATELLITE"
+            style="height: 575px"
+            zoom="12"
             >
         <marker
-                position="{{user.location}}"
+                position="{{userLocation}}"
                 animation="Animation.DROP"
-                icon="../images/home.png"></marker>
+                ></marker>
         <div ng-repeat="event in events">
             <marker
-                    position="{{event.location}}"
+                    position="{{event.latitude}},{{event.longitude}}"
                     title="{{event.name}}"
                     animation="Animation.DROP"
                     icon="../images/spaceport.png"></marker>
+            <info-window position="{{event.latitude}},{{event.longitude}}">
+                <div ng-non-bindable>
+                    <div id="siteNotice">Hello World!</div>
+                </div>
+            </info-window>
         </div>
-    </map>-->
+    </map>
 </div>

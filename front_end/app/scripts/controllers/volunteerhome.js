@@ -12,11 +12,16 @@ angular.module('voluntrApp')
                                                Organization, $http, $timeout,
                                                 userLocation) {
 
-        var getDistance = function(event) {
+        <!-- Set the map center to userLocation -->
+        $scope.$on('mapInitialized', function(event, map) {
+            map.setCenter(userLocation)
+
+        });
+
+
+
+        $scope.getDistance = function(event) {
             console.log("Get Distance")
-            if (!$scope.events) {
-                $scope.events = Array.new
-            }
             $timeout(
                 function() {
                     var origin = userLocation;
@@ -32,25 +37,15 @@ angular.module('voluntrApp')
                     function callback(response, status) {
                         if (status == google.maps.DistanceMatrixStatus.OK) {
                             event.distance = response.rows[0].elements[0].distance.text;
-                            $scope.events.push(event);
+                            $scope.event = event;
+                            console.log($scope.event)
                         }
                     }
-                }, 250);
+                }, 2000);
         };
 
 
-        $scope.raw_events = Event.all()
-
-         $scope.getEvents = function() {
-            angular.forEach($scope.raw_events, getDistance)
-         };
-
-
-
-
-
-
-
+        $scope.events = Event.all()
 
     });
 

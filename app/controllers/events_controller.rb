@@ -46,6 +46,12 @@ class EventsController < ApplicationController
     head :no_content
   end
 
+  def existence_check
+    @event = Event.find_by_fb_id(params[:fb_id])
+
+    render json: @event
+  end
+
   def event_params
     params.require(:event).permit(:fb_id, :name, :location,
                                   :description, :start_time, :end_time, :about,

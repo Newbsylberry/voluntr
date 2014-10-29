@@ -58,7 +58,7 @@ angular
             .state('landing_page.volunteer_landing', {
                 url: 'volunteers',
                 templateUrl: 'views/landing_page_volunteers.html',
-                controller: 'LandingPageCtrl'
+                controller: 'LandingPageVolunteerCtrl'
             })
 
             .state('volunteer_home', { //default page loaded for landing state
