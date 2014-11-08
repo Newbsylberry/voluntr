@@ -54,12 +54,14 @@ angular.module('voluntrApp')
                 {
                 templateUrl: 'views/profile.html',
                 controller: 'ProfileCtrl',
+                windowClass: 'profile-modal-window',
                 size: size
                 }) } if (!$scope.profile) {
                 var profileModal = $modal.open(
                     {
                         templateUrl: 'views/create_profile.html',
                         controller: 'ProfileCtrl',
+                        windowClass: 'profile-modal-window',
                         size: size
                     })}
 
