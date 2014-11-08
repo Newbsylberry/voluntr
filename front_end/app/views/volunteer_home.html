@@ -1,8 +1,22 @@
+<!--<style>
+    #volunteer-home-top-left-panel a {
+        display: block;
+    }
+</style>-->
 <div class="col-xs-3">
     <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body" id="volunteer-home-top-left-panel">
             <h3>Upcoming Volunteer Events: </h3>
             <a ui-sref='landing_page.initial_page'>Go Back to Home Page</a>
+
+            <!-- Links to a page where a user can create a profile /views/profile_create.html -->
+            <a      ng-click="profile = false; open('lg')">
+                    Create a Profile</a>
+
+            <!-- Opens profile if the user has already created one /views/profile.html -->
+            <a      ng-click="profile = true; open('lg')"
+                    ui-sref='profile({profile_Id:user.profile.id})'>
+                    Profile Page </a>
         </div>
     </div>
     <ul class="list-group" ng-repeat="event in events">

@@ -2,60 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_volunteer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/test/spec/controllers/landing_page_volunteer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/styles/organization_home.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="$PROJECT_DIR$/README.rdoc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/views/create_profile.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/views/profile.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/styles/profile.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/styles/volunteer_home.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/app.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/bower.json" afterPath="$PROJECT_DIR$/front_end/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/landing_page.html" afterPath="$PROJECT_DIR$/front_end/app/views/landing_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/landing_page.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/landing_page.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" afterPath="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html" afterPath="$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/organization_home.html" afterPath="$PROJECT_DIR$/front_end/app/views/organization_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html" afterPath="$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" afterPath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414591490594" ignored="false" />
+    <file path="/Dummy.txt" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415387103680" ignored="false" />
     <file path="/app.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413834751468" ignored="false" />
-    <file path="/landing_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413394010449" ignored="false" />
-    <file path="/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414519136788" ignored="false" />
-    <file path="/main.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413162200905" ignored="false" />
+    <file path="/landing_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414782770328" ignored="false" />
+    <file path="/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489251825" ignored="false" />
+    <file path="/main.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414707223808" ignored="false" />
     <file path="/landing_page.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413924735773" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/header.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413224282097" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/header.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415001740163" ignored="false" />
     <file path="/landingpage.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413554918315" ignored="false" />
-    <file path="/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413922836298" ignored="false" />
+    <file path="/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000913341" ignored="false" />
     <file path="/organizations_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413318173794" ignored="false" />
     <file path="/organizations.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413308906634" ignored="false" />
     <file path="/20141014185037_add_fbid_to_organizations.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413312669567" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/resources.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413340570834" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/app/controllers/communities_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414183858203" ignored="false" />
-    <file path="/communities_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414183805627" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/config/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/resources.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000560900" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/controllers/communities_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415126055727" ignored="false" />
+    <file path="/communities_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415001149902" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/config/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415126055727" ignored="false" />
     <file path="/resources.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413340561175" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/resources.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
-    <file path="/resources.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413495293115" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityedit.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184124610" ignored="false" />
-    <file path="/communityedit.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184127780" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/communities_community_edit.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184055657" ignored="false" />
-    <file path="/communities_community_edit.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184054653" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/resources.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415206160739" ignored="false" />
+    <file path="/resources.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415200488304" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityedit.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414999790092" ignored="false" />
+    <file path="/communityedit.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414775726657" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/communities_community_edit.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414782476860" ignored="false" />
+    <file path="/communities_community_edit.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414775575609" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/services/authinterceptor.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414007435046" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/forgottenpassword.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413345570390" ignored="false" />
     <file path="/forgottenpassword.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413345551382" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/landing_page_forgotten_password.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413345766164" ignored="false" />
     <file path="/landing_page_forgotten_password.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413345751022" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/landing_page.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414009074891" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/landing_page.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415126055727" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/public/styles/main.ab488d08.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413346347912" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/main.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414586022216" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/main.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415236001479" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/serializers/resources_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
     <file path="/resources_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413495422860" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/footer.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413379085428" ignored="false" />
@@ -67,65 +58,65 @@
     <file path="/organization_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413948545357" ignored="false" />
     <file path="/events_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414591742176" ignored="false" />
     <file path="/events.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413414672308" ignored="false" />
-    <file path="/Gemfile" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413465965632" ignored="false" />
+    <file path="/Gemfile" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415045351658" ignored="false" />
     <file path="/application_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413469415100" ignored="false" />
     <file path="/landing_page_volunteers.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413982922934" ignored="false" />
     <file path="/landing_page.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413473035492" ignored="false" />
     <file path="/sessions_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413476809049" ignored="false" />
-    <file path="/volunteer_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413982714647" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414586831715" ignored="false" />
+    <file path="/volunteer_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489124100" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415394487859" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/mailers/community_mailer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
     <file path="/community_mailer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413499054683" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/community_mailer/partner_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
-    <file path="/partner_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413496192137" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/community_mailer/partner_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414785615872" ignored="false" />
+    <file path="/partner_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414785565106" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/community_mailer/verify_partner_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
     <file path="/verify_partner_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413497071685" ignored="false" />
-    <file path="/volunteerhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413944601482" ignored="false" />
+    <file path="/volunteerhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415488040521" ignored="false" />
     <file path="/event_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413559418769" ignored="false" />
     <file path="/package.json" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413561655488" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/app/assets/javascripts/application.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654678983" ignored="false" />
-    <file path="/application.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413651521796" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/app/views/layouts/application.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654678983" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/assets/javascripts/application.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415217308471" ignored="false" />
+    <file path="/application.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415210024848" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/layouts/application.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415344573682" ignored="false" />
     <file path="/application.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654084587" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/app/views/static_pages/home.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654678983" ignored="false" />
-    <file path="/home.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654425860" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/static_pages/home.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415387134500" ignored="false" />
+    <file path="/home.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415387128365" ignored="false" />
     <file path="$PROJECT_DIR$/../jobshadow/app/assets/javascripts/js/_main.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413651750441" ignored="false" />
     <file path="/_main.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413651640718" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/Gemfile" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654678983" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/app/assets/stylesheets/application.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654678983" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/Gemfile" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415045351913" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/assets/stylesheets/application.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415060890568" ignored="false" />
     <file path="$PROJECT_DIR$/../jobshadow/vendor/assets/stylesheets/bootstrap.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654779153" ignored="false" />
     <file path="$PROJECT_DIR$/../jobshadow/vendor/assets/stylesheets/bootstrap.min.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654779153" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/app/assets/stylesheets/home.css.less" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654406050" ignored="false" />
-    <file path="/home.css.less" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654403716" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/assets/stylesheets/home.css.less" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415340575976" ignored="false" />
+    <file path="/home.css.less" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415340365102" ignored="false" />
     <file path="$USER_HOME$/Downloads/bootstrap-3.2.0-dist 2/css/bootstrap.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654855936" ignored="false" />
     <file path="$USER_HOME$/Downloads/bootstrap-3.2.0-dist 2/css/bootstrap.min.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413654855936" ignored="false" />
-    <file path="$PROJECT_DIR$/../jobshadow/app/views/layouts/_header.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413656119729" ignored="false" />
-    <file path="/_header.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413656119729" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/layouts/_header.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414637140902" ignored="false" />
+    <file path="/_header.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414637140902" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/controllers/users_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038200" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415126055728" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/serializers/community_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184252054" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/home.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414006890298" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/updateProfile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414006987124" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/updateProfile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000578607" ignored="false" />
     <file path="/updateProfile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413749388286" ignored="false" />
     <file path="/organization_home.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413936701580" ignored="false" />
     <file path="/landing_page_volunteer.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413987088248" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414519152897" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415288061377" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/app.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414009074891" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/profile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414006987124" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/profile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000515494" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/bower_components/angular/angular.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414009074891" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communities.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414180761581" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communities.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414999755678" ignored="false" />
     <file path="/communities.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414180761143" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/communities_create.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184037318" ignored="false" />
     <file path="/communities_create.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414182529221" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/communities_community_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097428155" ignored="false" />
-    <file path="/communities_community_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097425351" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/communities_community_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415126055727" ignored="false" />
+    <file path="/communities_community_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415001973957" ignored="false" />
     <file path="/community_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414184248797" ignored="false" />
-    <file path="/initial_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414083604937" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/initial_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414085403563" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/angular-material.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414085403563" ignored="false" />
-    <file path="/communityhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414086117275" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/app/controllers/community_users_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414179652672" ignored="false" />
-    <file path="/community_users_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414179644595" ignored="false" />
+    <file path="/initial_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415033308715" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/initial_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415054743399" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/angular-material.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414727619699" ignored="false" />
+    <file path="/communityhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415001932427" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/controllers/community_users_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415111756146" ignored="false" />
+    <file path="/community_users_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415111116636" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/serializers/community_user_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
     <file path="/community_user_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414086197454" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/serializers/user_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
@@ -136,7 +127,7 @@
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post_form.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/models/community.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
     <file path="/community.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414089347550" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityjoinrequests.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityjoinrequests.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414782476860" ignored="false" />
     <file path="/communityjoinrequests.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414090463361" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/services/communityuser.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
     <file path="/communityuser.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414090383488" ignored="false" />
@@ -147,16 +138,129 @@
     <file path="/notification.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414095304531" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/serializers/notification_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
     <file path="/notification_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414095440915" ignored="false" />
-    <file path="/post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414586831715" ignored="false" />
-    <file path="/post.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414586411738" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/post.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414586416780" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/home_recent_activity.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414522028000" ignored="false" />
+    <file path="/post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415394464441" ignored="false" />
+    <file path="/post.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415395373577" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/post.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415395581642" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/home_recent_activity.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414714547052" ignored="false" />
     <file path="/home_recent_activity.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414522020904" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/post.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414585111755" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/post.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414531430722" ignored="false" />
-    <file path="/post.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414531432326" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/footer.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414585111755" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/post.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415394213953" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/post.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000445883" ignored="false" />
+    <file path="/post.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414620295292" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/footer.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414867307238" ignored="false" />
     <file path="/README.rdoc" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414592474786" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/serializers/post_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414614656649" ignored="false" />
+    <file path="/post_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414614575969" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/bower.json" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414620864450" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/Gruntfile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414882004135" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/businesses/show.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414633084751" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/config/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414634442588" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/controllers/schools_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414635716150" ignored="false" />
+    <file path="/schools_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414635716150" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/models/school_class.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414893404731" ignored="false" />
+    <file path="/school_class.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414893404416" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/schools/show.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414636871001" ignored="false" />
+    <file path="/show.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414636871002" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/db/migrate/20141030023004_add_teach_info_to_schools.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414636391508" ignored="false" />
+    <file path="/20141030023004_add_teach_info_to_schools.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414636391508" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/controllers/school_classes_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414893802148" ignored="false" />
+    <file path="/school_classes_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414893794790" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/header.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415289351368" ignored="false" />
+    <file path="/header.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415289351368" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/communities.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415206306392" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414730924172" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/profile.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415206294748" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/show_post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415215988128" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/header.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414882004135" ignored="false" />
+    <file path="/header.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414874137399" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/header.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414714401221" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/main.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415201221460" ignored="false" />
+    <file path="/header.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415001727957" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/main.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414767068301" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/side_navigation.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415206411695" ignored="false" />
+    <file path="/side_navigation.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415206410108" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/side-menu.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414782476860" ignored="false" />
+    <file path="/side-menu.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414774141355" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/side-menu.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414774269637" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/db/migrate/20141031000127_change_content_type_in_post.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414727619699" ignored="false" />
+    <file path="/20141031000127_change_content_type_in_post.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414713727218" ignored="false" />
+    <file path="/profile.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415487792484" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/side_bar.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000571286" ignored="false" />
+    <file path="/side_bar.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414717805460" ignored="false" />
+    <file path="/communities.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414725328589" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/db/migrate/20141031032600_change_description_in_communities.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414727619699" ignored="false" />
+    <file path="/20141031032600_change_description_in_communities.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414726085337" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/controllers/registrations_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415205307399" ignored="false" />
+    <file path="/registrations_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415125864273" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/landingParallaxScrolling.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415284859883" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/main.scss.BASE.39048.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414768113441" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/main.scss.LOCAL.39048.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414768113441" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/landingPageScreen1.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414867307238" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/landing_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/public/styles/main.b6d5b155.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414768827518" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/user_mailer/registration_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414785791266" ignored="false" />
+    <file path="/registration_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414785787249" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/community_mailer/community_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414787143193" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/landingPageScreen2.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414867307239" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/landingPageScreen4.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414867307239" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/landingPageParallax.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415126055727" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/landingPageScreen3.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415234631045" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/landingPageScreen2.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/landingPageScreen1.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415284065290" ignored="false" />
+    <file path="/landingPageScreen1.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415284065290" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/landingPageParallax.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414867307238" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/.tmp/styles/landingPageScreen3.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414882004135" ignored="false" />
+    <file path="/landingParallaxScrolling.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415284859567" ignored="false" />
+    <file path="/landingPageScreen3.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414870462992" ignored="false" />
+    <file path="/landingPageScreen2.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415235987055" ignored="false" />
+    <file path="/landing_page_horizontal_parallax.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414870707545" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/landing_page_horizontal_parallax.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/landingPageScreen4.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415285202189" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/config/initializers/mime_types.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414893721389" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/pdfs/SchoolClassPdf.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414889289642" ignored="false" />
+    <file path="/SchoolClassPdf.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414889281226" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/schools/_form.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414885763738" ignored="false" />
+    <file path="/school_class_mailer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414889733994" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/mailers/school_class_mailer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414890037920" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/school_class_mailer/class_registration_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414887905273" ignored="false" />
+    <file path="/class_registration_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414887904601" ignored="false" />
+    <file path="/development.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414891476236" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/config/environments/development.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414891476236" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/pdfs/school_class_pdf.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415057690532" ignored="false" />
+    <file path="/school_class_pdf.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415056899066" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/controllers/job_site_applications_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414892587229" ignored="false" />
+    <file path="/job_site_applications_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414892586698" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communitytypehome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414999922587" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/notification.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000425426" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/post_form.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000470373" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/postview.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000493613" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/reLogin.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000534460" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/report.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000545492" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/horizontal_parallax.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="/application.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415060888958" ignored="false" />
+    <file path="/schools.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415151461415" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/static_pages/schools.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415217308471" ignored="false" />
+    <file path="/dummy.xml" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415215159604" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/bing_index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="/bing_index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415234256378" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/screen4.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/screen2.css" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415241103243" ignored="false" />
+    <file path="/landingPageScreen4.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415285202189" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/app/models/profile.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415291475122" ignored="false" />
+    <file path="/profile.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415291473094" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/businesses/_form.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415333168625" ignored="false" />
+    <file path="/_form.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415333168625" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/controllers/businesses_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415333083784" ignored="false" />
+    <file path="/businesses_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415333082695" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/views/businesses/new.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415333125906" ignored="false" />
+    <file path="/new.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415333104083" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/assets/stylesheets/businesses.css.less" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415337128614" ignored="false" />
+    <file path="/businesses.css.less" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415337068776" ignored="false" />
+    <file path="$PROJECT_DIR$/../jobshadow/app/helpers/application_helper.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415339090765" ignored="false" />
+    <file path="/application_helper.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415339090072" ignored="false" />
+    <file path="/volunteer_home.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415488937181" ignored="false" />
+    <file path="/create_profile.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489478492" ignored="false" />
+    <file path="/profile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415487263109" ignored="false" />
+    <file path="/profile.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489465599" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,28 +280,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.rdoc" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.rdoc">
+      <file leaf-file-name="create_profile.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_end/app/views/create_profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="52" selection-start="873" selection-end="873" vertical-scroll-proportion="0.8181818">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="angular.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular/angular.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organization_home.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="6" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0">
+            <state line="1" column="35" selection-start="48" selection-end="83" vertical-scroll-proportion="0.025553662">
               <folding />
             </state>
           </provider>
@@ -221,30 +307,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/styles/landing_page.scss" />
-        <option value="$PROJECT_DIR$/front_end/app/views/landing_page.html" />
-        <option value="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
-        <option value="$PROJECT_DIR$/front_end/app/index.html" />
-        <option value="$PROJECT_DIR$/front_end/app/styles/organization_home.scss" />
-        <option value="$PROJECT_DIR$/front_end/app/views/organization_home.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
-        <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_volunteer.js" />
         <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" />
         <option value="$PROJECT_DIR$/README.rdoc" />
+        <option value="$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
+        <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
+        <option value="$PROJECT_DIR$/front_end/app/index.html" />
+        <option value="$PROJECT_DIR$/front_end/app/styles/volunteer_home.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/views/profile.html" />
+        <option value="$PROJECT_DIR$/front_end/app/views/create_profile.html" />
+        <option value="$PROJECT_DIR$/front_end/app/styles/profile.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="52" />
-    <option name="y" value="32" />
-    <option name="width" value="1314" />
-    <option name="height" value="785" />
+    <option name="x" value="96" />
+    <option name="y" value="45" />
+    <option name="width" value="1191" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -272,7 +358,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,47 +418,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -665,14 +717,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="32" width="1314" height="785" extended-state="0" />
+    <frame x="96" y="45" width="1191" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26892745" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3187773" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -749,110 +801,119 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="2" selection-start="839" selection-end="959" vertical-scroll-proportion="0.04076087">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/organization_home.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="38" selection-end="38" vertical-scroll-proportion="0.20380434" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="576" selection-end="576" vertical-scroll-proportion="0.04076087" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_volunteer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="376" selection-end="376" vertical-scroll-proportion="0.11057692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_organizations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="50" selection-start="789" selection-end="789" vertical-scroll-proportion="0.05808477">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.7174254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_initial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="30" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.48939642">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/organization_home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="39" selection-start="988" selection-end="988" vertical-scroll-proportion="0.02446982">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="53" selection-start="1769" selection-end="1769" vertical-scroll-proportion="0.09090909">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="61" selection-end="61" vertical-scroll-proportion="0.047169812">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_volunteers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="59" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.7169811">
-          <folding />
-        </state>
+        <state line="57" column="84" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.77272725" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular/angular.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1412288544000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1412288544000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1412288544000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1412288544000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
+    <entry file="file://$PROJECT_DIR$/README.rdoc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="84" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.77272725">
+        <state line="36" column="52" selection-start="873" selection-end="873" vertical-scroll-proportion="0.6363636">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="6" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0">
+        <state line="78" column="6" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.59090906">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rdoc">
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/landing_page.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="52" selection-start="873" selection-end="873" vertical-scroll-proportion="0.8181818">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="20" selection-start="636" selection-end="636" vertical-scroll-proportion="-8.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="16" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/volunteer_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="17" selection-start="52" selection-end="52" vertical-scroll-proportion="0.024549918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="92" selection-end="92" vertical-scroll-proportion="0.10638298">
+          <folding>
+            <element signature="n#style#0;n#map#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/profile.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.025510205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/views/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="47" selection-start="83" selection-end="83" vertical-scroll-proportion="0.026595745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="55" selection-start="842" selection-end="842" vertical-scroll-proportion="0.28745645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="36" selection-start="2005" selection-end="2005" vertical-scroll-proportion="1.3256956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="51" selection-start="242" selection-end="242" vertical-scroll-proportion="0.2700491">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/views/create_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="35" selection-start="48" selection-end="83" vertical-scroll-proportion="0.025553662">
           <folding />
         </state>
       </provider>

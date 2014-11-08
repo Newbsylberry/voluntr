@@ -10,7 +10,7 @@
 angular.module('voluntrApp')
     .controller('VolunteerHomeCtrl', function ($scope, geolocation, Event,
                                                Organization, $http, $timeout,
-                                                userLocation) {
+                                                userLocation, $modal) {
 
         <!-- Set the map center to userLocation -->
         $scope.$on('mapInitialized', function(event, map) {
@@ -46,6 +46,29 @@ angular.module('voluntrApp')
 
 
         $scope.events = Event.all()
+
+        // Function that manages the post modal in the side bar
+        $scope.open = function (size) {
+            if ($scope.profile) {
+            var profileModal = $modal.open(
+                {
+                templateUrl: 'views/profile.html',
+                controller: 'ProfileCtrl',
+                size: size
+                }) } if (!$scope.profile) {
+                var profileModal = $modal.open(
+                    {
+                        templateUrl: 'views/create_profile.html',
+                        controller: 'ProfileCtrl',
+                        size: size
+                    })}
+
+            profileModal.result.then(function () {
+                },
+                function () {
+                    console.log('Modal dismissed at: ' + new Date());
+                });
+        };
 
     });
 

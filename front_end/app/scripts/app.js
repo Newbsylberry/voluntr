@@ -17,10 +17,11 @@ angular
     'ngSanitize',
     'ngTouch',
     'facebook',
+    'ui.bootstrap',
     'ui.router',
         'ngMap',
         'Devise',
-        'geolocation'
+        'geolocation',
   ])
     .config(function(FacebookProvider) {
         // Set your appId through the setAppId method or
