@@ -12,6 +12,11 @@ angular.module('voluntrApp')
                                                Organization, $http, $timeout,
                                                 userLocation, $modal) {
 
+        $scope.profile = {
+            id: 1,
+            name: 'Chris'
+        };
+
         <!-- Set the map center to userLocation -->
         $scope.$on('mapInitialized', function(event, map) {
             map.setCenter(userLocation)
@@ -49,21 +54,13 @@ angular.module('voluntrApp')
 
         // Function that manages the post modal in the side bar
         $scope.open = function (size) {
-            if ($scope.profile) {
-            var profileModal = $modal.open(
-                {
-                templateUrl: 'views/profile.html',
-                controller: 'ProfileCtrl',
-                windowClass: 'profile-modal-window',
-                size: size
-                }) } if (!$scope.profile) {
                 var profileModal = $modal.open(
                     {
-                        templateUrl: 'views/create_profile.html',
+                        templateUrl: 'views/profile_create.html',
                         controller: 'ProfileCtrl',
-                        windowClass: 'profile-modal-window',
+                        windowClass: 'create-profile-modal-window',
                         size: size
-                    })}
+                    })
 
             profileModal.result.then(function () {
                 },

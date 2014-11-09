@@ -9,14 +9,13 @@
             <h3>Upcoming Volunteer Events: </h3>
             <a ui-sref='landing_page.initial_page'>Go Back to Home Page</a>
 
-            <!-- Links to a page where a user can create a profile /views/profile_create.html -->
-            <a      ng-click="profile = false; open('lg')">
-                    Create a Profile</a>
+            <a ng-click="open('lg')">
+                Create Profile</a>
 
             <!-- Opens profile if the user has already created one /views/profile.html -->
-            <a      ng-click="profile = true; open('lg')"
-                    ui-sref='profile({profile_Id:user.profile.id})'>
+            <a ui-sref='profile({profile_Id:profile.id})'>
                     Profile Page </a>
+
         </div>
     </div>
     <ul class="list-group" ng-repeat="event in events">

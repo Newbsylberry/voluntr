@@ -63,7 +63,7 @@ angular
             })
 
             .state('volunteer_home', { //default page loaded for landing state
-                url: '/volunteer_home/:user_Id',
+                url: '/volunteer_home',
                 templateUrl: 'views/volunteer_home.html', // url for partial
                 resolve:{
                     userLocation: function(geolocation) {
@@ -87,6 +87,14 @@ angular
                 templateUrl: 'views/organization_home.html', // url for partial
                 controller: 'OrganizationHomeCtrl'
             })
+
+            .state('profile', {
+                url: '/profile/:profile_Id',
+                templateUrl: 'views/profile.html',
+                controller: 'ProfileCtrl'
+            })
+
+
 
 
 
