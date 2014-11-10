@@ -1,4 +1,111 @@
+.clear { clear:both; }
+
+.events {
+	font-size: 60px;
+	text-transform: uppercase;
+	margin-left: 12px;
+	float: left;
+	.v {
+		margin-top: -10px;
+	}
+}
+.profile {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	background: #231f20; 
+	font-size: 9px;
+	color: #fff;
+	float: right;
+	position: relative;
+	margin-top: 22px;
+	img {
+		display: block;
+		position: absolute;
+		top: 7px;
+		left: 23px;
+	}
+	span {
+		position: absolute;
+		top: 40px;
+		left: 16px;
+	}
+}
 #volunteer-home-top-left-panel a {
   display: block;
 }
 
+.list-group-item {
+	border: none;
+}
+
+.date-cir-wrapper {
+	width: 60px;
+	float: left;
+	.month {
+		color: #00a2cc;
+		font-size: 18px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	.date-circle {
+		border-radius: 50%;
+		width: 60px;
+		height: 60px; 
+		border: 5px solid #00a2cc;
+		margin-top: -4px;
+
+		.date {
+			font-size: 40px;
+			text-align: center;
+			color: #00a2cc;
+			display: block;
+			margin-top: -4px;
+		}
+	}
+	.lines {
+		margin-left: 28px;
+		.down-line {
+			width: 4px;
+			height: 24px;
+			background: #00a2cc;
+		}
+		.horz-line {
+			width: 53px;
+			height: 4px;
+			background: #00a2cc;
+		}
+	}
+}
+.event-info {
+	width: 355px;
+	height: 125px;
+	background: #00a2cc;
+	float: left;
+	margin-left: 21px;
+
+	.event-image {
+		margin: 0 auto;
+		display: block; 
+		padding-top: 8px;
+	}
+	p{
+		font-size: 10px;
+		text-transform: uppercase;
+		margin-top: 12px;
+	}
+	.distance {
+		margin-left: 17px;
+	}
+	.distance, .start-time {
+		margin-right: 9px;
+	}
+	.join {
+		background: #fff;
+		color: #00a2cc;
+		text-transform: uppercase;
+		padding: 0px 4px;
+		text-decoration: none;
+	}
+
+}

@@ -1,8 +1,10 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 // endbower
-
+.container-fluid {
+  padding: 0;
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -11,18 +13,18 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
-  padding-left: 15px;
-  padding-right: 15px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
 }
 
 /* Custom page header */

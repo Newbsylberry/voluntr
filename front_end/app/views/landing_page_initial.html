@@ -1,29 +1,24 @@
-<p class="lead text-center">
-    VOLU is a non-profit, open source, mobile and desktop platform that enables
-    non-profit organizations to easily reach volunteers and plan smarter events.  Getting started
-    is easy, and due to its open source nature, the possibilities of VOLU are endless.
-</p>
+<div class="landing-container">
+    <p class="lead text-center intro">
+        <!-- VOLU is a non-profit, open source, mobile and desktop platform that enables
+        non-profit organizations to easily reach volunteers and plan smarter events.  Getting started
+        is easy, and due to its open source nature, the possibilities of VOLU are endless. -->
+        At VOLU, we have one goal: Improve the World’s Volunteering. We are a non-profit helping non-profits make the world a better place.
+    </p>
+
+    <div class="sign-up">
+        <h2>Sign Up Today</h2>
         <div class="row">
-    <div class="col-xs-6">
-        <h2 class="text-center">For Organizations:</h2>
-        <p class="lead text-center">
-            Log in with a Facebook account that has administrator privileges to
-            your organizations Facebook page and start adding events you need volunteers for.  Your
-            personal Facebook information will not be stored.
-        </p>
-        <button ng-click="organizationLogIn()"
-                class="btn btn-lg btn-default center-block"
-                type="submit">Sign In With Facebook</button>
-    </div>
-    <div class="col-xs-6">
-        <h2 class="text-center">For Volunteers:</h2>
-        <p class="text-center lead">
-            Sign up for a VOLU account and see what volunteer events are happening close by,
-            record your volunteer hours, organize teams, compete against friends, and see the effect your
-            volunteering has on the community.
-        </p>
-        <button ui-sref='landing_page.volunteer_landing'
-                class="btn btn-lg btn-default center-block"
-                type="submit">Sign Up As A Volunteer</button>
+            <div class="col-xs-4">
+                <p class="are-you-a">Are you a:</p>
+            </div>
+            <div class="col-xs-3">
+                <button ui-sref='landing_page.volunteer_landing' class="btn btn-lg btn-default center-block" type="submit">User</button>
+
+            </div>
+            <div class="col-xs-4">
+                <button ng-click="organizationLogIn()" class="btn btn-lg btn-default center-block" type="submit">Organization</button>
+            </div>
+        </div>
     </div>
 </div>

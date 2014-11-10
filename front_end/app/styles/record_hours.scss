@@ -1,4 +1,77 @@
 /* Styling for modal window */
-.record-hours-modal-window {
-  width: 75%;
+.nopadding {
+	padding: 0;
 }
+.modal-dialog{
+	width: 480px;
+	height: 480px;
+	border-radius: 50%;	
+	background: #00a2cc;
+	border: 0;
+	box-shadow: 0;
+	color: #fff;
+}
+.modal-content {
+	border: 0;
+	box-shadow: 0;
+	background: none;
+	border-radius: 0;
+	box-shadow: none;
+
+	h2 {
+		font-size: 40px;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 55px 0 10px;
+	}
+	.org-selection{
+		margin: 0 0 30px 61px;
+		label {
+			font-size: 12px;
+		}
+		select {
+			width: 222px;
+			height: 31px;
+		}
+	}
+
+	.up-arrow {
+		margin-bottom: 20px;
+		margin-left: 3px;
+		cursor: pointer;
+	}
+	.down-arrow {
+		margin-top: 20px;
+		margin-left: 4px;
+		cursor: pointer;
+	}
+
+	.hours-input {
+		margin-left: 61px;
+		font-size: 12px;
+
+		label {
+			margin-top: 40px;
+		}
+		.hour-selection {
+			color: #000;
+			width: 61px;
+			height: 88px;
+			font-size: 57px;
+			text-align: center;
+		}
+		
+		.submit_hours {
+			background: #fff;
+			color: #00a2cc;
+			text-transform: uppercase;
+			padding: 6px 61px;
+			text-decoration: none;
+			text-align: center;
+			border: none;
+			margin: 30px 0 0 103px;
+		}
+	}
+}
+
