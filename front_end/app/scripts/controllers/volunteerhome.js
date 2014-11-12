@@ -10,12 +10,19 @@
 angular.module('voluntrApp')
     .controller('VolunteerHomeCtrl', function ($scope, geolocation, Event,
                                                Organization, $http, $timeout,
-                                               userLocation, $modal, $rootScope) {
+                                               userLocation, $modal, $rootScope,
+                                                User) {
 
-        $scope.profile = {
-            id: 1,
-            name: 'Chris'
-        };
+
+        User.get({user_Id: localStorage.user_id}, function (successResponse) {
+            console.log(successResponse)
+            //This is where the user is actually assigned, all of its related
+            // JSON is accessed in the view through $scope.user (e.g. - $scope.user.posts)
+            $rootScope.user = successResponse;
+
+        }, function(errorResponse) {
+
+        });
 
         <!-- Set the map center to userLocation -->
         $scope.$on('mapInitialized', function(event, map) {
@@ -58,7 +65,7 @@ angular.module('voluntrApp')
             var profileModal = $modal.open(
                 {
                     templateUrl: 'views/profile_create.html',
-                    controller: 'ProfileCtrl',
+                    controller: 'ProfileCreateCtrl',
                     windowClass: 'create-profile-modal-window',
                     size: size
                 })

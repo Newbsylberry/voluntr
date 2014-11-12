@@ -8,16 +8,16 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('ProfileCtrl', function ($scope, $log, $modal, Profile) {
+  .controller('ProfileCtrl', function ($scope, $log, $modal,
+                                       Profile, $stateParams, $rootScope) {
 
-        $scope.createProfile = function() {
-            var attr = {};
-            attr.user_id = localStorage.user.id;
-            attr.first_name = $scope.createProfile.first_name;
-            attr.last_name = $scope.createProfile.last_name;
-            var newProfile = Profile.create(attr);
-        };
+        Profile.get({profile_Id: $stateParams.profile_Id}, function (successResponse) {
+                $scope.profile = successResponse;
 
+            }, function (errorResponse) {
+
+            }
+        )
 
         $scope.open = function (size) {
             var profileModal = $modal.open(
@@ -29,11 +29,15 @@ angular.module('voluntrApp')
                 })
 
             profileModal.result.then(function () {
+                    $scope.profile.total_hours += $rootScope.recordedHours;
+                    $rootScope.recordedHours = null;
                 },
                 function () {
                     console.log('Modal dismissed at: ' + new Date());
                 });
         };
+
+
 
 
     });

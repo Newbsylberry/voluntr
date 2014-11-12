@@ -11,7 +11,7 @@ angular.module('voluntrApp')
   .controller('LandingPageVolunteerCtrl', function ($scope, $state, Auth, $rootScope) {
 
         if (localStorage.user_id) {
-            $state.go('volunteer_home', {user_Id:localStorage.user_id})
+            $state.go('volunteer_home')
         }
 
         $scope.newVolunteer = function () {

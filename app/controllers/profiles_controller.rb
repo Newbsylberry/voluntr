@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  respond_to :json
+
   # GET /profiles
   # GET /profiles.json
   def index
@@ -18,13 +20,9 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(params[:profile])
+    @profile = Profile.create(profile_params)
 
-    if @profile.save
-      render json: @profile, status: :created, location: @profile
-    else
-      render json: @profile.errors, status: :unprocessable_entity
-    end
+    respond_with @profile
   end
 
   # PATCH/PUT /profiles/1
@@ -47,4 +45,11 @@ class ProfilesController < ApplicationController
 
     head :no_content
   end
+
+  private
+
+  def profile_params
+    params.require(:profile).permit(:user_id, :first_name, :last_name)
+  end
+
 end

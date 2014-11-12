@@ -5,9 +5,20 @@
 </style>-->
 <div class="col-xs-6">
     <h1 class="events">E<img src="images/v_small.png" alt="v" class="v" />ents</h1>
-   <a ng-if="user" ui-sref='profile({profile_Id:profile.id})'><div class="profile"><img src="images/icon_profile.png" /><span>Profile</span></div></a>
-    <a ng-if="user" ui-sref='profile({profile_Id:profile.id})'><div class="profile"><img src="images/icon_profile.png" /><span>Profile</span></div></a>
+    <a ng-if="user.profile"
+       ui-sref='profile({profile_Id:user.profile.id})'>
+        <div class="profile">
+            <img src="images/icon_profile.png" /><span>Profile</span>
+        </div></a>
+
+    <a ng-if="!user.profile"
+       ng-click="open('lg')">
+        <div class="profile">
+            <img src="images/icon_profile.png" />
+            <span>Profile</span>
+        </div></a>
     <div class="clear"></div>
+
     <!-- <div class="panel panel-default">
         <div class="panel-body" id="volunteer-home-top-left-panel">
             <h3>Upcoming Volunteer Events: </h3>

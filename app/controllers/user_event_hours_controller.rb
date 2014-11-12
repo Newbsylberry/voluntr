@@ -48,7 +48,7 @@ class UserEventHoursController < ApplicationController
   protected
 
   def user_event_hours_params
-    params.require(:user_event_hour).permit(:event_id, :description, :hours)
+    params.require(:user_event_hour).permit(:event_id, :description, :hours, :user_id)
     end
 
 end

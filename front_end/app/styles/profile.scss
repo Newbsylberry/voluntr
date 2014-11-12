@@ -1,6 +1,10 @@
 /* Styles for Modal Window */
 .create-profile-modal-window .modal-dialog {
-  width: 75%;
+  width: 480px;
+  height: 480px;
+  input {
+    color: black;
+  }
 }
 .col-1 {
 	padding-left: 0;
