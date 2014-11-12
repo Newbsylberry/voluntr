@@ -3,6 +3,64 @@
   padding-top: 50%;
 }
 
+.org-col-1 {
+	color: #fff;
+	background: #00a2cc;
+	height: 100vh;
+}
+.org-logo-container {
+	width: 194px;
+	height: 194px;
+	background: #fff;
+	border-radius: 50%;
+	margin: 30px auto 0;
+	position: relative;
 
-
-
+	.org-logo {
+		position: absolute;
+		top: 70px;
+		left: 14px;
+	}
+}
+.org-name {
+	font-size: 24px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 13px 0 0;
+}
+.org-info {
+	margin: 0 0 0 64px;
+	.org-zip {
+		font-size: 16px;
+		text-transform: uppercase;
+	}
+	.org-about {
+		font-size: 10px;
+		width: 185px;
+	}
+}
+.org-event-list {
+	list-style: none;
+	margin-top: 28px;
+	
+	li {
+		text-transform: uppercase;
+		list-style-position: inside;
+		margin-bottom: 12px;
+		a {
+			color: #fff;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		&.icon {
+			padding: 5px 0 03px 28px;
+		}
+		&.checked {
+			background: url('../images/icon_checked.jpg') 0 5px no-repeat;
+		}
+		&.add {
+			background: url('../images/icon_add.jpg') 0 5px no-repeat;
+		}
+	}
+}

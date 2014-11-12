@@ -1,7 +1,7 @@
-<div class="col-xs-3">
+<div class="org-col-1 col-xs-3">
 
     <!-- Top panel with organization name -->
-    <div class="panel panel-default">
+    <!-- <div class="panel panel-default">
         <div class="panel-body">
             <h1>{{organization.name}}</h1>
             <a ng-if="organization.link"
@@ -9,28 +9,45 @@
                 Your Facebook Page</a><br>
             <a ui-sref='landing_page.initial_page'>Back to Landing Page</a>
         </div>
+    </div> -->
+
+    <div class="org-logo-container">
+        <img src="images/vera_house_logo.jpg" class="org-logo" />
+    </div>
+    <p class="org-name">Vera House</p>
+    <div class="org-info">
+        <p class="org-zip">Zip: 13202</p>
+        <p class="org-about">It is the mission of Vera House, Inc. to end all domestic and sexual violence, to assist families in crisis,to support those affected by domestic and sexual violence to live safe, self-sufficient lives, to empower women and children, and to promote a culture of equality and respect in all relationships.</p>
     </div>
 
+    <ul class="org-event-list">
+        <li class="icon checked">Domestic Violence Awareness Walk</li>
+        <li class="icon checked">Canned Food Drive</li>
+        <li class="icon add"><a href="#">Add a Facebook Event</a></li>
+        <li class="icon add"><a href="#">Add a Facebook Event</a></li>
+        <li class="icon add"><a href="#">Add a Facebook Event</a></li>
+    </ul>
 
 
 
-    <div class="panel panel-default">
+
+    <!-- <div class="panel panel-default"> -->
 
         <!-- Panel Body containing events side bar -->
-        <div class="panel-body">
+        <!-- <div class="panel-body"> -->
 
             <!-- Events that have been added to the DB-->
-            <h5>Events on VOLU:</h5>
+            <!-- <h5>Events on VOLU:</h5>
             <div ng-repeat="event in events" style="margin-top: 2.5%;">
                 <div ng-if="event.exists">
                     <p >
                         {{event.name}}
                     </p>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Events that have yet to be added to DB -->
-            <h5 style="margin-top: 60%;">Add these events from Facebook:</h5>
+            <!-- <h5 style="margin-top: 60%;">Add these events from Facebook:</h5>
             <div ng-repeat="event in events">
                 <div ng-if="!event.exists">
                     <a      class="small"
@@ -41,12 +58,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  -->
 </div>
 
 <!-- Column with Google Map -->
 <div class="col-xs-8" >
-    <map    id="googlemap"
+    charts and graphs will be here instead of the map.
+    <!-- <map    id="googlemap"
             ng-if="organization.location"
             map-type-id="SATELLITE"
             center="{{organization.location.latitude}}, {{organization.location.longitude}}"
@@ -68,5 +86,5 @@
     </map>
     <div ng-if="organization && !organization.location">
         <h3>We don't have your location on Facebook, please enter it and then refresh this page.</h3>
-    </div>
+    </div> -->
 </div>
