@@ -86,5 +86,81 @@ angular.module('voluntrApp')
             console.log($scope.event);
         };
 
+
+        $scope.lineGraphConfig = {
+            options: {
+                chart: {
+                    type: 'line'
+                }
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            series: [{
+                name: 'Facebook Likes',
+                data: [1, 4, 12, 16, 45, 100, 125, 126, 140, 150, 200, 250]
+            }, {
+                name: 'Recorded Hours',
+                data: [45, 80, 75, 60, 120, 125, 25, 200, 15, 20, 200, 25]
+            }],
+            title: {
+                text: "Your Organization's Information"
+            },
+            loading: false,
+            size: {
+                height: "350"
+            }
+        };
+
+        $scope.pieChartConfig = {
+            options: {
+                chart: {
+                    type: 'pie'
+                }
+            },
+            series: [{
+                name: 'Attending Events',
+                data: [['Under 18', 10], ['18-24', 25],
+                ['24-34', 30], ['34-44', 15], ['44-60', 10],
+                ['60+', 10]]
+            }],
+            title: {
+                text: "Demographic of Volunteers"
+            },
+            loading: false,
+            size: {
+                height: "250"
+            }
+        };
+
+        $scope.barChartConfig = {
+            options: {
+                chart: {
+                    type: 'bar'
+                }
+            },
+            xAxis: {
+                categories: ['Event 1', 'Event 2', 'Event 3']
+            },
+            series: [{
+                name: 'Attending Facebook Event',
+                data: [200, 250, 300]
+            }, {
+                name: 'Recorded Hours',
+                data: [45, 80, 120]
+            }, {
+                name: 'Fund Raising',
+                data: [450, 600, 1000]
+            }],
+            title: {
+                text: "Past Events Information"
+            },
+            loading: false,
+            size: {
+                height: "250"
+            }
+        };
+
     });
 

@@ -62,29 +62,14 @@
 </div>
 
 <!-- Column with Google Map -->
-<div class="col-xs-8" >
-    charts and graphs will be here instead of the map.
-    <!-- <map    id="googlemap"
-            ng-if="organization.location"
-            map-type-id="SATELLITE"
-            center="{{organization.location.latitude}}, {{organization.location.longitude}}"
-            zoom="12"
-            style="height: 575px"
-            >
-        <marker
-                position="{{organization.location.latitude}}, {{organization.location.longitude}}"
-                title="{{organization.name}}"
-                animation="Animation.DROP"
-                icon="../images/home.png"></marker>
-        <div ng-repeat="event in events">
-            <marker
-                    position="{{event.venue.latitude}},{{event.venue.longitude}}"
-                    title="{{event.name}}"
-                    animation="Animation.DROP"
-                    icon="../images/spaceport.png"></marker>
+<div class="col-xs-8">
+    <div class="row">
+        <div class="col-xs-6">
+            <highchart config="pieChartConfig"></highchart>
         </div>
-    </map>
-    <div ng-if="organization && !organization.location">
-        <h3>We don't have your location on Facebook, please enter it and then refresh this page.</h3>
-    </div> -->
+        <div class="col-xs-6">
+            <highchart config="barChartConfig"></highchart>
+        </div>
+    </div>
+    <highchart config="lineGraphConfig"></highchart>
 </div>

@@ -33,6 +33,7 @@ angular.module('voluntrApp')
 
         $scope.getDistance = function(event) {
             console.log("Get Distance")
+            if (!event.distance) {
             $timeout(
                 function() {
                     var origin = userLocation;
@@ -53,6 +54,7 @@ angular.module('voluntrApp')
                         }
                     }
                 }, 500);
+            };
         };
 
 

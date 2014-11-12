@@ -19,21 +19,6 @@
         </div></a>
     <div class="clear"></div>
 
-    <!-- <div class="panel panel-default">
-        <div class="panel-body" id="volunteer-home-top-left-panel">
-            <h3>Upcoming Volunteer Events: </h3>
-            <a ui-sref='landing_page.initial_page'>Go Back to Home Page</a>
-
-            <a ng-click="open('lg')">
-                Create Profile</a> -->
-
-            <!-- Opens profile if the user has already created one /views/profile.html -->
-            <!-- <a ui-sref='profile({profile_Id:profile.id})'>
-                    Profile Page </a>
-
-        </div>
-    </div> -->
-
     <!-- <ul class="list-group" ng-repeat="event in events">
         <li class="list-group-item"
             >
@@ -49,12 +34,13 @@
             <p>Distance: {{event.distance}} </p>
         </li>
     </ul> -->
-    <ul class="list-group">
+    <ul class="list-group" ng-repeat="event in events">
         <li class="list-group-item">
+            {{getDistance(event)}}
             <div class="date-cir-wrapper">
-                <div class="month">Nov</div>
+                <div class="month">{{event.start_time | date : 'MMM'}}</div>
                 <div class="date-circle">
-                    <div class="date">4</div>
+                    <div class="date">{{event.start_time | date : 'mm'}}</div>
                 </div>
                 <div class="lines">
                     <div class="down-line"></div>
@@ -71,57 +57,9 @@
                 <p>Start Date: Dec 4th 1pm</p>
                 <p>End Date: Dec 4th 5pm</p>
                 <p>3 miles</p> -->
-                <p><span class="distance">Distance from you: 2.5 miles</span> <span class="start-time">starts at: 9:00 AM</span> <a href="#" class="join">Join</a></p>
-            </div>
-            <div class="clear"></div>
-        </li>
-        <li class="list-group-item">
-            <div class="date-cir-wrapper">
-                <div class="month">Nov</div>
-                <div class="date-circle">
-                    <div class="date">4</div>
-                </div>
-                <div class="lines">
-                    <div class="down-line"></div>
-                    <div class="horz-line"></div>
-                </div>
-            </div>
-
-            <!-- <div ng-if="!event.distance" data-ng-disabled="event.distance">
-            {{getDistance(event)}}
-            </div> -->
-            <div class="event-info">
-                <img src="images/firefighters.jpg" class="event-image" />
-                <!-- <p>Clean up the Streets!</p>
-                <p>Start Date: Dec 4th 1pm</p>
-                <p>End Date: Dec 4th 5pm</p>
-                <p>3 miles</p> -->
-                <p><span class="distance">Distance from you: 2.5 miles</span> <span class="start-time">starts at: 9:00 AM</span> <a href="#" class="join">Join</a></p>
-            </div>
-            <div class="clear"></div>
-        </li>
-        <li class="list-group-item">
-            <div class="date-cir-wrapper">
-                <div class="month">Nov</div>
-                <div class="date-circle">
-                    <div class="date">4</div>
-                </div>
-                <div class="lines">
-                    <div class="down-line"></div>
-                    <div class="horz-line"></div>
-                </div>
-            </div>
-
-            <!-- <div ng-if="!event.distance" data-ng-disabled="event.distance">
-            {{getDistance(event)}}
-            </div> -->
-            <div class="event-info">
-                <img src="images/firefighters.jpg" class="event-image" />
-                <!-- <p>Clean up the Streets!</p>
-                <p>Start Date: Dec 4th 1pm</p>
-                <p>End Date: Dec 4th 5pm</p>
-                <p>3 miles</p> -->
-                <p><span class="distance">Distance from you: 2.5 miles</span> <span class="start-time">starts at: 9:00 AM</span> <a href="#" class="join">Join</a></p>
+                <p><span class="distance">Distance from you: {{event.distance}} miles</span>
+                    <span class="start-time">starts at: {{event.start_time | date : 'h:mm a'}}
+                    </span> <a href="#" class="join">Join</a></p>
             </div>
             <div class="clear"></div>
         </li>

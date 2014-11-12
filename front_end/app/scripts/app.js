@@ -22,6 +22,7 @@ angular
         'ngMap',
         'Devise',
         'geolocation',
+        'highcharts-ng'
   ])
     .config(function(FacebookProvider) {
         // Set your appId through the setAppId method or
