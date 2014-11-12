@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
+  resources :profiles, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
       devise_for :users, defaults: {format: :json},
                  :controllers => { registrations: 'registrations',
                                    sessions: 'sessions'}, defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
+      resources :user_event_hours, except: [:new, :edit], defaults: {format: :json}
       resources :events, except: [:new, :edit], defaults: {format: :json}
       match '/organizations/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
       match '/events/existence_check/:fb_id', to: 'events#existence_check', via: :get, defaults: {format: :json}

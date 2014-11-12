@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/views/record_hours.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/styles/record_hours.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/app/views/create_profile.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/app.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/profile.html" afterPath="$PROJECT_DIR$/front_end/app/views/profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/profile.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/profile.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/record_hours.html" afterPath="$PROJECT_DIR$/front_end/app/views/record_hours.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/record_hours.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/record_hours.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/recordhours.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/recordhours.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" afterPath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415387103680" ignored="false" />
+    <file path="/Dummy.txt" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415749771838" ignored="false" />
     <file path="/app.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415490737944" ignored="false" />
     <file path="/landing_page.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414782770328" ignored="false" />
     <file path="/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489251825" ignored="false" />
@@ -24,7 +24,7 @@
     <file path="/landing_page.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413924735773" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/header.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415001740163" ignored="false" />
     <file path="/landingpage.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413554918315" ignored="false" />
-    <file path="/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000913341" ignored="false" />
+    <file path="/routes.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415750087472" ignored="false" />
     <file path="/organizations_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413318173794" ignored="false" />
     <file path="/organizations.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413308906634" ignored="false" />
     <file path="/20141014185037_add_fbid_to_organizations.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413312669567" ignored="false" />
@@ -56,22 +56,22 @@
     <file path="/landing_page_organizations.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413922521516" ignored="false" />
     <file path="/organization_home.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414591860062" ignored="false" />
     <file path="/organization_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413948545357" ignored="false" />
-    <file path="/events_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414591742176" ignored="false" />
+    <file path="/events_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415750181032" ignored="false" />
     <file path="/events.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413414672308" ignored="false" />
     <file path="/Gemfile" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415045351658" ignored="false" />
     <file path="/application_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413469415100" ignored="false" />
     <file path="/landing_page_volunteers.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413982922934" ignored="false" />
     <file path="/landing_page.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413473035492" ignored="false" />
     <file path="/sessions_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413476809049" ignored="false" />
-    <file path="/volunteer_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415492590717" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415394487859" ignored="false" />
+    <file path="/volunteer_home.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415765033308" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415571118526" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/mailers/community_mailer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
     <file path="/community_mailer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413499054683" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/community_mailer/partner_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414785615872" ignored="false" />
     <file path="/partner_created_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414785565106" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/views/community_mailer/verify_partner_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413748038201" ignored="false" />
     <file path="/verify_partner_email.html.erb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413497071685" ignored="false" />
-    <file path="/volunteerhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489970701" ignored="false" />
+    <file path="/volunteerhome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415765264263" ignored="false" />
     <file path="/event_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413559418769" ignored="false" />
     <file path="/package.json" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413561655488" ignored="false" />
     <file path="$PROJECT_DIR$/../jobshadow/app/assets/javascripts/application.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415217308471" ignored="false" />
@@ -100,7 +100,7 @@
     <file path="/updateProfile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413749388286" ignored="false" />
     <file path="/organization_home.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413936701580" ignored="false" />
     <file path="/landing_page_volunteer.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1413987088248" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415288061377" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/index.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415590905753" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/app.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414009074891" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/profile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000515494" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/bower_components/angular/angular.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414009074891" ignored="false" />
@@ -123,8 +123,8 @@
     <file path="/user_serializer.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414086473176" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/models/user.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414179105170" ignored="false" />
     <file path="/user.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414179044989" ignored="false" />
-    <file path="/post_form.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414086916888" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post_form.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
+    <file path="/post_form.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415570522566" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/views/partials/post_form.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415571118526" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/app/models/community.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414097328621" ignored="false" />
     <file path="/community.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414089347550" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communityjoinrequests.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414782476860" ignored="false" />
@@ -184,8 +184,8 @@
     <file path="$PROJECT_DIR$/../chronicleMe_api/db/migrate/20141031000127_change_content_type_in_post.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414727619699" ignored="false" />
     <file path="/20141031000127_change_content_type_in_post.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414713727218" ignored="false" />
     <file path="/profile.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415493705129" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/side_bar.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000571286" ignored="false" />
-    <file path="/side_bar.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414717805460" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/side_bar.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415571118526" ignored="false" />
+    <file path="/side_bar.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415563130915" ignored="false" />
     <file path="/communities.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414725328589" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/db/migrate/20141031032600_change_description_in_communities.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414727619699" ignored="false" />
     <file path="/20141031032600_change_description_in_communities.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414726085337" ignored="false" />
@@ -231,7 +231,7 @@
     <file path="/job_site_applications_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414892586698" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/communitytypehome.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1414999922587" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/notification.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000425426" ignored="false" />
-    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/post_form.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000470373" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/post_form.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415752016244" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/postview.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000493613" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/reLogin.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000534460" ignored="false" />
     <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/scripts/controllers/report.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415000545492" ignored="false" />
@@ -259,10 +259,15 @@
     <file path="/application_helper.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415339090072" ignored="false" />
     <file path="/volunteer_home.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415488937181" ignored="false" />
     <file path="/create_profile.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415489478492" ignored="false" />
-    <file path="/profile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415493084567" ignored="false" />
+    <file path="/profile.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415764640763" ignored="false" />
     <file path="/profile.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415493140929" ignored="false" />
-    <file path="/record_hours.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415493218951" ignored="false" />
-    <file path="/record_hours.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415493174140" ignored="false" />
+    <file path="/record_hours.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415757151730" ignored="false" />
+    <file path="/record_hours.html" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415757086730" ignored="false" />
+    <file path="$PROJECT_DIR$/../chronicleMe_api/frontend/app/styles/post_form.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415570680157" ignored="false" />
+    <file path="/post_form.scss" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415570536622" ignored="false" />
+    <file path="/user_event_hours_controller.rb" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415754407326" ignored="false" />
+    <file path="/usereventhours.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415751518201" ignored="false" />
+    <file path="/recordhours.js" changelist="4f9ede78-0be6-4030-832a-28c309358288" time="1415757208867" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,84 +287,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="volunteerhome.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="volunteerhome.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="45" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="427" selection-end="427" vertical-scroll-proportion="0.36312848">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recordhours.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/recordhours.js">
+      <file leaf-file-name="landing_page_volunteer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_volunteer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="8" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="record_hours.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/styles/record_hours.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="record_hours.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/views/record_hours.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/styles/profile.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="2" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front_end/app/views/profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="53" selection-start="221" selection-end="221" vertical-scroll-proportion="0.07978723">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="volunteer_home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="34" selection-start="360" selection-end="420" vertical-scroll-proportion="-5.0">
-              <folding>
-                <element signature="n#style#0;n#map#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile_create.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/views/profile_create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="42" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -368,7 +308,25 @@
       <file leaf-file-name="profile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="34" selection-start="498" selection-end="523" vertical-scroll-proportion="0.0">
+            <state line="17" column="50" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile_create.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/app/views/profile_create.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="84" selection-end="125" vertical-scroll-proportion="-1.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="volunteer_home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="20" selection-start="371" selection-end="371" vertical-scroll-proportion="-5.0">
               <folding />
             </state>
           </provider>
@@ -392,30 +350,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js" />
-        <option value="$PROJECT_DIR$/README.rdoc" />
-        <option value="$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html" />
-        <option value="$PROJECT_DIR$/front_end/app/index.html" />
         <option value="$PROJECT_DIR$/front_end/app/styles/volunteer_home.scss" />
         <option value="$PROJECT_DIR$/front_end/app/views/create_profile.html" />
-        <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js" />
         <option value="$PROJECT_DIR$/front_end/app/styles/profile.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/front_end/app/views/profile.html" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/usereventhours.js" />
+        <option value="$PROJECT_DIR$/app/controllers/user_event_hours_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/views/record_hours.html" />
         <option value="$PROJECT_DIR$/front_end/app/styles/record_hours.scss" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/recordhours.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
-        <option value="$PROJECT_DIR$/front_end/app/views/profile.html" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/profile.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js" />
+        <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="140" />
-    <option name="y" value="56" />
-    <option name="width" value="1191" />
-    <option name="height" value="736" />
+    <option name="x" value="2016" />
+    <option name="y" value="-1012" />
+    <option name="width" value="1227" />
+    <option name="height" value="662" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -493,21 +451,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Errors" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../railsProjects" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -788,14 +794,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="140" y="56" width="1191" height="736" extended-state="0" />
+    <frame x="2016" y="-1012" width="1227" height="662" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3187773" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32684165" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -872,49 +878,77 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/user_event_hours_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="6" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.59090906">
+        <state line="2" column="18" selection-start="92" selection-end="92" vertical-scroll-proportion="0.05836576">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/landing_page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_organizations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="636" selection-end="636" vertical-scroll-proportion="-8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
+    <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular/.bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/volunteer_home.scss">
+    <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular/angular.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="17" selection-start="52" selection-end="52" vertical-scroll-proportion="0.024549918">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/usereventhours.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="55" selection-start="842" selection-end="842" vertical-scroll-proportion="0.28745645">
+        <state line="42" column="33" selection-start="0" selection-end="1634" vertical-scroll-proportion="0.898855">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/profile_create.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="53" selection-start="624" selection-end="624" vertical-scroll-proportion="0.6">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/recordhours.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="49" selection-start="522" selection-end="522" vertical-scroll-proportion="0.6128405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/record_hours.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="41" selection-start="190" selection-end="190" vertical-scroll-proportion="0.32101166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="120" selection-start="416" selection-end="416" vertical-scroll-proportion="0.74850297">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/views/record_hours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="41" selection-start="929" selection-end="929" vertical-scroll-proportion="0.76023394">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="56" selection-start="525" selection-end="525" vertical-scroll-proportion="0.45801526">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js.orig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -923,65 +957,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="34" selection-start="498" selection-end="523" vertical-scroll-proportion="0.0">
+        <state line="17" column="50" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/recordhours.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/views/profile_create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="45" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0">
+        <state line="2" column="0" selection-start="84" selection-end="125" vertical-scroll-proportion="-1.25">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="34" selection-start="360" selection-end="420" vertical-scroll-proportion="-5.0">
-          <folding>
-            <element signature="n#style#0;n#map#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/record_hours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+        <state line="8" column="20" selection-start="371" selection-end="371" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/landing_page_volunteer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="42" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/profile.scss">
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="2" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/record_hours.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="53" selection-start="221" selection-end="221" vertical-scroll-proportion="0.07978723">
+        <state line="13" column="0" selection-start="427" selection-end="427" vertical-scroll-proportion="0.36312848">
           <folding />
         </state>
       </provider>

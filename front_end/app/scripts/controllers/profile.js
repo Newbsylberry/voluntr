@@ -8,7 +8,16 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('ProfileCtrl', function ($scope, $log, $modal) {
+  .controller('ProfileCtrl', function ($scope, $log, $modal, Profile) {
+
+        $scope.createProfile = function() {
+            var attr = {};
+            attr.user_id = localStorage.user.id;
+            attr.first_name = $scope.createProfile.first_name;
+            attr.last_name = $scope.createProfile.last_name;
+            var newProfile = Profile.create(attr);
+        };
+
 
         $scope.open = function (size) {
             var profileModal = $modal.open(

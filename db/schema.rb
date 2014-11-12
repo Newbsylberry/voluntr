@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029140604) do
+ActiveRecord::Schema.define(version: 20141112033543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,22 @@ ActiveRecord::Schema.define(version: 20141029140604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "fb_id",      limit: 8
+  end
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_event_hours", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "hours"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

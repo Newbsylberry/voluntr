@@ -10,7 +10,7 @@
 angular.module('voluntrApp')
     .controller('VolunteerHomeCtrl', function ($scope, geolocation, Event,
                                                Organization, $http, $timeout,
-                                                userLocation, $modal) {
+                                               userLocation, $modal, $rootScope) {
 
         $scope.profile = {
             id: 1,
@@ -22,7 +22,6 @@ angular.module('voluntrApp')
             map.setCenter(userLocation)
 
         });
-
 
 
         $scope.getDistance = function(event) {
@@ -46,21 +45,23 @@ angular.module('voluntrApp')
                             console.log($scope.event)
                         }
                     }
-                }, 2000);
+                }, 500);
         };
 
 
         $scope.events = Event.all()
 
+
         // Function that manages the post modal in the side bar
         $scope.open = function (size) {
-                var profileModal = $modal.open(
-                    {
-                        templateUrl: 'views/profile_create.html',
-                        controller: 'ProfileCtrl',
-                        windowClass: 'create-profile-modal-window',
-                        size: size
-                    })
+
+            var profileModal = $modal.open(
+                {
+                    templateUrl: 'views/profile_create.html',
+                    controller: 'ProfileCtrl',
+                    windowClass: 'create-profile-modal-window',
+                    size: size
+                })
 
             profileModal.result.then(function () {
                 },

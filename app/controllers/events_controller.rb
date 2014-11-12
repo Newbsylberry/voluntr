@@ -52,6 +52,8 @@ class EventsController < ApplicationController
     render json: @event
   end
 
+  protected
+
   def event_params
     params.require(:event).permit(:fb_id, :name, :location,
                                   :description, :start_time, :end_time, :about,

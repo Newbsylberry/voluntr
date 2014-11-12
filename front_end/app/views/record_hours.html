@@ -1,69 +1,55 @@
 <h2>Log Hours</h2>
 <div class="org-selection">
 	<div class="col-xs-3">
-		<label for="organization">Choose from your past events:</label>
+		<label for="organization">Choose from events:</label>
 	</div>
 	<div class="col-xs-9">
-		<select id="organization" name="organization">
-			<option>Organization 1</option>
-			<option>Organization 2</option>
-			<option>Organization 3</option>
-			<option>Organization 4</option>
-			<option>Organization 5</option>
-		</select>
+        <!-- Select for communities, if user is not in a community -->
+        <select id="organization"
+                name="organization"
+                ng-model="recordHours.event_id"
+                ng-options="event.id as event.name for
+                                event in events" required>
+            <option value="">-- Choose From Events --</option>
+        </select><br>
 	</div>
 	<div class="clear"></div>
 </div>
-
+<div class="org-selection">
+    <div class="col-xs-3">
+        <label>Short Description:</label>
+    </div>
+    <div class="col-xs-9">
+        <!-- Select for communities, if user is not in a community -->
+        <input  type="text"
+                id="description"
+                name="description"
+                ng-model="description"
+                /><br>
+    </div>
+    <div class="clear"></div>
+</div>
 <div class="hours-input">
 	<div class="col-xs-3">
-		<label for="organization">Hours Volunteered:</label>
+		<label for="organization">Hours Volunteered</label>
 	</div>
 	<div class="col-xs-9 nopadding">
 		<div class="col-xs-3">
-		 	<img src="images/arrow_up.jpg" class="h1up up-arrow" />
-		 	<input type="text" name="hours1" id="hours1" class="hour-selection" min="0" max="9" value="0">
-		 	<img src="images/arrow_down.jpg" class="h1down down-arrow" />
+		 	<img src="images/arrow_up.jpg" ng-click="h1_up()" class="h1up up-arrow" />
+		 	<input type="integer"
+                   ng-model="hours1"
+                   name="hours1"
+                   id="hours1" class="hour-selection" min="0" max="9">
+		 	<img src="images/arrow_down.jpg" ng-click="h1_down()" class="down-arrow" />
 		 </div>
 		 <div class="col-xs-3">
-			 <img src="images/arrow_up.jpg" class="h2up up-arrow" />
-			 <input type="text" name="hours2" id="hours2" class="hour-selection" min="0" max="9" value="0">
-			 <img src="images/arrow_down.jpg" class="h2down down-arrow" />
+			 <img src="images/arrow_up.jpg" ng-click="h2_up()" class="up-arrow" />
+			 <input type="integer"
+                    name="hours2"
+                    ng-model="hours2" id="hours2" class="hour-selection" min="0" max="9">
+			 <img src="images/arrow_down.jpg" ng-click="h2_down()" class="h2down down-arrow" />
 		 </div>
 	</div>
-	<input type="submit" class="submit_hours" value="submit" />
+	<input ng-click="recordHours()"
+            type="submit" class="submit_hours" value="submit" />
 </div>
-
-<script>
-	$(document).ready(function(){
-		$('.h1up').click(function(){
-			val = parseInt($('#hours1').val());
-			if(val < 9) {
-				newval = val + 1;
-				$('#hours1').val(newval);
-			}
-		});
-		$('.h2up').click(function(){
-			val = parseInt($('#hours2').val());
-			if(val < 9) {
-				newval = val + 1;
-				$('#hours2').val(newval);
-			}
-		});
-		$('.h1down').click(function(){
-			val = parseInt($('#hours1').val());
-			if(val != 0 && val < 10) {
-				newval = val - 1;
-				$('#hours1').val(newval);
-			}
-		});
-		$('.h2down').click(function(){
-			val = parseInt($('#hours2').val());
-			if(val != 0 && val < 10) {
-				newval = val - 1;
-				$('#hours2').val(newval);
-			}
-		});
-
-	});
-</script>
