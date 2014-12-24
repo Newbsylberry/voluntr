@@ -18,8 +18,8 @@
 
 	.org-logo {
 		position: absolute;
-		top: 70px;
-		left: 14px;
+    height: 100%;
+    width: 100%;
 	}
 }
 .org-name {
@@ -42,7 +42,7 @@
 .org-event-list {
 	list-style: none;
 	margin-top: 28px;
-	
+
 	li {
 		text-transform: uppercase;
 		list-style-position: inside;

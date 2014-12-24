@@ -5,34 +5,18 @@
     background-size: cover;
     -o-background-size: cover;
 }
-.signin {
+#sign-in {
 	float: right;
-	text-transform: uppercase;
-	font-size: 14px;
-	margin: -22px 70px 0 0;
-	&:after { 
-		content:'';
-    	display:block;
-    	clear: both;
-	}
-	a {
-		background: #00a2cc;
-		border: 0;
-		border-radius: 0;
-		color: #fff;
-		text-transform: uppercase;
-		padding: 2px 5px;
-		text-decoration: none;
-	}
+  display: inline-block;
+  position: fixed;
 }
 
-.landing-container {
-	width: 635px;
-	margin: 0 auto;
-}
-.landing-header {
-	text-align: center;
-
+#landing-header {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: -25px;
+  z-index: 15;
 	.welcome-to {
 	  font-size: 70px;
 	  display: block;
@@ -44,6 +28,21 @@
 	.v {
 		margin-top: -32px;
 	}
+  #landing-header-menu {
+    li {
+      display: inline-block;
+      padding: 0 1.5%;
+      a {
+        color: black;
+        font-size: large;
+      }
+    }
+  }
+}
+
+#landing-container {
+  z-index: 5;
+  margin-top: 233px;
 }
 .intro {
 	font-size: 16px;

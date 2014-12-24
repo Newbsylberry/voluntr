@@ -1,12 +1,9 @@
-<p class="signin">Already a member? <a href="#" class="signin-btn">Sign in</a></p>
-<div class="landing-container">
-	<h1 class="landing-header">
-		<span class="welcome-to">Welcome to</span>
-		<span class="volu"><img src="images/v.png" class="v" alt="V" />OLU</span>
-	</h1>
+<div class="row">
+<div ng-include="'views/_landing_page_header.html'" id="landing-header"></div>
 </div>
-
+<div class="row" id="landing-container">
 <div ui-view></div>
+</div>
 
 
 

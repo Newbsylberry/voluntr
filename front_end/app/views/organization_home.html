@@ -7,25 +7,32 @@
             <a ng-if="organization.link"
                href='{{organization.link}}'>
                 Your Facebook Page</a><br>
-            <a ui-sref='landing_page.initial_page'>Back to Landing Page</a>
+
         </div>
     </div> -->
 
     <div class="org-logo-container">
-        <img src="images/vera_house_logo.jpg" class="org-logo" />
-    </div>
-    <p class="org-name">Vera House</p>
-    <div class="org-info">
-        <p class="org-zip">Zip: 13202</p>
-        <p class="org-about">It is the mission of Vera House, Inc. to end all domestic and sexual violence, to assist families in crisis,to support those affected by domestic and sexual violence to live safe, self-sufficient lives, to empower women and children, and to promote a culture of equality and respect in all relationships.</p>
-    </div>
+        <img
+          ng-if="organization.picture.picture"
+          ng-src="{{organization.picture.picture}}"
+             class="img-circle org-logo" />
 
-    <ul class="org-event-list">
-        <li class="icon checked">Domestic Violence Awareness Walk</li>
-        <li class="icon checked">Canned Food Drive</li>
-        <li class="icon add"><a href="#">Add a Facebook Event</a></li>
-        <li class="icon add"><a href="#">Add a Facebook Event</a></li>
-        <li class="icon add"><a href="#">Add a Facebook Event</a></li>
+      <!-- Image prompting user to add facebook photo to their group in order
+           to gain more followers. -->
+      <img
+          ng-if="!organization.picture.picture"
+          ng-src="/images/no-image.png"
+          class="img org-logo" />
+    </div>
+    <p class="org-name">{{organization.name}}</p>
+    <div class="org-info">
+        <p class="org-about">{{organization.about}}</p>
+    </div>
+    <a ui-sref='landing_page.initial_page' style="color: white;">Back to Landing Page</a>
+
+    <ul class="org-event-list" ng-repeat="event in events">
+        <li ng-if="event.exists" class="icon checked">{{event.name}}</li>
+        <li ng-if="!event.exists" class="icon add" ng-click="addEvent(event)">{{event.name}}</li>
     </ul>
 
 

@@ -8,9 +8,33 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-
     .controller('LandingPageCtrl', function ($scope, Facebook, Organization,
-                                             $http, $state, Auth, $rootScope) {
+                                             $http, $state, Auth, $rootScope, $location,
+                                             $window, $anchorScroll) {
+
+
+    $scope.goToSection = function(section) {
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+
+
+
+      $location.hash(section);
+
+      $anchorScroll();
+    };
+
+
+    // Set the height and width
+    $scope.window_height = window.innerHeight;
+    $scope.window_width = window.innerWidth;
+
+    $(window).resize(function(){
+      $scope.$apply(function(){
+        $scope.window_height = $window.innerHeight;
+        $scope.window_width = $window.innerWidth;
+      });
+    });
 
         $scope.organizationLogIn = function () {
             Facebook.getLoginStatus(function(response) {

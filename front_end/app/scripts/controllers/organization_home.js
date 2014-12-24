@@ -51,8 +51,17 @@ angular.module('voluntrApp')
 
                     // find the organizations information on facebook
                     Facebook.api('/' + successResponse.fb_id, function(response) {
-                        console.log(response)
                         $scope.organization = response;
+                        Facebook.api('/' + successResponse.fb_id + '/photos', function(response) {
+                          $scope.organization.picture = response.data[0];
+                          console.log($scope.organization)
+                          Facebook.api('/' + successResponse.fb_id + '/posts', function(response) {
+                            console.log(response)
+                          });
+                          Facebook.api('/' + successResponse.fb_id + '/tagged', function(response) {
+                            console.log(response)
+                          });
+                        });
                     });
 
 
