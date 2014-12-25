@@ -12,17 +12,12 @@ angular.module('voluntrApp')
                                              $http, $state, Auth, $rootScope, $location,
                                              $window, $anchorScroll, $document) {
 
+    $scope.organizationslide = 'organization-1';
+    $scope.organization_slide = function(organizationsection) {
+      console.log(organizationsection)
+      $scope.organizationslide = organizationsection;
 
-    //$scope.goToSection = function(section) {
-    //  // set the location.hash to the id of
-    //  // the element you wish to scroll to.
-    //
-    //
-    //
-    //  $location.hash(section);
-    //
-    //  $anchorScroll();
-    //};
+    }
 
     var top = 400;
     var duration = 1000; //milliseconds

@@ -1,12 +1,12 @@
 .full-page-image {
-	background: url('../images/workers_bg.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  background: url('../images/workers_bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 #sign-in {
-	float: right;
+  float: right;
   display: inline-block;
   position: fixed;
 }
@@ -17,17 +17,17 @@
   position: fixed;
   top: -25px;
   z-index: 15;
-	.welcome-to {
-	  font-size: 70px;
-	  display: block;
-	}
-	.volu {
-	  	font-size: 175px;
-	  	text-align: center;
-	}
-	.v {
-		margin-top: -32px;
-	}
+  .welcome-to {
+    font-size: 70px;
+    display: block;
+  }
+  .volu {
+    font-size: 175px;
+    text-align: center;
+  }
+  .v {
+    margin-top: -32px;
+  }
   #landing-header-menu {
     li {
       display: inline-block;
@@ -45,30 +45,43 @@
   margin-top: 233px;
 }
 .intro {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 .sign-up {
-	margin: 130px auto 0;
-	width: 430px;
+  margin: 130px auto 0;
+  width: 430px;
 
-	h2 {
-		text-transform: uppercase;
-		text-align: center;
-		font-weight: 400;
-		margin: 0 0 45px 0;
-	}
-	.are-you-a {
-		font-size: 16px;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-	.btn {
-		background: #00a2cc;
-		border: 0;
-		border-radius: 0;
-		color: #fff;
-		text-transform: uppercase;
-		padding: 2px 16px;
-	}
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 400;
+    margin: 0 0 45px 0;
+  }
+  .are-you-a {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .btn {
+    background: #00a2cc;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 2px 16px;
+  }
+}
+
+.landing-page-organization-slide-menu {
+  list-style-type: none;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  li {
+    margin-bottom: 10%;
+    a {
+      font-size: medium;
+    }
+  }
 }
