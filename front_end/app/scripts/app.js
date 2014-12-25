@@ -19,11 +19,16 @@ angular
     'facebook',
     'ui.bootstrap',
     'ui.router',
+    'duScroll',
         'ngMap',
         'Devise',
         'geolocation',
         'highcharts-ng'
   ])
+
+  //.run(['$anchorScroll', function($anchorScroll) {
+  //  $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
+  //}])
 
     .config(function(FacebookProvider) {
         // Set your appId through the setAppId method or
