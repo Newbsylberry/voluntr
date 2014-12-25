@@ -24,7 +24,7 @@ angular.module('voluntrApp')
 
         });
 
-        <!-- Set the map center to userLocation -->
+
         $scope.$on('mapInitialized', function(event, map) {
             map.setCenter(userLocation)
 
