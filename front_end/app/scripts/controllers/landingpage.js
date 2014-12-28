@@ -12,12 +12,17 @@ angular.module('voluntrApp')
                                              $http, $state, Auth, $rootScope, $location,
                                              $window, $anchorScroll, $document) {
 
-    $scope.organizationslide = 'organization-1';
-    $scope.organization_slide = function(organizationsection) {
-      console.log(organizationsection)
-      $scope.organizationslide = organizationsection;
 
-    }
+    // Set the height and width
+    $scope.window_height = window.innerHeight;
+    $scope.window_width = window.innerWidth;
+
+    $(window).resize(function(){
+      $scope.$apply(function(){
+        $scope.window_height = $window.innerHeight;
+        $scope.window_width = $window.innerWidth;
+      });
+    });
 
     var top = 400;
     var duration = 1000; //milliseconds
@@ -32,19 +37,19 @@ angular.module('voluntrApp')
    }
 
 
+    $scope.organizationslide = 'organization-1';
+    $scope.organization_slide = function(organizationsection) {
+      console.log(organizationsection)
+      $scope.organizationslide = organizationsection;
 
+    }
 
-    // Set the height and width
-    $scope.window_height = window.innerHeight;
-    $scope.window_width = window.innerWidth;
+    $scope.contactslide = 'contact-1';
+    $scope.contact_slide = function(contactsection) {
+      console.log(contactsection)
+      $scope.contactslide = contactsection;
 
-    $(window).resize(function(){
-      $scope.$apply(function(){
-        $scope.window_height = $window.innerHeight;
-        $scope.window_width = $window.innerWidth;
-      });
-    });
-
+    }
         $scope.organizationLogIn = function () {
             Facebook.getLoginStatus(function(response) {
                 if(response.status === 'connected') {

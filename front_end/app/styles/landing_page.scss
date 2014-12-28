@@ -91,5 +91,67 @@
   margin: 5% auto;
 }
 
+#landing-page-contact {
+  background-color: black;
+  #contact-form-text {
+    color: white;
+    font-size: 40px;
+    margin: 5% 0;
+  }
+  #contact-section-menu-container {
+    margin-top: 7%;
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    background-color: black;
+  }
+  #contact-bottom-menu{
+    margin-top: 3%;
+    list-style-type: none;
+    padding-left: 15px;
+    li {
+      padding: 3%;
+      a {
+        font-size: 23px;
+        color: white;
+        a:visited {
+          color: yellow;
+        }
+      }
+    }
+  }
+  #contact-section-content-container {
+    margin-top: 7%;
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    background-color: black;
+  }
+  .contact-section-panel {
+  }
+  #contact-form {
+    color: white;
+    .contact-form-input {
+      label {
+        color: white;
+      }
+      input {
+        width: 100%;
+        border-color: white;
+        border-bottom-width: 3px;
+      }
+    }
+    textarea {
+      width: 100%;
+      border-color: white;
+      border-width: 3px;
+      background-color: black;
+      color: white;
+      margin-top: 2.5%;
+      margin-bottom: 2.5%;
+    }
+  }
+}
+
 
 

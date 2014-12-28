@@ -20,6 +20,7 @@ angular
     'ui.bootstrap',
     'ui.router',
     'duScroll',
+    'ngMaterial',
         'ngMap',
         'Devise',
         'geolocation',
