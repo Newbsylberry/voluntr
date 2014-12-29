@@ -83,6 +83,8 @@ angular.module('voluntrApp')
         }).
         error(function(data, status, headers, config) {
           alert('Thanks for Contacting Us, We Will Respond Soon!')
+          $scope.newContact.contact_email = "";
+          $scope.newContact.contact_content = "";
         });
     }
 
