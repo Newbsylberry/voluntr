@@ -31,8 +31,8 @@
     </div>
 
     <!-- Organization section 1 -->
-    <div class="col-xs-8" style="height: {{window_height}}px" ng-switch-when="organization-1">
-      <img src="../images/landing-page-slide-1-clock.png"
+    <div class="col-xs-8" ng-switch-when="organization-1">
+      <img src="../images/lp_organization_1.png"
            style="height: {{window_height * .45}}px;"
            class="landing-page-section-2-image">
       <p class="lead text-center intro">
@@ -47,7 +47,7 @@
 
     <!-- Organization Section 2 -->
     <div class="col-xs-7" ng-switch-when="organization-2">
-      <img ng-src="../images/landing-page-slide-2-boat.jpg"
+      <img src="../images/lp_organization_2.png"
            style="height: {{window_height * .45}}px;"
            class="landing-page-section-2-image">
       <p class="lead text-center intro">
@@ -61,7 +61,7 @@
 
     <!-- Organization Section 3 -->
     <div class="col-xs-7" ng-switch-when="organization-3">
-      <img src="../images/landing-page-slide-3-arrow.png"
+      <img src="../images/lp_organization_3.png"
            style="height: {{window_height * .45}}px;"
            class="landing-page-section-2-image">
       <p class="lead text-center intro">
@@ -82,8 +82,8 @@
   <div class="row">
     <div class="col-xs-1"></div>
     <div class="col-xs-10">
-      <img ng-src="../images/placeholder.jpg"
-           style="height: {{window_height * .55}}px; width: 100%"
+      <img src="../images/lp_volunteer.png"
+           style="height: {{window_height * .55}}px;"
            class="center-block">
       <p class="lead text-center intro">
         <!-- VOLU is a non-profit, open source, mobile and desktop platform that enables
@@ -124,11 +124,17 @@
                     placeholder="What are you writing about?">
 
           </textarea>
+          <button class="btn btn-lg btn-default">Contact Us</button>
         </form>
       </div>
 
       <div class="contact-section-panel panel-body" ng-switch-when="contact-2">
-        Location
+        <map
+          map-type-id="SATELLITE"
+          style="height: 350px"
+          zoom="12"
+          >
+        </map>
       </div>
 
       <div class="contact-section-panel panel-body" ng-switch-when="contact-3">
