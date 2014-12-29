@@ -104,6 +104,9 @@
     border-style: solid;
     border-width: 3px;
     background-color: black;
+    #contact-menu-container {
+      height: 25em;
+    }
   }
   #contact-bottom-menu{
     margin-top: 3%;
@@ -128,6 +131,7 @@
     background-color: black;
   }
   .contact-section-panel {
+    height: 25em;
   }
   #contact-form {
     color: white;
@@ -155,6 +159,7 @@
       color: white;
       border-color: white;
     }
+
   }
 }
 
