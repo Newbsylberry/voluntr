@@ -71,6 +71,23 @@ angular.module('voluntrApp')
 
     };
 
+    $scope.newContact = function () {
+      $http.post('/api/v1/user/contact_form',
+      {
+        'email': $scope.newContact.contact_email,
+        'content': $scope.newContact.contact_content
+        }).
+        success(function(data, status, headers, config) {
+          alert('Thanks for Contacting Us, We Will Respond Soon!')
+
+        }).
+        error(function(data, status, headers, config) {
+          alert('Thanks for Contacting Us, We Will Respond Soon!')
+        });
+    }
+
+
+
     //var ttg = new google.maps.LatLng('43.044622', '-76.150299');
     //
     //$scope.$on('mapInitialized', function(event, map) {

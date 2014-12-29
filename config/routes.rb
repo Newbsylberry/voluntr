@@ -7,6 +7,7 @@ Rails.application.routes.draw do
                  :controllers => { registrations: 'registrations',
                                    sessions: 'sessions'}, defaults: {format: :json}
       resources :users, defaults: {format: :json}
+      post '/user/contact_form', to: 'users#contact', defaults: {format: :json}
       resources :profiles, except: [:new, :edit], defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
       resources :user_event_hours, except: [:new, :edit], defaults: {format: :json}
