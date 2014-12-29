@@ -71,11 +71,11 @@ angular.module('voluntrApp')
 
     };
 
-    var ttg = new google.maps.LatLng('43.044622', '-76.150299');
-
-    $scope.$on('mapInitialized', function(event, map) {
-      map.setCenter(ttg)
-    });
+    //var ttg = new google.maps.LatLng('43.044622', '-76.150299');
+    //
+    //$scope.$on('mapInitialized', function(event, map) {
+    //  map.setCenter(ttg)
+    //});
 
 
 
