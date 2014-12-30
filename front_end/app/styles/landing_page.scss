@@ -121,6 +121,9 @@
 
 #landing-page-contact {
   background-color: black;
+  #landing-page-contact-container {
+    background-color: black;
+  }
   #contact-form-text {
     color: white;
     font-size: 40px;
@@ -145,6 +148,9 @@
       a {
         font-size: 23px;
         color: white;
+        @media screen and (max-width: 720px) {
+          font-size: 12px;
+        }
         a:visited {
           color: yellow;
         }
