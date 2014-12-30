@@ -29,77 +29,87 @@ angular.module('voluntrApp')
 
     //Scroll to the exact position
     $scope.goToSection = function (section) {
-      var offset = 225; //pixels; adjust for floating menu, context etc
-      //Scroll to #some-id with 30 px "padding"
-      //Note: Use this in a directive, not with document.getElementById
-      var someElement = angular.element(document.getElementById(section));
-      $document.scrollToElement(someElement, offset, duration);
+      console.log(section)
+      if ($scope.window_width > 720) {
+        var offset = 225;
+      } else if ($scope.window_width < 720 && section !== 'landing-page-organizations') {
+        var offset = 50;
+      } else if ($scope.window_width < 720 && section === 'landing-page-organizations') {
+        console.log(section)
+        var offset=0;
+      }
+
+    //pixels; adjust for floating menu, context etc
+    //Scroll to #some-id with 30 px "padding"
+    //Note: Use this in a directive, not with document.getElementById
+    var someElement = angular.element(document.getElementById(section));
+    $document.scrollToElement(someElement, offset, duration);
+  }
+
+
+$scope.organizationslide = 'organization-1';
+$scope.organization_slide = function(organizationsection) {
+  console.log(organizationsection)
+  $scope.organizationslide = organizationsection;
+
+}
+
+$scope.contactslide = 'contact-1';
+$scope.contact_slide = function(contactsection) {
+  console.log(contactsection)
+  $scope.contactslide = contactsection;
+
+}
+$scope.organizationLogIn = function () {
+  Facebook.getLoginStatus(function(response) {
+    if(response.status === 'connected') {
+      $scope.facebook_token = response.authResponse.accessToken;
+      $state.go('landing_page.organization_landing')
     }
-
-
-    $scope.organizationslide = 'organization-1';
-    $scope.organization_slide = function(organizationsection) {
-      console.log(organizationsection)
-      $scope.organizationslide = organizationsection;
-
-    }
-
-    $scope.contactslide = 'contact-1';
-    $scope.contact_slide = function(contactsection) {
-      console.log(contactsection)
-      $scope.contactslide = contactsection;
-
-    }
-    $scope.organizationLogIn = function () {
-      Facebook.getLoginStatus(function(response) {
-        if(response.status === 'connected') {
-          $scope.facebook_token = response.authResponse.accessToken;
-          $state.go('landing_page.organization_landing')
-        }
-        else if (response.status !== 'connected') {
-          Facebook.login(function(response) {
-              Facebook.api('/me/accounts', function(response) {
-                $scope.facebook_token = response.authResponse.accessToken;
-              });
-              // Do something with response.
-            }, {scope: ['manage_pages', 'user_groups']}
-          );
-          $state.go('landing_page.organization_landing')
-        };
-      });
-      console.log($scope.organizations)
-
+    else if (response.status !== 'connected') {
+      Facebook.login(function(response) {
+          Facebook.api('/me/accounts', function(response) {
+            $scope.facebook_token = response.authResponse.accessToken;
+          });
+          // Do something with response.
+        }, {scope: ['manage_pages', 'user_groups']}
+      );
+      $state.go('landing_page.organization_landing')
     };
-
-    $scope.newContact = function () {
-      $http.post('/api/v1/user/contact_form',
-      {
-        'email': $scope.newContact.contact_email,
-        'content': $scope.newContact.contact_content
-        }).
-        success(function(data, status, headers, config) {
-          alert('Thanks for Contacting Us, We Will Respond Soon!')
-
-        }).
-        error(function(data, status, headers, config) {
-          alert('Thanks for Contacting Us, We Will Respond Soon!')
-          $scope.newContact.contact_email = "";
-          $scope.newContact.contact_content = "";
-        });
-    }
-
-
-
-    //var ttg = new google.maps.LatLng('43.044622', '-76.150299');
-    //
-    //$scope.$on('mapInitialized', function(event, map) {
-    //  map.setCenter(ttg)
-    //});
-
-
-
-
-
-
-
   });
+  console.log($scope.organizations)
+
+};
+
+$scope.newContact = function () {
+  $http.post('/api/v1/user/contact_form',
+    {
+      'email': $scope.newContact.contact_email,
+      'content': $scope.newContact.contact_content
+    }).
+    success(function(data, status, headers, config) {
+      alert('Thanks for Contacting Us, We Will Respond Soon!')
+
+    }).
+    error(function(data, status, headers, config) {
+      alert('Thanks for Contacting Us, We Will Respond Soon!')
+      $scope.newContact.contact_email = "";
+      $scope.newContact.contact_content = "";
+    });
+}
+
+
+
+//var ttg = new google.maps.LatLng('43.044622', '-76.150299');
+//
+//$scope.$on('mapInitialized', function(event, map) {
+//  map.setCenter(ttg)
+//});
+
+
+
+
+
+
+
+});

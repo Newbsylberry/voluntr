@@ -17,6 +17,14 @@
   position: fixed;
   top: -25px;
   z-index: 15;
+  @media screen and (max-width: 720px) {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+  }
   .welcome-to {
     font-size: 70px;
     display: block;
@@ -43,6 +51,9 @@
 #landing-container {
   z-index: 5;
   margin-top: 233px;
+  @media screen and (max-width: 320px) {
+    margin-top: 65px;
+  }
 }
 .intro {
   font-size: 16px;
@@ -80,15 +91,32 @@
   transform: translateY(-50%);
   li {
     margin-bottom: 10%;
+    @media screen and (max-width: 720px) {
+      margin-bottom: 5%;
+    }
     a {
       font-size: medium;
       color: black;
     }
   }
 }
-.landing-page-section-2-image {
-  display: block;
-  margin: 5% auto;
+
+.landing-page-section-2-container {
+  @media screen and (max-width: 720px) {
+    margin-top: -24%;
+  }
+  .landing-page-section-2-image {
+    display: block;
+    margin: 5% auto;
+    @media screen and (max-width: 720px) {
+      margin: 0 auto;
+      height: 150px;
+    }
+  }
+}
+
+#landing-page-volunteer-image {
+  width: 100%;
 }
 
 #landing-page-contact {

@@ -1,10 +1,19 @@
-<section style="height: {{window_height + 50}}px; width: {{window_width}}px;"
+<section style="height: {{window_height + 25}}px; width: {{window_width}}px;"
          id="landing-page-about">
-  <div class="row">
+  <div class="row hidden-xs">
     <img ng-src="../images/about_page_1.gif"
          style="height: {{window_height * .72}}px; width: {{window_width}}px;"
          class="center-block">
   </div>
+  <div class="row visible-xs">
+    <div class="col-xs-12">
+      <h1>Volu Is For Your Community</h1>
+      <p class="lead text-center">
+        Volu is an application intended to help non-profit organizations reach their volunteers
+        and future leaders.  Non-profit organizations can manage their events and social engagement through facebook,
+        and individuals can see what volunteer events and opportunities are available to them.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -17,8 +26,7 @@
 
 
   <div class="row" ng-switch on="organizationslide">
-
-    <div class="col-xs-3" style="height: {{window_height * .55}}px;">
+    <div class="col-md-3" style="height: {{window_height * .55}}px;">
       <ul class="landing-page-organization-slide-menu">
         <li><a href=""
                class="active"
@@ -31,10 +39,12 @@
     </div>
 
     <!-- Organization section 1 -->
-    <div class="col-xs-8" ng-switch-when="organization-1">
+    <div class="col-md-8 landing-page-section-2-container" ng-switch-when="organization-1">
       <img src="../images/lp_organization_1.png"
            style="height: {{window_height * .45}}px;"
-           class="landing-page-section-2-image">
+           class="landing-page-section-2-image hidden-xs">
+      <img src="../images/lp_organization_1.png"
+           class="landing-page-section-2-image visible-xs">
       <p class="lead text-center intro">
         <!-- VOLU is a non-profit, open source, mobile and desktop platform that enables
         non-profit organizations to easily reach volunteers and plan smarter events.  Getting started
@@ -46,10 +56,12 @@
     </div>
 
     <!-- Organization Section 2 -->
-    <div class="col-xs-7" ng-switch-when="organization-2">
+    <div class="col-md-7 landing-page-section-2-container" ng-switch-when="organization-2">
       <img src="../images/lp_organization_2.png"
            style="height: {{window_height * .45}}px;"
-           class="landing-page-section-2-image">
+           class="landing-page-section-2-image hidden-xs">
+      <img src="../images/lp_organization_2.png"
+           class="landing-page-section-2-image visible-xs">
       <p class="lead text-center intro">
         <!-- VOLU is a non-profit, open source, mobile and desktop platform that enables
         non-profit organizations to easily reach volunteers and plan smarter events.  Getting started
@@ -60,10 +72,12 @@
     </div>
 
     <!-- Organization Section 3 -->
-    <div class="col-xs-7" ng-switch-when="organization-3">
+    <div class="col-md-7 landing-page-section-2-container" ng-switch-when="organization-3">
       <img src="../images/lp_organization_3.png"
            style="height: {{window_height * .45}}px;"
-           class="landing-page-section-2-image">
+           class="landing-page-section-2-image hidden-xs">
+      <img src="../images/lp_organization_3.png"
+           class="landing-page-section-2-image visible-xs">
       <p class="lead text-center intro">
         <!-- VOLU is a non-profit, open source, mobile and desktop platform that enables
         non-profit organizations to easily reach volunteers and plan smarter events.  Getting started
@@ -73,17 +87,18 @@
       </p>
     </div>
 
-    <div class="col-xs-1"></div>
+    <div class="col-md-1"></div>
   </div>
 
 </section>
 <section style="height: {{window_height}}px; width: {{window_width}}px;"
          id="landing-page-volunteers">
   <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
       <img src="../images/lp_volunteer.png"
            style="height: {{window_height * .55}}px;"
+           id="landing-page-volunteer-image"
            class="center-block">
       <p class="lead text-center intro">
         <!-- VOLU is a non-profit, open source, mobile and desktop platform that enables
@@ -93,13 +108,13 @@
         and organize your team to compete for bragging rights.
       </p>
     </div>
-    <div class="col-xs-1"></div>
+    <div class="col-md-1"></div>
   </div>
 </section>
 <section style="height: {{window_height * .71}}px; width: {{window_width}}px;"
          id="landing-page-contact">
   <div class="row">
-    <div class="panel col-xs-3 col-xs-offset-1" id="contact-section-menu-container">
+    <div class="panel col-md-3 col-md-offset-1" id="contact-section-menu-container">
       <div class="panel-body" id="contact-menu-container">
         <p id="contact-form-text">Volu</p>
         <ul id="contact-bottom-menu">
@@ -109,7 +124,7 @@
         </ul>
       </div>
     </div>
-    <div class="panel col-xs-6 col-xs-offset-1"
+    <div class="panel col-md-6 col-md-offset-1"
          id="contact-section-content-container"
          ng-switch on="contactslide">
 
