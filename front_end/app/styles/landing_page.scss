@@ -99,6 +99,9 @@
       color: grey;
       -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
       transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+      .landing-page-organization-slide-menu-link:active {
+        border-style: none;
+      }
     }
     .landing-page-organization-slide-menu-link.active-link {
       font-size: medium;
@@ -141,8 +144,9 @@
     border-style: solid;
     border-width: 3px;
     background-color: black;
+    height: 23.5em;
     #contact-menu-container {
-      height: 25em;
+      padding: 2px;
     }
   }
   #contact-bottom-menu{
@@ -165,13 +169,14 @@
   }
   #contact-section-content-container {
     margin-top: 3%;
+    height: 23.5em;
     border-color: white;
     border-style: solid;
     border-width: 3px;
     background-color: black;
   }
   .contact-section-panel {
-    height: 25em;
+    height: 23.5em;
   }
   #contact-form {
     color: white;
