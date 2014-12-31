@@ -94,7 +94,13 @@
     @media screen and (max-width: 720px) {
       margin-bottom: 5%;
     }
-    a {
+    .landing-page-organization-slide-menu-link {
+      font-size: smaller;
+      color: grey;
+      -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+      transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    }
+    .landing-page-organization-slide-menu-link.active-link {
       font-size: medium;
       color: black;
     }
@@ -107,7 +113,7 @@
   }
   .landing-page-section-2-image {
     display: block;
-    margin: 5% auto;
+    margin: 2.5% auto;
     @media screen and (max-width: 720px) {
       margin: 0 auto;
       height: 150px;

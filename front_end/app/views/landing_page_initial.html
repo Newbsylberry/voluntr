@@ -29,12 +29,20 @@
     <div class="col-md-3" style="height: {{window_height * .55}}px;">
       <ul class="landing-page-organization-slide-menu">
         <li><a href=""
-               class="active"
-               ng-click="organization_slide('organization-1')">Manage Your Current Volunteers</a></li>
+               ng-click="organization_slide('organization-1')"
+               class="landing-page-organization-slide-menu-link"
+               ng-class="org1">
+          Manage Your Current Volunteers</a></li>
         <li><a href=""
-               ng-click="organization_slide('organization-2')">Identify Your Future Volunteers</a></li>
+               ng-click="organization_slide('organization-2');"
+               class="landing-page-organization-slide-menu-link"
+               ng-class="org2"
+          >Identify Your Future Volunteers</a></li>
         <li><a href=""
-               ng-click="organization_slide('organization-3')">Manage All Your Social Platforms</a></li>
+               ng-click="organization_slide('organization-3');"
+               class="landing-page-organization-slide-menu-link"
+               ng-class="org3"
+          >Manage All Your Social Platforms</a></li>
       </ul>
     </div>
 

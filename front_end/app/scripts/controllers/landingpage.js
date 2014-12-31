@@ -47,12 +47,21 @@ angular.module('voluntrApp')
   }
 
 
-$scope.organizationslide = 'organization-1';
-$scope.organization_slide = function(organizationsection) {
-  console.log(organizationsection)
-  $scope.organizationslide = organizationsection;
-
-}
+    $scope.organizationslide = 'organization-1';
+    $scope.org1 = 'active-link';
+    $scope.organization_slide = function(organizationsection) {
+      $scope.org1 = '';
+      $scope.org2 = '';
+      $scope.org3 = '';
+      if (organizationsection === 'organization-1') {
+        $scope.org1 = 'active-link';
+      } else if (organizationsection === 'organization-2') {
+        $scope.org2 = 'active-link';
+      } else if (organizationsection === 'organization-3') {
+        $scope.org3 = 'active-link';
+      }
+      $scope.organizationslide = organizationsection;
+    }
 
 $scope.contactslide = 'contact-1';
 $scope.contact_slide = function(contactsection) {
