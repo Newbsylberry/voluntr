@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/landing_page.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/landing_page.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +38,8 @@
       <file leaf-file-name="landing_page.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front_end/app/styles/landing_page.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2265625" vertical-offset="2045" max-vertical-offset="3285">
-              <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.625" vertical-offset="1505" max-vertical-offset="3285">
+              <caret line="127" column="2" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,11 +58,10 @@
       <file leaf-file-name="landing_page_initial.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_initial.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="1650" max-vertical-offset="2580">
-              <caret line="124" column="93" selection-start-line="124" selection-start-column="61" selection-end-line="124" selection-end-column="93" />
+            <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2580">
+              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#section#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#section#1;n#!!top" expanded="true" />
@@ -169,8 +169,8 @@
         <option value="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
         <option value="$PROJECT_DIR$/front_end/app/views/landing_page.html" />
         <option value="$PROJECT_DIR$/front_end/app/views/_landing_page_header.html" />
-        <option value="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/landingpage.js" />
+        <option value="$PROJECT_DIR$/front_end/app/views/landing_page_initial.html" />
         <option value="$PROJECT_DIR$/front_end/app/styles/landing_page.scss" />
       </list>
     </option>
@@ -872,11 +872,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/views/landing_page_initial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75" vertical-offset="1650" max-vertical-offset="2580">
-          <caret line="124" column="93" selection-start-line="124" selection-start-column="61" selection-end-line="124" selection-end-column="93" />
+        <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2580">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#section#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#section#1;n#!!top" expanded="true" />
@@ -892,8 +891,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/styles/landing_page.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2265625" vertical-offset="2045" max-vertical-offset="3285">
-          <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.625" vertical-offset="1505" max-vertical-offset="3285">
+          <caret line="127" column="2" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
         </state>
       </provider>
