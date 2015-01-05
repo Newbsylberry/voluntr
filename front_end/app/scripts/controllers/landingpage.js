@@ -10,7 +10,7 @@
 angular.module('voluntrApp')
   .controller('LandingPageCtrl', function ($scope, Facebook, Organization,
                                            $http, $state, Auth, $rootScope, $location,
-                                           $window, $anchorScroll, $document) {
+                                           $window, $anchorScroll, $document, $modal) {
 
 
     // Set the height and width
@@ -39,12 +39,12 @@ angular.module('voluntrApp')
         var offset=0;
       }
 
-    //pixels; adjust for floating menu, context etc
-    //Scroll to #some-id with 30 px "padding"
-    //Note: Use this in a directive, not with document.getElementById
-    var someElement = angular.element(document.getElementById(section));
-    $document.scrollToElement(someElement, offset, duration);
-  }
+      //pixels; adjust for floating menu, context etc
+      //Scroll to #some-id with 30 px "padding"
+      //Note: Use this in a directive, not with document.getElementById
+      var someElement = angular.element(document.getElementById(section));
+      $document.scrollToElement(someElement, offset, duration);
+    }
 
 
     $scope.organizationslide = 'organization-1';
@@ -63,49 +63,66 @@ angular.module('voluntrApp')
       $scope.organizationslide = organizationsection;
     }
 
-$scope.contactslide = 'contact-1';
-$scope.contact_slide = function(contactsection) {
-  console.log(contactsection)
-  $scope.contactslide = contactsection;
+    $scope.contactslide = 'contact-1';
+    $scope.contact_slide = function(contactsection) {
+      console.log(contactsection)
+      $scope.contactslide = contactsection;
 
-}
-$scope.organizationLogIn = function () {
-  Facebook.getLoginStatus(function(response) {
-    if(response.status === 'connected') {
-      $scope.facebook_token = response.authResponse.accessToken;
-      $state.go('landing_page.organization_landing')
     }
-    else if (response.status !== 'connected') {
-      Facebook.login(function(response) {
-          Facebook.api('/me/accounts', function(response) {
-            $scope.facebook_token = response.authResponse.accessToken;
-          });
-          // Do something with response.
-        }, {scope: ['manage_pages', 'user_groups']}
-      );
-      $state.go('landing_page.organization_landing')
+    $scope.organizationLogIn = function () {
+      Facebook.getLoginStatus(function(response) {
+        if(response.status === 'connected') {
+          $scope.facebook_token = response.authResponse.accessToken;
+          $state.go('landing_page.organization_landing')
+        }
+        else if (response.status !== 'connected') {
+          Facebook.login(function(response) {
+              Facebook.api('/me/accounts', function(response) {
+                $scope.facebook_token = response.authResponse.accessToken;
+              });
+              // Do something with response.
+            }, {scope: ['manage_pages', 'user_groups']}
+          );
+          $state.go('landing_page.organization_landing')
+        };
+      });
+      console.log($scope.organizations)
+
     };
-  });
-  console.log($scope.organizations)
 
-};
+    $scope.newContact = function () {
+      $http.post('/api/v1/user/contact_form',
+        {
+          'email': $scope.newContact.contact_email,
+          'content': $scope.newContact.contact_content
+        }).
+        success(function(data, status, headers, config) {
+          alert('Thanks for Contacting Us, We Will Respond Soon!')
 
-$scope.newContact = function () {
-  $http.post('/api/v1/user/contact_form',
-    {
-      'email': $scope.newContact.contact_email,
-      'content': $scope.newContact.contact_content
-    }).
-    success(function(data, status, headers, config) {
-      alert('Thanks for Contacting Us, We Will Respond Soon!')
+        }).
+        error(function(data, status, headers, config) {
+          alert('Thanks for Contacting Us, We Will Respond Soon!')
+          $scope.newContact.contact_email = "";
+          $scope.newContact.contact_content = "";
+        });
+    }
 
-    }).
-    error(function(data, status, headers, config) {
-      alert('Thanks for Contacting Us, We Will Respond Soon!')
-      $scope.newContact.contact_email = "";
-      $scope.newContact.contact_content = "";
-    });
-}
+    $scope.open_lp_modal = function (size) {
+      var profileModal = $modal.open(
+        {
+          templateUrl: 'views/tos_privacy.html',
+          controller: 'LandingPageCtrl',
+          size: size
+        })
+
+      profileModal.result.then(function () {
+          $scope.profile.total_hours += $rootScope.recordedHours;
+          $rootScope.recordedHours = null;
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
 
 
 
@@ -121,4 +138,4 @@ $scope.newContact = function () {
 
 
 
-});
+  });
