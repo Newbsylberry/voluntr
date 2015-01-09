@@ -39,6 +39,7 @@ class OrganizationsController < ApplicationController
   def existence_check
     @organization = Organization.find_by_fb_id(params[:fb_id])
 
+    puts @organization if @organization
     render json: @organization
   end
 
