@@ -1,7 +1,13 @@
     <div class="row">
         <div class="col-xs-12">
+          <button class="btn btn-lg"
+                  ng-click="log_in()"
+                  ng-if="!connected_to_facebook">
+            Facebook Login
+          </button>
           <ul     class="list-group"
-                    ng-repeat="organization in organizations">
+                    ng-repeat="organization in organizations"
+                    ng-if="connected_to_facebook">
                 <li class="list-group-item">
 
                     <!-- If the organization has not been added to voluntr, show option

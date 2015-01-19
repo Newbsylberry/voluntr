@@ -10,7 +10,8 @@
 angular.module('voluntrApp')
   .controller('OrganizationHomeCtrl', function ($scope, Facebook, Organization,
                                                 $stateParams, $state, Event,
-                                                $http, $filter) {
+                                                $http, $filter, $parse, $modal,
+                                                $rootScope) {
 
 
     var addEvents = function(event) {
@@ -40,11 +41,15 @@ angular.module('voluntrApp')
 
     var addPostToGraph = function (post) {
       if (post.likes) {
-      console.log(post.likes.data.length)
-      $scope.lineGraphConfig.series[0].data.push([post.created_time, post.likes.data.length])
+        $scope.lineGraphConfig.series[0].data.push
+        ([post.created_time, post.likes.data.length])
+
+     //   $scope.lineGraphConfig.xAxis.categories.push($filter('date')(post.created_time, ' MMM dd '))
       } else if (!post.likes) {
         $scope.lineGraphConfig.series[0].data.push([post.created_time, 0])
+    //    $scope.lineGraphConfig.xAxis.categories.push($filter('date')(post.created_time, ' MMM dd '))
       }
+
     }
 
 
@@ -63,6 +68,27 @@ angular.module('voluntrApp')
 
           // find the organizations information on facebook
           Facebook.api('/' + successResponse.fb_id, function(response) {
+            Facebook.api('/' + successResponse.fb_id + '/posts', function(response) {
+              angular.forEach(response.data, function(org_post) {
+                var post = {};
+                post = org_post;
+                post.liking_users = [];
+                post.created_time = Date.parse(org_post.created_time);
+                Facebook.api('/' + post.id + '/likes', function(response) {
+                  angular.forEach(response.data, function(liking_user) {
+                    post.liking_users.push(liking_user)
+                    post.likes = response.data.length;
+                  })
+                });
+                $scope.organization.posts.push(post);
+              });
+
+              $scope.organization.posts = $filter('orderBy')($scope.organization.posts, 'created_time');
+              angular.forEach($scope.organization.posts, addPostToGraph);
+
+            });
+            Facebook.api('/' + successResponse.fb_id + '/tagged', function(response) {
+            });
 
             $scope.organization = response;
             $scope.organization.posts = [];
@@ -71,30 +97,11 @@ angular.module('voluntrApp')
 
               $scope.organization.picture = response.data[0];
 
-              Facebook.api('/' + successResponse.fb_id + '/posts', function(response) {
-                angular.forEach(response.data, function(org_post) {
-                  var new_post = {};
-                  new_post = org_post;
-                  new_post.liking_users = [];
-                  Facebook.api('/' + new_post.id + '/likes', function(response) {
-                    // console.log(response)
-                    angular.forEach(response.data, function(liking_user) {
-                      new_post.liking_users.push(liking_user)
-                      new_post.likes = response.data.length;
-                    })
 
-                  });
-                  $scope.organization.posts.push(new_post);
-                });
 
-                var post_likes = $filter('orderBy')($scope.organization.posts, 'created_time');
-                angular.forEach(post_likes, addPostToGraph);
-
-              });
-              Facebook.api('/' + successResponse.fb_id + '/tagged', function(response) {
-              });
             });
           });
+
           // Fetch the organizations events
           Facebook.api('/' + successResponse.fb_id + '/events', function (response) {
             angular.forEach(response.data, addEvents)
@@ -102,14 +109,41 @@ angular.module('voluntrApp')
         })
       }
 
-
-
-
       // If not connected then take them back to the first page
       else if (response.status !== 'connected') {
         $state.go('landing_page.initial_page')
       }
     });
+
+    $scope.generated_stories = ""
+    // Function that manages the post modal in the side bar
+    $scope.open = function (size) {
+      var addDataModal = $modal.open(
+        {
+          templateUrl: 'views/add_additional_data.html',
+          controller: 'AddDataCtrl',
+          // windowClass: 'create-profile-modal-window',
+          size: size,
+          resolve:{
+
+            // Example using function with simple return value.
+            // Since it's not a promise, it resolves immediately.
+            organization:  function(){
+              return $scope.organization;
+            }
+
+          }});
+
+      addDataModal.result.then(function () {
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+
+          console.log($scope.generated_stories);
+        });
+    };
+
+    $scope.user_stories = false;
 
     $scope.addEvent = function(event) {
       var attr = {};
@@ -129,20 +163,27 @@ angular.module('voluntrApp')
     };
 
 
-    $scope.lineGraphConfig = {
+    $rootScope.lineGraphConfig = {
       options: {
         chart: {
-          type: 'line'
+          type: 'spline',
+          zoomType: "xy"
         }
       },
       xAxis: {
         type: 'datetime'
       },
+      yAxis: {
+        allowDecimals: false,
+        floor: 0,
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
       series: [{
         name: 'Post Likes',
-        data: []
-      }, {
-        name: 'Recorded Hours',
         data: []
       }],
       title: {
