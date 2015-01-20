@@ -14,26 +14,26 @@ angular.module('voluntrApp')
                                                 User) {
 
 
-        User.get({user_Id: localStorage.user_id}, function (successResponse) {
-            console.log(successResponse)
-            //This is where the user is actually assigned, all of its related
-            // JSON is accessed in the view through $scope.user (e.g. - $scope.user.posts)
-            $rootScope.user = successResponse;
-
-        }, function(errorResponse) {
-
-        });
+        //User.get({user_Id: localStorage.user_id}, function (successResponse) {
+        //
+        //    //This is where the user is actually assigned, all of its related
+        //    // JSON is accessed in the view through $scope.user (e.g. - $scope.user.posts)
+        //    $rootScope.user = successResponse;
+        //
+        //}, function(errorResponse) {
+        //
+        //});
 
 
         $scope.$on('mapInitialized', function(event, map) {
-            map.setCenter(userLocation)
+
+          map.setCenter(userLocation)
 
         });
 
 
         $scope.getDistance = function(event) {
-            console.log("Get Distance")
-            if (!event.distance) {
+            if (!event.distance && event.latitude && event.longitude) {
             $timeout(
                 function() {
                     var origin = userLocation;
@@ -48,9 +48,10 @@ angular.module('voluntrApp')
                         }, callback);
                     function callback(response, status) {
                         if (status == google.maps.DistanceMatrixStatus.OK) {
+                            console.log(response.rows[0].elements[0])
                             event.distance = response.rows[0].elements[0].distance.text;
                             $scope.event = event;
-                            console.log($scope.event)
+
                         }
                     }
                 }, 500);
@@ -60,24 +61,26 @@ angular.module('voluntrApp')
 
         $scope.events = Event.all()
 
+        console.log($scope.events)
 
-        // Function that manages the post modal in the side bar
-        $scope.open = function (size) {
 
-            var profileModal = $modal.open(
-                {
-                    templateUrl: 'views/profile_create.html',
-                    controller: 'ProfileCreateCtrl',
-                    windowClass: 'create-profile-modal-window',
-                    size: size
-                })
-
-            profileModal.result.then(function () {
-                },
-                function () {
-                    console.log('Modal dismissed at: ' + new Date());
-                });
-        };
+        //// Function that manages the post modal in the side bar
+        //$scope.open = function (size) {
+        //
+        //    var profileModal = $modal.open(
+        //        {
+        //            templateUrl: 'views/profile_create.html',
+        //            controller: 'ProfileCreateCtrl',
+        //            windowClass: 'create-profile-modal-window',
+        //            size: size
+        //        })
+        //
+        //    profileModal.result.then(function () {
+        //        },
+        //        function () {
+        //
+        //        });
+        //};
 
     });
 

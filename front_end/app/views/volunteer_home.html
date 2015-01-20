@@ -5,7 +5,7 @@
 </style>-->
 <div class="col-xs-6">
     <h1 class="events">E<img src="images/v_small.png" alt="v" class="v" />ents</h1>
-    <a ng-if="user.profile"
+    <!--<a ng-if="user.profile"
        ui-sref='profile({profile_Id:user.profile.id})'>
         <div class="profile">
             <img src="images/icon_profile.png" /><span>Profile</span>
@@ -16,7 +16,7 @@
         <div class="profile">
             <img src="images/icon_profile.png" />
             <span>Profile</span>
-        </div></a>
+        </div></a>-->
     <div class="clear"></div>
 
     <!-- <ul class="list-group" ng-repeat="event in events">
@@ -40,7 +40,7 @@
             <div class="date-cir-wrapper">
                 <div class="month">{{event.start_time | date : 'MMM'}}</div>
                 <div class="date-circle">
-                    <div class="date">{{event.start_time | date : 'mm'}}</div>
+                    <div class="date">{{event.start_time | date : 'dd'}}</div>
                 </div>
                 <div class="lines">
                     <div class="down-line"></div>
@@ -52,14 +52,15 @@
             {{getDistance(event)}}
             </div> -->
             <div class="event-info">
+                <p>{{event.name}}</p>
                 <img src="images/firefighters.jpg" class="event-image" />
                 <!-- <p>Clean up the Streets!</p>
                 <p>Start Date: Dec 4th 1pm</p>
                 <p>End Date: Dec 4th 5pm</p>
                 <p>3 miles</p> -->
                 <p><span class="distance">Distance from you: {{event.distance}} miles</span>
-                    <span class="start-time">starts at: {{event.start_time | date : 'h:mm a'}}
-                    </span> <a href="#" class="join">Join</a></p>
+                    <span class="start-time">starts at: {{event.start_time | date : 'h:mm a'}}</span>
+                    <!--</span> <a href="#" class="join">Join</a></p>-->
             </div>
             <div class="clear"></div>
         </li>
@@ -81,11 +82,6 @@
                     title="{{event.name}}"
                     animation="Animation.DROP"
                     icon="../images/spaceport.png"></marker>
-            <info-window position="{{event.latitude}},{{event.longitude}}">
-                <div ng-non-bindable>
-                    <div id="siteNotice">Hello World!</div>
-                </div>
-            </info-window>
         </div>
     </map>
 </div>

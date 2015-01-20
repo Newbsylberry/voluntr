@@ -4,6 +4,7 @@
 }
 
 .org-col-1 {
+  padding: 0px;
 	color: #fff;
 	background: #00a2cc;
 	height: 100vh;
@@ -39,15 +40,26 @@
 		width: 185px;
 	}
 }
+#organization-add-event-button {
+  background-color: inherit;
+  color: white;
+  border-width: 2px;
+  border-color: white;
+}
+
+#organization-nav-links {
+  position: relative;
+  top: 25%;
+  left: 20%;
+}
+
 .org-event-list {
 	list-style: none;
-	margin-top: 28px;
-
 	li {
 		text-transform: uppercase;
 		list-style-position: inside;
 		margin-bottom: 12px;
-		a {
+		/*a {
 			color: #fff;
 		}
 		a:hover {
@@ -61,6 +73,6 @@
 		}
 		&.add {
 			background: url('../images/icon_add.jpg') 0 5px no-repeat;
-		}
+		}*/
 	}
 }

@@ -14,6 +14,25 @@ angular.module('voluntrApp')
                                                 $rootScope) {
 
 
+    $scope.addOrganizationEvent = function (size) {
+      var organizationEventModal = $modal.open(
+        {
+          templateUrl: 'views/organization_add_event.html',
+          controller: 'AddEventCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+        })
+
+      organizationEventModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
+
+
     var addEvents = function(event) {
       if (!$scope.events) {
         var events = [];
@@ -65,7 +84,7 @@ angular.module('voluntrApp')
 
         // Get the organization from the volu database
         Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
-
+           console.log(successResponse)
           // find the organizations information on facebook
           Facebook.api('/' + successResponse.fb_id, function(response) {
             Facebook.api('/' + successResponse.fb_id + '/posts', function(response) {
@@ -91,6 +110,7 @@ angular.module('voluntrApp')
             });
 
             $scope.organization = response;
+            console.log($scope.organization)
             $scope.organization.posts = [];
 
             Facebook.api('/' + successResponse.fb_id + '/photos', function(response) {
@@ -187,7 +207,7 @@ angular.module('voluntrApp')
         data: []
       }],
       title: {
-        text: "Your Organization's Information"
+        text: "Your Organization's Posts"
       },
       loading: false,
       size: {

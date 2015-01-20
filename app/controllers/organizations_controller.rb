@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
 
-    render json: @organization
+    render json: @organization, serializer: OrganizationSerializer
   end
 
   # POST /organizations

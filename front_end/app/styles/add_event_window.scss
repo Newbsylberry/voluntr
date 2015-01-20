@@ -1,0 +1,21 @@
+.add-event-modal-window .modal-content {
+  height: 600px;
+}
+
+#add-event-forms {
+  .md-header {
+    background-color: #00a2cc;
+  }
+  md-tab-label {
+    color: white;
+  }
+  md-input-container {
+    padding-bottom: 0px;
+  }
+  .md-button.md-default-theme.md-primary.md-raised {
+    margin-top: 15px;
+    width: 150px;
+    float: right;
+    margin-right: 15px;
+  }
+}

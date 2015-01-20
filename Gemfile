@@ -13,7 +13,7 @@ gem 'jwt'
 
 
 # Use active model serializers to serve JSON
-gem "active_model_serializers"
+gem "active_model_serializers", '0.8.1'
 
 #Deployment Gems
 gem 'rails_12factor', group: :production
