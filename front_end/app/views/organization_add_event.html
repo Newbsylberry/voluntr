@@ -21,7 +21,7 @@
          ng-switch-when="0"
          md-swipe-left="next()"
          md-swipe-right="previous()">
-      <form ng-submit="addEvent(event)">
+      <form ng-submit="addEvent(event, 'manual_event')">
 
 
         <!-- Event Name -->
@@ -83,7 +83,13 @@
          ng-switch-when="1"
          md-swipe-left="next()"
          md-swipe-right="previous()">
-      Add Event On Facebook
+      <ul ng-repeat="event in facebook_events" id="facebook-event-list">
+        <li ng-if="!event.exists">
+          <p id="facebook-event-name">{{event.name}}</p>
+          <p>{{event.description}}</p>
+          <a href="" ng-click="addEvent(event, 'facebook_event')">Add Event To Volu</a>
+        </li>
+      </ul>
     </div>
     <div role="tabpanel"
          id="tab3-content"

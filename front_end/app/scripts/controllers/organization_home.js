@@ -31,33 +31,6 @@ angular.module('voluntrApp')
         });
     };
 
-
-
-    var addEvents = function(event) {
-      if (!$scope.events) {
-        var events = [];
-        $scope.events = events;
-      };
-      Facebook.api('/' + event.id, function(response) {
-        event = response;
-        $http({method: 'GET',
-          url: '/api/v1/events/existence_check/' + event.id}).
-          success(function(data, status, headers, config) {
-            if (data.fb_id) {
-              event.exists = true;
-              event.v_id = data.id;
-            } else if (!data.fb_id) {
-              event.exists = false
-            }
-            $scope.events.push(event);
-
-          }).
-          error(function(data, status, headers, config) {
-          })
-
-      })
-    };
-
     var addPostToGraph = function (post) {
       if (post.likes) {
         $scope.lineGraphConfig.series[0].data.push
@@ -120,11 +93,6 @@ angular.module('voluntrApp')
 
             });
           });
-
-          // Fetch the organizations events
-          Facebook.api('/' + successResponse.fb_id + '/events', function (response) {
-            angular.forEach(response.data, addEvents)
-          })
         })
       }
 

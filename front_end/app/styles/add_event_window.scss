@@ -19,3 +19,29 @@
     margin-right: 15px;
   }
 }
+
+#facebook-event-list {
+  margin-top: 16px;
+  #facebook-event-name {
+    display: inline-block;
+    float: left;
+    padding: 0px;
+    font-size: large;
+    color: black;
+  }
+  li {
+    list-style-type: none;
+    p {
+      display: inline-block;
+      padding-left: 50px;
+      font-size: small;
+      color: #808080;
+      padding-top: 6px;
+    }
+    a {
+      float: right;
+      margin-right: 16px;
+      padding-top: 6px;
+    }
+  }
+}

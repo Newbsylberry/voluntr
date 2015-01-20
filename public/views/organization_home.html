@@ -1,30 +1,30 @@
 <div class="org-col-1 col-xs-3"> <!-- Top panel with organization name --> <!-- <div class="panel panel-default">
-        <div class="panel-body">
-            <h1>{{organization.name}}</h1>
-            <a ng-if="organization.link"
-               href='{{organization.link}}'>
-                Your Facebook Page</a><br>
+      <div class="panel-body">
+          <h1>{{organization.name}}</h1>
+          <a ng-if="organization.link"
+             href='{{organization.link}}'>
+              Your Facebook Page</a><br>
 
-        </div>
-    </div> --> <div class="org-logo-container"> <img ng-if="organization.picture.picture" ng-src="{{organization.picture.picture}}" class="img-circle org-logo"> <!-- Image prompting user to add facebook photo to their group in order
-           to gain more followers. --> <img ng-if="!organization.picture.picture" ng-src="/images/no-image.png" class="img org-logo"> </div> <p class="org-name">{{organization.name}}</p> <div class="org-info"> <p class="org-about">{{organization.about}}</p> </div> <a ui-sref="landing_page.initial_page" style="color: white">Back to Landing Page</a> <ul class="org-event-list" ng-repeat="event in events"> <li ng-if="event.exists" class="icon checked">{{event.name}}</li> <li ng-if="!event.exists" class="icon add" ng-click="addEvent(event)">{{event.name}}</li> </ul> <!-- <div class="panel panel-default"> --> <!-- Panel Body containing events side bar --> <!-- <div class="panel-body"> --> <!-- Events that have been added to the DB--> <!-- <h5>Events on VOLU:</h5>
-            <div ng-repeat="event in events" style="margin-top: 2.5%;">
-                <div ng-if="event.exists">
-                    <p >
-                        {{event.name}}
-                    </p>
-                </div>
-            </div> --> <!-- Events that have yet to be added to DB --> <!-- <h5 style="margin-top: 60%;">Add these events from Facebook:</h5>
-            <div ng-repeat="event in events">
-                <div ng-if="!event.exists">
-                    <a      class="small"
-                            href=''
-                            ng-click="addEvent(event)">
-                        Add {{event.name}}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>  --> </div> <!-- Column with Google Map --> <div class="col-xs-8"> <div class="row"> <div class="col-xs-6"> <!--<highchart config="pieChartConfig"></highchart>--> </div> <div class="col-xs-6"> <!--<highchart config="barChartConfig"></highchart>--> </div> </div> <highchart config="lineGraphConfig"></highchart> <a href="" ng-click="open('lg')">Add Additional Data</a> <!--    <div ng-repeat="post in organization.posts">
-      {{post.likes}}
-    </div>--> </div>
+      </div>
+  </div> --> <div class="org-logo-container"> <img ng-if="organization.picture.picture" ng-src="{{organization.picture.picture}}" class="img-circle org-logo"> <!-- Image prompting user to add facebook photo to their group in order
+         to gain more followers. --> <img ng-if="!organization.picture.picture" ng-src="/images/no-image.png" class="img org-logo"> </div> <p class="org-name">{{organization.name}}</p> <div class="org-info"> <p class="org-about">{{organization.about}}</p> <button href="" class="btn btn-lg btn-default" ng-click="addOrganizationEvent('lg')" id="organization-add-event-button">Add Event To Volu</button> <h3 ng-if="organization.events">Your Events on Volu:</h3> <ul ng-repeat="event in organization.events" class="org-event-list"> <li>{{event.name}}</li> </ul> </div> <div id="organization-nav-links"> <a ui-sref="landing_page.organization_landing" style="color: white">Back to Organization Select</a><br> <a ui-sref="landing_page.initial_page" style="color: white">Back to Initial Landing Page</a> </div> <!-- <div class="panel panel-default"> --> <!-- Panel Body containing events side bar --> <!-- <div class="panel-body"> --> <!-- Events that have been added to the DB--> <!-- <h5>Events on VOLU:</h5>
+  <div ng-repeat="event in events" style="margin-top: 2.5%;">
+      <div ng-if="event.exists">
+          <p >
+              {{event.name}}
+          </p>
+      </div>
+  </div> --> <!-- Events that have yet to be added to DB --> <!-- <h5 style="margin-top: 60%;">Add these events from Facebook:</h5>
+  <div ng-repeat="event in events">
+      <div ng-if="!event.exists">
+          <a      class="small"
+                  href=''
+                  ng-click="addEvent(event)">
+              Add {{event.name}}
+          </a>
+      </div>
+  </div>
+</div>
+</div>  --> </div> <!-- Column with Google Map --> <div class="col-xs-8"> <div class="row"> <div class="col-xs-6"> <highchart config="pieChartConfig"></highchart> </div> <div class="col-xs-6"> <highchart config="barChartConfig"></highchart> </div> </div> <highchart config="lineGraphConfig"></highchart> <a href="" ng-click="open('lg')">Add Additional Data</a> <!--    <div ng-repeat="post in organization.posts">
+        {{post.likes}}
+      </div>--> </div>

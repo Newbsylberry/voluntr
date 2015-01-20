@@ -2,7 +2,18 @@
     #volunteer-home-top-left-panel a {
         display: block;
     }
-</style>--> <div class="col-xs-6"> <h1 class="events">E<img src="images/v_small.png" alt="v" class="v">ents</h1> <a ng-if="user.profile" ui-sref="profile({profile_Id:user.profile.id})"> <div class="profile"> <img src="images/icon_profile.png"><span>Profile</span> </div></a> <a ng-if="!user.profile" ng-click="open('lg')"> <div class="profile"> <img src="images/icon_profile.png"> <span>Profile</span> </div></a> <div class="clear"></div> <!-- <ul class="list-group" ng-repeat="event in events">
+</style>--> <div class="col-xs-6"> <h1 class="events">E<img src="images/v_small.png" alt="v" class="v">ents</h1> <!--<a ng-if="user.profile"
+       ui-sref='profile({profile_Id:user.profile.id})'>
+        <div class="profile">
+            <img src="images/icon_profile.png" /><span>Profile</span>
+        </div></a>
+
+    <a ng-if="!user.profile"
+       ng-click="open('lg')">
+        <div class="profile">
+            <img src="images/icon_profile.png" />
+            <span>Profile</span>
+        </div></a>--> <div class="clear"></div> <!-- <ul class="list-group" ng-repeat="event in events">
         <li class="list-group-item"
             >
             <div ng-if="!event.distance" data-ng-disabled="event.distance">
@@ -16,9 +27,9 @@
                          {{event.end_time | date : 'h:mm'}}</p>
             <p>Distance: {{event.distance}} </p>
         </li>
-    </ul> --> <ul class="list-group" ng-repeat="event in events"> <li class="list-group-item"> {{getDistance(event)}} <div class="date-cir-wrapper"> <div class="month">{{event.start_time | date : 'MMM'}}</div> <div class="date-circle"> <div class="date">{{event.start_time | date : 'mm'}}</div> </div> <div class="lines"> <div class="down-line"></div> <div class="horz-line"></div> </div> </div> <!-- <div ng-if="!event.distance" data-ng-disabled="event.distance">
+    </ul> --> <ul class="list-group" ng-repeat="event in events"> <li class="list-group-item"> {{getDistance(event)}} <div class="date-cir-wrapper"> <div class="month">{{event.start_time | date : 'MMM'}}</div> <div class="date-circle"> <div class="date">{{event.start_time | date : 'dd'}}</div> </div> <div class="lines"> <div class="down-line"></div> <div class="horz-line"></div> </div> </div> <!-- <div ng-if="!event.distance" data-ng-disabled="event.distance">
             {{getDistance(event)}}
-            </div> --> <div class="event-info"> <img src="images/firefighters.jpg" class="event-image"> <!-- <p>Clean up the Streets!</p>
+            </div> --> <div class="event-info"> <p>{{event.name}}</p> <img src="images/firefighters.jpg" class="event-image"> <!-- <p>Clean up the Streets!</p>
                 <p>Start Date: Dec 4th 1pm</p>
                 <p>End Date: Dec 4th 5pm</p>
-                <p>3 miles</p> --> <p><span class="distance">Distance from you: {{event.distance}} miles</span> <span class="start-time">starts at: {{event.start_time | date : 'h:mm a'}} </span> <a href="#" class="join">Join</a></p> </div> <div class="clear"></div> </li> </ul> </div> <div class="col-xs-6"> <map map-type-id="SATELLITE" style="height: 575px" zoom="12"> <marker position="{{userLocation}}" animation="Animation.DROP"></marker> <div ng-repeat="event in events"> <marker position="{{event.latitude}},{{event.longitude}}" title="{{event.name}}" animation="Animation.DROP" icon="../images/spaceport.png"></marker> <info-window position="{{event.latitude}},{{event.longitude}}"> <div ng-non-bindable> <div id="siteNotice">Hello World!</div> </div> </info-window> </div> </map> </div>
+                <p>3 miles</p> --> <p><span class="distance">Distance from you: {{event.distance}} miles</span> <span class="start-time">starts at: {{event.start_time | date : 'h:mm a'}}</span> <!--</span> <a href="#" class="join">Join</a></p>--> </p></div> <div class="clear"></div> </li> </ul> </div> <div class="col-xs-6"> <map map-type-id="SATELLITE" style="height: 575px" zoom="12"> <marker position="{{userLocation}}" animation="Animation.DROP"></marker> <div ng-repeat="event in events"> <marker position="{{event.latitude}},{{event.longitude}}" title="{{event.name}}" animation="Animation.DROP" icon="../images/spaceport.png"></marker> </div> </map> </div>
