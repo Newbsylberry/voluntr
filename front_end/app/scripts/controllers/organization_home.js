@@ -84,7 +84,6 @@ angular.module('voluntrApp')
 
         // Get the organization from the volu database
         Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
-           console.log(successResponse)
           // find the organizations information on facebook
           Facebook.api('/' + successResponse.fb_id, function(response) {
             Facebook.api('/' + successResponse.fb_id + '/posts', function(response) {
@@ -110,9 +109,9 @@ angular.module('voluntrApp')
             });
 
             $scope.organization = response;
-            console.log($scope.organization)
             $scope.organization.posts = [];
-
+            $scope.organization.events = successResponse.events;
+            console.log($scope.organization)
             Facebook.api('/' + successResponse.fb_id + '/photos', function(response) {
 
               $scope.organization.picture = response.data[0];

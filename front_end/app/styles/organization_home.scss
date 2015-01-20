@@ -48,8 +48,8 @@
 }
 
 #organization-nav-links {
-  position: relative;
-  top: 25%;
+  position: absolute;
+  bottom: 6%;
   left: 20%;
 }
 
@@ -59,7 +59,9 @@
 		text-transform: uppercase;
 		list-style-position: inside;
 		margin-bottom: 12px;
-		/*a {
+    color: #FFFFFF;
+    list-style-type: none;
+		a {
 			color: #fff;
 		}
 		a:hover {
@@ -73,6 +75,6 @@
 		}
 		&.add {
 			background: url('../images/icon_add.jpg') 0 5px no-repeat;
-		}*/
+		}
 	}
 }

@@ -8,7 +8,7 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('AddEventCtrl', function ($scope, $timeout, Event, $stateParams) {
+  .controller('AddEventCtrl', function ($scope, $timeout, Event, $stateParams, $modalStack, $rootScope) {
 
     $scope.addEvent = function(event) {
       var attr = {};
@@ -48,7 +48,8 @@ angular.module('voluntrApp')
         $timeout(
           function() {
             var newEvent = Event.create(attr);
-            console.log(newEvent);
+            // $rootScope.organization.events.push(newEvent)
+            $modalStack. dismissAll();
           }, 3000);
       }, 3000)
     };

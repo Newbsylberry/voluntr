@@ -30,10 +30,11 @@
     <button href="" class="btn btn-lg btn-default"
             ng-click="addOrganizationEvent('lg')"
             id="organization-add-event-button">Add Event To Volu</button>
+    <h3 ng-if="organization.events">Your Events on Volu:</h3>
+    <ul ng-repeat="event in organization.events" class="org-event-list">
+      <li>{{event.name}}</li>
+    </ul>
   </div>
-  <ul ng-repeat="event in organization.events">
-    <li>{{event.name}}</li>
-  </ul>
   <div id="organization-nav-links">
     <a ui-sref='landing_page.organization_landing' style="color: white;">Back to Organization Select</a><br>
     <a ui-sref='landing_page.initial_page' style="color: white;">Back to Initial Landing Page</a>
