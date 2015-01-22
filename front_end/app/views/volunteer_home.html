@@ -35,8 +35,8 @@
         </li>
     </ul> -->
     <ul class="list-group" ng-repeat="event in events">
-        <li class="list-group-item" ng->
-            {{getDistance(event)}}
+        <li class="list-group-item">
+            <p ng-hide="!user_location">{{getDistance(event)}}</p>
             <div class="date-cir-wrapper">
                 <div class="month">{{event.start_time | date : 'MMM'}}</div>
                 <div class="date-circle">

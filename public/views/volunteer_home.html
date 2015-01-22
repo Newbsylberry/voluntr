@@ -27,7 +27,7 @@
                          {{event.end_time | date : 'h:mm'}}</p>
             <p>Distance: {{event.distance}} </p>
         </li>
-    </ul> --> <ul class="list-group" ng-repeat="event in events"> <li class="list-group-item"> {{getDistance(event)}} <div class="date-cir-wrapper"> <div class="month">{{event.start_time | date : 'MMM'}}</div> <div class="date-circle"> <div class="date">{{event.start_time | date : 'dd'}}</div> </div> <div class="lines"> <div class="down-line"></div> <div class="horz-line"></div> </div> </div> <!-- <div ng-if="!event.distance" data-ng-disabled="event.distance">
+    </ul> --> <ul class="list-group" ng-repeat="event in events"> <li class="list-group-item"> <p ng-hide="!user_location">{{getDistance(event)}}</p> <div class="date-cir-wrapper"> <div class="month">{{event.start_time | date : 'MMM'}}</div> <div class="date-circle"> <div class="date">{{event.start_time | date : 'dd'}}</div> </div> <div class="lines"> <div class="down-line"></div> <div class="horz-line"></div> </div> </div> <!-- <div ng-if="!event.distance" data-ng-disabled="event.distance">
             {{getDistance(event)}}
             </div> --> <div class="event-info"> <p>{{event.name}}</p> <img src="images/firefighters.jpg" class="event-image"> <!-- <p>Clean up the Streets!</p>
                 <p>Start Date: Dec 4th 1pm</p>
