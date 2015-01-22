@@ -31,12 +31,12 @@ angular.module('voluntrApp')
 
 
 
+
     $scope.getDistance = function(event) {
       geolocation.getLocation().then(function(data) {
          var userLocation = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
 
         if (!event.distance && event.latitude && event.longitude) {
-          console.log('GEETTTING LOCATION!')
           $timeout(
             function() {
               var origin = userLocation;
@@ -54,13 +54,19 @@ angular.module('voluntrApp')
                   console.log(response.rows[0].elements[0])
                   event.distance = response.rows[0].elements[0].distance.text;
                   $scope.event = event;
-
+                } else if (status !== google.maps.DistanceMatrixStatus.OK) {
+                  console.log(status)
                 }
               }
-            }, 500);
+            }, 700);
         };
       });
     };
+
+    $scope.events = Event.all()
+    console.log($scope.events)
+
+
 
 
 
@@ -72,9 +78,7 @@ angular.module('voluntrApp')
 
 
 
-    $scope.events = Event.all()
 
-    console.log($scope.events)
 
 
     //// Function that manages the post modal in the side bar

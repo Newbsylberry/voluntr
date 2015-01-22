@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/scripts.fc84b531.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/app.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/oldieshim.a466b7b1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/scripts.4575530b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor.a6f9078a.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/main.a042f81a.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/vendor.2be90895.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/404.html" afterPath="$PROJECT_DIR$/public/404.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/_landing_page_header.html" afterPath="$PROJECT_DIR$/public/views/_landing_page_header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/about.html" afterPath="$PROJECT_DIR$/public/views/about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/add_additional_data.html" afterPath="$PROJECT_DIR$/public/views/add_additional_data.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" afterPath="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/landing_page.html" afterPath="$PROJECT_DIR$/public/views/landing_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/landing_page_initial.html" afterPath="$PROJECT_DIR$/public/views/landing_page_initial.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/landing_page_organizations.html" afterPath="$PROJECT_DIR$/public/views/landing_page_organizations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/landing_page_volunteers.html" afterPath="$PROJECT_DIR$/public/views/landing_page_volunteers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/main.html" afterPath="$PROJECT_DIR$/public/views/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/organization_add_event.html" afterPath="$PROJECT_DIR$/public/views/organization_add_event.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/organization_home.html" afterPath="$PROJECT_DIR$/public/views/organization_home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/profile.html" afterPath="$PROJECT_DIR$/public/views/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/profile_create.html" afterPath="$PROJECT_DIR$/public/views/profile_create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/record_hours.html" afterPath="$PROJECT_DIR$/public/views/record_hours.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/tos_privacy.html" afterPath="$PROJECT_DIR$/public/views/tos_privacy.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/volunteer_home.html" afterPath="$PROJECT_DIR$/public/views/volunteer_home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -60,21 +77,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="volunteerhome.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="volunteerhome.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1575">
-              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.7855974" vertical-offset="420" max-vertical-offset="1635">
+              <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="volunteer_home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="volunteer_home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.75" vertical-offset="0" max-vertical-offset="1410">
-              <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+            <state vertical-scroll-proportion="-23.75" vertical-offset="345" max-vertical-offset="1410">
+              <caret line="61" column="77" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -132,8 +149,8 @@
         <option value="$PROJECT_DIR$/front_end/app/styles/add_event_window.scss" />
         <option value="$PROJECT_DIR$/front_end/app/index.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
         <option value="$PROJECT_DIR$/front_end/app/views/volunteer_home.html" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js" />
       </list>
     </option>
   </component>
@@ -738,6 +755,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1067251" vertical-offset="938" max-vertical-offset="1995">
           <caret line="113" column="7" selection-start-line="113" selection-start-column="7" selection-end-line="113" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -817,14 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="726" max-vertical-offset="1800">
-          <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/organization_home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2355769" vertical-offset="480" max-vertical-offset="2970">
@@ -846,18 +856,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1575">
-          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="726" max-vertical-offset="1800">
+          <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/views/volunteer_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.75" vertical-offset="0" max-vertical-offset="1410">
-          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        <state vertical-scroll-proportion="-23.75" vertical-offset="345" max-vertical-offset="1410">
+          <caret line="61" column="77" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/volunteerhome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7855974" vertical-offset="420" max-vertical-offset="1635">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
           <folding />
         </state>
       </provider>
