@@ -77,14 +77,14 @@ angular
       .state('volunteer_home', { //default page loaded for landing state
         url: '/volunteer_home',
         templateUrl: 'views/volunteer_home.html', // url for partial
-        resolve:{
-          userLocation: function(geolocation) {
-            return geolocation.getLocation().then(function(data){
-              var origin = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
-              return origin;
-            })
-          }
-        },
+        //resolve:{
+        //  userLocation: function(geolocation) {
+        //    return geolocation.getLocation().then(function(data){
+        //      var origin = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
+        //      return origin;
+        //    })
+        //  }
+        //},
         controller: 'VolunteerHomeCtrl'
       })
 
