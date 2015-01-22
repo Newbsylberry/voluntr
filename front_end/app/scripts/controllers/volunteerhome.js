@@ -28,15 +28,22 @@ angular.module('voluntrApp')
 
 
     //
+    $scope.loaded = false;
+    console.log($scope.loaded);
+
+    $timeout(
+      function() {
+        $scope.loaded = true;
+      }, 3000);
 
 
-
+    geolocation.getLocation().then(function(data){
+      $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
+    });
 
     $scope.getDistance = function(event) {
-      geolocation.getLocation().then(function(data) {
-         var userLocation = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
-
-        if (!event.distance && event.latitude && event.longitude) {
+      var userLocation = new google.maps.LatLng($scope.coords.lat, $scope.coords.long);
+      if (!event.distance && event.latitude && event.longitude) {
           $timeout(
             function() {
               var origin = userLocation;
@@ -60,7 +67,7 @@ angular.module('voluntrApp')
               }
             }, 700);
         };
-      });
+
     };
 
     $scope.events = Event.all()
