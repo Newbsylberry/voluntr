@@ -11,6 +11,8 @@ gem 'pg'
 gem 'devise'
 gem 'jwt'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 # Use active model serializers to serve JSON
 gem "active_model_serializers", '0.8.1'
