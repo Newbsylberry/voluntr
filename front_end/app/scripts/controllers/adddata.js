@@ -16,15 +16,16 @@ angular.module('voluntrApp')
 
 
     $scope.organization = organization;
+
     $scope.toggleImpressionDataOnLineGraph = function(posts, insight_type, name) {
       var newSeries = {
         name: name,
         data: []
       };
       var facebookRequests = [];
- //     for (var i = posts.length - 1; i >= 0; i--) {
- //       var post = posts[i];
-       angular.forEach(posts, function (post) {
+      //     for (var i = posts.length - 1; i >= 0; i--) {
+      //       var post = posts[i];
+      angular.forEach(posts, function (post) {
         var newDataPoint = [];
         if (insight_type !== 'shared_post') {
           var facebookRequest = {
@@ -56,24 +57,24 @@ angular.module('voluntrApp')
         }
       });
 
-        //  Facebook.api('/' + post.id + '/insights/' + insight_type + '/lifetime', function(response) {
-        //  }).then(function(result){
-        //    console.log('data returned' + posts.indexOf(post))
-        //    console.log($filter('date')(post.created_time, ' MMM dd '));
-        //    newSeries.data.push
-        //    ([post.created_time, result.data[0].values[0].value])
-        //    $scope.lineGraphConfig.series.push(newSeries)
-        //  });
-        //}
-        //if (insight_type === 'shared_post') {
-        //  Facebook.api('/' + post.id + '/sharedposts', function(response) {
-        //    newSeries.data.push
-        //    ([post.created_time, response.data.length])
-        //  })
-        //}
-        $scope.lineGraphConfig.series.push(newSeries)
-        console.log(newSeries.data)
-        console.log($scope.lineGraphConfig.series);
+      //  Facebook.api('/' + post.id + '/insights/' + insight_type + '/lifetime', function(response) {
+      //  }).then(function(result){
+      //    console.log('data returned' + posts.indexOf(post))
+      //    console.log($filter('date')(post.created_time, ' MMM dd '));
+      //    newSeries.data.push
+      //    ([post.created_time, result.data[0].values[0].value])
+      //    $scope.lineGraphConfig.series.push(newSeries)
+      //  });
+      //}
+      //if (insight_type === 'shared_post') {
+      //  Facebook.api('/' + post.id + '/sharedposts', function(response) {
+      //    newSeries.data.push
+      //    ([post.created_time, response.data.length])
+      //  })
+      //}
+      $scope.lineGraphConfig.series.push(newSeries)
+      console.log(newSeries.data)
+      console.log($scope.lineGraphConfig.series);
 
     };
 

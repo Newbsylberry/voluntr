@@ -46,7 +46,6 @@ angular.module('voluntrApp')
 
 
 
-
     // Get the status of the users facebook account,
     // if it's connected, than retrieve the organization
     // from the database and use it's fb_id to get
@@ -84,11 +83,11 @@ angular.module('voluntrApp')
             $scope.organization = response;
             $scope.organization.posts = [];
             $scope.organization.events = successResponse.events;
-            console.log($scope.organization)
             Facebook.api('/' + successResponse.fb_id + '/photos', function(response) {
 
               $scope.organization.picture = response.data[0];
 
+              console.log($scope.organization)
 
 
             });
@@ -149,6 +148,34 @@ angular.module('voluntrApp')
       console.log($scope.event);
     };
 
+    $scope.addEventToGraph = function(event, index) {
+      console.log(index)
+      if (!event.graph_active) {
+        console.log(event)
+        var plotLine = {};
+        plotLine.color = 'red';
+        plotLine.dashStyle = 'longdashdot';
+        plotLine.value = Date.parse(event.start_time);
+        plotLine.width = 3;
+        plotLine.label = {};
+        plotLine.label.text = event.name;
+        $rootScope.lineGraphConfig.xAxis.plotLines.push(plotLine);
+        event.plot_line_index = $rootScope.lineGraphConfig.xAxis.plotLines.indexOf(plotLine);
+        var newDataPoint = [];
+        newDataPoint[0] = Date.parse(event.start_time) + 604800000;
+        newDataPoint[1] = null;
+        $rootScope.lineGraphConfig.series[0].data.push(newDataPoint);
+        event.event_data_point_index = $rootScope.lineGraphConfig.series[0].data.indexOf(newDataPoint);
+        $scope.organization.posts[index] = event;
+        console.log(event.event_data_point);
+      } else if (event.graph_active) {
+        if (index > - 1) {
+          $rootScope.lineGraphConfig.xAxis.plotLines.splice(event.plotLineIndex, 1)
+          $rootScope.lineGraphConfig.series[0].data.splice(event.event_data_point_index, 1)
+        }
+      };
+    };
+
 
     $rootScope.lineGraphConfig = {
       options: {
@@ -158,16 +185,17 @@ angular.module('voluntrApp')
         }
       },
       xAxis: {
-        type: 'datetime'
+        type: 'datetime',
+        plotLines: []
       },
       yAxis: {
         allowDecimals: false,
-        floor: 0,
-        plotLines: [{
-          value: 0,
-          width: 1,
-          color: '#808080'
-        }]
+        floor: 0
+        //plotLines: [{
+        //  value: 0,
+        //  width: 1,
+        //  color: '#808080'
+        //}]
       },
       series: [{
         name: 'Post Likes',

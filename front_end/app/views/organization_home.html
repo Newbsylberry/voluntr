@@ -30,9 +30,15 @@
     <button href="" class="btn btn-lg btn-default"
             ng-click="addOrganizationEvent('lg')"
             id="organization-add-event-button">Add Event To Volu</button>
-    <h3 ng-if="organization.events">Your Events on Volu:</h3>
+    <h6 ng-if="organization.events">Your Events on Volu (check box to display on post timeline):</h6>
     <ul ng-repeat="event in organization.events" class="org-event-list">
-      <li>{{event.name}}</li>
+      <li>{{event.name}}
+      <md-checkbox ng-model="event.graph_active"
+                   ng-if="event.start_time "
+                   ng-click="addEventToGraph(event, $index)"
+                   aria-label="Checkbox 1">
+      </md-checkbox>
+      </li>
     </ul>
   </div>
   <div id="organization-nav-links">

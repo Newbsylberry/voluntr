@@ -56,12 +56,18 @@
 .org-event-list {
 	list-style: none;
 	li {
-		text-transform: uppercase;
 		list-style-position: inside;
 		margin-bottom: 12px;
     color: #FFFFFF;
     list-style-type: none;
-		a {
+		md-checkbox {
+      display: inline-block;
+      margin: 0 0;
+      .md-label {
+        display: none;
+      }
+    }
+    a {
 			color: #fff;
 		}
 		a:hover {
