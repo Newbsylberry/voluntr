@@ -14,6 +14,7 @@ angular.module('voluntrApp')
                                                 $rootScope) {
 
 
+
     $scope.addOrganizationEvent = function (size) {
       var organizationEventModal = $modal.open(
         {

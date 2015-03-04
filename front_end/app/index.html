@@ -28,10 +28,6 @@
   <link rel="stylesheet" href="../bower_components/kendo-ui-core/styles/kendo.default.min.css">
   <link rel="stylesheet" href="../bower_components/kendo-ui-core/styles/kendo.dataviz.mobile.min.css">
   <link rel="stylesheet" href="../bower_components/kendo-ui-core/styles/kendo.common-material.min.css">
-
-
-
-
   <!-- endbuild -->
 </head>
 <body ng-app="voluntrApp">
@@ -104,13 +100,15 @@
 
 <script src="https://code.highcharts.com/highcharts.src.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+<script src="/js/angular-leaflet-directive.min.js"></script>
 
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/landingpage.js"></script>
 <script src="scripts/services/organizations.js"></script>
-<script src="scripts/controllers/landing_page_organizations.js"></script>
+
 <script src="scripts/controllers/organization_home.js"></script>
 <script src="scripts/services/events.js"></script>
 <script src="scripts/services/authinterceptor.js"></script>
@@ -124,6 +122,10 @@
 <script src="scripts/controllers/profilecreate.js"></script>
 <script src="scripts/controllers/adddata.js"></script>
 <script src="scripts/controllers/addeventcontroller.js"></script>
+
+<!-- Organization Controllers -->
+<script src="organizations/registration/organization_registration.js"></script>
+
 <!-- endbuild -->
 
 <script src="https://maps.google.com/maps/api/js"></script>

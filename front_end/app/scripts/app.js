@@ -87,10 +87,16 @@ angular
         controller: 'VolunteerHomeCtrl'
       })
 
-      .state('landing_page.organization_landing', {
-        url: 'organizations',
-        templateUrl: 'views/landing_page_organizations.html',
-        controller: 'LandingPageOrganizationsCtrl'
+      .state('organizations', {
+        url: '/organizations',
+        abstract: true,
+        templateUrl: 'organizations/organization.html'
+      })
+
+      .state('organizations.registration', {
+        url: '/registration',
+        templateUrl: 'organizations/registration/organization_registration.html',
+        controller: 'OrganizationRegistrationCtrl'
       })
 
       .state('organization_home', { //default page loaded for landing state

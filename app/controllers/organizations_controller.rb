@@ -21,6 +21,10 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.create(organization_params)
 
+    if @organization.save
+      Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
+    end
+
     respond_with @organization
   end
 

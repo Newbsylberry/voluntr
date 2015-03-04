@@ -50,6 +50,7 @@ angular.module('voluntrApp')
           var indiv_response = response[i];
           var post_insight = JSON.parse(indiv_response.body);
           if (insight_type !== 'shared_post') {
+            console.log(newSeries)
             newSeries.data[i][1] = post_insight.data[0].values[0].value;
           } else if (insight_type === 'shared_post') {
             newSeries.data[i][1] = post_insight.data.length;

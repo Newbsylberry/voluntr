@@ -13,6 +13,8 @@ gem 'jwt'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'resque'
+gem "koala", "~> 1.11.0rc"
 
 # Use active model serializers to serve JSON
 gem "active_model_serializers", '0.8.1'

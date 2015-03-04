@@ -1,0 +1,63 @@
+<div class="centered-container">
+
+  <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
+   the volu app. -->
+
+  <div ng-if="!connected_to_facebook">
+    <img src="../../images/V_Logo.png">
+    <h2>Access Volu With Facebook</h2>
+    <p id="facebook-login-text">
+      You are about to have access to a complete and advanced toolset for managing your non-profit,
+      but you'll need to be an administrator of your organizations Facebook page to move further.
+    </p>
+    <button class="btn btn-lg log-in-button"
+            ng-click="log_in()">
+      Facebook Login
+    </button>
+  </div>
+
+  <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
+   the volu app. -->
+  <div ng-if="connected_to_facebook && !organization_registration">
+    <h2>Eligible Organizations</h2>
+    <ul     class="list-group organization-login-list">
+      <li class="list-group-item"  ng-repeat="organization in organizations">
+        <img class="organization-login-image" ng-src="{{organization.picture}}">
+
+        <!-- Organization Name -->
+        <p class="lead">{{organization.name}}</p>
+
+        <!-- Link to the organizations Voluntr Page -->
+        <button class="btn btn-default"
+                ng-if="organization.exists === true"
+            ui-sref='organization_home({organization_Id:organization.v_id})'
+          >{{organization.name}} Home Page
+        </button>
+        <!-- Organization Name -->
+        <!-- If the organization has not been added to voluntr, show option
+            to add to VOLUNTR database -->
+        <button ng-if="organization.exists === false"
+                class="btn btn-default"
+                ng-click="organizationRegistration(organization)">
+          Add {{organization.name}}
+        </button>
+    </ul>
+  </div>
+  <div ng-if="organization_registration" id="organization-registration-container">
+    <h2>Register {{organization.name}} for Volu</h2>
+    <img class="organization-login-image" ng-src="{{organization.picture}}">
+    <p>Thanks for your interest in registering for Volu.  In order to perform in depth
+    analysis and provide the most value to your organization, we'd like to import your posts to our database
+    so we can help determine which are most effective in spreading your message.
+    </p>
+    <h2>
+      Your Organization Has: {{organization.post_count}} Posts
+    </h2>
+    <button class="btn btn-default"
+            ng-click="addOrganization(organization)">
+      Add {{organization.name}} and Import Facebook Data
+    </button>
+    <a href="" ng-click="organizationList();">Back</a>
+  </div>
+</div>
+
