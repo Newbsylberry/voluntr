@@ -13,7 +13,7 @@
   background-color: $primary;
 }
 
-.organization-login-list {
+.content .organization-login-list {
   clear: both;
   li {
     img {
@@ -61,11 +61,19 @@
 
 #organization-registration-container {
   img {
-  float: right;
-  display: inline-block;
+    float: right;
+    display: inline-block;
+    width: 300px;
+    height: auto;
   }
   h2 {
     display: inline-block;
+  }
+  button {
+    background-color: #123994;
+    color: white;
+    display: block;
+    margin: 1em auto;
   }
 }
 

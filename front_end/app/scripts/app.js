@@ -25,6 +25,7 @@ angular
     'Devise',
     'geolocation',
     'highcharts-ng',
+    'ng-mfb',
     "kendo.directives"
   ])
 
@@ -99,9 +100,9 @@ angular
         controller: 'OrganizationRegistrationCtrl'
       })
 
-      .state('organization_home', { //default page loaded for landing state
+      .state('organizations.organization_home', { //default page loaded for landing state
         url: '/organization_home/:organization_Id',
-        templateUrl: 'views/organization_home.html', // url for partial
+        templateUrl: 'organizations/home/organization_home.html', // url for partial
         controller: 'OrganizationHomeCtrl'
       })
 

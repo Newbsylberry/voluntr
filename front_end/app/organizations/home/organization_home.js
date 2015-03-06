@@ -33,16 +33,8 @@ angular.module('voluntrApp')
     };
 
     var addPostToGraph = function (post) {
-      if (post.likes) {
         $scope.lineGraphConfig.series[0].data.push
-        ([post.created_time, post.likes.data.length])
-
-     //   $scope.lineGraphConfig.xAxis.categories.push($filter('date')(post.created_time, ' MMM dd '))
-      } else if (!post.likes) {
-        $scope.lineGraphConfig.series[0].data.push([post.created_time, 0])
-    //    $scope.lineGraphConfig.xAxis.categories.push($filter('date')(post.created_time, ' MMM dd '))
-      }
-
+        ([post.post_time, Number(post.likes)])
     }
 
 
@@ -57,42 +49,12 @@ angular.module('voluntrApp')
 
         // Get the organization from the volu database
         Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
+          console.log(successResponse)
           // find the organizations information on facebook
-          Facebook.api('/' + successResponse.fb_id, function(response) {
-            Facebook.api('/' + successResponse.fb_id + '/posts', function(response) {
-              angular.forEach(response.data, function(org_post) {
-                var post = {};
-                post = org_post;
-                post.liking_users = [];
-                post.created_time = Date.parse(org_post.created_time);
-                Facebook.api('/' + post.id + '/likes', function(response) {
-                  angular.forEach(response.data, function(liking_user) {
-                    post.liking_users.push(liking_user)
-                    post.likes = response.data.length;
-                  })
-                });
-                $scope.organization.posts.push(post);
-              });
+          $scope.organization = successResponse
 
-              $scope.organization.posts = $filter('orderBy')($scope.organization.posts, 'created_time');
-              angular.forEach($scope.organization.posts, addPostToGraph);
-
-            });
-            Facebook.api('/' + successResponse.fb_id + '/tagged', function(response) {
-            });
-
-            $scope.organization = response;
-            $scope.organization.posts = [];
-            $scope.organization.events = successResponse.events;
-            Facebook.api('/' + successResponse.fb_id + '/photos', function(response) {
-
-              $scope.organization.picture = response.data[0];
-
-              console.log($scope.organization)
-
-
-            });
-          });
+          $scope.organization.posts = $filter('orderBy')(successResponse.posts, 'post_time')
+          angular.forEach($scope.organization.posts, addPostToGraph)
         })
       }
 

@@ -1,5 +1,5 @@
 <div class="centered-container">
-
+  <div class="content">
   <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
    the volu app. -->
 
@@ -30,7 +30,7 @@
         <!-- Link to the organizations Voluntr Page -->
         <button class="btn btn-default"
                 ng-if="organization.exists === true"
-            ui-sref='organization_home({organization_Id:organization.v_id})'
+            ui-sref='organizations.organization_home({organization_Id:organization.v_id})'
           >{{organization.name}} Home Page
         </button>
         <!-- Organization Name -->
@@ -46,18 +46,43 @@
   <div ng-if="organization_registration" id="organization-registration-container">
     <h2>Register {{organization.name}} for Volu</h2>
     <img class="organization-login-image" ng-src="{{organization.picture}}">
-    <p>Thanks for your interest in registering for Volu.  In order to perform in depth
-    analysis and provide the most value to your organization, we'd like to import your posts to our database
-    so we can help determine which are most effective in spreading your message.
+    <p>Thanks for your interest in registering for Volu, you are a few clicks away from having
+      the ability to manage the opportunities your organization provides, and the people interested in them.  Before we
+      move forward, we want you to know exactly what data we're accessing from your account, and why.
     </p>
-    <h2>
-      Your Organization Has: {{organization.post_count}} Posts
-    </h2>
+    <h3>
+      Information About Your Organization
+    </h3>
+    <p>
+      When you register for Volu, we save your organizations name, a brief description, a link to your current Facebook
+      picture, and the identification number that Facebook uses.  This is so volunteers who don't have a Facebook account
+      can find out about your organization, and so we can ensure that anyone who tries to access your Volu account has
+      permission.
+    </p>
+    <h3>
+      Your Organization's Facebook Page Posts
+    </h3>
+    <p>
+      At Volu, we believe that connecting with your community begins long before someone actually comes in contact with
+      your organization.  We import your Facebook posts, and insights about them, so that we can help you get a
+      better understanding of what has helped you connect with your audience in the past, and how to build off your
+      success.
+    </p>
+    <h3>
+      The People Who Like Those Posts
+    </h3>
+    <p>
+      Liking a post on your Facebook wall is the first step to getting involved and supporting your organizations mission.
+      When you register for Volu, we want to see you succeed, so we give you a list of people you have already impacted
+      through your marketing.
+    </p>
+    <h2>Oh yeah, and all of the above we do for free, so what are you waiting for?</h2>
     <button class="btn btn-default"
             ng-click="addOrganization(organization)">
-      Add {{organization.name}} and Import Facebook Data
+      Register {{organization.name}} For Volu and Import Facebook Data
     </button>
     <a href="" ng-click="organizationList();">Back</a>
+  </div>
   </div>
 </div>
 

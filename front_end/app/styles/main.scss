@@ -4,22 +4,51 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 @import "_variables.scss";
+@import "mixins/_breakpoint.scss";
+@import "mixins/_placeholder.scss";
+@import "mixins/_box-shadow.scss";
+@import "mixins/_inner-shadow.scss";
 @import "../organizations/registration/organization_registration.scss";
 
 .container-fluid {
   padding: 0;
 }
 
-.centered-container {
-  padding: 8em;
-  padding-left: 20em;
-  padding-right: 20em;
-  @media only screen and (max-width : $mobile) {
-    padding: 1em;
+.application-header {
+  height: 100px;
+  width: 100%;
+  background-color: $primary;
+  padding-top: 33px;
+  @include box-shadow(5px, 1px, 1px, 1px, #1239B4);
+  input {
+    display: block;
+    margin: 0px auto;
+    height: 33px;
+    width: 53%;
+    font-size: 16pt;
+    @include placeholder-color($primary);
   }
+}
+
+
+.centered-container {
+  .content {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    @media only screen and (max-width : $mobile) {
+      padding: 0 1em;
+    }
+    @include breakpoint($medium) {
+      width: 800px;
+    }
+
   h2 {
     text-align: center;
     color: $primary;
+  }
+  h3 {
+    color: #123994;
   }
   img {
     margin-left: auto;
@@ -29,5 +58,15 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   a {
     color: $primary;
   }
+  }
+}
+
+/***************************************************************
+Floating Action Button Styles
+***************************************************************/
+
+.mfb-component--br {
+  right: 15px;
+  bottom: 0px;
 }
 

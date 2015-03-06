@@ -9,7 +9,17 @@ class OrganizationImporter
     until @organization_response_length == 0 and !@organization_posts.next_page
       @organization_posts.each do |p|
         @organization_response_length -= 1
-        @organization_posts_imported += 1
+        @post = Post.new
+        @post.message = p['message']
+        @post.fb_id = p['id']
+        @post.organization_id = organization_id
+        @post.post_time = p['created_time']
+        if ! (p["likes"].nil? || p["likes"].empty?)
+          @post.likes = p['likes']['data'].count
+        else
+          @post.likes = 0
+        end
+        @post.save
         if @organization_response_length == 0 and @organization_posts.next_page
           @organization_posts = @organization_posts.next_page
           @organization_response_length = @organization_posts.count
