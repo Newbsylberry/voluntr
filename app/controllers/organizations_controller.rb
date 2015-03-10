@@ -56,6 +56,12 @@ class OrganizationsController < ApplicationController
     head :no_content
   end
 
+  # Route to find an organizations people
+  def people
+    @organization = Organization.find(params[:id])
+    render json: @organization.people, each_serializer: PersonSerializer
+  end
+
 
 private
 

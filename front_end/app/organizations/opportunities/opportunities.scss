@@ -1,0 +1,24 @@
+.opportunity-type-window {
+  padding: 2em;
+}
+.opportunity-type-button {
+  display: block;
+  color: white;
+  background-color: $primary;
+  width: 100%;
+  height: 50px;
+  border-width: 1px;
+  border-color: white;
+}
+
+#start-end-date-container {
+
+}
+
+.time-date {
+  overflow: hidden;
+  border: none;
+  width: 42.1rem;
+  font-size: 1.2rem;
+  display: inline-block;
+}

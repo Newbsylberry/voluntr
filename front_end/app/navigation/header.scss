@@ -1,0 +1,24 @@
+
+.application-header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  padding-top: 33px;
+  input {
+    display: block;
+    margin: 0px auto;
+    height: 33px;
+    width: 1000px;
+    font-size: 16pt;
+    @include placeholder-color($primary);
+    @include breakpoint($medium) {
+      width: 800px;
+    }
+  }
+  i {
+    font-size: 50px;
+    position: fixed;
+    left: 16px;
+    top: 14px;
+  }
+}

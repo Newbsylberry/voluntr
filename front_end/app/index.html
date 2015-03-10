@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date-default-theme.css" />
   <link rel="stylesheet" href="bower_components/ng-mfb/mfb/src/mfb.css" />
   <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
+  <link rel="stylesheet" href="bower_components/md-date-time/dist/md-date-time.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -93,11 +94,11 @@
 <script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
 <script src="bower_components/angular-scroll/angular-scroll.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/hammerjs/hammer.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/ngQuickDate/dist/ng-quick-date.js"></script>
 <script src="bower_components/kendo-ui-core/js/kendo.ui.core.min.js"></script>
 <script src="bower_components/ng-mfb/src/directive.js"></script>
+<script src="bower_components/md-date-time/dist/md-date-time.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -113,8 +114,9 @@
 <script src="scripts/services/organizations.js"></script>
 
 
-<script src="scripts/services/events.js"></script>
+<script src="scripts/services/opportunities.js"></script>
 <script src="scripts/services/authinterceptor.js"></script>
+<script src="scripts/services/people.js"></script>
 <script src="scripts/controllers/volunteerhome.js"></script>
 <script src="scripts/controllers/landing_page_volunteer.js"></script>
 <script src="scripts/controllers/profile.js"></script>
@@ -130,6 +132,17 @@
 <script src="organizations/registration/organization_registration.js"></script>
 <script src="organizations/home/organization_home.js"></script>
 
+<!-- Organization People Controllers -->
+<script src="organizations/people/people_home.js"></script>
+<script src="organizations/people/add_people.js"></script>
+
+<!-- Organization Opportunity Controllers -->
+<script src="organizations/opportunities/add_opportunity.js"></script>
+
+<!-- Navigation Controllers -->
+<script src="organizations/floating_action_button.js"></script>
+
+<script src="scripts/services/people.js"></script>
 <!-- endbuild -->
 
 <script src="https://maps.google.com/maps/api/js"></script>

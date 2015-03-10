@@ -1,0 +1,149 @@
+/* Empty. Add your own CSS if you like */
+.navbar{
+    display: inline-block;
+    width:24.5%;
+    height:2%;
+    font-size:25px;
+    font-family:Dingbats;
+    text-align:center;
+    font-weight:bold;
+    
+    padding:20px;
+    cursor:pointer;
+}
+.exactCenter {
+    width:auto;
+    height:auto;
+    position:auto;
+    padding-top:8%;
+    margin-left: 17%;
+}
+.center-block{display:block;margin-left:auto;margin-right:auto}
+.v{
+  height:180px;
+  width:780px;
+}
+
+
+.buttonstyling{
+    margin-left:38%;
+    background-color: rgba(0,0,0,.87);
+    color: #fff;
+    font-family: 'Arvo';
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top:10px;
+    border:none;
+    padding:4px;
+    padding-left:2%;
+    padding-right:2%;
+}
+.liststyling{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #000000;
+    font-family: 'Arvo';
+    font-size: 15px;
+    font-weight: bold;
+    padding:12px;
+    width:12%;
+    cursor: pointer;
+    margin-left:40%;
+}
+
+.footer1{
+    margin-left:10%;
+    padding-top:40px;
+    padding-bottom:30px;
+    color: #FFFFFF;
+    font-family: 'Arvo';
+    font-size: 21px;
+    font-weight: bold;
+    font-style:italic;
+    padding-left:12px;
+}
+
+.navbarimg{
+    float:left;
+    padding:1%;
+    background-color:#FFFFFF;
+    display: inline-block;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width:6%;
+    height:2%;
+    cursor:pointer;
+}
+.navbarrest{
+    display: inline-block;
+    width:23.35%;
+    height:2%;
+    font-size:18px;
+    font-family:Dingbats;
+    text-align:center;
+    font-weight:bold;
+    padding:20px;
+    cursor:pointer;
+}
+.secondpageinfo{
+    width:100%;
+    padding-left:55%;
+    padding-top:14%;
+    background-color:#74BBF9;
+    font-family: 'Arvo';
+    font-size: 18px;
+    font-weight: bold;
+    color:#FFFFFF;
+    padding-bottom:10%;
+    height:600px;
+}
+.toolkit{
+    background-color:#5A90D8;
+    height:670px;
+    width:100%;
+    padding-left:16%;
+}
+.tools{
+    float:left;
+    margin-top:5%;
+    width:28%;
+    background-color:#5A90D8;
+    height:500px;
+    font-family: 'Arvo';
+    font-size: 12px;
+    font-color:#FFFFFF;
+}
+.toolheading{
+    float:left;
+    width:100%;
+    font-family: 'Arvo';
+    font-size: 35px;
+    color:#FFFFFF;
+    font-weight: bold;
+    margin-top:5%;
+    padding-left:40%;
+}
+.fifthheading{
+    background-color:#5DA2C1;
+    width:100%;
+    font-family: 'Arvo';
+    font-size: 25px;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding:50px;
+    padding-left:25%;
+}
+.fifthpage{
+    background-color:#5DA2C1;
+}
+.yearfree{
+    display:block;
+    width:70%;
+    height:200px;
+    margin-left:15%;
+    background-color:#41616E;
+
+}

@@ -1,0 +1,67 @@
+<div class="tabsdemoStaticTabs sample">
+  <md-tabs class="md-accent" md-selected="data.selectedIndex">
+    <md-tab id="tab1" aria-controls="tab1-content">
+      Step 1
+    </md-tab>
+    <md-tab id="tab2" aria-controls="tab2-content">
+      Step 2
+    </md-tab>
+    <md-tab id="tab3" aria-controls="tab3-content">
+      Step 3
+    </md-tab>
+  </md-tabs>
+  <ng-switch on="data.selectedIndex" class="tabpanel-container">
+    <div role="tabpanel"
+         id="create-person-record"
+         aria-labelledby="tab1"
+         ng-switch-when="0"
+         md-swipe-left="next()"
+         md-swipe-right="previous()" >
+
+
+        <md-input-container>
+          <label>First Name</label>
+          <input ng-model="newPerson.first_name">
+        </md-input-container>
+
+
+        <md-input-container>
+          <label>Last Name</label>
+          <input ng-model="newPerson.last_name">
+        </md-input-container>
+
+        <div ng-hide="!newPerson">
+          <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
+            {{person.first_name}}  {{person.last_name}}
+            <a style="float: right; color: black;"
+               ng-click="matchedPerson(person)"
+               href="";
+              >
+              This is My Volunteer!
+            </a>
+          </p>
+        </div>
+
+
+
+    </div>
+    <div role="tabpanel"
+         id="tab2-content"
+         aria-labelledby="tab2"
+         ng-switch-when="1"
+         md-swipe-left="next()"
+         md-swipe-right="previous()" >
+      View for {{data.secondLabel}}<br/>
+      data.selectedIndex = 1
+    </div>
+    <div role="tabpanel"
+         id="tab3-content"
+         aria-labelledby="tab3"
+         ng-switch-when="2"
+         md-swipe-left="next()"
+         md-swipe-right="previous()" >
+      View for Item #3<br/>
+      data.selectedIndex = 2
+    </div>
+  </ng-switch>
+</div>

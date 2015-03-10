@@ -8,8 +8,52 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('AddEventCtrl', function ($scope, $timeout, Event, $stateParams, $modalStack,
-                                        $rootScope, $state, Organization, Facebook, $http) {
+  .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $modalStack,
+                                        $rootScope, $state, Organization, Facebook, $http, $modal) {
+
+
+    //$http.get('api/v1/opportunity_types').
+    //  success(function(data, status, headers, config) {
+    //    $scope.opportunity_types = data;
+    //  }).
+    //  error(function(data,status, headers, config) {
+    //    console.log(data)
+    //  })
+
+    $scope.addEventOpportunity = function (size) {
+      var organizationEventModal = $modal.open(
+        {
+          templateUrl: 'organizations/opportunities/organization_add_event_modal.html',
+          controller: 'AddOpportunityCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+        })
+
+      organizationEventModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
+    $scope.addPositionOpportunity = function (size) {
+      var organizationEventModal = $modal.open(
+        {
+          templateUrl: 'organizations/opportunities/organization_add_position_modal.html',
+          controller: 'AddOpportunityCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+        });
+
+      organizationEventModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
 
 
     var addFacebookEvents = function(event) {
@@ -81,7 +125,7 @@ angular.module('voluntrApp')
           })
         $timeout(
           function() {
-            var newEvent = Event.create(attr);
+            var newEvent = Opportunity.create(attr);
             // $rootScope.organization.events.push(newEvent)
             $modalStack. dismissAll();
             $state.transitionTo($state.current, $stateParams, {

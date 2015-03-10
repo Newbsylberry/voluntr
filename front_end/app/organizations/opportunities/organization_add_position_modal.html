@@ -1,0 +1,25 @@
+<h1>Add Volunteering Position</h1>
+<md-input-container>
+  <label>Position Name</label>
+  <input ng-model="newPosition.name">
+</md-input-container>
+<md-input-container flex>
+  <label>Description</label>
+  <textarea ng-model="newPosition.description" columns="1" md-maxlength="150"></textarea>
+</md-input-container>
+<div class="row">
+  <div class="col-md-6">
+    <h4>First Start Date/Time of Position</h4>
+    <input kendo-date-time-picker
+           ng-model="addPosition.start_time"
+      /><br>
+  </div>
+  <div class="col-md-6">
+    <h4>First End Date/Time of Position</h4>
+    <input kendo-date-time-picker
+           ng-model="addPosition.end_time"
+      />
+  </div>
+</div>
+
+

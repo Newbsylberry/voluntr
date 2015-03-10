@@ -8,37 +8,37 @@
  * Service in the voluntrApp.
  */
 angular.module('voluntrApp')
-    .factory('Event', ['$resource', function($resource) {
-        function Event() {
-            this.service = $resource('/api/v1/events/:event_Id', //location of resource, tells it to look for ID
+    .factory('Opportunity', ['$resource', function($resource) {
+        function Opportunity() {
+            this.service = $resource('/api/v1/opportunities/:opportunity_Id', //location of resource, tells it to look for ID
                 {Event_Id: '@id'}, {update: {method: 'PATCH'}}); // sets ID variable, and update method (patch)
         }
 
 
         // Loads all Event records served up at /api/organizations
-        Event.prototype.all = function() {
+        Opportunity.prototype.all = function() {
             return this.service.query();
         };
 
         // Loads a specific Event when the ID is passed in
-        Event.prototype.get = function (id, successCallback, errorCallback) {
+        Opportunity.prototype.get = function (id, successCallback, errorCallback) {
             return this.service.get(id, successCallback, errorCallback);
         };
 
         // Calls the create function located in app/controllers/organizations_controller.rb
-        Event.prototype.create = function(attr) {
+        Opportunity.prototype.create = function(attr) {
             return this.service.save(attr);
         };
 
-        Event.prototype.update = function(attr) {
+        Opportunity.prototype.update = function(attr) {
             return this.service.update(attr);
         }
 
         // Calls the destroy function located in app/controllers/communities_controller.rb
-        Event.prototype.delete = function(eId) {
-            return this.service.remove({event_Id: eId});
+        Opportunity.prototype.delete = function(oId) {
+            return this.service.remove({opportunity_Id: oId});
         };
 
         // AngularJS will instantiate a singleton by calling "new" on this function
-        return new Event;
+        return new Opportunity;
     }]);

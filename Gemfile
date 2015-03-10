@@ -10,6 +10,7 @@ gem 'pg'
 
 gem 'devise'
 gem 'jwt'
+gem 'ice_cube'
 
 gem 'omniauth'
 gem 'omniauth-twitter'

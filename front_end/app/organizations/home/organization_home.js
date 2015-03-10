@@ -9,28 +9,15 @@
  */
 angular.module('voluntrApp')
   .controller('OrganizationHomeCtrl', function ($scope, Facebook, Organization,
-                                                $stateParams, $state, Event,
+                                                $stateParams, $state, Opportunity,
                                                 $http, $filter, $parse, $modal,
                                                 $rootScope) {
 
 
 
-    $scope.addOrganizationEvent = function (size) {
-      var organizationEventModal = $modal.open(
-        {
-          templateUrl: 'views/organization_add_event.html',
-          controller: 'AddEventCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size
-        })
+    ;
 
-      organizationEventModal.result.then(function () {
 
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
-        });
-    };
 
     var addPostToGraph = function (post) {
         $scope.lineGraphConfig.series[0].data.push

@@ -46,6 +46,7 @@ GEM
     hashie (3.3.2)
     hike (1.2.3)
     i18n (0.7.0)
+    ice_cube (0.12.1)
     json (1.8.2)
     jwt (1.2.0)
     koala (1.11.1)
@@ -146,6 +147,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (= 0.8.1)
   devise
+  ice_cube
   jwt
   koala (~> 1.11.0rc)
   omniauth

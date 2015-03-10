@@ -6,14 +6,17 @@ Rails.application.routes.draw do
       devise_for :users, defaults: {format: :json},
                  :controllers => { registrations: 'registrations',
                                    sessions: 'sessions'}, defaults: {format: :json}
+      resources :opportunity_types, except: [:new, :edit]
       resources :users, defaults: {format: :json}
       post '/user/contact_form', to: 'users#contact', defaults: {format: :json}
       resources :profiles, except: [:new, :edit], defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
       resources :user_event_hours, except: [:new, :edit], defaults: {format: :json}
-      resources :events, except: [:new, :edit], defaults: {format: :json}
+      resources :opportunities, except: [:new, :edit], defaults: {format: :json}
       match '/organizations/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
-      match '/events/existence_check/:fb_id', to: 'events#existence_check', via: :get, defaults: {format: :json}
+      match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
+      match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
+      match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
     end
   end
 

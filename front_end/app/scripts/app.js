@@ -26,6 +26,7 @@ angular
     'geolocation',
     'highcharts-ng',
     'ng-mfb',
+    'mdDateTime',
     "kendo.directives"
   ])
 
@@ -65,15 +66,9 @@ angular
 
       .state('landing_page.initial_page', {
         url: '',
-        templateUrl: 'views/landing_page_initial.html',
+        templateUrl: 'static_pages/landing_page_initial.html',
         controller: 'LandingPageCtrl'
       })
-
-      //.state('landing_page.volunteer_landing', {
-      //    url: 'volunteers',
-      //    templateUrl: 'views/landing_page_volunteers.html',
-      //    controller: 'LandingPageVolunteerCtrl'
-      //})
 
       .state('volunteer_home', { //default page loaded for landing state
         url: '/volunteer_home',
@@ -101,9 +96,15 @@ angular
       })
 
       .state('organizations.organization_home', { //default page loaded for landing state
-        url: '/organization_home/:organization_Id',
+        url: '/:organization_Id',
         templateUrl: 'organizations/home/organization_home.html', // url for partial
         controller: 'OrganizationHomeCtrl'
+      })
+
+      .state('organizations.people_home', { //default page loaded for landing state
+        url: '/:organization_Id/people_home',
+        templateUrl: 'organizations/people/people_home.html', // url for partial
+        controller: 'PeopleHomeCtrl'
       })
 
       .state('profile', {
