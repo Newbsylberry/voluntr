@@ -62,6 +62,11 @@ class OrganizationsController < ApplicationController
     render json: @organization.people, each_serializer: PersonSerializer
   end
 
+  def opportunities
+    @organization = Organization.find(params[:id])
+    render json: @organization.opportunities, each_serializer: OpportunitySerializer
+  end
+
 
 private
 

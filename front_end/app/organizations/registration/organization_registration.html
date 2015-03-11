@@ -1,5 +1,4 @@
-<div class="centered-container">
-  <div class="content">
+<div class="content">
   <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
    the volu app. -->
 
@@ -30,7 +29,7 @@
         <!-- Link to the organizations Voluntr Page -->
         <button class="btn btn-default"
                 ng-if="organization.exists === true"
-            ui-sref='organizations.organization_home({organization_Id:organization.v_id})'
+                ui-sref='organizations.organization_home({organization_Id:organization.v_id})'
           >{{organization.name}} Home Page
         </button>
         <!-- Organization Name -->
@@ -83,6 +82,6 @@
     </button>
     <a href="" ng-click="organizationList();">Back</a>
   </div>
-  </div>
 </div>
+
 

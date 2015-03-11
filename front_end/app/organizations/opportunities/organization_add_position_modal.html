@@ -1,25 +1,64 @@
 <h1>Add Volunteering Position</h1>
 <md-input-container>
   <label>Position Name</label>
-  <input ng-model="newPosition.name">
+  <input ng-model="newPosition.position_name">
 </md-input-container>
 <md-input-container flex>
   <label>Description</label>
   <textarea ng-model="newPosition.description" columns="1" md-maxlength="150"></textarea>
 </md-input-container>
-<div class="row">
-  <div class="col-md-6">
-    <h4>First Start Date/Time of Position</h4>
-    <input kendo-date-time-picker
-           ng-model="addPosition.start_time"
-      /><br>
-  </div>
-  <div class="col-md-6">
-    <h4>First End Date/Time of Position</h4>
-    <input kendo-date-time-picker
-           ng-model="addPosition.end_time"
-      />
-  </div>
+
+
+  <h4>First Start Date/Time of Position</h4>
+  <time-date-picker ng-model="newPosition.start_time"></time-date-picker>
+
+
+
+  <h2>Shift Duration</h2>
+  <h3>{{position_duration | duration:'h:mm'}} {{duration_label}}</h3>
+  <md-slider flex min="900000" step="900000" max="43200000" ng-model="position_duration" aria-label="red" id="red-slider" class>
+  </md-slider>
+
+<div class="repetition_rule_select_box">
+  <md-checkbox ng-model="newPosition.daily" aria-label="Daily">
+    Daily?
+  </md-checkbox>
+  <md-checkbox ng-model="newPosition.weekly" aria-label="Weekly">
+    Weekly?
+  </md-checkbox>
+  <md-checkbox ng-model="newPosition.monthly" aria-label="Monthly">
+    Monthly?
+  </md-checkbox>
+  <md-checkbox ng-model="newPosition.annually" aria-label="Annually">
+    Annually?
+  </md-checkbox>
 </div>
+
+    <md-checkbox ng-model="newPosition.monday_repeat" aria-label="Monday">
+      Monday
+    </md-checkbox>
+    <md-checkbox ng-model="newPosition.tuesday_repeat" aria-label="Tuesday">
+      Tuesday
+    </md-checkbox>
+    <md-checkbox ng-model="newPosition.wednesday_repeat" aria-label="Wednesday">
+      Wednesday
+    </md-checkbox>
+    <md-checkbox ng-model="newPosition.thursday_repeat" aria-label="Thursday">
+      Thursday
+    </md-checkbox>
+    <md-checkbox ng-model="newPosition.friday_repeat" aria-label="Friday">
+      Friday
+    </md-checkbox>
+    <md-checkbox ng-model="newPosition.saturday_repeat" aria-label="Saturday">
+      Saturday
+    </md-checkbox>
+    <md-checkbox ng-model="newPosition.sunday_repeat" aria-label="Saturday">
+      Sunday
+    </md-checkbox>
+  <button class="btn btn-primary" ng-click="newPosition()">Submit</button>
+
+
+
+
 
 

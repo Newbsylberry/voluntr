@@ -9,11 +9,10 @@
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-  <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date.css" />
-  <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date-default-theme.css" />
   <link rel="stylesheet" href="bower_components/ng-mfb/mfb/src/mfb.css" />
   <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
   <link rel="stylesheet" href="bower_components/md-date-time/dist/md-date-time.css" />
+  <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -95,13 +94,17 @@
 <script src="bower_components/angular-scroll/angular-scroll.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
-<script src="bower_components/ngQuickDate/dist/ng-quick-date.js"></script>
 <script src="bower_components/kendo-ui-core/js/kendo.ui.core.min.js"></script>
 <script src="bower_components/ng-mfb/src/directive.js"></script>
 <script src="bower_components/md-date-time/dist/md-date-time.js"></script>
+<script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+<script src="bower_components/fullcalendar/fullcalendar.js"></script>
+<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script type="text/javascript" src="bower_components/fullcalendar/gcal.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
+<script src="../bower_components/angular-duration-format-master/dist/angular-duration-format.js"></script>
 <script src="https://code.highcharts.com/highcharts.src.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
@@ -136,8 +139,9 @@
 <script src="organizations/people/people_home.js"></script>
 <script src="organizations/people/add_people.js"></script>
 
-<!-- Organization Opportunity Controllers -->
+<!-- Organization Opportunities Controllers -->
 <script src="organizations/opportunities/add_opportunity.js"></script>
+<script src="organizations/opportunities/opportunities_home.js"></script>
 
 <!-- Navigation Controllers -->
 <script src="organizations/floating_action_button.js"></script>

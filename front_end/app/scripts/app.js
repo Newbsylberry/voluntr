@@ -27,6 +27,8 @@ angular
     'highcharts-ng',
     'ng-mfb',
     'mdDateTime',
+    'angular-duration-format',
+    'ui.calendar',
     "kendo.directives"
   ])
 
@@ -105,6 +107,12 @@ angular
         url: '/:organization_Id/people_home',
         templateUrl: 'organizations/people/people_home.html', // url for partial
         controller: 'PeopleHomeCtrl'
+      })
+
+      .state('organizations.opportunities_home', { //default page loaded for landing state
+        url: '/:organization_Id/opportunity_home',
+        templateUrl: 'organizations/opportunities/opportunities_home.html', // url for partial
+        controller: 'OpportunitiesHomeCtrl'
       })
 
       .state('profile', {

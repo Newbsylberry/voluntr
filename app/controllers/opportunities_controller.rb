@@ -1,4 +1,6 @@
 class OpportunitiesController < ApplicationController
+  include IceCube
+
   respond_to :json
 
 
@@ -19,7 +21,30 @@ class OpportunitiesController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @opportunity = Opportunity.create(opportunity_params)
+    @opportunity = Opportunity.new(opportunity_params)
+    if @opportunity.opportunity_type_id = 2
+      @start_schedule = Schedule.new(Time.at(@opportunity.start_time.to_i / 1000 ))
+      @end_schedule = Schedule.new(Time.at(@opportunity.end_time.to_i / 1000 ))
+      if params[:daily] == true
+        @start_schedule.add_recurrence_rule Rule.daily
+        @end_schedule.add_recurrence_rule Rule.daily
+      end
+      if params[:weekly] == true
+        @start_schedule.add_recurrence_rule Rule.weekly
+        @end_schedule.add_recurrence_rule Rule.weekly
+      end
+      if params[:monthly] == true
+        @start_schedule.add_recurrence_rule Rule.monthly
+        @end_schedule.add_recurrence_rule Rule.monthly
+      end
+      if params[:yearly] == true
+        @start_schedule.add_recurrence_rule Rule.yearly
+        @end_schedule.add_recurrence_rule Rule.yearly
+      end
+      @opportunity.start_schedule = @start_schedule.to_yaml
+      @opportunity.end_schedule = @end_schedule.to_yaml
+    end
+    @opportunity.save
 
     respond_with @opportunity
   end

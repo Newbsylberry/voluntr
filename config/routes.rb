@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       match '/organizations/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
+      match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
     end
   end

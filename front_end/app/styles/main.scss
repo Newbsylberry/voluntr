@@ -14,8 +14,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../organizations/people/people.scss";
 @import "../organizations/opportunities/opportunities.scss";
 
-body {
-  color: $background;
+html {
+  background-color: #f2f2f2;
+  body {
+    background-color: #f2f2f2;
+  }
 }
 
 .container-fluid {

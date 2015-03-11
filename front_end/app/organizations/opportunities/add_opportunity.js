@@ -55,6 +55,44 @@ angular.module('voluntrApp')
     };
 
 
+    // Functions and Variables for helping with duration selector
+    $scope.duration_label = 'minutes'
+    $scope.position_duration = 0;
+    $scope.$watch('position_duration', function () {
+      if ($scope.position_duration < 3600000){
+        $scope.duration_label = 'minutes'
+      } else if ($scope.position_duration < (3600000 * 2)) {
+        $scope.duration_label = 'hour'
+      } else {
+        $scope.duration_label = 'hours'
+      };
+      $scope.newPosition.end_time = $scope.newPosition.start_time.getTime() + $scope.position_duration;
+    });
+
+    $scope.newPosition = function(){
+      var attr = {};
+      attr.name = $scope.newPosition.position_name;
+      attr.description = $scope.newPosition.description;
+      attr.start_time = $scope.newPosition.start_time.getTime();
+      attr.opportunity_type_id = 1;
+      attr.organization_id = $stateParams.organization_Id;
+      attr.end_time = $scope.newPosition.end_time;
+      attr.daily = $scope.newPosition.daily;
+      attr.weekly = $scope.newPosition.weekly;
+      attr.monthly = $scope.newPosition.monthly;
+      attr.annually = $scope.newPosition.annually;
+      attr.monday_repeat = $scope.newPosition.monday_repeat;
+      attr.tuesday_repeat = $scope.newPosition.tuesday_repeat;
+      attr.wednesday_repeat = $scope.newPosition.wednesday_repeat;
+      attr.thursday_repeat = $scope.newPosition.thursday_repeat;
+      attr.friday_repeat = $scope.newPosition.friday_repeat;
+      attr.saturday_repeat = $scope.newPosition.saturday_repeat;
+      attr.sunday_repeat = $scope.newPosition.sunday_repeat;
+      console.log(attr);
+      var reoccuringPosition = Opportunity.create(attr);
+    };
+
+
 
     var addFacebookEvents = function(event) {
       if (!$scope.events) {

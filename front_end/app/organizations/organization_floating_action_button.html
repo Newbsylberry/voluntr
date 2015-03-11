@@ -1,7 +1,8 @@
 <nav mfb-menu position="br" effect="zoomin"
      label="Add To Your Organization"
-     active-icon="ion-edit" resting-icon="ion-plus-round"
+     active-icon="ion-edit"
+     ng-click="chooseOpportunityType('lg');"label="Add Opportunity"
+     resting-icon="ion-plus-round"
      toggling-method="hover">
-  <a mfb-button icon="ion-paper-airplane" ng-click="chooseOpportunityType('lg');"label="Add Opportunity"></a>
   <a mfb-button icon="ion-paper-airplane" ng-click="addOrganizationPerson('lg');"label="Add Person"></a>
 </nav>
