@@ -75,14 +75,15 @@ class OrganizationsController < ApplicationController
             @schedule_instance.name = o.name
             @schedule_instance.start_time = occ
             @schedule_instance.end_time = occ + @event_duration.hours
-            @organization_calendar.push(@schedule_in)
+            puts @schedule_instance.start_time
+            @organization_calendar.push(@schedule_instance)
           end
         end
       end
     end
 
 
-    render json: @organization.opportunities, each_serializer: OpportunitySerializer
+    render json: @organization_calendar, each_serializer: OpportunitySerializer
   end
 
 

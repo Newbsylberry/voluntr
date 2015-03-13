@@ -1,27 +1,20 @@
-<div ng-include="'../navigation/header.html'"></div>
-<div class="centered-container">
-  <div class="content">
-    <md-toolbar class="md-theme-light">
-      <h1 class="md-toolbar-tools">
-        <span>Imported From Facebook</span>
-      </h1>
-    </md-toolbar>
-        <md-content>
-          <md-list>
-            <md-item ng-repeat="person in people">
-              <md-item-content>
-                <div class="md-tile-left">
-                  <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-                       class="face" alt="{{item.who}}">
-                </div>
-                <div class="md-tile-content">
-                  <h3>{{person.first_name}} {{person.last_name}}</h3>
-                  <h4>Some important notes here</h4>
-                </div>
-              </md-item-content>
-            </md-item>
-          </md-list>
-        </md-content>
 
-  </div>
-</div>
+<md-card class="content" >
+  <md-card-content>
+    <md-list>
+      <md-item ng-repeat="person in people">
+        <md-item-content>
+          <div class="md-tile-left">
+            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
+                 class="face" alt="{{item.who}}">
+          </div>
+          <div class="md-tile-content">
+            <h3>{{person.first_name}} {{person.last_name}}</h3>
+            <h4>Some important notes here</h4>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </md-card-content>
+</md-card>
+
