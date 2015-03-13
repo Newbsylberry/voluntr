@@ -13,13 +13,19 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../static_pages/style.css";
 @import "../organizations/people/people.scss";
 @import "../organizations/opportunities/opportunities.scss";
+@import "../navigation/side-menu.scss";
 
 html {
-  background-color: #f2f2f2;
+  background-color: $background-color;
   body {
-    background-color: #f2f2f2;
+    background-color: $background-color;
+  }
+  .snap-content {
+    background-color: $background-color;
   }
 }
+
+
 
 .container-fluid {
   padding: 0;

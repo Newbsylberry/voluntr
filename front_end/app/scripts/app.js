@@ -29,13 +29,21 @@ angular
     'mdDateTime',
     'angular-duration-format',
     'ui.calendar',
+    'snap',
     "kendo.directives"
   ])
 
-  //.run(['$anchorScroll', function($anchorScroll) {
-  //  $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
-  //}])
 
+  .run(function($rootScope) {
+    document.addEventListener("keyup", function(e) {
+      if (e.keyCode === 27)
+        $rootScope.$broadcast("escapePressed", e.target);
+    });
+
+    document.addEventListener("click", function(e) {
+      $rootScope.$broadcast("documentClicked", e.target);
+    })
+  })
 
 
 
@@ -76,12 +84,12 @@ angular
         url: '/volunteer_home',
         templateUrl: 'views/volunteer_home.html', // url for partial
         // resolve:{
-          //userLocation: function(geolocation) {
-          //  return geolocation.getLocation().then(function(data){
-          //    var origin = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
-          //    return origin;
-          //  })
-          // },
+        //userLocation: function(geolocation) {
+        //  return geolocation.getLocation().then(function(data){
+        //    var origin = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
+        //    return origin;
+        //  })
+        // },
         controller: 'VolunteerHomeCtrl'
       })
 

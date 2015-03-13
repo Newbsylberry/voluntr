@@ -11,7 +11,8 @@
             <md-item ng-repeat="person in people">
               <md-item-content>
                 <div class="md-tile-left">
-                  <img src="../../images/yeoman.png" class="face" alt="{{item.who}}">
+                  <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
+                       class="face" alt="{{item.who}}">
                 </div>
                 <div class="md-tile-content">
                   <h3>{{person.first_name}} {{person.last_name}}</h3>

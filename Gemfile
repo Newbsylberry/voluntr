@@ -15,6 +15,7 @@ gem 'ice_cube'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'resque'
+gem 'resque-status'
 gem "koala", "~> 1.11.0rc"
 
 # Use active model serializers to serve JSON

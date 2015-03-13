@@ -1,7 +1,10 @@
-<div ng-include="'../navigation/header.html'"></div>
-  <div class="centered-container">
-    <div class="centered-container top">
+<div ng-include="'../navigation/side-menu.html'"></div>
+<div snap-content class="snap-content">
+    <div ng-include="'../navigation/header.html'"></div>
+    <div class="centered-container">
+      <div class="centered-container top">
+      </div>
+      <div ui-view></div>
     </div>
-    <div ui-view></div>
-  </div>
+</div>
 

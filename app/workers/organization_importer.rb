@@ -1,4 +1,6 @@
 class OrganizationImporter
+
+
   @queue = :facebook_queue
 
   def self.perform(organization_id, oauth_access, account)
