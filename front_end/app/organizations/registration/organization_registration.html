@@ -1,8 +1,9 @@
-<div class="content">
-  <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
-   the volu app. -->
 
-  <div ng-if="!connected_to_facebook">
+<!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
+ the volu app. -->
+
+<md-card class="content">
+  <md-card-content ng-if="!connected_to_facebook">
     <img src="../../images/V_Logo.png">
     <h2>Access Volu With Facebook</h2>
     <p id="facebook-login-text">
@@ -13,11 +14,13 @@
             ng-click="log_in()">
       Facebook Login
     </button>
-  </div>
+  </md-card-content>
+
 
   <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
    the volu app. -->
-  <div ng-if="connected_to_facebook && !organization_registration">
+
+  <md-card-content ng-if="connected_to_facebook && !organization_registration">
     <h2>Eligible Organizations</h2>
     <ul     class="list-group organization-login-list">
       <li class="list-group-item"  ng-repeat="organization in organizations">
@@ -41,8 +44,9 @@
           Add {{organization.name}}
         </button>
     </ul>
-  </div>
-  <div ng-if="organization_registration" id="organization-registration-container">
+  </md-card-content>
+
+  <md-card-content ng-if="organization_registration" id="organization-registration-container">
     <h2>Register {{organization.name}} for Volu</h2>
     <img class="organization-login-image" ng-src="{{organization.picture}}">
     <p>Thanks for your interest in registering for Volu, you are a few clicks away from having
@@ -81,7 +85,7 @@
       Register {{organization.name}} For Volu and Import Facebook Data
     </button>
     <a href="" ng-click="organizationList();">Back</a>
-  </div>
-</div>
+  </md-card-content>
+</md-card>
 
 

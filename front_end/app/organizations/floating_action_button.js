@@ -4,32 +4,14 @@
   angular.module('voluntrApp')
     .controller('FABCtrl', function ($scope, $modal, $rootScope) {
 
-      $scope.chooseOpportunityType = function (size) {
-        $scope.opportunityTypeModal = $modal.open(
-          {
-            templateUrl: 'organizations/opportunities/choose_opportunity_type_modal.html',
-            controller: 'AddOpportunityCtrl',
-            windowClass: 'opportunity-type-window',
-            size: size
-          })
-
-        $scope.opportunityTypeModal.result.then(function () {
-
-          },
-          function () {
-            console.log('Modal dismissed at: ' + new Date());
-          });
-      };
-
-
-      $scope.addEventOpportunity = function (size) {
+      $scope.addOpportunity = function (size) {
         var organizationEventModal = $modal.open(
           {
-            templateUrl: 'organizations/opportunities/organization_add_opportunity_modal.html',
+            templateUrl: 'organizations/opportunities/organization_add_position_modal.html',
             controller: 'AddOpportunityCtrl',
             windowClass: 'add-event-modal-window',
             size: size
-          })
+          });
 
         organizationEventModal.result.then(function () {
 
@@ -38,6 +20,7 @@
             console.log('Modal dismissed at: ' + new Date());
           });
       };
+
 
 
       $scope.addOrganizationPerson = function (size) {

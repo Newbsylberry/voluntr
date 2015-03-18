@@ -22,16 +22,20 @@ class OpportunitiesController < ApplicationController
   # POST /events.json
   def create
     @opportunity = Opportunity.new(opportunity_params)
-    if @opportunity.opportunity_type_id = 2
+    @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
+
+    if params[:repeating_event] === true
+      @opportunity.opportunity_type_id = 1
       @start_schedule = Schedule.new(Time.at(@opportunity.start_time.to_i / 1000 ))
-      @end_schedule = Schedule.new(Time.at(@opportunity.end_time.to_i / 1000 ))
-      if params[:daily] == true
+      if params[:daily] == true && params[:repeat_count].blank?
         @start_schedule.add_recurrence_rule Rule.daily
-        @end_schedule.add_recurrence_rule Rule.daily
+      elsif params[:daily] == true && !params[:repeat_count].blank?
+        @start_schedule.add_recurrence_rule Rule.daily(params[:repeat_count])
       end
-      if params[:weekly] == true
-        @start_schedule.add_recurrence_rule Rule.weekly
-        @end_schedule.add_recurrence_rule Rule.weekly
+      if params[:weekly] == true && params[:repeat_count].blank?
+        @start_schedule.add_recurrence_rule Rule.weekly.day(params[:repeat_days])
+      elsif params[:weekly] == true && !params[:repeat_count].blank?
+        @start_schedule.add_recurrence_rule Rule.weekly(params[:repeat_count]).day(params[:repeat_days])
       end
       if params[:monthly] == true
         @start_schedule.add_recurrence_rule Rule.monthly
@@ -42,7 +46,6 @@ class OpportunitiesController < ApplicationController
         @end_schedule.add_recurrence_rule Rule.yearly
       end
       @opportunity.start_schedule = @start_schedule.to_yaml
-      @opportunity.end_schedule = @end_schedule.to_yaml
     end
     @opportunity.save
 
@@ -80,8 +83,8 @@ class OpportunitiesController < ApplicationController
 
   def opportunity_params
     params.require(:opportunity).permit(:fb_id, :name, :location, :opportunity_type_id,
-                                  :description, :start_time, :end_time, :about,
-                                  :timezone, :latitude, :longitude, :organization_id )
+                                        :description, :start_time, :end_time, :about,
+                                        :timezone, :latitude, :longitude, :organization_id, :color )
   end
 
 end

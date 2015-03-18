@@ -39,6 +39,7 @@ angular.module('voluntrApp')
           console.log(successResponse)
           // find the organizations information on facebook
           $scope.organization = successResponse
+          $rootScope.organization_id = successResponse.id;
 
           $scope.organization.posts = $filter('orderBy')(successResponse.posts, 'post_time')
           angular.forEach($scope.organization.posts, addPostToGraph)

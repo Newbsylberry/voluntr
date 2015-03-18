@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $modalStack,
-                                        $rootScope, $state, Organization, Facebook, $http, $modal) {
+                                              $rootScope, $state, Organization, Facebook, $http, $modal) {
 
 
     //$http.get('api/v1/opportunity_types').
@@ -27,23 +27,6 @@ angular.module('voluntrApp')
           controller: 'AddOpportunityCtrl',
           windowClass: 'add-event-modal-window',
           size: size
-        })
-
-      organizationEventModal.result.then(function () {
-
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
-        });
-    };
-
-    $scope.addPositionOpportunity = function (size) {
-      var organizationEventModal = $modal.open(
-        {
-          templateUrl: 'organizations/opportunities/organization_add_position_modal.html',
-          controller: 'AddOpportunityCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size
         });
 
       organizationEventModal.result.then(function () {
@@ -54,6 +37,10 @@ angular.module('voluntrApp')
         });
     };
 
+    $scope.days = [];
+    for (var i = 0; i <= 30; i++) {
+      $scope.days.push(i);
+    };
 
     // Functions and Variables for helping with duration selector
     $scope.duration_label = 'minutes'
@@ -66,28 +53,40 @@ angular.module('voluntrApp')
       } else {
         $scope.duration_label = 'hours'
       };
-      $scope.newPosition.end_time = $scope.newPosition.start_time.getTime() + $scope.position_duration;
+      $scope.newOpportunity.end_time = $scope.newOpportunity.start_time.getTime() + $scope.position_duration;
     });
 
-    $scope.newPosition = function(){
+    $scope.newOpportunity = function(){
+      console.log($scope.newOpportunity)
       var attr = {};
-      attr.name = $scope.newPosition.position_name;
-      attr.description = $scope.newPosition.description;
-      attr.start_time = $scope.newPosition.start_time.getTime();
-      attr.opportunity_type_id = 1;
+      attr.name = $scope.newOpportunity.opportunity_name;
+      attr.description = $scope.newOpportunity.description;
+      attr.start_time = $scope.newOpportunity.start_time.getTime();
       attr.organization_id = $stateParams.organization_Id;
-      attr.end_time = $scope.newPosition.end_time;
-      attr.daily = $scope.newPosition.daily;
-      attr.weekly = $scope.newPosition.weekly;
-      attr.monthly = $scope.newPosition.monthly;
-      attr.annually = $scope.newPosition.annually;
-      attr.monday_repeat = $scope.newPosition.monday_repeat;
-      attr.tuesday_repeat = $scope.newPosition.tuesday_repeat;
-      attr.wednesday_repeat = $scope.newPosition.wednesday_repeat;
-      attr.thursday_repeat = $scope.newPosition.thursday_repeat;
-      attr.friday_repeat = $scope.newPosition.friday_repeat;
-      attr.saturday_repeat = $scope.newPosition.saturday_repeat;
-      attr.sunday_repeat = $scope.newPosition.sunday_repeat;
+      attr.end_time = $scope.newOpportunity.end_time;
+      attr.repeating_event = $scope.newOpportunity.repeating_event;
+      attr.daily = $scope.newOpportunity.repeat.repeat_daily;
+      attr.weekly = $scope.newOpportunity.repeat.repeat_weekly;
+      attr.monthly = $scope.newOpportunity.repeat.repeat_monthly;
+      attr.annually = $scope.newOpportunity.repeat.repeat_annually;
+      attr.repeat_count = $scope.newOpportunity.repeat_count
+      attr.repeat_days = [];
+      if ($scope.newOpportunity.sunday_repeat) {
+        attr.repeat_days.push(0)
+      };
+      if ($scope.newOpportunity.monday_repeat) {
+        attr.repeat_days.push(1)
+      } if ($scope.newOpportunity.tuesday_repeat) {
+        attr.repeat_days.push(2)
+      } if ($scope.newOpportunity.wednesday_repeat) {
+        attr.repeat_days.push(3)
+      } if ($scope.newOpportunity.thursday_repeat) {
+        attr.repeat_days.push(4)
+      } if ($scope.newOpportunity.friday_repeat) {
+        attr.repeat_days.push(5)
+      } if ($scope.newOpportunity.saturday_repeat) {
+        attr.repeat_days.push(6)
+      }
       console.log(attr);
       var reoccuringPosition = Opportunity.create(attr);
     };
@@ -128,51 +127,51 @@ angular.module('voluntrApp')
     $scope.addEvent = function(event, event_entry) {
       var attr = {};
       if (event_entry === 'manual_event'){
-      attr.name = $scope.addEvent.event_name;
-      attr.description = $scope.addEvent.description;
-      attr.start_time = new Date($scope.addEvent.start_time);
-      attr.end_time =  new Date($scope.addEvent.end_time);
-      attr.organization_id = $stateParams.organization_Id;
-      $timeout( function() {
-        var geocoder = new google.maps.Geocoder();
-        geocoder
-          .geocode(
-          {
-            'address' : $scope.addEvent.address
-          },
-          function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              // for (var i=0; i < results.length; i++) {
-              angular.forEach(results, function(result){
-                // var result = results[i]
-                angular.forEach(result.address_components, function (address_component) {
-                  // for (var i=0; i < result.address_components.length; i++) {
-                  // var address_component = result.address_components[i]
-                  if (address_component.short_name === $scope.addEvent.zip_code) {
+        attr.name = $scope.addEvent.event_name;
+        attr.description = $scope.addEvent.description;
+        attr.start_time = new Date($scope.addEvent.start_time);
+        attr.end_time =  new Date($scope.addEvent.end_time);
+        attr.organization_id = $stateParams.organization_Id;
+        $timeout( function() {
+          var geocoder = new google.maps.Geocoder();
+          geocoder
+            .geocode(
+            {
+              'address' : $scope.addEvent.address
+            },
+            function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                // for (var i=0; i < results.length; i++) {
+                angular.forEach(results, function(result){
+                  // var result = results[i]
+                  angular.forEach(result.address_components, function (address_component) {
+                    // for (var i=0; i < result.address_components.length; i++) {
+                    // var address_component = result.address_components[i]
+                    if (address_component.short_name === $scope.addEvent.zip_code) {
 
-                    var location = new google.maps.LatLng(result.geometry.location.D, result.geometry.location.k);
-                    console.log(location)
-                    attr.latitude = result.geometry.location.k;
-                    attr.longitude = result.geometry.location.D;
-                  }
+                      var location = new google.maps.LatLng(result.geometry.location.D, result.geometry.location.k);
+                      console.log(location)
+                      attr.latitude = result.geometry.location.k;
+                      attr.longitude = result.geometry.location.D;
+                    }
+                  })
+
                 })
 
-              })
-
-            }
-          })
-        $timeout(
-          function() {
-            var newEvent = Opportunity.create(attr);
-            // $rootScope.organization.events.push(newEvent)
-            $modalStack. dismissAll();
-            $state.transitionTo($state.current, $stateParams, {
-              reload: true,
-              inherit: false,
-              notify: true
-            });
-          }, 3000);
-      }, 3000)
+              }
+            })
+          $timeout(
+            function() {
+              var newEvent = Opportunity.create(attr);
+              // $rootScope.organization.events.push(newEvent)
+              $modalStack. dismissAll();
+              $state.transitionTo($state.current, $stateParams, {
+                reload: true,
+                inherit: false,
+                notify: true
+              });
+            }, 3000);
+        }, 3000)
       } else if (event_entry === 'facebook_event') {
         attr.fb_id = event.id;
         attr.name = event.name;

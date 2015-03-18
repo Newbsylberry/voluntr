@@ -96,7 +96,8 @@ angular
       .state('organizations', {
         url: '/organizations',
         abstract: true,
-        templateUrl: 'organizations/organization.html'
+        templateUrl: 'organizations/organization.html',
+        controller: 'OrganizationMainCtrl'
       })
 
       .state('organizations.registration', {

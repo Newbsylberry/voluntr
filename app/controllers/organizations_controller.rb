@@ -66,13 +66,14 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @organization_calendar = Array.new
     @organization.opportunities.each do |o|
-      if !o.start_schedule.empty? & !o.end_schedule.empty?
+      if !o.start_schedule.empty?
         @event_duration = ((o.end_time.to_i - o.start_time.to_i) / 3600000).round
         start_time = IceCube::Schedule.from_yaml(o.start_schedule)
         if start_time.occurs_between?(Time.at(params[:start].to_i), Time.at(params[:end].to_i))
           start_time.occurrences_between(Time.at(params[:start].to_i), Time.at(params[:end].to_i)).each do |occ|
             @schedule_instance = Opportunity.new
             @schedule_instance.name = o.name
+            @schedule_instance.color  = o.color
             @schedule_instance.start_time = occ
             @schedule_instance.end_time = occ + @event_duration.hours
             puts @schedule_instance.start_time
@@ -80,6 +81,7 @@ class OrganizationsController < ApplicationController
           end
         end
       end
+      @organization_calendar.push(o)
     end
 
 

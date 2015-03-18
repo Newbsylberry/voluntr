@@ -83,6 +83,7 @@ angular.module('voluntrApp')
           }).
           success(function(data, status, headers, config) {
               $state.go('organizations.organization_home', {organization_Id:data.id})
+              $stateParams.organization_Id = data.id;
           }).
           error(function(data, status, headers, config) {
           });
