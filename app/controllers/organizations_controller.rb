@@ -73,10 +73,11 @@ class OrganizationsController < ApplicationController
           start_time.occurrences_between(Time.at(params[:start].to_i), Time.at(params[:end].to_i)).each do |occ|
             @schedule_instance = Opportunity.new
             @schedule_instance.name = o.name
+            @schedule_instance.id = o.id
             @schedule_instance.color  = o.color
             @schedule_instance.start_time = occ
             @schedule_instance.end_time = occ + @event_duration.hours
-            puts @schedule_instance.start_time
+            puts @schedule_instance.end_time
             @organization_calendar.push(@schedule_instance)
           end
         end

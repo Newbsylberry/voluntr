@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunitiesHomeCtrl', function ($scope, Facebook, $stateParams,
-                                                 $http, $state, $filter, uiCalendarConfig) {
+                                                 $http, $state, $filter, uiCalendarConfig, $modal) {
 
 
 
@@ -40,9 +40,45 @@ angular.module('voluntrApp')
           // (Monday-Thursday in this example)
         }
       }
+
     };
 
 
+    $scope.opportunityDetail = function (size, id) {
+      var opportunityDetailModal = $modal.open(
+        {
+          templateUrl: 'organizations/opportunities/opportunity_detail_modal.html',
+          controller: 'OpportunityDetailCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size,
+          resolve:
+          {
+            id: function () {
+              return id
+            }
+          }
+
+        });
+
+
+
+      opportunityDetailModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
+
+    $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
+      console.log(calEvent)
+      console.log(jsEvent)
+      console.log(view)
+      $scope.opportunityDetail('lg', calEvent.id);
+
+
+    };
 
 
 

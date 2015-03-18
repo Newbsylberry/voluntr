@@ -19,28 +19,28 @@
          md-swipe-right="previous()" >
 
 
-        <md-input-container>
-          <label>First Name</label>
-          <input ng-model="newPerson.first_name">
-        </md-input-container>
+      <md-input-container>
+        <label>First Name</label>
+        <input ng-model="newPerson.first_name">
+      </md-input-container>
 
 
-        <md-input-container>
-          <label>Last Name</label>
-          <input ng-model="newPerson.last_name">
-        </md-input-container>
+      <md-input-container>
+        <label>Last Name</label>
+        <input ng-model="newPerson.last_name">
+      </md-input-container>
 
-        <div ng-hide="!newPerson">
-          <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
-            {{person.first_name}}  {{person.last_name}}
-            <a style="float: right; color: black;"
-               ng-click="matchedPerson(person)"
-               href="";
-              >
-              This is My Volunteer!
-            </a>
-          </p>
-        </div>
+      <div ng-hide="!newPerson">
+        <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
+          {{person.first_name}}  {{person.last_name}}
+          <a style="float: right; color: black;"
+             ng-click="matchedPerson(person)"
+             href="";
+            >
+            This is My Volunteer!
+          </a>
+        </p>
+      </div>
 
 
 

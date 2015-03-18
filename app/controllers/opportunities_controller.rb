@@ -84,6 +84,7 @@ class OpportunitiesController < ApplicationController
   def opportunity_params
     params.require(:opportunity).permit(:fb_id, :name, :location, :opportunity_type_id,
                                         :description, :start_time, :end_time, :about,
+                                        :city, :state, :zip_code,
                                         :timezone, :latitude, :longitude, :organization_id, :color )
   end
 

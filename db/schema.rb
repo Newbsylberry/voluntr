@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318003247) do
+ActiveRecord::Schema.define(version: 20150318011658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20150318003247) do
     t.text     "start_schedule"
     t.string   "end_time"
     t.string   "color"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
   end
 
   create_table "opportunity_types", force: true do |t|
