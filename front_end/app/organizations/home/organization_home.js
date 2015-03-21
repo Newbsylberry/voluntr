@@ -52,6 +52,17 @@ angular.module('voluntrApp')
       }
     });
 
+
+    $http.get('http://api.randomuser.me/').
+      success(function(data, status, headers, config) {
+        $scope.sample_contact = data.results[0].user;
+        console.log($scope.sample_contact)
+      }).
+      error(function(data, status, headers, config) {
+        console.log(data)
+      });
+
+
     $scope.generated_stories = ""
     // Function that manages the post modal in the side bar
     $scope.open = function (size) {

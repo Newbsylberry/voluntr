@@ -28,7 +28,7 @@
           {
             templateUrl: 'organizations/people/organization_add_person_modal.html',
             controller: 'AddPeopleCtrl',
-            // windowClass: 'add-event-modal-window',
+            windowClass: 'add-event-modal-window',
             size: size
           });
 

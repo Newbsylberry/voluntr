@@ -15,6 +15,12 @@ class OpportunitiesController < ApplicationController
   def show
     @opportunity = Opportunity.find(params[:id])
 
+    if @opportunity.start_schedule
+      schedule = IceCube::Schedule.from_yaml(@opportunity.start_schedule)
+
+      puts schedule.occurs_on?(Time.at(params[:instance_date].to_i / 1000))
+    end
+
     render json: @opportunity
   end
 
@@ -78,6 +84,15 @@ class OpportunitiesController < ApplicationController
 
     render json: @opportunity
   end
+
+
+
+  def people
+    @opportunity = Opportunity.find_by_id(params[:id])
+
+    render json: @opportunity.people, each_serializer: PersonSerializer
+  end
+
 
   protected
 

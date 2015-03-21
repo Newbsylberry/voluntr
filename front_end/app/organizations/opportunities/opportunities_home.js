@@ -44,7 +44,7 @@ angular.module('voluntrApp')
     };
 
 
-    $scope.opportunityDetail = function (size, id) {
+    $scope.opportunityDetail = function (size, id, start_time) {
       var opportunityDetailModal = $modal.open(
         {
           templateUrl: 'organizations/opportunities/opportunity_detail_modal.html',
@@ -55,9 +55,11 @@ angular.module('voluntrApp')
           {
             id: function () {
               return id
+            },
+            start_time: function() {
+              return start_time;
             }
           }
-
         });
 
 
@@ -72,10 +74,8 @@ angular.module('voluntrApp')
 
 
     $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
-      console.log(calEvent)
-      console.log(jsEvent)
-      console.log(view)
-      $scope.opportunityDetail('lg', calEvent.id);
+
+      $scope.opportunityDetail('lg', calEvent.id, calEvent.start_time);
 
 
     };

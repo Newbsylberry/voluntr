@@ -1,4 +1,73 @@
-<h2>{{opportunity.name}}</h2>
-<p>
-  {{opportunity.description}}
-</p>
+<md-tabs class="md-accent" md-selected="data.selectedIndex">
+  <md-tab id="tab1" aria-controls="tab1-content">
+    Volunteer Opportunity Dashboard
+  </md-tab>
+  <md-tab id="tab2" aria-controls="tab2-content">
+    Add People To Volunteer Opportunity
+  </md-tab>
+</md-tabs>
+<ng-switch on="data.selectedIndex" class="tabpanel-container">
+  <div role="tabpanel"
+       aria-labelledby="tab1"
+       ng-switch-when="0"
+       md-swipe-left="next()"
+       md-swipe-right="previous()" >
+    <h2>
+      {{opportunity.name}}
+    </h2>
+    <p>
+      {{opportunity.description}}
+    </p>
+    <md-list layout="column" ng-if="opportunity.people.length != 0">
+      <h3>Interested Volunteers:</h3>
+      <md-item ng-repeat="person in opportunity.people">
+        <md-item-content>
+          <div class="md-tile-left">
+            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
+                 class="face" alt="{{item.who}}">
+          </div>
+          <div class="md-tile-content">
+            <h3>{{person.first_name}} {{person.last_name}}</h3>
+          </div>
+          <div class="md-tile-right">
+            Committed?
+            <md-checkbox
+              ng-model="new_volunteer"
+              ng-click="commitVolunteer(person)"
+              aria-label="Committed Volunteer?"
+              style="display: inline-block;">
+
+            </md-checkbox>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
+
+  </div>
+  <div role="tabpanel"
+       id="create-person-record"
+       ng-switch-when="1"
+       md-swipe-left="next()"
+       md-swipe-right="previous()" >
+    <md-list layout="column">
+      <h3>Add Volunteer To Event:</h3>
+      <input ng-model="find_volunteer">
+      <md-item ng-repeat="person in organization_people | filter:find_volunteer">
+        <md-item-content>
+          <div class="md-tile-left">
+            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
+                 class="face" alt="{{item.who}}">
+          </div>
+          <div class="md-tile-content">
+            <h3>{{person.first_name}} {{person.last_name}}</h3>
+            <h4>Some important notes here</h4>
+            <a href="" ng-click="addOpportunityPerson(person)" style="float: right;">
+              Add To Opportunity</a>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
+
+  </div>
+</ng-switch>
+

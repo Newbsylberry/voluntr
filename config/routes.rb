@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
 
+
   scope '/api' do
     scope '/v1' do
       devise_for :users, defaults: {format: :json},
                  :controllers => { registrations: 'registrations',
                                    sessions: 'sessions'}, defaults: {format: :json}
+      resources :person_opportunities, except: [:new, :edit], defaults: {format: :json}
       resources :opportunity_types, except: [:new, :edit]
       resources :users, defaults: {format: :json}
+      resources :people, defaults: {format: :json}
       post '/user/contact_form', to: 'users#contact', defaults: {format: :json}
       resources :profiles, except: [:new, :edit], defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
@@ -15,9 +18,12 @@ Rails.application.routes.draw do
       resources :opportunities, except: [:new, :edit], defaults: {format: :json}
       match '/organizations/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
+      match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
       match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/people', to: 'opportunities#people', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
+      # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
     end
   end
 
