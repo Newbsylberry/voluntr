@@ -13,17 +13,17 @@
 angular.module('voluntrApp')
   .controller('OpportunityDetailCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, Opportunity, id,
-                                                 PersonOpportunity, start_time) {
+                                                 PersonOpportunity, start_time, $modal) {
 
 
 
 
-    console.log(new Date(start_time).getTime())
 
-    $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
+
+    $http.get('api/v1/opportunities/' + id).
       success(function(data, status, headers, config) {
         $scope.opportunity = data;
-        $http.get('api/v1/opportunities/' + data.id + '/people' ).
+        $http.get('api/v1/opportunities/' + data.id + '/instance', {params: {instance_date: new Date(start_time).getTime()}} ).
           success(function(data, status, headers, config) {
 
             $scope.opportunity.people = data;
@@ -50,12 +50,35 @@ angular.module('voluntrApp')
 
     };
 
-    $scope.addOpportunityPerson = function(person) {
-      var attr = {};
-      attr.person_id = person.id;
-      attr.opportunity_id = $scope.opportunity.id;
-      PersonOpportunity.create(attr)
-    };
+
+    $scope.addOpportunityPersonModal = function (size, person) {
+      var addOpportunityPersonModal = $modal.open(
+        {
+          templateUrl: 'organizations/opportunities/add_opportunity_person.html',
+          controller: 'AddOpportunityPersonCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size,
+          resolve:
+          {
+            person: function() {
+              return person;
+            },
+            opportunity: function(){
+              return $scope.opportunity;
+            },
+            start_time: function(){
+              return start_time;
+            }
+          }
+        });
+
+      addOpportunityPersonModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    }
 
 
   });

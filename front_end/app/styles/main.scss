@@ -15,17 +15,24 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../organizations/opportunities/opportunity_details.scss";
 @import "../organizations/opportunities/opportunities.scss";
 @import "../organizations/opportunities/add_opportunity_window.scss";
+@import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";
 
 html {
+  height: 100%;
+  width: 100%;
   background-color: $background-color;
   body {
+    height: 100%;
+    width: 100%;
     background-color: $background-color;
   }
   .snap-content {
     background-color: $background-color;
   }
 }
+
+
 
 md-card {
   background-color: white;

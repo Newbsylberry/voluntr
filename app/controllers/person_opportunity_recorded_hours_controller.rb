@@ -1,0 +1,2 @@
+class PersonOpportunityRecordedHoursController < ApplicationController
+end

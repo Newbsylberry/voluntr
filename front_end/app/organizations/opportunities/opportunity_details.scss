@@ -1,3 +1,7 @@
-md-checkbox .md-label {
-  display: none;
+.add-person-day-checkbox {
+  md-checkbox div.md-label {
+    display: block;
+  }
 }
+
+

@@ -4,7 +4,7 @@
   angular.module('voluntrApp')
     .controller('FABCtrl', function ($scope, $modal, $rootScope) {
 
-      $scope.addOpportunity = function (size) {
+      $scope.addVolunteerOpportunity = function (size) {
         var organizationEventModal = $modal.open(
           {
             templateUrl: 'organizations/opportunities/organization_add_position_modal.html',

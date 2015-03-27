@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :person_opportunity_recorded_hours, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
       devise_for :users, defaults: {format: :json},
@@ -21,7 +22,9 @@ Rails.application.routes.draw do
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
       match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
+      match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
       match '/opportunities/:id/people', to: 'opportunities#people', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/instance', to: 'opportunities#opportunity_instance', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
     end

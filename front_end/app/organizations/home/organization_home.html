@@ -35,7 +35,20 @@
     <div class="col-md-6">
       <md-card>
         <md-card-content>
-          <h3>Upcoming Volunteer Opportunities</h3>
+          <h3>Recently Recorded Hours</h3>
+          <md-list>
+            <md-item ng-repeat="recorded_hour in organization.recorded_hours">
+              <md-item-content>
+                <div class="md-tile-left">
+                  <h1>{{recorded_hour.hours}}</h1>
+                </div>
+                <div class="md-tile-content">
+                  <h3>{{recorded_hour.opportunity.name}}</h3>
+                  <h4>{{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h4>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
         </md-card-content>
       </md-card>
     </div>

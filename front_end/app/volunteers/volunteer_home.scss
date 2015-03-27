@@ -1,0 +1,15 @@
+#volunteer-home-header {
+  position: fixed;
+  z-index: 1;
+  background-color: black;
+  height: 76px;
+  width: 100%;
+  h1 {
+    position: static;
+    z-index: 1;
+    margin: 18px auto;
+    display: block;
+    width: 7%;
+    color: white;
+  }
+}

@@ -69,7 +69,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @organization_calendar = Array.new
     @organization.opportunities.each do |o|
-      if !o.start_schedule.empty?
+      if !o.start_schedule.nil?
         @event_duration = ((o.end_time.to_i - o.start_time.to_i) / 3600000).round
         start_time = IceCube::Schedule.from_yaml(o.start_schedule)
         if start_time.occurs_between?(Time.at(params[:start].to_i), Time.at(params[:end].to_i))
@@ -80,18 +80,29 @@ class OrganizationsController < ApplicationController
             @schedule_instance.color  = o.color
             @schedule_instance.start_time = occ
             @schedule_instance.end_time = occ + @event_duration.hours
-            puts @schedule_instance.end_time
             @organization_calendar.push(@schedule_instance)
           end
         end
+      elsif o.start_schedule.nil? || o.start_schedule.nil?
+        o.start_time = Time.at(o.start_time.to_i / 1000)
+        o.end_time = Time.at(o.end_time.to_i / 1000)
+        @organization_calendar.push(o)
       end
-      @organization_calendar.push(o)
+
     end
-
-
     render json: @organization_calendar, each_serializer: OpportunitySerializer
   end
 
+  def recorded_hours
+    @organization = Organization.find(params[:id])
+    @organization_recorded_hours = Array.new
+    @organization.person_opportunity_recorded_hours.each do |h|
+      @organization_recorded_hours.push(h)
+    end
+
+    render json: @organization_recorded_hours,
+           each_serializer: PersonOpportunityRecordedHourSerializer
+  end
 
   private
 

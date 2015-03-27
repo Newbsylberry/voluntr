@@ -61,8 +61,13 @@
 
 
       <h2>Shift Duration</h2>
-      <h3>{{position_duration | duration:'h:mm'}} {{duration_label}}</h3>
-      <md-slider flex min="900000" step="900000" max="43200000" ng-model="position_duration" aria-label="red" id="red-slider" class>
+      <h3>{{newOpportunity.position_duration | duration:'h:mm'}} {{duration_label}}</h3>
+      <md-slider flex min="900000"
+                 step="900000"
+                 max="43200000"
+                 ng-model="newOpportunity.position_duration"
+                 aria-label="red"
+                 id="red-slider" class>
       </md-slider>
 
       <!-- Does the event repeat? -->

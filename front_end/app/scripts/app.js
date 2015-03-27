@@ -30,20 +30,10 @@ angular
     'angular-duration-format',
     'ui.calendar',
     'snap',
+    'leaflet-directive',
     "kendo.directives"
   ])
 
-
-  .run(function($rootScope) {
-    document.addEventListener("keyup", function(e) {
-      if (e.keyCode === 27)
-        $rootScope.$broadcast("escapePressed", e.target);
-    });
-
-    document.addEventListener("click", function(e) {
-      $rootScope.$broadcast("documentClicked", e.target);
-    })
-  })
 
 
 
@@ -82,14 +72,7 @@ angular
 
       .state('volunteer_home', { //default page loaded for landing state
         url: '/volunteer_home',
-        templateUrl: 'views/volunteer_home.html', // url for partial
-        // resolve:{
-        //userLocation: function(geolocation) {
-        //  return geolocation.getLocation().then(function(data){
-        //    var origin = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
-        //    return origin;
-        //  })
-        // },
+        templateUrl: 'volunteers/volunteer_home.html', // url for partial
         controller: 'VolunteerHomeCtrl'
       })
 
