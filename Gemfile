@@ -4,7 +4,7 @@ gem 'rails', '4.1.0'
 
 gem 'rails-api'
 
-gem 'puma', '2.9.1'
+gem 'puma'
 
 gem 'spring', :group => :development
 
