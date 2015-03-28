@@ -2,7 +2,7 @@ set :application, 'volu'
 set :repo_url, 'git@github.com:Newbsylberry/voluntr.git'
 set :user, 'voluser'
 set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :puma_workers,    1
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :rvm1_ruby_version, 'rbx'
@@ -45,21 +45,9 @@ set(:config_files, %w(
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-namespace :puma do
-  desc 'Create Directories for Puma Pids and Socket'
-  task :make_dirs do
-    on roles(:app) do
-      execute "mkdir #{shared_path}/tmp/sockets -p"
-      execute "mkdir #{shared_path}/tmp/pids -p"
-    end
-  end
 
-  before :start, :make_dirs
-end
 
 namespace :deploy do
-
-
 
 
   desc "Make sure local git is in sync with remote."
