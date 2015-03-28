@@ -12,7 +12,7 @@ gem 'spring', :group => :development
 group :development do
   gem 'net-ssh', '>2.0'
   gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
+  gem 'rvm1-capistrano3', require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
