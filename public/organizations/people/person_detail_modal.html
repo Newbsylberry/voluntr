@@ -1,0 +1,13 @@
+<img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
+     class="face">
+<h2>{{person.first_name}} {{person.last_name}}</h2>
+<md-list>
+  <md-item ng-repeat="opportunity in person.opportunities">
+    <md-item-content>
+      <div class="md-tile-content">
+        <h3>{{opportunity.name}}</h3>
+        <h4>Some important notes here</h4>
+      </div>
+    </md-item-content>
+  </md-item>
+</md-list>

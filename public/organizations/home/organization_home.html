@@ -1,0 +1,58 @@
+<div class="content">
+  <md-card>
+    <md-card-content>
+      <highchart config="lineGraphConfig"></highchart>
+      <a href="" ng-click="open('lg')">Add Additional Data</a><br>
+    </md-card-content>
+  </md-card>
+  <div class="row">
+    <div class="col-md-6">
+      <md-card>
+        <md-card-content>
+          <md-list layout="column" ng-if="opportunity.people.length != 0">
+            <h3>Volunteers to Contact</h3>
+            <md-item>
+              <md-item-content>
+                <div class="md-tile-left">
+                  <img src="{{sample_contact.picture.thumbnail}}"
+                       style="  border-radius: 50%; height: 50px; padding-right: 14px;"
+                       class="face" alt="{{item.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h3>{{sample_contact.name.first}} {{sample_contact.name.last}}</h3>
+                  <h4>Interested in shelter drop off event</h4>
+                </div>
+                <div class="md-tile-right">
+                  <i class="icon ion-email" style="font-size: 18pt; padding-right: 12px;"></i>
+                  <i class="icon ion-ios-telephone" style="font-size: 18pt; padding-right: 12px;"></i>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div class="col-md-6">
+      <md-card>
+        <md-card-content>
+          <h3>Recently Recorded Hours</h3>
+          <md-list>
+            <md-item ng-repeat="recorded_hour in organization.recorded_hours">
+              <md-item-content>
+                <div class="md-tile-left">
+                  <h1>{{recorded_hour.hours}}</h1>
+                </div>
+                <div class="md-tile-content">
+                  <h3>{{recorded_hour.opportunity.name}}</h3>
+                  <h4>{{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h4>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>
+
+

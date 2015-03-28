@@ -34,7 +34,10 @@ module.exports = function (grunt) {
                 tasks: ['wiredep']
             },
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+                files: ['<%= yeoman.app %>/scripts/{,*/}*.js',
+                  '<%= yeoman.app %>/organizations/**/*.js',
+                  '<%= yeoman.app %>/volunteers/**/*.js',
+                  '<%= yeoman.app %>/static_pages/**/*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
@@ -45,7 +48,10 @@ module.exports = function (grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             compass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+                files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}',
+                        '<%= yeoman.app %>/organizations/**/*.{scss,sass}',
+                        '<%= yeoman.app %>/volunteers/**/*.{scss,sass}',
+                        '<%= yeoman.app %>/static_pages/**/*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -56,7 +62,7 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= yeoman.app %>/{,*/}*.html',
+                    '<%= yeoman.app %>/**/*.html',
                     '<%= yeoman.app %>/',
                     '.tmp/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -323,7 +329,10 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: ['*.html', 'views/{,*/}*.html'],
+                    src: ['*.html', 'views/{,*/}*.html',
+                      'organizations{,*/}*.html',
+                      'volunteers{,*/}*.html',
+                      'static_pages{,*/}*.html'],
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -363,7 +372,10 @@ module.exports = function (grunt) {
                         '.htaccess',
                         '*.html',
                         'views/{,*/}*.html',
-                        'images/{,*/}*.{webp}',
+                        'organizations/**/*.html',
+                        'volunteers/**/*.html',
+                        'static_pages/**/*.html',
+                        'images/**/*.{webp}',
                         'fonts/*'
                     ]
                 }, {

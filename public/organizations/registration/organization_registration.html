@@ -1,0 +1,91 @@
+
+<!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
+ the volu app. -->
+
+<md-card class="content">
+  <md-card-content ng-if="!connected_to_facebook">
+    <img src="../../images/V_Logo.png">
+    <h2>Access Volu With Facebook</h2>
+    <p id="facebook-login-text">
+      You are about to have access to a complete and advanced toolset for managing your non-profit,
+      but you'll need to be an administrator of your organizations Facebook page to move further.
+    </p>
+    <button class="btn btn-lg log-in-button"
+            ng-click="log_in()">
+      Facebook Login
+    </button>
+  </md-card-content>
+
+
+  <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
+   the volu app. -->
+
+  <md-card-content ng-if="connected_to_facebook && !organization_registration">
+    <h2>Eligible Organizations</h2>
+    <ul     class="list-group organization-login-list">
+      <li class="list-group-item"  ng-repeat="organization in organizations">
+        <img class="organization-login-image" ng-src="{{organization.picture}}">
+
+        <!-- Organization Name -->
+        <p class="lead">{{organization.name}}</p>
+
+        <!-- Link to the organizations Voluntr Page -->
+        <button class="btn btn-default"
+                ng-if="organization.exists === true"
+                ui-sref='organizations.organization_home({organization_Id:organization.v_id})'
+          >{{organization.name}} Home Page
+        </button>
+        <!-- Organization Name -->
+        <!-- If the organization has not been added to voluntr, show option
+            to add to VOLUNTR database -->
+        <button ng-if="organization.exists === false"
+                class="btn btn-default"
+                ng-click="organizationRegistration(organization)">
+          Add {{organization.name}}
+        </button>
+    </ul>
+  </md-card-content>
+
+  <md-card-content ng-if="organization_registration" id="organization-registration-container">
+    <h2>Register {{organization.name}} for Volu</h2>
+    <img class="organization-login-image" ng-src="{{organization.picture}}">
+    <p>Thanks for your interest in registering for Volu, you are a few clicks away from having
+      the ability to manage the opportunities your organization provides, and the people interested in them.  Before we
+      move forward, we want you to know exactly what data we're accessing from your account, and why.
+    </p>
+    <h3>
+      Information About Your Organization
+    </h3>
+    <p>
+      When you register for Volu, we save your organizations name, a brief description, a link to your current Facebook
+      picture, and the identification number that Facebook uses.  This is so volunteers who don't have a Facebook account
+      can find out about your organization, and so we can ensure that anyone who tries to access your Volu account has
+      permission.
+    </p>
+    <h3>
+      Your Organization's Facebook Page Posts
+    </h3>
+    <p>
+      At Volu, we believe that connecting with your community begins long before someone actually comes in contact with
+      your organization.  We import your Facebook posts, and insights about them, so that we can help you get a
+      better understanding of what has helped you connect with your audience in the past, and how to build off your
+      success.
+    </p>
+    <h3>
+      The People Who Like Those Posts
+    </h3>
+    <p>
+      Liking a post on your Facebook wall is the first step to getting involved and supporting your organizations mission.
+      When you register for Volu, we want to see you succeed, so we give you a list of people you have already impacted
+      through your marketing.
+    </p>
+    <h2>Oh yeah, and all of the above we do for free, so what are you waiting for?</h2>
+    <button class="btn btn-default"
+            ng-click="addOrganization(organization)">
+      Register {{organization.name}} For Volu and Import Facebook Data
+    </button>
+    <a href="" ng-click="organizationList();">Back</a>
+  </md-card-content>
+</md-card>
+
+
