@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: voluntr_api_production
-  username: voluntr_api
+  username: voluser
   password: <%= ENV['VOLUNTR_API_DATABASE_PASSWORD'] %>
