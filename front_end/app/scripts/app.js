@@ -42,7 +42,6 @@ angular
     // Set your appId through the setAppId method or
     // use the shortcut in the initialize method directly.
     FacebookProvider.init(ENV.appId);
-    console.log(ENV.appId)
   })
 
   .config(function($httpProvider, AuthProvider) {
