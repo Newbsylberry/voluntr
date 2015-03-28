@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   scope '/api' do
     scope '/v1' do
-      devise_for :users,
-                 :controllers => { registrations: 'registrations',
-                                   sessions: 'sessions'}, defaults: {format: :json}
+      #devise_for :users,
+       #          :controllers => { registrations: 'registrations',
+        #                           sessions: 'sessions'}, defaults: {format: :json}
       resources :person_opportunities, except: [:new, :edit], defaults: {format: :json}
       resources :person_opportunity_recorded_hours, except: [:new, :edit]
       resources :opportunity_types, except: [:new, :edit]
