@@ -22,7 +22,7 @@
     "angular-scroll": "~0.6.3",
     "angular-material": "0.8.3",
     "kendo-ui-core": "~2014.3.1204",
-    "ng-mfb": "~0.1.2",
+    "ng-mfb": "~0.3.0",
     "ionicons": "~2.0.1",
     "md-date-time": "~0.0.12",
     "angular-ui-calendar": "latest",
