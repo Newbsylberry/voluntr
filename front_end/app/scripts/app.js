@@ -27,7 +27,7 @@ angular
     'highcharts-ng',
     'ng-mfb',
     'mdDateTime',
-    'angular-duration-format',
+    // 'angular-duration-format',
     'ui.calendar',
     'snap',
     'leaflet-directive',
