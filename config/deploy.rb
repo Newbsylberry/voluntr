@@ -3,6 +3,7 @@ set :repo_url, 'git@github.com:Newbsylberry/voluntr.git'
 set :user, 'voluser'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
+set :shared_path, "/home/#{fetch(:user)}/apps/shared"
 
 set :rvm1_ruby_version, 'rbx'
 
@@ -46,7 +47,7 @@ namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
     on roles(:app) do
-      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "sumkdir #{shared_path}/tmp/sockets -p"
       execute "mkdir #{shared_path}/tmp/pids -p"
     end
   end
