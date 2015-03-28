@@ -461,9 +461,9 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'ngconstant:development',
       'clean:server',
       'wiredep',
-      'ngconstant:development',
       'concurrent:server',
       'autoprefixer',
       'configureProxies',
@@ -488,8 +488,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
     'ngconstant:production',
+    'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
