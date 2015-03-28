@@ -31,7 +31,7 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 
 
 set(:config_files, %w(
-  database.yml
+  database.yml, ruby.rb
 ))
 
 ## Defaults:
