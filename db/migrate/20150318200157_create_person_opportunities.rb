@@ -7,6 +7,5 @@ class CreatePersonOpportunities < ActiveRecord::Migration
       t.timestamps
     end
 
-    drop_table :organization_person_opportunities
   end
 end
