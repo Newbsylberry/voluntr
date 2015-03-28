@@ -27,6 +27,7 @@ angular
     'highcharts-ng',
     'ng-mfb',
     'mdDateTime',
+    'config',
     // 'angular-duration-format',
     'ui.calendar',
     'snap',
@@ -37,10 +38,11 @@ angular
 
 
 
-  .config(function(FacebookProvider) {
+  .config(function(FacebookProvider, ENV) {
     // Set your appId through the setAppId method or
     // use the shortcut in the initialize method directly.
-    FacebookProvider.init('1478625579067596');
+    FacebookProvider.init(ENV.appId);
+    console.log(ENV.appId)
   })
 
   .config(function($httpProvider, AuthProvider) {

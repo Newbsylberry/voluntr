@@ -38,5 +38,8 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-ng-constant": "^1.1.0"
   }
 }
