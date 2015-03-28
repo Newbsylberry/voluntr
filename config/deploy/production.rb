@@ -5,13 +5,13 @@ set :stage, :production
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-server '104.236.215.139', user: 'voluser', port: 6969, roles: %w{web}
-server '104.236.215.139', user: 'voluser', port: 6969, roles: %w{app}
-server '104.236.215.139', user: 'voluser', port: 6969, roles: %w{db}
+server '104.236.215.139', user: 'voluser', roles: %w{web, app, db}, port: 6969
+# server '104.236.215.139', user: 'voluser', roles: %w{app}, port: 6969
+# server '104.236.215.139', user: 'voluser', roles: %w{db}, port: 6969
 
 set :ssh_options, {
                     forward_agent: true
-                }
+                                    }
 
 
 # Extended Server Syntax

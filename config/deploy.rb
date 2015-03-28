@@ -1,6 +1,6 @@
 set :application, 'volu'
 set :repo_url, 'git@github.com:Newbsylberry/voluntr.git'
-set :user,            'voluser'
+set :user, 'voluser'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
@@ -26,7 +26,7 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 
 
 set(:config_files, %w(
-  database.example.yml
+  database.yml
 ))
 
 ## Defaults:

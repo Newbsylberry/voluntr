@@ -4,12 +4,13 @@ gem 'rails', '4.1.0'
 
 gem 'rails-api'
 
-gem 'puma'
+gem 'puma', '2.9.1'
 
 gem 'spring', :group => :development
 
 
 group :development do
+  gem 'net-ssh', '>2.0'
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false
