@@ -139,7 +139,7 @@ module.exports = function (grunt) {
             // Make directory browse-able.
             var directory = options.directory || options.base[options.base.length - 1];
             middlewares.push(connect.directory(directory));
-            middlewares.unshift(modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']));
+            //middlewares.unshift(modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']));
 
             return middlewares;
           }

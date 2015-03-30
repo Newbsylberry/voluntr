@@ -26,7 +26,7 @@
     "ionicons": "~2.0.1",
     "md-date-time": "~0.0.12",
     "angular-ui-calendar": "latest",
-    "angular-duration-format": "https://github.com/erykpiast/angular-duration-format",
+    "angular-duration-format": "https://github.com/erykpiast/angular-duration-format.git",
     "angular-snap": "~1.8.1",
     "angular-leaflet-directive": "~0.7.11"
   },

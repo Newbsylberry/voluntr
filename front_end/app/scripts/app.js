@@ -28,16 +28,16 @@ angular
     'ng-mfb',
     'mdDateTime',
     'config',
-    // 'angular-duration-format',
+    'angular-duration-format',
     'ui.calendar',
     'snap',
     'leaflet-directive',
     "kendo.directives"
   ])
 
-  .config(function($locationProvider) {
-    $locationProvider.html5Mode(true);
-  })
+  //.config(function($locationProvider) {
+  //  $locationProvider.html5Mode(true).hashPrefix('!');;
+  //})
 
 
   .config(function(FacebookProvider, ENV) {
