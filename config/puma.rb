@@ -10,6 +10,6 @@ stdout_redirect '/home/voluser/apps/volu/current/log/puma.error.log',
                 '/home/voluser/apps/volu/current/log/puma.access.log', true
 
 
-threads 0,16
+threads 1,4
 
 bind 'unix:///home/volu/apps/volu/shared/tmp/sockets/volu-puma.sock'

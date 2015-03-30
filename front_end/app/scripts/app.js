@@ -35,7 +35,9 @@ angular
     "kendo.directives"
   ])
 
-
+  .config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
+  })
 
 
   .config(function(FacebookProvider, ENV) {
@@ -58,16 +60,16 @@ angular
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-      .state('landing_page', {
-        abstract: true,
-        url: '/',
-        templateUrl: 'views/landing_page.html',
-        controller: 'LandingPageCtrl'
-      })
+      //.state('landing_page', {
+      //  abstract: true,
+      //  url: '/',
+      //  templateUrl: 'views/landing_page.html',
+      //  controller: 'LandingPageCtrl'
+      //})
 
-      .state('landing_page.initial_page', {
-        url: '',
-        templateUrl: 'static_pages/landing_page_initial.html',
+      .state('landing_page', {
+        url: '/',
+        templateUrl: 'static_pages/landing_page.html',
         controller: 'LandingPageCtrl'
       })
 

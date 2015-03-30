@@ -17,6 +17,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../organizations/opportunities/add_opportunity_window.scss";
 @import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";
+@import "../static_pages/landing_page.scss";
 
 html {
   height: 100%;
@@ -26,6 +27,10 @@ html {
     height: 100%;
     width: 100%;
     background-color: $background-color;
+    padding:0px;
+    margin:0px;
+    font-family:'roboto';
+    font-weight:300;
   }
   .snap-content {
     background-color: $background-color;
