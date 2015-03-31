@@ -38,10 +38,16 @@ angular.module('voluntrApp')
       4000);
 
 
-    $(".close").click(function(){
-        $("#login").fadeOut(400);
+    $(".screen1button").click(function(){
+      $("#login").fadeIn(400);
 
-      });
+    });
+
+
+    $(".close").click(function(){
+      $("#login").fadeOut(400);
+
+    });
 
 
 
