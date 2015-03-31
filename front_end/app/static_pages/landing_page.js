@@ -10,46 +10,40 @@
 angular.module('voluntrApp')
   .controller('LandingPageCtrl', function ($scope, Facebook, Organization,
                                            $http, $state, Auth, $rootScope, $location,
-                                           $window, $anchorScroll, $document, $modal) {
-
-    $(document).ready(function() {
+                                           $window, $modal) {
 
 
-      console.log($('.nav'))
+    var stickyNavTop = $('.nav').offset().top;
+    var stickyNav = function(){
+      var scrollTop = $(window).scrollTop();
+      if (scrollTop > stickyNavTop) {
+        $('.nav').addClass('sticky');
+      } else {
+        $('.nav').removeClass('sticky');
+      }
+    };
+    stickyNav();
 
-      var stickyNavTop = $('.nav').offset.top;
-      var stickyNav = function(){
-        var scrollTop = $(window).scrollTop();
-        if (scrollTop > stickyNavTop) {
-          $('.nav').addClass('sticky');
-        } else {
-          $('.nav').removeClass('sticky');
-        }
-      };
+
+
+    $(window).scroll(function() {
+
       stickyNav();
+    });
+    $('.fadein img:gt(0)').hide();
+    setInterval(function(){
+        $('.fadein :first-child').fadeOut()
+          .next('img').fadeIn()
+          .end().appendTo('.fadein');},
+      4000);
 
 
-
-      $(window).scroll(function() {
-        stickyNav();
-      });
-      $('.fadein img:gt(0)').hide;
-      setInterval(function(){
-          $('.fadein :first-child').fadeOut()
-            .next('img').fadeIn()
-            .end().appendTo('.fadein');},
-        4000);
-
-      $(".screen1button").click(function(){
-        $("#login").fadeIn(400);
-
-      });
-
-
-      $(".close").click(function(){
+    $(".close").click(function(){
         $("#login").fadeOut(400);
 
       });
+
+
 
       $(".navmenu a").click(function(evn){
         evn.preventDefault();
@@ -60,6 +54,6 @@ angular.module('voluntrApp')
 
 
 
-    });
+
 
   });

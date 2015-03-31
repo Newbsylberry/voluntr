@@ -18,6 +18,7 @@ angular
     'ngTouch',
     'facebook',
     'ui.bootstrap',
+    'pc035860.scrollWatch',
     'ui.router',
     'duScroll',
     'ngMaterial',

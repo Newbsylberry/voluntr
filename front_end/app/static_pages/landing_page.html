@@ -1,3 +1,13 @@
+<style>
+  html,body {
+    width:100%;
+    padding:0px;
+    margin:0px;
+    font-family:'roboto';
+    font-weight:300;
+    background-color:#fafafa;
+  }
+</style>
 <div id="screen1">
   <div id="slayer1">
     <div class="slayerin">
@@ -9,7 +19,13 @@
       </p>
       <a class="screen1button" href="#">Sign in for Volu</a>
     </div>
-    <div class="nav">
+    <div class="nav"
+         scroll-watch="{from: 0, to: -1}"
+         ng-class="{ nav : inactive, sticky : active}"
+         sw-broadcast="{
+            'navbar-inactive' : '$percentage < 20',
+            'navbar-active' : '$percentage  > 20'
+          }">
       <div class="navlogo">
         <img  src="images/logo.png" height=30 alt="logo" />
       </div>
@@ -25,7 +41,7 @@
       <div class="fixer"></div>
     </div>
   </div>
-  <div class="scroll">
+  <div class="nav-scroll">
     <img src="images/scroll.png"  alt="scroll" />
   </div>
   <div id="login">
