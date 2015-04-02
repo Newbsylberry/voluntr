@@ -1,4 +1,13 @@
+html,body{
+  width:100vw;
+
+}
+
 a{
+  text-decoration:none;
+}
+
+a, a:hover, a:active, a:visited {
   text-decoration:none;
 }
 
@@ -335,7 +344,7 @@ img{
 
 #screen5 {
   width:100vw;
-  height:400px;
+  height:80vh;
   background-color:#eeeeee;
   display:table;
 }
