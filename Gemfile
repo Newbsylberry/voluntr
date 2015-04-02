@@ -29,6 +29,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'resque'
+gem 'resque-web', require: 'resque_web'
 gem 'resque-status'
 gem 'resque-scheduler'
 
