@@ -27,6 +27,7 @@ gem 'ice_cube'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'twitter-bootstrap-rails'
 
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
