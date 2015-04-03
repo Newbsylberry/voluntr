@@ -14,8 +14,6 @@ server '104.236.215.139', user: 'voluser', roles: %w{web, db}, port: 6969
 
 
 set :workers, {"facebook_queue" => 1, "record_organization_hours_queue" => 1}
-# server '104.236.215.139', user: 'voluser', roles: %w{app}, port: 6969
-# server '104.236.215.139', user: 'voluser', roles: %w{db}, port: 6969
 
 set :ssh_options, {
                     forward_agent: true
