@@ -51,16 +51,20 @@
         <div id="loginwraper">
           <div style="float:left;width:49%;border-right:1px solid rgba(255,255,255,0.3);text-align:center;">
             <h2>Organization Login</h2>
-            <p>Email</p>
-            <input class="loginput"></input>
-            <p>Password</p>
-            <input class="loginput" type="password"></input>
-            <a class="loginbutton" href="#">Login</a>
-            <a class="facebook" href="#">Login via Facebook</a>
+            <p>
+              At Volu, we utilize your organizations existing Facebook page so there's
+              one less password and account information you need to remember.
+            </p>
+            <a class="facebook" ui-sref="organizations.registration">Login via Facebook</a>
           </div>
           <div style="float:left;width:50%;text-align:center;">
             <h2>Volunteer Login</h2>
-            <h4>Coming Soon...</h4>
+            <p>
+              Looking to volunteer? We won't make you jump through any hoops, just click below and
+              see what opportunities are close by!
+            </p>
+            <a class="facebook" ui-sref="volunteer_home">
+              Find Events</a>
           </div>
           <div class="fixer"></div>
         </div>
@@ -77,9 +81,8 @@
           <img  src="images/icon1.png" height=150 alt="logo" />
           <h3>Manage Your Volunteer</h3>
           <p>
-            With Volu, managing the people who support your organization is easy.
-            Importing their information from an existing database, or through Facebook,
-            are just a couple of options your organization has available. <a>Sign In Through Facebook</a>
+            Coordinating efforts just became more simple with valuable information about a
+            volunteer within the click of a button. <a ui-sref="organizations.registration">Sign In Through Facebook</a>
           </p>
         </div>
       </div>
@@ -89,7 +92,7 @@
           <h3>Identify Your Potential Volunteer</h3>
           <p>
             Through advanced analytics, Volu identifies which volunteers
-            have provided the most value to your organization,
+            provide the most value to your organization,
             and finds similar individuals to help support your mission.
           </p>
         </div>
