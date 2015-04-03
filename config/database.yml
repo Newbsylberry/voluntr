@@ -84,3 +84,4 @@ production:
   host: 104.236.215.139
   username: voluser
   pool: 25
+  password:
