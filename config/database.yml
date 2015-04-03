@@ -83,4 +83,4 @@ production:
   database: voluntr_api_production
   host: 104.236.215.139
   username: voluser
-  password: L33tman!
+  pool: 25
