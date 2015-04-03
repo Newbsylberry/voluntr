@@ -1,0 +1,3 @@
+development: localhost:6379
+test: localhost:6379
+production: 45.55.137.193:6379

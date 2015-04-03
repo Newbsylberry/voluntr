@@ -1,7 +1,5 @@
-if Rails.env.production?
-  Resque.configure do |config|
-    config.redis = "45.55.137.193:6379" # default localhost:6379
-  end
-end
+rails_root = ENV['RAILS_ROOT'] || File.dirname(__FILE__) + '/../..'
+rails_env = ENV['RAILS_ENV'] || 'development'
 
-# Resque::Plugins::Status::Hash.expire_in = (24 * 60 * 60) # 24hrs in seconds
+resque_config = YAML.load_file(rails_root + '/config/resque.yml')
+Resque.redis = resque_config[rails_env]
