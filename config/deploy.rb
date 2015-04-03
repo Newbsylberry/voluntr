@@ -1,13 +1,13 @@
 set :application, 'volu'
 set :repo_url, 'git@github.com:Newbsylberry/voluntr.git'
 set :user, 'voluser'
-set :puma_threads,    [4, 16]
+set :puma_threads,    [1, 16]
 set :puma_workers,    0
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :rvm1_ruby_version, 'rbx'
 
-
+set :resque_environment_task, true
 
 # Don't change these unless you know what you're doing
 set :pty,             true
@@ -16,7 +16,6 @@ set :format, :pretty
 set :log_level, :debug
 # set :stage,           :production
 set :deploy_via,      :remote_cache
-
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"

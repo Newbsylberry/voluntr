@@ -16,6 +16,7 @@ group :development do
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
+  gem 'capistrano-resque', '~> 0.2.2', require: false
 end
 
 
@@ -27,10 +28,8 @@ gem 'ice_cube'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'twitter-bootstrap-rails'
 
 gem 'resque'
-gem 'resque-web', require: 'resque_web'
 gem 'resque-status'
 gem 'resque-scheduler'
 
