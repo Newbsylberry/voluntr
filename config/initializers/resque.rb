@@ -1,5 +1,4 @@
-rails_root = ENV['RAILS_ROOT'] || File.dirname(__FILE__) + '/../..'
-rails_env = ENV['RAILS_ENV']
-
-resque_config = YAML.load_file(rails_root + '/config/resque.yml')
-Resque.redis = resque_config[rails_env]
+if ['RAILS_ENV'] == 'production'
+  puts "cabbage cabbage"
+  Resque.redis = "45.55.137.193:6379"
+end
