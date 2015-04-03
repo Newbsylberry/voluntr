@@ -5,11 +5,13 @@ set :stage, :production
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
+role :resque_worker, '45.55.137.193', user: 'voluser'
+role :resque_schedule, '45.55.137.193', user: 'voluser'
+
 server '104.236.215.139', user: 'voluser', roles: %w{app}, port: 6969
 server '104.236.215.139', user: 'voluser', roles: %w{web, db}, port: 6969
 
-role :resque_worker, '45.55.137.193'
-role :resque_schedule, '45.55.137.193'
+
 
 set :workers, {"facebook_queue" => 1, "record_organization_hours_queue" => 1}
 # server '104.236.215.139', user: 'voluser', roles: %w{app}, port: 6969
