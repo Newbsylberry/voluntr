@@ -47,8 +47,8 @@
       <file leaf-file-name="resque.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.048622366" vertical-offset="0" max-vertical-offset="617">
-              <caret line="2" column="9" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="617">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -909,8 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.048622366" vertical-offset="0" max-vertical-offset="617">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
