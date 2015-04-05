@@ -13,9 +13,10 @@
     <div class="slayerin">
       <img class="logo" src="images/logo.png" alt="logo" />
       <p class="centerp">
-        Second, the ideal value for characteristics of Followers keep going up while their ideal price keep going down.
-        Which means this segment’s margin will be less and less in the future.
-        Also, since there is only one major segment in the vodite market, a lot players are going to grab share in the followers segment.
+        At Volu we believe your time is too valuable to be spent shuffling papers and worrying about
+        the logistics of managing volunteers.  That's why we are committed to working with your
+        organization to develop a volunteer management system that frees your time so you can focus on
+        doing what you love, improving our communities.
       </p>
       <a class="screen1button" href="#">Sign in for Volu</a>
     </div>
@@ -79,32 +80,36 @@
       <div class="col3">
         <div class="col">
           <img  src="images/icon1.png" height=150 alt="logo" />
-          <h3>Manage Your Volunteer</h3>
+          <h3>Smart Volunteer Management</h3>
           <p>
-            Coordinating efforts just became more simple with valuable information about a
-            volunteer within the click of a button. <a ui-sref="organizations.registration">Sign In Through Facebook</a>
+            Your day just became easier with intuitive functionality, like a
+            To-Do list that anticipates who you need to contact about what
+            <a class="for-organization-link"
+               ui-sref="organizations.registration">volu works smarter</a>
           </p>
         </div>
       </div>
       <div class="col3">
         <div class="col">
           <img  src="images/icon2.png" height=150 alt="logo" />
-          <h3>Identify Your Potential Volunteer</h3>
+          <h3>Only the Best</h3>
           <p>
-            Through advanced analytics, Volu identifies which volunteers
-            provide the most value to your organization,
-            and finds similar individuals to help support your mission.
+            Volu identifies which volunteers provide the most value to your organization,
+            and finds similar individuals to support your mission
+            <a  class="for-organization-link"
+                ui-sref="organizations.registration">reach volunteers for free</a>
           </p>
         </div>
       </div>
       <div class="col3">
         <div class="col">
           <img  src="images/icon3.png" height=150 alt="logo" />
-          <h3>Manage All Your Social Platforms</h3>
+          <h3>Bridge the Gap</h3>
           <p>
-            Volu gives you access to all your likes,
-            retweets, mentions, and any other social network information that
-            you might find useful down the road.
+            We show you who you're reaching on your social media, and how
+            to turn those followers and friends into assets for your organization
+            <a  class="for-organization-link"
+                ui-sref="organizations.registration">maximize your social media return</a>
           </p>
         </div>
       </div>
@@ -117,7 +122,7 @@
     <div class="slayerin">
       <div id="thirdtext">
         <p>
-          From functions to designs, Volu is all about making things easier.
+          From function to design, Volu is all about making things easier.
         </p>
       </div>
     </div>
@@ -135,9 +140,10 @@
   </div>
   <div class="s4wraper">
     <div class="slayerin">
-      <h1>Envolve Happily</h1>
-      <p>Find nearby volunteering opportunities that match your interests,
-        set goals, and organize your team to compete for bragging rights.</p>
+      <h1>No Account Needed</h1>
+      <p>See nearby opportunities to improve your community,
+      and interact with the organizations offering them directly.</p>
+      <a ui-sref="volunteer_home">skip the middleman</a>
     </div>
   </div>
   <div class="fixer"></div>
@@ -147,19 +153,23 @@
     <div id="swraper">
       <H1>Contact Us</H1>
       <p>Your Email</p>
-      <input class="textemail"></input>
+      <input ng-model="newContact.contact_email"
+             class="textemail"/>
       <p>Your Message</p>
-      <textarea class="textinfo"></textarea>
-      <a href="#"> Send </a>
+      <textarea class="textinfo"
+                ng-model="newContact.contact_content"></textarea>
+      <a ng-click="newContact()"> Send </a>
       <div class="fixer"></div>
     </div>
   </div>
 </div>
 <footer>
   <div class="slayerin">
-    <p>COPYRIGHT © 2015 Volu | <a href="#">Privacy/Terms of Service</a></p>
+    <p>COPYRIGHT © 2015 Volu |
+      <a ng-click="open_lp_modal()"
+         href="#">Privacy/Terms of Service</a></p>
     <div id="social">
-      <a href="#"><span class="icon-googleplus"></span></a>
+      <!--<a href="#"><span class="icon-googleplus"></span></a>-->
       <a href="#"><span class="icon-facebook"></span></a>
       <a href="#"><span class="icon-twitter"></span></a>
     </div>

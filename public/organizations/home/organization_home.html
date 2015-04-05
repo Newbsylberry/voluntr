@@ -6,27 +6,32 @@
     </md-card-content>
   </md-card>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" id="contact-volunteers">
       <md-card>
         <md-card-content>
-          <md-list layout="column" ng-if="opportunity.people.length != 0">
+          <md-list layout="column">
             <h3>Volunteers to Contact</h3>
-            <md-item>
+            <md-item
+              ng-repeat="volunteer in organization.contact_volunteers"
+              ng-show="organization.contact_volunteers.length !== 0">
               <md-item-content>
                 <div class="md-tile-left">
-                  <img src="{{sample_contact.picture.thumbnail}}"
-                       style="  border-radius: 50%; height: 50px; padding-right: 14px;"
-                       class="face" alt="{{item.who}}">
+                  <img ng-if="!volunteer.fb_id" src="/images/no_image.jpg">
                 </div>
                 <div class="md-tile-content">
-                  <h3>{{sample_contact.name.first}} {{sample_contact.name.last}}</h3>
+                  <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
                   <h4>Interested in shelter drop off event</h4>
                 </div>
                 <div class="md-tile-right">
-                  <i class="icon ion-email" style="font-size: 18pt; padding-right: 12px;"></i>
-                  <i class="icon ion-ios-telephone" style="font-size: 18pt; padding-right: 12px;"></i>
+                  <i class="icon ion-email"></i>
+                  <i class="icon ion-ios-telephone"></i>
                 </div>
               </md-item-content>
+            </md-item>
+            <md-item>
+            <md-item-content ng-show="organization.contact_volunteers.length === 0">
+              <p>You don't need to contact any volunteers right now!</p>
+            </md-item-content>
             </md-item>
           </md-list>
         </md-card-content>
@@ -37,7 +42,8 @@
         <md-card-content>
           <h3>Recently Recorded Hours</h3>
           <md-list>
-            <md-item ng-repeat="recorded_hour in organization.recorded_hours">
+            <md-item
+              ng-repeat="recorded_hour in organization.recorded_hours">
               <md-item-content>
                 <div class="md-tile-left">
                   <h1>{{recorded_hour.hours}}</h1>

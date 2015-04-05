@@ -124,7 +124,7 @@ img{
   right:0px;
   height:60px;
   cursor:pointer;
-  margin:10px 10px 0px 0px;
+  margin: 10px 41px 0px 0px;
   z-index:1000;
   display:block;
 }
@@ -173,14 +173,14 @@ img{
 }
 
 .logo{
-  width:20%;
+  width:34%;
 }
 
 .centerp{
   margin:20px auto 0 auto;
   width:50%;
   color:white;
-  font-weight:100;
+  font-weight:300;
 }
 
 .nav{
@@ -285,6 +285,10 @@ img{
 .col{
   padding:0 25px;
   text-align:center;
+}
+
+.for-organization-link {
+  display: block;
 }
 
 #screen3 {

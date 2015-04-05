@@ -45,7 +45,14 @@ angular.module('voluntrApp')
           $http.get('api/v1/organizations/' + successResponse.id + '/recorded_hours').
             success(function(data, status, headers, config) {
               $scope.organization.recorded_hours = data;
-              console.log($scope.organization.recorded_hours)
+            }).
+            error(function(data, status, headers, config) {
+              console.log(data)
+            });
+          $http.get('api/v1/organizations/' + successResponse.id + '/contact_volunteers').
+            success(function(data, status, headers, config) {
+              $scope.organization.contact_volunteers = data;
+              console.log($scope.organization.contact_volunteers)
             }).
             error(function(data, status, headers, config) {
               console.log(data)
@@ -62,15 +69,6 @@ angular.module('voluntrApp')
       }
     });
 
-
-    $http.get('http://api.randomuser.me/').
-      success(function(data, status, headers, config) {
-        $scope.sample_contact = data.results[0].user;
-        console.log($scope.sample_contact)
-      }).
-      error(function(data, status, headers, config) {
-        console.log(data)
-      });
 
 
     $scope.generated_stories = ""

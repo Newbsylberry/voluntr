@@ -104,6 +104,19 @@ class OrganizationsController < ApplicationController
            each_serializer: PersonOpportunityRecordedHourSerializer
   end
 
+  def contact_volunteers
+    @organization = Organization.find(params[:id])
+    @volunteer_contacts = Array.new
+    @organization.people.each do |o|
+      if o.email || o.phone
+        if o.created_at > Date.current - 14
+          @volunteer_contacts.push(o)
+        end
+      end
+    end
+    render json: @volunteer_contacts, each_serializer: PersonSerializer
+  end
+
   private
 
   def organization_params
