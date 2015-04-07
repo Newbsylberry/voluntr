@@ -1,6 +1,7 @@
 
 
 record_organization_hours:
+  # every: 5s
   cron: "59 23 * * *"
   queue: record_organization_hours_queue
   class: RecordOrganizationHours
