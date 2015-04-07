@@ -1,0 +1,47 @@
+<div class="row record-hours-person">
+  <h1>What's the name of the Volunteer?</h1>
+  <div class="col-xs-4">
+    <md-input-container class="record-hours-name">
+      <label>First Name</label>
+      <input ng-model="first_name">
+    </md-input-container>
+  </div>
+  <div class="col-xs-4">
+    <md-input-container class="record-hours-name">
+      <label>Last Name</label>
+      <input ng-model="last_name">
+    </md-input-container>
+  </div>
+  <div class="col-xs-4">
+    <md-input-container>
+      <label>Email Address</label>
+      <input
+        type="email"
+        ng-model="email">
+    </md-input-container>
+  </div>
+  <a href="#" ng-click="clearPerson()" ng-show="volunteer_id">Clear Person</a>
+  <md-checkbox ng-show="filtered.length === 0 && !volunteer_id"
+               aria-label="New Volunteer?"
+               ng-model="new_volunteer">
+    New Volunteer?
+  </md-checkbox>
+</div>
+<md-card class="search-box" ng-show="results && !volunteer_id && filtered.length !== 0">
+  <md-card-content>
+    <div class="row" ng-repeat="person in filtered = (organization_people |
+    filter:{first_name: first_name, last_name: last_name, email_address: email})">
+      <div class="4">
+
+      </div>
+      <div class="8">
+        <a href="" ng-click="selectHoursPerson(person)">{{person.first_name}} {{person.last_name}}</a>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+<md-slider flex class="md-primary" md-discrete ng-model="recordHours.hours" step=".5" min=".5" max="24" aria-label="rating">
+</md-slider>
+<button class="btn btn-lg"
+        ng-click="recordHours()">Record Hours</button>
+

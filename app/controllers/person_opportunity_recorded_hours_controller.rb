@@ -1,2 +1,0 @@
-class PersonOpportunityRecordedHoursController < ApplicationController
-end

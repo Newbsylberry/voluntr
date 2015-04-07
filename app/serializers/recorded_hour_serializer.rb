@@ -1,4 +1,4 @@
-class PersonOpportunityRecordedHourSerializer < ActiveModel::Serializer
+class RecordedHourSerializer < ActiveModel::Serializer
   attributes :id, :person_id, :opportunity_id, :hours, :person, :opportunity
 
 

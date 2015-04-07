@@ -40,5 +40,22 @@
           });
       }
 
+      $scope.recordHours = function (size) {
+        var recordHoursModal = $modal.open(
+          {
+            templateUrl: 'organizations/modals/record_hours_modal.html',
+            controller: 'RecordHoursCtrl',
+            windowClass: 'add-event-modal-window',
+            size: size
+          });
+
+        recordHoursModal.result.then(function () {
+
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
+      }
+
 
     });

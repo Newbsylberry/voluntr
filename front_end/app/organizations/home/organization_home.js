@@ -15,13 +15,21 @@ angular.module('voluntrApp')
 
 
 
-    ;
+
 
 
 
     var addPostToGraph = function (post) {
-        $scope.lineGraphConfig.series[0].data.push
-        ([post.post_time, Number(post.likes)])
+
+      $scope.lineGraphConfig.series[0].data.push
+      ([Date.parse(post.post_time), Number(post.likes)])
+      console.log($scope.lineGraphConfig.series[0].data[200])
+    };
+
+    var addDailyStatisticsToGraph = function(day){
+      console.log((Date.parse(day.date)))
+      $scope.lineGraphConfig.series[1].data.push
+      ([Date.parse(day.date), Number(day.total_recorded_hours)])
     }
 
 
@@ -45,6 +53,15 @@ angular.module('voluntrApp')
           $http.get('api/v1/organizations/' + successResponse.id + '/recorded_hours').
             success(function(data, status, headers, config) {
               $scope.organization.recorded_hours = data;
+            }).
+            error(function(data, status, headers, config) {
+              console.log(data)
+            });
+          $http.get('api/v1/organizations/' + successResponse.id + '/daily_statistics').
+            success(function(data, status, headers, config) {
+              console.log(data)
+              $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
+              angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
             }).
             error(function(data, status, headers, config) {
               console.log(data)
@@ -156,7 +173,9 @@ angular.module('voluntrApp')
       },
       xAxis: {
         type: 'datetime',
-        plotLines: []
+        title: {
+          text: 'Date'
+        }
       },
       yAxis: {
         allowDecimals: false,
@@ -167,10 +186,17 @@ angular.module('voluntrApp')
         //  color: '#808080'
         //}]
       },
-      series: [{
-        name: 'Post Likes',
-        data: []
-      }],
+      series: [
+        {
+          name: 'Post Likes',
+          data: []
+        },
+        {
+          name: 'Total Recorded Hours',
+          data: []
+
+        }
+      ],
       title: {
         text: "Your Organization's Posts"
       },
@@ -180,54 +206,7 @@ angular.module('voluntrApp')
       }
     };
 
-    $scope.pieChartConfig = {
-      options: {
-        chart: {
-          type: 'pie'
-        }
-      },
-      series: [{
-        name: 'Attending Events',
-        data: [['Under 18', 10], ['18-24', 25],
-          ['24-34', 30], ['34-44', 15], ['44-60', 10],
-          ['60+', 10]]
-      }],
-      title: {
-        text: "Demographic of Volunteers"
-      },
-      loading: false,
-      size: {
-        height: "250"
-      }
-    };
 
-    $scope.barChartConfig = {
-      options: {
-        chart: {
-          type: 'bar'
-        }
-      },
-      xAxis: {
-        categories: ['Event 1', 'Event 2', 'Event 3']
-      },
-      series: [{
-        name: 'Attending Facebook Event',
-        data: [200, 250, 300]
-      }, {
-        name: 'Recorded Hours',
-        data: [45, 80, 120]
-      }, {
-        name: 'Fund Raising',
-        data: [450, 600, 1000]
-      }],
-      title: {
-        text: "Past Events Information"
-      },
-      loading: false,
-      size: {
-        height: "250"
-      }
-    };
 
   });
 

@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324015958) do
+ActiveRecord::Schema.define(version: 20150407012027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_statistics", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "total_recorded_hours"
+    t.integer  "total_added_volunteers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "date"
+    t.integer  "planned_hours"
+  end
 
   create_table "opportunities", force: true do |t|
     t.integer  "fb_id"
@@ -82,14 +92,6 @@ ActiveRecord::Schema.define(version: 20150324015958) do
     t.text     "schedule"
   end
 
-  create_table "person_opportunity_recorded_hours", force: true do |t|
-    t.integer  "person_id"
-    t.integer  "opportunity_id"
-    t.integer  "hours"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", force: true do |t|
     t.string   "fb_id"
     t.text     "message"
@@ -106,6 +108,16 @@ ActiveRecord::Schema.define(version: 20150324015958) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "recorded_hours", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "opportunity_id"
+    t.integer  "organization_id"
+    t.integer  "hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "user_event_hours", force: true do |t|

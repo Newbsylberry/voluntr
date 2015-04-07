@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
 
 
-
   scope '/api' do
     scope '/v1' do
       #devise_for :users,
        #          :controllers => { registrations: 'registrations',
         #                           sessions: 'sessions'}, defaults: {format: :json}
       resources :person_opportunities, except: [:new, :edit], defaults: {format: :json}
-      resources :person_opportunity_recorded_hours, except: [:new, :edit]
+      resources :daily_statistics, except: [:new, :edit], defaults: {format: :json}
+      resources :recorded_hours, except: [:new, :edit], defaults: {format: :json}
       resources :opportunity_types, except: [:new, :edit]
       resources :users, defaults: {format: :json}
       resources :people, defaults: {format: :json}
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
+      match '/organizations/:id/daily_statistics', to: 'organizations#daily_statistics', via: :get, defaults: {format: :json}
       match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}

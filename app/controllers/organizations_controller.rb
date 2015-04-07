@@ -96,13 +96,30 @@ class OrganizationsController < ApplicationController
   def recorded_hours
     @organization = Organization.find(params[:id])
     @organization_recorded_hours = Array.new
-    @organization.person_opportunity_recorded_hours.each do |h|
-      @organization_recorded_hours.push(h)
+    @organization.opportunities.each do |op|
+      op.recorded_hours.each do |oph|
+      @organization_recorded_hours.push(oph)
+      end
+    end
+    @organization.recorded_hours.each do |rh|
+      if !@organization_recorded_hours.include? rh
+        @organization_recorded_hours.push(rh)
+      end
     end
 
     render json: @organization_recorded_hours,
-           each_serializer: PersonOpportunityRecordedHourSerializer
+           each_serializer: RecordedHourSerializer
   end
+
+  def daily_statistics
+    @organization = Organization.find(params[:id])
+    if !@organization.daily_statistics.nil?
+      puts @organization.daily_statistics
+      render json: @organization.daily_statistics, each_serializer: DailyStatisticSerializer
+    end
+
+  end
+
 
   def contact_volunteers
     @organization = Organization.find(params[:id])
