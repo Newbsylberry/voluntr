@@ -51,6 +51,7 @@ class RecordOrganizationHours
       end
       puts @daily_statistic.organization_id
       puts "SAVE PLEASE"
+      puts @daily_statistic
       @daily_statistic.save
     end
   end
