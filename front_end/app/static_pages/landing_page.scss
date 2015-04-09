@@ -232,6 +232,11 @@ img{
   margin:0px 15px;
 }
 
+.navicon{
+  float:right;
+  display:none;
+
+}
 
 .navlogo{
   float:left;
@@ -513,6 +518,16 @@ float:left;width:49%;border-right:1px solid rgba(255,255,255,0.3);text-align:cen
 
 
 @media screen and (max-width: 720px) {
+  footer p{
+    width:200px;
+    margin:0 auto;
+
+  }
+
+  #social{
+    width:100vw;
+
+  }
    .col3{
 	width:80vw;
 	float:left;
@@ -554,7 +569,10 @@ p{
 	width:50%;
 }
 
+.s4wraper h1{
+  font-size:25px;
 
+}
 
 .navmenu{
 	display:blcok;
@@ -583,7 +601,7 @@ p{
 	margin:0px 0px;
 	background-color:rgba(53,192,255,1);
 	text-align:center;
-}  
+}
 
 .navmenu li:hover{
 	background-color:#1976D2;
@@ -629,7 +647,7 @@ p{
 	p{
 		font-size:11px;
 	}
-	
+
 .s4wraper p{
 	width:300px;
 }
@@ -660,6 +678,17 @@ right:0px;
 	padding:10px 0px;
 	width:150px;
 	margin:10px auto 0px auto;
+}
+
+#test h2{
+  font-size:20px;
+  margin-bottom:10px;
+
+}
+
+#test p{
+  line-height:15px;
+
 }
 
 }

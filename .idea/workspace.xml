@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/add_daily_stats.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/organization.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/organization.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/organization_main.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/organization_main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/workers/record_hours.rb" afterPath="$PROJECT_DIR$/app/workers/record_hours.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/recorded_hours_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/recorded_hours_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/navigation/side-menu-controller.js" afterPath="$PROJECT_DIR$/front_end/app/navigation/side-menu-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" afterPath="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
@@ -50,13 +35,13 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.48515865">
+    <splitter split-orientation="vertical" split-proportion="0.12789115">
       <split-first>
         <leaf>
           <file leaf-file-name="record_hours_modal.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-15.541667" vertical-offset="272" max-vertical-offset="885">
+                <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="885">
                   <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
                   <folding />
                 </state>
@@ -66,7 +51,7 @@
           <file leaf-file-name="organization_home.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.1881188" vertical-offset="360" max-vertical-offset="1110">
+                <state vertical-scroll-proportion="17.560976" vertical-offset="0" max-vertical-offset="1110">
                   <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
                   <folding />
                 </state>
@@ -77,11 +62,41 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="landing_page.scss" pinned="false" current-in-tab="true">
+          <file leaf-file-name="landing_page.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.18808778" vertical-offset="270" max-vertical-offset="7215">
-                  <caret line="22" column="104" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+                <state vertical-scroll-proportion="-9.375" vertical-offset="7605" max-vertical-offset="10515">
+                  <caret line="522" column="18" selection-start-line="522" selection-start-column="18" selection-end-line="522" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="1710">
+                  <caret line="33" column="27" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="landing_page.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.52970296" vertical-offset="564" max-vertical-offset="1830">
+                  <caret line="59" column="17" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="landing_page.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-36.25" vertical-offset="45" max-vertical-offset="2715">
+                  <caret line="61" column="62" selection-start-line="61" selection-start-column="57" selection-end-line="61" selection-end-column="57" />
                   <folding />
                 </state>
               </provider>
@@ -114,7 +129,6 @@
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.scss" />
-        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
         <option value="$PROJECT_DIR$/front_end/app/volunteers/volunteer_home.scss" />
         <option value="$PROJECT_DIR$/front_end/app/volunteers/volunteer_home.html" />
         <option value="$PROJECT_DIR$/app/controllers/daily_statistics_controller.rb" />
@@ -156,8 +170,9 @@
         <option value="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/organization_main.js" />
         <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" />
-        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
+        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
       </list>
     </option>
   </component>
@@ -165,7 +180,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="-96" />
+    <option name="y" value="-975" />
     <option name="width" value="1440" />
     <option name="height" value="801" />
   </component>
@@ -195,6 +211,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,6 +280,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="static_pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -284,7 +323,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -479,7 +517,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="801" extended-state="0" />
+    <frame x="-96" y="-975" width="1440" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -488,9 +526,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28969958" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29399142" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -521,9 +559,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32910448" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -565,13 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.044247787" vertical-offset="0" max-vertical-offset="339">
           <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1605">
-          <caret line="78" column="57" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -642,13 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.278443" vertical-offset="1095" max-vertical-offset="7860">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6377709" vertical-offset="109" max-vertical-offset="1710">
-          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -754,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1245">
           <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.1293375" vertical-offset="0" max-vertical-offset="3480">
           <caret line="45" column="56" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21377672" vertical-offset="0" max-vertical-offset="421">
           <caret line="6" column="65" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="293">
           <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25842696" vertical-offset="575" max-vertical-offset="1020">
           <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -852,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33707866" vertical-offset="0" max-vertical-offset="445">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37078652" vertical-offset="0" max-vertical-offset="445">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,17 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1380">
           <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.035629455" vertical-offset="1050" max-vertical-offset="2670">
-          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,30 +899,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.541667" vertical-offset="272" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="885">
           <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18808778" vertical-offset="270" max-vertical-offset="7215">
-          <caret line="22" column="104" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1881188" vertical-offset="360" max-vertical-offset="1110">
+        <state vertical-scroll-proportion="17.560976" vertical-offset="0" max-vertical-offset="1110">
           <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-36.25" vertical-offset="45" max-vertical-offset="2715">
+          <caret line="61" column="62" selection-start-line="61" selection-start-column="57" selection-end-line="61" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="1710">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.375" vertical-offset="7605" max-vertical-offset="10515">
+          <caret line="522" column="18" selection-start-line="522" selection-start-column="18" selection-end-line="522" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52970296" vertical-offset="564" max-vertical-offset="1830">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
           <folding />
         </state>
       </provider>

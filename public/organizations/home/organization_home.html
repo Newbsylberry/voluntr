@@ -37,20 +37,24 @@
         </md-card-content>
       </md-card>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 recorded-hours-container">
       <md-card>
         <md-card-content>
           <h3>Recently Recorded Hours</h3>
-          <md-list>
+          <md-list layout="column">
             <md-item
               ng-repeat="recorded_hour in organization.recorded_hours">
               <md-item-content>
                 <div class="md-tile-left">
-                  <h1>{{recorded_hour.hours}}</h1>
+                  <h2>{{recorded_hour.hours}}</h2>
                 </div>
                 <div class="md-tile-content">
-                  <h3>{{recorded_hour.opportunity.name}}</h3>
-                  <h4>{{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h4>
+                  <h3>{{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h3>
+                  <h4>{{recorded_hour.opportunity.name}}</h4>
+                </div>
+                <div class="md-tile-right">
+                  <i class="icon ion-email"></i>
+                  <i class="icon ion-ios-telephone"></i>
                 </div>
               </md-item-content>
             </md-item>

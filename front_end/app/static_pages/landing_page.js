@@ -14,6 +14,7 @@ angular.module('voluntrApp')
 
 
     var stickyNavTop = $('.nav').offset().top;
+
     var stickyNav = function(){
       var scrollTop = $(window).scrollTop();
       if (scrollTop > stickyNavTop) {
@@ -30,6 +31,8 @@ angular.module('voluntrApp')
 
       stickyNav();
     });
+
+
     $('.fadein img:gt(0)').hide();
     setInterval(function(){
         $('.fadein :first-child').fadeOut()
@@ -39,6 +42,7 @@ angular.module('voluntrApp')
 
 
     $(".screen1button").click(function(){
+      console.log("OPEN OPEN")
       $("#login").fadeIn(400);
 
     });
@@ -47,6 +51,17 @@ angular.module('voluntrApp')
     $(".close").click(function(){
       $("#login").fadeOut(400);
 
+    });
+
+    $('.navicon').click(function(evt){
+      evt.stopPropagation();
+      $('.navmenu').toggleClass('navb');
+      console.log("menu open")
+    });
+
+    $('.navmenu a').click(function(){
+      $('.navmenu').addClass('navb');
+      console.log("menu close")
     });
 
 
