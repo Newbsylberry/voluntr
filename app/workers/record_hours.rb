@@ -44,6 +44,7 @@ class RecordOrganizationHours
 
                 if schedule.occurs_on?(Date.today)
                   puts schedule.to_s
+
                   # record hours and add to statistics if yes
                   @recorded_hours.person_id = p.person_id
                   @recorded_hours.hours = oo.duration

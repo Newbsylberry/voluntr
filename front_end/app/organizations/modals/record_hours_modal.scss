@@ -2,4 +2,12 @@
   md-checkbox {
     display: inline-block;
   }
+  .search-box {
+    position: fixed;
+    z-index: 22;
+    width: 92.3%;
+  }
+}
+.hours-description {
+  padding: 0 1em 26px 1em;
 }

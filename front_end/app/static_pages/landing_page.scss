@@ -16,20 +16,6 @@ input,button,select,textarea{outline:none;
   color:rgba(0,0,0,0.5);}
 textarea{resize:none}
 
-h3{
-  font-weight:400;
-  color:rgba(0,0,0,0.6);
-  margin:10px 0px;
-}
-
-h2{
-  font-weight:300;
-  color:#fff;
-  display:block;
-  margin:0px auto 20px auto;
-  text-align:center;
-}
-
 h1{
   font-weight:300;
   color:rgba(0,0,0,0.6);
@@ -70,7 +56,13 @@ img{
 #loginwraper{
   width:80%;
   margin:0 auto;
-
+  h2{
+    font-weight:300;
+    color:#fff;
+    display:block;
+    margin:0px auto 20px auto;
+    text-align:center;
+  }
 }
 
 #login p{
@@ -275,12 +267,17 @@ img{
 .col3{
   width:33.33%;
   float:left;
+  h3{
+    font-weight:400;
+    color:rgba(0,0,0,0.6);
+    margin:10px 0px;
+  }
+  p{
+    color:rgba(0,0,0,0.4);
+    font-size:11px;
+  }
 }
 
-.col3 p{
-  color:rgba(0,0,0,0.4);
-  font-size:11px;
-}
 
 .col{
   padding:0 25px;

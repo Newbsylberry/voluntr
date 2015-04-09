@@ -13,6 +13,12 @@
   background-color: $primary;
 }
 
+#beta-message {
+  color: red;
+  text-align: center;
+  font-size: 10pt;
+}
+
 .content .organization-login-list {
   clear: both;
   li {
