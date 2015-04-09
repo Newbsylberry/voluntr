@@ -44,6 +44,7 @@
         var recordHoursModal = $modal.open(
           {
             templateUrl: 'organizations/modals/record_hours_modal.html',
+            // scope: ,
             controller: 'RecordHoursCtrl',
             windowClass: 'add-event-modal-window',
             size: size

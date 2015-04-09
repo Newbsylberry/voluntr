@@ -23,11 +23,11 @@ angular.module('voluntrApp')
 
       $scope.lineGraphConfig.series[0].data.push
       ([Date.parse(post.post_time), Number(post.likes)])
-      console.log($scope.lineGraphConfig.series[0].data[200])
+
     };
 
     var addDailyStatisticsToGraph = function(day){
-      console.log((Date.parse(day.date)))
+
       $scope.lineGraphConfig.series[1].data.push
       ([Date.parse(day.date), Number(day.total_recorded_hours)])
       $scope.lineGraphConfig.series[2].data.push
@@ -48,7 +48,7 @@ angular.module('voluntrApp')
 
         // Get the organization from the volu database
         Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
-          console.log(successResponse)
+
           // find the organizations information on facebook
           $scope.organization = successResponse
           $rootScope.organization_id = successResponse.id;
@@ -73,7 +73,7 @@ angular.module('voluntrApp')
           $http.get('api/v1/organizations/' + successResponse.id + '/contact_volunteers').
             success(function(data, status, headers, config) {
               $scope.organization.contact_volunteers = data;
-              console.log($scope.organization.contact_volunteers)
+
             }).
             error(function(data, status, headers, config) {
               console.log(data)

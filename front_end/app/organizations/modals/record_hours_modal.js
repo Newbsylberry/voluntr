@@ -6,9 +6,16 @@
  */
 angular.module('voluntrApp')
   .controller('RecordHoursCtrl', function ($scope, $modal, $rootScope, RecordedHours,
-                                           $stateParams, $http, People) {
+                                           $stateParams, $http, People, $modalInstance) {
 
-    console.log($stateParams.organization_Id);
+
+    var controllerElement = document.querySelector('.recorded-hours-container');
+    var controllerScope = angular.element(controllerElement).scope();
+    console.log(controllerScope.organization.recorded_hours);
+
+    console.log($rootScope)
+
+
     $scope.recordHours = function() {
       var record_hours_attr = {};
       record_hours_attr.hours = $scope.recordHours.hours;
@@ -18,18 +25,22 @@ angular.module('voluntrApp')
         var attr = {};
         attr.first_name = $scope.first_name;
         attr.last_name = $scope.last_name;
+        attr.description = $scope.description;
         attr.email = $scope.email;
         attr.organization_id = $stateParams.organization_Id;
         People.create(attr)
           .$promise.then(function (person) {
           record_hours_attr.person_id = person.id;
-          console.log(person);
-          RecordedHours.create(record_hours_attr)
-        })}
+          var newRecordedHours = RecordedHours.create(record_hours_attr)
+            controllerScope.organization.recorded_hours.push(newRecordedHours)
+        })
+        $modalInstance.close();}
       else
       {
         record_hours_attr.person_id = $scope.volunteer_id;
-        RecordedHours.create(record_hours_attr);
+        var newRecordedHours = RecordedHours.create(record_hours_attr);
+        controllerScope.organization.recorded_hours.push(newRecordedHours)
+        $modalInstance.close();
       }
     };
 
@@ -39,7 +50,6 @@ angular.module('voluntrApp')
       $scope.last_name = person.last_name;
       $scope.email = person.email;
       $scope.volunteer_id = person.id;
-      console.log($scope.volunteer_id)
     };
 
 
@@ -70,7 +80,6 @@ angular.module('voluntrApp')
         $scope.results = false;
       }
       if ($scope.first_name === "" || $scope.last_name === "" || $scope.email === "") {
-        console.log($scope.new_volunteer_validation)
         $scope.new_volunteer_validation = true
       } else {
         $scope.new_volunteer_validation = false
