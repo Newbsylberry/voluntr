@@ -323,12 +323,11 @@ img{
 }
 
 .s4wraper{
-  float:right;
-  height:100%;
-  display:table;
-  margin-right:10vw;
+	float:right;
+	height:100vh;
+	display:table;
+	margin-right:10vw;
 }
-
 .s4wraper h1{
   text-align:left;
   margin-bottom:0px;
@@ -475,4 +474,196 @@ footer{
   margin-right:30px;
 }
 
+#login1{
+float:left;width:49%;border-right:1px solid rgba(255,255,255,0.3);text-align:center;
+
+}
+
+#login2{float:left;width:50%;text-align:center;}
+
+
+@media screen and (max-width: 1100px) {
+
+	#ip {
+	width:350px;
+	left:75px;
+	top:40vh;
+	position:absolute;
+}
+
+#swraper{
+	width:80%;
+}
+
+
+.s4wraper{
+	width:100%;
+	position:absolute;
+	top:15vh;
+	display:block;
+	margin-right:0px;
+}
+
+#ipm{
+	width:500px;
+	margin:0 auto;
+	position:relative;
+}
+
+}
+
+
+
+
+@media screen and (max-width: 720px) {
+   .col3{
+	width:80vw;
+	float:left;
+	margin:10px auto;
+	display:table;
+	height:50vh;
+}
+
+#login1{
+	width:100%;
+	border-right:none;
+	border-bottom:1px solid #fff;
+	padding-bottom:10px;
+}
+
+.close{
+	height:30px;
+	}
+
+
+#login2{
+	width:100%;
+	padding-top:10px;
+}
+
+#test p{
+	margin:5px auto;
+}
+
+p{
+	font-size:12px;
+}
+
+.col{
+	display: table-cell; vertical-align: middle;
+}
+
+.logo{
+	width:50%;
+}
+
+
+
+.navmenu{
+	display:blcok;
+	width:100vw;
+	margin:0px;
+}
+
+.navb{display:none;}
+
+.navmenu ul{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+
+.navmenu a{
+	color:#fff;
+	width:100%;
+	height:100%;
+	display:block;
+}
+
+.navmenu li{
+	float:none;
+	width:100%;
+	margin:0px 0px;
+	background-color:rgba(53,192,255,1);
+	text-align:center;
+}  
+
+.navmenu li:hover{
+	background-color:#1976D2;
+}
+
+.navicon{
+	display:block;
+	margin-right:30px;
+	cursor:pointer;
+}
+
+#screen2 h1{
+	margin-top:80px;
+	margin-bottom:40px;
+}
+
+#thirdtext{
+	width:100%;
+}
+
+#thirdtext p{
+	width:80%;
+}
+
+
+	#ip {
+	left:0px;
+}
+
+#ipm{
+	width:350px;
+	margin:0 auto;
+	position:relative;
+}
+
+.s4wraper p{
+	width:350px;
+}
+
+}
+
+@media screen and (max-width: 350px) {
+	p{
+		font-size:11px;
+	}
+	
+.s4wraper p{
+	width:300px;
+}
+
+.s4wraper{
+margin:0 auto;
+width:300px;
+left:0px;
+right:0px;
+}
+
+	#ip {
+	left:0px;
+	right:0px;
+	margin:0px;
+}
+
+.loginbutton{
+		border:1px solid #fff;
+	padding:10px 0px;
+	width:150px;
+	margin:10px auto 0px auto;
+}
+
+
+.facebook{
+	border:1px solid #3a5795;
+	padding:10px 0px;
+	width:150px;
+	margin:10px auto 0px auto;
+}
+
+}
 
