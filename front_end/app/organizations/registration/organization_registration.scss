@@ -26,12 +26,10 @@
       display: inline-block;
       height: 75px;
       width: 75px;
-      @media only screen and (max-width : $mobile) {
+      @include breakpoint($mobile) {
+        height: 125px;
+        width: 125px;
         display: block;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        float: none;
       }
     }
     button {
@@ -41,25 +39,23 @@
       float: right;
       position: relative;
       top: 2.26em;
-      @media only screen and (max-width : $mobile) {
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        float: none;
+      @include breakpoint($mobile) {
+        top: .5em;
         display: block;
-        position: static;
+        float: none;
+        margin: auto;
       }
     }
     p {
       display: inline-block;
       margin-left: 2em;
-      @media only screen and (max-width : $mobile) {
+      @include breakpoint($tablet) {
+        font-size: 15px;
+      }
+      @include breakpoint($mobile) {
         text-align: center;
-        font-size: 1.5em;
-        margin-left: auto;
-        margin-bottom: 6px;
-        margin-right: auto;
         display: block;
+        margin-left: 0;
       }
     }
   }
