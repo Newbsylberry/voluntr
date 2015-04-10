@@ -54,9 +54,9 @@ angular.module('voluntrApp')
     });
 
     $('.navicon').click(function(evt){
-      evt.stopPropagation();
-      $('.navmenu').toggleClass('navb');
-      console.log("menu open")
+      if (!evt.originalEvent) {
+        $('.navmenu').toggleClass('navb');
+      }
     });
 
     $('.navmenu a').click(function(){
