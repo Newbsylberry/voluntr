@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
@@ -34,10 +34,10 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.51724136">
+    <splitter split-orientation="vertical" split-proportion="0.10122164">
       <split-first>
         <leaf>
-          <file leaf-file-name="record_hours_modal.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="record_hours_modal.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="885">
@@ -47,11 +47,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="organization_home.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="organization_home.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.24291497" vertical-offset="645" max-vertical-offset="1110">
-                  <caret line="47" column="44" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+                <state vertical-scroll-proportion="-2.5" vertical-offset="645" max-vertical-offset="1110">
+                  <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
@@ -61,11 +61,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="landing_page.scss" pinned="false" current-in-tab="false">
+          <file leaf-file-name="landing_page.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.375" vertical-offset="7605" max-vertical-offset="10515">
-                  <caret line="522" column="18" selection-start-line="522" selection-start-column="18" selection-end-line="522" selection-end-column="18" />
+                <state vertical-scroll-proportion="2.3138528" vertical-offset="7691" max-vertical-offset="10620">
+                  <caret line="584" column="17" selection-start-line="584" selection-start-column="16" selection-end-line="584" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -81,10 +81,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="landing_page.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="landing_page.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.48979592" vertical-offset="750" max-vertical-offset="1830">
+                <state vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="1830">
                   <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
                   <folding />
                 </state>
@@ -170,8 +170,8 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/organization_main.js" />
         <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
-        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
         <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
+        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
       </list>
     </option>
   </component>
@@ -258,28 +258,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -901,14 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="885">
-          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-36.25" vertical-offset="45" max-vertical-offset="2715">
@@ -925,26 +895,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="7605" max-vertical-offset="10515">
-          <caret line="522" column="18" selection-start-line="522" selection-start-column="18" selection-end-line="522" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24291497" vertical-offset="645" max-vertical-offset="1110">
-          <caret line="47" column="44" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+        <state vertical-scroll-proportion="-2.5" vertical-offset="645" max-vertical-offset="1110">
+          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48979592" vertical-offset="750" max-vertical-offset="1830">
+        <state vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="1830">
           <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="885">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3138528" vertical-offset="7691" max-vertical-offset="10620">
+          <caret line="584" column="17" selection-start-line="584" selection-start-column="16" selection-end-line="584" selection-end-column="16" />
           <folding />
         </state>
       </provider>

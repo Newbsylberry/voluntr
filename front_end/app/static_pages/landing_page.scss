@@ -519,15 +519,22 @@ float:left;width:49%;border-right:1px solid rgba(255,255,255,0.3);text-align:cen
 
 @media screen and (max-width: 720px) {
   footer p{
-    width:200px;
-    margin:0 auto;
-
+    width:320px;
+    margin:15px auto 10px auto;
+    float:none;
+    font-size:13px;
+    text-align:center;
   }
 
   #social{
-    width:100vw;
-
+    width:320px;
+    margin:0 auto;
+    float:none;
+    text-align:center;
+    margin-top:15px;
+    margin-bottom:15px;
   }
+
    .col3{
 	width:80vw;
 	float:left;
@@ -575,7 +582,7 @@ p{
 }
 
 .navmenu{
-	display:blcok;
+	display:block;
 	width:100vw;
 	margin:0px;
 }
