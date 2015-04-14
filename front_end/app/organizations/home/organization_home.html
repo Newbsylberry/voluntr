@@ -6,11 +6,11 @@
     </md-card-content>
   </md-card>
   <div class="row">
-    <div class="col-md-6" id="contact-volunteers">
+    <div class="col-md-6">
       <md-card>
-        <md-card-content>
+        <md-card-content class="dashboard-module">
+          <h3>Volunteers to Contact</h3>
           <md-list layout="column">
-            <h3>Volunteers to Contact</h3>
             <md-item
               ng-repeat="volunteer in organization.contact_volunteers"
               ng-show="organization.contact_volunteers.length !== 0">
@@ -37,9 +37,9 @@
         </md-card-content>
       </md-card>
     </div>
-    <div class="col-md-6 recorded-hours-container">
+    <div class="col-md-6">
       <md-card>
-        <md-card-content>
+        <md-card-content class="dashboard-module">
           <h3>Recently Recorded Hours</h3>
           <md-list layout="column">
             <md-item
@@ -50,11 +50,10 @@
                 </div>
                 <div class="md-tile-content">
                   <h3>{{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h3>
-                  <h4>{{recorded_hour.opportunity.name}}</h4>
+                  <h4>{{recorded_hour.description}}</h4>
                 </div>
                 <div class="md-tile-right">
-                  <i class="icon ion-email"></i>
-                  <i class="icon ion-ios-telephone"></i>
+
                 </div>
               </md-item-content>
             </md-item>

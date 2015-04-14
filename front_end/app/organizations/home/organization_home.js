@@ -212,11 +212,11 @@ angular.module('voluntrApp')
         }
       ],
       title: {
-        text: "Your Organization's Posts"
+        text: "Your Organization's Timeline"
       },
       loading: false,
       size: {
-        height: "350"
+        height: "250"
       }
     };
 

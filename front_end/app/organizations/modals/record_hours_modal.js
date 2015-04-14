@@ -9,11 +9,11 @@ angular.module('voluntrApp')
                                            $stateParams, $http, People, $modalInstance) {
 
 
-    var controllerElement = document.querySelector('.recorded-hours-container');
+    var controllerElement = document.querySelector('.dashboard-module');
     var controllerScope = angular.element(controllerElement).scope();
-    console.log(controllerScope.organization.recorded_hours);
 
-    console.log($rootScope)
+
+
 
 
     $scope.recordHours = function() {

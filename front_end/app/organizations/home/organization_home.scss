@@ -1,9 +1,14 @@
-#contact-volunteers {
+.dashboard-module {
+  height: 200px;
+  overflow-y: auto;
   .icon {
     font-size: 18pt; padding-right: 12px;
   }
   img {
     height: 50px;
     width: 50px;
+  }
+  h3 {
+    margin: 6px 0;
   }
 }

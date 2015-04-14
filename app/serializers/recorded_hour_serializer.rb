@@ -1,5 +1,5 @@
 class RecordedHourSerializer < ActiveModel::Serializer
-  attributes :id, :person_id, :opportunity_id, :hours, :person, :opportunity
+  attributes :id, :person_id, :opportunity_id, :hours, :person, :opportunity, :description
 
 
   def person
