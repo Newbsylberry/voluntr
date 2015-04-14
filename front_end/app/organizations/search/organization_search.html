@@ -1,0 +1,11 @@
+<div class="content">
+  <md-card id="search-results">
+    <md-card-content>
+      <a href="" ng-repeat="search_item in search_items | filter : query.query" ng-if="query.query">{{search_item.name}}</a>
+      <div id="search-waiting" ng-if="!query.query">
+        <img src="../../images/search.svg">
+        <p>We're Waiting Patiently for your search...</p>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

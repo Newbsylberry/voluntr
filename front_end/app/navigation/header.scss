@@ -21,5 +21,17 @@
     left: 16px;
     top: 14px;
     color: $background-color;
+    a {
+      display: inline-block;
+      font-size: 25px;
+      position: relative;
+      bottom: 10px;
+      left: 10px;
+      color: $background-color;
+    }
+  }
+  img {
+    height: 50px;
+    color: white;
   }
 }

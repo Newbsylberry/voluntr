@@ -56,6 +56,21 @@ angular
     //401Interceptor to handle 401 errors
   })
 
+  .run(function($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+    $rootScope.$on("$stateChangeSuccess",  function(event, toState, toParams, fromState, fromParams) {
+      // to be used for back button //won't work when page is reloaded.
+      $rootScope.previousState_name = fromState.name;
+      $rootScope.previousState_params = fromParams;
+      console.log($rootScope.previousState_name)
+    });
+    //back button function called from back button's ng-click="back()"
+    $rootScope.back = function() {
+      $state.go($rootScope.previousState_name,$rootScope.previousState_params);
+    };
+  })
+
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
@@ -99,6 +114,12 @@ angular
         controller: 'OrganizationHomeCtrl'
       })
 
+      .state('organizations.organization_search', { //default page loaded for landing state
+        url: '/search/:organization_Id',
+        templateUrl: 'organizations/search/organization_search.html', // url for partial
+        controller: 'OrganizationSearchCtrl'
+      })
+
       .state('organizations.people_home', { //default page loaded for landing state
         url: '/:organization_Id/people_home',
         templateUrl: 'organizations/people/people_home.html', // url for partial
@@ -116,6 +137,7 @@ angular
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl'
       })
+
 
 
 
