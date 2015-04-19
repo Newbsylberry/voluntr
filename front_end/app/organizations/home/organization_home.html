@@ -19,7 +19,8 @@
                   <img ng-if="!volunteer.fb_id" src="/images/no_image.jpg">
                 </div>
                 <div class="md-tile-content">
-                  <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
+                  <h3 person-modal size="lg" id="{{volunteer.id}}">
+                    {{volunteer.first_name}} {{volunteer.last_name}}</h3>
                   <h4>Interested in shelter drop off event</h4>
                 </div>
                 <div class="md-tile-right">
@@ -49,7 +50,8 @@
                   <h2>{{recorded_hour.hours}}</h2>
                 </div>
                 <div class="md-tile-content">
-                  <h3>{{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h3>
+                  <h3 person-modal size="lg" id="{{recorded_hour.person.id}}">
+                    {{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h3>
                   <h4>{{recorded_hour.description}}</h4>
                 </div>
                 <div class="md-tile-right">

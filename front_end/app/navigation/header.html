@@ -9,7 +9,7 @@
 
   <i class="icon ion-arrow-left-c"
      ng-if="current_state === 'organizations.organization_search'"
-     ng-click="back()"
+     ng-click="back(); search_filter.query = ''"
      ><a href="">Back</a>
   </i>
   <input type="text"

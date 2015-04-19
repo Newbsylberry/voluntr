@@ -1,5 +1,19 @@
-<div class="application-header" ng-if="current_state !== 'organizations.registration'">
-  <i class="icon ion-navicon-round" snap-toggle="left">
+<div class="application-header"
+     ng-if="current_state !== 'organizations.registration'"
+     ng-controller="HeaderCtrl"
+  >
+  <i class="icon ion-navicon-round"
+     ng-if="current_state !== 'organizations.organization_search'"
+     snap-toggle="left">
     </i>
-  <input type="text" placeholder="Search for anything...">
+
+  <i class="icon ion-arrow-left-c"
+     ng-if="current_state === 'organizations.organization_search'"
+     ng-click="back(); search_filter.query = ''"
+     ><a href="">Back</a>
+  </i>
+  <input type="text"
+         ui-sref="organizations.organization_search({organization_Id:organization_id})"
+         ng-model="search_filter.query"
+         placeholder="Search for anything...">
 </div>
