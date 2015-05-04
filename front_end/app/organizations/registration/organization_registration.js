@@ -28,18 +28,18 @@ angular.module('voluntrApp')
       Facebook.api('/' + organization.id + '/picture', {"type": "large"}, function (response) {
         organization.picture = response.data.url;
       });
-      $http.get('/api/v1/organizations/existence_check/' + organization.id).
-        success(function(data, status, headers, config) {
-          if (data) {
-            organization.exists = true
-            organization.v_id = data.id;
-          } else if (!data) {
-            organization.exists = false
-          }
-        }).
-        error(function(data, status, headers, config) {
-        })
-      $scope.organizations.push(organization)
+
+      Organization.existence_check(organization.id).$promise.then(function(data) {
+        if (data.id) {
+          console.log(data)
+          organization.exists = true;
+          organization.v_id = data.id;
+        } else if (!data.id) {
+          organization.exists = false;
+        }
+        $scope.organizations.push(organization)
+      });
+
     };
 
 
@@ -56,7 +56,6 @@ angular.module('voluntrApp')
     $scope.$watch('connected_to_facebook', function () {
       if ($scope.connected_to_facebook && !$scope.organizations){
         Facebook.api('/me/accounts', function (response) {
-          console.log(response)
           angular.forEach(response.data, listOrganization)
         });
       }
@@ -69,24 +68,11 @@ angular.module('voluntrApp')
       attr.fb_id = organization.id;
       attr.name = organization.name;
       attr.description = organization.description;
-      attr.initial_likes = organization.likes;
-      attr.initial_talking_about
-      var newOrganization =
-        $http.post('/api/v1/organizations/',
-          {
-            "organization": {
-              name: attr.name,
-              fb_id: attr.fb_id,
-              description: attr.description
-            },
-            "oauth_key": $scope.oauth_key
-          }).
-          success(function(data, status, headers, config) {
-              $state.go('organizations.organization_home', {organization_Id:data.id})
-              $stateParams.organization_Id = data.id;
-          }).
-          error(function(data, status, headers, config) {
-          });
+      attr.oauth_key = $scope.oauth_key;
+      var newOrganization = Organization.create(attr).$promise.then(function(data){
+        $state.go('organizations.tutorial_1', {organization_Id:data.id})
+        $stateParams.organization_Id = data.id;
+      });
     };
 
     $scope.organizationRegistration = function (organization) {

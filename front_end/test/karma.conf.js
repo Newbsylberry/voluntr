@@ -18,6 +18,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      // bower:js
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
@@ -26,13 +28,43 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/angular-aria/angular-aria.js',
+      'bower_components/js-xlsx/dist/xlsx.js',
+      'bower_components/lodash/lodash.js',
+      'bower_components/angular-facebook/lib/angular-facebook.js',
+      'bower_components/angular-bootstrap/ui-bootstrap.js',
+      'bower_components/angular-scroll-watch/src/angular-scroll-watch.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-scroll/angular-scroll.js',
+      'bower_components/angular-material/angular-material.js',
+      'bower_components/angular-material/angular-material.js',
+      'bower_components/ngmap/build/scripts/ng-map.js',
+      'bower_components/angular-devise/lib/devise.js',
+      'bower_components/angularjs-geolocation/src/geolocation.js',
+      'bower_components/highcharts-ng/dist/highcharts-ng.js',
+      'bower_components/ng-mfb/src/mfb-directive.js',
+      'bower_components/md-date-time/dist/md-date-time.js',
+      'bower_components/angular-duration-format/dist/angular-duration-format.js',
+      'bower_components/angular-duration-format/dist/angular-duration-format.js',
+      'bower_components/angular-ui-calendar/src/calendar.js',
+      'bower_components/angular-snap/angular-snap.js',
+      'bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js',
+      'bower_components/kendo-ui-core/js/kendo.ui.core.min.js',
+      'bower_components/ngHandsontable/dist/ngHandsontable.js',
+      // endbower
       'app/scripts/**/*.js',
+      'app/organizations/**/*.js',
+      'app/static_pages/**/*.js',
+      'app/volunteers/**/*.js',
+      'app/navigation/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
-    exclude: [],
+    exclude: [
+      'app/scripts/jquery.scrollto.js'
+    ],
 
     // web server port
     port: 8080,
@@ -63,7 +95,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {

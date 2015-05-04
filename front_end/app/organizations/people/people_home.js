@@ -22,7 +22,7 @@ angular.module('voluntrApp')
     $scope.personDetail = function (size, id) {
       var personDetailModal = $modal.open(
         {
-          templateUrl: 'organizations/people/person_detail_modal.html',
+          templateUrl: 'organizations/modals/person_detail_modal.html',
           controller: 'PersonDetailCtrl',
           windowClass: 'add-event-modal-window',
           size: size,
@@ -38,6 +38,25 @@ angular.module('voluntrApp')
 
 
       personDetailModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
+    $scope.bulkAddPeople = function (size) {
+      var bulkAddModal = $modal.open(
+        {
+          templateUrl: 'organizations/modals/bulk_add_people_modal.html',
+          controller: 'BulkAddPeopleCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+        });
+
+
+
+      bulkAddModal.result.then(function () {
 
         },
         function () {

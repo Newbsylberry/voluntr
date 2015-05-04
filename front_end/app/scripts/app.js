@@ -33,7 +33,8 @@ angular
     'ui.calendar',
     'snap',
     'leaflet-directive',
-    "kendo.directives"
+    "kendo.directives",
+    'ngHandsontable'
   ])
 
   //.config(function($locationProvider) {
@@ -106,6 +107,12 @@ angular
         url: '/registration',
         templateUrl: 'organizations/registration/organization_registration.html',
         controller: 'OrganizationRegistrationCtrl'
+      })
+
+      .state('organizations.tutorial_1', {
+        url: '/tutorial_1/:organization_Id',
+        templateUrl: 'organizations/tutorial/tutorial_screen_1.html',
+        controller: 'OrganizationTutorialCtrl'
       })
 
       .state('organizations.organization_home', { //default page loaded for landing state

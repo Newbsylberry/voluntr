@@ -54,31 +54,17 @@ angular.module('voluntrApp')
           $rootScope.organization_id = successResponse.id;
           $scope.organization.posts = $filter('orderBy')(successResponse.posts, 'post_time')
           angular.forEach($scope.organization.posts, addPostToGraph)
-          $http.get('api/v1/organizations/' + successResponse.id + '/recorded_hours').
-            success(function(data, status, headers, config) {
-              $scope.organization.recorded_hours = data;
-            }).
-            error(function(data, status, headers, config) {
-              console.log(data)
-            });
-          $http.get('api/v1/organizations/' + successResponse.id + '/daily_statistics').
-            success(function(data, status, headers, config) {
-              console.log(data)
+          Organization.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function(recorded_hours) {
+                $scope.organization.recorded_hours = recorded_hours;
+          });
+          Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function(data) {
               $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
               angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
-            }).
-            error(function(data, status, headers, config) {
-              console.log(data)
-            });
-          $http.get('api/v1/organizations/' + successResponse.id + '/contact_volunteers').
-            success(function(data, status, headers, config) {
+            })
+          Organization.contact_volunteers(successResponse.id, 'contact_volunteers').$promise.then(function(data) {
               $scope.organization.contact_volunteers = data;
 
-            }).
-            error(function(data, status, headers, config) {
-              console.log(data)
-            });
-
+            })
 
 
         })

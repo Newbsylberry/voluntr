@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/pikaday/css/pikaday.css" />
+  <link rel="stylesheet" href="bower_components/handsontable/dist/handsontable.full.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -115,6 +117,14 @@
 <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
 <script src="bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
 <script src="bower_components/angular-scroll-watch/build/angular-scroll-watch.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/jszip/dist/jszip.js"></script>
+<script src="bower_components/js-xlsx/dist/xlsx.js"></script>
+<script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/pikaday/pikaday.js"></script>
+<script src="bower_components/handsontable/dist/handsontable.full.js"></script>
+<script src="bower_components/ngHandsontable/dist/ngHandsontable.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -122,10 +132,13 @@
 <script src="https://code.highcharts.com/highcharts.src.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="scripts/xlsx-reader.js"></script>
+
 
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/services/excel_import.js"></script>
 <script src="scripts/services/organizations.js"></script>
 <script src="scripts/services/opportunities.js"></script>
 <script src="scripts/services/person_opportunities.js"></script>
@@ -149,17 +162,18 @@
 <script src="organizations/organization_main.js"></script>
 <script src="organizations/home/organization_home.js"></script>
 
+
+<!-- Organization Tutorial Controllers -->
+<script src="organizations/tutorial/tutorial.js"></script>
+
 <!-- Organization People Controllers -->
 <script src="organizations/people/people_home.js"></script>
-<script src="organizations/people/add_people.js"></script>
 <script src="organizations/people/people_home.js"></script>
-<script src="organizations/people/person_detail.js"></script>
+
 
 <!-- Organization Opportunities Controllers -->
-<script src="organizations/opportunities/add_opportunity.js"></script>
 <script src="organizations/opportunities/opportunities_home.js"></script>
-<script src="organizations/opportunities/opportunity_detail.js"></script>
-<script src="organizations/opportunities/add_person_opportunity.js"></script>
+
 
 <!-- Navigation Controllers -->
 <script src="organizations/floating_action_button.js"></script>
@@ -177,8 +191,14 @@
 
 
 <!-- Modals -->
+<script src="organizations/modals/person_detail.js"></script>
+<script src="organizations/modals/add_people.js"></script>
 <script src="organizations/modals/record_hours_modal.js"></script>
 <script src="organizations/modals/modal_controller.js"></script>
+<script src="organizations/modals/add_opportunity.js"></script>
+<script src="organizations/modals/bulk_add_people.js"></script>
+<script src="organizations/modals/opportunity_detail.js"></script>
+<script src="organizations/modals/add_person_opportunity.js"></script>
 
 <!-- Directives -->
 <script src="scripts/directives/window-scroll-watch.js"></script>

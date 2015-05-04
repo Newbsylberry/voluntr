@@ -13,13 +13,21 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../organizations/search/organization_search.scss";
 @import "../organizations/people/people.scss";
 @import "../organizations/home/organization_home.scss";
-@import "../organizations/opportunities/opportunity_details.scss";
 @import "../organizations/opportunities/opportunities.scss";
-@import "../organizations/opportunities/add_opportunity_window.scss";
+
+/************************************************************
+Modal Styles
+************************************************************/
+@import "../organizations/modals/opportunity_details.scss";
+@import "../organizations/modals/add_opportunity_window.scss";
+@import "../organizations/modals/record_hours_modal.scss";
+
+
 @import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";
 @import "../static_pages/landing_page.scss";
-@import "../organizations/modals/record_hours_modal.scss";
+
+@import "../organizations/modals/bulk_add_people.scss";
 
 html {
   height: 100%;
