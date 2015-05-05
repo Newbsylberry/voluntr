@@ -2,7 +2,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
 @import "_variables.scss";
 @import "mixins/_breakpoint.scss";
 @import "mixins/_placeholder.scss";
@@ -26,8 +25,13 @@ Modal Styles
 @import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";
 @import "../static_pages/landing_page.scss";
+<<<<<<< HEAD
 @import "../organizations/modals/record_hours_modal.scss";
 @import "../organizations/modals/global_modal_styles.scss";
+=======
+
+@import "../organizations/modals/bulk_add_people.scss";
+>>>>>>> 75827a467623bbb4e549dc1174d110f9ba3855b5
 
 html {
   height: 100%;

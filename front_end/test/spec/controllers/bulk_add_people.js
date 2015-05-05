@@ -9,9 +9,7 @@ describe('BulkAddPeople', function () {
     });
   }));
 
-  it('Says hello', function () {
-    expect(controller.message).toBe("Hello")
-  });
+
 
 
 });
