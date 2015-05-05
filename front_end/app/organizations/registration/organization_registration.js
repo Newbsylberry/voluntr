@@ -70,7 +70,7 @@ angular.module('voluntrApp')
       attr.description = organization.description;
       attr.oauth_key = $scope.oauth_key;
       var newOrganization = Organization.create(attr).$promise.then(function(data){
-        $state.go('organizations.tutorial_1', {organization_Id:data.id})
+        $state.go('organizations.tutorial.1', {organization_Id:data.id})
         $stateParams.organization_Id = data.id;
       });
     };

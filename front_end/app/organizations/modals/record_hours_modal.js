@@ -6,7 +6,8 @@
  */
 angular.module('voluntrApp')
   .controller('RecordHoursCtrl', function ($scope, $modal, $rootScope, RecordedHours,
-                                           $stateParams, $http, People, $modalInstance) {
+                                           $stateParams, $http, People,
+                                           $modalInstance, Organization) {
 
 
     var controllerElement = document.querySelector('.dashboard-module');
@@ -54,13 +55,7 @@ angular.module('voluntrApp')
 
 
 
-    $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
-      success(function(data, status, headers, config) {
-        $scope.organization_people = data;
-      }).
-      error(function(data, status, headers, config) {
-        console.log(data)
-      });
+    $scope.organization_people = Organization.people($stateParams.organization_Id, 'people');
 
     $scope.clearPerson = function() {
       $scope.first_name = "";
