@@ -2,7 +2,7 @@
 
   <!-- This is the top menu -->
   <md-tabs class="md-accent" md-selected="data.selectedIndex">
-    <md-tab id="tab1" aria-controls="tab1-content">
+    <md-tab id="tab1" aria-controls="tab1-content" class="md-padding">
       Step 1:  Enter Basic Information
     </md-tab>
     <md-tab id="tab2" aria-controls="tab2-content">
@@ -64,9 +64,12 @@
         <input ng-model="newPerson.zip_code">
       </md-input-container>
 
-      <button class="btn btn-lg" ng-click="addPerson()">
+     <div class="window-bottom-button">
+        <button class="btn btn-lg testbutton" ng-click="addPerson()">
         Submit
       </button>
+         
+        </div>
 
       <!--<div ng-hide="!newPerson">
         <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">

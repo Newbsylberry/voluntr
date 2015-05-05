@@ -2,7 +2,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
 @import "_variables.scss";
 @import "mixins/_breakpoint.scss";
 @import "mixins/_placeholder.scss";
@@ -20,6 +19,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../navigation/side-menu.scss";
 @import "../static_pages/landing_page.scss";
 @import "../organizations/modals/record_hours_modal.scss";
+@import "../organizations/modals/global_modal_styles.scss";
 
 html {
   height: 100%;
@@ -103,6 +103,10 @@ md-tab {
     color: $primary;
   }
   }
+}
+
+.add-event-modal-window{
+    padding:0px;
 }
 
 /***************************************************************

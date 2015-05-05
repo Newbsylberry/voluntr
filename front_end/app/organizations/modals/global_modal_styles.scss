@@ -1,0 +1,49 @@
+.add-event-modal-window .modal-content {
+  padding: 0px;
+}
+
+.modal-content{
+    border:none;
+}
+
+.md-accent{
+    position:fixed;
+    top:0px;
+    z-index: 1000;
+    width:100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+        background-color:#fff;
+}
+
+.md-header{height:60px;}
+
+md-tabs.md-default-theme.md-accent .md-header{background-color:#03a9f5;}
+
+md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
+  color: rgba(255,255,255,0.5);
+}
+  
+.window-bottom-button{
+ position:fixed;
+    bottom:1px;
+    width:100%;
+    background-color:#fff;
+    z-index: 1000;
+    box-shadow: 0px -1px 1px rgba(0,0,0,0.2);
+    height:60px;
+    line-height:60px;
+        border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.testbutton{
+    border-radius:2px;
+    background-color:#03a9f5;
+    color:#fff;
+    display:inline-block;
+    float:right;
+    margin:12px 15px 0px 0px;
+    padding:5px 16px;
+}
