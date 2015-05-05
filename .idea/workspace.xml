@@ -2,122 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/directives/opportunity-modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/directives/person-modal.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSans-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSans-BoldOblique.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSans-Oblique.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSans.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSansMono-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSansMono-BoldOblique.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSansMono-Oblique.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSansMono.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSerif-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSerif-BoldItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSerif-Italic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/DejaVuSerif.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/icomoon.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/icomoon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/icomoon.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/icomoon.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/ionicons.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/ionicons.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/ionicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/ionicons.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/V_Logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/about_page_1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/arrow_down.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/arrow_up.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/bg3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/cross.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/firefighters.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/home.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_add.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_checked.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_profile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/landing-page-slide-1-clock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/landing-page-slide-2-boat.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/landing-page-slide-3-arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/lp_organization_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/lp_organization_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/lp_organization_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/lp_volunteer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/menu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/no_image.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/phone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/placeholder.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/progress_circle.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/scroll.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/spaceport.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/v.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/v_small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/vera_house_logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/victoria.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/vm1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/vm2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/workers_bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/wp8_icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/navigation/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/navigation/side-menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/home/organization_home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/modals/record_hours_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/opportunities/add_opportunity_person.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/opportunities/opportunities_home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/opportunities/opportunity_detail_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/opportunities/organization_add_event_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/opportunities/organization_add_position_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/organization.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/organization_floating_action_button.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/people/organization_add_person_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/people/people_home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/people/person_detail_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/organizations/registration/organization_registration.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/config.7b1ab03b.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/oldieshim.a466b7b1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/scripts.9370bb2a.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor.cbd1bc52.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static_pages/landing_page.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/main.37c55e18.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/vendor.d6b1891e.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/_landing_page_header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/about.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/add_additional_data.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/landing_page.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/landing_page_initial.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/profile_create.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/record_hours.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/tos_privacy.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/volunteers/volunteer_home.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/navigation/header.html" afterPath="$PROJECT_DIR$/front_end/app/navigation/header.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people_modal.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/services/excel_import.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/xlsx-reader.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/organization_add_event_modal.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/about.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/adddata.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/addeventcontroller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/landing_page_organizations.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/landing_page_volunteer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/landingpage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/organization_home.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/profile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/profilecreate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/recordhours.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/volunteerhome.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/services/events.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/services/organizations.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/services/people.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/services/profile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_end/test/spec/services/usereventhours.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/add_opportunity.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/add_opportunity_person.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity_person.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/add_opportunity_window.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity_window.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/add_person_opportunity.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_person_opportunity.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunity_detail.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunity_detail_modal.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail_modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunity_details.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_details.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/organization_add_position_modal.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/organization_add_position_modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/people/add_people.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_people.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/people/organization_add_person_modal.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/organization_add_person_modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/people/person_detail.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/organizations/people/person_detail_modal.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/person_detail_modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/test/spec/controllers/main.js" afterPath="$PROJECT_DIR$/front_end/test/spec/controllers/bulk_add_people.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/Gruntfile.js" afterPath="$PROJECT_DIR$/front_end/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/app.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/bower.json" afterPath="$PROJECT_DIR$/front_end/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/modal_controller.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/modal_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/test/karma.conf.js" afterPath="$PROJECT_DIR$/front_end/test/karma.conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/main.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/workers/organization_importer.rb" afterPath="$PROJECT_DIR$/app/workers/organization_importer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/package.json" afterPath="$PROJECT_DIR$/front_end/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/people/people_home.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/people/people_home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/people/people_home.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/people/people_home.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
@@ -149,58 +85,34 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5794251">
+    <splitter split-orientation="vertical" split-proportion="0.44326776">
       <split-first>
         <leaf>
-          <file leaf-file-name="organization_home.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
+          <file leaf-file-name="organization_home.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.7981073" vertical-offset="225" max-vertical-offset="1125">
-                  <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="3270">
+                  <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="search_service.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/search_service.js">
+          <file leaf-file-name="floating_action_button.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-                  <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+                <state vertical-scroll-proportion="-1.2727273" vertical-offset="756" max-vertical-offset="1020">
+                  <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="organization_search.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.js">
+          <file leaf-file-name="people_home.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-                  <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="person-modal.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/directives/person-modal.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-                  <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="opportunity-modal.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/directives/opportunity-modal.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-                  <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1140">
+                  <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
                   <folding />
                 </state>
               </provider>
@@ -210,67 +122,27 @@
             <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1395">
-                  <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="71" selection-end-column="11" />
+                  <caret line="50" column="47" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="people_home.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.html">
+          <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config/routes.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="390">
-                  <caret line="11" column="55" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="55" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="people_home.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-                  <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="organization_search.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="690">
-                  <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/app/navigation/header.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.75" vertical-offset="75" max-vertical-offset="375">
-                  <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/front_end/bower.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="735">
+                <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1440">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="landing_page.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
+          <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.77720207" vertical-offset="495" max-vertical-offset="2910">
-                  <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+                <state vertical-scroll-proportion="-4.375" vertical-offset="285" max-vertical-offset="1965">
+                  <caret line="26" column="58" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -279,8 +151,52 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.583333" vertical-offset="2464" max-vertical-offset="3060">
-                  <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+                <state vertical-scroll-proportion="-2.24" vertical-offset="2783" max-vertical-offset="3360">
+                  <caret line="193" column="33" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="add_opportunity.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2580">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="opportunity_detail.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="710" max-vertical-offset="1350">
+                  <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="add_person_opportunity.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_person_opportunity.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+                  <caret line="13" column="39" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="organizations.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="2.8125" vertical-offset="0" max-vertical-offset="1110">
+                  <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
                   <folding />
                 </state>
               </provider>
@@ -306,25 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/front_end/app/organizations/organization_floating_action_button.html" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours.html" />
-        <option value="$PROJECT_DIR$/app/models/opportunity.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/services/recorded_hours.js" />
-        <option value="$PROJECT_DIR$/app/models/recorded_hour.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/filters/person_filter.js" />
-        <option value="$PROJECT_DIR$/app/serializers/person_serializer.rb" />
-        <option value="$PROJECT_DIR$/config/initializers/resque.rb" />
-        <option value="$PROJECT_DIR$/app/models/organization.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20150407012027_drop_columns_from_recorded_hours.rb" />
-        <option value="$PROJECT_DIR$/app/serializers/daily_statistic_serializer.rb" />
-        <option value="$PROJECT_DIR$/config/deploy/production.rb" />
-        <option value="$PROJECT_DIR$/config/resque_schedule.yml" />
-        <option value="$PROJECT_DIR$/app/workers/record_hours.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.html" />
-        <option value="$PROJECT_DIR$/add_daily_stats.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.scss" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" />
         <option value="$PROJECT_DIR$/front_end/app/navigation/side-menu-controller.js" />
         <option value="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/organization_main.js" />
@@ -332,7 +229,6 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.scss" />
         <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/organization.html" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js" />
         <option value="$PROJECT_DIR$/app/serializers/recorded_hour_serializer.rb" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.js" />
@@ -340,23 +236,43 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html" />
         <option value="$PROJECT_DIR$/front_end/app/styles/_variables.scss" />
         <option value="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/styles/main.scss" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/services/search_service.js" />
         <option value="$PROJECT_DIR$/front_end/app/navigation/header.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/front_end/app/navigation/header.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/modal_controller.js" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/people/people_home.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/directives/person-modal.js" />
-        <option value="$PROJECT_DIR$/front_end/app/index.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/search/organization_search.html" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/directives/opportunity-modal.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
         <option value="$PROJECT_DIR$/front_end/app/navigation/header.html" />
         <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_1.html" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/excel_import.js" />
+        <option value="$PROJECT_DIR$/front_end/test/controllers/bulk_add_people.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/xlsx-reader.js" />
+        <option value="$PROJECT_DIR$/front_end/test/mock/controllers/bulk_add_people.js" />
+        <option value="$PROJECT_DIR$/front_end/bower.json" />
+        <option value="$PROJECT_DIR$/front_end/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/front_end/test/karma.conf.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people_modal.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/people/people_home.html" />
+        <option value="$PROJECT_DIR$/front_end/test/spec/controllers/bulk_add_people.js" />
+        <option value="$PROJECT_DIR$/app/workers/organization_importer.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.js" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.js" />
+        <option value="$PROJECT_DIR$/front_end/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js" />
+        <option value="$PROJECT_DIR$/front_end/app/index.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/people/people_home.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" />
       </list>
     </option>
   </component>
@@ -364,8 +280,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="40" />
-    <option name="y" value="40" />
+    <option name="x" value="61" />
+    <option name="y" value="64" />
     <option name="width" value="1338" />
     <option name="height" value="727" />
   </component>
@@ -396,7 +312,6 @@
     </navigator>
     <panes>
       <pane id="RailsProjectView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -465,12 +380,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static_pages" />
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="organizations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="organizations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,11 +459,11 @@
       <recent name="$PROJECT_DIR$/front_end/app/styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/front_end/app/images" />
       <recent name="$PROJECT_DIR$/front_end/app/organizations/modals" />
+      <recent name="$PROJECT_DIR$/front_end/test/spec" />
+      <recent name="$PROJECT_DIR$/front_end/test/mock" />
+      <recent name="$PROJECT_DIR$/front_end/app/images" />
       <recent name="$PROJECT_DIR$/front_end/bower_components" />
-      <recent name="$PROJECT_DIR$/front_end/app/volunteers" />
-      <recent name="$PROJECT_DIR$/front_end/app/organizations/opportunities" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: voluntr_api">
@@ -665,8 +629,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="40" y="40" width="1338" height="727" extended-state="0" />
-    <editor active="true" />
+    <frame x="61" y="64" width="1338" height="727" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -674,11 +638,11 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2507716" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25848764" sideWeight="0.6706408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829046" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -733,274 +697,249 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/front_end/app/images/v_small.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/images/vm2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/images/wlogo.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/images/V_Logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/images/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/images/v.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/bower_components/ng-mfb/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47945204" vertical-offset="0" max-vertical-offset="675">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1421801" vertical-offset="0" max-vertical-offset="633">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5637065" vertical-offset="0" max-vertical-offset="690">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1515">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/post_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/record_hours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/views/add_additional_data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1980">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="285">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.23166023" vertical-offset="0" max-vertical-offset="1515">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/side-menu-controller.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33707866" vertical-offset="0" max-vertical-offset="445">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/organization_main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37078652" vertical-offset="0" max-vertical-offset="445">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/controllers/adddata.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7894737" vertical-offset="420" max-vertical-offset="1305">
-          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.057915058" vertical-offset="0" max-vertical-offset="259">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity_window.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25" vertical-offset="750" max-vertical-offset="1830">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/organization_floating_action_button.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/organization.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64615387" vertical-offset="0" max-vertical-offset="330">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5762713" vertical-offset="2373" max-vertical-offset="3480">
-          <caret line="219" column="7" selection-start-line="219" selection-start-column="7" selection-end-line="219" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/recorded_hour_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.042372882" vertical-offset="0" max-vertical-offset="354">
-          <caret line="1" column="90" selection-start-line="1" selection-start-column="90" selection-end-line="1" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13636364" vertical-offset="0" max-vertical-offset="330">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4661017" vertical-offset="210" max-vertical-offset="1440">
-          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="525">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/recorded_hours_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58474576" vertical-offset="858" max-vertical-offset="1245">
-          <caret line="71" column="95" selection-start-line="71" selection-start-column="95" selection-end-line="71" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9090909" vertical-offset="0" max-vertical-offset="885">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="575" max-vertical-offset="1020">
-          <caret line="47" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/side-menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.097087376" vertical-offset="0" max-vertical-offset="309">
-          <caret line="2" column="80" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/recorded_hours.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.045045044" vertical-offset="0" max-vertical-offset="615">
-          <caret line="1" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9085366" vertical-offset="1112" max-vertical-offset="2295">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34539473" vertical-offset="90" max-vertical-offset="1845">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="230.0" vertical-offset="5820" max-vertical-offset="10440">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/workers/record_hours.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13513513" vertical-offset="0" max-vertical-offset="1380">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6920732" vertical-offset="705" max-vertical-offset="7860">
-          <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1351352" vertical-offset="597" max-vertical-offset="2310">
-          <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/person_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.scss">
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="360">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state vertical-scroll-proportion="1.0591133" vertical-offset="0" max-vertical-offset="2910">
+          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27093595" vertical-offset="0" max-vertical-offset="609">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45023698" vertical-offset="0" max-vertical-offset="855">
+          <caret line="19" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/organization_add_person_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="633">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/opportunities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21327014" vertical-offset="0" max-vertical-offset="750">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/modal_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.30805686" vertical-offset="0" max-vertical-offset="633">
+          <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/header.scss">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.75" vertical-offset="201" max-vertical-offset="645">
-          <caret line="29" column="32" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28753993" vertical-offset="0" max-vertical-offset="313">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/directives/window-scroll-watch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4313099" vertical-offset="0" max-vertical-offset="313">
-          <caret line="9" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/add_people.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8766234" vertical-offset="270" max-vertical-offset="945">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="295">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/jquery.scrollto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="1" column="74" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/excel_import.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="633">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/xlsx-reader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14827017" vertical-offset="0" max-vertical-offset="1800">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular-mocks/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="301">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular/.bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/bower_components/angular/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="210">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375" vertical-offset="525" max-vertical-offset="810">
+          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6923075" vertical-offset="6700" max-vertical-offset="7980">
+          <caret line="460" column="26" selection-start-line="460" selection-start-column="25" selection-end-line="460" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/test/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9003322" vertical-offset="509" max-vertical-offset="1695">
+          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6722973" vertical-offset="394" max-vertical-offset="855">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35234898" vertical-offset="0" max-vertical-offset="825">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.024630541" vertical-offset="0" max-vertical-offset="609">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1013,34 +952,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/add_daily_stats.rb">
+    <entry file="file://$PROJECT_DIR$/app/workers/organization_importer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32751092" vertical-offset="0" max-vertical-offset="458">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        <state vertical-scroll-proportion="-0.053030305" vertical-offset="524" max-vertical-offset="825">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8125" vertical-offset="0" max-vertical-offset="405">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2415">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.75" vertical-offset="561" max-vertical-offset="1125">
+          <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1470">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/test/spec/controllers/bulk_add_people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1440">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state vertical-scroll-proportion="2.8125" vertical-offset="0" max-vertical-offset="1110">
+          <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunity_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9879518" vertical-offset="410" max-vertical-offset="1350">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="3270">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1048,87 +1027,63 @@
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1395">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="71" selection-end-column="11" />
+          <caret line="50" column="47" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        <state vertical-scroll-proportion="-4.375" vertical-offset="285" max-vertical-offset="1965">
+          <caret line="26" column="58" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/directives/person-modal.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_person_opportunity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="390">
-          <caret line="11" column="55" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="710" max-vertical-offset="1350">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/directives/opportunity-modal.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2580">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.583333" vertical-offset="2464" max-vertical-offset="3060">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.24" vertical-offset="2783" max-vertical-offset="3360">
+          <caret line="193" column="33" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/people/people_home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7981073" vertical-offset="225" max-vertical-offset="1125">
-          <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1140">
+          <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/search/organization_search.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="690">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75" vertical-offset="75" max-vertical-offset="375">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77720207" vertical-offset="495" max-vertical-offset="2910">
-          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+        <state vertical-scroll-proportion="-1.2727273" vertical-offset="756" max-vertical-offset="1020">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
           <folding />
         </state>
       </provider>

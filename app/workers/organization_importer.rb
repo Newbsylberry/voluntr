@@ -27,14 +27,12 @@ class OrganizationImporter
               @organization_person.person_id = @person.id
               @organization_person.organization_id = organization_id
               @organization_person.save
-              puts @organization_person.person.first_name
             else @person = Person.find_by_fb_id(l["id"])
               if (!OrganizationPerson.find_by_person_id(@person.id))
               @organization_person = OrganizationPerson.new
               @organization_person.person_id = Person.find_by_fb_id(l["id"]).id
               @organization_person.organization_id = organization_id
               @organization_person.save
-              puts @organization_person.person.first_name
               end
             end
           end

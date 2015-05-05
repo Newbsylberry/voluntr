@@ -47,7 +47,7 @@ angular.module('voluntrApp')
     $scope.opportunityDetail = function (size, id, start_time) {
       var opportunityDetailModal = $modal.open(
         {
-          templateUrl: 'organizations/opportunities/opportunity_detail_modal.html',
+          templateUrl: 'organizations/modals/opportunity_detail_modal.html',
           controller: 'OpportunityDetailCtrl',
           windowClass: 'add-event-modal-window',
           size: size,

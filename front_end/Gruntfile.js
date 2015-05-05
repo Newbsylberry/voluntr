@@ -15,6 +15,8 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  grunt.loadNpmTasks('grunt-bower-install');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -225,7 +227,7 @@ module.exports = function (grunt) {
         //cwd: '<%= yeoman.app %>'
       },
       app: {
-        src: ['<%= yeoman.app %>/index.html'],
+        src: ['<%= yeoman.app %>/index.html','../<%= yeoman.app %>test/karma.conf.js'],
         ignorePath:  /\.\.\//
       },
       sass: {
@@ -451,7 +453,13 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'test/karma.conf.js',
-        singleRun: true
+        singleRun: true,
+        autoWatch: false
+      },
+      server: {
+        configFile: 'test/karma.conf.js',
+        singleRun: false,
+        autoWatch: true
       }
     }
   });
