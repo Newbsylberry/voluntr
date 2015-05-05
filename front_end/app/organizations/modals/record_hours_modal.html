@@ -29,8 +29,7 @@
 </div>
 <md-card class="search-box" ng-show="results && !volunteer_id && filtered.length !== 0">
   <md-card-content>
-    <div class="row" ng-repeat="person in filtered = (organization_people |
-    filter:{first_name: first_name, last_name: last_name, email_address: email})">
+    <div class="row" ng-repeat="person in filtered">
       <div class="4">
 
       </div>

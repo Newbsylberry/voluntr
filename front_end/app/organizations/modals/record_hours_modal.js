@@ -7,7 +7,7 @@
 angular.module('voluntrApp')
   .controller('RecordHoursCtrl', function ($scope, $modal, $rootScope, RecordedHours,
                                            $stateParams, $http, People,
-                                           $modalInstance, Organization) {
+                                           $modalInstance, Organization, $filter) {
 
 
     var controllerElement = document.querySelector('.dashboard-module');
@@ -71,6 +71,8 @@ angular.module('voluntrApp')
     $scope.$watchGroup(['first_name', 'last_name', 'email'], function () {
       if ($scope.first_name !== "" || $scope.last_name !== "" || $scope.email !== "") {
         $scope.results = true;
+        $scope.filtered = $filter('filter')($scope.organization_people, {first_name: $scope.first_name,
+          last_name: $scope.last_name})
       } else  {
         $scope.results = false;
       }
