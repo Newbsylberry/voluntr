@@ -1,3 +1,4 @@
+<!-- Tabs Menu -->
 <md-tabs class="md-accent" md-selected="data.selectedIndex">
   <md-tab id="tab1" aria-controls="tab1-content">
     Volunteer Opportunity Dashboard
@@ -6,18 +7,26 @@
     Add People To Volunteer Opportunity
   </md-tab>
 </md-tabs>
+
+<!-- Event Information -->
 <ng-switch on="data.selectedIndex" class="tabpanel-container">
+
+
   <div role="tabpanel"
        aria-labelledby="tab1"
        ng-switch-when="0"
        md-swipe-left="next()"
        md-swipe-right="previous()" >
+
     <h2>
       {{opportunity.name}}
     </h2>
+
     <p>
       {{opportunity.description}}
     </p>
+
+    <!-- List of Volunteers Who Have Been Registered -->
     <md-list layout="column" ng-if="opportunity.people.length != 0">
       <h3>Interested Volunteers:</h3>
       <md-item ng-repeat="person in opportunity.people">

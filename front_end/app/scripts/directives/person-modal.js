@@ -5,7 +5,7 @@ angular.module('voluntrApp').directive("personModal", function ($modal) {
         console.log("HELLLOOOO WORLD!")
         var personDetailModal = $modal.open(
           {
-            templateUrl: 'organizations/people/person_detail_modal.html',
+            templateUrl: 'organizations/modals/person_detail_modal.html',
             controller: 'PersonDetailCtrl',
             windowClass: 'add-event-modal-window',
             size: attrs.size,

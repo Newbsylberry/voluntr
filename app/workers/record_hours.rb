@@ -3,9 +3,10 @@ class RecordOrganizationHours
 
   def self.perform()
 
+
+
     # For Each Organization
     Organization.all.each do |o|
-
       # Find or create a daily statistic record
       @daily_statistic = DailyStatistic.create_with(locked: false)
                              .find_or_initialize_by(date: Time.now.beginning_of_day, organization_id: o.id)
@@ -17,6 +18,7 @@ class RecordOrganizationHours
         @daily_statistic.planned_hours = 0
         @daily_statistic.total_added_volunteers = 0
       end
+
 
       # For each of the organization's opportunity
       o.opportunities.each do |oo|
@@ -72,14 +74,14 @@ class RecordOrganizationHours
             @recorded_hours.save
           end
         end
-        @daily_statistic.save
       end
 
       # add people who were added to the platform today
       o.organization_people.where(created_at: (Time.now.beginning_of_day)..Time.now).each do |p|
         @daily_statistic.total_added_volunteers += 1
-        @daily_statistic.save
+
       end
+      @daily_statistic.save
     end
   end
 
