@@ -17,12 +17,11 @@ angular.module('voluntrApp')
 
 
     $scope.opportunity = opportunity;
-    $scope.opportunity.repeat_intervals = []
+    $scope.opportunity.repeat_intervals = [1, 2, 3, 4]
     $scope.opportunity.active_days = [];
 
-    for (var i = 0; i <= 4; i++) {
-      $scope.opportunity.repeat_intervals.push(i);
-    };
+
+
 
 
     // $scope.customFields = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -58,14 +57,13 @@ angular.module('voluntrApp')
     angular.forEach(opportunity.ical.BYDAY, setActiveDays)
     }
 
-    console.log(opportunity.ical)
 
     $scope.addOpportunityPerson = function() {
       var attr = {};
       attr.person_id = person.id;
       attr.opportunity_id = opportunity.id;
       if (opportunity.ical) {
-      attr.repeat_count = opportunity.ical.INTERVAL;
+      attr.repeat_count = opportunity.ical.INTERVAL * $scope.newPersonOpportunity.repeat_count;
       if (opportunity.ical.FREQ === "DAILY") {
         attr.daily = true;
       } else if (opportunity.ical.FREQ === "WEEKLY") {

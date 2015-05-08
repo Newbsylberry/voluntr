@@ -12,8 +12,15 @@
     font-size: 16pt;
     @include placeholder-color($primary);
     @include breakpoint($medium) {
-      width: 800px;
+      width: 736px;
     }
+    @include breakpoint($tablet) {
+      width: 600px;
+    }
+    @include breakpoint($mobile) {
+      width: 320px;
+    }
+
   }
   i {
     font-size: 50px;

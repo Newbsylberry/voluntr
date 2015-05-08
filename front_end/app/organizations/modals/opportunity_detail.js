@@ -20,18 +20,10 @@ angular.module('voluntrApp')
 
 
 
-    $http.get('api/v1/opportunities/' + id).
+    $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
       success(function(data, status, headers, config) {
         $scope.opportunity = data;
-        $http.get('api/v1/opportunities/' + data.id + '/instance', {params: {instance_date: new Date(start_time).getTime()}} ).
-          success(function(data, status, headers, config) {
-
-            $scope.opportunity.people = data;
-            console.log(data)
-          }).
-          error(function(data, status, headers, config) {
-
-          });
+        console.log($scope.opportunity)
       })
 
 

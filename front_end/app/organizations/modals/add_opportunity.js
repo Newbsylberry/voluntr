@@ -61,6 +61,7 @@ angular.module('voluntrApp')
       attr.city = $scope.newOpportunity.city;
       attr.state = $scope.newOpportunity.state;
       attr.organization_id = $stateParams.organization_Id;
+      attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
       attr.end_time = $scope.newOpportunity.end_time;
       attr.repeating_event = $scope.newOpportunity.repeating_event;
       if ($scope.newOpportunity.repeat) {

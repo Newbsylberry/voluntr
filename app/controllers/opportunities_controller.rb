@@ -15,43 +15,8 @@ class OpportunitiesController < ApplicationController
   def show
     @opportunity = Opportunity.find(params[:id])
 
-    @instance_volunteers = Array.new
-    if @opportunity.start_schedule
-      @opportunity.person_opportunities.each do |p|
-        if p.schedule
-          schedule = IceCube::Schedule.from_yaml(p.schedule)
 
-          if schedule.occurs_at?(Time.at(params[:instance_date].to_i / 1000))
-            @instance_volunteers.push(Person.find(p.person_id).first_name)
-          end
-        end
-      end
-    end
-    render json: @opportunity
-
-  end
-
-  def opportunity_instance
-    @opportunity = Opportunity.find(params[:id])
-
-    @instance_volunteers = Array.new
-    if @opportunity.start_schedule
-      @opportunity.person_opportunities.each do |p|
-        if p.schedule
-          schedule = IceCube::Schedule.from_yaml(p.schedule)
-
-          if schedule.occurs_on?(Time.at(params[:instance_date].to_i / 1000))
-            @instance_volunteers.push(Person.find(p.person_id))
-          end
-        end
-
-      end
-    elsif !@opportunity.start_schedule
-      @opportunity.person_opportunities.each do |p|
-        @instance_volunteers.push(Person.find(p.person_id))
-      end
-    end
-    render json: @instance_volunteers, each_serializer: PersonSerializer
+    render json: @opportunity, instance_date:  params[:instance_date]
   end
 
 
@@ -131,7 +96,8 @@ class OpportunitiesController < ApplicationController
     params.require(:opportunity).permit(:fb_id, :name, :location, :opportunity_type_id,
                                         :description, :start_time, :end_time, :about,
                                         :city, :state, :zip_code,
-                                        :timezone, :latitude, :longitude, :organization_id, :color )
+                                        :timezone, :latitude, :longitude, :organization_id, :color,
+                                        :address, :volunteer_goal)
   end
 
 end

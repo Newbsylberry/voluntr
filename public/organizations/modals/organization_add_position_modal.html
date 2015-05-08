@@ -144,6 +144,8 @@
          ng-switch-when="2"
          md-swipe-left="next()"
          md-swipe-right="previous()" >
+      <label>How Many Volunteers Do You Need?</label>
+      <input ng-model="newOpportunity.volunteer_goal" type="number">
       <button class="btn btn-lg" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>
       <button class="btn btn-lg" ng-click="newOpportunity()">Create Opportunity!</button>
     </div>

@@ -25,11 +25,22 @@
     <p>
       {{opportunity.description}}
     </p>
+      {{opportunity.address}}
+      {{opportunity.zip_code}}
+      {{opportunity.city}}
+
+      <p>Volunteers Required:</p>
+      {{opportunity.volunteer_goal}}
+
+
+    <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
+      Registration Form for Opportunity</a>
+
 
     <!-- List of Volunteers Who Have Been Registered -->
     <md-list layout="column" ng-if="opportunity.people.length != 0">
       <h3>Interested Volunteers:</h3>
-      <md-item ng-repeat="person in opportunity.people">
+      <md-item ng-repeat="person in opportunity.signed_up_volunteers">
         <md-item-content>
           <div class="md-tile-left">
             <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
