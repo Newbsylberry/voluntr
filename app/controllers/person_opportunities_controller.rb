@@ -54,18 +54,23 @@ class PersonOpportunitiesController < ApplicationController
 
     @person_opportunity.save
 
+    if @person_opportunity.person.email
+    OpportunityMailer.opportunity_registration_email(@person_opportunity.person.email,
+                                                     Opportunity.find(@person_opportunity.opportunity_id)).deliver
+    end
+
     respond_with @person_opportunity
-  end
+    end
 
 
 
 
-  private
+    private
 
-  def person_opportunity_params
-    params.require(:person_opportunity).permit(:person_id, :opportunity_id, :schedule)
-  end
+    def person_opportunity_params
+      params.require(:person_opportunity).permit(:person_id, :opportunity_id, :schedule)
+    end
 
-end
+    end
 
 
