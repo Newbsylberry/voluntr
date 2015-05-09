@@ -12,6 +12,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @organization = Organization.find(params[:id])
+    puts @organization.id
+    Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
 
     render json: @organization, serializer: OrganizationSerializer
   end

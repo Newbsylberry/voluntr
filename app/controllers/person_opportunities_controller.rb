@@ -17,15 +17,15 @@ class PersonOpportunitiesController < ApplicationController
 
     @person.first_name = params[:first_name]
     @person.last_name = params[:last_name]
-
     @person.save
+
 
     @person_opportunity = PersonOpportunity.create_with(locked: false)
                               .find_or_initialize_by(person_id: @person.id, opportunity_id: params[:opportunity_id])
 
-    if !@person.persisted?
-      @person_opportunity.person = @person
-    end
+
+    @person_opportunity.person = @person
+
 
 
 

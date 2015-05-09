@@ -15,7 +15,6 @@ angular.module('voluntrApp')
       Facebook.login(function(response) {
         $scope.connected_to_facebook = true;
         $scope.oauth_key = response.authResponse.accessToken;
-        console.log($scope.oauth_key)
       }, {scope: 'user_groups,read_insights,manage_pages'})
     };
 

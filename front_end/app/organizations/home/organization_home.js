@@ -45,9 +45,10 @@ angular.module('voluntrApp')
     // events and check whether they exist in the database
     Facebook.getLoginStatus(function(response) {
       if(response.status === 'connected') {
-
+         console.log(response)
         // Get the organization from the volu database
-        Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
+        Organization.get({organization_Id: $stateParams.organization_Id,
+          oauth_key: response.authResponse.accessToken}, function(successResponse) {
 
           // find the organizations information on facebook
           $scope.organization = successResponse
