@@ -4,10 +4,6 @@ class PersonOpportunitiesController < ApplicationController
 
 
   def create
-    @person_opportunity = PersonOpportunity.new(person_opportunity_params)
-
-
-
 
     @person = Person.create_with(locked: false)
                   .find_or_initialize_by(email: params[:email])
@@ -18,14 +14,18 @@ class PersonOpportunitiesController < ApplicationController
       @organization_person.organization = Opportunity.find(params[:opportunity_id]).organization
       @organization_person.save
     end
+
     @person.first_name = params[:first_name]
     @person.last_name = params[:last_name]
 
-
-
     @person.save
 
-    @person_opportunity.person = @person
+    @person_opportunity = PersonOpportunity.create_with(locked: false)
+                              .find_or_initialize_by(person_id: @person.id, opportunity_id: params[:opportunity_id])
+
+    if !@person.persisted?
+      @person_opportunity.person = @person
+    end
 
 
 

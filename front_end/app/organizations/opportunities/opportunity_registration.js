@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunityRegistrationCtrl', function ($scope, People, $stateParams,
-                                                      Opportunity, PersonOpportunity) {
+                                                      Opportunity, PersonOpportunity, $modal) {
 
 
 
@@ -24,7 +24,30 @@ angular.module('voluntrApp')
       attr.last_name = $scope.opportunityRegister.last_name;
       attr.email = $scope.opportunityRegister.email;
       PersonOpportunity.create(attr)
+      $scope.opportunityRegister.first_name = "";
+      $scope.opportunityRegister.last_name = "";
+      $scope.opportunityRegister.email = "";
+      $scope.opportunityRegistrationConfirmation('md')
     };
+
+    $scope.opportunityRegistrationConfirmation = function (size) {
+      var opportunityRegistrationConfirmation = $modal.open(
+        {
+          templateUrl: 'organizations/modals/confirm_opportunity_registration.html',
+          controller: 'OpportunityRegistrationConfirmationCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+        });
+
+      opportunityRegistrationConfirmation.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    }
+
+
 
 
 
