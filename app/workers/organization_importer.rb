@@ -5,8 +5,6 @@ class OrganizationImporter
     @organization = Organization.find(organization_id)
     if @organization.last_social_update.nil? ||
         @organization.last_social_update.beginning_of_day == Time.now.beginning_of_day
-      @organization.last_social_update = Time.now
-      @organization.save
       @graph = Koala::Facebook::API.new(oauth_access.to_s)
       @organization_posts = @graph.get_connections(account.to_s, "posts")
       @organization_response_length = @organization_posts.count
@@ -52,6 +50,8 @@ class OrganizationImporter
           end
         end
       end
+      @organization.last_social_update = Time.now
+      @organization.save
     end
   end
 end
