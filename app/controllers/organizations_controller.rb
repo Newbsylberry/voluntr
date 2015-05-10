@@ -12,8 +12,11 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @organization = Organization.find(params[:id])
-    puts @organization.id
-    Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
+    if @organization.last_social_update.nil? ||
+        @organization.last_social_update.beginning_of_day != Time.now.beginning_of_day
+      puts @organization.id
+      Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
+    end
 
     render json: @organization, serializer: OrganizationSerializer
   end
@@ -91,7 +94,7 @@ class OrganizationsController < ApplicationController
         o.start_time = Time.at(o.start_time.to_i / 1000)
         o.end_time = Time.at(o.end_time.to_i / 1000)
         @organization_calendar.push(o)
-      # else
+        # else
 
       end
 
@@ -104,7 +107,7 @@ class OrganizationsController < ApplicationController
     @organization_recorded_hours = Array.new
     @organization.opportunities.each do |op|
       op.recorded_hours.each do |oph|
-      @organization_recorded_hours.push(oph)
+        @organization_recorded_hours.push(oph)
       end
     end
     @organization.recorded_hours.each do |rh|
