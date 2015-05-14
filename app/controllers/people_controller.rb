@@ -16,14 +16,19 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.create(person_params)
+    @person = Person.create_with(locked: false)
+                          .find_or_initialize_by(email: params[:email])
+
+    @person.first_name = params[:first_name]
+    @person.last_name = params[:last_name]
     if params[:organization_id]
-      @organization_person = OrganizationPerson.new
-      @organization_person.person_id = @person.id
-      @organization_person.organization_id = params[:organization_id]
-      @organization_person.save
+      @organization_person = OrganizationPerson.find_or_initialize_by(person_id: @person.id,
+                                                                      organization_id: params[:organization_id])
+
+        @organization_person.save
     end
 
+    @person.save
     respond_with @person
   end
 

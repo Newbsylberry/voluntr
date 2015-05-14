@@ -13,7 +13,8 @@
 angular.module('voluntrApp')
   .controller('OpportunityDetailCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, Opportunity, id,
-                                                 PersonOpportunity, start_time, $modal) {
+                                                 PersonOpportunity, start_time, $modal,
+                                                 $modalInstance) {
 
 
 
@@ -68,9 +69,55 @@ angular.module('voluntrApp')
 
         },
         function () {
+
           console.log('Modal dismissed at: ' + new Date());
         });
-    }
+    };
+
+    $scope.registerFormPreview = function (size, opportunity) {
+      var registerFormPreview = $modal.open(
+        {
+          templateUrl: 'organizations/opportunities/registration_form.html',
+          controller: 'OpportunityRegistrationCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+          //resolve: {
+          //  opportunity: function() {
+          //    return opportunity
+          //  }
+          //}
+        });
+
+      registerFormPreview.result.then(function () {
+
+        },
+        function () {
+
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
+    $scope.signInFormPreview = function (size, opportunity) {
+      var signInFormPreview = $modal.open(
+        {
+          templateUrl: 'organizations/opportunities/sign_in_form.html',
+          controller: 'OpportunitySignInCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size
+          //resolve: {
+          //  opportunity: opportunity
+          //}
+        });
+
+      signInFormPreview.result.then(function () {
+
+        },
+        function () {
+
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
 
 
   });

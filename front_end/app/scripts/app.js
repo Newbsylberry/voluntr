@@ -183,6 +183,12 @@ angular
         controller: 'OpportunityRegistrationCtrl'
       })
 
+      .state('sign_in_form', { //default page loaded for landing state
+        url: '/:opportunity_Id/sign_in',
+        templateUrl: 'organizations/opportunities/sign_in_form.html', // url for partial
+        controller: 'OpportunitySignInCtrl'
+      })
+
       .state('profile', {
         url: '/profile/:profile_Id',
         templateUrl: 'views/profile.html',

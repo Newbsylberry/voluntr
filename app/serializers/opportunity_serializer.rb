@@ -1,6 +1,6 @@
 class OpportunitySerializer < ActiveModel::Serializer
   include IceCube
-  attributes :id, :fb_id, :name, :start_time, :end_time, :location, :longitude, :latitude, :description,
+  attributes :id, :fb_id, :duration, :name, :organization_id, :start_time, :end_time, :location, :longitude, :latitude, :description,
              :opportunity_type_id, :start, :end, :title, :color, :allDay,
              :schedule_to_string, :start_schedule, :ical, :address, :city,
              :zip_code, :volunteer_goal, :signed_up_volunteers, :person_opportunities,
@@ -8,6 +8,12 @@ class OpportunitySerializer < ActiveModel::Serializer
 
 
 
+
+  def duration
+    if self.start && self.end
+      ((self.end.to_i - self.start.to_i) / 3600000).round
+    end
+  end
 
   def title
     name
