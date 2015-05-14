@@ -34,6 +34,9 @@ angular.module('voluntrApp')
       attr.organization_id = $scope.opportunity.organization_id;
       console.log(attr)
       var person = People.create(attr)
+      $scope.opportunitySignIn.first_name = "";
+      $scope.opportunitySignIn.last_name = "";
+      $scope.opportunitySignIn.email = "";
       $scope.opportunitySignInConfirmation('md', person, $scope.opportunity)
     };
 
