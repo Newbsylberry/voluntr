@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     if @organization.last_social_update.nil? ||
-        @organization.last_social_update.beginning_of_day != Time.now.beginning_of_day
+        @organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
       puts @organization.id
       Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
     end
