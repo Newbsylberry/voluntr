@@ -7,6 +7,7 @@ class RecordOrganizationHours
 
     # For Each Organization
     Organization.all.each do |o|
+
       # Find or create a daily statistic record
       @daily_statistic = DailyStatistic.create_with(locked: false)
                              .find_or_initialize_by(date: Time.now.beginning_of_day, organization_id: o.id)

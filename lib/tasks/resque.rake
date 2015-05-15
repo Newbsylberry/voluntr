@@ -19,7 +19,7 @@ namespace :resque do
 
   task :setup_schedule => :setup do
     require 'resque-scheduler'
-    BACKGROUND = false
+    BACKGROUND = true
 
     # If you want to be able to dynamically change the schedule,
     # uncomment this line.  A dynamic schedule can be updated via the

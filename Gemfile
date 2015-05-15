@@ -29,9 +29,11 @@ gem 'ice_cube'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
-gem 'resque'
+gem 'resque', '~> 1.25'
+gem 'redis', '~> 3.0'
 gem 'resque-status'
-gem 'resque-scheduler'
+gem 'resque-scheduler', '~> 4.0.0'
+gem 'rufus-scheduler', '~> 3.0'
 
 gem "koala", "~> 1.11.0rc"
 
