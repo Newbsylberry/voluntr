@@ -18,6 +18,7 @@ angular.module('voluntrApp')
       attr.hours = $scope.hours;
       attr.person_id = person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
+      attr.organization_id = opportunity.organization_id;
       RecordedHours.create(attr);
       $modalInstance.dismiss('cancel');
     };

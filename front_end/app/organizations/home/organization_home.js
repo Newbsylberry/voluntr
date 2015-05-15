@@ -27,7 +27,7 @@ angular.module('voluntrApp')
     };
 
     var addDailyStatisticsToGraph = function(day){
-
+      console.log(day)
       $scope.lineGraphConfig.series[1].data.push
       ([Date.parse(day.date), Number(day.total_recorded_hours)])
       $scope.lineGraphConfig.series[2].data.push
@@ -59,7 +59,8 @@ angular.module('voluntrApp')
                 $scope.organization.recorded_hours = recorded_hours;
           });
           Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function(data) {
-              $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
+            $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
+            console.log($scope.organization.daily_statistics)
               angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
             })
           Organization.contact_volunteers(successResponse.id, 'contact_volunteers').$promise.then(function(data) {
