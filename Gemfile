@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.2.0'
+
+gem 'responders', '~> 2.0', require: true
 
 gem 'rails-api'
 
@@ -30,15 +32,16 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'resque', '~> 1.25'
-gem 'redis', '~> 3.0'
-gem 'resque-status'
-gem 'resque-scheduler', '~> 4.0.0'
-gem 'rufus-scheduler', '~> 3.0'
+gem 'resque-scheduler'
+
+gem 'whenever'
+
+
 
 gem "koala", "~> 1.11.0rc"
 
 # Use active model serializers to serve JSON
-gem "active_model_serializers", '0.8.1'
+gem "active_model_serializers", github: "rails-api/active_model_serializers", branch: "0-8-stable"
 
 #Deployment Gems
 gem 'rails_12factor', group: :production

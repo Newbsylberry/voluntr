@@ -1,5 +1,5 @@
 class RecordedHoursController < ApplicationController
-  respond_to :json
+
 
 
   def index

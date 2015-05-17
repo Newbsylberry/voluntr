@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  respond_to :json
+
 
   # GET /profiles
   # GET /profiles.json

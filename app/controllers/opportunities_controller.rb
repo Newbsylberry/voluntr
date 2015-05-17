@@ -1,7 +1,7 @@
 class OpportunitiesController < ApplicationController
   include IceCube
 
-  respond_to :json
+
 
 
   def index

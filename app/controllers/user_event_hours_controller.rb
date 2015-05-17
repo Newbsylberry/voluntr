@@ -1,5 +1,5 @@
 class UserEventHoursController < ApplicationController
-  respond_to :json
+
   # GET /user_event_hours
   # GET /user_event_hours.json
   def index

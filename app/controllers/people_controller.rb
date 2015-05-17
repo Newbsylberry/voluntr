@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  respond_to :json
+
 
   def import
     People.import(params[:file])

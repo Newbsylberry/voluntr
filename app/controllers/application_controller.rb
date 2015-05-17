@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::API
-  include ActionController::MimeResponds
-  include ActionController::ImplicitRender
+  include ActionController::RespondWith
   include ActionController::ParamsWrapper
   wrap_parameters format: :json
 

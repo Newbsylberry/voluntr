@@ -12,7 +12,7 @@ end
 #     # you probably already have this somewhere
 #     Resque.redis = '0.0.0.0:5678'
 #   end
-#
+
 namespace :resque do
 
 

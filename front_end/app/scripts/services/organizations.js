@@ -65,6 +65,10 @@ angular.module('voluntrApp')
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 
+    Organization.prototype.posts = function(oId, obj) {
+      return this.service.organization_object({organization_Id: oId,object: obj})
+    };
+
 
 
     // AngularJS will instantiate a singleton by calling "new" on this function

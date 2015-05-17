@@ -1,5 +1,5 @@
 class DailyStatisticsController < ApplicationController
-  respond_to :json
+
 
 
   def index

@@ -27,7 +27,6 @@ angular.module('voluntrApp')
     };
 
     var addDailyStatisticsToGraph = function(day){
-      console.log(day)
       $scope.lineGraphConfig.series[1].data.push
       ([Date.parse(day.date), Number(day.total_recorded_hours)])
       $scope.lineGraphConfig.series[2].data.push
@@ -53,10 +52,10 @@ angular.module('voluntrApp')
           // find the organizations information on facebook
           $scope.organization = successResponse
           $rootScope.organization_id = successResponse.id;
-          $scope.organization.posts = $filter('orderBy')(successResponse.posts, 'post_time')
-          angular.forEach($scope.organization.posts, addPostToGraph)
+
           Organization.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function(recorded_hours) {
-                $scope.organization.recorded_hours = recorded_hours;
+            console.log(recorded_hours)
+            $scope.organization.recorded_hours = recorded_hours;
           });
           Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function(data) {
             $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
@@ -67,6 +66,10 @@ angular.module('voluntrApp')
               $scope.organization.contact_volunteers = data;
 
             })
+          Organization.posts(successResponse.id, 'posts').$promise.then(function(data) {
+            $scope.organization.posts = $scope.organization.posts = $filter('orderBy')(data, 'post_time');
+            angular.forEach($scope.organization.posts, addPostToGraph)
+          })
 
 
         })

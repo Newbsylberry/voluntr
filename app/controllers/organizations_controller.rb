@@ -1,5 +1,4 @@
 class OrganizationsController < ApplicationController
-  respond_to :json
   # GET /organizations
   # GET /organizations.json
   def index
@@ -99,6 +98,8 @@ class OrganizationsController < ApplicationController
       end
 
     end
+
+
     render json: @organization_calendar, each_serializer: OpportunitySerializer
   end
 
@@ -142,6 +143,13 @@ class OrganizationsController < ApplicationController
     end
     render json: @volunteer_contacts, each_serializer: PersonSerializer
   end
+
+  def posts
+    @organization = Organization.find(params[:id])
+
+    render json: @organization.posts, each_serializer: PostSerializer
+  end
+
 
   private
 
