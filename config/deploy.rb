@@ -5,7 +5,7 @@ set :puma_threads,    [1, 16]
 set :puma_workers,    0
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 set :rvm1_ruby_version, 'rbx'
 
