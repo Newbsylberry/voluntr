@@ -4,8 +4,8 @@ set :user, 'voluser'
 set :puma_threads,    [1, 16]
 set :puma_workers,    0
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :bundle_binstubs, nil
 
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 set :rvm1_ruby_version, 'rbx'
 
