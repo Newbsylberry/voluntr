@@ -21,6 +21,6 @@
 job_type :runner, "cd :path && $HOME/.rvm/scripts/rvm && rvm use rbx && bundle exec rails runner ':task' :output"
 
 
-every 1.minutes do
+every 24.hours do
   runner "OrganizationRecordHourJob.set.perform_later"
 end
