@@ -63,7 +63,7 @@ class OrganizationsController < ApplicationController
     @user.get_connections("me", "accounts").each do |a|
       if a["id"].to_i == @current_organization.fb_id.to_i
         token = AuthToken.issue_token({ organization_id: @current_organization.id })
-        render json: {organization: @current_organization,
+        render json: {organization: @organization,
                       token: token}
         break
       else
