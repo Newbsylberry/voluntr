@@ -1,23 +1,16 @@
 class OrganizationsController < ApplicationController
-  # GET /organizations
-  # GET /organizations.json
-  def index
-    @organizations = Organization.all
-
-    render json: @organizations
-  end
+  before_action :authenticate, except: [:log_in, :existence_check, :opportunities]
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @organization = Organization.find(params[:id])
-    if @organization.last_social_update.nil? ||
-        @organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
-      puts @organization.id
-      Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
+    if @current_organization.last_social_update.nil? ||
+        @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
+      puts @current_organization.id
+      Resque.enqueue(OrganizationImporter, @current_organization.id, params[:oauth_key], @current_organization.fb_id)
     end
 
-    render json: @organization, serializer: OrganizationSerializer
+    render json: @current_organization, serializer: OrganizationSerializer
   end
 
   # POST /organizations
@@ -35,12 +28,12 @@ class OrganizationsController < ApplicationController
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
-    @organization = Organization.find(params[:id])
+    @current_organization = Organization.find(params[:id])
 
-    if @organization.update(params[:organization])
+    if @current_organization.update(params[:organization])
       head :no_content
     else
-      render json: @organization.errors, status: :unprocessable_entity
+      render json: @current_organization.errors, status: :unprocessable_entity
     end
   end
 
@@ -54,20 +47,31 @@ class OrganizationsController < ApplicationController
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
-    @organization = Organization.find(params[:id])
-    @organization.destroy
+    @current_organization.destroy
 
     head :no_content
   end
 
   # Route to find an organizations people
   def people
-    @organization = Organization.find(params[:id])
-    render json: @organization.people, each_serializer: PersonSerializer
+    render json: @current_organization.people, each_serializer: PersonSerializer
   end
 
 
+  def log_in
+    @user = Koala::Facebook::API.new(params[:oauth].to_s)
+    @user.get_connections("me", "accounts").each do |a|
+      if a["id"].to_i == @current_organization.fb_id.to_i
+        token = AuthToken.issue_token({ organization_id: @current_organization.id })
+        render json: {organization: @current_organization,
+                      token: token}
+        break
+      else
+        render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
+      end
 
+    end
+  end
 
   def opportunities
     @organization = Organization.find(params[:id])
@@ -104,37 +108,34 @@ class OrganizationsController < ApplicationController
   end
 
   def recorded_hours
-    @organization = Organization.find(params[:id])
-    @organization_recorded_hours = Array.new
-    @organization.opportunities.each do |op|
+    @current_organization_recorded_hours = Array.new
+    @current_organization.opportunities.each do |op|
       op.recorded_hours.each do |oph|
-        @organization_recorded_hours.push(oph)
+        @current_organization_recorded_hours.push(oph)
       end
     end
-    @organization.recorded_hours.each do |rh|
-      if !@organization_recorded_hours.include? rh
-        @organization_recorded_hours.push(rh)
+    @current_organization.recorded_hours.each do |rh|
+      if !@current_organization_recorded_hours.include? rh
+        @current_organization_recorded_hours.push(rh)
       end
     end
 
-    render json: @organization_recorded_hours,
+    render json: @current_organization_recorded_hours,
            each_serializer: RecordedHourSerializer
   end
 
   def daily_statistics
-    @organization = Organization.find(params[:id])
-    if !@organization.daily_statistics.nil?
-      puts @organization.daily_statistics
-      render json: @organization.daily_statistics, each_serializer: DailyStatisticSerializer
+    if !@current_organization.daily_statistics.nil?
+      puts @current_organization.daily_statistics
+      render json: @current_organization.daily_statistics, each_serializer: DailyStatisticSerializer
     end
 
   end
 
 
   def contact_volunteers
-    @organization = Organization.find(params[:id])
     @volunteer_contacts = Array.new
-    @organization.people.each do |o|
+    @current_organization.people.each do |o|
       if o.email || o.phone
         if o.created_at > Date.current - 14
           @volunteer_contacts.push(o)
@@ -145,9 +146,9 @@ class OrganizationsController < ApplicationController
   end
 
   def posts
-    @organization = Organization.find(params[:id])
+    @current_organization = Organization.find(params[:id])
 
-    render json: @organization.posts, each_serializer: PostSerializer
+    render json: @current_organization.posts, each_serializer: PostSerializer
   end
 
 

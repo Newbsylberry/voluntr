@@ -34,12 +34,11 @@ angular
     'snap',
     'leaflet-directive',
     "kendo.directives",
-    'ngHandsontable'
+    'ngHandsontable',
+    'angulartics',
+    'angulartics.google.analytics'
   ])
 
-  //.config(function($locationProvider) {
-  //  $locationProvider.html5Mode(true).hashPrefix('!');;
-  //})
 
 
   .config(function(FacebookProvider, ENV) {

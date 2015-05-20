@@ -51,6 +51,8 @@ module.exports = function(config) {
       'bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js',
       'bower_components/kendo-ui-core/js/kendo.ui.core.min.js',
       'bower_components/ngHandsontable/dist/ngHandsontable.js',
+      "bower_components/angulartics/src/angulartics.js",
+      "bower_components/angulartics/src/angulartics-ga.js",
       // endbower
       'app/scripts/**/*.js',
       'app/organizations/**/*.js',

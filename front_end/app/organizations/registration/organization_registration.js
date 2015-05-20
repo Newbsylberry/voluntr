@@ -15,6 +15,7 @@ angular.module('voluntrApp')
       Facebook.login(function(response) {
         $scope.connected_to_facebook = true;
         $scope.oauth_key = response.authResponse.accessToken;
+        console.log(response.authResponse.accessToken)
       }, {scope: 'user_groups,read_insights,manage_pages'})
     };
 
@@ -41,7 +42,6 @@ angular.module('voluntrApp')
 
     };
 
-
     Facebook.getLoginStatus(function(response) {
       if(response.status === 'connected') {
         $scope.connected_to_facebook = true;
@@ -51,6 +51,15 @@ angular.module('voluntrApp')
         $scope.connected_to_facebook = false;
       }
     });
+
+    // Write authorization method here, needs to send oauth key and organization id to server
+    $scope.authorizeUser = function(organization) {
+      Organization.authorization($scope.oauth_key, organization.v_id).$promise.then(function(data) {
+        console.log(data)
+        localStorage.token = data.token;
+        $state.go('organizations.organization_home', {organization_Id:data.organization.id})
+      })
+    };
 
     $scope.$watch('connected_to_facebook', function () {
       if ($scope.connected_to_facebook && !$scope.organizations){

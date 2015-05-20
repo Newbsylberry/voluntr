@@ -33,12 +33,14 @@
         <!-- Organization Name -->
         <p class="lead">{{organization.name}}</p>
 
-        <!-- Link to the organizations Voluntr Page -->
+        <!-- Link to the organizations Voluntr if added Page -->
         <button class="btn btn-default"
                 ng-if="organization.exists === true"
-                ui-sref='organizations.organization_home({organization_Id:organization.v_id})'
+                ng-click="authorizeUser(organization)"
+
           >{{organization.name}} Home Page
         </button>
+
         <!-- Organization Name -->
         <!-- If the organization has not been added to voluntr, show option
             to add to VOLUNTR database -->

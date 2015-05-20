@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
+      match '/organizations/:id/authorization', to: 'organizations#log_in', via: :get, defaults: {format: :json}
       match '/organizations/:id/daily_statistics', to: 'organizations#daily_statistics', via: :get, defaults: {format: :json}
       match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
