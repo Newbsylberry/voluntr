@@ -62,7 +62,8 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @user = Koala::Facebook::API.new(params[:oauth].to_s)
     @user.get_connections("me", "accounts").each do |a|
-      if a["id"].to_i == @organization.fb_id.to_i
+      puts @organization.id
+      if a["id"].to_i == @organization.fb_id.to_i && !@organization.nil?
         token = AuthToken.issue_token({ organization_id: @organization.id })
         render json: {organization: @organization,
                       token: token}
