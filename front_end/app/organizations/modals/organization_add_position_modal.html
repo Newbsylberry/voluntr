@@ -15,8 +15,8 @@
          aria-labelledby="tab1"
          ng-switch-when="0"
          md-swipe-left="next()"
-         md-swipe-right="previous()" >
-      <h1>Add Volunteering Position</h1>
+         md-swipe-right="previous()" class="tabarea">
+      <!--<h1>Add Volunteering Position</h1>-->
       <md-input-container>
         <label>Position Name</label>
         <input ng-model="newOpportunity.opportunity_name">
@@ -46,13 +46,16 @@
           <input ng-model="newOpportunity.zip_code">
         </md-input-container>
       </div>
-      <button class="btn btn-lg" ng-click="data.selectedIndex = 1">Next: Enter Scheduling Information</button>
+        <div class="window-bottom-button">
+      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 1">Next: Enter Scheduling Information</button>
+        </div>
     </div>
     <div role="tabpanel"
          aria-labelledby="tab2"
          ng-switch-when="1"
          md-swipe-left="next()"
-         md-swipe-right="previous()" >
+         md-swipe-right="previous()" 
+         class="tabarea">
 
 
       <h4>First Start Date/Time of Position</h4>
@@ -136,16 +139,21 @@
           Repeat on Day of the Week?
         </md-checkbox>
       </div>
-      <button class="btn btn-lg" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</button>
-      <button class="btn btn-lg" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</button>
+        <div class="window-bottom-button">
+      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</button>
+      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</button>
+        </div>
     </div>
     <div role="tabpanel"
          aria-labelledby="tab3"
          ng-switch-when="2"
          md-swipe-left="next()"
-         md-swipe-right="previous()" >
-      <button class="btn btn-lg" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>
-      <button class="btn btn-lg" ng-click="newOpportunity()">Create Opportunity!</button>
+         md-swipe-right="previous()" 
+         class="tabarea">
+        <div class="window-bottom-button">
+      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>
+      <button class="btn btn-lg testbutton" ng-click="newOpportunity()">Create Opportunity!</button>
+        </div>
     </div>
   </ng-switch>
 </div>
