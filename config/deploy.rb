@@ -33,7 +33,7 @@ set :resque_log_file, "log/resque.log"
 
 
 set(:config_files, %w(
-  database.yml, puma.rb
+  database.yml, puma.rb, secrets.yml
 ))
 
 ## Defaults:
