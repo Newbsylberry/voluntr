@@ -148,12 +148,20 @@
          aria-labelledby="tab3"
          ng-switch-when="2"
          md-swipe-left="next()"
+<<<<<<< HEAD
+         md-swipe-right="previous()" >
+      <label>How Many Volunteers Do You Need?</label>
+      <input ng-model="newOpportunity.volunteer_goal" type="number">
+      <button class="btn btn-lg" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>
+      <button class="btn btn-lg" ng-click="newOpportunity()">Create Opportunity!</button>
+=======
          md-swipe-right="previous()" 
          class="tabarea">
         <div class="window-bottom-button">
       <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>
       <button class="btn btn-lg testbutton" ng-click="newOpportunity()">Create Opportunity!</button>
         </div>
+>>>>>>> d5f530405eff833926cea1471bee3808c5fae8a1
     </div>
   </ng-switch>
 </div>
