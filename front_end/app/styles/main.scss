@@ -23,6 +23,13 @@ Modal Styles
 @import "../organizations/modals/record_hours_modal.scss";
 
 
+/************************************************************
+Organization Directive Styles
+************************************************************/
+
+/* Details in Opportunity and Person  */
+@import "../organizations/directives/text-element.scss";
+
 @import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";
 @import "../static_pages/landing_page.scss";

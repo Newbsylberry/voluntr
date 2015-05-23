@@ -11,7 +11,7 @@ angular.module('voluntrApp')
     .factory('Opportunity', ['$resource', function($resource) {
         function Opportunity() {
             this.service = $resource('/api/v1/opportunities/:opportunity_Id', //location of resource, tells it to look for ID
-                {Event_Id: '@id'}, {update: {method: 'PATCH'}}); // sets ID variable, and update method (patch)
+                {opportunity_Id: '@id'}, {update: {method: 'PATCH'}}); // sets ID variable, and update method (patch)
         }
 
 

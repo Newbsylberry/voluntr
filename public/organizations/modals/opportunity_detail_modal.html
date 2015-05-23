@@ -1,10 +1,13 @@
 <!-- Tabs Menu -->
 <md-tabs class="md-accent" md-selected="data.selectedIndex">
   <md-tab id="tab1" aria-controls="tab1-content">
-    Volunteer Opportunity Dashboard
+    Opportunity Dashboard
   </md-tab>
   <md-tab id="tab2" aria-controls="tab2-content">
-    Add People To Volunteer Opportunity
+    Opportunity Scheduler
+  </md-tab>
+  <md-tab id="tab3" aria-controls="tab3-content">
+    Add People To Opportunity
   </md-tab>
 </md-tabs>
 
@@ -18,19 +21,46 @@
        md-swipe-left="next()"
        md-swipe-right="previous()" >
 
-    <h2>
-      {{opportunity.name}}
-    </h2>
 
-    <p>
-      {{opportunity.description}}
-    </p>
-      {{opportunity.address}}
+    <edit-object-directive
+      text_name="name"
+      kabloooey="opportunity"
+      cabbage="name"
+      cabbagery="{{opportunity.id}}"
+      text="{{opportunity.name}}"
+      size="title_text"
+
+      ></edit-object-directive><br>
+
+
+    <edit-object-directive
+      kabloooey="opportunity"
+      cabbage="description"
+      cabbagery="{{opportunity.id}}"
+      text="{{opportunity.description}}"
+      size="paragraph_text"
+
+      ></edit-object-directive><br>
+    <edit-object-directive
+      kabloooey="opportunity"
+      cabbage="address"
+      cabbagery="{{opportunity.id}}"
+      text="{{opportunity.address}}"
+      size="subtitle_text"
+
+      ></edit-object-directive><br>
       {{opportunity.zip_code}}
       {{opportunity.city}}
+    <br>
 
-      <p>Volunteers Required:</p>
-      {{opportunity.volunteer_goal}}
+      <p style="display: inline-block">Volunteers Required:</p>
+    <edit-object-directive
+      kabloooey="opportunity"
+      cabbage="volunteer_goal"
+      cabbagery="{{opportunity.id}}"
+      text="{{opportunity.volunteer_goal}}"
+      size="subtitle_text"
+      ></edit-object-directive><br>
 
 
     <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
@@ -69,8 +99,16 @@
 
   </div>
   <div role="tabpanel"
-       id="create-person-record"
        ng-switch-when="1"
+       md-swipe-left="next()"
+       md-swipe-right="previous()" >
+    Schedule Goes Here
+
+  </div>
+
+  <div role="tabpanel"
+       id="create-person-record"
+       ng-switch-when="2"
        md-swipe-left="next()"
        md-swipe-right="previous()" >
     <md-list layout="column">

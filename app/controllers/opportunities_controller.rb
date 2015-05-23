@@ -59,11 +59,7 @@ class OpportunitiesController < ApplicationController
   def update
     @opportunity = Opportunity.find(params[:id])
 
-    if @opportunity.update(params[:opportunity])
-      head :no_content
-    else
-      render json: @opportunity.errors, status: :unprocessable_entity
-    end
+    render json: @opportunity.update(opportunity_params)
   end
 
   # DELETE /events/1
