@@ -5,13 +5,9 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
     scope: {
       text: '@',
       size: '@',
-      kabloooey: '@',
-
-      // This is the attribute name
-      cabbage: '@',
-
-      // This is the model id
-      cabbagery: '@'
+      modelType: '@',
+      attributeName: '@',
+      modelId: '@'
     },
     restrict: 'E',
     controller: function ($scope, Opportunity) {
@@ -27,7 +23,7 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
       }
 
       $scope.editText = function() {
-        console.log($scope)
+
         $scope.editing = true;
       }
 
@@ -36,12 +32,12 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
         $scope.text = $scope.text;
 
 
-        if ($scope.kabloooey === 'opportunity') {
+        if ($scope.modelType === 'opportunity') {
 
           var attr = {};
-          attr.id = $scope.cabbagery;
-          attr[$scope.cabbage] = $scope.text;
-          console.log(attr)
+          attr.id = $scope.modelId;
+          attr[$scope.attributeName] = $scope.text;
+
           Opportunity.update(attr)
         }
       }

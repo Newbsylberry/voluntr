@@ -1,5 +1,6 @@
 class OpportunitiesController < ApplicationController
   include IceCube
+  require_dependency ("#{Rails.root}/lib/schedule_params.rb")
 
 
 
@@ -26,29 +27,8 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
 
-    if params[:repeating_event] === true
-      @opportunity.opportunity_type_id = 1
-      @start_schedule = Schedule.new(Time.at(@opportunity.start_time.to_i / 1000 ))
-      if params[:daily] == true && params[:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.daily
-      elsif params[:daily] == true && !params[:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.daily(params[:repeat_count])
-      end
-      if params[:weekly] == true && params[:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.weekly.day(params[:repeat_days])
-      elsif params[:weekly] == true && !params[:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.weekly(params[:repeat_count]).day(params[:repeat_days])
-      end
-      if params[:monthly] == true
-        @start_schedule.add_recurrence_rule Rule.monthly
-        @end_schedule.add_recurrence_rule Rule.monthly
-      end
-      if params[:yearly] == true
-        @start_schedule.add_recurrence_rule Rule.yearly
-        @end_schedule.add_recurrence_rule Rule.yearly
-      end
-      @opportunity.start_schedule = @start_schedule.to_yaml
-    end
+    ScheduleFromParams.schedule_from_params(params)
+
     @opportunity.save
 
     respond_with @opportunity
@@ -59,6 +39,12 @@ class OpportunitiesController < ApplicationController
   def update
     @opportunity = Opportunity.find(params[:id])
 
+    if params[:schedule] == true
+      params[:opportunity][:start_schedule] = ScheduleFromParams.schedule_from_params(params)
+    end
+
+    puts params[:start_schedule]
+    puts params
     render json: @opportunity.update(opportunity_params)
   end
 
@@ -77,6 +63,34 @@ class OpportunitiesController < ApplicationController
     render json: @opportunity
   end
 
+  def opportunity_schedule
+    @opportunity = Opportunity.find(params[:id])
+    @opportunity_calendar = Array.new
+    if !@opportunity.start_schedule.nil?
+      @event_duration = ((@opportunity.end_time.to_i - @opportunity.start_time.to_i) / 3600000).round
+      start_time = IceCube::Schedule.from_yaml(@opportunity.start_schedule)
+      if params[:start] and start_time.occurs_between?(Time.at(params[:start].to_i), Time.at(params[:end].to_i))
+        start_time.occurrences_between(Time.at(params[:start].to_i), Time.at(params[:end].to_i)).each do |occ|
+          @schedule_instance = Opportunity.new
+          @schedule_instance.name = @opportunity.name
+          @schedule_instance.id = @opportunity.id
+          @schedule_instance.color  = @opportunity.color
+          puts occ
+          @schedule_instance.start_time = occ
+          @schedule_instance.end_time = occ + @event_duration.hours
+          @opportunity_calendar.push(@schedule_instance)
+        end
+      else
+        @opportunity_calendar.push(o)
+      end
+    elsif @opportunity.start_schedule.nil? || @opportunity.start_schedule.nil?
+      @opportunity.start_time = Time.at(@opportunity.start_time.to_i / 1000)
+      @opportunity.end_time = Time.at(@opportunity.end_time.to_i / 1000)
+      @opportunity_calendar.push(@opportunity)
+    end
+    render json: @opportunity_calendar, each_serializer: OpportunitySerializer
+  end
+
 
 
   def people
@@ -91,9 +105,8 @@ class OpportunitiesController < ApplicationController
   def opportunity_params
     params.require(:opportunity).permit(:fb_id, :name, :location, :opportunity_type_id,
                                         :description, :start_time, :end_time, :about,
-                                        :city, :state, :zip_code,
-                                        :timezone, :latitude, :longitude, :organization_id, :color,
-                                        :address, :volunteer_goal)
+                                        :city, :state, :zip_code, :timezone, :latitude, :longitude,
+                                        :organization_id, :color, :address, :volunteer_goal, :start_schedule)
   end
 
 end

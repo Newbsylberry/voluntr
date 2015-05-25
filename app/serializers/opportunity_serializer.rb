@@ -103,4 +103,5 @@ class OpportunitySerializer < ActiveModel::Serializer
     end
   end
 
+
 end

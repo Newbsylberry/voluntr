@@ -55,7 +55,7 @@ angular.module('voluntrApp')
       var attr = {};
       attr.name = $scope.newOpportunity.opportunity_name;
       attr.description = $scope.newOpportunity.description;
-      attr.start_time = $scope.newOpportunity.start_time.getTime();
+
       attr.address = $scope.newOpportunity.address;
       attr.zip_code = $scope.newOpportunity.zip_code;
       attr.city = $scope.newOpportunity.city;
@@ -63,15 +63,17 @@ angular.module('voluntrApp')
       attr.organization_id = $stateParams.organization_Id;
       attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
       attr.end_time = $scope.newOpportunity.end_time;
+
       attr.repeating_event = $scope.newOpportunity.repeating_event;
+      attr.repeat_count = $scope.newOpportunity.repeat_count
+      attr.repeat_days = [];
+      attr.start_time = $scope.newOpportunity.start_time.getTime();
       if ($scope.newOpportunity.repeat) {
         attr.daily = $scope.newOpportunity.repeat.repeat_daily;
         attr.weekly = $scope.newOpportunity.repeat.repeat_weekly;
         attr.monthly = $scope.newOpportunity.repeat.repeat_monthly;
         attr.annually = $scope.newOpportunity.repeat.repeat_annually;
       }
-      attr.repeat_count = $scope.newOpportunity.repeat_count
-      attr.repeat_days = [];
 
       if ($scope.newOpportunity.sunday_repeat) {
         attr.repeat_days.push(0)

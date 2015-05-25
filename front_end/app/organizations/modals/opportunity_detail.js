@@ -14,7 +14,7 @@ angular.module('voluntrApp')
   .controller('OpportunityDetailCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, Opportunity, id,
                                                  PersonOpportunity, start_time, $modal,
-                                                 $modalInstance) {
+                                                 $modalInstance, $cacheFactory) {
 
 
 
@@ -24,7 +24,15 @@ angular.module('voluntrApp')
     $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
       success(function(data, status, headers, config) {
         $scope.opportunity = data;
-        console.log($scope.opportunity)
+        if ($scope.opportunity.start_schedule)  {
+          $cacheFactory.current_calendar = {};
+          $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
+          $cacheFactory.current_calendar.id = $scope.opportunity.id;
+          $cacheFactory.current_calendar.type = 'Opportunity';
+          $cacheFactory.current_calendar.start_date = new Date(parseInt($scope.opportunity.start_time))
+          $cacheFactory.current_calendar.instance_duration = $scope.opportunity.duration;
+        }
+        $cacheFactory.opportunity = $scope.opportunity;
       })
 
 

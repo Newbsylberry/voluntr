@@ -24,9 +24,9 @@
 
     <edit-object-directive
       text_name="name"
-      kabloooey="opportunity"
-      cabbage="name"
-      cabbagery="{{opportunity.id}}"
+      model-type="opportunity"
+      attribute-name="name"
+      model-id="{{opportunity.id}}"
       text="{{opportunity.name}}"
       size="title_text"
 
@@ -34,30 +34,30 @@
 
 
     <edit-object-directive
-      kabloooey="opportunity"
-      cabbage="description"
-      cabbagery="{{opportunity.id}}"
+      model-type="opportunity"
+      attribute-name="description"
+      model-id="{{opportunity.id}}"
       text="{{opportunity.description}}"
       size="paragraph_text"
 
       ></edit-object-directive><br>
     <edit-object-directive
-      kabloooey="opportunity"
-      cabbage="address"
-      cabbagery="{{opportunity.id}}"
+      model-type="opportunity"
+      attribute-name="address"
+      model-id="{{opportunity.id}}"
       text="{{opportunity.address}}"
       size="subtitle_text"
 
       ></edit-object-directive><br>
-      {{opportunity.zip_code}}
-      {{opportunity.city}}
+    {{opportunity.zip_code}}
+    {{opportunity.city}}
     <br>
 
-      <p style="display: inline-block">Volunteers Required:</p>
+    <p style="display: inline-block">Volunteers Required:</p>
     <edit-object-directive
-      kabloooey="opportunity"
-      cabbage="volunteer_goal"
-      cabbagery="{{opportunity.id}}"
+      model-type="opportunity"
+      attribute-name="volunteer_goal"
+      model-id="{{opportunity.id}}"
       text="{{opportunity.volunteer_goal}}"
       size="subtitle_text"
       ></edit-object-directive><br>
@@ -98,11 +98,17 @@
     </md-list>
 
   </div>
+
+  <!-- Opportunity Schedule -->
   <div role="tabpanel"
        ng-switch-when="1"
        md-swipe-left="next()"
        md-swipe-right="previous()" >
-    Schedule Goes Here
+
+    <object-schedule
+      object-type="opportunity"
+      object="opportunity"
+      ></object-schedule>
 
   </div>
 
