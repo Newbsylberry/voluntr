@@ -1,5 +1,5 @@
 <h2>{{startDateText}}</h2>
-<time-date-picker ng-model="calendar.start_date"></time-date-picker>
+<time-date-picker ng-model="calendar.start_time"></time-date-picker>
 
 
 
@@ -41,51 +41,41 @@
 <!-- Every X Days, Months, Years -->
 <div ng-show="calendar.repeating_event">
   Repeat every
-  <input type="number" ng-model="calendar.repeat_count">
+  <input type="number" ng-model="calendar.repeat.repeat_count">
   Units
 </div>
 
-<!--<div ng-show="calendar.repeat.repeat_daily">
-  Repeats On Every
-  <select
-    class="repeat_day_select"
-    ng-options="day as day for day in days"
-    ng-model="newOpportunity.repeat_count"></select>
-  Day
-</div>-->
-
 <div ng-show="calendar.repeat.repeat_weekly">
   <h2>Repeat On Which Days:</h2>
-  <md-checkbox ng-model="calendar.monday_repeat" aria-label="Monday">
+  <md-checkbox ng-model="calendar.repeat.monday_repeat" aria-label="Monday">
     Monday
   </md-checkbox>
-  <md-checkbox ng-model="calendar.tuesday_repeat" aria-label="Tuesday">
+  <md-checkbox ng-model="calendar.repeat.tuesday_repeat" aria-label="Tuesday">
     Tuesday
   </md-checkbox>
-  <md-checkbox ng-model="calendar.wednesday_repeat" aria-label="Wednesday">
+  <md-checkbox ng-model="calendar.repeat.wednesday_repeat" aria-label="Wednesday">
     Wednesday
   </md-checkbox>
-  <md-checkbox ng-model="calendar.thursday_repeat" aria-label="Thursday">
+  <md-checkbox ng-model="calendar.repeat.thursday_repeat" aria-label="Thursday">
     Thursday
   </md-checkbox>
-  <md-checkbox ng-model="calendar.friday_repeat" aria-label="Friday">
+  <md-checkbox ng-model="calendar.repeat.friday_repeat" aria-label="Friday">
     Friday
   </md-checkbox>
-  <md-checkbox ng-model="calendar.saturday_repeat" aria-label="Saturday">
+  <md-checkbox ng-model="calendar.repeat.saturday_repeat" aria-label="Saturday">
     Saturday
   </md-checkbox>
-  <md-checkbox ng-model="calendar.sunday_repeat" aria-label="Saturday">
+  <md-checkbox ng-model="calendar.repeat.sunday_repeat" aria-label="Saturday">
     Sunday
   </md-checkbox>
 </div>
 
-<div ng-show="repeat_monthly">
-  <md-checkbox ng-model="newPosition.saturday_repeat" aria-label="Saturday">
-    Repeat On Day of the Month?
-  </md-checkbox>
-  <md-checkbox ng-model="newPosition.sunday_repeat" aria-label="Saturday">
-    Repeat on Day of the Week?
-  </md-checkbox>
+<!--<div ng-show="repeat_monthly">-->
+  <!--<md-checkbox ng-model="calendar.repeat.saturday_repeat" aria-label="Saturday">-->
+    <!--Repeat On Day of the Month?-->
+  <!--</md-checkbox>-->
+  <!--<md-checkbox ng-model="calendar.repeat.sunday_repeat" aria-label="Saturday">-->
+    <!--Repeat on Day of the Week?-->
+  <!--</md-checkbox>-->
 
-</div>
-<button class="btn btn-primary" ng-click="calendarCreate()">Create Calendar</button>
+<!--</div>-->
