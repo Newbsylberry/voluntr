@@ -12,7 +12,7 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
     restrict: 'E',
     controller: function ($scope, Opportunity) {
 
-      console.log($scope)
+
       if ($scope.size === "title_text") {
         $scope.title_text = true;
 

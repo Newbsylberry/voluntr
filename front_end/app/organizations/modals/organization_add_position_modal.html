@@ -54,91 +54,13 @@
          aria-labelledby="tab2"
          ng-switch-when="1"
          md-swipe-left="next()"
-         md-swipe-right="previous()" 
+         md-swipe-right="previous()"
          class="tabarea">
-
-
-      <h4>First Start Date/Time of Position</h4>
-      <time-date-picker ng-model="newOpportunity.start_time"></time-date-picker>
-
-
-
-      <h2>Shift Duration</h2>
-      <h3>{{newOpportunity.position_duration | duration:'h:mm'}} {{duration_label}}</h3>
-      <md-slider flex min="900000"
-                 step="900000"
-                 max="43200000"
-                 ng-model="newOpportunity.position_duration"
-                 aria-label="red"
-                 id="red-slider" class>
-      </md-slider>
-
-      <!-- Does the event repeat? -->
-      <md-checkbox ng-model="newOpportunity.repeating_event" aria-label="Repeating event?">
-        Is this a reoccurring opportunity?
-      </md-checkbox>
-
-      <!-- What is the unit of its repeat? -->
-      <div class="repeat_main_selection repetition_rule_select_box" ng-show="newOpportunity.repeating_event">
-        <md-checkbox ng-model="newOpportunity.repeat.repeat_daily"
-                     aria-label="Daily">
-          Daily?
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.repeat.repeat_weekly"
-                     aria-label="Weekly">
-          Weekly?
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.repeat.repeat_monthly"
-                     aria-label="Monthly">
-          Monthly?
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.repeat.repeat_annually"
-                     aria-label="Annually">
-          Annually?
-        </md-checkbox>
-      </div>
-
-      <!-- How frequently does it repeat? -->
-      <div ng-show="newOpportunity.repeating_event">
-        Repeat every
-        <select
-          class="repeat_day_select"
-          ng-options="day as day for day in days"
-          ng-model="newOpportunity.repeat_count"></select>
-        Units
-      </div>
-      <div ng-show="newOpportunity.repeat.repeat_weekly">
-        <h2>Repeat On:</h2>
-        <md-checkbox ng-model="newOpportunity.monday_repeat" aria-label="Monday">
-          Monday
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.tuesday_repeat" aria-label="Tuesday">
-          Tuesday
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.wednesday_repeat" aria-label="Wednesday">
-          Wednesday
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.thursday_repeat" aria-label="Thursday">
-          Thursday
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.friday_repeat" aria-label="Friday">
-          Friday
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.saturday_repeat" aria-label="Saturday">
-          Saturday
-        </md-checkbox>
-        <md-checkbox ng-model="newOpportunity.sunday_repeat" aria-label="Saturday">
-          Sunday
-        </md-checkbox>
-      </div>
-      <div ng-show="repeat_monthly">
-        <md-checkbox ng-model="newPosition.saturday_repeat" aria-label="Saturday">
-          Repeat On Day of the Month?
-        </md-checkbox>
-        <md-checkbox ng-model="newPosition.sunday_repeat" aria-label="Saturday">
-          Repeat on Day of the Week?
-        </md-checkbox>
-      </div>
+      <schedule-form
+        recurring-label-text="{{recurring_label_text}}"
+        start-date-text="{{start_date_text}}"
+        calendar="calendar">
+      </schedule-form>
         <div class="window-bottom-button">
       <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</button>
       <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</button>
@@ -148,7 +70,7 @@
          aria-labelledby="tab3"
          ng-switch-when="2"
          md-swipe-left="next()"
-         md-swipe-right="previous()" 
+         md-swipe-right="previous()"
          class="tabarea">
         <div class="window-bottom-button">
       <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>

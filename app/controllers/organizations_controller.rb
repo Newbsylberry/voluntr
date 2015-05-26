@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate, except: [:log_in, :existence_check, :opportunities]
-
+  require_dependency ("#{Rails.root}/lib/schedule_params.rb")
   # GET /organizations/1
   # GET /organizations/1.json
   def show
@@ -78,36 +78,13 @@ class OrganizationsController < ApplicationController
 
   def opportunities
     @organization = Organization.find(params[:id])
-    @organization_calendar = Array.new
-    @organization.opportunities.each do |o|
-      if !o.start_schedule.nil?
-        @event_duration = ((o.end_time.to_i - o.start_time.to_i) / 3600000).round
-        start_time = IceCube::Schedule.from_yaml(o.start_schedule)
-        if params[:start] and start_time.occurs_between?(Time.at(params[:start].to_i), Time.at(params[:end].to_i))
-          start_time.occurrences_between(Time.at(params[:start].to_i), Time.at(params[:end].to_i)).each do |occ|
-            @schedule_instance = Opportunity.new
-            @schedule_instance.name = o.name
-            @schedule_instance.id = o.id
-            @schedule_instance.color  = o.color
-            @schedule_instance.start_time = occ
-            @schedule_instance.end_time = occ + @event_duration.hours
-            @organization_calendar.push(@schedule_instance)
-          end
-        else
-          @organization_calendar.push(o)
-        end
-      elsif o.start_schedule.nil? || o.start_schedule.nil?
-        o.start_time = Time.at(o.start_time.to_i / 1000)
-        o.end_time = Time.at(o.end_time.to_i / 1000)
-        @organization_calendar.push(o)
-        # else
-
-      end
-
-    end
 
 
-    render json: @organization_calendar, each_serializer: OpportunitySerializer
+
+    puts SchedulerTool.list_of_instances(@organization, params[:start], params[:end]).count
+
+    render json: SchedulerTool.list_of_instances(@organization, params[:start], params[:end]),
+           each_serializer: OpportunitySerializer
   end
 
   def recorded_hours

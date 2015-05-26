@@ -27,11 +27,18 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
 
-    ScheduleFromParams.schedule_from_params(params)
+    @opportunity.start_time = params[:calendar][:start_time]
+    if params[:calendar]
+      @schedule = ObjectSchedule.new
+      @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
+      puts @schedule.schedule
+      @schedule.scheduleable = @opportunity
+      @schedule.save
+    end
 
     @opportunity.save
 
-    respond_with @opportunity
+    render json: @opportunity
   end
 
   # PATCH/PUT /events/1
@@ -39,13 +46,18 @@ class OpportunitiesController < ApplicationController
   def update
     @opportunity = Opportunity.find(params[:id])
 
-    if params[:schedule] == true
-      params[:opportunity][:start_schedule] = ScheduleFromParams.schedule_from_params(params)
+
+
+    @opportunity.update(opportunity_params)
+    if params[:calendar]
+      @schedule = ObjectSchedule.new
+      @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
+      @schedule.scheduleable = @opportunity
+      @schedule.save
     end
 
-    puts params[:start_schedule]
-    puts params
-    render json: @opportunity.update(opportunity_params)
+
+    render json: @opportunity
   end
 
   # DELETE /events/1
@@ -65,30 +77,9 @@ class OpportunitiesController < ApplicationController
 
   def opportunity_schedule
     @opportunity = Opportunity.find(params[:id])
-    @opportunity_calendar = Array.new
-    if !@opportunity.start_schedule.nil?
-      @event_duration = ((@opportunity.end_time.to_i - @opportunity.start_time.to_i) / 3600000).round
-      start_time = IceCube::Schedule.from_yaml(@opportunity.start_schedule)
-      if params[:start] and start_time.occurs_between?(Time.at(params[:start].to_i), Time.at(params[:end].to_i))
-        start_time.occurrences_between(Time.at(params[:start].to_i), Time.at(params[:end].to_i)).each do |occ|
-          @schedule_instance = Opportunity.new
-          @schedule_instance.name = @opportunity.name
-          @schedule_instance.id = @opportunity.id
-          @schedule_instance.color  = @opportunity.color
-          puts occ
-          @schedule_instance.start_time = occ
-          @schedule_instance.end_time = occ + @event_duration.hours
-          @opportunity_calendar.push(@schedule_instance)
-        end
-      else
-        @opportunity_calendar.push(o)
-      end
-    elsif @opportunity.start_schedule.nil? || @opportunity.start_schedule.nil?
-      @opportunity.start_time = Time.at(@opportunity.start_time.to_i / 1000)
-      @opportunity.end_time = Time.at(@opportunity.end_time.to_i / 1000)
-      @opportunity_calendar.push(@opportunity)
-    end
-    render json: @opportunity_calendar, each_serializer: OpportunitySerializer
+
+    render json: SchedulerTool.list_of_instances(@opportunity, params[:start], params[:end]),
+           each_serializer: OpportunitySerializer
   end
 
 

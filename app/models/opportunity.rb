@@ -4,6 +4,7 @@ class Opportunity < ActiveRecord::Base
   has_many :people, through: :person_opportunities
   has_many :recorded_hours
   belongs_to :organization
+  has_many :object_schedules, as: :scheduleable
 
 
   def duration
