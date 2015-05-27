@@ -44,6 +44,14 @@
   <input type="number" ng-model="calendar.repeat.repeat_count">
   Units
 </div>
+<div ng-show="calendar.repeating_event">
+  Repeat until what date?
+  <input type="datetime" ng-model="calendar.repeat.repeat_until">
+</div>
+<div ng-show="calendar.repeating_event">
+  Repeat how many times?
+  <input type="datetime" ng-model="calendar.repeat.number_of_repeats">
+</div>
 
 <div ng-show="calendar.repeat.repeat_weekly">
   <h2>Repeat On Which Days:</h2>
@@ -69,13 +77,3 @@
     Sunday
   </md-checkbox>
 </div>
-
-<!--<div ng-show="repeat_monthly">-->
-  <!--<md-checkbox ng-model="calendar.repeat.saturday_repeat" aria-label="Saturday">-->
-    <!--Repeat On Day of the Month?-->
-  <!--</md-checkbox>-->
-  <!--<md-checkbox ng-model="calendar.repeat.sunday_repeat" aria-label="Saturday">-->
-    <!--Repeat on Day of the Week?-->
-  <!--</md-checkbox>-->
-
-<!--</div>-->

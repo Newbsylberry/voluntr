@@ -65,10 +65,10 @@ module SchedulerTool
       # If the schedule repeats Daily
       if params[:calendar][:repeat][:repeat_daily] == true &&
           params[:calendar][:repeat][:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.daily
+        rule = @start_schedule.add_recurrence_rule Rule.daily
       elsif params[:calendar][:repeat][:repeat_daily] == true &&
           !params[:calendar][:repeat][:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
+        rule = @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
       end
 
 
@@ -82,12 +82,23 @@ module SchedulerTool
           !params[:calendar][:repeat][:repeat_count].blank?
         @start_schedule.add_recurrence_rule Rule.weekly(params[:calendar][:repeat][:repeat_count]).day(@days)
       end
+
       if params[:repeat_monthly] == true
         @start_schedule.add_recurrence_rule Rule.monthly
       end
+
       if params[:repeat_yearly] == true
         @start_schedule.add_recurrence_rule Rule.yearly
       end
+
+      if params[:calendar][:repeat][:number_of_repeats]
+        rule.count(params[:calendar][:repeat][:number_of_repeats])
+      end
+      if params[:calendar][:repeat][:repeat_until]
+        rule.until(params[:calendar][:repeat][:repeat_until])
+      end
+
+
 
       return @start_schedule.to_yaml
     end
@@ -112,7 +123,6 @@ module SchedulerTool
 
 
 
-
   private
 
   def SchedulerTool.object_loop(object, start_date, end_date)
@@ -121,10 +131,6 @@ module SchedulerTool
 
       schedule = IceCube::Schedule.from_yaml(s.schedule)
       # duration = ((s.end_time.to_i - schedule.first.strftime('%Q').to_i) / 36000000).round
-      puts schedule
-      puts "Times:"
-      puts Time.at(start_date.to_i)
-      puts schedule.start_time
 
       schedule.occurrences_between(Time.at(start_date.to_i), Time.at(end_date.to_i)).each do |occ|
         instance = object.class.new
@@ -133,7 +139,6 @@ module SchedulerTool
         instance.color = object.color
         instance.start_time = occ.start_time
         # instance.end_time = occ + duration
-        puts instance.start_time
         @instances.push(instance)
       end
     end

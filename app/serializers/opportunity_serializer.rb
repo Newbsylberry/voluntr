@@ -2,7 +2,7 @@ class OpportunitySerializer < ActiveModel::Serializer
   include IceCube
   attributes :id, :fb_id, :duration, :name, :organization_id, :start_time, :end_time, :location, :longitude, :latitude, :description,
              :opportunity_type_id, :start, :end, :title, :color, :allDay,
-             :schedule_to_string, :start_schedule, :ical, :address, :city,
+             :schedule_to_string, :start_schedule, :ical, :address, :city, :state,
              :zip_code, :volunteer_goal, :object_schedules
              # :signed_up_volunteers, :person_opportunities, :signed_up_volunteer_count
 

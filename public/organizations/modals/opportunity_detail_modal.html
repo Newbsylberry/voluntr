@@ -41,16 +41,16 @@
       size="paragraph_text"
 
       ></edit-object-directive><br>
-    <edit-object-directive
-      model-type="opportunity"
-      attribute-name="address"
+    <edit-address
+      address="{{opportunity.address}}"
+      zip-code="{{opportunity.zip_code}}"
+      state="{{opportunity.state}}"
+      city="{{opportunity.city}}"
       model-id="{{opportunity.id}}"
-      text="{{opportunity.address}}"
-      size="subtitle_text"
+      address-type="opportunity"
+      >
 
-      ></edit-object-directive><br>
-    {{opportunity.zip_code}}
-    {{opportunity.city}}
+    </edit-address>
     <br>
 
     <p style="display: inline-block">Volunteers Required:</p>

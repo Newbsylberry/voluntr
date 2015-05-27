@@ -29,6 +29,9 @@ Organization Directive Styles
 
 /* Details in Opportunity and Person  */
 @import "../organizations/directives/text-element.scss";
+@import "../organizations/directives/edit_address.scss";
+
+
 
 @import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";

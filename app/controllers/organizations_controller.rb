@@ -60,16 +60,15 @@ class OrganizationsController < ApplicationController
 
   def log_in
     @organization = Organization.find(params[:id])
-    puts @organization
     @user = Koala::Facebook::API.new(params[:oauth].to_s)
+    @user_accounts = @user.get_connections("me", "accounts").count
     @user.get_connections("me", "accounts").each do |a|
-      puts @organization.id
-      if a["id"].to_i == @organization.fb_id.to_i && !@organization.nil?
+      if a["id"].to_i == @organization.fb_id.to_i
         token = AuthToken.issue_token({ organization_id: @organization.id })
         render json: {organization: @organization,
                       token: token}
         break
-      else
+      elsif @user_accounts == 0 && a["id"].to_i != @organization.fb_id.to_i
         render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
       end
 

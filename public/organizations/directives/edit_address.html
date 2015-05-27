@@ -1,0 +1,28 @@
+<div class="edit-address">
+  <h3 ng-hide="editing">{{address}}</h3>
+  <input type="text"
+         ng-show="editing"
+         ng-model="address">
+  <p ng-hide="editing">{{city}}</p>,
+  <input type="text"
+         ng-show="editing"
+         ng-model="city">
+  <p ng-hide="editing">{{state}}</p><br>
+  <input type="text"
+         ng-show="editing"
+         ng-model="state">
+  <p ng-hide="editing">{{zipCode}}</p>
+  <input type="text"
+         ng-show="editing"
+         ng-model="zipCode">
+  <a href=""
+     ng-hide="editing"
+     ng-click="editAddress()"
+    >Edit</a>
+  <a href=""
+     ng-show="editing"
+     ng-click="saveAddress()"
+    >Save</a>
+</div>
+
+
