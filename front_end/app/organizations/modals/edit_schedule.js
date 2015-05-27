@@ -55,6 +55,7 @@ angular.module('voluntrApp')
       var attr = {};
       attr.calendar = $scope.calendar;
       attr.calendar.start_time = $scope.calendar.start_time.getTime();
+      attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
       attr.id = $scope.calendar.id;
       Opportunity.update(attr)
     };

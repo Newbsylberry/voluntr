@@ -63,12 +63,27 @@ module SchedulerTool
 
 
       # If the schedule repeats Daily
-      if params[:calendar][:repeat][:repeat_daily] == true &&
-          params[:calendar][:repeat][:repeat_count].blank?
-        rule = @start_schedule.add_recurrence_rule Rule.daily
-      elsif params[:calendar][:repeat][:repeat_daily] == true &&
-          !params[:calendar][:repeat][:repeat_count].blank?
-        rule = @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
+      if params[:calendar][:repeat][:repeat_daily] == true
+
+        SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'daily')
+
+        # &&
+        #     params[:calendar][:repeat][:repeat_count].blank?
+        #   @start_schedule.add_recurrence_rule Rule.daily
+        # elsif params[:calendar][:repeat][:repeat_daily] == true &&
+        #     !params[:calendar][:repeat][:repeat_count].blank?
+        #   if !params[:calendar][:repeat][:number_of_repeats].blank? &&
+        #       params[:calendar][:repeat][:repeat_until].blank?
+        #
+        #     @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
+        #                                             .count([:calendar][:repeat][:number_of_repeats])
+        #   elsif params[:calendar][:repeat][:number_of_repeats].blank? &&
+        #       !params[:calendar][:repeat][:repeat_until].blank?
+        #
+        #     @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
+        #                                             .until(Time.at(params[:calendar][:repeat][:repeat_until] .to_i  / 1000))
+        #   end
+
       end
 
 
@@ -91,12 +106,6 @@ module SchedulerTool
         @start_schedule.add_recurrence_rule Rule.yearly
       end
 
-      if params[:calendar][:repeat][:number_of_repeats]
-        rule.count(params[:calendar][:repeat][:number_of_repeats])
-      end
-      if params[:calendar][:repeat][:repeat_until]
-        rule.until(params[:calendar][:repeat][:repeat_until])
-      end
 
 
 
@@ -142,5 +151,37 @@ module SchedulerTool
         @instances.push(instance)
       end
     end
+  end
+
+  def SchedulerTool.rule_creation(schedule, repeat_params, repeat_type)
+    interval = repeat_params[:repeat_count]
+    repeat_repititions = repeat_params[:number_of_repeats]
+    repeat_stop_date = repeat_params[:repeat_until]
+
+      if !interval.blank?
+        if repeat_repititions.blank? && repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.repeat_type(interval)
+        elsif !repeat_repititions.blank? && repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.repeat_type(interval).count(repeat_repitions)
+        elsif repeat_repititions.blank? && !repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.repeat_type(interval).until(Time.at(repeat_until.to_i / 1000))
+        elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.repeat_type(interval).until(Time.at(repeat_until.to_i / 1000))
+                                           .count(repeat_repititons)
+        end
+      else interval.blank?
+      if repeat_repititions.blank? && repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.repeat_type
+      elsif !repeat_repititions.blank? && repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.repeat_type.count(repeat_repitions)
+      elsif repeat_repititions.blank? && !repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.repeat_type.until(Time.at(repeat_until.to_i / 1000))
+      elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.repeat_type.until(Time.at(repeat_until.to_i / 1000))
+                                         .count(repeat_repititons)
+      end
+      end
+
+    return schedule
   end
 end
