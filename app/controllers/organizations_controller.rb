@@ -20,9 +20,13 @@ class OrganizationsController < ApplicationController
 
     if @organization.save
       Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
+      token = AuthToken.issue_token({ organization_id: @organization.id })
     end
 
-    respond_with @organization
+
+    token = AuthToken.issue_token({ organization_id: @organization.id })
+
+    render json: {organization: @organization, token: token}
   end
 
   # PATCH/PUT /organizations/1
