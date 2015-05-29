@@ -3,34 +3,13 @@ module SchedulerTool
 
   def SchedulerTool.schedule_from_params(params, object)
 
-    @days = Array.new
-    if params[:calendar][:repeat][:monday_repeat]
-      @days.push(1)
-    end
-    if params[:calendar][:repeat][:tuesday_repeat]
-      @days.push(2)
-    end
-    if params[:calendar][:repeat][:wednesday_repeat]
-      @days.push(3)
-    end
-    if params[:calendar][:repeat][:thursday_repeat]
-      @days.push(4)
-    end
-    if params[:calendar][:repeat][:friday_repeat]
-      @days.push(5)
-    end
-    if params[:calendar][:repeat][:saturday_repeat]
-      @days.push(6)
-    end
-    if params[:calendar][:repeat][:sunday_repeat]
-      @days.push(7)
-    end
-
 
     # If the object has existing schedules, and this schedule is replacing a current
     # schedule:
     if !object.object_schedules.empty?
+
       object.object_schedules.each do |os|
+
         schedule = IceCube::Schedule.from_yaml(os.schedule)
 
         # If the schedule has rules which define it repeat endlessly
@@ -55,59 +34,19 @@ module SchedulerTool
       end
     end
 
-
     if params[:calendar][:repeating_event] === true
       @start_schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000 ))
       @start_schedule.end_time = params[:calendar][:end_time]
 
-
-
-      # If the schedule repeats Daily
-      if params[:calendar][:repeat][:repeat_daily] == true
-
+      if params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_daily]
         SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'daily')
-
-        # &&
-        #     params[:calendar][:repeat][:repeat_count].blank?
-        #   @start_schedule.add_recurrence_rule Rule.daily
-        # elsif params[:calendar][:repeat][:repeat_daily] == true &&
-        #     !params[:calendar][:repeat][:repeat_count].blank?
-        #   if !params[:calendar][:repeat][:number_of_repeats].blank? &&
-        #       params[:calendar][:repeat][:repeat_until].blank?
-        #
-        #     @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
-        #                                             .count([:calendar][:repeat][:number_of_repeats])
-        #   elsif params[:calendar][:repeat][:number_of_repeats].blank? &&
-        #       !params[:calendar][:repeat][:repeat_until].blank?
-        #
-        #     @start_schedule.add_recurrence_rule Rule.daily(params[:calendar][:repeat][:repeat_count])
-        #                                             .until(Time.at(params[:calendar][:repeat][:repeat_until] .to_i  / 1000))
-        #   end
-
+      elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_weekly] == true
+        SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'weekly')
+      elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_monthly] == true
+        SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'monthly')
+      elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_annually] == true
+        SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'annually')
       end
-
-
-
-
-      # If the schedule repeats Weekly
-      if params[:calendar][:repeat][:repeat_weekly] == true &&
-          params[:calendar][:repeat][:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.weekly.day(@days)
-      elsif params[:calendar][:repeat][:repeat_weekly] == true &&
-          !params[:calendar][:repeat][:repeat_count].blank?
-        @start_schedule.add_recurrence_rule Rule.weekly(params[:calendar][:repeat][:repeat_count]).day(@days)
-      end
-
-      if params[:repeat_monthly] == true
-        @start_schedule.add_recurrence_rule Rule.monthly
-      end
-
-      if params[:repeat_yearly] == true
-        @start_schedule.add_recurrence_rule Rule.yearly
-      end
-
-
-
 
       return @start_schedule.to_yaml
     end
@@ -142,45 +81,144 @@ module SchedulerTool
       # duration = ((s.end_time.to_i - schedule.first.strftime('%Q').to_i) / 36000000).round
 
       schedule.occurrences_between(Time.at(start_date.to_i), Time.at(end_date.to_i)).each do |occ|
+
         instance = object.class.new
         instance.name = object.name
         instance.id = object.id
         instance.color = object.color
         instance.start_time = occ.start_time
         # instance.end_time = occ + duration
+
         @instances.push(instance)
       end
     end
   end
+
+
+
+
 
   def SchedulerTool.rule_creation(schedule, repeat_params, repeat_type)
     interval = repeat_params[:repeat_count]
     repeat_repititions = repeat_params[:number_of_repeats]
     repeat_stop_date = repeat_params[:repeat_until]
 
+
+    # DAILY REPEAT RULES
+    if repeat_type == 'daily'
       if !interval.blank?
         if repeat_repititions.blank? && repeat_stop_date.blank?
-          schedule.add_recurrence_rule Rule.repeat_type(interval)
+          schedule.add_recurrence_rule Rule.daily(interval)
         elsif !repeat_repititions.blank? && repeat_stop_date.blank?
-          schedule.add_recurrence_rule Rule.repeat_type(interval).count(repeat_repitions)
+          schedule.add_recurrence_rule Rule.daily(interval).count(repeat_repititions)
         elsif repeat_repititions.blank? && !repeat_stop_date.blank?
-          schedule.add_recurrence_rule Rule.repeat_type(interval).until(Time.at(repeat_until.to_i / 1000))
+          schedule.add_recurrence_rule Rule.daily(interval).until(Time.at(repeat_stop_date.to_i / 1000))
         elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
-          schedule.add_recurrence_rule Rule.repeat_type(interval).until(Time.at(repeat_until.to_i / 1000))
-                                           .count(repeat_repititons)
+          schedule.add_recurrence_rule Rule.daily(interval).until(Time.at(repeat_stop_date.to_i / 1000))
+                                           .count(repeat_repititions)
         end
       else interval.blank?
       if repeat_repititions.blank? && repeat_stop_date.blank?
-        schedule.add_recurrence_rule Rule.repeat_type
+        schedule.add_recurrence_rule Rule.daily(1)
       elsif !repeat_repititions.blank? && repeat_stop_date.blank?
-        schedule.add_recurrence_rule Rule.repeat_type.count(repeat_repitions)
+        schedule.add_recurrence_rule Rule.daily.repeat_type.count(repeat_repititions)
       elsif repeat_repititions.blank? && !repeat_stop_date.blank?
-        schedule.add_recurrence_rule Rule.repeat_type.until(Time.at(repeat_until.to_i / 1000))
+        schedule.add_recurrence_rule Rule.daily.repeat_type.until(Time.at(repeat_stop_date.to_i / 1000))
       elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
-        schedule.add_recurrence_rule Rule.repeat_type.until(Time.at(repeat_until.to_i / 1000))
-                                         .count(repeat_repititons)
+        schedule.add_recurrence_rule Rule.daily.repeat_type.until(Time.at(repeat_stop_date.to_i / 1000))
+                                         .count(repeat_repititions)
       end
       end
+
+      # WEEKLY REPEAT RULES
+    elsif repeat_type == 'weekly'
+      @days = Array.new
+      if repeat_params[:monday_repeat] == true
+        @days.push(1)
+      end
+      if repeat_params[:tuesday_repeat] == true
+        @days.push(2)
+      end
+      if repeat_params[:wednesday_repeat] == true
+        @days.push(3)
+      end
+      if repeat_params[:thursday_repeat] == true
+        @days.push(4)
+      end
+      if repeat_params[:friday_repeat] == true
+        @days.push(5)
+      end
+      if repeat_params[:saturday_repeat] == true
+        @days.push(6)
+      end
+      if repeat_params[:sunday_repeat] == true
+        @days.push(7)
+      end
+      if !interval.blank?
+        if !@days.empty?
+          if repeat_repititions.blank? && repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).day(@days)
+          elsif !repeat_repititions.blank? && repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).count(repeat_repititions).day(@days)
+          elsif repeat_repititions.blank? && !repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).until(Time.at(repeat_stop_date.to_i / 1000)).day(@days)
+          elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).until(Time.at(repeat_stop_date.to_i / 1000))
+                                             .count(repeat_repititions).day(@days)
+          end
+        elsif @days.empty?
+          if repeat_repititions.blank? && repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval)
+          elsif !repeat_repititions.blank? && repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).count(repeat_repititions)
+          elsif repeat_repititions.blank? && !repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).until(Time.at(repeat_stop_date.to_i / 1000))
+          elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
+            schedule.add_recurrence_rule Rule.weekly(interval).until(Time.at(repeat_stop_date.to_i / 1000))
+                                             .count(repeat_repititions)
+          end
+        end
+      else interval.blank?
+      if !@days.empty?
+        if repeat_repititions.blank? && repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.weekly(1).day(@days)
+        elsif !repeat_repititions.blank? && repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.daily.repeat_type.count(repeat_repititions).day(@days)
+        elsif repeat_repititions.blank? && !repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.daily.repeat_type.until(Time.at(repeat_stop_date.to_i / 1000)).day(@days)
+        elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
+          schedule.add_recurrence_rule Rule.daily.repeat_type.until(Time.at(repeat_stop_date.to_i / 1000))
+                                           .count(repeat_repititions).day(@days)
+        end
+      else @days.empty?
+      if repeat_repititions.blank? && repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.weekly(1)
+      elsif !repeat_repititions.blank? && repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.daily.repeat_type.count(repeat_repititions)
+      elsif repeat_repititions.blank? && !repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.daily.repeat_type.until(Time.at(repeat_stop_date.to_i / 1000))
+      elsif !repeat_repititions.blank? && !repeat_stop_date.blank?
+        schedule.add_recurrence_rule Rule.daily.repeat_type.until(Time.at(repeat_stop_date.to_i / 1000))
+                                         .count(repeat_repititions)
+      end
+
+      end
+
+      end
+
+
+
+
+      # MONTHLY REPEAT RULES
+    elsif repeat_type == 'monthly'
+
+
+
+      # ANNUAL REPEAT RULES
+
+
+    end
+
 
     return schedule
   end

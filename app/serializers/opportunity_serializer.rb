@@ -92,15 +92,15 @@ class OpportunitySerializer < ActiveModel::Serializer
         end
       end
       parsed_rules = Hash[keys.zip(values.map {|i| i})]
-      if parsed_rules["FREQ"] != "DAILY"
-      repeat_days = Array.new
-      parsed_rules['BYDAY'].split(',').each do |d|
-        repeat_days.push(d)
-      end
-      parsed_rules[:BYDAY] = repeat_days
-      puts parsed_rules.as_json
-      return parsed_rules.as_json
-      end
+      # if parsed_rules["FREQ"] == "WEEKLY"
+      # repeat_days = Array.new
+      # parsed_rules['BYDAY'].split(',').each do |d|
+      #   repeat_days.push(d)
+      # end
+      # parsed_rules[:BYDAY] = repeat_days
+      # puts parsed_rules.as_json
+      # return parsed_rules.as_json
+      # end
     end
   end
 
