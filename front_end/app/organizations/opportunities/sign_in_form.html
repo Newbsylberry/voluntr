@@ -1,24 +1,46 @@
 <style>
   input {color: black}
 </style>
-<md-card class="content" >
-  <md-card-content>
-    <h2>Sign In for {{opportunity.name}}</h2>
-    <label>First Name:</label>
-    <input type="text" ng-model="opportunitySignIn.first_name">
+<div class="siboxout">
+    <div class="sibox">
+<div class="sicontent">
+    <div class="sileft">
+         
+        <img src="http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0016/3878/brand.gif?itok=A-Gxc2VU" />
+        <div class="opinfo">
+            <h2>Event:</h2>
+            <p>{{opportunity.name}}</p>
+            <h2>Descrption:</h2>
+            <p>30 day money back guarantee! 
+Available on iOS and Android 
+Certificate of Completion</p>
+        </div>
+    </div>
+    <div class="siright">
+         <md-input-container>
+             <label>First Name:</label>
+             <input type="text" ng-model="opportunitySignIn.first_name"> </md-input-container>
+    <md-input-container>
     <label>Last Name:</label>
     <input type="text" ng-model="opportunitySignIn.last_name">
+        </md-input-container>
+        <md-input-container>
     <label>Email Address:</label>
     <input type="text" ng-model="opportunitySignIn.email">
-    <button class="btn btn-lg btn-primary"
+        </md-input-container>
+    <button class="btn btn-lg bbutton"
             ng-click="signInForOpportunity()">Sign In To This Event</button>
     <h2>Already Registered? Click your name to Sign In:</h2>
     <div class="search-box" ng-if="registration_found">
       <p ng-repeat="person in filtered">{{person.first_name}} {{person.last_name}} {{person.email}}
         <button class="btn btn-lg btn-primary"
                 ng-click="opportunitySignInConfirmation('md',person,opportunity)">Sign In</button></p>
+          
+      </div>
     </div>
-  </md-card-content>
-</md-card>
+    <div class="fixer"></div>
+</div>
+    </div>
+</div>
 
 

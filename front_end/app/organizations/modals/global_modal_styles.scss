@@ -69,3 +69,113 @@ md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
     height:500px;
     overflow: scroll;
 }
+
+/* sign in*/
+.siboxout{
+    display:table;
+    width:100vw;
+    height:100vh;
+}
+.sibox{
+display:table-cell;
+vertical-align:middle;}
+.sicontent{
+width:900px;
+    height:500px;
+    margin:0 auto;
+    background-color:#fff;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    overflow: scroll;
+}
+.sileft{float:left;
+width:250px;
+background-color: #03a9f5;
+height:100%;
+padding:30px 30px;
+text-align: center;}
+
+.sileft img{
+ width:180px;
+}
+
+.sileft h2{
+    color:#fff;
+    font-weight: 300;
+    font-size:20px;
+}
+
+.opinfo{text-align: left;
+color:#fff;}
+
+.siright{float:left;
+width:650px;
+padding:20px;}
+.fixer{clear:both;}
+
+.siright input[type="text"]{
+    border: none;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    line-height:30px;
+}
+
+.bbutton{
+    border-radius:2px;
+    background-color:#03a9f5;
+    color:#fff;
+    display:inline-block;
+    float:right;
+    padding:5px 16px;
+}
+
+.bbutton:hover{
+    color:#fff;
+    background-color:#47bcf1;
+}
+
+.bbutton:active{
+    outline:none;
+    color:#fff;
+}
+
+.bbutton:focus{
+    outline:none;
+    color:#fff;
+}
+
+@media screen and (max-width: 900px) {
+
+.sileft{
+width:150px;
+padding:20px 10px;}
+
+.sileft img{
+ width:130px;
+}
+
+.siright{
+width:450px;}   
+    
+.sicontent{
+width:600px;}
+}
+
+@media screen and (max-width: 600px) {
+
+.sileft{
+width:100vw;
+padding:30px 20px 20px 20px;
+height:auto;}
+
+.sileft img{
+ width:130px;
+}
+
+.siright{
+width:100vw;}   
+    
+.sicontent{
+width:100vw;
+height:100vh;
+}
+}

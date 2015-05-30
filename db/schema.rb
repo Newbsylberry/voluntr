@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20150526190436) do
     t.float    "longitude"
     t.integer  "organization_id"
     t.string   "start_time",          limit: 255
-    t.text     "start_schedule"
     t.string   "end_time",            limit: 255
+    t.text     "start_schedule"
     t.string   "color",               limit: 255
     t.string   "city",                limit: 255
     t.string   "state",               limit: 255
     t.string   "zip_code",            limit: 255
-    t.string   "address",             limit: 255
+    t.string   "address"
     t.integer  "volunteer_goal"
   end
 
