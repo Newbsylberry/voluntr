@@ -16,11 +16,6 @@ angular.module('voluntrApp')
                                                  PersonOpportunity, start_time, $modal,
                                                  $modalInstance, $cacheFactory) {
 
-
-
-
-
-
     $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
       success(function(data, status, headers, config) {
         $scope.opportunity = data;
@@ -121,7 +116,6 @@ angular.module('voluntrApp')
 
         },
         function () {
-
           console.log('Modal dismissed at: ' + new Date());
         });
     };

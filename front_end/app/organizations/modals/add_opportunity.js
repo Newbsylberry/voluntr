@@ -30,13 +30,18 @@ angular.module('voluntrApp')
     };
 
     $scope.calendar = {};
+    $scope.calendar.repeat = {};
+
+    $scope.greeting = "Hello World!";
+
     $scope.newOpportunity = function(){
       var attr = {};
       attr.calendar = $scope.calendar;
-      if ($scope.calendar.start_time) {
-      attr.calendar.start_time = $scope.calendar.start_time.getTime();
-      } if ($scope.calendar.repeat.repeat_until) {
-      attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
+      if ($scope.calendar.repeat.repeat_until != undefined) {
+        attr.calendar.start_time = $scope.calendar.start_time.getTime();
+      }
+      if ($scope.calendar.repeat.repeat_until != undefined) {
+        attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
       }
       attr.name = $scope.newOpportunity.opportunity_name;
       attr.description = $scope.newOpportunity.description;
@@ -46,7 +51,6 @@ angular.module('voluntrApp')
       attr.state = $scope.newOpportunity.state;
       attr.organization_id = $stateParams.organization_Id;
       attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
-      attr.end_time = $scope.newOpportunity.end_time;
 
       //$timeout( function() {
       //  var geocoder = new google.maps.Geocoder();
