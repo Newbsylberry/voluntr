@@ -1,13 +1,16 @@
 <!-- Tabs Menu -->
 <md-tabs class="md-accent" md-selected="data.selectedIndex">
   <md-tab id="tab1" aria-controls="tab1-content">
-    Opportunity Dashboard
+    Dashboard
   </md-tab>
   <md-tab id="tab2" aria-controls="tab2-content">
-    Opportunity Scheduler
+    Scheduler
   </md-tab>
   <md-tab id="tab3" aria-controls="tab3-content">
-    Add People To Opportunity
+    Add Volunteers
+  </md-tab>
+  <md-tab id="tab4" aria-controls="tab4-content">
+    Additional Information
   </md-tab>
 </md-tabs>
 
@@ -134,6 +137,18 @@
           </div>
         </md-item-content>
       </md-item>
+    </md-list>
+
+  </div>
+
+  <div role="tabpanel"
+       id="additional-resources"
+       ng-switch-when="3"
+       md-swipe-left="next()"
+       md-swipe-right="previous()" >
+    <md-list layout="column">
+      <h2>Resources</h2>
+      <add-resources></add-resources>
     </md-list>
 
   </div>

@@ -13,6 +13,8 @@ module.exports = function(config) {
     // base path, that will be used to resolve files and exclude
     basePath: '../',
 
+    reporters: ['progress'],
+
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
@@ -53,13 +55,13 @@ module.exports = function(config) {
       'bower_components/ngHandsontable/dist/ngHandsontable.js',
       "bower_components/angulartics/src/angulartics.js",
       "bower_components/angulartics/src/angulartics-ga.js",
+      "bower_components/ng-file-upload/ng-file-upload.js",
       // endbower
       'app/scripts/**/*.js',
       'app/organizations/**/*.js',
       'app/static_pages/**/*.js',
       'app/volunteers/**/*.js',
       'app/navigation/**/*.js',
-      'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
