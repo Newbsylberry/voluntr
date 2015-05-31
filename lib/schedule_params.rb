@@ -101,9 +101,15 @@ module SchedulerTool
 
 
   def SchedulerTool.rule_creation(schedule, repeat_params, repeat_type)
+    if repeat_params[:repeat_count]
     interval = repeat_params[:repeat_count]
+    end
+    if repeat_params[:number_of_repeats]
     repeat_repititions = repeat_params[:number_of_repeats]
-    repeat_stop_date = Time.at(repeat_params[:repeat_until] / 1000)
+    end
+    if repeat_params[:repeat_until]
+      repeat_stop_date = Time.at(repeat_params[:repeat_until] / 1000)
+    end
 
     @rule = Hash.new
 
