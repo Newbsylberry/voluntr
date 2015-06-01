@@ -87,6 +87,7 @@ width:900px;
     border-radius: 4px;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     overflow: scroll;
+    position:relative;
 }
 .sileft{float:left;
 width:250px;
@@ -110,13 +111,21 @@ color:#fff;}
 
 .siright{float:left;
 width:650px;
-padding:20px;}
+padding:20px;
+}
 .fixer{clear:both;}
 
 .siright input[type="text"]{
     border: none;
     border-bottom:1px solid rgba(0,0,0,0.1);
     line-height:30px;
+}
+
+.siright p{
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    color:rgba(0,0,0,0.3);
 }
 
 .bbutton{
@@ -151,7 +160,24 @@ padding:20px;}
        padding: 5px 10px;
 }
 
+.signpop{
+    display:table;
+    height:100%;
+    width:100%;
+}
 
+.signpopin{
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding:20px;
+}
+
+.signpopin h3{
+    color:rgba(0,0,0,0.5);
+    font-weight: 300;
+    font-size:25px;
+}
 
 
 @media screen and (max-width: 900px) {
