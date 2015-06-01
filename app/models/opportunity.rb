@@ -5,6 +5,8 @@ class Opportunity < ActiveRecord::Base
   has_many :recorded_hours
   belongs_to :organization
   has_many :object_schedules, as: :scheduleable
+  has_many :organization_email_templates, through: :organization
+
 
 
   def duration

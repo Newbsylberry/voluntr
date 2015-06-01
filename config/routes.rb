@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :organization_email_templates, except: [:new, :edit]
   resources :schedules, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do

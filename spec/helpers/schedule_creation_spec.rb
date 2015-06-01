@@ -24,8 +24,12 @@ RSpec.describe SchedulerTool, "Create a schedule" do
 
 
     end
+  end
 
-    it "Creates a schedule that doesn't repeat" do
+
+  context "For a schedule that doesn't repepat" do
+
+    it "Creates a schedule that repeats daily" do
       params = {
           calendar:  {
               repeating_event: true,

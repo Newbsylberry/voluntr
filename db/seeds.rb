@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+OrganizationEmailType.create(name: 'Opportunity Sign In Email',
+                             description: 'The email that is delivered when a volunteer
+                                            signs in to an opportunity.')
+
+OrganizationEmailType.create(name: 'Opportunity Volunteer Follow Up Email',
+                             description: 'The email that is delivered after a
+                                            volunteer has recorded hours at an opportunity.')
+
