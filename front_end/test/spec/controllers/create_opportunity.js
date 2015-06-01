@@ -8,16 +8,15 @@ describe('CreateOpportunity', function () {
     controller = $controller('AddOpportunityCtrl', {
       $scope: scope
     });
-    scope.calendar.start_time = 'Sun May 31 2015 14:57:34 GMT-0400'
+    // scope.calendar.start_time = 'Sun May 31 2015 14:57:34 GMT-0400'
   }));
 
   it("Should Equal Hello World", function() {
     expect(scope.greeting).toEqual("Hello World!")
   })
 
-  it("Should accurately populate the calender", function() {
+  it("Should run the function to create an opportunity", function() {
     scope.newOpportunity();
-    expect(attr.start_time).toEqual(1433098654000)
   })
 
 

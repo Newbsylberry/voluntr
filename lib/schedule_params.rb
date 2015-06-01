@@ -34,9 +34,10 @@ module SchedulerTool
       end
     end
 
+    @start_schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000 ))
+    @start_schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
+
     if params[:calendar][:repeating_event] === true
-      @start_schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000 ))
-      @start_schedule.end_time = params[:calendar][:end_time]
 
       if params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_daily]
         SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'daily')
@@ -47,11 +48,9 @@ module SchedulerTool
       elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_annually] == true
         SchedulerTool.rule_creation(@start_schedule, params[:calendar][:repeat], 'annually')
       end
-
-
-
-      return @start_schedule.to_yaml
     end
+
+    return @start_schedule.to_yaml
   end
 
 
@@ -148,7 +147,7 @@ module SchedulerTool
     end
     @rule["interval"] = interval
     @rule["validations"] = Hash.new
-    @rule["validations"]["count"] = repeat_repititions
+    @rule["validations"]["count"] = repeat_repititions.to_i
     @rule["validations"]["until"] = repeat_stop_date
     @rule["validations"]["day"] = @days
 

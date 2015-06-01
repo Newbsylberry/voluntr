@@ -21,6 +21,13 @@ group :development do
   gem 'capistrano-resque', '~> 0.2.2', require: false
 end
 
+group :test do
+  gem 'rspec-rails', :require => false
+end
+
+
+
+
 
 gem 'pg'
 
