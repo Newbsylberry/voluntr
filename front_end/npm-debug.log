@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update', '-g', 'bower' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose request where is /bower
+5 verbose request registry https://registry.npmjs.org/
+6 verbose request id 9d3c745b6d63d950
+7 verbose url raw /bower
+8 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+9 verbose url resolved https://registry.npmjs.org/bower
+10 verbose request where is https://registry.npmjs.org/bower
+11 info trying registry request attempt 1 at 20:03:16
+12 verbose etag "2BIIT5DX6N9ID6S7HVO0AFNTS"
+13 http GET https://registry.npmjs.org/bower
+14 http 200 https://registry.npmjs.org/bower
+15 silly registry.get cb [ 200,
+15 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+15 silly registry.get     etag: '"8N55JDY0JZF8KZ083NTRTKDJW"',
+15 silly registry.get     'content-type': 'application/json',
+15 silly registry.get     'cache-control': 'max-age=60',
+15 silly registry.get     'content-length': '112149',
+15 silly registry.get     'accept-ranges': 'bytes',
+15 silly registry.get     date: 'Thu, 28 May 2015 00:03:17 GMT',
+15 silly registry.get     via: '1.1 varnish',
+15 silly registry.get     age: '2',
+15 silly registry.get     connection: 'keep-alive',
+15 silly registry.get     'x-served-by': 'cache-ord1720-ORD',
+15 silly registry.get     'x-cache': 'HIT',
+15 silly registry.get     'x-cache-hits': '1',
+15 silly registry.get     'x-timer': 'S1432771397.320058,VS0,VE0',
+15 silly registry.get     vary: 'Accept' } ]
+16 info outdated updating []
+17 error Failed to parse json
+17 error Unexpected end of input
+18 error File: /Users/Bert/.npm-packages/lib/node_modules/bower/node_modules/bower-json/node_modules/deep-extend/package.json
+19 error Failed to parse package.json data.
+19 error package.json must be actual JSON, not just JavaScript.
+19 error
+19 error This is not a bug in npm.
+19 error Tell the package author to fix their package.json file. JSON.parse
+20 error System Darwin 14.1.0
+21 error command "node" "/usr/local/bin/npm" "update" "-g" "bower"
+22 error cwd /Users/Bert/Documents/voluntr/front_end
+23 error node -v v0.10.33
+24 error npm -v 1.4.28
+25 error file /Users/Bert/.npm-packages/lib/node_modules/bower/node_modules/bower-json/node_modules/deep-extend/package.json
+26 error code EJSONPARSE
+27 verbose exit [ 1, true ]

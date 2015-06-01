@@ -4,11 +4,15 @@
   width: 100%;
   position: fixed;
   padding-top: 33px;
-  input {
+  
+input {
+        display: block;
+  margin: 0px auto;
+  height: auto;
+   font-size: 16pt;
     display: block;
     margin: 0px auto;
-    height: 33px;
-    width: 1000px;
+    width: 984px;
     font-size: 16pt;
     @include placeholder-color($primary);
     @include breakpoint($medium) {
