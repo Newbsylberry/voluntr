@@ -44,6 +44,7 @@ angular.module('voluntrApp')
         attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
       }
       attr.name = $scope.newOpportunity.opportunity_name;
+      attr.calendar.end_time = $scope.calendar.end_time;
       attr.description = $scope.newOpportunity.description;
       attr.address = $scope.newOpportunity.address;
       attr.zip_code = $scope.newOpportunity.zip_code;

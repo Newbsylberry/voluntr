@@ -7,31 +7,6 @@ class OpportunitySerializer < ActiveModel::Serializer
              # :signed_up_volunteers, :person_opportunities, :signed_up_volunteer_count
 
 
-  def duration
-    if self.start && self.end
-      ((self.end.to_i - self.start.to_i) / 3600000).round
-    end
-  end
-
-  def title
-    name
-  end
-
-  def start
-    start_time
-  end
-
-  def end
-    end_time
-  end
-
-  def allDay
-    false
-  end
-
-  def timezone
-    'local'
-  end
 
   def schedule_to_string
     if self.start_schedule

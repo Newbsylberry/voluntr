@@ -6,12 +6,18 @@ class Opportunity < ActiveRecord::Base
   belongs_to :organization
   has_many :object_schedules, as: :scheduleable
   has_many :organization_email_templates, through: :organization
+  attr_accessor :end, :start, :allDay, :timezone, :duration, :title
 
-
+  def start_time
+    return IceCube::Schedule.from_yaml(object_schedules.first.schedule).start_time
+  end
 
   def duration
-    ((end_time.to_i - start_time.to_i) / 3600000).round
+    return IceCube::Schedule.from_yaml(object_schedules.first.schedule).duration / (60*60)
   end
+
+
+
 
 
 end

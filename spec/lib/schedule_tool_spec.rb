@@ -179,4 +179,17 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
   end
 
+  context "When a user wants to see a calendar with the schedule" do
+    before(:each) do
+
+    end
+
+    it "Should be able to see an organizations entire schedule" do
+
+    end
+
+
+  end
+
+
 end

@@ -83,9 +83,6 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
 
 
-
-    puts SchedulerTool.list_of_instances(@organization, params[:start], params[:end]).count
-
     render json: SchedulerTool.list_of_instances(@organization, params[:start], params[:end]),
            each_serializer: OpportunitySerializer
   end

@@ -57,6 +57,8 @@ module SchedulerTool
 
 
 
+
+  # When a user wants to see the number of instances in a schedule
   def SchedulerTool.list_of_instances(object, start_date, end_date)
     @instances = Array.new
     if object.class == Organization
@@ -75,22 +77,24 @@ module SchedulerTool
 
   private
 
-  def SchedulerTool.object_loop(object, start_date, end_date)
+  def SchedulerTool.object_loop(opportunity, start_date, end_date)
 
-    object.object_schedules.each do |s|
+    opportunity.object_schedules.each do |s|
 
       schedule = IceCube::Schedule.from_yaml(s.schedule)
-      # duration = ((s.end_time.to_i - schedule.first.strftime('%Q').to_i) / 36000000).round
 
       schedule.occurrences_between(Time.at(start_date.to_i), Time.at(end_date.to_i)).each do |occ|
 
-        instance = object.class.new
-        instance.name = object.name
-        instance.id = object.id
-        instance.color = object.color
-        instance.start_time = occ.start_time
-        # instance.end_time = occ + duration
 
+        instance = opportunity.class.new
+        instance.title = opportunity.name
+        instance.id = opportunity.id
+        instance.color = opportunity.color
+        instance.start = occ.start_time
+        instance.end = occ.end_time
+
+
+        # instance.end_time = occ + duration
         @instances.push(instance)
       end
     end

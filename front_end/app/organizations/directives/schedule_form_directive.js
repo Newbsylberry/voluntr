@@ -24,7 +24,8 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
         } else {
           $scope.duration_label = 'hours'
         };
-        //$scope.calendar.end_time = $scope.calendar.start_time.getTime() + $scope.calendar.duration;
+        $scope.calendar.end_time = $scope.calendar.start_time.getTime() + $scope.calendar.duration;
+        console.log($scope.calendar.end_time)
       });
 
 
