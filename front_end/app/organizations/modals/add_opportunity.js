@@ -37,7 +37,7 @@ angular.module('voluntrApp')
     $scope.newOpportunity = function(){
       var attr = {};
       attr.calendar = $scope.calendar;
-      if ($scope.calendar.repeat.repeat_until != undefined) {
+      if ($scope.calendar.start_time != undefined) {
         attr.calendar.start_time = $scope.calendar.start_time.getTime();
       }
       if ($scope.calendar.repeat.repeat_until != undefined) {

@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate, except: [:log_in, :existence_check, :opportunities, :create]
-  require_dependency ("#{Rails.root}/lib/schedule_params.rb")
+  require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
   # GET /organizations/1
   # GET /organizations/1.json
   def show

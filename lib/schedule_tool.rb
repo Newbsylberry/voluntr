@@ -22,8 +22,8 @@ module SchedulerTool
             # If the schedule hasn't started yet, then destroy it
             if schedule.start_time > Time.at(params[:calendar][:start_time].to_i / 1000)
               os.destroy!
-
             else
+
               # otherwise save the schedule
               os.outdated = true;
               os.schedule = schedule.to_yaml
@@ -34,7 +34,8 @@ module SchedulerTool
       end
     end
 
-    @start_schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000 ))
+
+    @start_schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000))
     @start_schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
 
     if params[:calendar][:repeating_event] === true
@@ -100,9 +101,7 @@ module SchedulerTool
 
 
   def SchedulerTool.rule_creation(schedule, repeat_params, repeat_type)
-    if repeat_params[:repeat_count]
     interval = repeat_params[:repeat_count]
-    end
     if repeat_params[:number_of_repeats]
     repeat_repititions = repeat_params[:number_of_repeats]
     end
@@ -147,7 +146,7 @@ module SchedulerTool
     end
     @rule["interval"] = interval
     @rule["validations"] = Hash.new
-    @rule["validations"]["count"] = repeat_repititions.to_i
+    @rule["validations"]["count"] = repeat_repititions.to_i unless repeat_repititions.to_i == 0
     @rule["validations"]["until"] = repeat_stop_date
     @rule["validations"]["day"] = @days
 

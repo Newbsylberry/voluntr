@@ -22,8 +22,13 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', :require => false
+  gem 'rspec-rails', require: false
+  gem 'rspec-autotest', require: false
+  gem 'guard-rspec', require: false
 end
+
+
+
 
 
 
