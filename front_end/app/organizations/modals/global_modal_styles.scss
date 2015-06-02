@@ -133,7 +133,6 @@ padding:20px;
     background-color:#03a9f5;
     color:#fff;
     display:inline-block;
-    float:right;
     padding:5px 16px;
 }
 
@@ -214,6 +213,12 @@ width:100vw;}
 .sicontent{
 width:100vw;
 height:100vh;
+border-radius: 0px;
 }
+    
+.bbutton{
+    width:100%;
+}
+    
 }
 
