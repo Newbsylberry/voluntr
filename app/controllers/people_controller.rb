@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
     end
 
     @person.save
-    respond_with @person
+    render @person
   end
 
   def opportunities

@@ -40,7 +40,7 @@ class RecordedHoursController < ApplicationController
     end
 
 
-    respond_with @recorded_hours
+    render @recorded_hours
   end
 
   # PATCH/PUT /events/1

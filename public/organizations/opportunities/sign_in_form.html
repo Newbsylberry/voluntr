@@ -5,15 +5,13 @@
     <div class="sibox">
 <div class="sicontent">
     <div class="sileft">
-         
+
         <img src="http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0016/3878/brand.gif?itok=A-Gxc2VU" />
         <div class="opinfo">
             <h2>Event:</h2>
             <p>{{opportunity.name}}</p>
-            <h2>Descrption:</h2>
-            <p>30 day money back guarantee! 
-Available on iOS and Android 
-Certificate of Completion</p>
+            <h2>Description:</h2>
+            <p>{{opportunity.description}}</p>
         </div>
     </div>
     <div class="siright">
@@ -30,13 +28,13 @@ Certificate of Completion</p>
         </md-input-container>
     <button style="margin-top:20px;"class="btn btn-lg bbutton"
             ng-click="signInForOpportunity()">Sign In To This Event</button>
-    
+
     <!--<h2>Already Registered? Click your name to Sign In:</h2>
     <div class="search-box" ng-if="registration_found">
       <p ng-repeat="person in filtered">{{person.first_name}} {{person.last_name}} {{person.email}}
         <button class="btn btn-lg btn-primary"
                 ng-click="opportunitySignInConfirmation('md',person,opportunity)">Sign In</button></p>
-          
+
       </div>-->
     <p>Powerd by Volu</p>
     </div>

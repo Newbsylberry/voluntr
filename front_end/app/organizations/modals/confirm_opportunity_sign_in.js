@@ -7,7 +7,7 @@
 angular.module('voluntrApp')
   .controller('OpportunitySignInConfirmationCtrl', function ($scope, $modal, $modalInstance,
                                                              $stateParams, person, opportunity,
-                                                             RecordedHours) {
+                                                             RecordedHours, $timeout) {
 
 
     $scope.opportunity = opportunity;
@@ -20,7 +20,10 @@ angular.module('voluntrApp')
       attr.opportunity_id = $stateParams.opportunity_Id;
       attr.organization_id = opportunity.organization_id;
       RecordedHours.create(attr);
-      $modalInstance.dismiss('cancel');
+      $scope.confirmed = true;
+      $timeout(function() {
+        $modalInstance.dismiss('cancel');
+      }, 1000)
     };
 
 
