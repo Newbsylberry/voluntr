@@ -2,6 +2,17 @@ require 'schedule_tool'
 
 RSpec.describe Opportunity, "Working with an opportunity" do
 
+  context "creating an opportunity" do
+
+    before(:each) do
+      @opportunity = Opportunity.create!(name: "New Opportunity")
+    end
+
+    it "should have a name" do
+      expect(@opportunity.name).to eq("New Opportunity")
+    end
+
+  end
 
   context "accessing an opportunity" do
     before(:each) do

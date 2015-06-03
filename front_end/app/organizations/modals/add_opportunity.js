@@ -8,26 +8,7 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $modalStack,
-                                              $rootScope, $state, Organization, Facebook,
-                                              $http, $modal) {
-
-    $scope.addEventOpportunity = function (size) {
-      var organizationEventModal = $modal.open(
-        {
-          templateUrl: 'organizations/opportunities/organization_add_event_modal.html',
-          controller: 'AddOpportunityCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size
-        });
-
-      organizationEventModal.result.then(function () {
-
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
-        });
-    };
+  .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal, $modalInstance) {
 
     $scope.calendar = {};
     $scope.calendar.repeat = {};
@@ -89,16 +70,17 @@ angular.module('voluntrApp')
       //}, 3000)
 
       Opportunity.create(attr)
+
+      $modalInstance.dismiss('cancel');
+
+
+
+
+
+
     };
 
 
-
-    $scope.open = function($event, opened) {
-      $event.preventDefault();
-      $event.stopPropagation();
-
-      $scope[opened] = true;
-    };
 
 
   });

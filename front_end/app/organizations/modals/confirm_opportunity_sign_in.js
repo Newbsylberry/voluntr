@@ -11,7 +11,7 @@ angular.module('voluntrApp')
 
 
     $scope.opportunity = opportunity;
-    console.log($scope.opportunity.duration)
+
 
     $scope.timeDuration = function () {
       var attr = {};

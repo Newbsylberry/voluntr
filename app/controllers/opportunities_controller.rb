@@ -26,7 +26,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
 
-    @opportunity.start_time = params[:calendar][:start_time]
+
     if params[:calendar]
       @schedule = ObjectSchedule.new
       @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)

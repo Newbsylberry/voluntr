@@ -26,8 +26,9 @@ class RecordedHoursController < ApplicationController
 
     @daily_statistic =
         DailyStatistic.create_with(locked: false)
-            .find_or_initialize_by(date: @recorded_hours.created_at.beginning_of_day,
-                                   organization_id: params[:organization_id])
+            .find_or_initialize_by(date: @recorded_hours.created_at.beginning_of_day, organization_id: params[:organization_id])
+
+
     if !@daily_statistic.persisted?
     @daily_statistic.total_recorded_hours = 0
     @daily_statistic.total_recorded_hours += @recorded_hours.hours

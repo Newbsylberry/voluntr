@@ -62,6 +62,7 @@ module SchedulerTool
   def SchedulerTool.list_of_instances(object, start_date, end_date)
     @instances = Array.new
     if object.class == Organization
+
       object.opportunities.each do |opp|
         SchedulerTool.object_loop(opp, start_date, end_date)
       end
@@ -83,7 +84,9 @@ module SchedulerTool
 
       schedule = IceCube::Schedule.from_yaml(s.schedule)
 
-      schedule.occurrences_between(Time.at(start_date.to_i), Time.at(end_date.to_i)).each do |occ|
+      puts start_date
+
+      schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
 
 
         instance = opportunity.class.new
@@ -92,6 +95,7 @@ module SchedulerTool
         instance.color = opportunity.color
         instance.start = occ.start_time
         instance.end = occ.end_time
+
 
 
         # instance.end_time = occ + duration
