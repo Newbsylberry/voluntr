@@ -36,8 +36,15 @@ angular
     "kendo.directives",
     'ngHandsontable',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    'ngIdle'
   ])
+
+  .config(function(IdleProvider, KeepaliveProvider) {
+    IdleProvider.idle(2);
+    IdleProvider.timeout(1);
+    KeepaliveProvider.interval(10);
+  })
 
 
 

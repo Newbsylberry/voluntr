@@ -7,7 +7,7 @@
 angular.module('voluntrApp')
   .controller('OpportunitySignInConfirmationCtrl', function ($scope, $modal, $modalInstance,
                                                              $stateParams, person, opportunity,
-                                                             RecordedHours, $timeout) {
+                                                             RecordedHours, $timeout, Idle, Keepalive) {
 
 
     $scope.opportunity = opportunity;
@@ -25,6 +25,15 @@ angular.module('voluntrApp')
         $modalInstance.dismiss('cancel');
       }, 1000)
     };
+
+    Idle.watch();
+
+
+    $scope.$on('IdleTimeout', function() {
+      $scope.hours = 1;
+      $scope.timeDuration();
+    });
+
 
 
 
