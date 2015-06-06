@@ -49,7 +49,7 @@ gem 'resque-scheduler'
 
 gem 'whenever'
 
-gem 'mail', "~> 2.5.4"
+gem 'mail', github: 'robin850/mail', branch: 'composition-parts-list'
 
 
 gem "koala", "~> 1.11.0rc"
