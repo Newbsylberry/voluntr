@@ -6,7 +6,7 @@ RSpec.describe Person, "Working with the people model" do
     pending "It should not create a person if there is already a person with that email address registered"
 
     it "should not create a person if there is already a person with that email address registered" do
-      Person.new(email:"steve@steve.com").should_not be_valid
+      expect(Person.new(email:"steve@steve.com")).to_not be_valid
     end
 
 

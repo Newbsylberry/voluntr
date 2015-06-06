@@ -24,24 +24,12 @@ class RecordedHoursController < ApplicationController
 
 
 
-    @daily_statistic =
-        DailyStatistic.create_with(locked: false)
-            .find_or_initialize_by(date: @recorded_hours.created_at.beginning_of_day, organization_id: params[:organization_id])
+    @recorded_hours.send_sign_in_email
 
-
-    if !@daily_statistic.persisted?
-    @daily_statistic.total_recorded_hours = 0
-    @daily_statistic.total_recorded_hours += @recorded_hours.hours
-    @daily_statistic.save
-    else
-      @daily_statistic.organization_id = params[:organization_id]
-      @daily_statistic.total_recorded_hours += @recorded_hours.hours
-      @daily_statistic.save
-    end
-
-
-    render @recorded_hours
+    render @recorded_hours, serializer: RecordedHourSerializer
   end
+
+
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json

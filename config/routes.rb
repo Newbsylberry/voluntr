@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :opportunity_roles, except: [:new, :edit]
   resources :organization_email_templates, except: [:new, :edit]
   resources :schedules, except: [:new, :edit]
   scope '/api' do
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
       match '/opportunities/:id/people', to: 'opportunities#people', via: :get, defaults: {format: :json}
       match '/opportunities/:id/instance', to: 'opportunities#opportunity_instance', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
+      match '/opportunities/sign_in/:opportunity_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
+
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
     end
   end

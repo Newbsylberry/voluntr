@@ -11,7 +11,7 @@ RSpec.describe OrganizationPerson, "When working with people who have volunteere
       @person_organization.save
 
 
-      OrganizationPerson.new(organization_id: 3, person_id: 3).should_not be_valid
+      expect(OrganizationPerson.new(organization_id: 3, person_id: 3)).to_not be_valid
     end
 
 

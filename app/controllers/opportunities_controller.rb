@@ -30,7 +30,6 @@ class OpportunitiesController < ApplicationController
     if params[:calendar]
       @schedule = ObjectSchedule.new
       @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
-      puts @schedule.schedule
       @schedule.scheduleable = @opportunity
       @schedule.save
     end
@@ -80,7 +79,6 @@ class OpportunitiesController < ApplicationController
     render json: SchedulerTool.list_of_instances(@opportunity, params[:start], params[:end]),
            each_serializer: OpportunitySerializer
   end
-
 
 
   def people

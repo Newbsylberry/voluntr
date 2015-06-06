@@ -15,7 +15,6 @@ RSpec.describe OrganizationEmailTemplate, "Creating an organization email templa
 
     it "should have the default conclusion text" do
 
-
       expect(@template.conclusion_text).to eq(@email_type.conclusion_text)
     end
 

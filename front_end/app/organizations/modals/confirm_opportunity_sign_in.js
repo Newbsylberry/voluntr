@@ -19,6 +19,7 @@ angular.module('voluntrApp')
       attr.person_id = person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
       attr.organization_id = opportunity.organization_id;
+      attr.sign_in  = true;
       RecordedHours.create(attr);
       $scope.confirmed = true;
       $timeout(function() {

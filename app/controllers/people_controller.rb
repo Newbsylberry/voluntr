@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
     end
 
     @person.save
-    render @person
+    render json: @person, serializer: PersonSerializer
   end
 
   def opportunities
