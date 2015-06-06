@@ -1,11 +1,33 @@
 <div class="signpop">
   <div class="signpopin" ng-hide="confirmed">
     <h3>How Many Hours Will You Be Volunteering?</h3>
-    <md-slider flex class="md-primary" md-discrete ng-model="hours" step=".5" min="1"
-               max="{{opportunity.duration}}" aria-label="rating">
+    <md-slider flex class="md-primary"
+               md-discrete
+               ng-model="hours"
+               step=".5"
+               min="1"
+               max="{{opportunity.duration}}"
+               aria-label="rating">
     </md-slider>
-    <p class="check"><input type="checkbox" checked="checked" >
-      I allow Salvation Army ot use my photo</p>
+    <!-- <h3>What Role Are You Volunteering For?</h3> -->
+    <label>What Role Are You Volunteering For?</label><br>
+      <select
+        class="form-control"
+        ng-model="opportunity_role"
+
+              ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles">
+        <option value="">-- Select Your Role --</option>
+      </select>
+
+      <!--<md-select ng-model="opportunity_role">
+      <md-select-label>Choose A Volunteering Role</md-select-label>
+      <md-option style="z-index: 100"
+                 ng-repeat="opportunity_role.name in opportunity.opportunity_roles"
+                 ng-value="{{opportunity_role}}">
+      </md-option>
+    </md-select>-->
+    <p class="check"><input type="checkbox" ng-model="photo_consent" checked="checked" >
+      I allow salvation army to use my photo</p>
     <p class="check"><input type="checkbox" checked="checked" >
       Please contact me about future volunteer  opportunites</p>
     <button class="bbutton" style="border:none; font-size:20px;font-weight:300; float:none;margin-top:30px;" type="btn btn-lg" ng-click="timeDuration()">Complete Sign In</button>

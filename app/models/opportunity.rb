@@ -3,6 +3,7 @@ class Opportunity < ActiveRecord::Base
   has_many :opportunities
   has_many :person_opportunities
   has_many :people, through: :person_opportunities
+  has_many :opportunity_roles
   has_many :recorded_hours
   belongs_to :organization
   has_many :object_schedules, as: :scheduleable

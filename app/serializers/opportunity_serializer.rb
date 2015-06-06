@@ -3,7 +3,7 @@ class OpportunitySerializer < ActiveModel::Serializer
   attributes :id, :fb_id, :duration, :name, :organization_id, :start_time, :end_time, :location, :longitude, :latitude, :description,
              :opportunity_type_id, :start, :end, :title, :color, :allDay,
              :schedule_to_string, :start_schedule, :ical, :address, :city, :state,
-             :zip_code, :volunteer_goal, :object_schedules, :organization_email_templates
+             :zip_code, :volunteer_goal, :object_schedules, :organization_email_templates, :opportunity_roles
              # :signed_up_volunteers, :person_opportunities, :signed_up_volunteer_count
 
 

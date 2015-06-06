@@ -8,5 +8,11 @@
           opportunity.object_schedules << create(:object_schedule)
         end
       end
+
+      trait :with_opportunity_roles do
+        after(:create) do |opportunity|
+          opportunity.opportunity_roles << create(:opportunity_roles)
+        end
+      end
     end
   end

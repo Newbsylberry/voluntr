@@ -11,15 +11,23 @@ angular.module('voluntrApp')
 
 
     $scope.opportunity = opportunity;
+    $scope.photo_consent = true;
 
+    $scope.hours = 1;
 
     $scope.timeDuration = function () {
       var attr = {};
       attr.hours = $scope.hours;
+      attr.date_recorded = new Date().toString();
+      if ($scope.opportunity_role !== undefined) {
+      attr.opportunity_role_id = $scope.opportunity_role.id;
+      }
       attr.person_id = person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
       attr.organization_id = opportunity.organization_id;
+      attr.photo_consent = $scope.photo_consent;
       attr.sign_in  = true;
+      console.log(attr)
       RecordedHours.create(attr);
       $scope.confirmed = true;
       $timeout(function() {
@@ -31,7 +39,6 @@ angular.module('voluntrApp')
 
 
     $scope.$on('IdleTimeout', function() {
-      $scope.hours = 1;
       $scope.timeDuration();
     });
 
