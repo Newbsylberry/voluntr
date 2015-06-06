@@ -37,7 +37,6 @@ angular.module('voluntrApp')
 
     Idle.watch();
 
-
     $scope.$on('IdleTimeout', function() {
       $scope.timeDuration();
     });

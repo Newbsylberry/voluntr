@@ -41,8 +41,8 @@ angular
   ])
 
   .config(function(IdleProvider, KeepaliveProvider) {
-    IdleProvider.idle(2);
-    IdleProvider.timeout(1);
+    IdleProvider.idle(4);
+    IdleProvider.timeout(6);
     KeepaliveProvider.interval(10);
   })
 
