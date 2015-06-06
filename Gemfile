@@ -49,6 +49,7 @@ gem 'resque-scheduler'
 
 gem 'whenever'
 
+gem 'mail', "~> 2.5.4"
 
 
 gem "koala", "~> 1.11.0rc"
