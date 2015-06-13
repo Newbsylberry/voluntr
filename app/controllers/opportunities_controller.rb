@@ -73,6 +73,12 @@ class OpportunitiesController < ApplicationController
     render json: @opportunity
   end
 
+  def recorded_hours
+    @opportunity = Opportunity.find_by_fb_id(params[:fb_id])
+
+    render json: @opportunity.recorded_hours, each_serializer: RecordedHourSerializer
+  end
+
   def opportunity_schedule
     @opportunity = Opportunity.find(params[:id])
 
@@ -80,11 +86,17 @@ class OpportunitiesController < ApplicationController
            each_serializer: OpportunitySerializer
   end
 
+  def instance_statistics
+    @opportunity = Opportunity.find(params[:id])
 
-  def people
+    render json: @opportunity.instances_statistics, each_serializer: OpportunitySerializer
+  end
+
+
+  def volunteers
     @opportunity = Opportunity.find_by_id(params[:id])
 
-    render json: @opportunity.people, each_serializer: PersonSerializer
+    render json: @opportunity.volunteers, each_serializer: PersonSerializer
   end
 
 

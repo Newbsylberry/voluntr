@@ -16,7 +16,7 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
 
 
       $scope.$watch('calendar.duration', function () {
-        console.log($scope.calendar.duration);
+        console.log($scope.calendar.start_time);
         if ($scope.calendar.duration < 3600000){
           $scope.duration_label = 'minutes'
         } else if ($scope.calendar.duration < (3600000 * 2)) {
@@ -25,7 +25,6 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
           $scope.duration_label = 'hours'
         };
         $scope.calendar.end_time = $scope.calendar.start_time.getTime() + $scope.calendar.duration;
-        console.log($scope.calendar.end_time)
       });
 
 

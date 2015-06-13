@@ -7,7 +7,7 @@
     Scheduler
   </md-tab>
   <md-tab id="tab3" aria-controls="tab3-content">
-    Add Volunteers
+    Volunteers
   </md-tab>
   <md-tab id="tab4" aria-controls="tab4-content">
     Additional Information
@@ -65,40 +65,14 @@
       size="subtitle_text"
       ></edit-object-directive><br>
 
+    <div class="opportunity-dashboard">
+      <h3>Total Hours Recorded: {{opportunity.total_recorded_hours}}</h3>
+      <h3>Hours Recorded This Instance: {{opportunity.selected_instance_recorded_hours}}</h3>
+      <h3>Total Volunteers: {{opportunity.total_people_recording}}</h3>
+      <h3>Volunteers This Instance: {{opportunity.selected_instance_people_recording}}</h3>
+      <highchart config="instanceStatisticGraphConfig"></highchart>
+    </div>
 
-    <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
-    <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
-      Registration Form for Opportunity</a>
-    <br>
-    <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
-      Sign In Form for Opportunity</a>
-
-
-    <!-- List of Volunteers Who Have Been Registered -->
-    <md-list layout="column" ng-if="opportunity.people.length != 0">
-      <h3>Interested Volunteers:</h3>
-      <md-item ng-repeat="person in opportunity.signed_up_volunteers">
-        <md-item-content>
-          <div class="md-tile-left">
-            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-                 class="face" alt="{{item.who}}">
-          </div>
-          <div class="md-tile-content">
-            <h3>{{person.first_name}} {{person.last_name}}</h3>
-          </div>
-          <div class="md-tile-right">
-            Committed?
-            <md-checkbox
-              ng-model="new_volunteer"
-              ng-click="commitVolunteer(person)"
-              aria-label="Committed Volunteer?"
-              style="display: inline-block;">
-
-            </md-checkbox>
-          </div>
-        </md-item-content>
-      </md-item>
-    </md-list>
 
   </div>
 
@@ -120,24 +94,13 @@
        ng-switch-when="2"
        md-swipe-left="next()"
        md-swipe-right="previous()" >
-    <md-list layout="column">
-      <h3>Add Volunteer To Event:</h3>
-      <input ng-model="find_volunteer">
-      <md-item ng-repeat="person in organization_people | filter:find_volunteer">
-        <md-item-content>
-          <div class="md-tile-left">
-            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-                 class="face" alt="{{item.who}}">
-          </div>
-          <div class="md-tile-content">
-            <h3>{{person.first_name}} {{person.last_name}}</h3>
-            <h4>Some important notes here</h4>
-            <a href="" ng-click="addOpportunityPersonModal('lg', person)" style="float: right;">
-              Add To Opportunity</a>
-          </div>
-        </md-item-content>
+    <md-list>
+      <md-item ng-repeat="volunteer in opportunity.past_volunteers">
+        {{volunteer.first_name}}
       </md-item>
     </md-list>
+
+
 
   </div>
 
@@ -154,6 +117,14 @@
       <md-item>
         <h2>Opportunity Mailers</h2>
         <email-template-preview></email-template-preview>
+      </md-item>
+      <md-item>
+      <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
+      <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
+        Registration Form for Opportunity</a>
+      <br>
+      <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
+        Sign In Form for Opportunity</a>
       </md-item>
     </md-list>
 

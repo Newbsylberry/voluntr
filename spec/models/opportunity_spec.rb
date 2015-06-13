@@ -49,6 +49,39 @@ RSpec.describe Opportunity, "Working with an opportunity" do
       expect(@opportunity.duration).to eq(1)
     end
 
+    it "#total_recorded_hours" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours).total_recorded_hours).to eq(3)
+    end
+
+    it "#total_people_recording" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours).total_people_recording).to eq(1)
+    end
+
+    it "#instance_people_recording" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours)
+                 .instance_people_recording('2015-06-05 22:40:51.000000000 -04:00')).to eq(1)
+    end
+
+    it "#instance_recorded_hours" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours)
+                 .instance_recorded_hours('2015-06-05 22:40:51.000000000 -04:00')).to eq(3)
+    end
+
+    it "#instances_statistic_summary" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours)
+                 .instances_statistics.count).to eq(2)
+    end
+
+    it "#instances_statistic_summary recorded_hours" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours)
+                 .instances_statistics.first.instance_hours).to eq(3)
+
+    end
+
+    it "#instances_statistic_summary instance_people_count" do
+      expect(create(:opportunity, :with_object_schedule_and_recorded_hours)
+                 .instances_statistics.last.instance_people_count).to eq(0)
+    end
 
   end
 

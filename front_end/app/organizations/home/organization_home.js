@@ -212,6 +212,6 @@ angular.module('voluntrApp')
     };
 
 
-
+    console.log($scope.lineGraphConfig)
   });
 

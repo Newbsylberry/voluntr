@@ -32,10 +32,12 @@ Rails.application.routes.draw do
       match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
-      match '/opportunities/:id/people', to: 'opportunities#people', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/volunteers', to: 'opportunities#volunteers', via: :get, defaults: {format: :json}
       match '/opportunities/:id/instance', to: 'opportunities#opportunity_instance', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/recorded_hours', to: 'opportunities#recorded_hours', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
       match '/opportunities/sign_in/:opportunity_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/instance_statistics', to: 'opportunities#instance_statistics', via: :get, defaults: {format: :json}
 
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
     end

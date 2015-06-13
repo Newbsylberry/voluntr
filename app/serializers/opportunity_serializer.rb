@@ -3,7 +3,10 @@ class OpportunitySerializer < ActiveModel::Serializer
   attributes :id, :fb_id, :duration, :name, :organization_id, :start_time, :end_time, :location, :longitude, :latitude, :description,
              :opportunity_type_id, :start, :end, :title, :color, :allDay,
              :schedule_to_string, :start_schedule, :ical, :address, :city, :state,
-             :zip_code, :volunteer_goal, :object_schedules, :organization_email_templates, :opportunity_roles
+             :zip_code, :volunteer_goal, :object_schedules, :recorded_hours, :organization_email_templates, :opportunity_roles,
+             :total_recorded_hours, :total_people_recording,
+             :instance_hours, :instance_people_count, :selected_instance_recorded_hours,
+              :selected_instance_people_recording, :volunteers
              # :signed_up_volunteers, :person_opportunities, :signed_up_volunteer_count
 
 
@@ -14,6 +17,29 @@ class OpportunitySerializer < ActiveModel::Serializer
         return r.to_s
       end
     end
+  end
+
+  def selected_instance_recorded_hours
+    if @options[:instance_date]
+      @hours = recorded_hours.where(:date_recorded => Time.at(@options[:instance_date].to_i / 1000)
+                                               .beginning_of_day..
+                               Time.at(@options[:instance_date].to_i / 1000).end_of_day).sum(:hours)
+    end
+  end
+
+  def past_volunteers
+    past_volunteers = Array.new
+    past_volunteers
+  end
+
+  def selected_instance_people_recording
+    if @options[:instance_date]
+    recorded_hours.where(:date_recorded => Time.at(@options[:instance_date].to_i / 1000)
+                                               .beginning_of_day..
+                             Time.at(@options[:instance_date].to_i / 1000).end_of_day)
+        .select(:person_id).map(&:person_id).uniq.count
+    end
+
   end
 
   def signed_up_volunteers
@@ -53,6 +79,7 @@ class OpportunitySerializer < ActiveModel::Serializer
       @schedule = self.object_schedules.order("updated_at").last
       keys = Array.new
       values = Array.new
+      if !@schedule.nil?
       IceCube::Schedule.from_yaml(@schedule.schedule).rrules.each do |r|
         r.to_ical.split(';').each do |s|
           s.split("=").map.with_index do |item, index|
@@ -74,6 +101,7 @@ class OpportunitySerializer < ActiveModel::Serializer
       # puts parsed_rules.as_json
       # return parsed_rules.as_json
       # end
+      end
     end
   end
 

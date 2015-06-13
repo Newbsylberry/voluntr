@@ -14,15 +14,6 @@ class RecordedHour < ActiveRecord::Base
     end
   end
 
-
-
-
-
-
-
-
-
-
   def already_recorded_for_instance?
     if opportunity
       instance = IceCube::Schedule.from_yaml(opportunity.object_schedules.last.schedule)

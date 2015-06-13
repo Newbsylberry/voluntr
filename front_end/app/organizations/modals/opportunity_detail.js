@@ -16,10 +16,27 @@ angular.module('voluntrApp')
                                                  PersonOpportunity, start_time, $modal,
                                                  $modalInstance, $cacheFactory) {
 
+    var addToDashboard = function (instance) {
+      $scope.instanceStatisticGraphConfig.series[0].data.push
+      ([Date.parse(instance.start_time), Number(instance.instance_hours)]);
+      $scope.instanceStatisticGraphConfig.series[1].data.push
+      ([Date.parse(instance.start_time), Number(instance.instance_people_count)]);
+    };
+
+
     $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
       success(function(data, status, headers, config) {
         $scope.opportunity = data;
-        console.log(data)
+        $http.get('api/v1/opportunities/' + id + '/instance_statistics').
+          success(function(data) {
+            angular.forEach(data, addToDashboard)
+          });
+        $http.get('api/v1/opportunities/' + id + '/volunteers').
+          success(function(data) {
+            $scope.opportunity.volunteers = data;
+            console.log($scope.opportunity)
+          });
+        console.log($scope.opportunity.instances_statistics)
         $cacheFactory.current_calendar = {};
         $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
         $cacheFactory.current_calendar.id = $scope.opportunity.id;
@@ -119,6 +136,50 @@ angular.module('voluntrApp')
           console.log('Modal dismissed at: ' + new Date());
         });
     };
+
+    $scope.instanceStatisticGraphConfig = {
+      options: {
+        chart: {
+          type: 'spline',
+          zoomType: "xy"
+        }
+      },
+      xAxis: {
+        type: 'datetime',
+        title: {
+          text: 'Date'
+        }
+      },
+      yAxis: {
+        allowDecimals: false,
+        floor: 0
+        //plotLines: [{
+        //  value: 0,
+        //  width: 1,
+        //  color: '#808080'
+        //}]
+      },
+      series: [
+        {
+          name: 'Recorded Hours',
+          data: []
+        },
+        {
+          name: 'People Recording',
+          data: []
+
+        }
+      ],
+      title: {
+        text: "Opportunity Dashboard"
+      },
+      loading: false,
+      size: {
+        height: "350"
+      }
+    };
+
+    console.log($scope.instanceStatisticGraphConfig)
 
 
 

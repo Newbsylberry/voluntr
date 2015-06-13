@@ -5,4 +5,5 @@ class PersonOpportunity < ActiveRecord::Base
 
 
 
+
 end
