@@ -57,6 +57,7 @@ module.exports = function(config) {
       "bower_components/angulartics/src/angulartics-ga.js",
       "bower_components/ng-file-upload/ng-file-upload.js",
       "bower_components/ng-idle/angular-idle.js",
+      "bower_components/ng-csv/build/ng-csv.min.js",
       // endbower
       'app/scripts/**/*.js',
       'app/organizations/**/*.js',

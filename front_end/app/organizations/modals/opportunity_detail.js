@@ -51,7 +51,6 @@ angular.module('voluntrApp')
 
 
 
-
     $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
       success(function(data, status, headers, config) {
 

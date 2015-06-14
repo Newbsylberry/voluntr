@@ -109,6 +109,10 @@
        ng-switch-when="2"
        md-swipe-left="next()"
        md-swipe-right="previous()" >
+    <a href="" ng-csv="opportunity.volunteers"
+       filename="{{opportunity.name}}_volunteers.csv"
+       csv-header="['Volu ID', '', 'First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
+      Export To CSV</a>
     <md-list>
       <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.volunteers">
         <div class="md-list-item-text opportunity-volunteer-list">

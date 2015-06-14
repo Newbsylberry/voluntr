@@ -37,7 +37,8 @@ angular
     'ngHandsontable',
     'angulartics',
     'angulartics.google.analytics',
-    'ngIdle'
+    'ngIdle',
+    'ngCsv'
   ])
 
   .config(function(IdleProvider, KeepaliveProvider) {
