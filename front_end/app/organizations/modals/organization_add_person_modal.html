@@ -1,7 +1,8 @@
-<div>
+
 
   <!-- This is the top menu -->
-  <md-tabs class="md-accent" md-selected="data.selectedIndex">
+<div class="tabfix">
+  <md-tabs class="md-primary" md-selected="data.selectedIndex">
     <md-tab id="tab1" aria-controls="tab1-content" class="md-padding">
       Step 1:  Enter Basic Information
     </md-tab>
@@ -12,12 +13,12 @@
       Step 3:  Add to Events and Tag
     </md-tab>
   </md-tabs>
+</div>
   <ng-switch on="data.selectedIndex" class="tabpanel-container">
-
+<md-content class="md-padding diacontent">
     <!-- Basic Information -->
     <div role="tabpanel"
          id="create-person-record"
-         class="tabarea"
          aria-labelledby="tab1"
          ng-switch-when="0"
          md-swipe-left="next()"
@@ -66,9 +67,9 @@
       </md-input-container>
 
      <div class="window-bottom-button">
-        <button class="btn btn-lg testbutton" ng-click="addPerson()">
+       <md-button class="md-primary tabbutton" ng-click="addPerson()">
         Submit
-      </button>
+      </md-button>
          
         </div>
 
@@ -106,6 +107,6 @@
       View for {{data.secondLabel}}<br/>
       data.selectedIndex = 1
     </div>
-
+</md-content>
   </ng-switch>
-</div>
+

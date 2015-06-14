@@ -1,5 +1,6 @@
 
-  <md-tabs class="md-accent" md-selected="data.selectedIndex">
+<div class="tabfix">  
+<md-tabs class="md-primary " md-selected="data.selectedIndex">
     <md-tab id="tab1" aria-controls="tab1-content">
       Step 1
     </md-tab>
@@ -10,13 +11,15 @@
       Step 3
     </md-tab>
   </md-tabs>
+</div>
 
   <ng-switch on="data.selectedIndex" class="">
+      <md-content class="md-padding diacontent">
     <div role="tabpanel"
          aria-labelledby="tab1"
          ng-switch-when="0"
          md-swipe-left="next()"
-         md-swipe-right="previous()" class="tabarea">
+         md-swipe-right="previous()" >
       <!--<h1>Add Volunteering Position</h1>-->
       <md-input-container>
         <label>Position Name</label>
@@ -48,7 +51,7 @@
         </md-input-container>
       </div>
         <div class="window-bottom-button">
-      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 1">Next: Enter Scheduling Information</button>
+      <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 1">Next: Enter Scheduling Information</md-button>
         </div>
     </div>
     <div role="tabpanel"
@@ -56,15 +59,15 @@
          ng-switch-when="1"
          md-swipe-left="next()"
          md-swipe-right="previous()"
-         class="tabarea">
+         >
       <schedule-form
         start-date-text="When will this opportunity start?"
         recurring-label-text="Is this a recurring opportunity?"
         calendar="calendar">
       </schedule-form>
         <div class="window-bottom-button">
-      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</button>
-      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</button>
+      <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</md-button>
+      <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</md-button>
         </div>
     </div>
     <div role="tabpanel"
@@ -72,12 +75,13 @@
          ng-switch-when="2"
          md-swipe-left="next()"
          md-swipe-right="previous()"
-         class="tabarea">
+         >
         <div class="window-bottom-button">
-      <button class="btn btn-lg testbutton" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</button>
-      <button class="btn btn-lg testbutton" ng-click="newOpportunity()">Create Opportunity!</button>
+      <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</md-button>
+      <md-button class="md-primary tabbutton" ng-click="newOpportunity()">Create Opportunity!</md-button>
         </div>
     </div>
+          </md-content>
   </ng-switch>
 
 
