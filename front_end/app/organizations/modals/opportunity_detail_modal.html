@@ -44,7 +44,7 @@
       size="paragraph_text"
 
       ></edit-object-directive><br>
-    <edit-address
+    <!--<edit-address
       address="{{opportunity.address}}"
       zip-code="{{opportunity.zip_code}}"
       state="{{opportunity.state}}"
@@ -53,26 +53,41 @@
       address-type="opportunity"
       >
 
-    </edit-address>
+    </edit-address>-->
     <br>
 
-    <p style="display: inline-block">Volunteers Required:</p>
+    <!--<p style="display: inline-block">Volunteers Required:</p>
     <edit-object-directive
       model-type="opportunity"
       attribute-name="volunteer_goal"
       model-id="{{opportunity.id}}"
       text="{{opportunity.volunteer_goal}}"
       size="subtitle_text"
-      ></edit-object-directive><br>
+      ></edit-object-directive><br>-->
 
     <div class="opportunity-dashboard">
-      <h3>Total Hours Recorded: {{opportunity.total_recorded_hours}}</h3>
-      <h3>Hours Recorded This Instance: {{opportunity.selected_instance_recorded_hours}}</h3>
-      <h3>Total Volunteers: {{opportunity.total_people_recording}}</h3>
-      <h3>Volunteers This Instance: {{opportunity.selected_instance_people_recording}}</h3>
+      <div class="row">
+        <div class="col-xs-3">
+          <h2 class="opportunity-dashboard-statistic">{{opportunity.total_recorded_hours}}</h2>
+          <h4 class="opportunity-dashboard-label">Total Hours</h4>
+        </div>
+        <div class="col-xs-3">
+          <h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_recorded_hours}}</h2>
+          <h4 class="opportunity-dashboard-label">Hours This Instance</h4>
+        </div>
+        <div class="col-xs-3">
+          <h2 class="opportunity-dashboard-statistic">{{opportunity.total_people_recording}}</h2>
+          <h4 class="opportunity-dashboard-label">Volunteers</h4>
+        </div>
+        <div class="col-xs-3">
+          <h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_people_recording}}</h2>
+          <h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>
+        </div>
+      </div>
+      <div class="row">
       <highchart config="instanceStatisticGraphConfig"></highchart>
+      </div>
     </div>
-
 
   </div>
 
@@ -95,9 +110,15 @@
        md-swipe-left="next()"
        md-swipe-right="previous()" >
     <md-list>
-      <md-item ng-repeat="volunteer in opportunity.past_volunteers">
-        {{volunteer.first_name}}
-      </md-item>
+      <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.volunteers">
+        <div class="md-list-item-text opportunity-volunteer-list">
+          <div class="volunteer-text">
+          <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
+          <p>{{volunteer.email}}</p>
+          </div>
+          <h2>{{volunteer.opportunity_hours}}</h2>
+        </div>
+      </md-list-item>
     </md-list>
 
 
@@ -119,12 +140,12 @@
         <email-template-preview></email-template-preview>
       </md-item>
       <md-item>
-      <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
-      <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
-        Registration Form for Opportunity</a>
-      <br>
-      <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
-        Sign In Form for Opportunity</a>
+        <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
+        <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
+          Registration Form for Opportunity</a>
+        <br>
+        <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
+          Sign In Form for Opportunity</a>
       </md-item>
     </md-list>
 

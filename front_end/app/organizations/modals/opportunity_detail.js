@@ -17,10 +17,11 @@ angular.module('voluntrApp')
                                                  $modalInstance, $cacheFactory) {
 
     var addToDashboard = function (instance) {
+      console.log(Date.parse(instance.start_time))
       $scope.instanceStatisticGraphConfig.series[0].data.push
-      ([Date.parse(instance.start_time), Number(instance.instance_hours)]);
+      ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
       $scope.instanceStatisticGraphConfig.series[1].data.push
-      ([Date.parse(instance.start_time), Number(instance.instance_people_count)]);
+      ([Date.parse(instance.end_time), Number(instance.instance_people_count)]);
     };
 
 
@@ -29,6 +30,7 @@ angular.module('voluntrApp')
         $scope.opportunity = data;
         $http.get('api/v1/opportunities/' + id + '/instance_statistics').
           success(function(data) {
+            console.log(data)
             angular.forEach(data, addToDashboard)
           });
         $http.get('api/v1/opportunities/' + id + '/volunteers').
@@ -141,7 +143,8 @@ angular.module('voluntrApp')
       options: {
         chart: {
           type: 'spline',
-          zoomType: "xy"
+          zoomType: "xy",
+          renderTo: 'container'
         }
       },
       xAxis: {
@@ -175,11 +178,10 @@ angular.module('voluntrApp')
       },
       loading: false,
       size: {
-        height: "350"
+        height: "250"
       }
     };
 
-    console.log($scope.instanceStatisticGraphConfig)
 
 
 
