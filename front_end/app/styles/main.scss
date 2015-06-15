@@ -53,6 +53,9 @@ html {
     font-family:'roboto';
     font-weight:300;
     overflow: scroll;
+    .row {
+      margin: 0 0;
+    }
   }
   .snap-content {
     background-color: $background-color;

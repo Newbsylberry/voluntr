@@ -4,10 +4,12 @@
   }
 }
 
+.opportunity-information {
+
+}
+
 .opportunity-dashboard {
-  .row {
-    margin: 0 0;
-  }
+
   .opportunity-dashboard-statistic {
     text-align: center;
   }
@@ -17,6 +19,8 @@
 }
 
 .opportunity-volunteer-list {
+  overflow: auto;
+  height: 284px;
   .volunteer-text {
     display: inline-block;
     h3 {
@@ -32,5 +36,7 @@
     margin-top: 4px;
   }
 }
+
+
 
 

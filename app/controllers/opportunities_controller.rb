@@ -99,6 +99,12 @@ class OpportunitiesController < ApplicationController
     render json: @opportunity.volunteers, each_serializer: PersonSerializer
   end
 
+  def roles
+    @opportunity = Opportunity.find_by_id(params[:id])
+
+    render json: @opportunity.opportunity_roles, each_serializer: OpportunityRoleSerializer
+  end
+
 
   protected
 

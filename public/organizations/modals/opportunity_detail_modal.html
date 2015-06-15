@@ -24,46 +24,50 @@
        md-swipe-left="next()"
        md-swipe-right="previous()" >
 
+    <div class="row opportunity-information">
+      <div class="col-xs-12">
+        <edit-object-directive
+          text_name="name"
+          model-type="opportunity"
+          attribute-name="name"
+          model-id="{{opportunity.id}}"
+          text="{{opportunity.name}}"
+          size="title_text"
 
-    <edit-object-directive
-      text_name="name"
-      model-type="opportunity"
-      attribute-name="name"
-      model-id="{{opportunity.id}}"
-      text="{{opportunity.name}}"
-      size="title_text"
-
-      ></edit-object-directive><br>
+          ></edit-object-directive><br>
 
 
-    <edit-object-directive
-      model-type="opportunity"
-      attribute-name="description"
-      model-id="{{opportunity.id}}"
-      text="{{opportunity.description}}"
-      size="paragraph_text"
+        <edit-object-directive
+          model-type="opportunity"
+          attribute-name="description"
+          model-id="{{opportunity.id}}"
+          text="{{opportunity.description}}"
+          size="paragraph_text"
 
-      ></edit-object-directive><br>
-    <!--<edit-address
-      address="{{opportunity.address}}"
-      zip-code="{{opportunity.zip_code}}"
-      state="{{opportunity.state}}"
-      city="{{opportunity.city}}"
-      model-id="{{opportunity.id}}"
-      address-type="opportunity"
-      >
+          ></edit-object-directive><br>
+        <!--<edit-address
+          address="{{opportunity.address}}"
+          zip-code="{{opportunity.zip_code}}"
+          state="{{opportunity.state}}"
+          city="{{opportunity.city}}"
+          model-id="{{opportunity.id}}"
+          address-type="opportunity"
+          >
 
-    </edit-address>-->
-    <br>
+        </edit-address>-->
+        <br>
 
-    <!--<p style="display: inline-block">Volunteers Required:</p>
-    <edit-object-directive
-      model-type="opportunity"
-      attribute-name="volunteer_goal"
-      model-id="{{opportunity.id}}"
-      text="{{opportunity.volunteer_goal}}"
-      size="subtitle_text"
-      ></edit-object-directive><br>-->
+        <!--<p style="display: inline-block">Volunteers Required:</p>
+        <edit-object-directive
+          model-type="opportunity"
+          attribute-name="volunteer_goal"
+          model-id="{{opportunity.id}}"
+          text="{{opportunity.volunteer_goal}}"
+          size="subtitle_text"
+          ></edit-object-directive><br>-->
+      </div>
+    </div>
+
 
     <div class="opportunity-dashboard">
       <div class="row">
@@ -85,7 +89,7 @@
         </div>
       </div>
       <div class="row">
-      <highchart config="instanceStatisticGraphConfig"></highchart>
+        <highchart config="instanceStatisticGraphConfig"></highchart>
       </div>
     </div>
 
@@ -109,16 +113,27 @@
        ng-switch-when="2"
        md-swipe-left="next()"
        md-swipe-right="previous()" >
-    <a href="" ng-csv="opportunity.volunteers"
-       filename="{{opportunity.name}}_volunteers.csv"
-       csv-header="['Volu ID', '', 'First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
-      Export To CSV</a>
-    <md-list>
+    <div class="row">
+      <div class="col-md-6">
+        <button
+          class="btn btn-default btn-block"
+          ng-csv="getArray()"
+          style="margin-top: 26%;"
+          filename="{{opportunity.name}}_volunteers.csv"
+          csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
+          Export To CSV</button>
+      </div>
+      <div class="col-md-6" style="position: relative">
+        <highchart ng-show="opportunity.opportunity_roles.length != 0" config="opportunityRolesChart"></highchart>
+      </div>
+
+    </div>
+    <md-list class="opportunity-volunteer-list">
       <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.volunteers">
-        <div class="md-list-item-text opportunity-volunteer-list">
+        <div class="md-list-item-text">
           <div class="volunteer-text">
-          <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
-          <p>{{volunteer.email}}</p>
+            <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
+            <p>{{volunteer.email}}</p>
           </div>
           <h2>{{volunteer.opportunity_hours}}</h2>
         </div>
