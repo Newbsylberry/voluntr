@@ -429,6 +429,12 @@ module.exports = function (grunt) {
             cwd: 'bower_components/kendo-ui-core/styles/',
             src: 'images/*',
             dest: '<%= yeoman.dist %>/styles/'
+          },
+          {
+            expand: true,
+            cwd: 'bower_components/kendo-ui-core/styles/',
+            src: 'Default/*',
+            dest: '<%= yeoman.dist %>/styles/'
           }]
       },
       styles: {
