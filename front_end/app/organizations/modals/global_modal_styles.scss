@@ -18,6 +18,18 @@ md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
   width: 100%;
     position: fixed;
   z-index: 1000;
+    top:0px;
+    transform: none;
+}
+
+.modal-content{
+    overflow: scroll!important;
+    position: relative;
+
+}
+
+.tabbutton{
+    float:right;
 }
 
 .diacontent{
@@ -86,10 +98,12 @@ padding-top: 60px;
   color:#fff;}
 
 .siright{float:left;
-  width:650px;
+  width:649px;
   padding:20px;
 }
 .fixer{clear:both;}
+
+.md-select-label{width:100% !important;}
 
 .siright input[type="text"]{
   border: none;
