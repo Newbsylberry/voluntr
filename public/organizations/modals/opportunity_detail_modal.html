@@ -1,5 +1,6 @@
 <!-- Tabs Menu -->
-<md-tabs class="md-accent" md-selected="data.selectedIndex">
+<div class="tabfix">
+<md-tabs class="md-primary" md-selected="data.selectedIndex">
   <md-tab id="tab1" aria-controls="tab1-content">
     Dashboard
   </md-tab>
@@ -13,10 +14,11 @@
     Additional Information
   </md-tab>
 </md-tabs>
+</div>
 
 <!-- Event Information -->
 <ng-switch on="data.selectedIndex" class="tabpanel-container">
-
+<md-content class="md-padding diacontent">
 
   <div role="tabpanel"
        aria-labelledby="tab1"
@@ -169,5 +171,6 @@
     </md-list>
 
   </div>
+    </md-content>
 </ng-switch>
 

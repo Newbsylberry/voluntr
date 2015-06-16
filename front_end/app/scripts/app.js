@@ -48,6 +48,13 @@ angular
   })
 
 
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('pink')
+    .warnPalette('red');
+})
+
 
   .config(function(FacebookProvider, ENV) {
     // Set your appId through the setAppId method or

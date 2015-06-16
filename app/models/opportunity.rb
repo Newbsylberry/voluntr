@@ -32,21 +32,23 @@ class Opportunity < ActiveRecord::Base
     person_opportunities.each do |p|
       @opportunity_volunteers.push(Person.find(p.person_id))
     end
-    recorded_hours.each do |d|
-      if d.person
-        if @opportunity_volunteers.include?(d.person)
-          existing_volunteers = @opportunity_volunteers.select { |ov| ov.id == d.person_id }
+    recorded_hours.each do |rh|
+      if rh.person
+        if @opportunity_volunteers.include?(rh.person)
+          existing_volunteers = @opportunity_volunteers.select { |ov| ov.id == rh.person_id }
           existing_volunteers.each do |ev|
             if ev.opportunity_hours
-              ev.opportunity_hours += d.hours
+              ev.opportunity_hours += rh.hours
             else
-              ev.opportunity_hours = d.hours
+              ev.opportunity_hours = rh.hours
             end
           end
         else
-          d.person.opportunity_hours = d.hours
-          d.person.opportunity_role = d.hours.opportunity_role.name
-          @opportunity_volunteers.push(d.person)
+          rh.person.opportunity_hours = rh.hours
+          if rh.opportunity_role
+            rh.person.opportunity_role = rh.opportunity_role.name
+          end
+          @opportunity_volunteers.push(rh.person)
         end
       end
     end
