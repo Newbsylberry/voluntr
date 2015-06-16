@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
   has_many :person_opportunities
   has_many :opportunities, through: :person_opportunities
 
-  attr_accessor :opportunity_hours, :opportunity_instances_count
+  attr_accessor :opportunity_hours, :opportunity_instances_count, :opportunity_role, :opportunity_photo_consent
 
   validates :email, uniqueness: true
 

@@ -45,6 +45,7 @@ class Opportunity < ActiveRecord::Base
           end
         else
           d.person.opportunity_hours = d.hours
+          d.person.opportunity_role = d.hours.opportunity_role.name
           @opportunity_volunteers.push(d.person)
         end
       end
