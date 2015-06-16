@@ -426,9 +426,9 @@ module.exports = function (grunt) {
         },
           {
             expand: true,
-            cwd: '.',
-            src: 'bower_components/kendo-ui-core/styles/images/*',
-            dest: '<%= yeoman.dist %>'
+            cwd: 'bower_components/kendo-ui-core/styles/',
+            src: 'images/*',
+            dest: '<%= yeoman.dist %>/styles/'
           }]
       },
       styles: {
