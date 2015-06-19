@@ -22,8 +22,13 @@ Rails.application.routes.draw do
       resources :user_event_hours, except: [:new, :edit], defaults: {format: :json}
       resources :opportunities, except: [:new, :edit], defaults: {format: :json}
       match '/organizations/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
+
+      # People Routes
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
+      match '/people/:id/recorded_hours', to: 'people#recorded_hours', via: :get, defaults: {format: :json}
+
+      # Organization Routes
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
       match '/organizations/:id/authorization', to: 'organizations#log_in', via: :get, defaults: {format: :json}
       match '/organizations/:id/daily_statistics', to: 'organizations#daily_statistics', via: :get, defaults: {format: :json}
@@ -32,6 +37,8 @@ Rails.application.routes.draw do
       match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
+
+      # Opportunities Routes
       match '/opportunities/:id/volunteers', to: 'opportunities#volunteers', via: :get, defaults: {format: :json}
       match '/opportunities/:id/instance', to: 'opportunities#opportunity_instance', via: :get, defaults: {format: :json}
       match '/opportunities/:id/recorded_hours', to: 'opportunities#recorded_hours', via: :get, defaults: {format: :json}

@@ -9,12 +9,13 @@
  */
 angular.module('voluntrApp')
   .controller('PeopleHomeCtrl', function ($scope, Facebook, $http, $stateParams, $modal) {
+
     $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
       success(function(data, status, headers, config) {
          $scope.people = data;
       }).
       error(function(data, status, headers, config) {
-        console.log(data)
+
       });
 
 

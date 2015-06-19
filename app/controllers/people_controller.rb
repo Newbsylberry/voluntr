@@ -28,14 +28,29 @@ class PeopleController < ApplicationController
         @organization_person.save
     end
 
+
     @person.save
     render json: @person, serializer: PersonSerializer
+  end
+
+  def update
+    @person = Person.find(params[:id])
+
+    @person.update_columns(person_params)
+
+    render json: @person
   end
 
   def opportunities
     @person = Person.find(params[:id])
 
     render json: @person.opportunities, each_serializer: OpportunitySerializer
+  end
+
+  def recorded_hours
+    @person = Person.find(params[:id])
+
+    render json: @person.recorded_hours, each_serializer: RecordedHourSerializer
   end
 
 

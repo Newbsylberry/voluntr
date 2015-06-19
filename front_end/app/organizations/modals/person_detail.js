@@ -14,6 +14,11 @@ angular.module('voluntrApp')
     People.get({person_Id: id}, function(successResponse) {
       $scope.person = successResponse;
 
+      People.recorded_hours(id, 'recorded_hours').$promise.then(function(recorded_hours) {
+        console.log(recorded_hours)
+        $scope.person.recorded_hours = recorded_hours;
+      });;
+
       $http.get('api/v1/people/' + successResponse.id + '/opportunities' ).
         success(function(data, status, headers, config) {
 

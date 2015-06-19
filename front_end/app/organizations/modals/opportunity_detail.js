@@ -17,7 +17,6 @@ angular.module('voluntrApp')
                                                  $modalInstance, $cacheFactory, $timeout) {
 
     var addToDashboard = function (instance) {
-      console.log(Date.parse(instance.start_time))
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
       $scope.instanceStatisticGraphConfig.series[1].data.push
@@ -25,7 +24,6 @@ angular.module('voluntrApp')
     };
 
     var addToRolePieChart = function (role) {
-      console.log(role)
       $scope.opportunityRolesChart.series[0].data.push
       ([role.name, role.total_recorded_hours]);
     };
@@ -47,7 +45,6 @@ angular.module('voluntrApp')
             $scope.opportunity.opportunity_roles = data;
             angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
           });
-        console.log($scope.opportunity.instances_statistics)
         $cacheFactory.current_calendar = {};
         $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
         $cacheFactory.current_calendar.id = $scope.opportunity.id;

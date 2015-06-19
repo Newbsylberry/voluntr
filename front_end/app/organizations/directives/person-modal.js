@@ -1,8 +1,6 @@
 angular.module('voluntrApp').directive("personModal", function ($modal) {
     link: function link(scope, element, attrs) {
       element.bind('click', function () {
-        console.log(attrs)
-        console.log("HELLLOOOO WORLD!")
         var personDetailModal = $modal.open(
           {
             templateUrl: 'organizations/modals/person_detail_modal.html',

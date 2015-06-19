@@ -5,14 +5,22 @@
     <md-list class="home-person-list">
       <md-list-item
         class="md-3-line"
-        ng-repeat="person in people">
+        ng-repeat="person in people | orderBy : 'first_name'">
         <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-             class="face" alt="{{item.who}}" />
-        <div class="md-list-item-text" person-modal size="lg" id={{person.id}}>
+             class="face"
+             alt="{{item.who}}"
+             width="50"
+             height="50"
+          />
+        <div
+          person-modal
+          class="md-list-item-text"
+          size="lg"
+          id={{person.id}}>
           <h3>{{person.first_name}} {{person.last_name}}</h3>
           <h1>{{person.total_recorded_hours}}</h1>
-         <!-- <h4>{{ item.what }}</h4>
-          <p>{{ item.notes }}</p> -->
+          <!-- <h4>{{ item.what }}</h4>
+           <p>{{ item.notes }}</p> -->
         </div>
       </md-list-item>
     </md-list>

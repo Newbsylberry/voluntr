@@ -1,13 +1,60 @@
-<img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
-     class="face">
-<h2>{{person.first_name}} {{person.last_name}}</h2>
-<md-list>
-  <md-item ng-repeat="opportunity in person.opportunities">
-    <md-item-content>
-      <div class="md-tile-content">
-        <h3>{{opportunity.name}}</h3>
-        <h4>Some important notes here</h4>
+<md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+  <md-tab id="tab1">
+    <md-tab-label>Dashboard</md-tab-label>
+    <md-tab-body>
+      <!--  -->
+      <div class="row person-information">
+        <div class="col-md-3">
+          <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
+               class="face">
+        </div>
+        <div class="col-md-9">
+          <h2>{{person.first_name}} {{person.last_name}}</h2>
+          <edit-address
+            address="{{person.address}}"
+            zip-code="{{person.zip_code}}"
+            state="{{person.state}}"
+            city="{{person.city}}"
+            model-id="{{person.id}}"
+            address-type="person"
+            >
+          </edit-address>
+        </div>
       </div>
-    </md-item-content>
-  </md-item>
-</md-list>
+      <div class="row person-dashboard">
+
+      </div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab2">
+    <md-tab-label>Opportunities</md-tab-label>
+    <md-tab-body>
+      <md-list>
+        <md-item ng-repeat="opportunity in person.opportunities">
+          <md-item-content>
+            <div class="md-tile-content">
+              <h3>{{opportunity.name}}</h3>
+              <h4>Some important notes here</h4>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab3">
+    <md-tab-label>Recorded Hours</md-tab-label>
+    <md-tab-body>
+
+
+
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab4">
+    <md-tab-label>Additional Information</md-tab-label>
+    <md-tab-body>
+
+
+
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
