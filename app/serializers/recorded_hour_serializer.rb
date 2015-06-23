@@ -1,7 +1,6 @@
 class RecordedHourSerializer < ActiveModel::Serializer
   attributes :id, :person_id, :opportunity_id, :hours, :person, :opportunity,
-             :description
-
+             :description, :date_recorded
 
   def person
     Person.find_by_id(person_id)
