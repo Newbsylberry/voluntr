@@ -4,4 +4,39 @@
   }
 }
 
+.opportunity-information {
+
+}
+
+.opportunity-dashboard {
+
+  .opportunity-dashboard-statistic {
+    text-align: center;
+  }
+  .opportunity-dashboard-label {
+    text-align: center;
+  }
+}
+
+.opportunity-volunteer-list {
+  overflow: auto;
+  height: 284px;
+  .volunteer-text {
+    display: inline-block;
+    h3 {
+      float: left;
+    }
+    p {
+      float: left;
+      clear: left;
+    }
+  }
+  h2 {
+    float: right;
+    margin-top: 4px;
+  }
+}
+
+
+
 

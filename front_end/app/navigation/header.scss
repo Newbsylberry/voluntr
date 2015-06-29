@@ -12,7 +12,7 @@ input {
    font-size: 16pt;
     display: block;
     margin: 0px auto;
-    width: 984px;
+    width: 1000px;
     font-size: 16pt;
     @include placeholder-color($primary);
     @include breakpoint($medium) {

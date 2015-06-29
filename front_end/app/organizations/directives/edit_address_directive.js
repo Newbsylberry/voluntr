@@ -11,16 +11,15 @@ angular.module('voluntrApp').directive("editAddress", function () {
       addressType: '@'
     },
     restrict: 'E',
-    controller: function ($scope, Opportunity) {
+    controller: function ($scope, Opportunity, People) {
 
-      $scope.editing=false;
+      $scope.editing = false;
 
       $scope.editAddress = function() {
         $scope.editing = true;
       };
 
       $scope.saveAddress = function() {
-        $scope.editing = false;
         var attr = {};
         attr.id = $scope.modelId;
         attr.address = $scope.address;
@@ -29,7 +28,10 @@ angular.module('voluntrApp').directive("editAddress", function () {
         attr.state = $scope.state;
         if ($scope.addressType === "opportunity") {
           Opportunity.update(attr);
+        } else if ($scope.addressType == "person") {
+          People.update(attr);
         }
+        $scope.editing = false;
       };
 
 

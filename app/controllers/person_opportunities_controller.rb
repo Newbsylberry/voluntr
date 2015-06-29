@@ -59,7 +59,7 @@ class PersonOpportunitiesController < ApplicationController
                                                      Opportunity.find(@person_opportunity.opportunity_id)).deliver
     end
 
-    respond_with @person_opportunity
+    render @person_opportunity
     end
 
 

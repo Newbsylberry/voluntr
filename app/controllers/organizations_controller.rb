@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate, except: [:log_in, :existence_check, :opportunities, :create]
-  require_dependency ("#{Rails.root}/lib/schedule_params.rb")
+  require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
   # GET /organizations/1
   # GET /organizations/1.json
   def show
@@ -82,9 +82,6 @@ class OrganizationsController < ApplicationController
   def opportunities
     @organization = Organization.find(params[:id])
 
-
-
-    puts SchedulerTool.list_of_instances(@organization, params[:start], params[:end]).count
 
     render json: SchedulerTool.list_of_instances(@organization, params[:start], params[:end]),
            each_serializer: OpportunitySerializer

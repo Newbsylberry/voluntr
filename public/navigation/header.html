@@ -12,8 +12,8 @@
      ng-click="back(); search_filter.query = ''"
      ><a href="">Back</a>
   </i>
-  <input type="text"
+  <input class="searchbar" type="text"
          ui-sref="organizations.organization_search({organization_Id:organization_id})"
          ng-model="search_filter.query"
-         placeholder="Search for anything...">
+         placeholder="Search for anything..."></input>
 </div>

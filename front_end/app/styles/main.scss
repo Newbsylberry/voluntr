@@ -22,6 +22,7 @@ Modal Styles
 @import "../organizations/modals/add_opportunity_window.scss";
 @import "../organizations/modals/record_hours_modal.scss";
 @import "../organizations/modals/add_resources.scss";
+@import "../organizations/modals/person_detail.scss";
 
 
 /************************************************************
@@ -53,6 +54,9 @@ html {
     font-family:'roboto';
     font-weight:300;
     overflow: scroll;
+    .row {
+      margin: 0 0;
+    }
   }
   .snap-content {
     background-color: $background-color;
@@ -76,6 +80,15 @@ md-tab {
 }
 
 
+.centered-container{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    overflow: scroll;
+    z-index: -10;
+}
+
 .centered-container {
   .top {
     background-color: $primary;
@@ -84,7 +97,7 @@ md-tab {
   .content {
     width: 1000px;
     position: relative;
-    bottom: 11em;
+    top:120px;
     /* height: 560px; */
     overflow: scroll;
     overflow-y: auto;

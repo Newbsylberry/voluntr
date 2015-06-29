@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="bower_components/ng-mfb/mfb/src/mfb.css" />
   <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
   <link rel="stylesheet" href="bower_components/md-date-time/dist/md-date-time.css" />
-  <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css" />
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
   <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
@@ -105,8 +105,8 @@
 <script src="bower_components/kendo-ui-core/js/kendo.ui.core.min.js"></script>
 <script src="bower_components/ng-mfb/src/mfb-directive.js"></script>
 <script src="bower_components/md-date-time/dist/md-date-time.js"></script>
-<script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
-<script src="bower_components/fullcalendar/fullcalendar.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
 <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
 <script src="bower_components/angular-duration-format/dist/angular-duration-format.js"></script>
 <script src="bower_components/snapjs/snap.js"></script>
@@ -120,7 +120,6 @@
 <script src="bower_components/jszip/dist/jszip.js"></script>
 <script src="bower_components/js-xlsx/dist/xlsx.js"></script>
 <script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
-<script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/pikaday/pikaday.js"></script>
 <script src="bower_components/handsontable/dist/handsontable.full.js"></script>
 <script src="bower_components/ngHandsontable/dist/ngHandsontable.js"></script>
@@ -144,11 +143,13 @@
 <script src="bower_components/angulartics/src/angulartics-marketo.js"></script>
 <script src="bower_components/angulartics/src/angulartics-intercom.js"></script>
 <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+<script src="bower_components/ng-idle/angular-idle.js"></script>
+<script src="bower_components/ng-csv/build/ng-csv.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 
-<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="scripts/xlsx-reader.js"></script>
@@ -203,7 +204,6 @@
 
 <!-- Volunteer Controllers -->
 <script src="volunteers/volunteerhome.js"></script>
-<script src="volunteers/landing_page_volunteer.js"></script>
 
 <script src="scripts/services/people.js"></script>
 
@@ -224,16 +224,20 @@
 <script src="organizations/modals/confirm_opportunity_sign_in.js"></script>
 <script src="organizations/modals/edit_schedule.js"></script>
 <script src="organizations/modals/add_resource.js"></script>
+<script src="organizations/modals/open_email_preview.js"></script>
+
 
 <!-- Directives -->
 <script src="scripts/directives/window-scroll-watch.js"></script>
-<script src="scripts/directives/person-modal.js"></script>
-<script src="scripts/directives/opportunity-modal.js"></script>
+<script src="organizations/directives/person-modal.js"></script>
+<script src="organizations/directives/opportunity-modal.js"></script>
 <script src="organizations/directives/edit_link_directive.js"></script>
 <script src="organizations/directives/object_schedule_directive.js"></script>
 <script src="organizations/directives/schedule_form_directive.js"></script>
 <script src="organizations/directives/edit_address_directive.js"></script>
 <script src="organizations/directives/add_resources.js"></script>
+<script src="organizations/directives/organization_email_template.js"></script>
+<script src="organizations/directives/recorded_hour.js"></script>
 
 
 <!-- endbuild -->

@@ -11,8 +11,12 @@ angular.module('voluntrApp')
   .factory('People', ['$resource', function($resource) {
     function People() {
       this.service = $resource('/api/v1/people/:person_Id', //location of resource, tells it to look for ID
-        {organization_Id: '@id'}, {update: {method: 'PATCH'}}); // sets ID variable, and update method (patch)
-    }
+        {
+          person_Id: '@id'}, {
+          update: {method: 'PATCH'},
+          person_object: {method: 'GET', url:'/api/v1/people/:person_Id/:object', isArray: true}
+        })}; // sets ID variable, and update method (patch)
+
 
 
     // Loads all Organization records served up at /api/organizations
@@ -38,6 +42,14 @@ angular.module('voluntrApp')
     People.prototype.delete = function(pId) {
       return this.service.remove({person_Id: pId});
     };
+
+    People.prototype.recorded_hours = function(pId, obj) {
+      return this.service.person_object({person_Id: pId,object: obj})
+    }
+
+    People.prototype.opportunities = function(pId, obj) {
+      return this.service.person_object({person_Id: pId,object: obj})
+    }
 
     // AngularJS will instantiate a singleton by calling "new" on this function
     return new People;

@@ -17,10 +17,8 @@ angular.module('voluntrApp')
           organization_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
           authorization: {method: 'GET', url:'/api/v1/organizations/:organization_Id/authorization'},
           update: {method: 'PATCH'}
-        } // sets ID variable, and update method (patch)
+        })}; // sets ID variable, and update method (patch)
 
-        );
-    }
 
 
     // Loads all Organization records served up at /api/organizations

@@ -7,7 +7,7 @@
       $scope.addVolunteerOpportunity = function (size) {
         var organizationEventModal = $modal.open(
           {
-            templateUrl: 'organizations/modals/organization_add_position_modal.html',
+            templateUrl: 'organizations/modals/organization_add_opportunity_modal.html',
             controller: 'AddOpportunityCtrl',
             windowClass: 'add-event-modal-window',
             size: size
@@ -19,7 +19,26 @@
           function () {
             console.log('Modal dismissed at: ' + new Date());
           });
+
       };
+
+      $scope.recordHours = function (size) {
+        var recordHoursModal = $modal.open(
+          {
+            templateUrl: 'organizations/modals/record_hours_modal.html',
+            controller: 'RecordHoursCtrl',
+            windowClass: 'add-event-modal-window',
+            size: size
+          });
+
+        recordHoursModal.result.then(function () {
+
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
+      }
+
 
 
 
@@ -40,23 +59,7 @@
           });
       }
 
-      $scope.recordHours = function (size) {
-        var recordHoursModal = $modal.open(
-          {
-            templateUrl: 'organizations/modals/record_hours_modal.html',
-            // scope: ,
-            controller: 'RecordHoursCtrl',
-            windowClass: 'add-event-modal-window',
-            size: size
-          });
 
-        recordHoursModal.result.then(function () {
-
-          },
-          function () {
-            console.log('Modal dismissed at: ' + new Date());
-          });
-      }
 
 
     });

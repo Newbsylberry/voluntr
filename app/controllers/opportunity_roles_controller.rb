@@ -1,0 +1,2 @@
+class OpportunityRolesController < ApplicationController
+end

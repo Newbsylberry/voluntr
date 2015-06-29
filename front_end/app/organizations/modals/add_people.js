@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('AddPeopleCtrl', function ($scope, Facebook, $stateParams,
-                                         $http, $state, People, $modal) {
+                                         $http, $state, People, $modalInstance) {
 
     // Code for the modal
     $scope.newPerson = {};
@@ -27,7 +27,8 @@ angular.module('voluntrApp')
       attr.zip_code = $scope.newPerson.zip_code;
       attr.organization_id = $stateParams.organization_Id;
       var newPerson = People.create(attr)
-      $modal.close();
+      $modalInstance.dismiss('cancel');
+
     };
 
     $scope.matchedPerson = function (person) {

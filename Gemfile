@@ -21,6 +21,19 @@ group :development do
   gem 'capistrano-resque', '~> 0.2.2', require: false
 end
 
+group :test do
+  gem 'rspec-rails', require: false
+  gem 'rspec-autotest', require: false
+  gem 'guard-rspec', require: false
+  gem "factory_girl_rails", "~> 4.0", require: false
+end
+
+
+
+
+
+
+
 
 gem 'pg'
 
@@ -36,6 +49,7 @@ gem 'resque-scheduler'
 
 gem 'whenever'
 
+gem 'mail', github: 'robin850/mail', branch: 'composition-parts-list'
 
 
 gem "koala", "~> 1.11.0rc"

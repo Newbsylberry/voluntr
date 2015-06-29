@@ -2,7 +2,7 @@ angular.module('voluntrApp')
   .factory('RecordedHours', ['$resource', function($resource) {
     function RecordedHours() {
       this.service = $resource('/api/v1/recorded_hours/:recorded_hours_Id', //location of resource, tells it to look for ID
-        {organization_Id: '@id'}, {update: {method: 'PATCH'}}); // sets ID variable, and update method (patch)
+        {recorded_hours_Id: '@id'}, {update: {method: 'PATCH'}}); // sets ID variable, and update method (patch)
     }
 
 
@@ -27,7 +27,7 @@ angular.module('voluntrApp')
 
     // Calls the destroy function located in app/controllers/communities_controller.rb
     RecordedHours.prototype.delete = function(rId) {
-      return this.service.remove({person_Id: rId});
+      return this.service.remove({recorded_hours_Id: rId});
     };
 
     // AngularJS will instantiate a singleton by calling "new" on this function

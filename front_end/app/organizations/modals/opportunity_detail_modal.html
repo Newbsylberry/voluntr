@@ -1,156 +1,159 @@
-<!-- Tabs Menu -->
-<md-tabs class="md-accent" md-selected="data.selectedIndex">
-  <md-tab id="tab1" aria-controls="tab1-content">
-    Dashboard
-  </md-tab>
-  <md-tab id="tab2" aria-controls="tab2-content">
-    Scheduler
-  </md-tab>
-  <md-tab id="tab3" aria-controls="tab3-content">
-    Add Volunteers
-  </md-tab>
-  <md-tab id="tab4" aria-controls="tab4-content">
-    Additional Information
-  </md-tab>
-</md-tabs>
+<md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
-<!-- Event Information -->
-<ng-switch on="data.selectedIndex" class="tabpanel-container">
+  <!-- Event Information -->
+  <md-tab id="tab1">
+    <md-tab-label>Dashboard</md-tab-label>
+    <md-tab-body>
+      <div class="row opportunity-information">
+        <div class="col-xs-12">
+          <edit-object-directive
+            text_name="name"
+            model-type="opportunity"
+            attribute-name="name"
+            model-id="{{opportunity.id}}"
+            text="{{opportunity.name}}"
+            size="title_text"
 
-
-  <div role="tabpanel"
-       aria-labelledby="tab1"
-       ng-switch-when="0"
-       md-swipe-left="next()"
-       md-swipe-right="previous()" >
+            ></edit-object-directive><br>
 
 
-    <edit-object-directive
-      text_name="name"
-      model-type="opportunity"
-      attribute-name="name"
-      model-id="{{opportunity.id}}"
-      text="{{opportunity.name}}"
-      size="title_text"
+          <edit-object-directive
+            model-type="opportunity"
+            attribute-name="description"
+            model-id="{{opportunity.id}}"
+            text="{{opportunity.description}}"
+            size="paragraph_text"
 
-      ></edit-object-directive><br>
+            ></edit-object-directive><br>
+          <!--<edit-address
+            address="{{opportunity.address}}"
+            zip-code="{{opportunity.zip_code}}"
+            state="{{opportunity.state}}"
+            city="{{opportunity.city}}"
+            model-id="{{opportunity.id}}"
+            address-type="opportunity"
+            >
 
+          </edit-address>-->
+          <br>
 
-    <edit-object-directive
-      model-type="opportunity"
-      attribute-name="description"
-      model-id="{{opportunity.id}}"
-      text="{{opportunity.description}}"
-      size="paragraph_text"
-
-      ></edit-object-directive><br>
-    <edit-address
-      address="{{opportunity.address}}"
-      zip-code="{{opportunity.zip_code}}"
-      state="{{opportunity.state}}"
-      city="{{opportunity.city}}"
-      model-id="{{opportunity.id}}"
-      address-type="opportunity"
-      >
-
-    </edit-address>
-    <br>
-
-    <p style="display: inline-block">Volunteers Required:</p>
-    <edit-object-directive
-      model-type="opportunity"
-      attribute-name="volunteer_goal"
-      model-id="{{opportunity.id}}"
-      text="{{opportunity.volunteer_goal}}"
-      size="subtitle_text"
-      ></edit-object-directive><br>
-
-
-    <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
-    <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
-      Registration Form for Opportunity</a>
-    <br>
-    <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
-      Sign In Form for Opportunity</a>
-
-
-    <!-- List of Volunteers Who Have Been Registered -->
-    <md-list layout="column" ng-if="opportunity.people.length != 0">
-      <h3>Interested Volunteers:</h3>
-      <md-item ng-repeat="person in opportunity.signed_up_volunteers">
-        <md-item-content>
-          <div class="md-tile-left">
-            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-                 class="face" alt="{{item.who}}">
+          <!--<p style="display: inline-block">Volunteers Required:</p>
+          <edit-object-directive
+            model-type="opportunity"
+            attribute-name="volunteer_goal"
+            model-id="{{opportunity.id}}"
+            text="{{opportunity.volunteer_goal}}"
+            size="subtitle_text"
+            ></edit-object-directive><br>-->
+        </div>
+      </div>
+      <div class="opportunity-dashboard">
+        <div class="row">
+          <div class="col-xs-3">
+            <h2 class="opportunity-dashboard-statistic">{{opportunity.total_recorded_hours}}</h2>
+            <h4 class="opportunity-dashboard-label">Total Hours</h4>
           </div>
-          <div class="md-tile-content">
-            <h3>{{person.first_name}} {{person.last_name}}</h3>
+          <div class="col-xs-3">
+            <h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_recorded_hours}}</h2>
+            <h4 class="opportunity-dashboard-label">Hours This Instance</h4>
           </div>
-          <div class="md-tile-right">
-            Committed?
-            <md-checkbox
-              ng-model="new_volunteer"
-              ng-click="commitVolunteer(person)"
-              aria-label="Committed Volunteer?"
-              style="display: inline-block;">
-
-            </md-checkbox>
+          <div class="col-xs-3">
+            <h2 class="opportunity-dashboard-statistic">{{opportunity.total_people_recording}}</h2>
+            <h4 class="opportunity-dashboard-label">Volunteers</h4>
           </div>
-        </md-item-content>
-      </md-item>
-    </md-list>
+          <div class="col-xs-3">
+            <h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_people_recording}}</h2>
+            <h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>
+          </div>
+        </div>
+        <div class="row">
+          <highchart config="instanceStatisticGraphConfig"></highchart>
+        </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
 
-  </div>
 
   <!-- Opportunity Schedule -->
-  <div role="tabpanel"
-       ng-switch-when="1"
-       md-swipe-left="next()"
-       md-swipe-right="previous()" >
+  <md-tab id="tab2">
+    <md-tab-label>Schedule</md-tab-label>
+    <md-tab-body>
 
-    <object-schedule
-      object-type="opportunity"
-      object="opportunity"
-      ></object-schedule>
+      <object-schedule
+        object-type="opportunity"
+        object="opportunity"
+        ></object-schedule>
 
-  </div>
+    </md-tab-body>
+  </md-tab>
 
-  <div role="tabpanel"
-       id="create-person-record"
-       ng-switch-when="2"
-       md-swipe-left="next()"
-       md-swipe-right="previous()" >
-    <md-list layout="column">
-      <h3>Add Volunteer To Event:</h3>
-      <input ng-model="find_volunteer">
-      <md-item ng-repeat="person in organization_people | filter:find_volunteer">
-        <md-item-content>
-          <div class="md-tile-left">
-            <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-                 class="face" alt="{{item.who}}">
+  <md-tab id="tab3">
+    <md-tab-label>People</md-tab-label>
+    <md-tab-body>
+      <div class="row">
+        <div class="col-md-6">
+          <button
+            class="btn btn-default btn-block"
+            ng-csv="getArray()"
+            style="margin-top: 26%;"
+            filename="{{opportunity.name}}_volunteers.csv"
+            csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
+            Export To CSV</button>
+        </div>
+        <div class="col-md-6" style="position: relative">
+          <highchart ng-show="opportunity.opportunity_roles.length != 0" config="opportunityRolesChart"></highchart>
+        </div>
+
+      </div>
+      <md-list class="opportunity-volunteer-list">
+        <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.volunteers">
+          <div class="md-list-item-text">
+            <div class="volunteer-text">
+              <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
+              <p>{{volunteer.email}}</p>
+            </div>
+            <h2>{{volunteer.opportunity_hours}}</h2>
           </div>
-          <div class="md-tile-content">
-            <h3>{{person.first_name}} {{person.last_name}}</h3>
-            <h4>Some important notes here</h4>
-            <a href="" ng-click="addOpportunityPersonModal('lg', person)" style="float: right;">
-              Add To Opportunity</a>
-          </div>
-        </md-item-content>
-      </md-item>
-    </md-list>
+        </md-list-item>
+      </md-list>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab4">
+    <md-tab-label>Recorded Hours</md-tab-label>
+    <md-tab-body>
+      <md-list>
+        <recorded-hour ng-repeat="recorded_hour in opportunity.recorded_hours"
+                       recorded-hour="recorded_hour"
+                       recorded-hours="opportunity.recorded_hours"
+                       type="opportunity"></recorded-hour>
+      </md-list>
 
-  </div>
+    </md-tab-body>
+  </md-tab>
 
-  <div role="tabpanel"
-       id="additional-resources"
-       ng-switch-when="3"
-       md-swipe-left="next()"
-       md-swipe-right="previous()" >
-    <md-list layout="column">
-      <h2>Resources</h2>
-      <add-resources></add-resources>
-    </md-list>
+  <md-tab id="tab5">
+    <md-tab-label>Resources</md-tab-label>
+    <md-tab-body>
+      <md-list layout="column">
+        <md-item>
+          <h2>Resources</h2>
+          <add-resources></add-resources>
+        </md-item>
+        <md-item>
+          <h2>Opportunity Mailers</h2>
+          <email-template-preview></email-template-preview>
+        </md-item>
+        <md-item>
+          <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
+          <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
+            Registration Form for Opportunity</a>
+          <br>
+          <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
+            Sign In Form for Opportunity</a>
+        </md-item>
+      </md-list>
 
-  </div>
-</ng-switch>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
 

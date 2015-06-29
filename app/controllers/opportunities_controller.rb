@@ -1,7 +1,6 @@
 class OpportunitiesController < ApplicationController
   include IceCube
-  require_dependency ("#{Rails.root}/lib/schedule_params.rb")
-
+  require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 
 
 
@@ -27,11 +26,10 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
 
-    @opportunity.start_time = params[:calendar][:start_time]
+
     if params[:calendar]
       @schedule = ObjectSchedule.new
       @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
-      puts @schedule.schedule
       @schedule.scheduleable = @opportunity
       @schedule.save
     end
@@ -75,6 +73,12 @@ class OpportunitiesController < ApplicationController
     render json: @opportunity
   end
 
+  def recorded_hours
+    @opportunity = Opportunity.find_by_fb_id(params[:fb_id])
+
+    render json: @opportunity.recorded_hours, each_serializer: RecordedHourSerializer
+  end
+
   def opportunity_schedule
     @opportunity = Opportunity.find(params[:id])
 
@@ -82,12 +86,23 @@ class OpportunitiesController < ApplicationController
            each_serializer: OpportunitySerializer
   end
 
+  def instance_statistics
+    @opportunity = Opportunity.find(params[:id])
+
+    render json: @opportunity.instances_statistics, each_serializer: OpportunitySerializer
+  end
 
 
-  def people
+  def volunteers
     @opportunity = Opportunity.find_by_id(params[:id])
 
-    render json: @opportunity.people, each_serializer: PersonSerializer
+    render json: @opportunity.volunteers, each_serializer: PersonSerializer
+  end
+
+  def roles
+    @opportunity = Opportunity.find_by_id(params[:id])
+
+    render json: @opportunity.opportunity_roles, each_serializer: OpportunityRoleSerializer
   end
 
 

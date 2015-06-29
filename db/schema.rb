@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526190436) do
+ActiveRecord::Schema.define(version: 20150606063242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,11 +62,39 @@ ActiveRecord::Schema.define(version: 20150526190436) do
     t.integer  "volunteer_goal"
   end
 
+  create_table "opportunity_roles", force: :cascade do |t|
+    t.integer  "opportunity_id"
+    t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "opportunity_types", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "organization_email_templates", force: :cascade do |t|
+    t.integer  "organization_email_type_id"
+    t.string   "name"
+    t.string   "description"
+    t.text     "introduction_text"
+    t.integer  "marketing_materials"
+    t.integer  "upcoming_events"
+    t.integer  "upcoming_events_period"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "organization_id"
+    t.text     "conclusion_text"
+  end
+
+  create_table "organization_email_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "organization_people", force: :cascade do |t|
@@ -133,6 +161,9 @@ ActiveRecord::Schema.define(version: 20150526190436) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.datetime "date_recorded"
+    t.integer  "opportunity_role_id"
+    t.boolean  "photo_consent"
   end
 
   create_table "user_event_hours", force: :cascade do |t|

@@ -20,7 +20,7 @@
     "angular-bootstrap": "~0.11.2",
     "highcharts-ng": "~0.0.7",
     "angular-scroll": "~0.6.3",
-    "angular-material": "0.8.3",
+    "angular-material": "0.9.8-rc1",
     "kendo-ui-core": "~2014.3.1204",
     "ng-mfb": "~0.3.0",
     "ionicons": "~2.0.1",
@@ -36,7 +36,9 @@
     "js-xlsx": "~0.8.0",
     "ngHandsontable": "https://github.com/handsontable/ngHandsontable.git#~0.5.2",
     "angulartics": "~0.17.2",
-    "ng-file-upload": "~4.2.4"
+    "ng-file-upload": "~4.2.4",
+    "ng-idle": "~1.1.0",
+    "ng-csv": "~0.3.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0",

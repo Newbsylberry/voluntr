@@ -5,7 +5,7 @@
       <a href="" ng-click="open('lg')">Add Additional Data</a><br>
     </md-card-content>
   </md-card>
-  <div class="row">
+  <div class="row"   style="margin: 0 -15px;">
     <div class="col-md-6">
       <md-card>
         <md-card-content class="dashboard-module">
@@ -15,17 +15,9 @@
               ng-repeat="volunteer in organization.contact_volunteers"
               ng-show="organization.contact_volunteers.length !== 0">
               <md-item-content>
-                <div class="md-tile-left">
-                  <img ng-if="!volunteer.fb_id" src="/images/no_image.jpg">
-                </div>
                 <div class="md-tile-content">
-                  <h3 person-modal size="lg" id="{{volunteer.id}}">
-                    {{volunteer.first_name}} {{volunteer.last_name}}</h3>
-                  <h4>Interested in shelter drop off event</h4>
-                </div>
-                <div class="md-tile-right">
-                  <i class="icon ion-email"></i>
-                  <i class="icon ion-ios-telephone"></i>
+                  <h4 person-modal size="lg" id="{{volunteer.id}}">
+                    {{volunteer.first_name}} {{volunteer.last_name}}</h4>
                 </div>
               </md-item-content>
             </md-item>
@@ -43,22 +35,13 @@
         <md-card-content class="dashboard-module">
           <h3>Recently Recorded Hours</h3>
           <md-list layout="column">
-            <md-item
+            <md-list-item
               ng-repeat="recorded_hour in organization.recorded_hours">
-              <md-item-content>
-                <div class="md-tile-left">
-                  <h2>{{recorded_hour.hours}}</h2>
-                </div>
-                <div class="md-tile-content">
-                  <h3 person-modal size="lg" id="{{recorded_hour.person.id}}">
-                    {{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h3>
+                  <h4 person-modal size="lg" id="{{recorded_hour.person.id}}">
+                    {{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h4>
                   <h4>{{recorded_hour.description}}</h4>
-                </div>
-                <div class="md-tile-right">
-
-                </div>
-              </md-item-content>
-            </md-item>
+                  <h2 style="margin-left: 58%;">{{recorded_hour.hours}}</h2>
+            </md-list-item>
           </md-list>
         </md-card-content>
       </md-card>

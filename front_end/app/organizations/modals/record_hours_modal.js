@@ -31,10 +31,10 @@ angular.module('voluntrApp')
         attr.organization_id = $stateParams.organization_Id;
         People.create(attr)
           .$promise.then(function (person) {
-          record_hours_attr.person_id = person.id;
-          var newRecordedHours = RecordedHours.create(record_hours_attr)
+            record_hours_attr.person_id = person.id;
+            var newRecordedHours = RecordedHours.create(record_hours_attr)
             controllerScope.organization.recorded_hours.push(newRecordedHours)
-        })
+          })
         $modalInstance.close();}
       else
       {

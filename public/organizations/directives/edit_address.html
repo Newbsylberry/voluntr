@@ -1,28 +1,42 @@
-<div class="edit-address">
-  <h3 ng-hide="editing">{{address}}</h3>
-  <input type="text"
-         ng-show="editing"
-         ng-model="address">
-  <p ng-hide="editing">{{city}}</p>,
-  <input type="text"
-         ng-show="editing"
-         ng-model="city">
-  <p ng-hide="editing">{{state}}</p><br>
-  <input type="text"
-         ng-show="editing"
-         ng-model="state">
-  <p ng-hide="editing">{{zipCode}}</p>
-  <input type="text"
-         ng-show="editing"
-         ng-model="zipCode">
+<h3 ng-hide="editing">{{address}}</h3>
+<md-input-container flex ng-show="editing">
+    <label>Address</label>
+    <input ng-model="address">
+  </md-input-container>
+
+<!--<md-input-container md-no-float>-->
+    <!--<input ng-model="user.address2" placeholder="Address 2">-->
+  <!--</md-input-container>-->
+
+  <div layout layout-sm="column">
+    <p ng-hide="editing">{{city}}</p>
+    <md-input-container flex ng-show="editing">
+      <label>City</label>
+      <input ng-model="city">
+    </md-input-container>
+    <p ng-hide="editing">{{state}}</p>
+    <md-input-container
+      flex
+      ng-show="editing">
+      <label>State</label>
+      <input ng-model="state">
+    </md-input-container>
+    <p ng-hide="editing">{{zipCode}}</p>
+    <md-input-container flex ng-show="editing">
+      <label>Postal Code</label>
+      <input ng-model="zipCode">
+    </md-input-container>
+  </div>
+
   <a href=""
      ng-hide="editing"
-     ng-click="editAddress()"
-    >Edit</a>
+     ng-click="editAddress()">
+     Edit </a>
+
   <a href=""
      ng-show="editing"
-     ng-click="saveAddress()"
-    >Save</a>
-</div>
+     ng-click="saveAddress()">
+     Save</a>
+
 
 

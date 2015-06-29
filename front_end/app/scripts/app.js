@@ -36,9 +36,24 @@ angular
     "kendo.directives",
     'ngHandsontable',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    'ngIdle',
+    'ngCsv'
   ])
 
+  .config(function(IdleProvider, KeepaliveProvider) {
+    IdleProvider.idle(4);
+    IdleProvider.timeout(6);
+    KeepaliveProvider.interval(10);
+  })
+
+
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('pink')
+    .warnPalette('red');
+})
 
 
   .config(function(FacebookProvider, ENV) {
