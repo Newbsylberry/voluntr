@@ -15,12 +15,32 @@ RSpec.describe Person, "Working with the people model" do
 
   context "When displaying people" do
     before(:each) do
-      @person = create(:person, :with_recorded_hours, email: "newemail@email.com")
+      @person = create(:person, :with_recorded_hours_and_opportunity, email: "newemail@email.com")
     end
 
     it "#total_hours" do
       expect(@person.total_recorded_hours).to eq(3)
     end
+
+    it "#all_related_opportunities" do
+      @opportunities = Array.new
+      @total_hours = 0
+      @opportunity1 = @person.recorded_hours.first.opportunity
+      @opportunity2 = create(:opportunity, name: "New Opportunity")
+      @person.opportunities.push(@opportunity2)
+
+      @person.all_related_opportunities.each do |po|
+        @opportunities.push(po.opportunity)
+        @total_hours += po.total_hours
+      end
+
+
+      expect(@total_hours).to eq(3)
+      expect(@opportunities).to include(@opportunity1 && @opportunity2 && @person.opportunities.first)
+
+    end
+
+    pending "should show only opportunities registered for"
 
   end
 end

@@ -36,11 +36,7 @@ class RecordedHoursController < ApplicationController
   def update
     @recorded_hour = RecordedHour.find(params[:id])
 
-    if @recorded_hours.update(params[:recorded_hours])
-      head :no_content
-    else
-      render json: @recorded_hours.errors, status: :unprocessable_entity
-    end
+    @recorded_hour.update(recorded_hours_params)
   end
 
   # DELETE /events/1
@@ -57,7 +53,7 @@ class RecordedHoursController < ApplicationController
   protected
 
   def recorded_hours_params
-    params.require(:recorded_hour).permit(:opportunity_id,
+    params.require(:recorded_hour).permit(:id, :opportunity_id,
                                             :organization_id, :person_id, :hours, :description,
                                             :opportunity_role_id, :photo_consent, :date_recorded)
   end

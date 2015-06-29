@@ -28,25 +28,33 @@
   </md-tab>
   <md-tab id="tab2">
     <md-tab-label>Opportunities</md-tab-label>
+
+    <!-- The Opportunities Tab -->
     <md-tab-body>
+      <p>Opportunities</p>
       <md-list>
-        <md-item ng-repeat="opportunity in person.opportunities">
+        <md-item ng-repeat="person_opportunity in person.opportunities">
           <md-item-content>
+            <highchart config="personOpportunitiesChart"></highchart>
             <div class="md-tile-content">
-              <h3>{{opportunity.name}}</h3>
-              <h4>Some important notes here</h4>
+              <h3>{{person_opportunity.opportunity.name}}</h3>
+              <h3>{{person_opportunity.total_hours}}</h3>
             </div>
           </md-item-content>
         </md-item>
       </md-list>
     </md-tab-body>
   </md-tab>
+
   <md-tab id="tab3">
     <md-tab-label>Recorded Hours</md-tab-label>
     <md-tab-body>
-
-
-
+      <md-list>
+        <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
+                       recorded-hour="recorded_hour"
+                       recorded-hours="person.recorded_hours"
+                       type="person"></recorded-hour>
+      </md-list>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab4">

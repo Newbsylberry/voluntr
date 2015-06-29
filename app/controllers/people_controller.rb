@@ -44,7 +44,7 @@ class PeopleController < ApplicationController
   def opportunities
     @person = Person.find(params[:id])
 
-    render json: @person.opportunities, each_serializer: OpportunitySerializer
+    render json: @person.all_related_opportunities, each_serializer: PersonOpportunitySerializer
   end
 
   def recorded_hours

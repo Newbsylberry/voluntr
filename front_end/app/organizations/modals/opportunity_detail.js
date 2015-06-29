@@ -32,19 +32,25 @@ angular.module('voluntrApp')
     $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
       success(function(data, status, headers, config) {
         $scope.opportunity = data;
-        $http.get('api/v1/opportunities/' + id + '/instance_statistics').
-          success(function(data) {
-            angular.forEach(data, addToDashboard)
-          });
-        $http.get('api/v1/opportunities/' + id + '/volunteers').
-          success(function(data) {
-            $scope.opportunity.volunteers = data;
-          });
-        $http.get('api/v1/opportunities/' + id + '/roles').
-          success(function(data) {
-            $scope.opportunity.opportunity_roles = data;
-            angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
-          });
+        Opportunity.instance_statistics(id, 'instance_statistics').$promise.then(function(instance_statistics) {
+          angular.forEach(instance_statistics, addToDashboard)
+        });
+
+        Opportunity.volunteers(id, 'volunteers').$promise.then(function(volunteers) {
+          $scope.opportunity.volunteers = volunteers;
+        });
+
+        Opportunity.roles(id, 'roles').$promise.then(function(roles) {
+          $scope.opportunity.opportunity_roles = roles;
+          angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
+        });
+
+        Opportunity.roles(id, 'recorded_hours').$promise.then(function(recorded_hours) {
+          console.log(recorded_hours)
+          $scope.opportunity.recorded_hours = recorded_hours;
+        });
+
+
         $cacheFactory.current_calendar = {};
         $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
         $cacheFactory.current_calendar.id = $scope.opportunity.id;
@@ -155,92 +161,6 @@ angular.module('voluntrApp')
         function () {
           console.log('Modal dismissed at: ' + new Date());
         });
-    };
-
-    $scope.instanceStatisticGraphConfig = {
-      options: {
-        chart: {
-          type: 'spline',
-          zoomType: "xy",
-          renderTo: 'container'
-        }
-      },
-      xAxis: {
-        type: 'datetime',
-        title: {
-          text: 'Date'
-        }
-      },
-      yAxis: {
-        allowDecimals: false,
-        floor: 0
-        //plotLines: [{
-        //  value: 0,
-        //  width: 1,
-        //  color: '#808080'
-        //}]
-      },
-      series: [
-        {
-          name: 'Recorded Hours',
-          data: []
-        },
-        {
-          name: 'People Recording',
-          data: []
-
-        }
-      ],
-      title: {
-        text: "Opportunity Dashboard"
-      },
-      loading: false,
-      size: {
-        height: "250"
-      }
-    };
-
-    $scope.instanceStatisticGraphConfig = {
-      options: {
-        chart: {
-          type: 'spline',
-          zoomType: "xy",
-          renderTo: 'container'
-        }
-      },
-      xAxis: {
-        type: 'datetime',
-        title: {
-          text: 'Date'
-        }
-      },
-      yAxis: {
-        allowDecimals: false,
-        floor: 0
-        //plotLines: [{
-        //  value: 0,
-        //  width: 1,
-        //  color: '#808080'
-        //}]
-      },
-      series: [
-        {
-          name: 'Recorded Hours',
-          data: []
-        },
-        {
-          name: 'People Recording',
-          data: []
-
-        }
-      ],
-      title: {
-        text: "Opportunity Dashboard"
-      },
-      loading: false,
-      size: {
-        height: "250"
-      }
     };
 
     $scope.instanceStatisticGraphConfig = {
