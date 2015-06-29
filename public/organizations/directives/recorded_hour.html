@@ -1,0 +1,19 @@
+
+<h4 ng-show="type !== 'person'">{{recordedHour.person.first_name}} {{recordedHour.person.last_name}}</h4>
+<h4 ng-show="type !== 'opportunity'">{{recordedHour.opportunity.name}}</h4>
+<h4>{{recordedHour.description}}</h4>
+<h4 ng-show="!editing">{{recordedHour.opportunity_role.name}}</h4>
+<select
+  ng-show="editing"
+  class="form-control"
+  ng-model="recordedHour.opportunity_role"
+  ng-options="opportunity_role.name for opportunity_role in recordedHour.opportunity_roles">
+  <option value="">-- Select Your Role --</option>
+</select>
+<h2 ng-show="!editing">{{recordedHour.hours}}</h2>
+<a ng-show="!editing"href="" ng-click="editing = true">Edit</a>
+<input ng-show="editing" type="number" ng-model="recordedHour.hours">
+<a ng-show="editing"href="" ng-click="saveRecordedHours(recordedHour)">Save</a>
+|
+<a ng-show="!editing" href="" ng-click="deleteRecordedHour(recordedHour)">Delete</a>
+-------
