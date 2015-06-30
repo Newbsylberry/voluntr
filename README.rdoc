@@ -1,9 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* For OSX Yosemite (Ubuntu users, you're on your own)
 
-Things you may want to cover:
+* Install Homebrew and RVM
+    
+    ** Homebrew
+    *** ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+    ** RVM
+    *** brew install gnupg gnupg2
+    *** gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    *** \curl -sSL https://get.rvm.io | bash -s stable --ruby
+    
+    
+
 
 * Back End Versions
 
