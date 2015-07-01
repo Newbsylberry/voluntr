@@ -4,12 +4,14 @@
   width: 100%;
   position: fixed;
   padding-top: 33px;
-  
-input {
-        display: block;
-  margin: 0px auto;
-  height: auto;
-   font-size: 16pt;
+  .black {
+    background-color: black;
+  }
+  input {
+    display: block;
+    margin: 0px auto;
+    height: auto;
+    font-size: 16pt;
     display: block;
     margin: 0px auto;
     width: 984px;

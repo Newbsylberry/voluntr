@@ -43,21 +43,21 @@ ActiveRecord::Schema.define(version: 20150606063242) do
     t.integer  "string"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                limit: 255
+    t.string   "name"
     t.integer  "opportunity_type_id"
-    t.string   "location",            limit: 255
+    t.string   "location"
     t.text     "description"
-    t.string   "timezone",            limit: 255
+    t.string   "timezone"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "organization_id"
-    t.string   "start_time",          limit: 255
-    t.string   "end_time",            limit: 255
+    t.string   "start_time"
+    t.string   "end_time"
     t.text     "start_schedule"
-    t.string   "color",               limit: 255
-    t.string   "city",                limit: 255
-    t.string   "state",               limit: 255
-    t.string   "zip_code",            limit: 255
+    t.string   "color"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
     t.string   "address"
     t.integer  "volunteer_goal"
   end
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20150606063242) do
   end
 
   create_table "opportunity_types", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,23 +108,23 @@ ActiveRecord::Schema.define(version: 20150606063242) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "fb_id",              limit: 8
-    t.string   "name",               limit: 255
+    t.string   "name"
     t.text     "description"
     t.datetime "last_social_update"
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "fb_id",      limit: 255
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
+    t.string   "fb_id"
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "zip_code",   limit: 255
-    t.string   "state",      limit: 255
-    t.string   "city",       limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "email",      limit: 255
-    t.string   "address",    limit: 255
+    t.string   "zip_code"
+    t.string   "state"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
   end
 
   create_table "person_opportunities", force: :cascade do |t|
@@ -136,19 +136,19 @@ ActiveRecord::Schema.define(version: 20150606063242) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "fb_id",           limit: 255
+    t.string   "fb_id"
     t.text     "message"
-    t.string   "organization_id", limit: 255
+    t.string   "organization_id"
     t.datetime "post_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "likes",           limit: 255
+    t.string   "likes"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -169,23 +169,23 @@ ActiveRecord::Schema.define(version: 20150606063242) do
   create_table "user_event_hours", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "hours"
-    t.string   "description", limit: 255
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

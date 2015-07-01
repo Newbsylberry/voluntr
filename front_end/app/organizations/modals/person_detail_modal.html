@@ -50,10 +50,13 @@
     <md-tab-label>Recorded Hours</md-tab-label>
     <md-tab-body>
       <md-list>
+
         <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
                        recorded-hour="recorded_hour"
                        recorded-hours="person.recorded_hours"
                        type="person"></recorded-hour>
+
+
       </md-list>
     </md-tab-body>
   </md-tab>

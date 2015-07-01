@@ -42,7 +42,6 @@ angular.module('voluntrApp')
 
 
     $(".screen1button").click(function(){
-      console.log("OPEN OPEN")
       $("#login").fadeIn(400);
 
     });
