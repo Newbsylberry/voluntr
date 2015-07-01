@@ -2,15 +2,10 @@
      ng-show="current_state !== 'organizations.registration'"
      ng-controller="HeaderCtrl">
   <i class="icon ion-navicon-round"
-     ng-show="current_state !== 'organizations.organization_search'"
+     ng-show="current_state !== 'organizations.registration'"
      snap-toggle="left">
     </i>
 
-  <i class="icon ion-arrow-left-c"
-     ng-show="current_state === 'organizations.organization_search'"
-     ng-click="back(); search_filter.query = ''"
-     ><a href="">Back</a>
-  </i>
   <input class="searchbar" type="text"
          ui-sref="organizations.organization_search({organization_Id:organization_id})"
          ng-model="search_filter.query"
