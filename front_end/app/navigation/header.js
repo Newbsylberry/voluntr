@@ -1,6 +1,7 @@
 angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window) {
 
+
     $scope.search_filter = searchService.search;
 
     $('.centered-container').scroll(function() {
@@ -13,8 +14,7 @@ angular.module('voluntrApp')
         if (classie.has(header,"smaller")) {
           classie.remove(header,"smaller");
         }
-      }
-      console.log(distanceY)
+      };
     });
 
   });
