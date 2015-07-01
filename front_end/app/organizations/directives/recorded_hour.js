@@ -15,7 +15,9 @@ angular.module('voluntrApp').directive("recordedHour", function () {
         var attr = {};
         attr.id = recorded_hour.id;
         attr.hours = recorded_hour.hours;
+        if (recorded_hour.opportunity_role) {
         attr.opportunity_role_id = recorded_hour.opportunity_role.id;
+        }
         RecordedHours.update(attr)
         $scope.editing = false;
       };
@@ -30,3 +32,5 @@ angular.module('voluntrApp').directive("recordedHour", function () {
     }
   };
 });
+
+

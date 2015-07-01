@@ -3,6 +3,7 @@
   height: 100px;
   width: 100%;
   position: fixed;
+<<<<<<< HEAD
   padding-top: 33px;
   .black {
     background-color: black;
@@ -12,9 +13,18 @@
     margin: 0px auto;
     height: auto;
     font-size: 16pt;
+=======
+  padding-top: 50px;
+  
+input {
+        display: block;
+  margin: 0px auto;
+  height: auto;
+   font-size: 16pt;
+>>>>>>> origin/Newtest
     display: block;
     margin: 0px auto;
-    width: 984px;
+    width: 1000px;
     font-size: 16pt;
     @include placeholder-color($primary);
     @include breakpoint($medium) {

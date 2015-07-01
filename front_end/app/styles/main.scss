@@ -32,6 +32,7 @@ Organization Directive Styles
 /* Details in Opportunity and Person  */
 @import "../organizations/directives/text-element.scss";
 @import "../organizations/directives/edit_address.scss";
+@import "../organizations/directives/recorded_hour.scss";
 
 
 @import "../volunteers/volunteer_home.scss";
@@ -79,6 +80,15 @@ md-tab {
 }
 
 
+.centered-container{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    overflow: scroll;
+    z-index: -10;
+}
+
 .centered-container {
   .top {
     background-color: $primary;
@@ -87,7 +97,7 @@ md-tab {
   .content {
     width: 1000px;
     position: relative;
-    bottom: 11em;
+    top:120px;
     /* height: 560px; */
     overflow: scroll;
     overflow-y: auto;

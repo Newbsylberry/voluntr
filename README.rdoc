@@ -1,9 +1,69 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* For OSX Yosemite (Ubuntu users, you're on your own), this assumes you've set up git, so if you haven't go do that.
 
-Things you may want to cover:
+* After install iterm2, or opening your terminal window, install Homebrew and RVM
+    
+    Homebrew:
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+    RVM:
+        brew install gnupg gnupg2
+        gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+        \curl -sSL https://get.rvm.io | bash -s stable --ruby
+        Follow instructions in terminal to source
+        
+* Next install and start PostgreSQL
+    brew update
+    brew doctor
+    brew install postgres
+    pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+* Time to install and start redis:
+    curl -O http://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz
+    tar -zxvf wget-1.15.tar.gz ; cd wget-1.15/ 
+    ./configure (if error given then ./configure --with-ssl=openss)
+    make ; sudo make install
+    redis-server
+    
+* Using git clone the repository to whatever directory you choose
+
+* Change into that directory and install the applications dependencies
+    cd ~/the/directory/you/chose (pro tip, hit tab when using the terminal to autocomplete paths)
+    bundle install
+    
+* Create and update database structure
+    rake db:create ; rake db:migrate
+    Note: If there are errors, look for a file name, 
+    (e.g. - /Users/yourusername/Documents/voluntr_api/db/migrate/20150406145707_add_organization_id_to_person_opportunity_recorded_hours.rb) and erase the file.
+    
+* Start resque
+    rake resque:work QUEUE='*' INTERVAL=0.5
+    
+* Get the front end framework situated
+    NPM - Click download button at https://nodejs.org/
+    Dependencies - In application root directory, 'cd front_end', then npm install
+    Yeoman - 'sudo npm install -g yo'
+    Grunt - 'sudo npm install -g grunt-cli'
+    Bower - 'sudo npm install -g bower'
+    Compass - 'gem install compass'
+
+* Install bower dependencies
+    In front end directory: "bower install"
+    
+
+    
+    
+    
+    
+
+* Then install Ruby and Rails 
+    rvm install 2.1.2 --default
+    
+        
+    
+    
+
 
 * Back End Versions
 
