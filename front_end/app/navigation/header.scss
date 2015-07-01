@@ -3,25 +3,12 @@
   height: 100px;
   width: 100%;
   position: fixed;
-<<<<<<< HEAD
-  padding-top: 33px;
-  .black {
-    background-color: black;
-  }
+  padding-top: 50px;
   input {
     display: block;
     margin: 0px auto;
     height: auto;
     font-size: 16pt;
-=======
-  padding-top: 50px;
-  
-input {
-        display: block;
-  margin: 0px auto;
-  height: auto;
-   font-size: 16pt;
->>>>>>> origin/Newtest
     display: block;
     margin: 0px auto;
     width: 1000px;
@@ -57,4 +44,8 @@ input {
     height: 50px;
     color: white;
   }
+}
+
+.black {
+  background-color: black;
 }

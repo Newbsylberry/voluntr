@@ -28,7 +28,7 @@ angular.module('voluntrApp')
 
 
     $(window).scroll(function() {
-
+      console.log("HELLO COWBOY")
       stickyNav();
     });
 

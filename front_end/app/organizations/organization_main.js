@@ -3,8 +3,6 @@ angular.module('voluntrApp')
                                                  $http, $state, $filter,
                                                  uiCalendarConfig, $rootScope) {
 
-
-
     $scope.$on("$stateChangeSuccess", function updatePage() {
       $scope.current_state = $state.current.name;
       $rootScope.organization_id = $state.params.organization_Id
