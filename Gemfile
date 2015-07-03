@@ -29,7 +29,8 @@ group :test do
 end
 
 
-
+gem 'httparty'
+gem 'awesome_print'
 
 
 
