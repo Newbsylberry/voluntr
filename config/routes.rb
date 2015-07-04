@@ -29,10 +29,6 @@ Rails.application.routes.draw do
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/people/:id/recorded_hours', to: 'people#recorded_hours', via: :get, defaults: {format: :json}
 
-      # OAuth Response
-      match '/mailchimp_integration', to: 'organizations#mailchimp_integration', via: :get, defaults: {format: :json}
-      match '/mailchimp_oauth_response', to: 'organizations#mailchimp_callback', via: :get, defaults: {format: :json}
-
       # Organization Routes
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
       match '/organizations/:id/authorization', to: 'organizations#log_in', via: :get, defaults: {format: :json}
@@ -42,6 +38,12 @@ Rails.application.routes.draw do
       match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
+
+
+      # email services
+      match '/organizations/:id/mail_chimp_check', to: 'organizations#mail_chimp_check', via: :get, defaults: {format: :json}
+      match '/mailchimp_integration', to: 'organizations_mailing_services##mailchimp_check', via: :get, defaults: {format: :json}
+      match '/mailchimp_oauth_response', to: 'organizations#mailchimp_callback', via: :get, defaults: {format: :json}
 
       # Opportunities Routes
       match '/opportunities/:id/volunteers', to: 'opportunities#volunteers', via: :get, defaults: {format: :json}
