@@ -1,9 +1,7 @@
 
 .application-header {
-  height: 100px;
   width: 100%;
   position: fixed;
-  padding-top: 50px;
   input {
     display: block;
     margin: 0px auto;
@@ -27,9 +25,8 @@
   }
   i {
     font-size: 50px;
-    position: fixed;
+    position: absolute;
     left: 16px;
-    top: 14px;
     color: white;
     a {
       display: inline-block;
@@ -46,6 +43,30 @@
   }
 }
 
-.black {
-  background-color: black;
+.headerpar{
+    padding-top: 85px;
+    background-color: $primary;
 }
+
+
+.headerup{}
+
+.headerimg{    display:block;
+  height: 30px;
+  position: absolute;
+  left: 50px;
+  top: 20px;
+    opacity: 1;
+ -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;}
+
+.red {
+    	 	 -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+    padding-top:16px;
+    padding-bottom: 16px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+}
+
+.black{opacity: 0;}
+
