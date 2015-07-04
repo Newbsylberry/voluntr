@@ -31,7 +31,7 @@ end
 
 gem 'httparty'
 gem 'awesome_print'
-
+gem 'oauth2'
 
 
 
@@ -41,9 +41,6 @@ gem 'pg'
 gem 'devise'
 gem 'jwt'
 gem 'ice_cube'
-
-gem 'omniauth'
-gem 'omniauth-twitter'
 
 gem 'resque', '~> 1.25'
 gem 'resque-scheduler'

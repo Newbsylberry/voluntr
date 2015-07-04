@@ -7,7 +7,7 @@ class Mailchimp
   include HTTParty
   attr_accessor :lists, :campaigns
 
-  def initialize(api_key)
+  def initialize(client_id, client_secret, code)
     # Do we have a valid API Key?
     unless api_key =~ /\w+-\w{3}/
       raise StandardError, "Invalid API Key"

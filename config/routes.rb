@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :organization_mailing_services, except: [:new, :edit]
   resources :opportunity_roles, except: [:new, :edit]
   resources :organization_email_templates, except: [:new, :edit]
   resources :schedules, except: [:new, :edit]
@@ -27,6 +28,10 @@ Rails.application.routes.draw do
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/people/:id/recorded_hours', to: 'people#recorded_hours', via: :get, defaults: {format: :json}
+
+      # OAuth Response
+      match '/mailchimp_integration', to: 'organizations#mailchimp_integration', via: :get, defaults: {format: :json}
+      match '/mailchimp_oauth_response', to: 'organizations#mailchimp_callback', via: :get, defaults: {format: :json}
 
       # Organization Routes
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}

@@ -6,6 +6,7 @@ class Organization < ActiveRecord::Base
   has_many :daily_statistics
   has_many :people, through: :organization_people
   has_many :organization_email_templates
+  has_many :organization_mailing_services
 
 
   after_create do |organization|

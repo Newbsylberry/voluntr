@@ -61,6 +61,10 @@ angular.module('voluntrApp')
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 
+    Organization.prototype.mail_chimp_check = function(oId, obj) {
+      return this.service.organization_object({organization_Id: oId,object: obj})
+    };
+
     Organization.prototype.people = function(oId, obj) {
       return this.service.organization_object({organization_Id: oId,object: obj})
     };

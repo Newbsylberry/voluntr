@@ -1,0 +1,2 @@
+class OrganizationMailingServicesController < ApplicationController
+end
