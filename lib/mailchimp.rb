@@ -1,6 +1,3 @@
-require './lib/mailchimp/'
-
-
 module Mailchimp
 
   def self.client(site)
