@@ -19,10 +19,25 @@ angular.module('voluntrApp')
         + btoa($stateParams.organization_Id)
     };
 
-    Organization.mail_chimp_check
+    //Organization.mail_chimp_check($stateParams.organization_Id, 'mail_chimp_check').$promise.then(function(data) {
+    //  console.log(data)
+    //})
 
-    Organization.mail_chimp_check($stateParams.organization_Id, 'mail_chimp_check').$promise.then(function(data) {
-      console.log(data)
+    $scope.mailchimp_authorized = false;
+
+    $http({
+      url: 'api/v1/organizations/' + $stateParams.organization_Id +'/auth/mail_chimp_check',
+      method: 'get'
+    }).success(function(data){
+      if (data.response) {
+        console.log("MAILCHIMP")
+        $scope.mailchimp_authorized = true;
+        $scope.mailchimp = JSON.parse(data.response.body)
+      } else if (!data.response) {
+        console.log("NO MAILCHIMP")
+        $scope.mailchimp_authorized = false;
+      }
+    }).error(function(data){
     })
 
   });

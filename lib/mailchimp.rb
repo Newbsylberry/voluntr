@@ -1,23 +1,25 @@
-require 'httparty'
-
 require './lib/mailchimp/'
 
 
-class Mailchimp
-  include HTTParty
-  attr_accessor :lists, :campaigns
+module Mailchimp
 
-  def authorize
+  def self.client(site)
     client = OAuth2::Client.new('491000452870',
                                 'f42b8b94d89b7cf50a81feaad3530c7d',
-                                :site => 'https://login.mailchimp.com')
+                                :site => site)
     client.options[:token_url] = "/oauth2/token"
 
     return client
   end
 
+  def self.api(token)
+    domain = token.split('-')[1]
+    client = Mailchimp.client("https://#{domain}.api.mailchimp.com/3.0/")
+    return OAuth2::AccessToken.new(client, token)
+  end
 
-  
+
+
 
 
 end

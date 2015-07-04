@@ -41,9 +41,8 @@ Rails.application.routes.draw do
 
 
       # email services
-      match '/organizations/:id/mail_chimp_check', to: 'organizations#mail_chimp_check', via: :get, defaults: {format: :json}
-      match '/mailchimp_integration', to: 'organizations_mailing_services##mailchimp_check', via: :get, defaults: {format: :json}
-      match '/mailchimp_oauth_response', to: 'organizations#mailchimp_callback', via: :get, defaults: {format: :json}
+      match '/organizations/:id/auth/mail_chimp_check', to: 'organization_mailing_services#mailchimp_check', via: :get, defaults: {format: :json}
+      match '/auth/mailchimp_callback', to: 'organization_mailing_services#mailchimp_callback', via: :get, defaults: {format: :json}
 
       # Opportunities Routes
       match '/opportunities/:id/volunteers', to: 'opportunities#volunteers', via: :get, defaults: {format: :json}
