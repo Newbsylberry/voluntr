@@ -1,19 +1,22 @@
 <div class="application-header"
-     ng-if="current_state !== 'organizations.registration'"
-     ng-controller="HeaderCtrl"
-  >
-  <i class="icon ion-navicon-round"
-     ng-if="current_state !== 'organizations.organization_search'"
+     ng-show="current_state !== 'organizations.registration'"
+
+
+
+     ng-controller="HeaderCtrl">
+  <i class="icon ion-navicon"
+     ng-show="current_state !== 'organizations.registration'"
      snap-toggle="left">
     </i>
-
-  <i class="icon ion-arrow-left-c"
-     ng-if="current_state === 'organizations.organization_search'"
-     ng-click="back(); search_filter.query = ''"
-     ><a href="">Back</a>
-  </i>
+<div class="headerpar"  scroll-watch="{from: 0, to: -1, stage: 'centered-container'}"
+     sw-class="{red: $offsetTop > 57}">
+    <div class="headerimg" scroll-watch="{from: 0, to: -1, stage: 'centered-container'}" sw-class="{black: $offsetTop > 77}">
+        <img src="../logo.png"  style="height:30px;" ></div>
   <input class="searchbar" type="text"
          ui-sref="organizations.organization_search({organization_Id:organization_id})"
          ng-model="search_filter.query"
-         placeholder="Search for anything..."></input>
+         placeholder="Search for anything...">
+    </div>
+</div>
+<div style="position:fixed;top:0px;height:250px;width:100vw;background-color:#03a9f5;z-index:-20;">
 </div>

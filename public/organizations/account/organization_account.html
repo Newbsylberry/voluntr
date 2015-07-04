@@ -1,0 +1,12 @@
+
+<md-card class="content" >
+  <md-card-content>
+    <a href=""
+       ng-click="authorize_mailchimp()"
+        ng-show="!mailchimp_authorized">Connect to MailChimp (requires you to enter user name and password)</a>
+    <p ng-show="mailchimp_authorized">Your MailChimp Account Name: {{mailchimp.account_name}}</p>
+  </md-card-content>
+</md-card>
+
+
+
