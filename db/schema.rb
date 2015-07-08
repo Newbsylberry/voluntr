@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704044437) do
+ActiveRecord::Schema.define(version: 20150706231716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20150704044437) do
     t.datetime "updated_at"
     t.datetime "date"
     t.integer  "planned_hours"
+  end
+
+  create_table "mailing_service_lists", force: :cascade do |t|
+    t.integer  "organization_mailing_service_id"
+    t.string   "name"
+    t.integer  "current_subscribers"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "list_id"
   end
 
   create_table "object_schedules", force: :cascade do |t|
@@ -103,6 +112,7 @@ ActiveRecord::Schema.define(version: 20150704044437) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "service_type"
+    t.integer  "default_list_id"
   end
 
   create_table "organization_people", force: :cascade do |t|

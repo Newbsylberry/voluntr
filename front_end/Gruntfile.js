@@ -38,7 +38,8 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'facebook',
-            appId: '1558882161041937'
+            appId: '1558882161041937',
+            mailchimp_id: 135535067599
           }
         }
       },
@@ -49,7 +50,8 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'facebook',
-            appId: '1478625579067596'
+            appId: '1478625579067596',
+            mailchimp_id: 491000452870
           }
         }
       }

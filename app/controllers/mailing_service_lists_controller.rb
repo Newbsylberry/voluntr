@@ -1,0 +1,2 @@
+class MailingServiceListsController < ApplicationController
+end

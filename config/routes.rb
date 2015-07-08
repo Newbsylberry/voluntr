@@ -2,19 +2,20 @@ Rails.application.routes.draw do
 
 
 
-  resources :organization_mailing_services, except: [:new, :edit]
-  resources :opportunity_roles, except: [:new, :edit]
-  resources :organization_email_templates, except: [:new, :edit]
-  resources :schedules, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
       #devise_for :users,
        #          :controllers => { registrations: 'registrations',
         #                           sessions: 'sessions'}, defaults: {format: :json}
+      resources :mailing_service_lists, except: [:new, :edit], defaults: {format: :json}
+      resources :organization_mailing_services, except: [:new, :edit], defaults: {format: :json}
+      resources :opportunity_roles, except: [:new, :edit], defaults: {format: :json}
+      resources :organization_email_templates, except: [:new, :edit], defaults: {format: :json}
+      resources :schedules, except: [:new, :edit], defaults: {format: :json}
       resources :person_opportunities, except: [:new, :edit], defaults: {format: :json}
       resources :daily_statistics, except: [:new, :edit], defaults: {format: :json}
       resources :recorded_hours, except: [:new, :edit], defaults: {format: :json}
-      resources :opportunity_types, except: [:new, :edit]
+      resources :opportunity_types, except: [:new, :edit], defaults: {format: :json}
       resources :users, defaults: {format: :json}
       resources :people, defaults: {format: :json}
       post '/user/contact_form', to: 'users#contact', defaults: {format: :json}
