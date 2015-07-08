@@ -1,12 +1,12 @@
-<h2>{{startDateText}}</h2>
+<h3>{{startDateText}}</h3>
+<br/>
 <input kendo-date-time-picker
        k-ng-model="calendar.start_time"
         />
 
-
-
-<h2>Duration</h2>
-<h3>{{calendar.duration | duration:'h:mm'}} {{duration_label}}</h3>
+<div>
+<h3>Duration</h3>
+<h4>{{calendar.duration | duration:'h:mm'}} {{duration_label}}</h4>
 <md-slider flex min="900000"
            step="900000"
            max="43200000"
@@ -14,34 +14,147 @@
            aria-label="red"
            id="red-slider" class>
 </md-slider>
-
+</div>
 <!-- Does the Event Repeat? -->
 <md-checkbox ng-model="calendar.repeating_event" aria-label="Repeating event?">
   {{recurringLabelText}}
 </md-checkbox>
 
+
 <!-- How Frequently Does the Event Repeat? -->
 <div class="repeat_main_selection repetition_rule_select_box" ng-show="calendar.repeating_event">
-  <md-checkbox ng-model="calendar.repeat.repeat_daily"
-               aria-label="Daily">
-    Daily?
-  </md-checkbox>
-  <md-checkbox ng-model="calendar.repeat.repeat_weekly"
-               aria-label="Weekly">
-    Weekly?
-  </md-checkbox>
-  <md-checkbox ng-model="calendar.repeat.repeat_monthly"
-               aria-label="Monthly">
-    Monthly?
-  </md-checkbox>
-  <md-checkbox ng-model="calendar.repeat.repeat_annually"
-               aria-label="Annually">
-    Annually?
-  </md-checkbox>
+    <h3>Repeats:</h3>
+    <md-radio-group ng-model="calendar.repeat" style="display:block;">
+  <md-radio-button  class="cradio"
+               aria-label="Daily"
+                   value="repeat_daily">
+    Daily
+  </md-radio-button>
+  <md-radio-button  class="cradio"
+               aria-label="Weekly"
+                   value="repeat_weekly">
+    Weekly
+  </md-radio-button>
+  <md-radio-button  class="cradio"
+               aria-label="Monthly"
+                   value="repeat_monthly">
+    Monthly
+  </md-radio-button>
+  <md-radio-button  class="cradio"
+               aria-label="Annually"
+                   value="repeat_annually">
+    Annually
+  </md-radio-button>
+        <div class="fixer"></div>
+        </md-radio-group>
 </div>
 
 <!-- Every X Days, Months, Years -->
-<div ng-show="calendar.repeating_event">
+
+
+<div class="schdaily" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_daily')">
+<h4>Repeat ever</h4>
+<md-input-container>
+        <label>Days</label>
+    <input type="text" >
+    </md-input-container>
+</div>
+<div class="schweekly" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_weekly')">
+<h4>Repeat ever</h4>
+<md-input-container>
+        <label>Weeks</label>
+    <input type="text" >
+    </md-input-container>
+<h4>Repeat On</h4>
+    <div>
+ <md-checkbox ng-model="calendar.repeat.monday_repeat" aria-label="Monday" class="ccheck">
+    Mon
+  </md-checkbox>
+  <md-checkbox ng-model="calendar.repeat.tuesday_repeat" aria-label="Tuesday" class="ccheck">
+    Tus
+  </md-checkbox>
+  <md-checkbox ng-model="calendar.repeat.wednesday_repeat" aria-label="Wednesday" class="ccheck">
+    Wed
+  </md-checkbox>
+  <md-checkbox ng-model="calendar.repeat.thursday_repeat" aria-label="Thursday" class="ccheck">
+    Thu
+  </md-checkbox>
+  <md-checkbox ng-model="calendar.repeat.friday_repeat" aria-label="Friday" class="ccheck">
+    Fri
+  </md-checkbox>
+  <md-checkbox ng-model="calendar.repeat.saturday_repeat" aria-label="Saturday" class="ccheck">
+    Sat
+  </md-checkbox>
+  <md-checkbox ng-model="calendar.repeat.sunday_repeat" aria-label="Saturday" class="ccheck">
+    Sun
+  </md-checkbox>   
+        <div class="fixer"></div>
+    </div>
+    
+</div>
+<div class="schmonthly" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_monthly')">
+<h4>Repeat ever</h4>
+<md-input-container>
+        <label>Months</label>
+    <input type="text" >
+    </md-input-container>
+</div>
+<div class="schannually" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_annually')">
+<h4>Repeat ever</h4>
+<md-input-container>
+        <label>Years</label>
+    <input type="text" >
+    </md-input-container>
+    
+</div>
+<div class="schdefault" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_weekly' || calendar.repeat === 'repeat_daily' || calendar.repeat === 'repeat_monthly' || calendar.repeat === 'repeat_annually') ">
+    <div>
+    <h4>Starts on:</h4>
+    <md-input-container>
+        <label>Date</label>
+    <input type="date" ng-model="calendar.repeat.repeat_until">
+    </md-input-container>
+    </div>
+    <div>
+    <h4>Ends:</h4>
+    <md-radio-group ng-model="calendar.ends"style="display:block;">
+          <md-radio-button ng-model="calendar.repeat.repeat_daily" class="cradio"
+               aria-label="Daily"
+                   value="after">
+              After certain occurrences
+  </md-radio-button>
+          <md-radio-button ng-model="calendar.repeat.repeat_daily" class="cradio"
+               aria-label="Daily"
+                   value="on">
+            On a sepcific date
+  </md-radio-button>
+         <div class="fixer"></div>
+    
+        
+        
+    </md-radio-group>
+    </div>
+    
+    <div ng-show="calendar.ends === 'after'">
+    <md-input-container>
+        <label>How many times</label>
+    <input type="text" >
+    </md-input-container> 
+    
+    </div>
+    
+      <div ng-show="calendar.ends === 'on'">
+          <md-input-container>
+        <label>Date</label>
+    <input type="date" ng-model="calendar.repeat.repeat_until">
+    </md-input-container></div>
+</div>
+<div>
+
+</div>
+
+
+<!--<div ng-show="calendar.repeating_event">
   Repeat every
   <input type="number" ng-model="calendar.repeat.repeat_count">
   Units
@@ -55,7 +168,7 @@
   <input type="datetime" ng-model="calendar.repeat.number_of_repeats">
 </div>
 
-<div ng-show="calendar.repeat.repeat_weekly">
+<div ng-show="calendar.repeat === 'repeat_weekly'">
   <h2>Repeat On Which Days:</h2>
   <md-checkbox ng-model="calendar.repeat.monday_repeat" aria-label="Monday">
     Monday
@@ -78,4 +191,4 @@
   <md-checkbox ng-model="calendar.repeat.sunday_repeat" aria-label="Saturday">
     Sunday
   </md-checkbox>
-</div>
+</div>-->
