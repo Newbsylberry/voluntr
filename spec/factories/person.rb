@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :person do
-    email "chris@christo.com"
+    email "chris.s.mccarthy@gmail.com"
     first_name "Chris"
     last_name "McCarthy"
 

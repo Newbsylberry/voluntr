@@ -71,7 +71,7 @@
     Mon
   </md-checkbox>
   <md-checkbox ng-model="calendar.repeat.tuesday_repeat" aria-label="Tuesday" class="ccheck">
-    Tus
+    Tue
   </md-checkbox>
   <md-checkbox ng-model="calendar.repeat.wednesday_repeat" aria-label="Wednesday" class="ccheck">
     Wed
@@ -87,10 +87,10 @@
   </md-checkbox>
   <md-checkbox ng-model="calendar.repeat.sunday_repeat" aria-label="Saturday" class="ccheck">
     Sun
-  </md-checkbox>   
+  </md-checkbox>
         <div class="fixer"></div>
     </div>
-    
+
 </div>
 <div class="schmonthly" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_monthly')">
 <h4>Repeat ever</h4>
@@ -105,7 +105,7 @@
         <label>Years</label>
     <input type="text" >
     </md-input-container>
-    
+
 </div>
 <div class="schdefault" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_weekly' || calendar.repeat === 'repeat_daily' || calendar.repeat === 'repeat_monthly' || calendar.repeat === 'repeat_annually') ">
     <div>
@@ -129,20 +129,20 @@
             On a sepcific date
   </md-radio-button>
          <div class="fixer"></div>
-    
-        
-        
+
+
+
     </md-radio-group>
     </div>
-    
+
     <div ng-show="calendar.ends === 'after'">
     <md-input-container>
         <label>How many times</label>
     <input type="text" >
-    </md-input-container> 
-    
+    </md-input-container>
+
     </div>
-    
+
       <div ng-show="calendar.ends === 'on'">
           <md-input-container>
         <label>Date</label>

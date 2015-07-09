@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :mailing_service_lists do
+  factory :mailing_service_list do
     list_id '76bfe8f643'
     name "Volunteers"
     current_subscribers 0
