@@ -23,12 +23,12 @@
         <md-tab-label>Organization Integrations</md-tab-label>
         <md-tab-body>
           <md-list>
+            <a href="#"
+               ng-click="authorize_mailchimp()"
+               ng-show="!mailchimp_authorized">Connect to MailChimp (requires you to enter user name and password)</a>
+            <p ng-show="mailchimp_authorized">Your MailChimp Account Name: {{mailchimp.account_name}}</p>
             <md-item ng-repeat="organization_mailing_service in organization.organization_mailing_services">
               <div ng-show="organization_mailing_service.service_type === 'mail_chimp'">
-                <a href="#"
-                   ng-click="authorize_mailchimp()"
-                   ng-show="!mailchimp_authorized">Connect to MailChimp (requires you to enter user name and password)</a>
-                <p ng-show="mailchimp_authorized">Your MailChimp Account Name: {{mailchimp.account_name}}</p>
                 <!--<p ng-show="mailchimp_authorized && default_list_set"
                   >The default list users will be added to when they register:</p>-->
                 <edit-mailing-service-list
