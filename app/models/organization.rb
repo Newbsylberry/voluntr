@@ -18,4 +18,11 @@ class Organization < ActiveRecord::Base
       template.save
     end
   end
+
+  def default_list(service_type)
+    if organization_mailing_services
+    return MailingServiceList.find(self.organization_mailing_services.
+                                       find_by_service_type(service_type).default_list_id)
+    end
+  end
 end

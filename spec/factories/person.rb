@@ -12,5 +12,11 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_organizations do
+      after(create) do |person|
+        person.organization = create(:organization, :with_organization_mailing_service)
+      end
+    end
+
   end
 end

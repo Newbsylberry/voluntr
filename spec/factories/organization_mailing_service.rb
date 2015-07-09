@@ -4,9 +4,12 @@ FactoryGirl.define do
     service_type 'mail_chimp'
     association :organization
 
+
     trait :with_mailing_service_list do
       after(:create) do |service|
-        service.mailing_service_lists = Array.new
+        @mailing_service_list = create(:mailing_service_list)
+        service.mailing_service_lists << @mailing_service_list
+        service.default_list_id = @mailing_service_list.id
       end
     end
 

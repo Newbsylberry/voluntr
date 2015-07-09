@@ -8,6 +8,14 @@ RSpec.describe Person, "Working with the people model" do
       expect(Person.new(email:"steve@steve.com")).to_not be_valid
     end
 
+    it "#add_to_organization" do
+      @person = create(:person)
+      organization = create(:organization)
+
+      @person.add_to_organization(organization)
+      expect(@person.organizations).to include(organization)
+    end
+
 
     pending "It should create an organization person if an organization id is present and the record doesn't already exist"
 
