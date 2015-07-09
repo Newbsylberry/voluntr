@@ -121,38 +121,51 @@
   <md-tab id="tab4">
     <md-tab-label>Recorded Hours</md-tab-label>
     <md-tab-body>
+        <div class="tabcontrol">
+            <div class="tabcontrolin">
       <md-list>  
         <recorded-hour ng-repeat="recorded_hour in opportunity.recorded_hours"
                        recorded-hour="recorded_hour"
                        recorded-hours="opportunity.recorded_hours"
                        type="opportunity"></recorded-hour>
       </md-list>
-
+        </div>
+        </div>
     </md-tab-body>
   </md-tab>
 
   <md-tab id="tab5">
     <md-tab-label>Resources</md-tab-label>
     <md-tab-body>
-      <md-list layout="column">
-        <md-item>
+        <div class="tabcontrol">
+            <div class="tabcontrolin">
+            <div class="rscard">  
           <h2>Resources</h2>
-          <add-resources></add-resources>
-        </md-item>
-        <md-item>
+                <add-resources></add-resources></div>
+                <div class="rscard">
           <h2>Opportunity Mailers</h2>
-          <email-template-preview></email-template-preview>
-        </md-item>
-        <md-item>
-          <h2>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h2>
+                    <email-template-preview></email-template-preview></div>
+                <div class="rscard">
+          <h2>Links</h2>
+            <h4>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h4>
           <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
             Registration Form for Opportunity</a>
           <br>
           <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
             Sign In Form for Opportunity</a>
-        </md-item>
-      </md-list>
-
+                </div>
+                <div class="rscard">
+          <h2>Links to Forms</h2>
+          <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
+            Registration Form for Opportunity</a>
+          <br>
+          <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
+            Sign In Form for Opportunity</a>
+                </div>
+                <div class="fixer"></div>
+            </div>
+        <div class="window-bottom-button"></div>
+        </div>
     </md-tab-body>
   </md-tab>
 </md-tabs>
