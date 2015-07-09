@@ -7,6 +7,16 @@
       <md-tab id="tab1">
         <md-tab-label>Organization Information</md-tab-label>
         <md-tab-body>
+          <h2>{{organization.name}}</h2>
+          <edit-address address="{{organization.address}}"
+                        state="{{organization.state}}"
+                        zip-code="{{organization.zip_code}}"
+                        city="{{organization.city}}"
+                        model-id="{{organization.id}}"
+                        address-type="organization"
+            >
+          </edit-address>
+          <p>{{organization.description}}</p>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab2">
