@@ -29,14 +29,20 @@ class OrganizationMailingServicesController < ApplicationController
 
     @service = OrganizationMailingService.create_with(locked: false).
         find_or_initialize_by(organization_id: @organization.id, token: token.token + "-" + json["dc"], service_type: 'mail_chimp')
+
     @service.save
 
     @service.update_or_create_lists
 
+    @service.default_list_id = @service.mailing_service_lists.first.id
+
+    @service.save
+
+
     if Rails.env == "development"
       redirect_to "http://localhost:9000/#/organizations/" + @organization.id.to_s + "/account"
     else
-      redirect_to "http://wwww.voluapp.com/#/organizations/" + @organization.id.to_s + "/account"
+      redirect_to "http://www.voluapp.com/#/organizations/" + @organization.id.to_s + "/account"
     end
 
   end

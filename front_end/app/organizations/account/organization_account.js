@@ -14,7 +14,6 @@ angular.module('voluntrApp')
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
-      console.log($scope.organization)
     });
 
 
