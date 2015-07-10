@@ -69,6 +69,15 @@ class OrganizationMailingServicesController < ApplicationController
     render json: @organization_mailing_services
   end
 
+  def destroy
+    @organization_mailing_service = OrganizationMailingService.find(params[:id])
+    @organization_mailing_service.destroy
+
+    head :no_content
+  end
+
+  protected
+
   def organization_mailing_service_params
     params.require(:organization_mailing_service).permit(:id, :default_list_id, :token)
   end

@@ -34,8 +34,6 @@ class OrganizationPerson < ActiveRecord::Base
             response = Mailchimp.api(organization.organization_mailing_services
                               .find_by_service_type('mail_chimp').token).
                 post("lists/#{list.list_id}/members/", {body: member.to_json})
-            puts member.to_json
-            puts response.body
             added_lists << list
           end
       end

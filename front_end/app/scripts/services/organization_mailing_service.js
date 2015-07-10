@@ -32,6 +32,11 @@ angular.module('voluntrApp')
       return this.service.update(attr);
     };
 
+    // Calls the destroy function located in app/controllers/communities_controller.rb
+    OrganizationMailingService.prototype.delete = function(oId) {
+      return this.service.remove({organization_mailing_service_Id: oId});
+    };
+
     return new OrganizationMailingService
 
   }]);

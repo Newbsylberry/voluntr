@@ -1,6 +1,6 @@
 class OrganizationMailingService < ActiveRecord::Base
   belongs_to :organization
-  has_many :mailing_service_lists
+  has_many :mailing_service_lists, dependent: :destroy
 
   def update_or_create_lists
     if service_type == "mail_chimp"

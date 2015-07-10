@@ -19,6 +19,7 @@ angular.module('voluntrApp').directive("editMailingServiceList", function () {
         attr.default_list_id = list.id;
         OrganizationMailingService.update(attr)
       }
+
     }
   }
 });

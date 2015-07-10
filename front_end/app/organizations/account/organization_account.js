@@ -10,7 +10,8 @@
 angular.module('voluntrApp')
   .controller('OrganizationAccountCtrl', function ($scope, Organization,
                                                    $stateParams, $state,
-                                                   $rootScope, $http, $window, ENV) {
+                                                   $rootScope, $http, $window, ENV,
+                                                   OrganizationMailingService) {
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
@@ -38,6 +39,15 @@ angular.module('voluntrApp')
       }
     }).error(function(data){
     })
+
+    $scope.delete = function(mailing_service) {
+      OrganizationMailingService.delete(mailing_service.id)
+      var index = $scope.organization.organization_mailing_services.indexOf(mailing_service);
+      if (index > -1) {
+        $scope.organization.organization_mailing_services.splice(index, 1);
+      }
+      $scope.mailchimp_authorized = false;
+    }
 
   });
 
