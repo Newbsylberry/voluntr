@@ -13,6 +13,12 @@
   background-color: $primary;
 }
 
+.create-facebook-page-text {
+  text-align: center;
+  width: 44%;
+  margin: 5% auto;
+}
+
 #beta-message {
   color: red;
   text-align: center;
@@ -58,6 +64,9 @@
         margin-left: 0;
       }
     }
+  }
+  .md-subheader .md-default-theme {
+    float: left;
   }
 }
 

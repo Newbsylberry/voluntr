@@ -38,7 +38,6 @@ angular.module('voluntrApp')
         }
         $scope.organizations.push(organization)
       });
-
     };
 
     Facebook.getLoginStatus(function(response) {
@@ -95,5 +94,7 @@ angular.module('voluntrApp')
     $scope.organizationList = function () {
       $scope.organization_registration = false;
     };
+
+
 
   });
