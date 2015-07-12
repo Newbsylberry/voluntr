@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  has_many :organization_people
   has_many :organizations, through: :organization_people
   has_many :person_opportunities
   has_many :opportunities, through: :person_opportunities
@@ -38,6 +39,15 @@ class Person < ActiveRecord::Base
       end
     end
     return @all_related_opportunities
+  end
+
+  def add_to_organization(organization)
+    @person_organization = OrganizationPerson.create_with(locked: false).
+        find_or_initialize_by(person: self, organization: organization)
+    if !organization.organization_mailing_services.empty?
+      @person_organization.add_to_lists(Array.new << organization.default_list("mail_chimp"))
+    end
+    @person_organization.save
   end
 
 

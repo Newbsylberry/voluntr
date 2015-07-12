@@ -8,12 +8,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "mixins/_placeholder.scss";
 @import "mixins/_box-shadow.scss";
 @import "mixins/_inner-shadow.scss";
+
 @import "../organizations/registration/organization_registration.scss";
 @import "../navigation/header.scss";
 @import "../organizations/search/organization_search.scss";
 @import "../organizations/people/people.scss";
 @import "../organizations/home/organization_home.scss";
 @import "../organizations/opportunities/opportunities.scss";
+@import "../organizations/volunteer_registration/volunteer_registration.scss";
 
 /************************************************************
 Modal Styles

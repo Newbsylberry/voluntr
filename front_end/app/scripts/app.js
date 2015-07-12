@@ -197,6 +197,32 @@ angular
         controller: 'OpportunitiesHomeCtrl'
       })
 
+      .state('organization_volunteer_registration', { //default page loaded for landing state
+        abstract: true,
+        url: '/:organization_Id/organization_volunteer_registration',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration.html', // url for partial
+        controller: 'OrganizationVolunteerRegistrationCtrl'
+      })
+
+      .state('organization_volunteer_registration.1', { //default page loaded for landing state
+        url: '/1',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_1.html', // url for partial
+        controller: 'OrganizationVolunteerRegistrationCtrl'
+      })
+
+      .state('organization_volunteer_registration.2', { //default page loaded for landing state
+        url: '/2',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_2.html', // url for partial
+        controller: 'OrganizationVolunteerRegistrationCtrl'
+      })
+
+      .state('organization_volunteer_registration.3', { //default page loaded for landing state
+        url: '/3',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_3.html', // url for partial
+        controller: 'OrganizationVolunteerRegistrationCtrl'
+      })
+
+
       .state('registration_form', { //default page loaded for landing state
         url: '/:opportunity_Id/registration',
         templateUrl: 'organizations/opportunities/registration_form.html', // url for partial

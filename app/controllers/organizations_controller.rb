@@ -36,7 +36,7 @@ class OrganizationsController < ApplicationController
   def update
     @current_organization = Organization.find(params[:id])
 
-    if @current_organization.update(params[:organization])
+    if @current_organization.update(organization_params)
       head :no_content
     else
       render json: @current_organization.errors, status: :unprocessable_entity
@@ -137,7 +137,7 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organization).permit(:fb_id, :name, :description)
+    params.require(:organization).permit(:id, :fb_id, :name, :description, :address, :state, :city, :zip_code)
   end
 
 end

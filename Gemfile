@@ -26,6 +26,7 @@ group :test do
   gem 'rspec-autotest', require: false
   gem 'guard-rspec', require: false
   gem "factory_girl_rails", "~> 4.0", require: false
+  gem 'faker'
 end
 
 

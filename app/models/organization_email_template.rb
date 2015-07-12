@@ -2,6 +2,7 @@ class OrganizationEmailTemplate < ActiveRecord::Base
   belongs_to :organization
   belongs_to :organization_email_type
 
+
   after_initialize do |oet|
     oet.introduction_text = oet.organization_email_type.introduction_text
     oet.conclusion_text = oet.organization_email_type.conclusion_text

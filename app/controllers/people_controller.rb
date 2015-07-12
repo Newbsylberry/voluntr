@@ -23,13 +23,9 @@ class PeopleController < ApplicationController
     @person.last_name = params[:last_name]
 
     @person.save
-    puts @person.id
 
     if params[:organization_id]
-      @organization_person = OrganizationPerson.create_with(locked: false).
-      find_or_initialize_by(person_id: @person.id, organization_id: params[:organization_id])
-
-        @organization_person.save
+      @person.add_to_organization(Organization.find(params[:organization_id]))
     end
 
     render json: @person, serializer: PersonSerializer
