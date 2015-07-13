@@ -38,5 +38,26 @@
 }
 
 
+.rscard{
+    width:30%;
+    float:left;
+    margin:20px 1.66%;
+    background-color:rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    padding:10px;
+    border-radius: 2px;
+    height:350px;
+    overflow: scroll;
+}
 
+.rscard h2{
+      font-size: 25px;
+  color: rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.rscard h4{
+    font-size:15px;
+    color:rgba(0,0,0,0.5);
+}
 

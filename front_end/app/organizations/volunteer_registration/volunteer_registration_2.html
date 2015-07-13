@@ -1,3 +1,48 @@
-<h1>Address</h1>
-<button ui-sref="organization_volunteer_registration.1">Edit Your Name and Email</button>
-<button ui-sref="organization_volunteer_registration.3">Enter Your Schedule</button>
+ 
+ <md-input-container>
+             <label>Address Line 1:</label>
+            <input type="text" >
+    </md-input-container>
+
+ <md-input-container>
+             <label>Address Line 2:</label>
+            <input type="text" >
+    </md-input-container>
+
+<div layout layout-sm="column" >
+     <md-autocomplete flex required
+            md-selected-item="ctrl.selectedItem"
+            md-search-text="ctrl.searchText"
+            md-items="item in ctrl.querySearch(ctrl.searchText)"
+            md-item-text="item.display"
+            md-floating-label="City">
+          <md-item-template>
+            <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
+          </md-item-template>
+        </md-autocomplete>
+    
+ <md-autocomplete flex required
+            md-selected-item="c.selectedItem"
+            md-search-text="c.searchText"
+            md-items="item in c.querySearch(c.searchText)"
+            md-item-text="item.display"
+            md-floating-label="State">
+          <md-item-template>
+            <span md-highlight-text="c.searchText">{{item.display}}</span>
+          </md-item-template>
+        </md-autocomplete>
+
+    <md-input-container flex >
+      <label>Zip Code</label>
+      <input ng-model="zipCode">
+    </md-input-container>
+  </div>
+<br/>
+ <md-button class="md-raised md-primary" aria-label="Use Android"  style="float:right;" ui-sref="organization_volunteer_registration.3">
+          Next Step: Sechedule
+        </md-button>
+
+ <md-button class="md-raised md-primary" aria-label="Use Android"  style="float:right;" ui-sref="organization_volunteer_registration.1">
+          Previous Step: Name and Email
+        </md-button>
+
