@@ -1,28 +1,44 @@
 <div class="siboxout">
     <div class="sibox">
 <div class="sicontent">
-    <div style="padding:20px 50px;">
-    <h1>Register for {{opportunity.name}}</h1>
+    <div class="sileft">
+    
+    
+        <img src="http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0016/3878/brand.gif?itok=A-Gxc2VU" />
+        <div class="opinfo">
+            <h2>Event:</h2>
+            <p>{{opportunity.name}}</p>
+            <h2>Description:</h2>
+            <p>{{opportunity.description}}</p>
+        </div>
+    </div>
+    <div class="siright">
+    
+    <h1 style="margin-bottom:15px;">Register for {{opportunity.name}}</h1>
     <p>
       {{opportunity.description}}
     </p>
     
-    
-    <md-input-container>
+    <div layout layout-md="column">
+    <md-input-container flex>
              <label>First Name:</label>
             <input type="text" ng-model="opportunityRegister.first_name">
     </md-input-container>
-        <md-input-container>
+        <md-input-container flex>
              <label>Last Name:</label>
             <input type="text" ng-model="opportunityRegister.last_name">
     </md-input-container>
+    </div>    
         <md-input-container>
              <label>Email Address:</label>
             <input type="text" ng-model="opportunityRegister.email">
     </md-input-container>
+        <md-select placeholder="Your Role" ng-model="ctrl.userState">
+        <md-option ng-repeat="" value=""></md-option>
+      </md-select>
     
         <br/>
-        <md-button class="md-raised md-primary" aria-label="Use Android" ng-click="registerForOpportunity()" style="float:right;">
+        <md-button class="md-raised md-primary formbutton" aria-label="Use Android" ng-click="registerForOpportunity()" >
           Register For This Event
         </md-button>
         </div>

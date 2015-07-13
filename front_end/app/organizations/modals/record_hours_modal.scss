@@ -1,13 +1,7 @@
-.record-hours-person {
-  md-checkbox {
-    display: inline-block;
-  }
-  .search-box {
+.search-box{
+height:300px;
+    overflow: scroll;
     position: fixed;
-    z-index: 22;
-    width: 92.3%;
-  }
-}
-.hours-description {
-  padding: 0 1em 26px 1em;
+    z-index: 20;
+    width:400px;
 }
