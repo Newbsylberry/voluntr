@@ -29,8 +29,10 @@ md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
 }
 
 .tabcontrolin{
-padding:10px 20px 50px 10px;
+padding:20px 20px 50px 20px;
 }
+
+
 
 .modal-content{
     overflow: scroll!important;
@@ -129,6 +131,8 @@ padding-top: 60px;
   color:rgba(0,0,0,0.3);
 }
 
+.formbutton{float:right;}
+
 .bbutton{
     border-radius:2px;
     background-color:#03a9f5;
@@ -214,6 +218,9 @@ md-card{
 
 @media screen and (max-width: 600px) {
 
+    .formbutton{float:none;
+    width:100%;}
+    
   .sileft{
     width:100vw;
     padding:30px 20px 20px 20px;
