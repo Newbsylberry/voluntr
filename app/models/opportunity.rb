@@ -6,16 +6,19 @@ class Opportunity < ActiveRecord::Base
   has_many :opportunity_roles
   has_many :recorded_hours
   belongs_to :organization
-  has_many :object_schedules, as: :scheduleable
   has_many :organization_email_templates, through: :organization
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
 
   def start_time
-    return IceCube::Schedule.from_yaml(object_schedules.first.schedule).start_time
+    if schedule
+      return IceCube::Schedule.from_yaml(schedule).start_time
+    end
   end
 
   def duration
-    return IceCube::Schedule.from_yaml(object_schedules.first.schedule).duration / (60*60)
+    if schedule
+      return IceCube::Schedule.from_yaml(schedule).duration / (60*60)
+    end
   end
 
   def total_recorded_hours
@@ -68,9 +71,8 @@ class Opportunity < ActiveRecord::Base
 
   def instances_statistics
     @opportunities = Array.new
-    IceCube::Schedule.from_yaml(object_schedules.last.schedule).occurrences(Time.now).each do |occ|
+    IceCube::Schedule.from_yaml(schedule).occurrences(Time.now).each do |occ|
       @instance = Opportunity.new
-      @instance.object_schedules << object_schedules
       @instance.start_time = occ.start_time
       @instance.end_time = occ.end_time
       @instance.duration = occ.duration

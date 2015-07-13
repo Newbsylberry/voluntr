@@ -24,7 +24,7 @@
 <!-- How Frequently Does the Event Repeat? -->
 <div class="repeat_main_selection repetition_rule_select_box" ng-show="calendar.repeating_event">
     <h3>Repeats:</h3>
-    <md-radio-group ng-model="calendar.repeat" style="display:block;">
+    <md-radio-group ng-model="calendar.repeat.repeat_type" style="display:block;">
   <md-radio-button  class="cradio"
                aria-label="Daily"
                    value="repeat_daily">
@@ -52,14 +52,14 @@
 <!-- Every X Days, Months, Years -->
 
 
-<div class="schdaily" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_daily')">
+<div class="schdaily" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_daily')">
 <h4>Repeat ever</h4>
 <md-input-container>
         <label>Days</label>
     <input type="text" >
     </md-input-container>
 </div>
-<div class="schweekly" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_weekly')">
+<div class="schweekly" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_weekly')">
 <h4>Repeat ever</h4>
 <md-input-container>
         <label>Weeks</label>
@@ -99,7 +99,7 @@
     <input type="text" >
     </md-input-container>
 </div>
-<div class="schannually" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_annually')">
+<div class="schannually" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_annually')">
 <h4>Repeat ever</h4>
 <md-input-container>
         <label>Years</label>
@@ -107,7 +107,7 @@
     </md-input-container>
 
 </div>
-<div class="schdefault" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_weekly' || calendar.repeat === 'repeat_daily' || calendar.repeat === 'repeat_monthly' || calendar.repeat === 'repeat_annually') ">
+<div class="schdefault" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_weekly' || calendar.repeat === 'repeat_daily' || calendar.repeat === 'repeat_monthly' || calendar.repeat === 'repeat_annually') ">
     <div>
     <h4>Starts on:</h4>
     <md-input-container>

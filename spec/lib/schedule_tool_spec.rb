@@ -53,7 +53,7 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
     context "when a user wants to create a schedule that repeats every day" do
       before(:each) do
-        @params[:calendar][:repeat][:repeat_daily] = true
+        @params[:calendar][:repeat][:repeat_type] = 'repeat_daily'
       end
 
       it "it creates a schedule that repeats daily" do
@@ -106,7 +106,7 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
     context "when user wants to create a schedule that repeats weekly" do
       before(:each) do
-        @params[:calendar][:repeat][:repeat_weekly] = true
+        @params[:calendar][:repeat][:repeat_type] = 'repeat_weekly'
       end
 
       it "creates a schedule that repeats weekly" do
@@ -140,7 +140,7 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
     context "When a user wants to create a schedule that repeats monthly" do
       before(:each) do
-        @params[:calendar][:repeat][:repeat_monthly] = true
+        @params[:calendar][:repeat][:repeat_type] = 'repeat_monthly'
       end
 
       it "creates a schedule that repeats monthly" do
@@ -160,7 +160,7 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
     context "When a user wants to create a schedule that repeats yearly" do
       before(:each) do
-        @params[:calendar][:repeat][:repeat_yearly] = true
+        @params[:calendar][:repeat][:repeat_type] = 'repeat_annually'
       end
 
       it "creates a schedule that repeats yearly" do
@@ -181,11 +181,24 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
   context "When a user wants to see a calendar with the schedule" do
     before(:each) do
-
+      @params = {
+          calendar:  {
+              start_time: 1433121367000,
+              end_time: 1433124967000,
+          }
+      }
     end
 
-    it "Should be able to see an organizations entire schedule" do
+    it "#schedule_from_params" do
+      @params[:calendar][:repeating_event] = true
+      @params[:calendar][:repeat] = Hash.new
+      @params[:calendar][:repeat][:repeat_type] = 'repeat_weekly'
+      @params[:calendar][:start_time] = "1437976800000"
+      @opportunity = create(:opportunity, schedule: "---\n:start_time: &1 2015-07-12 21:54:30.117844000 -06:00\n:start_date: *1\n:rrules:\n- :validations: {}\n  :rule_type: IceCube::DailyRule\n  :interval: 1\n  :until: 2015-07-19 22:18:09.539033000 -06:00\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n  :until: 2015-07-19 22:18:09.539136000 -06:00\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n")
 
+      schedule = IceCube::Schedule.from_yaml(SchedulerTool.schedule_from_params(@params, @opportunity))
+
+      expect(schedule.occurrences(DateTime.parse("2015-08-12 22:33:07 -0600")).count).to eq(17)
     end
 
 

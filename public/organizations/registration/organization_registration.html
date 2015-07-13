@@ -14,9 +14,23 @@
             ng-click="log_in()">
       Facebook Login
     </button>
-    <p id="beta-message">
-      Note: Volu is in currently in Beta testing, please write us at
-      <a href="mailto:chris@voluapp.com?Subject=Sign%20Me%20Up%20For%20Volu">chris@voluapp.com to get access.</a>
+  </md-card-content>
+
+  <md-card-content ng-if="connected_to_facebook && !organizations">
+    <img src="../../images/V_Logo.png">
+    <p class="create-facebook-page-text">
+      Whoops, looks like you aren't an administrator of any volunteer Facebook pages,
+      <a href="https://www.facebook.com/help/104002523024878">if you don't have a Facebook page, create one</a>, or
+      <a href="https://www.facebook.com/help/187316341316631">send this link to the manager of your Facebook page to
+      get access.</a>
+    </p>
+    <p class="create-facebook-page-text">
+      If you would like access to Volu with your email address, please
+      <a href="mailto:christian@voluapp.com?subject=Add%20an%20Email%20Registration%20Method!!!&body=I%20would%20like%20to%20be%20able%20to%20use%20an%20email%20address%20in%20order%20to%20register%20for%20Volu%2C%20I%20don%27t%20think%20that%27s%20asking%20too%20much!"
+
+      >
+      by emailing one of our happy to help team members.
+    </a>
     </p>
   </md-card-content>
 
@@ -24,33 +38,47 @@
   <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
    the volu app. -->
 
-  <md-card-content ng-if="connected_to_facebook && !organization_registration">
-    <h2>Eligible Organizations</h2>
+
+
+  <md-card-content ng-if="connected_to_facebook && !organization_registration && organizations.length > 0">
     <ul     class="list-group organization-login-list">
-      <li class="list-group-item"  ng-repeat="organization in organizations">
-        <img class="organization-login-image" ng-src="{{organization.picture}}">
+      <div ng-repeat="organization in organizations">
+        <li class="list-group-item"  ng-if="organization.exists === true" >
+          <img class="organization-login-image" ng-src="{{organization.picture}}">
 
-        <!-- Organization Name -->
-        <p class="lead">{{organization.name}}</p>
+          <!-- Organization Name -->
+          <p class="lead">{{organization.name}}</p>
 
-        <!-- Link to the organizations Voluntr if added Page -->
-        <button class="btn btn-default"
-                ng-if="organization.exists === true"
-                ng-click="authorizeUser(organization)"
+          <!-- Link to the organizations Voluntr if added Page -->
+          <button class="btn btn-default"
+                  ng-if="organization.exists === true"
+                  ng-click="authorizeUser(organization)"
 
-          >{{organization.name}} Home Page
-        </button>
+            >{{organization.name}} Home Page
+          </button>
+        </li>
+      </div>
+      <md-divider></md-divider>
+      <md-subheader class="md-no-sticky">These Organizations Have Not Been Added:</md-subheader>
+      <div ng-repeat="organization in organizations">
+        <li class="list-group-item" ng-if="organization.exists !== true">
+          <img class="organization-login-image" ng-src="{{organization.picture}}">
 
-        <!-- Organization Name -->
-        <!-- If the organization has not been added to voluntr, show option
-            to add to VOLUNTR database -->
-        <button ng-if="organization.exists === false"
-                class="btn btn-default"
-                ng-click="organizationRegistration(organization)">
-          Add {{organization.name}}
-        </button>
+          <!-- Organization Name -->
+          <p class="lead">{{organization.name}}</p>
+
+          <!-- Link to the organizations Voluntr if added Page -->
+          <button ng-if="organization.exists === false"
+                  class="btn btn-default"
+                  ng-click="organizationRegistration(organization)">
+            Add {{organization.name}}
+          </button>
+        </li>
+      </div>
     </ul>
   </md-card-content>
+
+
 
   <md-card-content ng-if="organization_registration" id="organization-registration-container">
     <h2>Register {{organization.name}} for Volu</h2>

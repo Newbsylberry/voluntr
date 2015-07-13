@@ -28,10 +28,7 @@ class OpportunitiesController < ApplicationController
 
 
     if params[:calendar]
-      @schedule = ObjectSchedule.new
-      @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
-      @schedule.scheduleable = @opportunity
-      @schedule.save
+      @opportunity.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
     end
 
     @opportunity.save
@@ -48,10 +45,9 @@ class OpportunitiesController < ApplicationController
 
     @opportunity.update(opportunity_params)
     if params[:calendar]
-      @schedule = ObjectSchedule.new
-      @schedule.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
-      @schedule.scheduleable = @opportunity
-      @schedule.save
+      @opportunity.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
+
+      @opportunity.save
     end
 
 

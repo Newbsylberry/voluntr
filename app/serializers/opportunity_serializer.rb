@@ -1,9 +1,9 @@
 class OpportunitySerializer < ActiveModel::Serializer
   include IceCube
   attributes :id, :fb_id, :duration, :name, :organization_id, :start_time, :end_time, :location, :longitude, :latitude, :description,
-             :opportunity_type_id, :start, :end, :title, :color, :allDay,
+             :opportunity_type_id, :start, :end, :title, :color, :allDay, :schedule,
              :schedule_to_string, :start_schedule, :ical, :address, :city, :state,
-             :zip_code, :volunteer_goal, :object_schedules, :recorded_hours, :organization_email_templates, :opportunity_roles,
+             :zip_code, :volunteer_goal, :recorded_hours, :organization_email_templates, :opportunity_roles,
              :total_recorded_hours, :total_people_recording,
              :instance_hours, :instance_people_count, :selected_instance_recorded_hours,
               :selected_instance_people_recording, :volunteers
@@ -12,8 +12,8 @@ class OpportunitySerializer < ActiveModel::Serializer
 
 
   def schedule_to_string
-    if self.start_schedule
-      IceCube::Schedule.from_yaml(start_schedule).rrules.each do |r|
+    if self.schedule
+      IceCube::Schedule.from_yaml(schedule).rrules.each do |r|
         return r.to_s
       end
     end
@@ -75,12 +75,11 @@ class OpportunitySerializer < ActiveModel::Serializer
 
 
   def ical
-    if self.object_schedules
-      @schedule = self.object_schedules.order("updated_at").last
+    if self.schedule
       keys = Array.new
       values = Array.new
-      if !@schedule.nil?
-      IceCube::Schedule.from_yaml(@schedule.schedule).rrules.each do |r|
+      if !schedule.nil?
+      IceCube::Schedule.from_yaml(schedule).rrules.each do |r|
         r.to_ical.split(';').each do |s|
           s.split("=").map.with_index do |item, index|
             if index == 0

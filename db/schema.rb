@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709070708) do
+ActiveRecord::Schema.define(version: 20150712183806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,18 +35,6 @@ ActiveRecord::Schema.define(version: 20150709070708) do
     t.string   "list_id"
   end
 
-  create_table "object_schedules", force: :cascade do |t|
-    t.integer  "scheduleable_id"
-    t.string   "scheduleable_type"
-    t.string   "end_time"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.text     "schedule"
-    t.boolean  "outdated"
-  end
-
-  add_index "object_schedules", ["scheduleable_id"], name: "index_object_schedules_on_scheduleable_id", using: :btree
-
   create_table "opportunities", force: :cascade do |t|
     t.integer  "fb_id"
     t.integer  "string"
@@ -69,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150709070708) do
     t.string   "zip_code"
     t.string   "address"
     t.integer  "volunteer_goal"
+    t.text     "schedule"
   end
 
   create_table "opportunity_roles", force: :cascade do |t|

@@ -12,7 +12,7 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
 
 
 
-
+      $scope.calendar.repeat.repeat_type = {};
 
 
       $scope.$watch('calendar.duration', function () {
