@@ -41,4 +41,10 @@ class OrganizationPerson < ActiveRecord::Base
     end
   end
 
+  def send_registration_confirmation
+    if self.person.email
+      PersonOrganizationMailer.registration_confirmation_email(organization, person).deliver
+    end
+  end
+
 end

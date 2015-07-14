@@ -47,6 +47,9 @@ class Person < ActiveRecord::Base
     if !organization.organization_mailing_services.empty?
       @person_organization.add_to_lists(Array.new << organization.default_list("mail_chimp"))
     end
+    if !@person_organization.persisted?
+      @person_organization.send_registration_confirmation
+    end
     @person_organization.save
   end
 

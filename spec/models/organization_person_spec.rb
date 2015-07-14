@@ -28,6 +28,10 @@ RSpec.describe OrganizationPerson, "When working with people who have volunteere
       expect(@po.add_to_lists(@lists).count).to eq(1)
     end
 
+    it "#send_registration_email" do
+      expect { @person_organization.send_registration_confirmation }.to change { ActionMailer::Base.deliveries.count }.by(1)
+    end
+
 
 
 
