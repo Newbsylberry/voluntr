@@ -25,8 +25,8 @@ module SchedulerTool
 
 
     if !schedule
-    schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000) )
-    schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
+      schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000) )
+      schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
     end
 
     if params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_daily'
@@ -66,23 +66,27 @@ module SchedulerTool
   private
 
   def SchedulerTool.object_loop(opportunity, start_date, end_date)
-      schedule = IceCube::Schedule.from_yaml(opportunity.schedule)
 
-      schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
-
-
-        instance = opportunity.class.new
-        instance.title = opportunity.name
-        instance.id = opportunity.id
-        instance.color = opportunity.color
-        instance.start = occ.start_time
-        instance.end = occ.end_time
+    if opportunity.schedule
+    schedule = IceCube::Schedule.from_yaml(opportunity.schedule)
 
 
+    schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
 
-        # instance.end_time = occ + duration
-        @instances.push(instance)
-      end
+
+      instance = opportunity.class.new
+      instance.title = opportunity.name
+      instance.id = opportunity.id
+      instance.color = opportunity.color
+      instance.start = occ.start_time
+      instance.end = occ.end_time
+
+
+
+      # instance.end_time = occ + duration
+      @instances.push(instance)
+    end
+    end
   end
 
 
