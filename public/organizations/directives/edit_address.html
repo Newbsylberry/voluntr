@@ -1,4 +1,4 @@
-<h3 ng-hide="editing">{{address}}</h3>
+<h4 ng-hide="editing">{{address}}</h4>
 <md-input-container flex ng-show="editing">
     <label>Address</label>
     <input ng-model="address">
@@ -8,7 +8,7 @@
     <!--<input ng-model="user.address2" placeholder="Address 2">-->
   <!--</md-input-container>-->
 
-  <div layout layout-sm="column">
+  <div layout layout-sm="column" class="ppedit">
     <p ng-hide="editing">{{city}}</p>
     <md-input-container flex ng-show="editing">
       <label>City</label>
@@ -28,15 +28,13 @@
     </md-input-container>
   </div>
 
-  <a href=""
-     ng-hide="editing"
-     ng-click="editAddress()">
-     Edit </a>
+    <div >
+     <md-button class="md-raised md-primary ppbutton" ng-hide="editing"
+     ng-click="editAddress()">Edit</md-button>
 
-  <a href=""
-     ng-show="editing"
-     ng-click="saveAddress()">
-     Save</a>
+    <md-button class="md-raised md-primary ppbutton"  ng-show="editing"
+     ng-click="saveAddress()">Save</md-button>
+</div>
 
 
 

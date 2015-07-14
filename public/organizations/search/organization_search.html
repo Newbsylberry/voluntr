@@ -6,6 +6,35 @@
         <p>We're Waiting Patiently for your search...</p>
       </div>
       <md-list>
+              
+        <md-list-item class="md-2-line" ng-repeat="search_item in search_items | filter : query.query" ng-if="query.query" id={{search_item.id}} ng-click="personDetail('lg', search_item.id)" ng-if="search_item.result_type === 'Volunteer'">
+                <img ng-src="http://graph.facebook.com/{{search_item.fb_id}}/picture?type=small" class="md-avatar" alt="{{todos[0].who}}" />
+                <div class="md-list-item-text">
+                    <h3>{{search_item.name}}</h3>
+                    <p>{{search_item.result_type}}</p>
+                </div>
+            
+            <div person-modal size="lg" id={{search_item.id}}
+                 class="md-tile-content"
+                 ng-if="search_item.result_type === 'Volunteer'">
+                <md-button 
+                  ng-click="personDetail('lg', search_item.id)" class="md-raised md-primary">Detail</md-button>
+            </div>
+          </md-list-item>  
+
+
+
+          <md-list-item class="md-2-line" ng-repeat="search_item in search_items | filter : query.query" ng-if="query.query" id={{search_item.id}} ng-click="personDetail('lg', search_item.id)" ng-if="search_item.result_type === 'Opportunity'">
+
+              <img 
+                   src="/images/no_image.jpg"
+                   class="md-avatar" alt="{{item.who}}">
+                <div class="md-list-item-text">
+                    <h3>{{search_item.name}}</h3>
+                    <p>{{search_item.result_type}}</p>
+                </div>
+          </md-list-item>  
+          <!--
         <md-item ng-repeat="search_item in search_items | filter : query.query"
                  ng-if="query.query">
           <md-item-content>
@@ -32,7 +61,7 @@
               <h4>{{search_item.result_type}}</h4>
             </div>
           </md-item-content>
-        </md-item>
+-->
       </md-list>
 
     </md-card-content>

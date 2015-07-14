@@ -9,14 +9,17 @@ module SchedulerTool
     if !object.schedule.nil?
 
       schedule = IceCube::Schedule.from_yaml(object.schedule)
-
+      @hash = schedule.to_hash
       # If the schedule has rules which define it repeat endlessly
       if schedule.recurrence_rules
-        schedule.recurrence_rules.each do |rr|
+        @hash[:rrules].each do |rr|
           # Chance the until for the rule until the day before the new schedule
-          rr.until(Time.at(params[:calendar][:start_time].to_i  / 1000))
+          if rr[:until].nil?
+            rr[:until] = Time.at(params[:calendar][:start_time].to_i  / 1000)
+          end
           # If the schedule hasn't started yet, then destroy it
         end
+        schedule = IceCube::Schedule.from_hash(@hash)
       end
     end
 

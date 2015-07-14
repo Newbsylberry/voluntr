@@ -1,1 +1,20 @@
-<div ui-view></div>
+<div class="siboxout">
+  <div class="sibox">
+    <div class="sicontent">
+      <div class="sileft">
+        <img ng-src="{{organization.picture}}" />
+        <div class="opinfo">
+          <h2>Organization:</h2>
+          <p>{{organization.name}}</p>
+          <h2>Description:</h2>
+          <p>{{organization.description}}</p>
+        </div>
+
+      </div>
+      <div class="siright">
+        <h1 style="margin-bottom:20px;">Volunteer Registration</h1>
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+</div>

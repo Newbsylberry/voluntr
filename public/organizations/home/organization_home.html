@@ -35,13 +35,13 @@
         <md-card-content class="dashboard-module">
           <h3>Recently Recorded Hours</h3>
           <md-list layout="column">
-            <md-list-item
-              ng-repeat="recorded_hour in organization.recorded_hours">
-                  <h4 person-modal size="lg" id="{{recorded_hour.person.id}}">
-                    {{recorded_hour.person.first_name}} {{recorded_hour.person.last_name}}</h4>
-                  <h4>{{recorded_hour.description}}</h4>
-                  <h2 style="margin-left: 58%;">{{recorded_hour.hours}}</h2>
-            </md-list-item>
+            <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
+                           person-modal
+                           size="'lg'"
+                           id="{{recorded_hour.person_id}}"
+                           recorded-hour="recorded_hour"
+                             recorded-hours="organization.recorded_hours"
+                             type="opportunity"></recorded-hour>
           </md-list>
         </md-card-content>
       </md-card>

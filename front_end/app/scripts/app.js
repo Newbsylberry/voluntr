@@ -205,21 +205,18 @@ angular
       })
 
       .state('organization_volunteer_registration.1', { //default page loaded for landing state
-        url: '/1',
+        url: '/1?person_token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_1.html', // url for partial
-        controller: 'OrganizationVolunteerRegistrationCtrl'
       })
 
       .state('organization_volunteer_registration.2', { //default page loaded for landing state
-        url: '/2',
+        url: '/2?person_token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_2.html', // url for partial
-        controller: 'OrganizationVolunteerRegistrationCtrl'
       })
 
       .state('organization_volunteer_registration.3', { //default page loaded for landing state
-        url: '/3',
+        url: '/3?person_token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_3.html', // url for partial
-        controller: 'OrganizationVolunteerRegistrationCtrl'
       })
 
 

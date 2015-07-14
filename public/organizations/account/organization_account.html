@@ -1,13 +1,24 @@
 
 <md-card class="content" >
-  <md-card-content>
-    <md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
-
+  <md-card-content class="accountmain">
+    <md-tabs  md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
       <!-- Event Information -->
       <md-tab id="tab1">
         <md-tab-label>Organization Information</md-tab-label>
         <md-tab-body>
-          <h2>{{organization.name}}</h2>
+            <md-divider></md-divider>
+            <div class="accountwrapper">
+                <div class="col-md-3">
+                    <div class="accimg">
+                        <img src="">
+                    </div>
+                </div>
+                <div class="col-md-9">
+          <h2>{{organization.name}}Placeholder</h2>
+        <md-divider></md-divider>        
+                <h4>Description:{{organization.description}}Placeholder</h4><br/><br/>
+                <h4>Address:</h4>
+                <div>
           <edit-address address="{{organization.address}}"
                         state="{{organization.state}}"
                         zip-code="{{organization.zip_code}}"
@@ -15,18 +26,22 @@
                         model-id="{{organization.id}}"
                         address-type="organization"
             >
-          </edit-address>
-          <p>{{organization.description}}</p>
+                    </edit-address></div>
+                </div></div>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab2">
         <md-tab-label>Organization Integrations</md-tab-label>
         <md-tab-body>
-          <md-list>
-            <a href="#"
+            <md-divider></md-divider>
+            <div class="accountwrapper">
+            <h2>MailChimp</h2>    
+            <p>Description: MailChimp is a service that can help you manage your email list. Connect to it will require you to enter user name and password.</p><br/>
+            <md-button  class="md-raised md-primary" style="margin:0px;"href="#"
                ng-click="authorize_mailchimp()"
-               ng-show="!mailchimp_authorized">Connect to MailChimp (requires you to enter user name and password)</a>
+               ng-show="!mailchimp_authorized">Connect to MailChimp</md-button>
             <p ng-show="mailchimp_authorized">Your MailChimp Account Name: {{mailchimp.account_name}}</p>
+                <md-list>
             <md-item ng-repeat="organization_mailing_service in organization.organization_mailing_services">
               <div ng-show="organization_mailing_service.service_type === 'mail_chimp'">
                 <!--<p ng-show="mailchimp_authorized && default_list_set"
@@ -39,6 +54,8 @@
               </div>
             </md-item>
           </md-list>
+            <md-divider></md-divider>    
+            </div>
         </md-tab-body>
       </md-tab>
     </md-tabs>

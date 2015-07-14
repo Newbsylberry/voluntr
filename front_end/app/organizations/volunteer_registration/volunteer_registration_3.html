@@ -59,7 +59,7 @@
     <md-divider></md-divider>
 </div>
 
-<div>    
+<div>
 <md-checkbox ng-model="Thu" aria-label="Thu" class="quat">
     Thu
 </md-checkbox>
@@ -141,7 +141,9 @@
 
 
 <br/>
- <md-button class="md-raised md-primary formbutton" aria-label="Use Android"   ui-sref="organization_volunteer_registration.3">
+ <md-button class="md-raised md-primary formbutton"
+            aria-label="Use Android"
+            ui-sref="organization_volunteer_registration.1({person_token:state.params.person_token})">
           Submit
         </md-button>
 
