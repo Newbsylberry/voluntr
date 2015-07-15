@@ -5,13 +5,13 @@
 </md-checkbox>
 
 <div ng-show="Mon">
-<md-checkbox ng-model="M1" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.monday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A1" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.monday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N1" aria-label="N" class="quat">
+<md-checkbox ng-model="night.monday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -25,13 +25,13 @@
 </md-checkbox>
 
 <div ng-show="Tue">
-<md-checkbox ng-model="M2" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.tuesday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A2" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.tuesday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N2" aria-label="N" class="quat">
+<md-checkbox ng-model="night.tuesday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -45,13 +45,13 @@
 </md-checkbox>
 
 <div ng-show="Wed">
-<md-checkbox ng-model="M3" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.wednesday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A3" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.wednesday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N3" aria-label="N" class="quat">
+<md-checkbox ng-model="night.wednesday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -65,13 +65,13 @@
 </md-checkbox>
 
 <div ng-show="Thu">
-<md-checkbox ng-model="M4" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.thursday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A4" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.thursday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N4" aria-label="N" class="quat">
+<md-checkbox ng-model="night.thursday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -86,13 +86,13 @@
 </md-checkbox>
 
 <div ng-show="Fri">
-<md-checkbox ng-model="M5" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.friday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A5" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.friday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N5" aria-label="N" class="quat">
+<md-checkbox ng-model="night.friday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -106,13 +106,13 @@
 </md-checkbox>
 
 <div ng-show="Sat">
-<md-checkbox ng-model="M6" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.saturday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A6" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.saturday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N6" aria-label="N" class="quat">
+<md-checkbox ng-model="night.saturday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -126,13 +126,13 @@
 </md-checkbox>
 
 <div ng-show="Sun">
-<md-checkbox ng-model="M7" aria-label="M" class="quat">
+<md-checkbox ng-model="morning.sunday" aria-label="M" class="quat">
     Morning
 </md-checkbox>
-<md-checkbox ng-model="A7" aria-label="A" class="quat">
+<md-checkbox ng-model="afternoon.sunday" aria-label="A" class="quat">
     Afternoon
 </md-checkbox>
-<md-checkbox ng-model="N7" aria-label="N" class="quat">
+<md-checkbox ng-model="night.sunday" aria-label="N" class="quat">
     Night
 </md-checkbox>
     </div>
@@ -143,7 +143,7 @@
 <br/>
  <md-button class="md-raised md-primary formbutton"
             aria-label="Use Android"
-            ui-sref="organization_volunteer_registration.1({person_token:state.params.person_token})">
+            ng-click="updateWithSchedule()">
           Submit
         </md-button>
 
