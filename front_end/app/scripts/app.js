@@ -119,6 +119,12 @@ angular
         controller: 'OrganizationMainCtrl'
       })
 
+      //.state('organizations_public', {
+      //  url: ':custom_url' + '.' + '/',
+      //  templateUrl: 'organizations/public/organization_public.html',
+      //  controller: 'OrganizationPublicCtrl'
+      //})
+
       .state('organizations.registration', {
         url: '/registration',
         templateUrl: 'organizations/registration/organization_registration.html',
@@ -201,23 +207,23 @@ angular
 
       .state('organization_volunteer_registration', { //default page loaded for landing state
         abstract: true,
-        url: '/:organization_Id/organization_volunteer_registration',
+        url: '/:organization_custom_Url/registration',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration.html', // url for partial
         controller: 'OrganizationVolunteerRegistrationCtrl'
       })
 
       .state('organization_volunteer_registration.1', { //default page loaded for landing state
-        url: '/1?person_token',
+        url: '?token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_1.html', // url for partial
       })
 
       .state('organization_volunteer_registration.2', { //default page loaded for landing state
-        url: '/2?person_token',
+        url: '/2?token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_2.html', // url for partial
       })
 
       .state('organization_volunteer_registration.3', { //default page loaded for landing state
-        url: '/3?person_token',
+        url: '/3?token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_3.html', // url for partial
       })
 

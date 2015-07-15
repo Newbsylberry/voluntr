@@ -5,9 +5,11 @@ angular.module('voluntrApp')
 
 
 
-    Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
+    Organization.get_by_url({organization_custom_Url: $stateParams.organization_custom_Url},
+      function(successResponse) {
       // find the organizations information on facebook
-      $scope.organization = successResponse
+
+        $scope.organization = successResponse;
       Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
         $scope.organization.picture = response.data.url;
       });
