@@ -4,6 +4,8 @@
   <md-tab id="tab1">
     <md-tab-label>Dashboard</md-tab-label>
     <md-tab-body>
+                    <div class="tabcontrol">
+            <div class="tabcontrolin">
       <div class="row opportunity-information">
         <div class="col-xs-12">
           <edit-object-directive
@@ -35,7 +37,7 @@
             >
 
           </edit-address>-->
-          <br>
+    
 
           <!--<p style="display: inline-block">Volunteers Required:</p>
           <edit-object-directive
@@ -66,10 +68,14 @@
             <h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>
           </div>
         </div>
+          <md-divider></md-divider>
         <div class="row">
           <highchart config="instanceStatisticGraphConfig"></highchart>
         </div>
       </div>
+                        </div>
+        </div>
+        
     </md-tab-body>
   </md-tab>
 
@@ -78,12 +84,14 @@
   <md-tab id="tab2">
     <md-tab-label>Schedule</md-tab-label>
     <md-tab-body>
-
+<div class="tabcontrol">
+            <div class="tabcontrolin">
       <object-schedule
         object-type="opportunity"
         object="opportunity"
         ></object-schedule>
-
+    </div>
+        </div>
     </md-tab-body>
   </md-tab>
 
