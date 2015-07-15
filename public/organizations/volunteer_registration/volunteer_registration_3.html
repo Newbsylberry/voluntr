@@ -1,3 +1,4 @@
+<div ng-show="!submitted">
 <p style="text-align:center;">Pick up weekdays and time slots when you are avaliable to be a volunteer.</p>
 <div>
 <md-checkbox ng-model="Mon" aria-label="Mon" class="quat">
@@ -150,4 +151,8 @@
  <md-button class="md-raised md-primary formbutton" aria-label="Use Android"  ui-sref="organization_volunteer_registration.2">
           Previous Step: Address
         </md-button>
+</div>
+<div ng-show="submitted">
+  <h1>Thanks for registering to volunteer! We're taking you somewhere you can find more great opportunities!</h1>
+</div>
 

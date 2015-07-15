@@ -1,5 +1,5 @@
 class OpportunityRoleSerializer < ActiveModel::Serializer
-  attributes :id, :opportunity_id, :name, :recorded_hours, :total_recorded_hours
+  attributes :id, :opportunity_id, :name, :recorded_hours, :total_recorded_hours, :description
 
   def total_recorded_hours
     if recorded_hours
