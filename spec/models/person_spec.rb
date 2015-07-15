@@ -48,6 +48,25 @@ RSpec.describe Person, "Working with the people model" do
 
     end
 
+    it "#update_schedule" do
+      @person = Person.new
+      @params = Hash.new
+      @params[:schedule] = Hash.new
+      @params[:schedule][:morning] = Hash.new
+      @params[:schedule][:afternoon] = Hash.new
+      @params[:schedule][:night] = Hash.new
+      @params[:schedule][:morning]["wednesday"] = true
+      @params[:schedule][:afternoon]["monday"] = true
+      @params[:schedule][:afternoon]["tuesday"] = true
+      @params[:schedule][:afternoon]["wednesday"] = true
+      @params[:schedule][:night]["thursday"] = true
+      @person.update_schedule(@params)
+      expect(IceCube::Schedule.from_yaml(@person.schedule["morning_schedule"]).occurrences(Time.now + 6.days).count).to eq(1)
+      expect(IceCube::Schedule.from_yaml(@person.schedule["afternoon_schedule"]).occurrences(Time.now + 6.days).count).to eq(4)
+      expect(IceCube::Schedule.from_yaml(@person.schedule["night_schedule"]).occurrences(Time.now + 6.days).count).to eq(1)
+    end
+
+
     pending "should show only opportunities registered for"
 
   end

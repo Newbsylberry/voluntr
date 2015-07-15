@@ -23,7 +23,6 @@ module SchedulerTool
       end
     end
 
-
     if !schedule
       schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000) )
       schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
@@ -59,6 +58,30 @@ module SchedulerTool
     return @instances
   end
 
+  def SchedulerTool.hash_array_loop(schedule_hash, array)
+    days = array
+    schedule_hash.each do |key, value|
+
+      if key.to_s == "monday"
+        days << 1
+      elsif key.to_s == "tuesday"
+        days << 2
+      elsif key.to_s== "wednesday"
+        days << 3
+      elsif key.to_s== "thursday"
+        days << 4
+      elsif key.to_s == "friday"
+        days << 5
+      elsif key.to_s == "saturday"
+        days << 6
+      elsif key.to_s == "sunday"
+        days << 0
+      end
+    end
+    puts days.count
+    return days
+  end
+
 
 
 
@@ -88,6 +111,8 @@ module SchedulerTool
     end
     end
   end
+
+
 
 
 

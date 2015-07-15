@@ -34,7 +34,14 @@ class PeopleController < ApplicationController
   def update
     @person = Person.find(params[:id])
 
+
     @person.update_columns(person_params)
+
+    if params[:schedule]
+      puts params
+      @person.update_schedule(params)
+      @person.save
+    end
 
     render json: @person
   end

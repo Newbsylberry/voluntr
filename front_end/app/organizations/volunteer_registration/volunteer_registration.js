@@ -68,6 +68,22 @@ angular.module('voluntrApp')
         $state.go('organization_volunteer_registration.3', {person_token:btoa($scope.person.id)})
       };
 
+      $scope.morning = {};
+      $scope.afternoon = {};
+      $scope.night = {};
+
+      $scope.updateWithSchedule = function() {
+        var attr = {};
+        attr.id = $scope.person.id;
+        attr.schedule = {};
+        attr.schedule.morning = $scope.morning;
+        attr.schedule.afternoon = $scope.afternoon;
+        attr.schedule.night = $scope.night;
+        People.update(attr).$promise.then(function(person){
+          $state.go('/')
+        });
+      };
+
 
 
 

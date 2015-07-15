@@ -5,8 +5,18 @@ class Person < ActiveRecord::Base
   has_many :opportunities, through: :person_opportunities
   has_many :recorded_hours
   attr_accessor :opportunity_hours, :opportunity_instances_count, :opportunity_role, :opportunity_photo_consent
-
   validates :email, uniqueness: true
+  require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
+
+  after_initialize do |person|
+    if person.new_record?
+      @schedules = Hash.new
+      @schedules["morning_schedule"] = "---\n:start_time: &1 2015-07-13 06:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 12:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      self.schedule = @schedules
+    end
+  end
 
   def total_recorded_hours
     recorded_hours.sum(:hours)
@@ -52,6 +62,37 @@ class Person < ActiveRecord::Base
     end
     @person_organization.save
   end
+
+  def update_schedule(params)
+    @morning_schedule = Array.new
+    @afternoon_schedule = Array.new
+    @night_schedule = Array.new
+    params[:schedule].each do |key, value|
+      if key.to_s == "morning"
+        hash = IceCube::Schedule.from_yaml(self.schedule["morning_schedule"]).to_hash
+        hash[:rrules].each do |rr|
+          rr[:validations][:day] = SchedulerTool.hash_array_loop(value, Array.new)
+        end
+        schedule["morning_schedule"] = IceCube::Schedule.from_hash(hash).to_yaml
+      elsif key.to_s == "afternoon"
+        hash = IceCube::Schedule.from_yaml(self.schedule["afternoon_schedule"]).to_hash
+        hash[:rrules].each do |rr|
+          rr[:validations][:day] = SchedulerTool.hash_array_loop(value, Array.new)
+        end
+        schedule["afternoon_schedule"] = IceCube::Schedule.from_hash(hash).to_yaml
+
+      elsif key.to_s == "night"
+        hash = IceCube::Schedule.from_yaml(self.schedule["night_schedule"]).to_hash
+        hash[:rrules].each do |rr|
+          rr[:validations][:day] = SchedulerTool.hash_array_loop(value, Array.new)
+        end
+        schedule["night_schedule"] = IceCube::Schedule.from_hash(hash).to_yaml
+      end
+    end
+    self.save
+  end
+
+
 
 
 
