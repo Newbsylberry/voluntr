@@ -1,26 +1,15 @@
-<!--
-<div snap-drawer="left" ng-controller="SideMenuCtrl" id="side-menu">
-  <a href=""
-     ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a><br>
-  <a href=""
-     ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a><br>
-  <a href=""
-     ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a><br>
-  <a href=""
-     ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a><br>
-</div>
--->
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-  <md-toolbar class="md-theme-indigo">
-    <h1 class="md-toolbar-tools">Sidenav Left</h1>
-  </md-toolbar>
-  <md-content layout-padding ng-controller="LeftCtrl">
-    <md-button ng-click="close()" class="md-primary" hide-gt-md>
-      Close Sidenav Left
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <md-content layout-padding ng-controller="HeaderCtrl">
+    <a href=""
+       ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a><br>
+    <a href=""
+       ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a><br>
+    <a href=""
+       ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a><br>
+    <a href=""
+       ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a><br>
+    <md-button ng-click="close()">
+      Close Menu
     </md-button>
-    <p hide-md show-gt-md>
-      This sidenav is locked open on your device. To go back to the default behavior,
-      narrow your display.
-    </p>
   </md-content>
 </md-sidenav>
