@@ -58,14 +58,58 @@
           </div>
         </md-tab-body>
       </md-tab>
+      <md-tab id="tab3">
+        <md-tab-label>Organization Settings</md-tab-label>
+        <md-tab-body>
+          <edit-object-directive
+            text_name="name"
+            model-type="organization"
+            attribute-name="custom_url"
+            model-id="{{organization.id}}"
+            text="{{organization.custom_url}}"
+            placeholder="Enter the Custom URL for your Volu Resources (i.e. - volu will give
+                 you a volu/registration form for registering volunteers)"
+            size="subtitle_text"
+            ></edit-object-directive><br>
+          <edit-object-directive
+            text_name="name"
+            model-type="organization"
+            placeholder="Enter the URL of Your Website"
+            attribute-name="website_url"
+            model-id="{{organization.id}}"
+            text="{{organization.website_url}}"
+            size="subtitle_text"
+            ></edit-object-directive><br>
+          <edit-object-directive
+            text_name="name"
+            model-type="organization"
+            placeholder="Enter the URL of Your Facebook Page"
+            attribute-name="facebook_url"
+            model-id="{{organization.id}}"
+            text="{{organization.facebook_url}}"
+            size="subtitle_text"
+            ></edit-object-directive><br>
+          <edit-object-directive
+            text_name="name"
+            model-type="organization"
+            attribute-name="twitter_url"
+            model-id="{{organization.id}}"
+            text="{{organization.twitter_url}}"
+            placeholder="Enter the URL of Your Twitter Page"
+            size="subtitle_text"
+            ></edit-object-directive><br>
+          <edit-object-directive
+            text_name="name"
+            model-type="organization"
+            attribute-name="instagram_url"
+            model-id="{{organization.id}}"
+            text="{{organization.instagram_url}}"
+            placeholder="Enter the URL of Your Instagram Page"
+            size="subtitle_text"
+            ></edit-object-directive><br>
+        </md-tab-body>
+      </md-tab>
     </md-tabs>
-    <md-tab id="tab3">
-      <md-tab-label>Organization Settings</md-tab-label>
-      <md-tab-body>
-
-      </md-tab-body>
-    </md-tab>
-
   </md-card-content>
 </md-card>
 

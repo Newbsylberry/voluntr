@@ -3,6 +3,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,700,300" rel="stylesheet" type="text/css" />
+  <style>
+    .organization_picture {
+        width:100px;
+        right:40px;
+        top:-50px;
+        padding:7px;
+        background-color:#fff;
+    }
+  </style>
 
 </head>
 <body style="
@@ -24,15 +33,9 @@ background-color:#35c0ff;
             padding:46px 30px 30px 30px;
             position:relative;">
 
-      <img src="http://i.imgur.com/n6jbOuy.jpg" title="source: imgur.com"
-           style=" width:100px;
-                   position:absolute;
-                   right:40px;
-                   top:-50px;
-                   padding:7px;
-                   background-color:#fff;
-                   border-radius:4px;
-                   box-shadow:0 1px 3px 0 rgba(0,0,0,.26);"/>
+      <%= image_tag("http://graph.facebook.com/v2.4/#{@organization.fb_id}/picture?type=large",
+                    class: "organization_picture") %>
+
       <p style="color:rgba(0,0,0,0.7)">
         Dear <%= @person.first_name %>,
       </p>
@@ -49,9 +52,10 @@ background-color:#35c0ff;
       </p>
       <br/>
       <div id="social">
-        <a href="https://www.facebook.com/SalArmySyr">Connect On Facebook!</a> |
-        <a href="https://twitter.com/salarmysyr">Follow Us On Twitter</a> |
-        <a href="https://instagram.com/salarmysyr">Follow Us On Instagram</a>
+            <%= link_to "Visit Our Webpage", "#{@organization.website_url}" if @organization.website_url %>
+            <%= link_to "Visit Our Facebook Page", "#{@organization.facebook_url}" if @organization.facebook_url %>
+            <%= link_to "Visit Our Twitter Page", "#{@organization.twitter_url}" if @organization.twitter_url %>
+            <%= link_to "Visit Our Instagram Page", "#{@organization.instagram_url}" if @organization.instagram_url %>
       </div>
       <p style="text-align:right;
               color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>

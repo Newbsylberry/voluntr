@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715082020) do
+ActiveRecord::Schema.define(version: 20150715210019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,11 @@ ActiveRecord::Schema.define(version: 20150715082020) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
+    t.string   "custom_url"
+    t.text     "website_url"
+    t.text     "facebook_url"
+    t.text     "twitter_url"
+    t.text     "instagram_url"
   end
 
   create_table "people", force: :cascade do |t|

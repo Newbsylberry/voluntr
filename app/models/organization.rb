@@ -9,6 +9,8 @@ class Organization < ActiveRecord::Base
   has_many :organization_mailing_services
   has_many :mailing_service_lists, through: :organization_mailing_services
 
+  validates :custom_url, uniqueness: true
+
 
   after_create do |organization|
     OrganizationEmailType.all.each do |oet|
