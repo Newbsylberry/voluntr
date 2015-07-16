@@ -4,11 +4,11 @@
 
 angular.module('voluntrApp')
   .controller('SideMenuCtrl', function ($scope, $stateParams, $state, Opportunity,
-                                        $modal, $rootScope) {
+                                        $modal, $rootScope, $mdSidenav) {
 
-    $scope.snapOpts = {
-      disable: 'right'
-    };
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-<h2
+<h2 style="color:rgba(0,0,0,0.6); font-size:45px;"
   class="detail-title-text"
   ng-hide="editing || !title_text"
   >{{text}}</h2>
@@ -6,19 +6,32 @@
   class="detail-subtitle-text"
   ng-hide="editing || !subtitle_text"
   >{{text}}</h3>
-<p
+<p style="color:rgba(0,0,0,0.5);"
   class="detail-paragraph-text"
   ng-hide="editing || !paragraph_text"
   >{{text}}</p>
 {{model_id}}
 {{text_name}}
+<<<<<<< HEAD
+
+
+ <md-input-container ng-show="editing && title_text || editing && subtitle_text">
+      <label>Edit the information</label>
+      <input type="text"
+       ng-model="text">
+    </md-input-container>
+
+<md-input-container ng-show="editing && paragraph_text">
+      <label>Edit the information</label>
+      <input 
+=======
 <input ng-show="editing && title_text || editing && subtitle_text"
        type="text"
        placeholder="{{placeholder}}"
+>>>>>>> f6ad593cfeafaa012d11b7f22624f07eeda24e54
        ng-model="text">
+    </md-input-container>
 
-<textarea ng-show="editing && paragraph_text"
-       ng-model="text"></textarea>
 
 <a ng-hide="editing"
    href=''

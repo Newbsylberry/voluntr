@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   include HTTParty
   before_action :authenticate, except: [:log_in, :existence_check, :opportunities, :create,
-                                        :mailchimp_integration, :mailchimp_callback]
+                                        :mailchimp_integration, :mailchimp_callback, :show_by_url]
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
   # GET /organizations/1
   # GET /organizations/1.json
@@ -13,6 +13,14 @@ class OrganizationsController < ApplicationController
     end
 
     render json: @current_organization, serializer: OrganizationSerializer
+  end
+
+  def show_by_url
+    @organization = Organization.find_by_custom_url(params[:custom_url])
+
+    puts @organization.name
+
+    render json: @organization, serializer: OrganizationSerializer
   end
 
   # POST /organizations
@@ -137,7 +145,8 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organization).permit(:id, :fb_id, :name, :description, :address, :state, :city, :zip_code)
+    params.require(:organization).permit(:id, :fb_id, :name, :description, :address, :state, :city, :zip_code, :custom_url,
+    :website_url, :facebook_url, :twitter_url, :instagram_url)
   end
 
 end

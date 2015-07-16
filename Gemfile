@@ -8,10 +8,12 @@ gem 'rails-api'
 
 gem 'puma'
 
+
 gem 'spring', :group => :development
 
 
 group :development do
+  gem 'letter_opener', :group => :development
   gem 'net-ssh', '>2.0'
   gem 'capistrano',         require: false
   gem 'rvm1-capistrano3', require: false

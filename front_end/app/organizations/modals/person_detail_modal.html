@@ -1,35 +1,35 @@
 <md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
   <md-tab id="tab1">
     <md-tab-label>Dashboard</md-tab-label>
-    <md-tab-body >   
-        <div class="tabcontrol">
-            <div class="tabcontrolin persontab" >
-      <!--  -->
-      <div class="row person-information">
-        <div class="col-md-3">
-          <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
-               class="face">
-        </div>
-        <div class="col-md-9">
-          <h2>{{person.first_name}} {{person.last_name}}</h2>
-          <edit-address
-            address="{{person.address}}"
-            zip-code="{{person.zip_code}}"
-            state="{{person.state}}"
-            city="{{person.city}}"
-            model-id="{{person.id}}"
-            address-type="person"
-            >
-          </edit-address>
-        </div>
-          
-      </div><br/>
-                <md-divider></md-divider>
-      <div class="row person-dashboard">
-        <highchart config="personStatisticGraphConfig"></highchart>
-      </div>
+    <md-tab-body >
+      <div class="tabcontrol">
+        <div class="tabcontrolin persontab" >
+          <!--  -->
+          <div class="row person-information">
+            <div class="col-md-3">
+              <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
+                   class="face">
             </div>
+            <div class="col-md-9">
+              <h2>{{person.first_name}} {{person.last_name}}</h2>
+              <edit-address
+                address="{{person.address}}"
+                zip-code="{{person.zip_code}}"
+                state="{{person.state}}"
+                city="{{person.city}}"
+                model-id="{{person.id}}"
+                address-type="person"
+                >
+              </edit-address>
+            </div>
+
+          </div><br/>
+          <md-divider></md-divider>
+          <div class="row person-dashboard">
+            <highchart config="personStatisticGraphConfig"></highchart>
+          </div>
         </div>
+      </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab2">
@@ -54,19 +54,19 @@
   <md-tab id="tab3">
     <md-tab-label>Recorded Hours</md-tab-label>
     <md-tab-body>
-                      <div class="tabcontrol">
-            <div class="tabcontrolin persontab" >
-      <md-list>
+      <div class="tabcontrol">
+        <div class="tabcontrolin persontab" >
+          <md-list>
 
-        <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
-                       recorded-hour="recorded_hour"
-                       recorded-hours="person.recorded_hours"
-                       type="person"></recorded-hour>
+            <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
+                           recorded-hour="recorded_hour"
+                           recorded-hours="person.recorded_hours"
+                           type="person"></recorded-hour>
 
 
-      </md-list>
+          </md-list>
         </div>
-                  </div>
+      </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab4">

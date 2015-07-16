@@ -1,13 +1,15 @@
 angular.module('voluntrApp')
   .controller('OrganizationVolunteerRegistrationCtrl', function ($scope, $stateParams, $http,
                                                                  $state, $filter, $rootScope, Facebook, Organization,
-                                                                 People) {
+                                                                 People, $timeout) {
 
 
 
-    Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
+    Organization.get_by_url({organization_custom_Url: $stateParams.organization_custom_Url},
+      function(successResponse) {
       // find the organizations information on facebook
-      $scope.organization = successResponse
+
+        $scope.organization = successResponse;
       Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
         $scope.organization.picture = response.data.url;
       });
@@ -44,13 +46,14 @@ angular.module('voluntrApp')
         if (!$state.params.person_token) {
           People.create(attr).$promise.then(function(person){
             $scope.person = person;
+            $state.go('organization_volunteer_registration.2', {person_token:btoa($scope.person.id)})
           })
         } else if ($state.params.person_token) {
           People.update(attr).$promise.then(function (person) {
             $scope.person = person;
+            $state.go('organization_volunteer_registration.2', {person_token:btoa($scope.person.id)})
           })
         }
-        $state.go('organization_volunteer_registration.2', {person_token:btoa($scope.person.id)})
       };
 
 
@@ -64,8 +67,9 @@ angular.module('voluntrApp')
         attr.zip_code = person.zip_code;
         People.update(attr).$promise.then(function(person){
           $scope.person = person;
+          $state.go('organization_volunteer_registration.3', {person_token:btoa($scope.person.id)})
         })
-        $state.go('organization_volunteer_registration.3', {person_token:btoa($scope.person.id)})
+
       };
 
       $scope.morning = {};
@@ -79,8 +83,11 @@ angular.module('voluntrApp')
         attr.schedule.morning = $scope.morning;
         attr.schedule.afternoon = $scope.afternoon;
         attr.schedule.night = $scope.night;
+        $scope.submitted = true;
         People.update(attr).$promise.then(function(person){
-          $state.go('/')
+          $timeout(
+            $state.go('volunteer_home'), 2500
+          )
         });
       };
 

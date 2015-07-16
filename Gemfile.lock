@@ -127,6 +127,10 @@ GEM
       addressable
       faraday
       multi_json
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -299,6 +303,7 @@ DEPENDENCIES
   ice_cube
   jwt
   koala (~> 1.11.0rc)
+  letter_opener
   mail!
   net-ssh (> 2.0)
   oauth2

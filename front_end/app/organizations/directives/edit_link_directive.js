@@ -7,10 +7,11 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
       size: '@',
       modelType: '@',
       attributeName: '@',
-      modelId: '@'
+      modelId: '@',
+      placeholder: '@'
     },
     restrict: 'E',
-    controller: function ($scope, Opportunity) {
+    controller: function ($scope, Opportunity, Organization) {
 
 
       if ($scope.size === "title_text") {
@@ -39,6 +40,12 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
           attr[$scope.attributeName] = $scope.text;
 
           Opportunity.update(attr)
+        }
+        if ($scope.modelType === 'organization') {
+          var attr = {};
+          attr.id = $scope.modelId;
+          attr[$scope.attributeName] = $scope.text;
+          Organization.update(attr)
         }
       }
     },

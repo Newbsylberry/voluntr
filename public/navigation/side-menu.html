@@ -1,13 +1,15 @@
-<div snap-drawer="left" ng-controller="SideMenuCtrl" id="side-menu">
-  <a href=""
-     ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a><br>
-  <a href=""
-     ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a><br>
-  <a href=""
-     ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a><br>
-  <a href=""
-     ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a><br>
-</div>
-
-
-
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <md-content layout-padding ng-controller="HeaderCtrl">
+    <a href=""
+       ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a><br>
+    <a href=""
+       ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a><br>
+    <a href=""
+       ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a><br>
+    <a href=""
+       ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a><br>
+    <md-button ng-click="close()">
+      Close Menu
+    </md-button>
+  </md-content>
+</md-sidenav>

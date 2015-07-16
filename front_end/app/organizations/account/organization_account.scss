@@ -1,6 +1,10 @@
 .accountmain{
-padding:0px;
+padding:0px 10px;
     min-height: 400px;
+}
+
+.accountmain h4{
+    margin:10px 0px 1px 0px;
 }
 
 .accountwrapper{
@@ -18,3 +22,16 @@ padding:16px;
     text-align: left !important;
     color:rgba(0,0,0,0.6) !important;
 }
+
+.urledit p{font-weight:500 !important;float:left !important;font-size:17px;}
+.urledit a{float:right !important; 
+    display:block !important;
+    background-color: $primary;
+    border-radius: 2px;
+    padding:5px 10px;
+    color:#fff !important;
+    margin-bottom: 5px;
+    
+}
+.urledit edit-object-directive{width:100% !important;}
+.urledit md-input-container{padding-bottom: 5px;}

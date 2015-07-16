@@ -14,7 +14,8 @@ angular.module('voluntrApp')
   .controller('OpportunityDetailCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, Opportunity, id,
                                                  PersonOpportunity, start_time, $modal,
-                                                 $modalInstance, $cacheFactory, $timeout) {
+                                                 $modalInstance, $cacheFactory, $timeout,
+                                                  OpportunityRole) {
 
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
@@ -28,6 +29,27 @@ angular.module('voluntrApp')
       ([role.name, role.total_recorded_hours]);
     };
 
+
+    $scope.createOpportunityRole = function(opportunity_role) {
+      var attr = {};
+      attr.name = opportunity_role.name
+      attr.opportunity_id = $scope.opportunity.id;
+      attr.description = opportunity_role.description
+      OpportunityRole.create(attr).$promise.then(function(success){
+        $scope.opportunity.opportunity_roles.push(success)
+        $scope.opportunity_role = undefined;
+      })
+    }
+
+    $scope.deleteOpportunityRole = function(opportunity_role) {
+      var index = $scope.opportunity.opportunity_roles.indexOf(opportunity_role);
+      if (index > -1) {
+        $scope.opportunity.opportunity_roles.splice(index, 1);
+      }
+      OpportunityRole.delete(opportunity_role.id)
+      $scope.opportunity_role.name = "";
+      $scope.opportunity_role.description = "";
+    };
 
     $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
       success(function(data, status, headers, config) {
@@ -51,14 +73,16 @@ angular.module('voluntrApp')
         });
 
 
-        $cacheFactory.current_calendar = {};
-        $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
-        $cacheFactory.current_calendar.id = $scope.opportunity.id;
-        $cacheFactory.current_calendar.type = 'Opportunity';
-        $cacheFactory.current_calendar.start_time = new Date(parseInt($scope.opportunity.start_time))
-        $cacheFactory.current_calendar.duration = $scope.opportunity.duration;
 
-        $cacheFactory.opportunity = $scope.opportunity;
+
+        //$cacheFactory.current_calendar = {};
+        //$cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
+        //$cacheFactory.current_calendar.id = $scope.opportunity.id;
+        //$cacheFactory.current_calendar.type = 'Opportunity';
+        //$cacheFactory.current_calendar.start_time = new Date(parseInt($scope.opportunity.start_time))
+        //$cacheFactory.current_calendar.duration = $scope.opportunity.duration;
+        //
+        //$cacheFactory.opportunity = $scope.opportunity;
       })
 
 

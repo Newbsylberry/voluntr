@@ -38,7 +38,6 @@ angular.module('voluntrApp')
 
         angular.forEach($scope.person.opportunities, addToPersonOpportunitiesChart)
       });
-
     });
 
 
