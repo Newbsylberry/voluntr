@@ -100,13 +100,13 @@
     <md-tab-body>
       <div class="row">
         <div class="col-md-6">
-          <button
-            class="btn btn-default btn-block"
+          <md-button
+            class="md-primary md-raised"
             ng-csv="getArray()"
             style="margin-top: 26%;"
             filename="{{opportunity.name}}_volunteers.csv"
             csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
-            Export To CSV</button>
+            Export To CSV</md-button>
         </div>
         <div class="col-md-6" style="position: relative">
           <highchart ng-show="opportunity.opportunity_roles.length != 0" config="opportunityRolesChart"></highchart>
