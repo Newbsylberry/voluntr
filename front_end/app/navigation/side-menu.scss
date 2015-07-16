@@ -3,3 +3,29 @@
     font-size: 40px;
   }
 }
+
+.navmain{
+    padding:8px 0px !important;
+    width:100%;
+}
+
+.navmain h2{
+    margin-bottom: 5px;
+    color:rgba(0,0,0,0.7);
+}
+
+.navmain a{
+    font-weight: 500;
+    color:rgba(0,0,0,0.7);
+    padding:5px 15px;
+    font-size:15px;
+    display: block;
+}
+
+.navmain a:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.navmain a:active,a:visited{
+    text-decoration: none;
+}
