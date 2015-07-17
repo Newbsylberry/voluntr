@@ -187,12 +187,6 @@ angular
         controller: 'OrganizationAccountCtrl'
       })
 
-      .state('organizations.organization_search', { //default page loaded for landing state
-        url: '/search/:organization_Id',
-        templateUrl: 'organizations/search/organization_search.html', // url for partial
-        controller: 'OrganizationSearchCtrl'
-      })
-
       .state('organizations.people_home', { //default page loaded for landing state
         url: '/:organization_Id/people_home',
         templateUrl: 'organizations/people/people_home.html', // url for partial
