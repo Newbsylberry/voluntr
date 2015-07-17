@@ -6,6 +6,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    Opportunity.where("organization_id = ?", @current_organization.id).import
+    OrganizationPerson.where("organization_id = ?", @current_organization.id).import
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
       puts @current_organization.id
@@ -141,11 +143,8 @@ class OrganizationsController < ApplicationController
 
   def search_organization
     @current_organization = Organization.find(params[:id])
-    Opportunity.where("organization_id = ?", @current_organization.id).import
-    OrganizationPerson.where("organization_id = ?", @current_organization.id).import
 
     results = Elasticsearch::Model.search("*#{params[:query]}*", [Opportunity, OrganizationPerson]).results
-
     render json: results
   end
 
