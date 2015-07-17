@@ -6,8 +6,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    Opportunity.where("organization_id = ?", @current_organization.id).import
-    OrganizationPerson.where("organization_id = ?", @current_organization.id).import
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
       puts @current_organization.id
@@ -116,7 +114,7 @@ class OrganizationsController < ApplicationController
 
   def daily_statistics
     if !@current_organization.daily_statistics.nil?
-      puts @current_organization.daily_statistics
+
       render json: @current_organization.daily_statistics, each_serializer: DailyStatisticSerializer
     end
 
@@ -144,7 +142,8 @@ class OrganizationsController < ApplicationController
   def search_organization
     @current_organization = Organization.find(params[:id])
 
-    results = Elasticsearch::Model.search("*#{params[:query]}*", [Opportunity, OrganizationPerson]).results
+    results = Elasticsearch::Model.search(
+        "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [Opportunity, OrganizationPerson])
     render json: results
   end
 
