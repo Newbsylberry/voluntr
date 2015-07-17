@@ -13,6 +13,20 @@ angular.module('voluntrApp')
         });
     }
 
+    $scope.$watch('search_query', function () {
+      if ($scope.search_query) {
+        console.log($scope.searching)
+        $scope.searching = true;
+      } else if (!$scope.search_query) {
+        $scope.searching = false;
+        console.log($scope.searching)
+      }
+    });
+
+    $scope.search = function() {
+
+    }
+
     $scope.close = function () {
       $mdSidenav('left').close()
         .then(function () {

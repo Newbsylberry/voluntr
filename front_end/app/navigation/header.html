@@ -4,20 +4,22 @@
   <i class="icon ion-navicon"
      ng-show="current_state !== 'organizations.registration' && !menu_open"
      ng-click="open()">
-    </i>
+  </i>
   <i class="icon ion-navicon"
      ng-show="current_state !== 'organizations.registration' && menu_open"
      ng-click="close()">
   </i>
-<div class="headerpar"  scroll-watch="{from: 0, to: -1, stage: 'centered-container'}"
-     sw-class="{red: $offsetTop > 57}">
+  <div class="headerpar"  scroll-watch="{from: 0, to: -1, stage: 'centered-container'}"
+       sw-class="{red: $offsetTop > 57}">
     <div class="headerimg" scroll-watch="{from: 0, to: -1, stage: 'centered-container'}" sw-class="{black: $offsetTop > 77}">
-        <img src="../logo.png"  style="height:30px;" ></div>
-  <input class="searchbar" type="text"
-         ui-sref="organizations.organization_search({organization_Id:organization_id})"
-         ng-model="search_filter.query"
-         placeholder="Search for anything...">
+      <img src="../logo.png"  style="height:30px;" ></div>
+    <input class="searchbar" type="text"
+           ng-model="search_query"
+           ng-keypress="say_hello()"
+           placeholder="Search for anything...">
+    <div ng-show="searching" style="border-width: 2px; background-color: white;">
+      <p>Search Result</p>
     </div>
+  </div>
 </div>
-<div style="position:fixed;top:0px;height:250px;width:100vw;background-color:#03a9f5;z-index:-20;">
-</div>
+
