@@ -1,4 +1,6 @@
 class Opportunity < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   has_many :user_event_hours
   has_many :opportunities
   has_many :person_opportunities
@@ -82,6 +84,13 @@ class Opportunity < ActiveRecord::Base
     end
     return @opportunities
   end
+
+  # def as_indexed_json(options={})
+  #   as_json(
+  #       only: [:id, :first_name, :email],
+  #       include: [:person]
+  #   )
+  # end
 
 
 

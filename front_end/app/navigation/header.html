@@ -15,10 +15,12 @@
       <img src="../logo.png"  style="height:30px;" ></div>
     <input class="searchbar" type="text"
            ng-model="search_query"
-           ng-keypress="say_hello()"
+           ng-keypress="search()"
            placeholder="Search for anything...">
     <div ng-show="searching" style="border-width: 2px; background-color: white;">
-      <p>Search Result</p>
+      <p ng-repeat="result in results">
+        {{result}}
+      </p>
     </div>
   </div>
 </div>

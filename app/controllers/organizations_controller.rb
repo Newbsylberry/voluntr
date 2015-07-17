@@ -18,8 +18,6 @@ class OrganizationsController < ApplicationController
   def show_by_url
     @organization = Organization.find_by_custom_url(params[:custom_url])
 
-    puts @organization.name
-
     render json: @organization, serializer: OrganizationSerializer
   end
 
@@ -139,6 +137,16 @@ class OrganizationsController < ApplicationController
     @current_organization = Organization.find(params[:id])
 
     render json: @current_organization.posts, each_serializer: PostSerializer
+  end
+
+  def search_organization
+    @current_organization = Organization.find(params[:id])
+    Opportunity.where("organization_id = ?", @current_organization.id).import
+    OrganizationPerson.where("organization_id = ?", @current_organization.id).import
+
+    results = Elasticsearch::Model.search("*#{params[:query]}*", [Opportunity, OrganizationPerson]).results
+
+    render json: results
   end
 
 

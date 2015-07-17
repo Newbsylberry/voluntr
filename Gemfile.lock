@@ -87,6 +87,19 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    elasticsearch (1.0.12)
+      elasticsearch-api (= 1.0.12)
+      elasticsearch-transport (= 1.0.12)
+    elasticsearch-api (1.0.12)
+      multi_json
+    elasticsearch-model (0.1.7)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.7)
+    elasticsearch-transport (1.0.12)
+      faraday
+      multi_json
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -115,6 +128,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashie (3.4.2)
     hitimes (1.2.2)
     httparty (0.13.5)
       json (~> 1.8)
@@ -296,6 +310,9 @@ DEPENDENCIES
   capistrano-resque (~> 0.2.2)
   capistrano3-puma
   devise
+  elasticsearch (~> 1.0.12)
+  elasticsearch-model
+  elasticsearch-rails
   factory_girl_rails (~> 4.0)
   faker
   guard-rspec

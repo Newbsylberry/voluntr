@@ -1,4 +1,6 @@
 class OrganizationPerson < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   belongs_to :organization
   belongs_to :person
 
@@ -46,5 +48,14 @@ class OrganizationPerson < ActiveRecord::Base
       PersonOrganizationMailer.registration_confirmation_email(organization, person).deliver
     end
   end
+
+
+  def as_indexed_json(options={})
+    as_json(
+        # only: [:id, :first_name, :email],
+        include: [:person]
+    )
+  end
+
 
 end

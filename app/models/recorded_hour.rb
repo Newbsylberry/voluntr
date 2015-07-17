@@ -1,4 +1,5 @@
 class RecordedHour < ActiveRecord::Base
+  include Elasticsearch::Model
   belongs_to :organization
   belongs_to :opportunity
   belongs_to :person

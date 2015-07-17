@@ -8,6 +8,10 @@ gem 'rails-api'
 
 gem 'puma'
 
+gem 'elasticsearch', '~> 1.0.12'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 
 gem 'spring', :group => :development
 
