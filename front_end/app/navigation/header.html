@@ -17,10 +17,14 @@
            ng-model="search_query"
            ng-keypress="search()"
            placeholder="Search for anything...">
-    <div ng-show="searching" style="border-width: 2px; background-color: white;">
-      <p ng-repeat="result in results">
-        {{result}}
-      </p>
+    <div ng-show="searching">
+       <md-card class="searchcard">
+      <md-card-content>
+        <p ng-repeat="result in results">
+          {{result}}
+        </p>
+           </md-card-content>
+        </md-card>
     </div>
   </div>
 </div>

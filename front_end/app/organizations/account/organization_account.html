@@ -14,10 +14,9 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h2>{{organization.name}}</h2>
+              <h2>{{organization.name}}dsadas</h2>
               <md-divider></md-divider>
-              <h4>Description:{{organization.description}}</h4><br/><br/>
-              <h4>Address:</h4>
+                <h4 >Address:</h4>
               <div>
                 <edit-address address="{{organization.address}}"
                               state="{{organization.state}}"
@@ -27,6 +26,10 @@
                               address-type="organization"
                   >
                 </edit-address></div>
+                
+              <h4>Description:</h4>
+                <p>{{organization.description}}dadsa</p>
+              
             </div></div>
         </md-tab-body>
       </md-tab>
@@ -61,6 +64,8 @@
       <md-tab id="tab3">
         <md-tab-label>Organization Settings</md-tab-label>
         <md-tab-body>
+            <md-list>
+                <md-list-item class="urledit">
           <edit-object-directive
             text_name="name"
             model-type="organization"
@@ -69,8 +74,11 @@
             text="http://www.voluapp.com/{{organization.custom_url}}/registration - Send to potential volunteers so they can register"
             placeholder="Enter the Custom URL for your Volu Resources (i.e. - volu will give
                  you a volu/registration form for registering volunteers)"
-            size="subtitle_text"
-            ></edit-object-directive><br>
+            size="paragraph_text"
+            ></edit-object-directive>
+                  <md-divider></md-divider>
+                </md-list-item>
+                <md-list-item class="urledit">
           <edit-object-directive
             text_name="name"
             model-type="organization"
@@ -78,8 +86,11 @@
             attribute-name="website_url"
             model-id="{{organization.id}}"
             text="{{organization.website_url}}"
-            size="subtitle_text"
-            ></edit-object-directive><br>
+            size="paragraph_text"
+            ></edit-object-directive>
+            <md-divider></md-divider>
+                </md-list-item>
+          <md-list-item class="urledit">
           <edit-object-directive
             text_name="name"
             model-type="organization"
@@ -87,26 +98,10 @@
             attribute-name="facebook_url"
             model-id="{{organization.id}}"
             text="{{organization.facebook_url}}"
-            size="subtitle_text"
-            ></edit-object-directive><br>
-          <edit-object-directive
-            text_name="name"
-            model-type="organization"
-            attribute-name="twitter_url"
-            model-id="{{organization.id}}"
-            text="{{organization.twitter_url}}"
-            placeholder="Enter the URL of Your Twitter Page"
-            size="subtitle_text"
-            ></edit-object-directive><br>
-          <edit-object-directive
-            text_name="name"
-            model-type="organization"
-            attribute-name="instagram_url"
-            model-id="{{organization.id}}"
-            text="{{organization.instagram_url}}"
-            placeholder="Enter the URL of Your Instagram Page"
-            size="subtitle_text"
-            ></edit-object-directive><br>
+            size="paragraph_text"
+            ></edit-object-directive><md-divider></md-divider></md-list-item><md-list-item>
+          
+            </md-list>
         </md-tab-body>
       </md-tab>
     </md-tabs>

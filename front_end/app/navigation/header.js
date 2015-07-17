@@ -49,11 +49,9 @@ angular.module('voluntrApp')
         params: {query: $scope.search_query}
       }).
         success(function(data, status, headers, config) {
-          console.log(data)
           angular.forEach(data, resultsFormat)
         }).
         error(function(data, status, headers, config) {
-          console.log(data)
         });
   }
 
