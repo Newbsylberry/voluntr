@@ -12,6 +12,8 @@ gem 'elasticsearch', '~> 1.0.12'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem 'newrelic_rpm'
+
 
 gem 'spring', :group => :development
 
