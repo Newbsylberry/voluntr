@@ -47,3 +47,5 @@ staging:
 
 production:
   <<: *default_settings
+  resque.capture_params: true
+  resque.use_ruby_dns: false

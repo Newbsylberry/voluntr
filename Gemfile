@@ -52,7 +52,6 @@ gem 'jwt'
 gem 'ice_cube'
 
 gem 'resque', '~> 1.25'
-gem 'resque-scheduler'
 
 gem 'whenever'
 
