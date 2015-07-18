@@ -14,24 +14,13 @@ angular.module('voluntrApp')
         });
     }
 
-    $scope.$watch('search_query', function () {
-      if ($scope.search_query) {
-        console.log($scope.searching)
-        $scope.searching = true;
-      } else if (!$scope.search_query) {
-        $scope.searching = false;
-        console.log($scope.searching)
-      }
-    });
-
-
     var resultsFormat = function(raw_result) {
       var base_result = raw_result._source
       var result = {}
       if (raw_result._type == "organization_person" &&
         base_result.person &&
         base_result.person.first_name && base_result.person.first_name ) {
-        result.id = base_result.person_id
+        result.id = base_result.person_id;
         result.type = "person";
         result.title = base_result.person.first_name + " " + base_result.person.last_name;
       } else if (raw_result._type == "opportunity") {
@@ -42,18 +31,26 @@ angular.module('voluntrApp')
       $scope.results.push(result)
     };
 
-    $scope.search = function() {
+    $scope.loading = false;
+    $scope.$watch('search_query', function () {
       $scope.results = [];
-      $http({
-        url: 'api/v1/organizations/' + $stateParams.organization_Id + '/search',
-        params: {query: $scope.search_query}
-      }).
-        success(function(data, status, headers, config) {
-          angular.forEach(data, resultsFormat)
+      if ($scope.search_query && !$scope.loading) {
+        $scope.searching = true;
+        $scope.loading = true;
+        $http({
+          url: 'api/v1/organizations/' + $stateParams.organization_Id + '/search',
+          params: {query: $scope.search_query}
         }).
-        error(function(data, status, headers, config) {
-        });
-  }
+          success(function(data, status, headers, config) {
+            angular.forEach(data, resultsFormat)
+            $scope.loading = false;
+          }).
+          error(function(data, status, headers, config) {
+          });
+      } else if (!$scope.search_query) {
+        $scope.searching = false;
+      }
+    });
 
 $scope.close = function () {
   $mdSidenav('left').close()
