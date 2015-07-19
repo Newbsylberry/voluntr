@@ -21,13 +21,15 @@
        <md-card class="searchcard">
       <md-card-content>
           <md-list>
-              <md-list-item class="md-2-line" ng-repeat="result in results" ng-click="goToPerson(person.name, $event)">
-                  {{result.img}}
-                  <div class="md-list-item-text">
-                      <h3>{{result.title}}</h3>
-                      <p>{{result.type}}</p>
-                  </div>
-              </md-list-item>
+            <md-list-item class="md-2-line"
+                          ng-repeat="result in results"
+                          ng-click="openModal(result)">
+              {{result.img}}
+              <div class="md-list-item-text">
+                <h3>{{result.title}}</h3>
+                <p>{{result.type}}</p>
+              </div>
+            </md-list-item>
           </md-list>
            </md-card-content>
         </md-card>

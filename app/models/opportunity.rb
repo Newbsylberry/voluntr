@@ -11,7 +11,7 @@ class Opportunity < ActiveRecord::Base
   has_many :organization_email_templates, through: :organization
   geocoded_by :full_street_address   # can also be an IP address
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
-  after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }          # auto-fetch coordinates
 
   def full_street_address
     return "#{address} #{city} #{state} #{zip_code}"

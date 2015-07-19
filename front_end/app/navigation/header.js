@@ -1,6 +1,6 @@
 angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window,
-                                      $mdSidenav, $http, $stateParams, $timeout) {
+                                      $mdSidenav, $http, $stateParams, $timeout, $modal) {
 
 
     $scope.search_filter = searchService.search;
@@ -52,12 +52,66 @@ angular.module('voluntrApp')
       }
     });
 
-$scope.close = function () {
-  $mdSidenav('left').close()
-    .then(function () {
-      $scope.menu_open = false;
-    });
-};
+    $scope.close = function () {
+      $mdSidenav('left').close()
+        .then(function () {
+          $scope.menu_open = false;
+        });
+    };
+
+    $scope.openModal = function(result) {
+      if (result.type === 'person') {
+        var personDetailModal = $modal.open(
+          {
+            templateUrl: 'organizations/modals/person_detail_modal.html',
+            controller: 'PersonDetailCtrl',
+            windowClass: 'add-event-modal-window',
+            size: 'lg',
+            resolve: {
+              id: function () {
+                return result.id
+              }
+            }
+
+          });
 
 
-});
+        personDetailModal.result.then(function () {
+
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
+      } else if (result.type === 'opportunity') {
+        var opportunityDetailModal = $modal.open(
+          {
+            templateUrl: 'organizations/modals/opportunity_detail_modal.html',
+            controller: 'OpportunityDetailCtrl',
+            windowClass: 'add-event-modal-window',
+            size: 'lg',
+            resolve:
+            {
+              id: function () {
+                return result.id
+              },
+              start_time: function() {
+                  return 0
+                }
+              }
+
+          });
+
+
+
+        opportunityDetailModal.result.then(function () {
+
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
+      }
+    }
+
+
+
+  });
