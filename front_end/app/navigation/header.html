@@ -20,12 +20,19 @@
     <div ng-show="searching">
        <md-card class="searchcard">
       <md-card-content>
-        <p ng-repeat="result in results">
-          {{result}}
-        </p>
+          <md-list>
+              <md-list-item class="md-2-line" ng-repeat="result in results" ng-click="goToPerson(person.name, $event)">
+                  {{result.img}}
+                  <div class="md-list-item-text">
+                      <h3>{{result.title}}</h3>
+                      <p>{{result.type}}</p>
+                  </div>
+              </md-list-item>
+          </md-list>
            </md-card-content>
         </md-card>
     </div>
   </div>
 </div>
 
+      <div style="width:100vw;height:250px;background-color:#03a9f5;position:fixed;z-index:-50;"></div>
