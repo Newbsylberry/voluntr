@@ -56,6 +56,9 @@ Rails.application.routes.draw do
       match '/opportunities/:id/instance_statistics', to: 'opportunities#instance_statistics', via: :get, defaults: {format: :json}
       match '/opportunities/:id/roles', to: 'opportunities#roles', via: :get, defaults: {format: :json}
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
+
+      # Reports
+      match '/reports/opportunities/:id', to: 'reports#opportunity', via: :get, defaults: {format: :json}
     end
   end
 

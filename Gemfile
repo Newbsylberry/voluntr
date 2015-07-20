@@ -12,6 +12,7 @@ gem 'elasticsearch', '~> 1.0.12'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'geocoder'
+gem 'prawn', '~> 2.0'
 gem 'newrelic_rpm'
 
 

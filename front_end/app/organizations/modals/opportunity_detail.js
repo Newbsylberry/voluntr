@@ -15,7 +15,7 @@ angular.module('voluntrApp')
                                                  $http, $state, Opportunity, id,
                                                  PersonOpportunity, start_time, $modal,
                                                  $modalInstance, $cacheFactory, $timeout,
-                                                  OpportunityRole) {
+                                                 OpportunityRole) {
 
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
@@ -97,8 +97,33 @@ angular.module('voluntrApp')
         volunteers.push(v)
       })
       return volunteers
-    }
+    };
 
+
+    var series = []
+
+    var addDataToSeries = function(chart_series) {
+      series.push(chart_series)
+    };
+
+    $scope.exportReport = function() {
+      angular.forEach($scope.instanceStatisticGraphConfig.series, addDataToSeries)
+      var optionsJSON = {
+        title: {
+          text: "Opportunity Dashboard"
+        },
+        xAxis: {
+          type: 'datetime',
+          title: {
+            text: 'Date'
+          }},
+        "series": series
+      };
+      var optionsStr = JSON.stringify(optionsJSON)
+      var dataString = 'async=false&type=png&width=300&options=' + encodeURIComponent(optionsStr);
+
+      $http.get('api/v1/reports/opportunities/' + id, {params:{url: dataString}}).success(function(data){console.log(data)});
+    };
 
     $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
       success(function(data, status, headers, config) {
@@ -108,10 +133,6 @@ angular.module('voluntrApp')
       error(function(data, status, headers, config) {
         console.log(data)
       });
-
-    $scope.commitVolunteer = function (person) {
-
-    };
 
 
     $scope.addOpportunityPersonModal = function (size, person) {
