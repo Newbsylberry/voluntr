@@ -99,21 +99,13 @@
   <md-tab id="tab3">
     <md-tab-label>People</md-tab-label>
     <md-tab-body>
+                            <div class="tabcontrol">
+            <div class="tabcontrolin">
       <div class="row">
-        <div class="col-md-6">
-          <md-button
-            class="md-primary md-raised"
-            ng-csv="getArray()"
-            style="margin-top: 26%;"
-            filename="{{opportunity.name}}_volunteers.csv"
-            csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
-            Export To CSV</md-button>
-        </div>
-        <div class="col-md-6" style="position: relative">
+        <div class="col-md-12" style="position: relative">
           <highchart ng-show="opportunity.opportunity_roles.length != 0" config="opportunityRolesChart"></highchart>
         </div>
-
-      </div>
+      </div>          <md-divider></md-divider>
       <md-list class="opportunity-volunteer-list">
         <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.volunteers">
           <div class="md-list-item-text">
@@ -125,6 +117,18 @@
           </div>
         </md-list-item>
       </md-list>
+                                </div>
+                                 <div class="window-bottom-button">
+                                <md-button
+            class="md-primary"
+            ng-csv="getArray()"
+                                           style="float:right;"
+            filename="{{opportunity.name}}_volunteers.csv"
+            csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
+            Export To CSV</md-button>
+                                
+                                </div>
+        </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab4">
