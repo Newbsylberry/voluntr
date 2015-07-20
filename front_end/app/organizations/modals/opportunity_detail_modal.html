@@ -149,28 +149,33 @@
       <div class="tabcontrol">
         <div class="tabcontrolin">
           <div class="rscard">
-            <h2>Resources</h2>
+            <h3>Resources</h3>
             <add-resources></add-resources></div>
           <div class="rscard">
-            <h2>Opportunity Roles</h2>
-            <input ng-model="opportunity_role.name" placeholder="What's the role name?">
-            <textarea style="background-color: white;"
-                      ng-model="opportunity_role.description"
-                      placeholder="What's the description"></textarea>
-            <button
-              class="btn btn-default"
+            <h3>Opportunity Roles</h3>
+             <md-input-container>
+                <label>What's the role name?</label>
+                <input ng-model="opportunity_role.name">
+            </md-input-container>
+            <md-input-container>
+                <label>What's the description?</label>
+                <input ng-model="opportunity_role.description">
+            </md-input-container>   
+            <md-button
+              class="md-primary md-raised"
               ng-click="createOpportunityRole(opportunity_role)">
-              Create Opportunity Role</button>
+              Create Opportunity Role</md-button>
+              <md-subheader class="md-no-sticky">Current Roles</md-subheader>
             <md-list>
               <md-list-item ng-repeat="opportunity_role in opportunity.opportunity_roles">
-                {{opportunity_role.name}} - {{opportunity_role.description}}
-                <a href="" ng-click="deleteOpportunityRole(opportunity_role)">Delete</a>
+                  <p>{{opportunity_role.name}} - {{opportunity_role.description}}</p>
+                <a style="float:right;"href="" ng-click="deleteOpportunityRole(opportunity_role)">Delete</a>
               </md-list-item>
             </md-list>
 
           </div>
           <div class="rscard">
-            <h2>Links</h2>
+            <h3>Links</h3>
             <h4>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h4>
             <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
               Registration Form for Opportunity</a>
