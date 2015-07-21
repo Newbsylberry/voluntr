@@ -6,9 +6,13 @@
     <md-tab-body>
                     <div class="tabcontrol">
             <div class="tabcontrolin">
-      <div class="row opportunity-information">
-        <div class="col-xs-12">
-          <edit-object-directive
+                  <div class="row oppinfo">
+            <div class="col-md-3">
+              <img src=""
+                   class="face">
+            </div>
+            <div class="col-md-9">
+              <edit-object-directive
             text_name="name"
             model-type="opportunity"
             attribute-name="name"
@@ -16,40 +20,30 @@
             text="{{opportunity.name}}"
             size="title_text"
 
-            ></edit-object-directive><br>
-
-
-          <edit-object-directive
+            ></edit-object-directive>
+                <md-divider></md-divider>
+                <h4 >Address:</h4>
+              <edit-address
+                address="{{person.address}}"
+                zip-code="{{person.zip_code}}"
+                state="{{person.state}}"
+                city="{{person.city}}"
+                model-id="{{person.id}}"
+                address-type="person"
+                >
+              </edit-address>
+                <h4 >Description:</h4>
+                <edit-object-directive
             model-type="opportunity"
             attribute-name="description"
             model-id="{{opportunity.id}}"
             text="{{opportunity.description}}"
             size="paragraph_text"
 
-            ></edit-object-directive><br>
-          <a href="" ng-click="exportReport()">Export PDF Report</a>
-          <!--<edit-address
-            address="{{opportunity.address}}"
-            zip-code="{{opportunity.zip_code}}"
-            state="{{opportunity.state}}"
-            city="{{opportunity.city}}"
-            model-id="{{opportunity.id}}"
-            address-type="opportunity"
-            >
-
-          </edit-address>-->
-
-
-          <!--<p style="display: inline-block">Volunteers Required:</p>
-          <edit-object-directive
-            model-type="opportunity"
-            attribute-name="volunteer_goal"
-            model-id="{{opportunity.id}}"
-            text="{{opportunity.volunteer_goal}}"
-            size="subtitle_text"
-            ></edit-object-directive><br>-->
-        </div>
-      </div>
+            ></edit-object-directive>
+            </div>
+          </div><br/>
+<md-divider></md-divider>
       <div class="opportunity-dashboard">
         <div class="row">
           <div class="col-xs-3">
@@ -74,6 +68,9 @@
           <highchart config="instanceStatisticGraphConfig"></highchart>
         </div>
       </div>
+                        </div>
+                        <div class="window-bottom-button">
+                        <md-button class="md-primary" style="float:right;" ng-click="exportReport()">Export PDF Report</md-button>
                         </div>
         </div>
 
