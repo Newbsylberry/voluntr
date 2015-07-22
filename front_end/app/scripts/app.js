@@ -12,6 +12,7 @@ angular
   .module('voluntrApp', [
     'ngAnimate',
     'ngCookies',
+    'daterangepicker',
     'ngResource',
     'ngRoute',
     'ngSanitize',
