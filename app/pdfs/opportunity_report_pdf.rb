@@ -16,10 +16,8 @@ class OpportunityReportPdf < Prawn::Document
 
   def header
     #This inserts an image in the pdf file and sets the size of the image
-    y_position = cursor - 50
-
-    bounding_box([0, y_position], :width => 600, :height => 25) do
-      text "Opportunity Summary Between #{@start_date.to_formatted_s(:short)} and #{@end_date.to_formatted_s(:short)}", size: 16
+    bounding_box([0, cursor], :width => 600, :height => 25) do
+      text "Opportunity Summary Between #{@start_date.strftime("%m-%d-%Y")} and #{@end_date.strftime("%m-%d-%Y")}", size: 16
     end
 
     bounding_box([0, cursor], :width => 270, :height => 25) do
@@ -27,7 +25,7 @@ class OpportunityReportPdf < Prawn::Document
     end
 
     bounding_box([0, cursor], :width => 270, :height => 50) do
-      text "Created At: #{Time.now.to_formatted_s(:short)}", size: 11
+      text "Created At: #{Time.now.strftime("%A - %B %-d, %Y")}", size: 11
     end
     # if @organization.fb_id
     #   image "#{Rails.root}/app/assets/images/header.png", width: 530, height: 150
