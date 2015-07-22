@@ -139,7 +139,7 @@ class Opportunity < ActiveRecord::Base
     #   image file_name, position: :center
     # end
 
-    pdf = OpportunityReportPdf.new(self.organization, file_name, start_date, end_date)
+    pdf = OpportunityReportPdf.new(self, file_name, start_date, end_date)
 
     pdf.render_file "hello.pdf"
 

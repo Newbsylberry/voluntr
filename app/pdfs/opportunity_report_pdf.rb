@@ -1,10 +1,13 @@
 class OpportunityReportPdf < Prawn::Document
-  def initialize(organization, graph_name, start_date, end_date)
+  def initialize(opportunity, graph_name, start_date, end_date)
     super()
-    @organization = organization
+    @opportunity = opportunity
     @graph_name = graph_name
     @start_date = start_date
     @end_date = end_date
+    @total_hours = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).sum(:hours)
+    @total_volunteers_registered = opportunity.person_opportunities.where(:created_at => start_date..end_date).count
+    @total_number_of_volunteers = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).map(&:person_id).uniq.count
     # @opportunities = opportunities
     header
     graphs
@@ -20,7 +23,7 @@ class OpportunityReportPdf < Prawn::Document
     end
 
     bounding_box([0, cursor], :width => 270, :height => 25) do
-      text "#{@organization.name}", size: 14
+      text "#{@opportunity.organization.name}", size: 14
     end
 
     bounding_box([0, cursor], :width => 270, :height => 50) do
@@ -40,16 +43,26 @@ class OpportunityReportPdf < Prawn::Document
     y_position = cursor - 50
 
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
-    bounding_box([0, y_position], :width => 270, :height => 50) do
+    bounding_box([0, y_position], :width => 270, :height => 400) do
       text "People Involved:", size: 15, style: :bold
-      text "Stats About People Involved"
+      text "Number of Volunteers Registered: #{@total_volunteers_registered}", size: 11
+      text "Number of Volunteers Recording Hours: #{@total_number_of_volunteers}", size: 11
+      text "Total Recorded Hours: #{@total_hours}", size: 11
+
+
     end
 
-    bounding_box([300, y_position], :width => 270, :height => 50) do
-      text "Relevant Metrics", size: 15, style: :bold
-      text "Useful Metrics for Organizations"
+
+    bounding_box([300, y_position], :width => 270, :height => 400) do
+      text "Useful Metrics:", size: 15, style: :bold
+      if @total_number_of_volunteers != 0
+        text "Average Number of Hours Per Volunter: #{@total_hours / @total_number_of_volunteers}",
+             size: 11
+        text "PR / TRH #{@total_volunteers_registered / @total_number_of_volunteers}",
+             size: 11
+      end
     end
-  end
+
 
   # def table_content
   #   # This makes a call to product_rows and gets back an array of data that will populate the columns and rows of a table
@@ -69,4 +82,5 @@ class OpportunityReportPdf < Prawn::Document
   #         [product.id, product.name, product.price]
   #       end
   # end
+  end
 end
