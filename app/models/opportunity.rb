@@ -1,7 +1,9 @@
 class Opportunity < ActiveRecord::Base
+  require "prawn"
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   has_many :user_event_hours
+  has_many :resources, as: :resourceable
   has_many :opportunities
   has_many :person_opportunities
   has_many :people, through: :person_opportunities
@@ -89,6 +91,63 @@ class Opportunity < ActiveRecord::Base
       @opportunities.push(@instance)
     end
     return @opportunities
+  end
+
+  def generate_report(start_date, end_date)
+    @resource = Resource.new
+    @resource.name = "report"
+    @recorded_hours_series = Hash.new
+    @recorded_hours_series["name"] = "Recorded Hours"
+    @recorded_hours_series["data"] = Array.new
+    @instance_hours_series = Hash.new
+    @instance_hours_series["name"] = "Hours Recorded During Instance"
+    @instance_hours_series["data"] = Array.new
+    @instance_people_series = Hash.new
+    @instance_people_series["name"] = "Hours Recorded During Instance"
+    @instance_people_series["data"] = Array.new
+    options = {
+        title: {
+            text: "Instance Summary Chart"
+        },
+        xAxis: {
+            type: 'datetime',
+            title: {
+                text: 'Date'
+            }
+        }
+    }
+    options["series"] = Array.new
+    recorded_hours.where(date_recorded: start_date..end_date).each do |h|
+      @recorded_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), h.hours])
+    end
+    
+    instances_statistics.each do |i|
+      @instance_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_hours])
+      @instance_people_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_people_count])
+    end
+    options["series"].push(@recorded_hours_series)
+    options["series"].push(@instance_hours_series)
+    options["series"].push(@instance_people_series)
+
+    file_name = "#{name}_report.png"
+
+    open(file_name, 'wb') do |file|
+     file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(options))}").read
+    end
+
+    # pdf = Prawn::Document.generate("hello.pdf") do
+    #   image file_name, position: :center
+    # end
+
+    pdf = OpportunityReportPdf.new(self.organization, file_name, start_date, end_date)
+
+    pdf.render_file "hello.pdf"
+
+    @resource.resource = File.open("hello.pdf")
+    @resource.resourceable = self
+    @resource.save
+
+    return @resource
   end
 
   # def as_indexed_json(options={})

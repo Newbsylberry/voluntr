@@ -1,12 +1,29 @@
 class ReportsController < ApplicationController
   require 'open-uri'
 
+
   def opportunity
+    # var optionsJSON = {
+    #         title: {
+    #             text: "Opportunity Dashboard"
+    #         },
+    #         xAxis: {
+    #             type: 'datetime',
+    #             title: {
+    #                 text: 'Date'
+    #             }},
+    #         "series": series
+    # };
     @opportunity = Opportunity.find(params[:id])
 
-    open("#{@opportunity.name}_report.png", 'wb') do |file|
-      file << open("http://export.highcharts.com/?#{params[:url]}").read
-    end
+
+
+
+
+
+
+    render json: @opportunity.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date])),
+           serializer: ResourceSerializer
   end
 
 end

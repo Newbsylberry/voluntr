@@ -110,8 +110,11 @@ angular.module('voluntrApp')
             console.log('Modal dismissed at: ' + new Date());
           });
       }
-    }
+    };
 
+    
 
 
   });
+
+

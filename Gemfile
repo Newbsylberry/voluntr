@@ -14,6 +14,10 @@ gem 'elasticsearch-rails'
 gem 'geocoder'
 gem 'prawn', '~> 2.0'
 gem 'newrelic_rpm'
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-aws'
+
 
 
 gem 'spring', :group => :development

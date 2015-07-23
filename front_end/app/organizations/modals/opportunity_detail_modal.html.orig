@@ -40,6 +40,12 @@
             text="{{opportunity.description}}"
             size="paragraph_text"
 
+<<<<<<< HEAD
+            ></edit-object-directive>
+            </div>
+          </div><br/>
+<md-divider></md-divider>
+=======
             ></edit-object-directive><br>
           <a href="" report-link id="{{opportunity.id}}">Export PDF Report</a>
           <!--<edit-address
@@ -64,6 +70,7 @@
             ></edit-object-directive><br>-->
         </div>
       </div>
+>>>>>>> 392055e528ea5f6e7f1f2f1d875c34a2e61fe40a
       <div class="opportunity-dashboard">
         <div class="row">
           <div class="col-xs-3">

@@ -11,6 +11,11 @@ angular.module('voluntrApp')
 
 
 
-
+ $scope.isOpen = false;
 
   });
+
+
+
+
+ 

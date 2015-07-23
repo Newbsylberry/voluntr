@@ -120,7 +120,7 @@ angular.module('voluntrApp')
         "series": series
       };
       var optionsStr = JSON.stringify(optionsJSON)
-      var dataString = 'async=false&type=png&width=300&options=' + encodeURIComponent(optionsStr);
+      var dataString = 'async=false&type=png&width=300&options=' + encodeoptionsStr;
 
       $http.get('api/v1/reports/opportunities/' + id, {params:{url: dataString}}).success(function(data){console.log(data)});
     };

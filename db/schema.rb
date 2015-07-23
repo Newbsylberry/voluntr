@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715210019) do
+ActiveRecord::Schema.define(version: 20150721041120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,18 @@ ActiveRecord::Schema.define(version: 20150715210019) do
     t.integer  "opportunity_role_id"
     t.boolean  "photo_consent"
   end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "resourceable_id"
+    t.string   "resourceable_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "resource"
+  end
+
+  add_index "resources", ["resourceable_id"], name: "index_resources_on_resourceable_id", using: :btree
 
   create_table "user_event_hours", force: :cascade do |t|
     t.integer  "event_id"

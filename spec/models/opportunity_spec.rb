@@ -82,6 +82,10 @@ RSpec.describe Opportunity, "Working with an opportunity" do
       expect(@opportunity.instances_statistics.last.instance_people_count).to eq(0)
     end
 
+    it "#generate_report" do
+      # expect(@opportunity.instances_statistics.last.instance_people_count).to eq(0)
+    end
+
   end
 
 end
