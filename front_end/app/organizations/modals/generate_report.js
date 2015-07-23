@@ -32,14 +32,11 @@ angular.module('voluntrApp')
 
           });
       } else if (type == 'person') {
-        $scope.report_loaded = true;
-        var tabWindowId = window.open('about:blank', '_blank')
         $http.get('api/v1/reports/person/' + rm_id,
           {
             params: {
               start_date: $scope.date.startDate,
-              end_date: $scope.date.endDate,
-              organization_id: $stateParams.organization_Id;
+              end_date: $scope.date.endDate
             },
             headers: {
               'Content-Type': 'application/pdf'
@@ -47,9 +44,7 @@ angular.module('voluntrApp')
           }).success(function(data){
             console.log(data)
             tabWindowId.location.href = data.resource.resource.url;
-
           });
-
       }
     };
 

@@ -6,6 +6,13 @@ angular.module('voluntrApp')
     $scope.search_filter = searchService.search;
 
 
+    $scope.isOpen = false;
+    $scope.demo = {
+      isOpen: false,
+      count: 0,
+      selectedAlignment: 'md-right'
+    };
+
     $scope.open = function() {
       $mdSidenav('left').open()
         .then(function () {
@@ -110,8 +117,11 @@ angular.module('voluntrApp')
             console.log('Modal dismissed at: ' + new Date());
           });
       }
-    }
+    };
+
 
 
 
   });
+
+

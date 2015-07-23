@@ -39,14 +39,15 @@
             model-id="{{opportunity.id}}"
             text="{{opportunity.description}}"
             size="paragraph_text"
+
+<<<<<<< Temporary merge branch 1
             ></edit-object-directive>
-              <a href="" report-link type="opportunity" id="{{opportunity.id}}">Export PDF Report</a>
             </div>
           </div><br/>
 <md-divider></md-divider>
-
-
-
+=======
+            ></edit-object-directive><br>
+          <a href="" report-link id="{{opportunity.id}}">Export PDF Report</a>
           <!--<edit-address
             address="{{opportunity.address}}"
             zip-code="{{opportunity.zip_code}}"
@@ -69,6 +70,7 @@
             ></edit-object-directive><br>-->
         </div>
       </div>
+>>>>>>> Temporary merge branch 2
       <div class="opportunity-dashboard">
         <div class="row">
           <div class="col-xs-3">
@@ -148,7 +150,7 @@
             filename="{{opportunity.name}}_volunteers.csv"
             csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
             Export To CSV</md-button>
-
+                                
                                 </div>
         </div>
     </md-tab-body>
@@ -186,7 +188,7 @@
             <md-input-container>
                 <label>What's the description?</label>
                 <input ng-model="opportunity_role.description">
-            </md-input-container>
+            </md-input-container>   
             <md-button
               class="md-primary md-raised"
               ng-click="createOpportunityRole(opportunity_role)">

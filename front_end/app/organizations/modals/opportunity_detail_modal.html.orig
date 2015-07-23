@@ -39,11 +39,46 @@
             model-id="{{opportunity.id}}"
             text="{{opportunity.description}}"
             size="paragraph_text"
+<<<<<<< HEAD
             ></edit-object-directive>
               <a href="" report-link id="{{opportunity.id}}">Export PDF Report</a>
             </div>
           </div><br/>
 <md-divider></md-divider>
+=======
+
+<<<<<<< HEAD
+            ></edit-object-directive>
+            </div>
+          </div><br/>
+<md-divider></md-divider>
+=======
+            ></edit-object-directive><br>
+          <a href="" report-link id="{{opportunity.id}}">Export PDF Report</a>
+          <!--<edit-address
+            address="{{opportunity.address}}"
+            zip-code="{{opportunity.zip_code}}"
+            state="{{opportunity.state}}"
+            city="{{opportunity.city}}"
+            model-id="{{opportunity.id}}"
+            address-type="opportunity"
+            >
+
+          </edit-address>-->
+
+
+          <!--<p style="display: inline-block">Volunteers Required:</p>
+          <edit-object-directive
+            model-type="opportunity"
+            attribute-name="volunteer_goal"
+            model-id="{{opportunity.id}}"
+            text="{{opportunity.volunteer_goal}}"
+            size="subtitle_text"
+            ></edit-object-directive><br>-->
+        </div>
+      </div>
+>>>>>>> 392055e528ea5f6e7f1f2f1d875c34a2e61fe40a
+>>>>>>> 2d96a4ae1756e86a0c620a754e48a8d2d794689f
       <div class="opportunity-dashboard">
         <div class="row">
           <div class="col-xs-3">
@@ -123,7 +158,11 @@
             filename="{{opportunity.name}}_volunteers.csv"
             csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
             Export To CSV</md-button>
+<<<<<<< HEAD
 
+=======
+                                
+>>>>>>> 2d96a4ae1756e86a0c620a754e48a8d2d794689f
                                 </div>
         </div>
     </md-tab-body>
@@ -161,7 +200,11 @@
             <md-input-container>
                 <label>What's the description?</label>
                 <input ng-model="opportunity_role.description">
+<<<<<<< HEAD
             </md-input-container>
+=======
+            </md-input-container>   
+>>>>>>> 2d96a4ae1756e86a0c620a754e48a8d2d794689f
             <md-button
               class="md-primary md-raised"
               ng-click="createOpportunityRole(opportunity_role)">

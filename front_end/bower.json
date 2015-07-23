@@ -20,7 +20,7 @@
     "angular-bootstrap": "~0.11.2",
     "highcharts-ng": "~0.0.7",
     "angular-scroll": "~0.6.3",
-    "angular-material": "0.9.8-rc1",
+    "angular-material": "0.10",
     "kendo-ui-core": "~2014.3.1204",
     "ng-mfb": "~0.3.0",
     "ionicons": "~2.0.1",
