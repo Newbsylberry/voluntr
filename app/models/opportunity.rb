@@ -120,10 +120,9 @@ class Opportunity < ActiveRecord::Base
     recorded_hours.where(date_recorded: start_date..end_date).each do |h|
       @recorded_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), h.hours])
     end
-    
+
     instances_statistics.each do |i|
-      puts i.end_time
-      if !i.end_time.nil?  && i.end_time >= start_date && i.end_time <= end_date
+      if !i.end_time.nil?  && i.end_time  >= start_date && i.end_time <= end_date
         @instance_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_hours])
         @instance_people_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_people_count])
       end

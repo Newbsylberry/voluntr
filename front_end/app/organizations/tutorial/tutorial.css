@@ -1,0 +1,38 @@
+.ttmain{
+    padding:30px;
+}
+
+.ttmain p{
+    margin-top:25px;
+    margin-bottom: 35px;
+}
+
+.ttbutton{
+    display: block;
+    width:50%;
+    box-sizing: border-box;
+    float:left;
+    text-align: left;
+    
+    font-size:15px;
+    font-weight: light;
+}
+
+.ttbutton a{
+   color:rgba(0,0,0,0.5) !important; 
+}
+
+.ttbutton p{
+    font-weight: 500;
+    margin-bottom: 2px;
+    color:rgba(0,0,0,0.7) !important;
+}
+
+.ttbutton span{
+    font-weight: 300;
+    color:rgba(0,0,0,0.5) !important; 
+}
+
+.ttright{
+    text-align: right;
+}

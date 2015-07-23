@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  has_many :resources
   has_many :organization_people
   has_many :organizations, through: :organization_people
   has_many :person_opportunities
@@ -94,10 +95,50 @@ class Person < ActiveRecord::Base
     self.save
   end
 
+  def generate_report(start_date, end_date, organization)
+    @resource = Resource.new
+    @resource.name = "report"
+    @recorded_hours_series = Hash.new
+    @recorded_hours_series["name"] = "Recorded Hours"
+    @recorded_hours_series["data"] = Array.new
+    options = {
+        title: {
+            text: "Recorded Hours Summary Chart"
+        },
+        xAxis: {
+            type: 'datetime',
+            title: {
+                text: 'Date'
+            }
+        }
+    }
+    options["series"] = Array.new
+    recorded_hours.where(date_recorded: start_date..end_date).each do |h|
+      @recorded_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), h.hours])
+    end
 
 
+    options["series"].push(@recorded_hours_series)
 
+    file_name = "#{first_name}_#{last_name}_report.png"
 
+    open(file_name, 'wb') do |file|
+      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(options))}").read
+    end
 
+    # pdf = Prawn::Document.generate("hello.pdf") do
+    #   image file_name, position: :center
+    # end
+
+    pdf = PersonReportPdf.new(self, file_name, start_date, end_date, organization)
+
+    pdf.render_file "hello.pdf"
+
+    @resource.resource = File.open("hello.pdf")
+    @resource.resourceable = self
+    @resource.save
+
+    return @resource
+  end
 end
 

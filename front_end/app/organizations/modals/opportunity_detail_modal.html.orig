@@ -40,7 +40,7 @@
             text="{{opportunity.description}}"
             size="paragraph_text"
             ></edit-object-directive>
-              <a href="" report-link type="opportunity" id="{{opportunity.id}}">Export PDF Report</a>
+              <a href="" report-link id="{{opportunity.id}}">Export PDF Report</a>
             </div>
           </div><br/>
 <md-divider></md-divider>

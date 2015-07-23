@@ -10,6 +10,9 @@ angular.module('voluntrApp').directive("reportLink", function ($modal) {
           resolve: {
             rm_id: function () {
               return attrs.id
+            },
+            type: function(){
+              return attrs.type
             }
           }
 

@@ -17,7 +17,7 @@ class OpportunityReportPdf < Prawn::Document
   def header
     #This inserts an image in the pdf file and sets the size of the image
     bounding_box([0, cursor], :width => 600, :height => 25) do
-      text "Opportunity Summary Between #{@start_date.strftime("%m-%d-%Y")} and #{@end_date.strftime("%m-%d-%Y")}", size: 16
+      text "#{@opportunity.name} Summary Between #{@start_date.strftime("%m-%d-%Y")} and #{@end_date.strftime("%m-%d-%Y")}", size: 16
     end
 
     bounding_box([0, cursor], :width => 270, :height => 25) do
@@ -56,7 +56,7 @@ class OpportunityReportPdf < Prawn::Document
       if @total_number_of_volunteers != 0
         text "Average Number of Hours Per Volunter: #{@total_hours / @total_number_of_volunteers}",
              size: 11
-        text "PR / TRH #{@total_volunteers_registered / @total_number_of_volunteers}",
+        text "Total Volunteers Registered / Actual Volunteers: #{@total_volunteers_registered / @total_number_of_volunteers}",
              size: 11
       end
     end
