@@ -18,8 +18,8 @@
            ng-keypress="search()"
            placeholder="Search for anything...">
     <div ng-show="searching">
-       <md-card class="searchcard">
-      <md-card-content>
+      <md-card class="searchcard">
+        <md-card-content>
           <md-list>
             <md-list-item class="md-2-line"
                           ng-repeat="result in results"
@@ -31,10 +31,28 @@
               </div>
             </md-list-item>
           </md-list>
-           </md-card-content>
-        </md-card>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
+    
+  <md-fab-speed-dial class="helpbar" md-open="false" md-direction="down"
+                         ng-class="'md-fling'">
+        <md-fab-trigger>
+          <div class="helptrigger">?</div>
+        </md-fab-trigger>
+        <md-fab-actions style="position:relative;left:-50px;">
+          <md-button aria-label="twitter" class=" md-raised md-mini helpb">
+            Go to Support Forum
+          </md-button>
+          <md-button aria-label="facebook" class="md-raised md-mini helpb">
+            Give Us Feedback
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
 </div>
 
-      <div style="width:100vw;height:250px;background-color:#03a9f5;position:fixed;z-index:-50;"></div>
+
+
+
+<div style="width:100vw;height:250px;background-color:#03a9f5;position:fixed;z-index:-50;"></div>

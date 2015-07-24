@@ -10,10 +10,10 @@
       You are about to have access to a complete and advanced toolset for managing your non-profit,
       but you'll need to be an administrator of your organizations Facebook page to move further.
     </p>
-    <button class="btn btn-lg log-in-button"
+    <md-button class="md-primary md-raised"
             ng-click="log_in()">
       Facebook Login
-    </button>
+    </md-button>
   </md-card-content>
 
   <md-card-content ng-if="connected_to_facebook && !organizations">
@@ -50,12 +50,12 @@
           <p class="lead">{{organization.name}}</p>
 
           <!-- Link to the organizations Voluntr if added Page -->
-          <button class="btn btn-default"
+          <md-button class="md-primary md-raised"
                   ng-if="organization.exists === true"
                   ng-click="authorizeUser(organization)"
 
             >{{organization.name}} Home Page
-          </button>
+          </md-button>
         </li>
       </div>
       <md-divider></md-divider>
@@ -68,11 +68,11 @@
           <p class="lead">{{organization.name}}</p>
 
           <!-- Link to the organizations Voluntr if added Page -->
-          <button ng-if="organization.exists === false"
-                  class="btn btn-default"
+          <md-button ng-if="organization.exists === false"
+                  class="md-primary md-raised"
                   ng-click="organizationRegistration(organization)">
             Add {{organization.name}}
-          </button>
+          </md-button>
         </li>
       </div>
     </ul>
@@ -81,8 +81,9 @@
 
 
   <md-card-content ng-if="organization_registration" id="organization-registration-container">
-    <h2>Register {{organization.name}} for Volu</h2>
-    <img class="organization-login-image" ng-src="{{organization.picture}}">
+    <h2>Register {{organization.name}} for Volu</h2><br/>
+      <md-divider></md-divider><br/>
+    <!--<img class="organization-login-image" ng-src="{{organization.picture}}">-->
     <p>Thanks for your interest in registering for Volu, you are a few clicks away from having
       the ability to manage the opportunities your organization provides, and the people interested in them.  Before we
       move forward, we want you to know exactly what data we're accessing from your account, and why.
@@ -113,11 +114,11 @@
       When you register for Volu, we want to see you succeed, so we give you a list of people you have already impacted
       through your marketing.
     </p>
-    <h2>Oh yeah, and all of the above we do for free, so what are you waiting for?</h2>
-    <button class="btn btn-default"
+    <h4>Oh yeah, and all of the above we do for free, so what are you waiting for?</h4>
+    <md-button class="md-primary md-raised" style="display:block;margin:0 auto;"
             ng-click="addOrganization(organization)">
       Register {{organization.name}} For Volu and Import Facebook Data
-    </button>
+    </md-button>
     <a href="" ng-click="organizationList();">Back</a>
   </md-card-content>
 </md-card>

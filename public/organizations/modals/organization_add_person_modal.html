@@ -1,8 +1,7 @@
 
 
-  <!-- This is the top menu -->
-<div class="tabfix">
-  <md-tabs class="md-primary" md-selected="data.selectedIndex">
+<md-tabs  md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+  <!--<md-tabs class="md-primary" md-selected="data.selectedIndex">
     <md-tab id="tab1" aria-controls="tab1-content" class="md-padding">
       Step 1:  Enter Basic Information
     </md-tab>
@@ -12,18 +11,11 @@
     <md-tab id="tab3" aria-controls="tab3-content">
       Step 3:  Add to Events and Tag
     </md-tab>
-  </md-tabs>
-</div>
-  <ng-switch on="data.selectedIndex" class="tabpanel-container">
-<md-content class="md-padding diacontent">
-    <!-- Basic Information -->
-    <div role="tabpanel"
-         id="create-person-record"
-         aria-labelledby="tab1"
-         ng-switch-when="0"
-         md-swipe-left="next()"
-         md-swipe-right="previous()" >
-
+  </md-tabs>-->
+  <!-- Basic Information -->
+  <md-tab id="tab1">
+    <md-tab-label>Add Basic Information</md-tab-label>
+    <md-tab-body>
       <md-input-container>
         <label>First Name</label>
         <input ng-model="newPerson.first_name">
@@ -65,50 +57,42 @@
         <label>Zip Code</label>
         <input ng-model="newPerson.zip_code">
       </md-input-container>
-
-     <div class="window-bottom-button">
-       <md-button class="md-primary tabbutton" ng-click="addPerson()">
-        Submit
-      </md-button>
-         
-        </div>
-
-      <!--<div ng-hide="!newPerson">
-        <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
-          {{person.first_name}}  {{person.last_name}}
-          <a style="float: right; color: black;"
-             ng-click="matchedPerson(person)"
-             href="";
-            >
-            This is My Volunteer!
-          </a>
-        </p>
-      </div>-->
-    </div>
+    </md-tab-body>
+  </md-tab>
 
 
-    <!-- Add Events and Tag -->
-    <div role="tabpanel"
-         aria-labelledby="tab3"
-         ng-switch-when="2"
-         md-swipe-left="next()"
-         md-swipe-right="previous()" >
-      View for Item #3<br/>
-      data.selectedIndex = 2
-    </div>
+  <div class="window-bottom-button">
+    <md-button class="md-primary tabbutton" ng-click="addPerson()">
+      Submit
+    </md-button>
 
+  </div>
 
-    <!-- Enter Schedule -->
-    <div role="tabpanel"
-         aria-labelledby="tab2"
-         ng-switch-when="1"
-         md-swipe-left="next()"
-         md-swipe-right="previous()" >
-      View for {{data.secondLabel}}<br/>
-      data.selectedIndex = 1
-    </div>
-</md-content>
-  </ng-switch>
+  <!--<div ng-hide="!newPerson">
+    <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
+      {{person.first_name}}  {{person.last_name}}
+      <a style="float: right; color: black;"
+         ng-click="matchedPerson(person)"
+         href="";
+        >
+        This is My Volunteer!
+      </a>
+    </p>
+  </div>-->
+  <md-tab id="tab2">
+    <md-tab-label>Add Address Information</md-tab-label>
+    <md-tab-body>
+      <person-schedule person-id="{{person.id}}"></person-schedule>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab3">
+    <md-tab-label>Add Schedule Information</md-tab-label>
+    <md-tab-body>
+      <person-schedule person-id="{{person.id}}"></person-schedule>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
+
 
 
 
