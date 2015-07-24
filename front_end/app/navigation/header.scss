@@ -77,3 +77,26 @@
 
 .fabToolbardemoBasicUsage md-fab-toolbar.md-right md-fab-trigger.align-with-text {
   right: 7px; }
+
+.helpbar{
+    position:absolute;
+    right:-40px;
+    top:0px;
+}
+
+.helptrigger{
+      background-color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+      color: #03a9f5;
+  margin-top: 20px;
+}
+
+.helpb{
+    font-size:10px;
+    width:125px;
+    text-align: center;
+}
