@@ -40,15 +40,42 @@
         <input ng-model="newPerson.phone"
                type="phone">
       </md-input-container>
-                
+<<<<<<< HEAD
 
-            </div>
-        </div>
-                
+      <md-input-container>
+        <label>Address</label>
+        <input ng-model="newPerson.address">
+      </md-input-container>
+
+                <div layout layout-sm="column" >
+      <md-input-container flex>
+        <label>City</label>
+        <input ng-model="newPerson.city">
+      </md-input-container>
+
+      <md-input-container flex>
+        <label>State</label>
+        <input ng-model="newPerson.state">
+      </md-input-container>
+
+      <md-input-container flex>
+        <label>Zip Code</label>
+        <input ng-model="newPerson.zip_code">
+      </md-input-container>
+                </div>
+            </div></div>
+=======
+>>>>>>> 8318b61faedf5e0db4b48e6d1de47e835f76d1a7
     </md-tab-body>
   </md-tab>
 
 
+  <div class="window-bottom-button">
+    <md-button class="md-primary tabbutton" ng-click="addPerson()">
+      Submit
+    </md-button>
+
+  </div>
 
   <!--<div ng-hide="!newPerson">
     <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
@@ -64,8 +91,13 @@
   <md-tab id="tab2">
     <md-tab-label>Add Address Information</md-tab-label>
     <md-tab-body>
-                <div class="tabcontrol">
+<<<<<<< HEAD
+            <div class="tabcontrol">
             <div class="tabcontrolin">
+      <person-schedule person-id="{{person.id}}"></person-schedule>
+                </div>
+        </div>
+=======
       <md-input-container>
         <label>Address Line 1:</label>
         <input type="text" ng-model="person.address_1">
@@ -90,8 +122,7 @@
           <input ng-model="person.zip_code">
         </md-input-container>
       </div>
-                    </div>
-        </div>
+>>>>>>> 8318b61faedf5e0db4b48e6d1de47e835f76d1a7
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">
@@ -100,12 +131,6 @@
             <div class="tabcontrol">
             <div class="tabcontrolin">
       <person-schedule person-id="{{person.id}}"></person-schedule>
-                                 <div class="window-bottom-button">
-    <md-button class="md-primary tabbutton" ng-click="addPerson()">
-      Submit
-    </md-button>
-
-  </div>
                 </div></div>
     </md-tab-body>
   </md-tab>

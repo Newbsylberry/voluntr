@@ -10,20 +10,22 @@
       <md-card>
         <md-card-content class="dashboard-module">
           <h3>Volunteers to Contact</h3>
-          <md-list layout="column">
-            <md-item
-              ng-repeat="volunteer in organization.contact_volunteers"
+                <md-list>
+                <md-list-item               ng-repeat="volunteer in         organization.contact_volunteers"
               ng-show="organization.contact_volunteers.length !== 0">
-              <md-item-content>
-                <div class="md-tile-content">
+                    <p>{{volunteer.first_name}} {{volunteer.last_name}} BB</p>
+                    
+                </md-list-item>    
+                </md-list>  
+                  
+               <!-- <div class="md-tile-content">
                   <h4 person-modal size="lg" id="{{volunteer.id}}">
                     {{volunteer.first_name}} {{volunteer.last_name}}</h4>
-                </div>
-              </md-item-content>
-            </md-item>
+                </div>-->
             <md-item>
             <md-item-content ng-show="organization.contact_volunteers.length === 0">
               <p>You don't need to contact any volunteers right now!</p>
+                
             </md-item-content>
             </md-item>
           </md-list>

@@ -18,3 +18,4 @@ class RecordedHourSerializer < ActiveModel::Serializer
   end
 
 end
+

@@ -31,3 +31,4 @@ class RecordedHour < ActiveRecord::Base
   end
 
 end
+
