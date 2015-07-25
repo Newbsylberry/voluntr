@@ -8,12 +8,24 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal, $modalInstance) {
+  .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal,
+                                              $modalInstance, OpportunityRole) {
 
     $scope.calendar = {};
     $scope.calendar.repeat = {};
 
+    $scope.roles = [];
+
     $scope.greeting = "Hello World!";
+
+    $scope.createRole = function(role) {
+      var attr = {};
+      attr.name = role.name;
+      attr.description = role.description;
+      $scope.roles.push(attr)
+      $scope.role.name = "";
+      $scope.role.description = "";
+    }
 
     $scope.newOpportunity = function(){
       var attr = {};
@@ -33,43 +45,12 @@ angular.module('voluntrApp')
       attr.state = $scope.newOpportunity.state;
       attr.organization_id = $stateParams.organization_Id;
       attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
-
-      //$timeout( function() {
-      //  var geocoder = new google.maps.Geocoder();
-      //  geocoder
-      //    .geocode(
-      //    {
-      //      'address' : $scope.newOpportunity.address
-      //    },
-      //    function(results, status) {
-      //      if (status == google.maps.GeocoderStatus.OK) {
-      //        // for (var i=0; i < results.length; i++) {
-      //        angular.forEach(results, function(result){
-      //          // var result = results[i]
-      //          angular.forEach(result.address_components, function (address_component) {
-      //            // for (var i=0; i < result.address_components.length; i++) {
-      //            // var address_component = result.address_components[i]
-      //            if (address_component.short_name === $scope.newOpportunity.zip_code) {
-      //
-      //              var location = new google.maps.LatLng(result.geometry.location.D, result.geometry.location.k);
-      //              attr.latitude = result.geometry.location.k;
-      //              attr.longitude = result.geometry.location.D;
-      //            }
-      //          })
-      //
-      //        })
-      //
-      //      }
-      //    })
-      //  $timeout(
-      //    function() {
-      //      var newEvent = Opportunity.create(attr);
-      //      // $rootScope.organization.events.push(newEvent)
-      //      $modalStack. dismissAll();
-      //    }, 3000);
-      //}, 3000)
-
-      Opportunity.create(attr)
+      Opportunity.create(attr).$promise.then(function(opportunity){
+        angular.forEach($scope.roles, function(role){
+          role.opportunity_id = opportunity.id;
+          OpportunityRole.create(role)
+        })
+      })
 
       $modalInstance.dismiss('cancel');
 

@@ -12,7 +12,9 @@ class RecordedHourSerializer < ActiveModel::Serializer
   end
 
   def opportunity_roles
-    opportunity.opportunity_roles
+    if opportunity
+      opportunity.opportunity_roles
+    end
   end
 
 end
