@@ -37,26 +37,6 @@
         <input ng-model="newPerson.phone"
                type="phone">
       </md-input-container>
-
-      <md-input-container>
-        <label>Address</label>
-        <input ng-model="newPerson.address">
-      </md-input-container>
-
-      <md-input-container>
-        <label>City</label>
-        <input ng-model="newPerson.city">
-      </md-input-container>
-
-      <md-input-container>
-        <label>State</label>
-        <input ng-model="newPerson.state">
-      </md-input-container>
-
-      <md-input-container>
-        <label>Zip Code</label>
-        <input ng-model="newPerson.zip_code">
-      </md-input-container>
     </md-tab-body>
   </md-tab>
 
@@ -82,7 +62,30 @@
   <md-tab id="tab2">
     <md-tab-label>Add Address Information</md-tab-label>
     <md-tab-body>
-      <person-schedule person-id="{{person.id}}"></person-schedule>
+      <md-input-container>
+        <label>Address Line 1:</label>
+        <input type="text" ng-model="person.address_1">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Address Line 2:</label>
+        <input type="text" ng-model="person.address_2">
+      </md-input-container>
+
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>City</label>
+          <input ng-model="person.city">
+        </md-input-container>
+        <md-input-container flex>
+          <label>State</label>
+          <input ng-model="person.state">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Postal Code</label>
+          <input ng-model="person.zip_code">
+        </md-input-container>
+      </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">

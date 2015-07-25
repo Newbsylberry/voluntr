@@ -3,13 +3,9 @@
  */
 angular.module('voluntrApp')
   .controller('GenerateReportCtrl', function ($scope, $modal, $rootScope, $http,
-                                              $stateParams, $window, $stateParams,
-                                              rm_id, $window, type) {
-
-
+                                              $stateParams, rm_id, $window, type) {
 
     $scope.date = {startDate: null, endDate: null};
-
     $scope.report_loaded = false;
 
 

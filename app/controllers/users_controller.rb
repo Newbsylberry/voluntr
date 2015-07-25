@@ -9,11 +9,4 @@ class UsersController < ApplicationController
     render json: @user
   end
 
-  def contact
-    @email = params[:email]
-    @content = params[:content]
-
-    UserMailer.contact_email(@email, @content).deliver
-  end
-
 end

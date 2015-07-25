@@ -19,7 +19,8 @@ Rails.application.routes.draw do
       resources :opportunity_types, except: [:new, :edit], defaults: {format: :json}
       resources :users, defaults: {format: :json}
       resources :people, defaults: {format: :json}
-      post '/user/contact_form', to: 'users#contact', defaults: {format: :json}
+      post '/user/contact_form', to: 'administration#contact_email', defaults: {format: :json}
+      post '/administration/feedback', to: 'administration#feedback', defaults: {format: :json}
       resources :profiles, except: [:new, :edit], defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}
       resources :user_event_hours, except: [:new, :edit], defaults: {format: :json}

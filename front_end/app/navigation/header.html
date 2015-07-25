@@ -35,7 +35,7 @@
       </md-card>
     </div>
   </div>
-    
+
   <md-fab-speed-dial class="helpbar" md-open="false" md-direction="down"
                          ng-class="'md-fling'">
         <md-fab-trigger>
@@ -45,7 +45,9 @@
           <md-button aria-label="twitter" class=" md-raised md-mini helpb">
             Go to Support Forum
           </md-button>
-          <md-button aria-label="facebook" class="md-raised md-mini helpb">
+          <md-button aria-label="facebook"
+                     class="md-raised md-mini helpb"
+                     ng-click="supportModal('md')">
             Give Us Feedback
           </md-button>
         </md-fab-actions>

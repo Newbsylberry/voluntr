@@ -2,8 +2,9 @@ angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window,
                                       $mdSidenav, $http, $stateParams, $timeout, $modal) {
 
-
     $scope.search_filter = searchService.search;
+
+
 
 
     $scope.isOpen = false;
@@ -12,6 +13,27 @@ angular.module('voluntrApp')
       count: 0,
       selectedAlignment: 'md-right'
     };
+
+    $scope.supportModal = function(size){
+      var supportModal = $modal.open(
+        {
+          templateUrl: 'organizations/modals/support_form.html',
+          controller: 'SupportFormCtrl',
+          windowClass: 'add-event-modal-window',
+          size: size,
+          resolve: {
+            current_state: function() {
+              return $scope.current_state;
+            }
+          }
+        });
+      supportModal.result.then(function () {
+
+        },
+        function () {
+
+        });
+    }
 
     $scope.open = function() {
       $mdSidenav('left').open()
@@ -102,9 +124,9 @@ angular.module('voluntrApp')
                 return result.id
               },
               start_time: function() {
-                  return 0
-                }
+                return 0
               }
+            }
 
           });
 
