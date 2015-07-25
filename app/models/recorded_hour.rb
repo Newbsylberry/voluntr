@@ -11,7 +11,7 @@ class RecordedHour < ActiveRecord::Base
 
 
   def send_sign_in_email
-    if self.person.email
+    if self.person && self.person.email
       OpportunityMailer.opportunity_sign_in_email(person, opportunity, self).deliver
     end
   end
@@ -31,3 +31,4 @@ class RecordedHour < ActiveRecord::Base
   end
 
 end
+

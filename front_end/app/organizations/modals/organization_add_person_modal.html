@@ -1,6 +1,6 @@
 
 
-<md-tabs  md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+<md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
   <!--<md-tabs class="md-primary" md-selected="data.selectedIndex">
     <md-tab id="tab1" aria-controls="tab1-content" class="md-padding">
       Step 1:  Enter Basic Information
@@ -16,16 +16,19 @@
   <md-tab id="tab1">
     <md-tab-label>Add Basic Information</md-tab-label>
     <md-tab-body>
-      <md-input-container>
+        <div class="tabcontrol">
+            <div class="tabcontrolin">
+                <div layout layout-sm="column" >
+      <md-input-container flex>
         <label>First Name</label>
         <input ng-model="newPerson.first_name">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container flex>
         <label>Last Name</label>
         <input ng-model="newPerson.last_name">
       </md-input-container>
-
+                </div>
       <md-input-container>
         <label>Email</label>
         <input ng-model="newPerson.email"
@@ -43,20 +46,23 @@
         <input ng-model="newPerson.address">
       </md-input-container>
 
-      <md-input-container>
+                <div layout layout-sm="column" >
+      <md-input-container flex>
         <label>City</label>
         <input ng-model="newPerson.city">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container flex>
         <label>State</label>
         <input ng-model="newPerson.state">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container flex>
         <label>Zip Code</label>
         <input ng-model="newPerson.zip_code">
       </md-input-container>
+                </div>
+            </div></div>
     </md-tab-body>
   </md-tab>
 
@@ -82,13 +88,20 @@
   <md-tab id="tab2">
     <md-tab-label>Add Address Information</md-tab-label>
     <md-tab-body>
+            <div class="tabcontrol">
+            <div class="tabcontrolin">
       <person-schedule person-id="{{person.id}}"></person-schedule>
+                </div>
+        </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">
     <md-tab-label>Add Schedule Information</md-tab-label>
     <md-tab-body>
+            <div class="tabcontrol">
+            <div class="tabcontrolin">
       <person-schedule person-id="{{person.id}}"></person-schedule>
+                </div></div>
     </md-tab-body>
   </md-tab>
 </md-tabs>
