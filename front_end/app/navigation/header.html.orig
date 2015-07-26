@@ -1,0 +1,82 @@
+<div class="application-header"
+<<<<<<< HEAD
+     ng-if="current_state !== 'organizations.registration'"
+     ng-controller="HeaderCtrl"
+  >
+  <i class="icon ion-navicon"
+     ng-if="current_state !== 'organizations.organization_search'"
+     snap-toggle="left">
+    </i>
+
+  <i class="icon ion-arrow-left-c"
+     ng-if="current_state === 'organizations.organization_search'"
+     ng-click="back(); search_filter.query = ''"
+     ><a href="">Back</a>
+  </i>
+    
+    
+  <input class="searchbar" type="text"
+         
+         ng-model="search_filter.query"
+         placeholder="Search for anything..."></input>
+=======
+     ng-show="current_state !== 'organizations.registration'"
+     ng-controller="HeaderCtrl">
+  <i class="icon ion-navicon"
+     ng-show="current_state !== 'organizations.registration' && !menu_open"
+     ng-click="open()">
+  </i>
+  <i class="icon ion-navicon"
+     ng-show="current_state !== 'organizations.registration' && menu_open"
+     ng-click="close()">
+  </i>
+  <div class="headerpar"  scroll-watch="{from: 0, to: -1, stage: 'centered-container'}"
+       sw-class="{red: $offsetTop > 57}">
+    <div class="headerimg" scroll-watch="{from: 0, to: -1, stage: 'centered-container'}" sw-class="{black: $offsetTop > 77}">
+      <img src="../logo.png"  style="height:30px;" ></div>
+    <input class="searchbar" type="text"
+           ng-model="search_query"
+           ng-keypress="search()"
+           placeholder="Search for anything...">
+    <div ng-show="searching">
+      <md-card class="searchcard">
+        <md-card-content>
+          <md-list>
+            <md-list-item class="md-2-line"
+                          ng-repeat="result in results"
+                          ng-click="openModal(result)">
+              {{result.img}}
+              <div class="md-list-item-text">
+                <h3>{{result.title}}</h3>
+                <p>{{result.type}}</p>
+              </div>
+            </md-list-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+
+  <md-fab-speed-dial class="helpbar" md-open="false" md-direction="down"
+                         ng-class="'md-fling'">
+        <md-fab-trigger>
+          <div class="helptrigger">?</div>
+        </md-fab-trigger>
+        <md-fab-actions style="position:relative;left:-50px;">
+          <md-button aria-label="twitter" class=" md-raised md-mini helpb">
+            Go to Support Forum
+          </md-button>
+          <md-button aria-label="facebook"
+                     class="md-raised md-mini helpb"
+                     ng-click="supportModal('md')">
+            Give Us Feedback
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+>>>>>>> 0b0cc5f97404951b835bf1a51af4601d1aaacff3
+</div>
+
+
+
+
+<div style="width:100vw;height:250px;background-color:#03a9f5;position:fixed;z-index:-50;"></div>

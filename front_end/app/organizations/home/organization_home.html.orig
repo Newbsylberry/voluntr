@@ -1,24 +1,25 @@
 <div class="content">
+<<<<<<< HEAD
+  <md-card class="homecard">
+=======
   <md-card >
+>>>>>>> 0b0cc5f97404951b835bf1a51af4601d1aaacff3
     <md-card-content>
       <highchart config="lineGraphConfig"></highchart>
     </md-card-content>
   </md-card>
   <div class="row"   style="margin: 0 -15px;">
     <div class="col-md-6">
-      <md-card class="homecsm">
+      <md-card style="margin:0px">
         <md-card-content class="dashboard-module">
           <h3>Volunteers to Contact</h3>
-                <div class="homecsm">
-                <md-list ng-repeat="volunteer in organization.contact_volunteers"
+                <md-list>
+                <md-list-item
+                  ng-repeat="volunteer in organization.contact_volunteers"
                   ng-show="organization.contact_volunteers.length !== 0">
-                <md-list-item >
-                    <p>{{volunteer.first_name}} ddddd{{volunteer.last_name}}</p>
-                    <md-icon md-svg-src ="../img/icons/email.svg"  class="s36" aria-label="email" ng-click="" ></md-icon>
-                     <md-icon md-svg-src ="../img/icons/phone.svg"  class="s36" aria-label="phone" ng-click="" ></md-icon>
+                    <p>{{volunteer.first_name}} {{volunteer.last_name}} </p>
                 </md-list-item>
                 </md-list>
-            </div>
 
                <!-- <div class="md-tile-content">
                   <h4 person-modal size="lg" id="{{volunteer.id}}">
@@ -35,10 +36,9 @@
       </md-card>
     </div>
     <div class="col-md-6">
-      <md-card class="homecsm">
+      <md-card style="margin:0px">
         <md-card-content class="dashboard-module">
           <h3>Recently Recorded Hours</h3>
-            <div class="homecsm">
           <md-list layout="column">
             <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
                            person-modal
@@ -48,7 +48,6 @@
                              recorded-hours="organization.recorded_hours"
                              type="opportunity"></recorded-hour>
           </md-list>
-            </div>
         </md-card-content>
       </md-card>
     </div>

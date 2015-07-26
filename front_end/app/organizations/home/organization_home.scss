@@ -1,6 +1,6 @@
 .dashboard-module {
-  height: 200px;
-  overflow-y: auto;
+    height: auto;
+    overflow: hidden;
   .icon {
     font-size: 18pt; padding-right: 12px;
   }
@@ -13,3 +13,15 @@
         color: rgba(0,0,0,0.7) !important;
   }
 }
+
+.homecsm{
+    min-height: 150px;
+    max-height: 350px;
+    overflow: scroll;
+}
+ .s36 {
+  width: 30px;
+  height: 30px;
+    opacity: 0.6;
+     margin-left: 10px;
+ }
