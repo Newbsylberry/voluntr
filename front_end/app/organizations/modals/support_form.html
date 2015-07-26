@@ -1,5 +1,15 @@
-<h2>We Welcome Your Feedback!</h2>
-<input ng-model="email" placeholder="Please Tell Us Your Email Address:">
-<textarea ng-model="description" placeholder="Plaes Tell Us Any Feedback!"></textarea>
-<button class="btn btn-default" ng-click="submitFeedback()">Submit</button>
-
+<md-toolbar style="min-height:48px !important;">
+  <h3 style="margin:10px 0px 10px 10px;font-size:14px;line-height:28px;">FEEDBACKS</h3>
+</md-toolbar>
+<div style="padding:15px;">
+<h2 style="color:rgba(0,0,0,0.6);">We Welcome Your Feedback!</h2>
+ <md-input-container>
+      <label>Please Tell Us Your Email Address:</label>
+<input ng-model="email">
+</md-input-container>
+     <md-input-container>
+        <label>Plaes Tell Us Any Feedback:</label>    
+         <textarea md-maxlength="500" ng-model="description"></textarea>
+    </md-input-container>
+         <md-button class="md-raised md-primary" ng-click="submitFeedback()" style="float:right;">Submit</md-button>
+</div>
