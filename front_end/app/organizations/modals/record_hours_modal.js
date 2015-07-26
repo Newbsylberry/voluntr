@@ -13,8 +13,7 @@ angular.module('voluntrApp')
     var controllerElement = document.querySelector('.dashboard-module');
     var controllerScope = angular.element(controllerElement).scope();
 
-
-
+    $scope.opportunities = controllerScope.organization.opportunities;
 
 
     $scope.recordHours = function() {
@@ -22,6 +21,12 @@ angular.module('voluntrApp')
       record_hours_attr.hours = $scope.recordHours.hours;
       record_hours_attr.organization_id = $stateParams.organization_Id;
       record_hours_attr.description = $scope.description;
+      if ($scope.opportunity) {
+      record_hours_attr.opportunity_id = $scope.opportunity.id;
+      }
+      if ($scope.opportunity_role) {
+        record_hours_attr.opportunity_role_id = $scope.opportunity_role.id;
+      }
       if ($scope.new_volunteer) {
         var attr = {};
         attr.first_name = $scope.first_name;
@@ -82,8 +87,6 @@ angular.module('voluntrApp')
         $scope.new_volunteer_validation = false
       }
     });
-
-
 
   });
 

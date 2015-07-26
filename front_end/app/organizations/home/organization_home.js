@@ -71,8 +71,9 @@ angular.module('voluntrApp')
             angular.forEach($scope.organization.posts, addPostToGraph)
           })
 
-
+          console.log($scope.organization)
         })
+
       }
 
       // If not connected then take them back to the first page

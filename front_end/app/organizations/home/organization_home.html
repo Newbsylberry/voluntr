@@ -2,7 +2,6 @@
   <md-card >
     <md-card-content>
       <highchart config="lineGraphConfig"></highchart>
-      <a href="" ng-click="open('lg')">Add Additional Data</a><br>
     </md-card-content>
   </md-card>
   <div class="row"   style="margin: 0 -15px;">
@@ -11,13 +10,13 @@
         <md-card-content class="dashboard-module">
           <h3>Volunteers to Contact</h3>
                 <md-list>
-                <md-list-item               ng-repeat="volunteer in         organization.contact_volunteers"
-              ng-show="organization.contact_volunteers.length !== 0">
-                    <p>{{volunteer.first_name}} {{volunteer.last_name}} BB</p>
-                    
-                </md-list-item>    
-                </md-list>  
-                  
+                <md-list-item
+                  ng-repeat="volunteer in organization.contact_volunteers"
+                  ng-show="organization.contact_volunteers.length !== 0">
+                    <p>{{volunteer.first_name}} {{volunteer.last_name}} </p>
+                </md-list-item>
+                </md-list>
+
                <!-- <div class="md-tile-content">
                   <h4 person-modal size="lg" id="{{volunteer.id}}">
                     {{volunteer.first_name}} {{volunteer.last_name}}</h4>
@@ -25,7 +24,7 @@
             <md-item>
             <md-item-content ng-show="organization.contact_volunteers.length === 0">
               <p>You don't need to contact any volunteers right now!</p>
-                
+
             </md-item-content>
             </md-item>
           </md-list>
@@ -39,7 +38,7 @@
           <md-list layout="column">
             <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
                            person-modal
-                           size="'lg'"
+                           size="lg"
                            id="{{recorded_hour.person_id}}"
                            recorded-hour="recorded_hour"
                              recorded-hours="organization.recorded_hours"

@@ -27,6 +27,8 @@ height: 100%;
 
 .hourlistr{
     padding:19px 0 13px 0px;
+    /* Added to Fix Bug */
+    display: inherit;
 }
 
 .hourlistb{
@@ -35,5 +37,5 @@ height: 100%;
     min-width: 40px;
     min-height: 20px;
     line-height: 20px;
-    
+
 }

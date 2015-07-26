@@ -3,61 +3,77 @@
     <md-tab-label>Record Hours</md-tab-label>
     <md-tab-body >   -->
 <md-toolbar style="min-height:48px !important;">
-    <h3 style="margin:10px 0px 10px 10px;font-size:14px;line-height:28px;">RECORD HOURS TO A PEROSON</h3>
+  <h3 style="margin:10px 0px 10px 10px;font-size:14px;line-height:28px;">RECORD HOURS TO A PERSON</h3>
 </md-toolbar>
-        <div class="tabcontrol">
-            <div class="tabcontrolin persontab" >
-             <!-- <h2 style="color:rgba(0,0,0,0.6);">Assign new hours to a person</h2>
-            <md-divider></md-divider><br/><br/>-->
-<div layout layout-md="column">
-    <md-input-container flex class="record-hours-name">
-      <label>First Name</label>
-      <input ng-model="first_name">
-    </md-input-container>
-    <md-input-container flex class="record-hours-name">
-      <label>Last Name</label>
-      <input ng-model="last_name">
-    </md-input-container>
-    <md-input-container flex>
-      <label>Email Address</label>
-      <input
-        type="email"
-        ng-model="email">
-    </md-input-container>
+<div class="tabcontrol">
+  <div class="tabcontrolin persontab" >
+    <!-- <h2 style="color:rgba(0,0,0,0.6);">Assign new hours to a person</h2>
+   <md-divider></md-divider><br/><br/>-->
+    <div layout layout-md="column">
+      <md-input-container flex class="record-hours-name">
+        <label>First Name</label>
+        <input ng-model="first_name">
+      </md-input-container>
+      <md-input-container flex class="record-hours-name">
+        <label>Last Name</label>
+        <input ng-model="last_name">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Email Address</label>
+        <input
+          type="email"
+          ng-model="email">
+      </md-input-container>
     </div>
-  <a href="#" ng-click="clearPerson()" ng-show="volunteer_id">Clear Person</a>
-  <md-checkbox ng-show="filtered.length === 0 && !volunteer_id"
-               aria-label="New Volunteer?"
-               ng-model="new_volunteer">
-    New Volunteer?
-  </md-checkbox>
-<md-card class="search-box" ng-show="results && !volunteer_id && filtered.length !== 0">
-  <md-card-content>
-      <p style="color:rgba(0,0,0,0.5);">You can click from those suggestions:</p>
-    <md-list>
-        <md-list-item ng-repeat="person in filtered" ng-click="selectHoursPerson(person)">
+    <a href="#" ng-click="clearPerson()" ng-show="volunteer_id">Clear Person</a>
+    <md-checkbox ng-show="filtered.length === 0 && !volunteer_id"
+                 aria-label="New Volunteer?"
+                 ng-model="new_volunteer">
+      New Volunteer?
+    </md-checkbox>
+    <md-card class="search-box" ng-show="results && !volunteer_id && filtered.length !== 0">
+      <md-card-content>
+        <p style="color:rgba(0,0,0,0.5);">You can click from those suggestions:</p>
+        <md-list>
+          <md-list-item ng-repeat="person in filtered" ng-click="selectHoursPerson(person)">
+            <p>{{person.first_name}} {{person.last_name}}</p>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+    </md-card>
+    <div class="row">
+      <select
+        class="form-control"
+        ng-model="opportunity"
+        ng-options="opportunity.name for opportunity in opportunities">
+        <option value="">-- Select An Opportunity --</option>
+      </select>
+      <select
+        ng-show="opportunity && opportunity.opportunity_roles.length != 0"
+        class="form-control"
+        ng-model="opportunity_role"
+        ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles">
+        <option value="">-- Select An Opportunity Role --</option>
+      </select>
+      <!--<md-select ng-model="opportunity" placeholder="Which, if any, opportunity?" >
+        <md-option  ng-repeat="opportunity in opportunities">{{opportunity.name}}</md-option>
+      </md-select>
+      <md-select ng-model="opportunity_role" placeholder="Role" >
+        <md-option  ng-repeat="opportunity_role in opportunity.opportunity_roles" value="{{opportunity_role}}">{{opportunity_role}}</md-option>
+      </md-select>-->
+      <md-input-container class="hours-description">
+        <label>Notes about these hours</label>
+        <textarea ng-model="description" columns="1" md-maxlength="150"></textarea>
+      </md-input-container>
+    </div>
+    <p style="color:rgba(0,0,0,0.5);">Use the slider to select hours</p>
+    <md-slider flex class="md-primary" md-discrete ng-model="recordHours.hours" step=".5" min=".5" max="24" aria-label="rating">
+    </md-slider>
+    <md-button style="margin-left:0px;"class="md-raised md-primary"
+               ng-click="recordHours()">Record Hours</md-button>
 
-        <p>{{person.first_name}} {{person.last_name}}</p>
-
-
-            </md-list-item>
-    </md-list>
-  </md-card-content>
-</md-card>
-<div class="row">
-  <md-input-container class="hours-description">
-    <label>Notes about these hours</label>
-    <textarea ng-model="description" columns="1" md-maxlength="150"></textarea>
-  </md-input-container>
+  </div>
 </div>
-<p style="color:rgba(0,0,0,0.5);">Use the slider to select hours</p>      
-<md-slider flex class="md-primary" md-discrete ng-model="recordHours.hours" step=".5" min=".5" max="24" aria-label="rating">
-</md-slider>
-<md-button style="margin-left:0px;"class="md-raised md-primary"
-        ng-click="recordHours()">Record Hours</md-button>
-
-     </div>
-        </div>
-     <!-- </md-tab-body>
-    </md-tab>
+<!-- </md-tab-body>
+</md-tab>
 </md-tabs>-->

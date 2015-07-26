@@ -4,6 +4,7 @@ class OrganizationSerializer < ActiveModel::Serializer
   # has_many :opportunities
   has_many :posts
   has_many :organization_mailing_services
+  has_many :opportunities
 
 
 

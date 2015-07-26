@@ -1,6 +1,6 @@
 
 
-<md-tabs  md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+<md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
   <!--<md-tabs class="md-primary" md-selected="data.selectedIndex">
     <md-tab id="tab1" aria-controls="tab1-content" class="md-padding">
       Step 1:  Enter Basic Information
@@ -16,16 +16,19 @@
   <md-tab id="tab1">
     <md-tab-label>Add Basic Information</md-tab-label>
     <md-tab-body>
-      <md-input-container>
+        <div class="tabcontrol">
+            <div class="tabcontrolin">
+                <div layout layout-sm="column" >
+      <md-input-container flex>
         <label>First Name</label>
         <input ng-model="newPerson.first_name">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container flex>
         <label>Last Name</label>
         <input ng-model="newPerson.last_name">
       </md-input-container>
-
+                </div>
       <md-input-container>
         <label>Email</label>
         <input ng-model="newPerson.email"
@@ -37,16 +40,15 @@
         <input ng-model="newPerson.phone"
                type="phone">
       </md-input-container>
+                
+
+            </div>
+        </div>
+                
     </md-tab-body>
   </md-tab>
 
 
-  <div class="window-bottom-button">
-    <md-button class="md-primary tabbutton" ng-click="addPerson()">
-      Submit
-    </md-button>
-
-  </div>
 
   <!--<div ng-hide="!newPerson">
     <p ng-repeat="person in organization_people | filter:newPerson" style="color: black">
@@ -62,6 +64,8 @@
   <md-tab id="tab2">
     <md-tab-label>Add Address Information</md-tab-label>
     <md-tab-body>
+                <div class="tabcontrol">
+            <div class="tabcontrolin">
       <md-input-container>
         <label>Address Line 1:</label>
         <input type="text" ng-model="person.address_1">
@@ -86,12 +90,23 @@
           <input ng-model="person.zip_code">
         </md-input-container>
       </div>
+                    </div>
+        </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">
     <md-tab-label>Add Schedule Information</md-tab-label>
     <md-tab-body>
+            <div class="tabcontrol">
+            <div class="tabcontrolin">
       <person-schedule person-id="{{person.id}}"></person-schedule>
+                                 <div class="window-bottom-button">
+    <md-button class="md-primary tabbutton" ng-click="addPerson()">
+      Submit
+    </md-button>
+
+  </div>
+                </div></div>
     </md-tab-body>
   </md-tab>
 </md-tabs>
