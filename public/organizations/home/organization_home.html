@@ -6,44 +6,58 @@
   </md-card>
   <div class="row"   style="margin: 0 -15px;">
     <div class="col-md-6">
-      <md-card>
+      <md-card class="homecsm">
         <md-card-content class="dashboard-module">
           <h3>Volunteers to Contact</h3>
-                <md-list>
-                <md-list-item
-                  ng-repeat="volunteer in organization.contact_volunteers"
-                  ng-show="organization.contact_volunteers.length !== 0">
-                    <p>{{volunteer.first_name}} {{volunteer.last_name}} </p>
-                </md-list-item>
-                </md-list>
+          <div class="homecsm">
+            <md-list ng-repeat="volunteer in organization.contact_volunteers"
+                     ng-show="organization.contact_volunteers.length !== 0">
+              <md-list-item >
+                <p>{{volunteer.first_name}} {{volunteer.last_name}}</p>
+                <a href="mailto:{{volunteer.email}}"><md-icon md-svg-src ="../img/icons/email.svg"
+                         ng-if="volunteer.email"
+                         class="s36"
+                         aria-label="email"
+                  ></md-icon></a>
+                <a href="tel:{{volunteer.phone}}">
+                  <md-icon md-svg-src="../img/icons/phone.svg"
+                         class="s36"
+                         ng-if="volunteer.phone"
+                         aria-label="phone"
+                  ></md-icon></a>
+              </md-list-item>
+            </md-list>
+          </div>
 
-               <!-- <div class="md-tile-content">
-                  <h4 person-modal size="lg" id="{{volunteer.id}}">
-                    {{volunteer.first_name}} {{volunteer.last_name}}</h4>
-                </div>-->
-            <md-item>
+          <!-- <div class="md-tile-content">
+             <h4 person-modal size="lg" id="{{volunteer.id}}">
+               {{volunteer.first_name}} {{volunteer.last_name}}</h4>
+           </div>-->
+          <md-item>
             <md-item-content ng-show="organization.contact_volunteers.length === 0">
               <p>You don't need to contact any volunteers right now!</p>
 
             </md-item-content>
-            </md-item>
+          </md-item>
           </md-list>
         </md-card-content>
       </md-card>
     </div>
     <div class="col-md-6">
-      <md-card>
+      <md-card class="homecsm">
         <md-card-content class="dashboard-module">
           <h3>Recently Recorded Hours</h3>
-          <md-list layout="column">
-            <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
-                           person-modal
-                           size="lg"
-                           id="{{recorded_hour.person_id}}"
-                           recorded-hour="recorded_hour"
+          <div class="homecsm">
+            <md-list layout="column">
+              <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
+                             person-modal
+                             size="lg"
+                             id="{{recorded_hour.person_id}}"
+                             recorded-hour="recorded_hour"
                              recorded-hours="organization.recorded_hours"
                              type="opportunity"></recorded-hour>
-          </md-list>
+            </md-list>
+          </div>
         </md-card-content>
       </md-card>
     </div>
