@@ -1,5 +1,5 @@
 .ttmain{
-    padding:30px;
+    padding:30px 40px;
 }
 
 .ttmain p{
@@ -35,4 +35,15 @@
 
 .ttright{
     text-align: right;
+}
+
+@media screen and (max-width: 720px){
+.ttmain h1{
+    font-size:25px;
+}
+    
+.ttmain{
+    padding:25px;
+}    
+    
 }
