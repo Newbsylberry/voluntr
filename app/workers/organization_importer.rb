@@ -16,10 +16,12 @@ class OrganizationImporter
         @post.fb_id = p['id']
         @post.organization_id = organization_id
         @post.post_time = p['created_time']
-        if ! (p["likes"].nil? || p["likes"].empty?)
+        ap p
+        if !(p["likes"].nil? || p["likes"].empty?)
           @post.likes = p['likes']['data'].count
           @graph.get_connections(p['id'].to_s, "likes").each do |l|
             if (!Person.find_by_fb_id(l["id"]))
+              puts "PERSON PERSON PERSON"
               @person = Person.new
               @person.fb_id = l["id"]
               @person.first_name = l["name"].split(" ")[0]

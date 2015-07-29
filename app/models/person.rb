@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
   has_many :opportunities, through: :person_opportunities
   has_many :recorded_hours
   attr_accessor :opportunity_hours, :opportunity_instances_count, :opportunity_role, :opportunity_photo_consent
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, if: :email.nil?
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 
   after_initialize do |person|
@@ -18,6 +18,14 @@ class Person < ActiveRecord::Base
       @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       self.schedule = @schedules
+    end
+  end
+
+  def facebook_contact?
+    if !fb_id.nil?
+      true
+    else
+      false
     end
   end
 
@@ -57,10 +65,10 @@ class Person < ActiveRecord::Base
   def add_to_organization(organization)
     @person_organization = OrganizationPerson.create_with(locked: false).
         find_or_initialize_by(person: self, organization: organization)
-    if !organization.organization_mailing_services.empty?
+    if !organization.organization_mailing_services.empty? && !email.nil?
       @person_organization.add_to_lists(Array.new << organization.default_list("mail_chimp"))
     end
-    if !@person_organization.persisted?
+    if !@person_organization.persisted? && !email.nil?
       @person_organization.send_registration_confirmation
     end
     @person_organization.save

@@ -3,7 +3,7 @@
  */
 angular.module('voluntrApp')
   .controller('GenerateReportCtrl', function ($scope, $modal, $rootScope, $http,
-                                              $stateParams, rm_id, $window, type) {
+                                              $stateParams, rm_id, $window, type, $modalInstance) {
 
     $scope.date = {startDate: null, endDate: null};
     $scope.report_loaded = false;
@@ -32,7 +32,8 @@ angular.module('voluntrApp')
           {
             params: {
               start_date: $scope.date.startDate,
-              end_date: $scope.date.endDate
+              end_date: $scope.date.endDate,
+              organization_id: $stateParams.organization_Id
             },
             headers: {
               'Content-Type': 'application/pdf'
@@ -42,6 +43,7 @@ angular.module('voluntrApp')
             tabWindowId.location.href = data.resource.resource.url;
           });
       }
+      $modalInstance.close();
     };
 
 

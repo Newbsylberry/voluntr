@@ -22,7 +22,7 @@ class PersonReportPdf < Prawn::Document
     end
 
     bounding_box([0, cursor], :width => 270, :height => 25) do
-      text "#{@person.first_name} #{@person.last_name}", size: 14
+      text "#{@organization.name}", size: 14
     end
 
     bounding_box([0, cursor], :width => 270, :height => 50) do

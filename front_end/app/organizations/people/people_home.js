@@ -19,7 +19,6 @@ angular.module('voluntrApp')
       });
 
 
-
     $scope.personDetail = function (size, id) {
       var personDetailModal = $modal.open(
         {

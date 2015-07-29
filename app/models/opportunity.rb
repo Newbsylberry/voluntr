@@ -40,6 +40,7 @@ class Opportunity < ActiveRecord::Base
                                                .beginning_of_day..DateTime.parse(date).end_of_day).sum(:hours)
   end
 
+
   def volunteers
     @opportunity_volunteers = Array.new
     person_opportunities.each do |p|
