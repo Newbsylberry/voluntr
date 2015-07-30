@@ -9,9 +9,9 @@
           <md-divider></md-divider>
           <div class="accountwrapper">
             <div class="col-md-3">
-              <div class="accimg">
-                <img src="">
-              </div>
+              <!-- <div class="accimg"> -->
+                <img ng-src="{{organization.picture}}">
+              <!-- </div> -->
             </div>
             <div class="col-md-9">
               <h2>{{organization.name}}</h2>
@@ -99,7 +99,7 @@
             model-id="{{organization.id}}"
             text="{{organization.facebook_url}}"
             size="paragraph_text"
-            ></edit-object-directive><md-divider></md-divider></md-list-item><md-list-item>
+            ></edit-object-directive><md-divider></md-divider></md-list-item>
 
             </md-list>
         </md-tab-body>

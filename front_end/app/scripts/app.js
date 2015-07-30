@@ -126,11 +126,11 @@ angular
       //  controller: 'OrganizationPublicCtrl'
       //})
       //
-      //.state('organizations.registration', {
-      //  url: '/registration',
-      //  templateUrl: 'organizations/registration/organization_registration.html',
-      //  controller: 'OrganizationRegistrationCtrl'
-      //})
+      .state('organizations.registration', {
+        url: '/registration',
+        templateUrl: 'organizations/registration/organization_registration.html',
+        controller: 'OrganizationRegistrationCtrl'
+      })
 
       .state('organizations.tutorial', {
         url: '/:organization_Id/tutorial',

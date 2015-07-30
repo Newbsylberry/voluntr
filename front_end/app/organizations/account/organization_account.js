@@ -11,10 +11,13 @@ angular.module('voluntrApp')
   .controller('OrganizationAccountCtrl', function ($scope, Organization,
                                                    $stateParams, $state,
                                                    $rootScope, $http, $window, ENV,
-                                                   OrganizationMailingService) {
+                                                   OrganizationMailingService, Facebook) {
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
+      Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
+        $scope.organization.picture = response.data.url;
+      });
     });
 
 
