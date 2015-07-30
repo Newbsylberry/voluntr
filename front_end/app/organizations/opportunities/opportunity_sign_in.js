@@ -12,7 +12,8 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunitySignInCtrl', function ($scope, People, $stateParams,
-                                                       Opportunity, PersonOpportunity, $modal, $filter) {
+                                                       Opportunity, PersonOpportunity,
+                                                        $modal, $filter, Facebook, Organization) {
 
 
 
@@ -20,8 +21,13 @@ angular.module('voluntrApp')
 
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
-      console.log(successResponse)
       $scope.opportunity = successResponse;
+      Organization.get({organization_Id: successResponse.organization_id}, function(successResponse){
+        Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
+
+          $scope.organization_picture = response.data.url;
+        });
+      })
     });
 
 

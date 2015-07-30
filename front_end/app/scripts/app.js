@@ -125,12 +125,12 @@ angular
       //  templateUrl: 'organizations/public/organization_public.html',
       //  controller: 'OrganizationPublicCtrl'
       //})
-
-      .state('organizations.registration', {
-        url: '/registration',
-        templateUrl: 'organizations/registration/organization_registration.html',
-        controller: 'OrganizationRegistrationCtrl'
-      })
+      //
+      //.state('organizations.registration', {
+      //  url: '/registration',
+      //  templateUrl: 'organizations/registration/organization_registration.html',
+      //  controller: 'OrganizationRegistrationCtrl'
+      //})
 
       .state('organizations.tutorial', {
         url: '/:organization_Id/tutorial',
@@ -224,7 +224,7 @@ angular
 
 
       .state('registration_form', { //default page loaded for landing state
-        url: '/:opportunity_Id/registration',
+        url: '/:opportunity_Id/opportunity_registration',
         templateUrl: 'organizations/opportunities/registration_form.html', // url for partial
         controller: 'OpportunityRegistrationCtrl'
       })

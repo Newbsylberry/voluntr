@@ -9,12 +9,20 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunityRegistrationCtrl', function ($scope, People, $stateParams,
-                                                      Opportunity, PersonOpportunity, $modal) {
+                                                      Opportunity, PersonOpportunity, $modal, Organization, Facebook) {
+
+
 
 
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;
+      Organization.get({organization_Id: successResponse.organization_id}, function(successResponse){
+        Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
+
+          $scope.organization_picture = response.data.url;
+        });
+      })
     });
 
     $scope.registerForOpportunity = function() {
