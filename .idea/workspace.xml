@@ -2,32 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/controllers/adddata.4b56e2d2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/app.9b7c3afa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/authinterceptor.c3fa2071.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/config.e12f4162.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/excel_import.1c116fea.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/jquery.scrollto.5d36cba7.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/mailing_service_list.13176da7.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/opportunities.8435d5e5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/opportunity_role.c8df38d4.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/organization_mailing_service.5e8a2eca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/organizations.70a146c5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/people.5ddf7ecc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/filters/person_filter.423a8366.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/person_opportunities.81cf57b5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/controllers/profile.183027ec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/profile.e2c5f403.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/controllers/profilecreate.3fcfce4e.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/recorded_hours.88842392.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/controllers/recordhours.ac070bf9.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/search_service.806465b8.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/user.88a9c448.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/usereventhours.ecd503eb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/directives/window-scroll-watch.3724c179.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/xlsx-reader.7a62e0e3.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/config.bfb02696.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/app.9b7c3afa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/config.e12f4162.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/controllers/adddata.4b56e2d2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/controllers/profile.183027ec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/controllers/profilecreate.3fcfce4e.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/controllers/recordhours.ac070bf9.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/directives/window-scroll-watch.3724c179.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/filters/person_filter.423a8366.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/jquery.scrollto.5d36cba7.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/authinterceptor.c3fa2071.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/excel_import.1c116fea.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/mailing_service_list.13176da7.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/opportunities.8435d5e5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/opportunity_role.c8df38d4.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/organization_mailing_service.5e8a2eca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/organizations.70a146c5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/people.5ddf7ecc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/person_opportunities.81cf57b5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/profile.e2c5f403.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/recorded_hours.88842392.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/search_service.806465b8.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/user.88a9c448.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/services/usereventhours.ecd503eb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/xlsx-reader.7a62e0e3.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front_end/app/scripts/xlsx-reader.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/services/xlsx-reader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/Gruntfile.js" afterPath="$PROJECT_DIR$/front_end/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -71,11 +72,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_end/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47204968">
-              <caret line="407" column="16" selection-start-line="407" selection-start-column="16" selection-end-line="407" selection-end-column="16" />
+            <state vertical-scroll-proportion="-4.759259">
+              <caret line="412" column="43" selection-start-line="412" selection-start-column="43" selection-end-line="412" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33221477">
+              <caret line="159" column="55" selection-start-line="159" selection-start-column="55" selection-end-line="159" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xlsx-reader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/xlsx-reader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,16 +147,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="10" column="113" selection-start-line="10" selection-start-column="113" selection-end-line="10" selection-end-column="113" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="opportunity.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/opportunity.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -192,7 +203,6 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_5.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_4.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_6.html" />
-        <option value="$PROJECT_DIR$/front_end/app/index.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial_screen_1.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/tutorial/tutorial.css" />
         <option value="$PROJECT_DIR$/front_end/app/styles/main.scss" />
@@ -217,6 +227,7 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/bulk_add_people.js" />
         <option value="$PROJECT_DIR$/app/workers/person_importer.rb" />
         <option value="$PROJECT_DIR$/front_end/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/front_end/app/index.html" />
       </list>
     </option>
   </component>
@@ -310,7 +321,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voluntr_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front_end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -346,11 +423,11 @@
       <recent name="$PROJECT_DIR$/front_end/bower_components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front_end/app/scripts/services" />
       <recent name="$PROJECT_DIR$/app/views/administration_mailer" />
       <recent name="$PROJECT_DIR$/config/initializers" />
       <recent name="$PROJECT_DIR$/front_end/app/organizations/directives" />
       <recent name="$PROJECT_DIR$/spec/lib" />
-      <recent name="$PROJECT_DIR$/spec/helpers" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: voluntr_api">
@@ -623,14 +700,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76301616">
-          <caret line="125" column="8" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/record_hours_modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2713816">
@@ -761,14 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36301368">
-          <caret line="119" column="36" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/excel_import.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -789,14 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20547946">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/xlsx-reader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5296053">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1019,8 +1072,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47204968">
-          <caret line="407" column="16" selection-start-line="407" selection-start-column="16" selection-end-line="407" selection-end-column="16" />
+        <state vertical-scroll-proportion="-4.759259">
+          <caret line="412" column="43" selection-start-line="412" selection-start-column="43" selection-end-line="412" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/xlsx-reader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33221477">
+          <caret line="159" column="55" selection-start-line="159" selection-start-column="55" selection-end-line="159" selection-end-column="55" />
           <folding />
         </state>
       </provider>
