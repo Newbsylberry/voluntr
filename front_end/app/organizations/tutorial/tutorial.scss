@@ -7,6 +7,10 @@
     margin-bottom: 35px;
 }
 
+.ttmain img{
+    max-width: 100%;
+}
+
 .ttbutton{
     display: block;
     width:50%;
@@ -16,6 +20,11 @@
     
     font-size:15px;
     font-weight: light;
+}
+
+.picc{
+    width:100%;
+    text-align: center;
 }
 
 .ttbutton a{
