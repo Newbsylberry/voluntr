@@ -2,11 +2,7 @@ class PeopleController < ApplicationController
 
 
   def import
-    People.import(params[:file])
-    CSV.foreach(file.path, headers: true) do |row|
-      People.create! row.to_hash
-
-    end
+    PersonImporter.new(params[:people], params[:organization_id]).enqueue
   end
 
   def show
@@ -38,7 +34,6 @@ class PeopleController < ApplicationController
     @person.update_columns(person_params)
 
     if params[:schedule]
-      puts params
       @person.update_schedule(params)
       @person.save
     end

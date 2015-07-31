@@ -3,17 +3,16 @@
  */
 angular.module('voluntrApp')
   .controller('BulkAddPeopleCtrl', function ($scope, $modal, $http, $stateParams,
-                                             searchService, $window, XLSXReaderService) {
+                                             searchService, $window, XLSXReaderService,
+                                            $modalInstance) {
 
-    this.message = "Hello";
 
-    $scope.showPreview = false;
     $scope.showJSONPreview = true;
     $scope.json_string = "";
 
-    var prepareImport = function (person) {
-      console.log(person)
-    };
+//    var prepareImport = function (person) {
+//      console.log(person)
+//    };
 
 
 
@@ -31,6 +30,16 @@ angular.module('voluntrApp')
       $scope.json_string = JSON.stringify($scope.sheets[$scope.selectedSheetName], null, 2);
       angular.forEach($scope.sheets[$scope.selectedSheetName], prepareImport)
     }
+
+    $scope.uploadPeople = function(){
+      var people = $scope.sheets[$scope.selectedSheetName]
+
+      $http.post('api/v1/people/import', {people: people, organization_id: $stateParams.organization_Id}).
+        success(function(data, status, headers, config) {
+          console.log(data)
+          $modalInstance.close();
+        });
+    };
 
     $scope.showPreviewChanged = function() {
       if ($scope.showPreview) {

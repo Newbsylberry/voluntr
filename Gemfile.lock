@@ -351,6 +351,9 @@ GEM
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
       rspec-mocks (~> 3.3.0)
+    rspec-activejob (0.4.1)
+      activejob (>= 4.2)
+      rspec-mocks
     rspec-autotest (1.0.0)
       rspec-core (>= 2.99.0.beta1, < 4.0.0)
     rspec-core (3.3.2)
@@ -444,6 +447,7 @@ DEPENDENCIES
   rails_12factor
   responders (~> 2.0)
   resque (~> 1.25)
+  rspec-activejob
   rspec-autotest
   rspec-rails
   rvm1-capistrano3

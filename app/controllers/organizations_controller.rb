@@ -8,8 +8,7 @@ class OrganizationsController < ApplicationController
   def show
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
-      puts @current_organization.id
-      Resque.enqueue(OrganizationImporter, @current_organization.id, params[:oauth_key], @current_organization.fb_id)
+      OrganizationImporter.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).enqueue
     end
 
     render json: @current_organization, serializer: OrganizationSerializer
@@ -27,7 +26,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.create(organization_params)
 
     if @organization.save
-      Resque.enqueue(OrganizationImporter, @organization.id, params[:oauth_key], @organization.fb_id)
+      OrganizationImporter.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
       token = AuthToken.issue_token({ organization_id: @organization.id })
     end
 

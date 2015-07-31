@@ -8,8 +8,30 @@ class Person < ActiveRecord::Base
   has_many :opportunities, through: :person_opportunities
   has_many :recorded_hours
   attr_accessor :opportunity_hours, :opportunity_instances_count, :opportunity_role, :opportunity_photo_consent
-  validates :email, uniqueness: true, if: :email.nil?
+  validates :email, uniqueness: true, if: :email_present?
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
+  reverse_geocoded_by :latitude, :longitude do |obj,results|
+    if geo = results.first
+      obj.address_1 = geo.address.split(",")[0]
+      obj.city    = geo.city
+      obj.state    = geo.state
+      obj.zip_code = geo.postal_code
+    end
+  end
+  after_validation :reverse_geocode, :if => :has_coordinates?
+  after_validation :geocode, :if => :has_location?, :unless => :has_coordinates?
+  after_commit on: [:create] do
+    __elasticsearch__.index_document if self.published?
+  end
+
+  after_commit on: [:update] do
+    __elasticsearch__.update_document if self.published?
+  end
+
+  after_commit on: [:destroy] do
+    __elasticsearch__.delete_document if self.published?
+  end
+
 
   after_initialize do |person|
     if person.new_record?
@@ -18,6 +40,30 @@ class Person < ActiveRecord::Base
       @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       self.schedule = @schedules
+    end
+  end
+
+  def has_coordinates?
+    if !latitude.nil? && !longitude.nil?
+      return true
+    else
+      return false
+    end
+  end
+
+  def has_location?
+    if !address_1.nil? && !city.nil? && !state.nil? && !zip_code.nil?
+      return true
+    else
+      return false
+    end
+  end
+
+  def email_present?
+    if !email.nil?
+      return true
+    else
+      return false
     end
   end
 

@@ -18,18 +18,13 @@
     <option value="">---- Select a sheet ----</option>
   </select>
 </div>
-<div class="checkbox">
-  <label>
-    <input type="checkbox" ng-model="showPreview" ng-change="showPreviewChanged();">Show preview of excel file
-  </label>
-</div>
 <div ng-show="isProcessing">
   <span>Processing ...</span>
 </div>
 
 <input type="hidden" name="sheet_name" value="{{ selectedSheetName }}">
 
-<input type="submit" value="Submit">
+<input type="submit" value="Submit" ng-click="uploadPeople()">
 <!--<hot-table-->
   <!--settings="{colHeaders: colHeaders, contextMenu: ['row_above', 'row_below', 'remove_row'], afterChange: afterChange }"-->
   <!--rowHeaders="true"-->

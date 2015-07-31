@@ -21,6 +21,7 @@ gem 'fuzzy_match'
 
 
 
+
 gem 'spring', :group => :development
 
 
@@ -37,6 +38,7 @@ end
 
 group :test do
   gem 'rspec-rails', require: false
+  gem 'rspec-activejob', require: false
   gem 'rspec-autotest', require: false
   gem 'guard-rspec', require: false
   gem "factory_girl_rails", "~> 4.0", require: false
