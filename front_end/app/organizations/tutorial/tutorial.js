@@ -12,7 +12,7 @@ angular.module('voluntrApp')
     console.log($scope.current_state)
     $scope.$watch('current_state', function(){
       if ($scope.current_state === 'organizations.tutorial.1') {
-        $scope.link_text = "Read About the Easiest Way to Find Opportunities and People"
+        $scope.link_text = "Importing People To Your Organization"
         $scope.link_state = "organizations.tutorial.2"
       } else if ($scope.current_state === 'organizations.tutorial.2') {
         $scope.back_link_text = "Back to Introduction"
@@ -20,22 +20,22 @@ angular.module('voluntrApp')
         $scope.link_text = "Read About Adding Opportunities and Volunteers"
         $scope.link_state = "organizations.tutorial.3"
       } else if ($scope.current_state === 'organizations.tutorial.3') {
-        $scope.back_link_text = "Back to Finding Anything on Volu"
+        $scope.back_link_text = "Back to Importing Your Data on Volu"
         $scope.back_link_state = "organizations.tutorial.2"
-        $scope.link_text = "Read About Interacting With Your Opportunities on Volu"
+        $scope.link_text = "Read About Registering Your Volunteers"
         $scope.link_state = "organizations.tutorial.4"
       } else if ($scope.current_state === 'organizations.tutorial.4') {
-        $scope.back_link_text = "Back to Adding Opportunities and Volunteers on Volu"
+        $scope.back_link_text = "Back to Quickly Adding Objects on Volu"
         $scope.back_link_state = "organizations.tutorial.3"
-        $scope.link_text = "Read About Interacting With Your Volunteers on Volu"
+        $scope.link_text = "Read About Finding Things on Volu"
         $scope.link_state = "organizations.tutorial.5"
       } else if ($scope.current_state === 'organizations.tutorial.5') {
-        $scope.back_link_text = "Back to Interacting With Your Opportunities on Volu"
+        $scope.back_link_text = "Back to Registering Volunteers on Volu"
         $scope.back_link_state = "organizations.tutorial.4"
-        $scope.link_text = "Read About How Volu Tracks and Records Hours"
+        $scope.link_text = "Read About How Volu Integrates With Your Current Services"
         $scope.link_state = "organizations.tutorial.6"
       } else if ($scope.current_state === 'organizations.tutorial.6') {
-        $scope.back_link_text = "Back to Interacting With Your Volunteers on Volu"
+        $scope.back_link_text = "Back to Integrating Services With Volu"
         $scope.back_link_state = "organizations.tutorial.5"
         $scope.link_text = "Access Your Dashboard"
       }
