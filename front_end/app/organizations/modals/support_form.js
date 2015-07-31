@@ -10,8 +10,9 @@ angular.module('voluntrApp')
       attr.current_state = current_state;
       $http.post('api/v1/administration/feedback',{data: attr}).$promise
         .then(function(data) {
-          $modalInstance.close();
+
         })
+      $modalInstance.close();
     };
 
 

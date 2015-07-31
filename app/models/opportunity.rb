@@ -14,17 +14,7 @@ class Opportunity < ActiveRecord::Base
   geocoded_by :full_street_address   # can also be an IP address
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }          # auto-fetch coordinates
-  after_commit on: [:create] do
-    __elasticsearch__.index_document if self.published?
-  end
-
-  after_commit on: [:update] do
-    __elasticsearch__.update_document if self.published?
-  end
-
-  after_commit on: [:destroy] do
-    __elasticsearch__.delete_document if self.published?
-  end
+  
 
   def full_street_address
     return "#{address} #{city} #{state} #{zip_code}"
