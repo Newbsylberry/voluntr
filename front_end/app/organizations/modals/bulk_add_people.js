@@ -11,10 +11,10 @@ angular.module('voluntrApp')
     $scope.showJSONPreview = true;
     $scope.json_string = "";
 
-    var previewExcelFile = function (person) {
-      console.log(Object.keys(person))
-
+    var prepareImport = function (person) {
+      console.log(person)
     };
+
 
 
     $scope.fileChanged = function(files) {
@@ -23,16 +23,13 @@ angular.module('voluntrApp')
         $scope.excelFile = files[0];
         XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function(xlsxData) {
             $scope.sheets = xlsxData.sheets;
-            console.log(xlsxData)
           $scope.isProcessing = false;
         });
-      }
+      };
 
     $scope.updateJSONString = function() {
       $scope.json_string = JSON.stringify($scope.sheets[$scope.selectedSheetName], null, 2);
-      console.log($scope.sheets[$scope.selectedSheetName])
-      angular.forEach($scope.sheets[$scope.selectedSheetName], previewExcelFile)
-      console.log($scope.json_string)
+      angular.forEach($scope.sheets[$scope.selectedSheetName], prepareImport)
     }
 
     $scope.showPreviewChanged = function() {
