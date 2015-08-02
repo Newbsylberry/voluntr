@@ -321,17 +321,20 @@ img{
   height:100vh;
   display:table;
   margin-right:10vw;
-}
-.s4wraper h1{
-  text-align:left;
-  margin-bottom:0px;
-}
-
-.s4wraper p{
-  width:500px;
-  font-weight:300;
-  color:rgba(0,0,0,0.4);
-  margin-top:10px;
+  h1{
+    text-align:left;
+    margin-bottom:0px;
+  }
+  p{
+    width:500px;
+    font-weight:300;
+    color:rgba(0,0,0,0.4);
+    margin-top:10px;
+    font-size: 20px;
+  }
+  a {
+    font-size: 20px;
+  }
 }
 
 .fadein img{
