@@ -108,6 +108,7 @@ class Person < ActiveRecord::Base
       @person_organization.send_registration_confirmation
     end
     @person_organization.save
+    @person_organization.__elasticsearch__.index_document
   end
 
   def update_schedule(params)
