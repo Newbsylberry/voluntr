@@ -20,11 +20,7 @@
     pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 * Time to install and start redis:
-    curl -O http://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz
-    tar -zxvf wget-1.15.tar.gz ; cd wget-1.15/ 
-    ./configure (if error given then ./configure --with-ssl=openss)
-    make ; sudo make install
-    redis-server
+    brew install redis
     
 * Using git clone the repository to whatever directory you choose
 
@@ -48,11 +44,16 @@
     Bower - 'sudo npm install -g bower'
     Compass - 'gem install compass'
 
+* Try and start the front end server (grunt serve) if you get an error, rollback event emitter:
+    cd node_modules/grunt-connect-proxy/node_modules/http-proxy/
+    npm install eventemitter3@0.1.6
+
 * Install bower dependencies
     In front end directory: "bower install"
     
 * Then install Ruby and Rails 
     rvm install 2.1.2 --default
+    
     
 * Starting Application
 
