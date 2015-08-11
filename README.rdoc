@@ -36,6 +36,12 @@
 * Start resque
     rake resque:work QUEUE='*' INTERVAL=0.5
     
+* Install and Start Elasticsearch
+    brew install Caskroom/cask/java
+    brew install elasticsearch
+    ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
+    
 * Get the front end framework situated
     NPM - Click download button at https://nodejs.org/
     Dependencies - In application root directory, 'cd front_end', then npm install
