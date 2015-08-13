@@ -1,31 +1,42 @@
-      <md-list-item class="md-3-line" style="border-bottom:1px solid rgba(0,0,0,0.1);min-height:70px;position:relative;">
-          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
-        <div class="md-list-item-text" >
-          <h3 ng-show="type !== 'person'">{{recordedHour.person.first_name}} {{recordedHour.person.last_name}}</h3>
-            <h3 ng-show="type !== 'opportunity'">{{recordedHour.opportunity.name}}</h3>
-          <p  ng-show="!editing">{{recordedHour.opportunity_role.name}}</p>
-          <p >{{recordedHour.description}}</p>
-              </div>
-<div class="hourlistr">
-<h2 style="margin:0px;text-align:center;" >{{recordedHour.hours}}</h2>
-<md-button  class="md-primary hourlistb"  href="#" ng-click="editing = true">Edit</md-button>
-
-
-<md-button class="md-warn hourlistb"  href="" ng-click="deleteRecordedHour(recordedHour)">Delete</md-button>
-          </div>
-
-          <div ng-show="editing" class="editzone">
-                <div style="float:left;"><md-select placeholder="Role" ng-model="recordedHour.opportunity_role" >
-                            <md-option ng-repeat="" value=""></md-option>
-                </md-select>
-              </div><div style="float:left;padding-top:27.5px;">
-
-               <span style="margin:0px 5px;color:rgba(0,0,0,0.5);">Hours </span><input required type="number" step="any"  ng-model="recordedHour.hours" min="0" max="500">
-              </div>
-                            <div style="float:left;padding-top:27.5px;">
-                <md-button class="md-primary hourlistb"  href="" ng-click="saveRecordedHours(recordedHour)">Save</md-button>
-              </div>
-        </div>
-
-
-      </md-list-item>
+<md-list-item class="md-3-line" style="border-bottom:1px solid rgba(0,0,0,0.1);min-height:70px;position:relative;">
+  <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+  <div class="md-list-item-text" >
+    <h3 ng-show="type !== 'person'"
+        person-modal
+        size="lg"
+        id="{{recordedHour.person.id}}"
+      >{{recordedHour.person.first_name}} {{recordedHour.person.last_name}}
+    </h3>
+    <h3 ng-show="type !== 'opportunity'">{{recordedHour.opportunity.name}}</h3>
+    <p  ng-show="!editing">{{recordedHour.opportunity_role.name}}</p>
+    <p >{{recordedHour.description}}</p>
+  </div>
+  <div class="hourlistr">
+    <h2 style="margin:0px;text-align:center;" >{{recordedHour.hours}}</h2>
+    <md-button  class="md-primary hourlistb"  href="#" ng-click="editing = true">Edit</md-button>
+    <md-button class="md-warn hourlistb"  href="" ng-click="deleteRecordedHour(recordedHour)">Delete</md-button>
+  </div>
+  <div ng-show="editing" class="editzone">
+    <div style="float:left;">
+      <md-select placeholder="Role"
+                 ng-model="recordedHour.opportunity_role" >
+        <md-option ng-repeat=""
+                   value="">
+        </md-option>
+      </md-select>
+    </div>
+    <div style="float:left;padding-top:27.5px;">
+      <span style="margin:0px 5px;color:rgba(0,0,0,0.5);">Hours </span>
+      <input
+        required
+        type="number"
+        step="any"
+        ng-model="recordedHour.hours"
+        min="0"
+        max="500">
+    </div>
+    <div style="float:left;padding-top:27.5px;">
+      <md-button class="md-primary hourlistb"  href="" ng-click="saveRecordedHours(recordedHour)">Save</md-button>
+    </div>
+  </div>
+</md-list-item>

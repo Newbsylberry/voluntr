@@ -35,7 +35,7 @@ Organization Directive Styles
 ************************************************************/
 
 /* Details in Opportunity and Person  */
-@import "../organizations/directives/text-element.scss";
+@import "../organizations/directives/edit_object_directive";
 @import "../organizations/directives/edit_address.scss";
 @import "../organizations/directives/recorded_hour.scss";
 @import "../organizations/directives/schedule-form.scss";
@@ -146,6 +146,7 @@ md-tab {
 .add-event-modal-window{
     padding:0px;
 }
+
 
 /***************************************************************
 Floating Action Button Styles

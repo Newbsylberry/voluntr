@@ -1,4 +1,7 @@
-<md-tabs class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+<md-tabs class="md-primary"
+         md-dynamic-height
+         md-selected="data.selectedIndex"
+         md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
   <!-- Event Information -->
   <md-tab id="tab1">
@@ -76,8 +79,6 @@
           </md-button>
         </div>
       </div>
-      </div>
-      </div>
     </md-tab-body>
   </md-tab>
 
@@ -85,14 +86,10 @@
   <md-tab id="tab2">
     <md-tab-label>Schedule</md-tab-label>
     <md-tab-body>
-      <div class="tabcontrol">
-        <div class="tabcontrolin">
-          <object-schedule
-            object-type="opportunity"
-            object="opportunity"
-            ></object-schedule>
-        </div>
-      </div>
+        <object-schedule
+          object-type="opportunity"
+          object="opportunity"
+          ></object-schedule>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">

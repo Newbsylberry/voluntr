@@ -26,11 +26,17 @@
                               address-type="organization"
                   >
                 </edit-address></div>
-
               <h4>Description:</h4>
-                <p>{{organization.description}}dadsa</p>
-
-            </div></div>
+              <edit-object-directive
+                text_name="name"
+                model-type="organization"
+                attribute-name="description"
+                model-id="{{organization.id}}"
+                text="{{organization.description}}"
+                size="paragraph_text"
+                ></edit-object-directive>
+            </div>
+          </div>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab2">

@@ -10,8 +10,6 @@ angular.module('voluntrApp').directive("recordedHour", function () {
     restrict: 'E',
     controller: function ($scope, RecordedHours) {
       $scope.editing = false;
-
-
       $scope.saveRecordedHours = function(recorded_hour) {
         var attr = {};
         attr.id = recorded_hour.id;

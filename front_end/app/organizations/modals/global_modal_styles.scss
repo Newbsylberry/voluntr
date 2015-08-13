@@ -28,8 +28,8 @@ md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
 
 
 .tabcontrol{
-    height:552px;
-    overflow: scroll;
+    height:450px;
+    overflow: auto;
 }
 
 .tabcontrolin{
@@ -39,9 +39,8 @@ padding:20px 20px 50px 20px;
 
 
 .modal-content{
-    overflow: scroll!important;
     position: relative;
-
+    height: 500px;
 }
 
 .tabbutton{
@@ -208,8 +207,8 @@ md-card{
 
   .siright{
     width:450px;}
-    
-.siright p{font-size:12px;}    
+
+.siright p{font-size:12px;}
 
   .sicontent{
     width:600px;}
@@ -219,7 +218,7 @@ md-card{
 
     .formbutton{float:none;
     width:100%;}
-    
+
   .sileft{
     width:100vw;
     padding:30px 20px 20px 20px;
@@ -230,8 +229,8 @@ md-card{
   }
 
 .siright{
-width:100vw;}   
-    
+width:100vw;}
+
 .sicontent{
 width:100vw;
 height:100vh;

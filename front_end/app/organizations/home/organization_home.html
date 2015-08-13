@@ -50,9 +50,6 @@
           <div class="homecsm">
             <md-list layout="column">
               <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
-                             person-modal
-                             size="lg"
-                             id="{{recorded_hour.person_id}}"
                              recorded-hour="recorded_hour"
                              recorded-hours="organization.recorded_hours"
                              type="opportunity"></recorded-hour>

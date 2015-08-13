@@ -1,2 +1,15 @@
-<div ui-calendar="uiConfig.myCalendar" ng-model="eventSources"></div>
-<a href="" ng-click="editSchedule('md')">Edit Schedule</a>
+
+<div class="tabcontrol">
+  <div class="tabcontrolin">
+    <div ui-calendar="uiConfig.myCalendar"
+         ng-model="eventSources"
+         style="overflow:hidden;">
+    </div>
+  </div>
+  <div class="window-bottom-button">
+    <md-button class="md-primary" style="float:right;" href=""
+               ng-click="editSchedule('md')">
+      Edit Schedule
+    </md-button>
+  </div>
+</div>

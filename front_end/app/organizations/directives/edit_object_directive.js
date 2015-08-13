@@ -1,7 +1,7 @@
 angular.module('voluntrApp').directive("editObjectDirective", function () {
   return {
     transclude: true,
-    templateUrl: 'organizations/directives/text-element.html',
+    templateUrl: 'organizations/directives/edit_object_directive.html',
     scope: {
       text: '@',
       size: '@',
@@ -12,8 +12,6 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
     },
     restrict: 'E',
     controller: function ($scope, Opportunity, Organization) {
-
-
       if ($scope.size === "title_text") {
         $scope.title_text = true;
 

@@ -1,6 +1,4 @@
 class Person < ActiveRecord::Base
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
   has_many :resources
   has_many :organization_people
   has_many :organizations, through: :organization_people
