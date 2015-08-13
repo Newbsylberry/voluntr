@@ -12,8 +12,14 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.create_with(locked: false)
+    if params[:email] != ""
+        @person = Person.create_with(locked: false)
                           .find_or_initialize_by(email: params[:email])
+    else params[:phone]
+        @person = Person.create_with(locked: false)
+                    .find_or_initialize_by(phone: params[:phone])
+    end
+
 
     @person.first_name = params[:first_name]
     @person.last_name = params[:last_name]

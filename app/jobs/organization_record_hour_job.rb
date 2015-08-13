@@ -2,7 +2,7 @@ class OrganizationRecordHourJob < ActiveJob::Base
   queue_as :record_organization_hours_queue
 
   def perform
-    puts "Hello World!"
+
 
     # For Each Organization
     Organization.all.each do |o|

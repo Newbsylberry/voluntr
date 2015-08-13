@@ -19,6 +19,14 @@
               ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles">
         <option value="">-- Select Your Role --</option>
       </select>
+    <label>Select a volunteer group, if applicable:</label><br>
+    <select
+      class="form-control"
+      ng-model="volunteer_group"
+
+      ng-options="volunteer_group.name for volunteer_group in volunteer_groups">
+      <option value="">-- Select Your Role --</option>
+    </select>
 
       <!--<md-select ng-model="opportunity_role">
       <md-select-label>Choose A Volunteering Role</md-select-label>

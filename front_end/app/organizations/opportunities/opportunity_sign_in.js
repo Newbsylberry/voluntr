@@ -37,11 +37,13 @@ angular.module('voluntrApp')
       attr.first_name = $scope.opportunitySignIn.first_name;
       attr.last_name = $scope.opportunitySignIn.last_name;
       attr.email = $scope.opportunitySignIn.email;
+      attr.phone = $scope.opportunitySignIn.phone;
       attr.organization_id = $scope.opportunity.organization_id;
       var person = People.create(attr)
       $scope.opportunitySignIn.first_name = "";
       $scope.opportunitySignIn.last_name = "";
       $scope.opportunitySignIn.email = "";
+      $scope.opportunitySignIn.phone = "";
       $scope.opportunitySignInConfirmation('md', person, $scope.opportunity)
     };
 

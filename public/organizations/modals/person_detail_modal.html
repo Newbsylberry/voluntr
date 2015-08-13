@@ -12,10 +12,10 @@
             </div>
             <div class="col-md-9">
               <h2>{{person.first_name}} {{person.last_name}}</h2>
-                <md-divider></md-divider>
-                <h4 >Email:</h4>
-                <p style="color:rgba(0,0,0,0.5);">{{person.email}}</p>
-                <h4 >Address:</h4>
+              <md-divider></md-divider>
+              <h4 >Email:</h4>
+              <p style="color:rgba(0,0,0,0.5);">{{person.email}}</p>
+              <h4 >Address:</h4>
               <edit-address
                 address="{{person.address}}"
                 zip-code="{{person.zip_code}}"
@@ -42,7 +42,6 @@
 
     <!-- The Opportunities Tab -->
     <md-tab-body>
-      <p>Opportunities</p>
       <md-list>
         <md-item ng-repeat="person_opportunity in person.opportunities">
           <md-item-content>

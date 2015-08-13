@@ -1,12 +1,13 @@
-<h4>XLSX Reader demo</h4>
+<h4>Import Existing Volunteers from a Spreadsheet</h4>
 <div class='form-group'>
-  <label for='excel_file'>Excel File</label>
+  <label for='excel_file'>Select Excel File</label>
   <input type="file"
          name="excel_file"
+         ng-model="excel_file"
          onchange="angular.element(this).scope().fileChanged(this.files);"
          required="true">
 </div>
-<div class='form-group'>
+<div class='form-group' ng-if="excel_file">
   <label for='sheet_name'>Excel Sheet Name With Volunteer Information</label>
   <select id="sheet_name"
           class="form-control"
@@ -22,22 +23,11 @@
   <span>Processing ...</span>
 </div>
 
-<input type="hidden" name="sheet_name" value="{{ selectedSheetName }}">
+<input type="hidden"
+       name="sheet_name"
+       value="{{ selectedSheetName }}">
 
-<input type="submit" value="Submit" ng-click="uploadPeople()">
-<!--<hot-table-->
-  <!--settings="{colHeaders: colHeaders, contextMenu: ['row_above', 'row_below', 'remove_row'], afterChange: afterChange }"-->
-  <!--rowHeaders="true"-->
-  <!--width="800"-->
-  <!--minSpareRows="minSpareRows"-->
-  <!--datarows="db.items">-->
-  <!--<hot-column data="name.first"          title="'First Name'" width="75"></hot-column>-->
-  <!--<hot-column data="name.last"           title="'Last Name'" width="75"></hot-column>-->
-  <!--<hot-column data="email" title="'Email Address'" width="100"></hot-column>-->
-  <!--<hot-column data="phone" title="'Phone Number'" width="75"></hot-column>-->
-  <!--<hot-column data="address"             title="'Address'" width="150"></hot-column>-->
-  <!--<hot-column data="city"             title="'City'" width="75"></hot-column>-->
-  <!--<hot-column data="state"             title="'State'" width="50"></hot-column>-->
-  <!--<hot-column data="zip_code"             title="'Zip Code'" width="75"></hot-column>-->
-<!--</hot-table>-->
+<input type="submit"
+       value="Submit"
+       ng-click="uploadPeople()">
 

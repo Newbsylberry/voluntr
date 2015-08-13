@@ -24,15 +24,8 @@
             padding:46px 30px 30px 30px;
             position:relative;">
 
-      <img src="http://i.imgur.com/n6jbOuy.jpg" title="source: imgur.com"
-           style=" width:100px;
-                   position:absolute;
-                   right:40px;
-                   top:-50px;
-                   padding:7px;
-                   background-color:#fff;
-                   border-radius:4px;
-                   box-shadow:0 1px 3px 0 rgba(0,0,0,.26);"/>
+      <%= image_tag("http://graph.facebook.com/v2.4/#{@opportunity.organization.fb_id}/picture?type=large",
+                    class: "organization_picture") %>
       <p style="color:rgba(0,0,0,0.7)">
         Dear <%= @person.first_name %>,
       </p>
