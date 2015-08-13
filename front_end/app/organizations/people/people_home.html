@@ -1,8 +1,11 @@
 
 <md-card class="content" >
   <md-card-content>
-     <a href="" ng-click="bulkAddPeople('lg')">Import People From Spreadsheet</a>
-    <md-list class="home-person-list">
+    <div ng-if="!loaded">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-list class="home-person-list" ng-if="loaded">
+      <a href="" ng-click="bulkAddPeople('lg')">Import People From Spreadsheet</a>
       <md-list-item
         class="md-3-line"
         ng-repeat="person in people | orderBy : 'first_name'">

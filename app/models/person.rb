@@ -157,7 +157,7 @@ class Person < ActiveRecord::Base
     }
     options["series"] = Array.new
     recorded_hours.where(date_recorded: start_date..end_date).each do |h|
-      @recorded_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), h.hours])
+      @recorded_hours_series["data"].push([(DateTime.parse(h.date_recorded.to_s).to_f * 1000), h.hours])
     end
 
 

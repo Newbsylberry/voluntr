@@ -45,7 +45,7 @@ class PersonReportPdf < Prawn::Document
     bounding_box([0, y_position], :width => 270, :height => 400) do
       text "Opportunity Stats:", size: 15, style: :bold
       text "Numer of Events Registered For: #{@total_number_of_registered_opportunities}", size: 11
-      text "Number of Opportunities Attended: #{@total_number_of_registered_opportunities}", size: 11
+      text "Number of Opportunities Attended: #{@total_number_of_attended_opportunities}", size: 11
       text "Total Recorded Hours: #{@total_hours}", size: 11
 
 

@@ -11,9 +11,6 @@ angular.module('voluntrApp')
   .controller('OpportunitiesHomeCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, $filter, uiCalendarConfig, $modal) {
 
-
-
-
     $scope.eventSources = [
       {
         url: 'api/v1/organizations/' + $stateParams.organization_Id + '/opportunities'

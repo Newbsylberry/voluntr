@@ -10,9 +10,11 @@
 angular.module('voluntrApp')
   .controller('PeopleHomeCtrl', function ($scope, Facebook, $http, $stateParams, $modal) {
 
+    $scope.loaded = false;
     $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
       success(function(data, status, headers, config) {
-         $scope.people = data;
+        $scope.loaded = true;
+        $scope.people = data;
       }).
       error(function(data, status, headers, config) {
 

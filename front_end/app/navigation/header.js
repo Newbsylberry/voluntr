@@ -4,9 +4,6 @@ angular.module('voluntrApp')
 
     $scope.search_filter = searchService.search;
 
-
-
-
     $scope.isOpen = false;
     $scope.demo = {
       isOpen: false,
@@ -60,12 +57,11 @@ angular.module('voluntrApp')
       $scope.results.push(result)
     };
 
-    $scope.loading = false;
     $scope.$watch('search_query', function () {
+      $scope.loaded = false;
       $scope.results = [];
       if ($scope.search_query && !$scope.loading) {
         $scope.searching = true;
-        $scope.loading = true;
         $http({
           url: 'api/v1/organizations/' + $stateParams.organization_Id + '/search',
           params: {query: $scope.search_query}
@@ -73,6 +69,7 @@ angular.module('voluntrApp')
           success(function(data, status, headers, config) {
             angular.forEach(data, resultsFormat)
             $scope.loading = false;
+            $scope.loaded = true;
           }).
           error(function(data, status, headers, config) {
           });

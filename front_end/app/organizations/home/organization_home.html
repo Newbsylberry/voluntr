@@ -1,7 +1,13 @@
 <div class="content">
   <md-card >
     <md-card-content>
-      <highchart config="lineGraphConfig"></highchart>
+      <div ng-show="!loaded">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <highchart
+        ng-show="loaded"
+        config="lineGraphConfig">
+      </highchart>
     </md-card-content>
   </md-card>
   <div class="row"   style="margin: 0 -15px;">
@@ -9,7 +15,11 @@
       <md-card class="homecsm">
         <md-card-content class="dashboard-module">
           <h3>Volunteers to Contact</h3>
-          <div class="homecsm">
+          <div ng-show="!loaded">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+          <div class="homecsm"
+               ng-show="loaded">
             <md-list ng-repeat="volunteer in organization.contact_volunteers"
                      ng-show="organization.contact_volunteers.length !== 0">
               <md-list-item >
@@ -47,7 +57,10 @@
       <md-card class="homecsm">
         <md-card-content class="dashboard-module">
           <h3>Recently Recorded Hours</h3>
-          <div class="homecsm">
+          <div ng-show="!loaded">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+          <div class="homecsm" ng-show="loaded">
             <md-list layout="column">
               <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
                              recorded-hour="recorded_hour"
