@@ -70,7 +70,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def recorded_hours
-    @opportunity = Opportunity.find_by_fb_id(params[:fb_id])
+    @opportunity = Opportunity.find(params[:id])
 
     render json: @opportunity.recorded_hours, each_serializer: RecordedHourSerializer
   end

@@ -68,7 +68,6 @@ angular.module('voluntrApp')
         });
 
         Opportunity.roles(id, 'recorded_hours').$promise.then(function(recorded_hours) {
-          console.log(recorded_hours)
           $scope.opportunity.recorded_hours = recorded_hours;
         });
 

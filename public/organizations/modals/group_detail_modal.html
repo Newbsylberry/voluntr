@@ -1,0 +1,115 @@
+<md-tabs class="md-primary"
+         md-dynamic-height
+         md-selected="data.selectedIndex"
+         md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+
+  <!-- Event Information -->
+  <md-tab id="tab1">
+    <md-tab-label>Dashboard</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+          {{group.name}}
+          {{group.description}}
+          <!--<div class="row oppinfo">-->
+            <!--<div class="col-md-3">-->
+              <!--<img src=""-->
+                   <!--class="face">-->
+            <!--</div>-->
+            <!--<div class="col-md-9">-->
+              <!--<edit-object-directive-->
+                <!--text_name="name"-->
+                <!--model-type="opportunity"-->
+                <!--attribute-name="name"-->
+                <!--model-id="{{opportunity.id}}"-->
+                <!--text="{{opportunity.name}}"-->
+                <!--size="title_text"-->
+                <!-- </edit-object-directive>-->
+              <!--<md-divider></md-divider>-->
+              <!--<h4 >Address:</h4>-->
+              <!--<edit-address-->
+                <!--address="{{opportunity.address}}"-->
+                <!--zip-code="{{opportunity.zip_code}}"-->
+                <!--state="{{opportunity.state}}"-->
+                <!--city="{{opportunity.city}}"-->
+                <!--model-id="{{opportunity.id}}"-->
+                <!--address-type="opportunity"-->
+                <!-->
+              <!--</edit-address>-->
+              <!--<h4 >Description:</h4>-->
+              <!--<edit-object-directive-->
+                <!--model-type="opportunity"-->
+                <!--attribute-name="description"-->
+                <!--model-id="{{opportunity.id}}"-->
+                <!--text="{{opportunity.description}}"-->
+                <!--size="paragraph_text"-->
+                <!--</edit-object-directive> -->
+            <!--</div>-->
+          <!--</div><br/>-->
+          <!--<md-divider></md-divider>-->
+          <!--<div class="opportunity-dashboard">-->
+            <!--<div class="row">-->
+              <!--<div class="col-xs-3">-->
+                <!--<h2 class="opportunity-dashboard-statistic">{{opportunity.total_recorded_hours}}</h2>-->
+                <!--<h4 class="opportunity-dashboard-label">Total Hours</h4>-->
+              <!--</div>-->
+              <!--<div class="col-xs-3">-->
+                <!--<h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_recorded_hours}}</h2>-->
+                <!--<h4 class="opportunity-dashboard-label">Hours This Instance</h4>-->
+              <!--</div>-->
+              <!--<div class="col-xs-3">-->
+                <!--<h2 class="opportunity-dashboard-statistic">{{opportunity.total_people_recording}}</h2>-->
+                <!--<h4 class="opportunity-dashboard-label">Volunteers</h4>-->
+              <!--</div>-->
+              <!--<div class="col-xs-3">-->
+                <!--<h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_people_recording}}</h2>-->
+                <!--<h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<md-divider></md-divider>-->
+            <!--<div class="row">-->
+              <!--<highchart config="instanceStatisticGraphConfig"></highchart>-->
+            <!--</div>-->
+          </div>
+        </div>
+        <div class="window-bottom-button">
+          <md-button class="md-primary" style="float:right;" href=""
+                     report-link
+                     type="group"
+                     id="{{group.id}}">
+            Export PDF Report
+          </md-button>
+        </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab2">
+    <md-tab-label>Recorded Hours</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+          <md-list>
+            <recorded-hour ng-repeat="recorded_hour in group.recorded_hours"
+                           recorded-hour="recorded_hour"
+                           recorded-hours="group.recorded_hours"
+                           type="person"></recorded-hour>
+
+
+          </md-list>
+        </div>
+      </div>
+      <div class="window-bottom-button">
+        <!--<md-button class="md-primary" style="float:right;" href=""-->
+                   <!--report-link-->
+                   <!--type="group"-->
+                   <!--id="{{group.id}}">-->
+          <!--Export PDF Report-->
+        <!--</md-button>-->
+      </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
+
+
+

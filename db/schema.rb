@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731041814) do
+ActiveRecord::Schema.define(version: 20150820033615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20150731041814) do
     t.datetime "updated_at"
     t.datetime "date"
     t.integer  "planned_hours"
+  end
+
+  create_table "group_administrators", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "mailing_service_lists", force: :cascade do |t|
@@ -186,6 +202,7 @@ ActiveRecord::Schema.define(version: 20150731041814) do
     t.datetime "date_recorded"
     t.integer  "opportunity_role_id"
     t.boolean  "photo_consent"
+    t.integer  "group_id"
   end
 
   create_table "resources", force: :cascade do |t|

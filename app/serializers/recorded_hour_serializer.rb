@@ -3,6 +3,7 @@ class RecordedHourSerializer < ActiveModel::Serializer
              :description, :date_recorded, :opportunity_roles
   has_one :opportunity_role
 
+
   def person
     Person.find_by_id(person_id)
   end

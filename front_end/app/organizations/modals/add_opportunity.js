@@ -9,7 +9,9 @@
  */
 angular.module('voluntrApp')
   .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal,
-                                              $modalInstance, OpportunityRole) {
+                                              $modalInstance, OpportunityRole, $state) {
+
+
 
     $scope.calendar = {};
     $scope.calendar.repeat = {};
@@ -25,7 +27,7 @@ angular.module('voluntrApp')
       $scope.roles.push(attr)
       $scope.role.name = "";
       $scope.role.description = "";
-    }
+    };
 
     $scope.newOpportunity = function(){
       var attr = {};
@@ -45,19 +47,16 @@ angular.module('voluntrApp')
       attr.state = $scope.newOpportunity.state;
       attr.organization_id = $stateParams.organization_Id;
       attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
-      Opportunity.create(attr).$promise.then(function(opportunity){
+      var opportunity = Opportunity.create(attr).$promise.then(function(opportunity){
         angular.forEach($scope.roles, function(role){
           role.opportunity_id = opportunity.id;
           OpportunityRole.create(role)
         })
-      })
-
+      });
+      if ($state.current.name === 'organizations.opportunities_home') {
+        $state.go($state.current, {}, {reload: true});
+      }
       $modalInstance.dismiss('cancel');
-
-
-
-
-
 
     };
 

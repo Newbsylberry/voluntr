@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
 
 
-  resources :resources, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
       #devise_for :users,
        #          :controllers => { registrations: 'registrations',
         #                           sessions: 'sessions'}, defaults: {format: :json}
+      resources :group_administrators, except: [:new, :edit], defaults: {format: :json}
+      resources :groups, except: [:new, :edit], defaults: {format: :json}
+      resources :resources, except: [:new, :edit], defaults: {format: :json}
       resources :mailing_service_lists, except: [:new, :edit], defaults: {format: :json}
       resources :organization_mailing_services, except: [:new, :edit], defaults: {format: :json}
       resources :opportunity_roles, except: [:new, :edit], defaults: {format: :json}

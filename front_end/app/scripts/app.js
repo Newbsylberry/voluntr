@@ -194,6 +194,12 @@ angular
         controller: 'PeopleHomeCtrl'
       })
 
+      .state('organizations.groups_home', { //default page loaded for landing state
+        url: '/:organization_Id/groups_home',
+        templateUrl: 'organizations/groups/groups_home.html', // url for partial
+        controller: 'GroupsHomeCtrl'
+      })
+
       .state('organizations.opportunities_home', { //default page loaded for landing state
         url: '/:organization_Id/opportunity_home',
         templateUrl: 'organizations/opportunities/opportunities_home.html', // url for partial

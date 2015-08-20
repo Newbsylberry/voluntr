@@ -10,6 +10,7 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
+
     // base path, that will be used to resolve files and exclude
     basePath: '../',
 
@@ -58,6 +59,7 @@ module.exports = function(config) {
       "bower_components/ng-file-upload/ng-file-upload.js",
       "bower_components/ng-idle/angular-idle.js",
       "bower_components/ng-csv/build/ng-csv.min.js",
+      "bower_components/angular-daterangepicker/js/angular-daterangepicker.js",
       // endbower
       'app/scripts/**/*.js',
       'app/organizations/**/*.js',

@@ -22,10 +22,10 @@
     <label>Select a volunteer group, if applicable:</label><br>
     <select
       class="form-control"
-      ng-model="volunteer_group"
+      ng-model="group"
 
-      ng-options="volunteer_group.name for volunteer_group in volunteer_groups">
-      <option value="">-- Select Your Role --</option>
+      ng-options="group.name for group in groups">
+      <option value="">-- Select Group (If Applicable) --</option>
     </select>
 
       <!--<md-select ng-model="opportunity_role">
