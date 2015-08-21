@@ -1,15 +1,17 @@
 <md-list-item class="md-3-line" style="border-bottom:1px solid rgba(0,0,0,0.1);min-height:70px;position:relative;">
   <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
   <div class="md-list-item-text" >
-    <h3 ng-show="type !== 'person'"
+    <h3 ng-show="type !== 'person || type === 'group'"
         person-modal
         size="lg"
         id="{{recordedHour.person.id}}"
       >{{recordedHour.person.first_name}} {{recordedHour.person.last_name}}
     </h3>
-    <h3 ng-show="type !== 'opportunity'">{{recordedHour.opportunity.name}}</h3>
-    <p  ng-show="!editing">{{recordedHour.opportunity_role.name}}</p>
-    <p >{{recordedHour.description}}</p>
+    <h3 ng-show="type !== 'opportunity' && type !== 'group'">{{recordedHour.opportunity.name}}</h3>
+    <p  ng-show="!editing && type !== 'group'">{{recordedHour.opportunity_role.name}}</p>
+    <p ng-show="type !== 'group'">{{recordedHour.description}}</p>
+    <p ng-show="type === 'group'">{{recordedHour.opportunity.name}} - {{recordedHour.opportunity_role.name}}</p>
+    <p ng-show="recordedHour.description">{{recordedHour.description}}</p>
   </div>
   <div class="hourlistr">
     <h2 style="margin:0px;text-align:center;" >{{recordedHour.hours}}</h2>

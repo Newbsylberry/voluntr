@@ -97,7 +97,7 @@ angular.module('voluntrApp')
       }
     };
 
-    $timeout(function(){window.dispatchEvent(new Event('resize')), 250})
+    $timeout(function(){window.dispatchEvent(new Event('resize')), 50})
 
 
 
