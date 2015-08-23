@@ -15,20 +15,26 @@ angular.module('voluntrApp')
 
     var stickyNavTop = $('.nav').offset().top;
 
+    console.log(stickyNavTop);
+    
+    
+   
+    
     var stickyNav = function(){
-      var scrollTop = $(window).scrollTop();
-      if (scrollTop > stickyNavTop) {
+      var scrollb = $('#screen2').offset().top;
+        console.log(scrollb);
+      if (scrollb < 0 ){
         $('.nav').addClass('sticky');
       } else {
         $('.nav').removeClass('sticky');
-      }
+      };
     };
     stickyNav();
 
 
 
-    $(window).scroll(function() {
-      console.log("HELLO COWBOY")
+    $('.ng-scope').scroll(function() {
+      console.log("HELLO COWBOY");
       stickyNav();
     });
 
@@ -52,23 +58,29 @@ angular.module('voluntrApp')
 
     });
 
-    $('.navicon').click(function(evt){
-      if (!evt.originalEvent) {
+    $('.navicon').click(function(){
+     
         $('.navmenu').toggleClass('navb');
-      }
+      
     });
 
+    
+    $('.ng-scope').click(function(evn){
+        evn.preventDefault();
+        $('.container-fluid').scrollTo(this.hash, this.hash); 
+        console.log('ddd');
+    	});
+    
+    
     $('.navmenu a').click(function(){
       $('.navmenu').addClass('navb');
-      console.log("menu close")
+      console.log("menu close");
     });
+    
 
 
 
-    $(".navmenu a").click(function(evn){
-      evn.preventDefault();
-      $('html,body').scrollTo(this.hash, this.hash);
-    });
+
 
     $scope.newContact = function () {
       $http.post('/api/v1/user/contact_form',
