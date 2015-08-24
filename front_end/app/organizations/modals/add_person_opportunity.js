@@ -22,7 +22,7 @@ angular.module('voluntrApp')
     $scope.addOpportunityPerson = function() {
       var attr = {};
       attr.person_id = person.id;
-      if ($scope.opportunity_role.id) {
+      if ($scope.opportunity_role) {
         attr.opportunity_role_id = $scope.opportunity_role.id;
       };
       attr.opportunity_id = opportunity.id;
