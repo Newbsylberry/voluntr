@@ -24,11 +24,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 Modal Styles
 ************************************************************/
 @import "../organizations/modals/opportunity_details.scss";
+@import "../organizations/modals/add_opportunity_person.scss";
 @import "../organizations/modals/add_opportunity_window.scss";
 @import "../organizations/modals/record_hours_modal.scss";
 @import "../organizations/modals/add_resources.scss";
 @import "../organizations/modals/person_detail.scss";
 @import "../organizations/modals/support_form.scss";
+@import "../organizations/modals/edit-schedule.scss";
 
 
 /************************************************************
@@ -36,9 +38,10 @@ Organization Directive Styles
 ************************************************************/
 
 /* Details in Opportunity and Person  */
-@import "../organizations/directives/edit_object_directive";
+@import "../organizations/directives/edit_object_directive.scss";
 @import "../organizations/directives/edit_address.scss";
 @import "../organizations/directives/recorded_hour.scss";
+@import "../organizations/directives/opportunity_role.scss";
 @import "../organizations/directives/schedule-form.scss";
 
 

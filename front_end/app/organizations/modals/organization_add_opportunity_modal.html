@@ -9,7 +9,7 @@
             <div class="tabcontrolin">
       <!--<h1>Add Volunteering Position</h1>-->
       <md-input-container>
-        <label>Position Name</label>
+        <label>Opportunity Name</label>
         <input ng-model="newOpportunity.opportunity_name">
       </md-input-container>
       <md-input-container flex>
@@ -67,17 +67,28 @@
   <md-tab id="tab3">
     <md-tab-label>Additional Resources</md-tab-label>
     <md-tab-body>
-               <div class="tabcontrol">
-            <div class="tabcontrolin">
-                <div layout-md="column" layout>
-                    <md-input-container flex>
-                        <label>Role Name</label>
-      <input  ng-model="role.name">
-                    </md-input-container>
-                                        <md-input-container flex>
-                        <label>Role Description</label>
-      <input ng-model="role.description">
-                    </md-input-container></div>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+      <div layout="row">
+        <md-input-container flex="60">
+          <label>What's the role name?</label>
+          <input ng-model="role.name">
+        </md-input-container>
+        <md-input-container>
+          <label>How many volunteers do you require in this role?</label>
+          <input
+            flex="40"
+            type="number"
+            ng-model="role.volunteers_required">
+        </md-input-container>
+      </div>
+      <md-input-container>
+        <label>What's the description?</label>
+              <textarea
+                md-maxlength="250"
+                ng-model="role.description">
+              </textarea>
+      </md-input-container>
       <md-button style="margin-right:0px;float:right;"class="md-raised md-primary" ng-click="createRole(role)">Add Role</md-button>
                 <div class="fixer"></div>
       <md-list>

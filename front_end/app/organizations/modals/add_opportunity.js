@@ -18,12 +18,13 @@ angular.module('voluntrApp')
 
     $scope.roles = [];
 
-    $scope.greeting = "Hello World!";
-
     $scope.createRole = function(role) {
       var attr = {};
       attr.name = role.name;
       attr.description = role.description;
+      if (role.volunteers_required) {
+        attr.volunteers_required = role.volunteers_required;
+      }
       $scope.roles.push(attr)
       $scope.role.name = "";
       $scope.role.description = "";

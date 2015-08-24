@@ -19,9 +19,14 @@
   }
 }
 
-.opportunity-information {
-
+#opportunity-people {
+  #organization-people-search {
+    md-input-container {
+      padding: 0px 16px;
+    }
+  }
 }
+
 
 .opportunity-dashboard {
 
@@ -49,7 +54,6 @@
     margin-top: 4px;
   }
 }
-
 
 .rscard{
   width: 48%;

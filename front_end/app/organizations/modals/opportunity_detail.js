@@ -34,7 +34,8 @@ angular.module('voluntrApp')
       var attr = {};
       attr.name = opportunity_role.name
       attr.opportunity_id = $scope.opportunity.id;
-      attr.description = opportunity_role.description
+      attr.volunteers_required = opportunity_role.volunteers_required;
+      attr.description = opportunity_role.description;
       OpportunityRole.create(attr).$promise.then(function(success){
         $scope.opportunity.opportunity_roles.push(success)
         $scope.opportunity_role = undefined;
@@ -63,6 +64,7 @@ angular.module('voluntrApp')
         });
 
         Opportunity.roles(id, 'roles').$promise.then(function(roles) {
+          console.log(roles)
           $scope.opportunity.opportunity_roles = roles;
           angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
         });
@@ -124,14 +126,39 @@ angular.module('voluntrApp')
       $http.get('api/v1/reports/opportunities/' + id, {params:{url: dataString}}).success(function(data){console.log(data)});
     };
 
-    $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
-      success(function(data, status, headers, config) {
 
-        $scope.organization_people = data;
-      }).
-      error(function(data, status, headers, config) {
-        console.log(data)
-      });
+
+    var peopleResults = function(raw_result) {
+      var base_result = raw_result._source
+      var person = {}
+        person.id = base_result.person_id;
+        person.first_name = base_result.person.first_name;
+        person.last_name = base_result.person.last_name;
+        person.score = raw_result.score;
+      $scope.organization_people.push(person)
+    };
+
+    $scope.searching = false;
+    $scope.people_search = function (search) {
+      if (search && !$scope.searching) {
+        $scope.no_search = false;
+        $scope.organization_people = [];
+        $scope.searching = true;
+        $http({
+          url: 'api/v1/organizations/' + $stateParams.organization_Id + '/people_search',
+          params: {query: search}
+        }).
+          success(function(data, status, headers, config) {
+            angular.forEach(data, peopleResults)
+            $scope.searching = false;
+          }).
+          error(function(data, status, headers, config) {
+          });
+      } else if (!search) {
+        $scope.searching = false;
+        $scope.no_search = true;
+      }
+    };
 
 
     $scope.addOpportunityPersonModal = function (size, person) {
@@ -264,7 +291,7 @@ angular.module('voluntrApp')
         }
       ],
       title: {
-        text: "Opportunity Roles Distribution"
+        text: "Hours Recorded For Roles"
       },
       loading: false,
       size: {

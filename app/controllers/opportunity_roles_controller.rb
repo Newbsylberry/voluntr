@@ -49,6 +49,6 @@ class OpportunityRolesController < ApplicationController
   protected
 
   def opportunity_role_params
-    params.require(:opportunity_role).permit(:id, :name, :description, :opportunity_id)
+    params.require(:opportunity_role).permit(:id, :name, :description, :opportunity_id, :volunteers_required)
   end
 end

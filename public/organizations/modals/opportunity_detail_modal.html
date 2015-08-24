@@ -86,30 +86,112 @@
   <md-tab id="tab2">
     <md-tab-label>Schedule</md-tab-label>
     <md-tab-body>
-        <object-schedule
-          object-type="opportunity"
-          object="opportunity"
-          ></object-schedule>
+      <object-schedule
+        object-type="opportunity"
+        object="opportunity"
+        ></object-schedule>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">
-    <md-tab-label>People</md-tab-label>
+    <md-tab-label>Roles</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">
-        <div class="tabcontrolin">
+        <div class="tabcontrolin create-opportunity-role">
           <div class="row">
             <div class="col-md-12" style="position: relative">
               <highchart ng-show="opportunity.opportunity_roles.length != 0" config="opportunityRolesChart"></highchart>
             </div>
-          </div>          <md-divider></md-divider>
+          </div>
+          <a href=""
+             ng-click="add_role = true"
+             ng-hide="add_role">Add New Role</a>
+          <a href=""
+             ng-click="add_role = false"
+             ng-show="add_role">Hide</a>
+          <div ng-show="add_role">
+            <div layout="row">
+              <md-input-container flex="60">
+                <label>What's the role name?</label>
+                <input ng-model="opportunity_role.name">
+              </md-input-container>
+              <md-input-container>
+                <label>How many volunteers do you require in this role?</label>
+                <input
+                  flex="40"
+                  type="number"
+                  ng-model="opportunity_role.volunteers_required">
+              </md-input-container>
+            </div>
+            <md-input-container>
+              <label>What's the description?</label>
+              <textarea
+                md-maxlength="250"
+                ng-model="opportunity_role.description">
+              </textarea>
+            </md-input-container>
+            <md-button
+              class="md-primary md-raised"
+              ng-click="createOpportunityRole(opportunity_role)">
+              Create Opportunity Role
+            </md-button>
+          </div>
+          <div id="roles-list">
+            <md-list class="opportunity-volunteer-list">
+              <md-list-item
+                class="md-2-line"
+                ng-repeat="opportunity_role in opportunity.opportunity_roles">
+                <div class="md-list-item-text">
+                  <div class="volunteer-text">
+                    <h3>{{opportunity_role.name}}</h3>
+                    <p>{{opportunity_role.description}}</p>
+                  </div>
+                  <h2 ng-show="opportunity_role.percent_filled">{{opportunity_role.percent_filled}}%</h2>
+                  <h2 ng-show="!opportunity_role.percent_filled">0%</h2>
+                </div>
+                <!-- <a style="float:right;"href="" ng-click="deleteOpportunityRole(opportunity_role)">Delete</a> -->
+              </md-list-item>
+            </md-list>
+          </div>
+        </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab4 opportunity-people">
+    <md-tab-label>People</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol" id="opportunity-people">
+        <div class="tabcontrolin">
+          <a href=""
+             ng-click="add_volunteer = true"
+             ng-hide="add_volunteer">Add Volunteer</a>
+          <a href=""
+             ng-click="add_volunteer = false"
+             ng-show="add_volunteer">Hide</a>
+          <div class="row" id="organization-people-search" ng-show="add_volunteer">
+            <md-input-container>
+              <label>Search for a volunteer to add...</label>
+              <input ng-model="volunteer_search" ng-keyup="people_search(volunteer_search)">
+            </md-input-container>
+            <md-list ng-show="!searching && !no_search" id="organization-people-search">
+              <md-list-item
+                ng-show="organization_people"
+                ng-repeat="person in organization_people
+              | orderBy : 'score'">
+                <p>{{person.first_name}} {{person.last_name}}</p>
+                <a href="" ng-click="addOpportunityPersonModal('sm', person)" style="float: right;">
+                  Add To Opportunity</a>
+              </md-list-item>
+            </md-list>
+          </div>
           <md-list class="opportunity-volunteer-list">
             <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.volunteers">
               <div class="md-list-item-text">
-                <div class="volunteer-text">
+                <div class="volunteer-text" person-modal id="{{volunteer.id}}" size="lg">
                   <h3>{{volunteer.first_name}} {{volunteer.last_name}}</h3>
                   <p>{{volunteer.email}}</p>
                 </div>
-                <h2>{{volunteer.opportunity_hours}}</h2>
+                <h2 ng-show="volunteer.opportunity_hours">{{volunteer.opportunity_hours}}</h2>
+                <h2 ng-show="!volunteer.opportunity_hours">0</h2>
               </div>
             </md-list-item>
           </md-list>
@@ -127,7 +209,7 @@
       </div>
     </md-tab-body>
   </md-tab>
-  <md-tab id="tab4">
+  <md-tab id="tab5">
     <md-tab-label>Recorded Hours</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">
@@ -142,37 +224,11 @@
       </div>
     </md-tab-body>
   </md-tab>
-  <md-tab id="tab5">
+  <md-tab id="tab6">
     <md-tab-label>Resources</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">
         <div class="tabcontrolin">
-          <!--<div class="rscard">
-            <h3>Resources</h3>
-            <add-resources></add-resources></div>-->
-          <div class="rscard">
-            <h3>Opportunity Roles</h3>
-            <md-input-container>
-              <label>What's the role name?</label>
-              <input ng-model="opportunity_role.name">
-            </md-input-container>
-            <md-input-container>
-              <label>What's the description?</label>
-              <input ng-model="opportunity_role.description">
-            </md-input-container>
-            <md-button
-              class="md-primary md-raised"
-              ng-click="createOpportunityRole(opportunity_role)">
-              Create Opportunity Role</md-button>
-            <md-subheader class="md-no-sticky">Current Roles</md-subheader>
-            <md-list>
-              <md-list-item ng-repeat="opportunity_role in opportunity.opportunity_roles">
-                <p>{{opportunity_role.name}} - {{opportunity_role.description}}</p>
-                <a style="float:right;"href="" ng-click="deleteOpportunityRole(opportunity_role)">Delete</a>
-              </md-list-item>
-            </md-list>
-
-          </div>
           <div class="rscard">
             <h3>Links</h3>
             <h4>These Links Can Be Used to Register and Sign In Volunteers at the Opportunity:</h4>

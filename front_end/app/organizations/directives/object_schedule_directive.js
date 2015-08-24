@@ -23,7 +23,7 @@ angular.module('voluntrApp').directive("objectSchedule", function () {
           {
             templateUrl: 'organizations/modals/edit-schedule.html',
             controller: 'EditScheduleCtrl',
-            windowClass: 'add-event-modal-window',
+            windowClass: 'edit-schedule-window',
             size: size
             //resolve:
             //{

@@ -19,14 +19,12 @@
     <md-button class="md-warn hourlistb"  href="" ng-click="deleteRecordedHour(recordedHour)">Delete</md-button>
   </div>
   <div ng-show="editing" class="editzone">
-    <div style="float:left;">
       <md-select placeholder="Role"
-                 ng-model="recordedHour.opportunity_role" >
+                 ng-model="recordedHour.opportunity_role">
         <md-option ng-repeat=""
                    value="">
         </md-option>
       </md-select>
-    </div>
     <div style="float:left;padding-top:27.5px;">
       <span style="margin:0px 5px;color:rgba(0,0,0,0.5);">Hours </span>
       <input
