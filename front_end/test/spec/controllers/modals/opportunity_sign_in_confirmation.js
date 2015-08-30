@@ -23,6 +23,10 @@ describe('AddPerson', function () {
     // scope.calendar.start_time = 'Sun May 31 2015 14:57:34 GMT-0400'
   }));
 
+  it("$scope.searching", function() {
+    var opportunity_role = {};
+    // expect(scope.searching).toBe(false)
+  })
 
   it("Records a users hours", function() {
     scope.timeDuration();

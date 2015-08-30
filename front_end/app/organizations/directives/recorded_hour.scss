@@ -1,44 +1,62 @@
+.recorded-hour-list {
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  min-height:70px;
+  position:relative;
+}
+
 .rhour{
-height: 100%;
+  height: 100%;
   position: absolute;
   right: 0px;
   top: 0px;
-    margin-right: 4%;
+  margin-right: 4%;
 }
 
 .wrapper{
-    display:table;
-    height:100%;
+  display:table;
+  height:100%;
 }
 
 .editzone{
   md-select {
     float:left;
   }
+  div {
+    float:left;
+    padding-top:27.5px;
+  }
+  span {
+    margin:0px 5px;
+    color:rgba(0,0,0,0.5);
+  }
   background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084);
-    position: absolute;
-    top:0px;
-    right: 6px;
-    z-index: 500;
-    padding:10px;
-    	  	 -webkit-transition: 0.5s; /* Safari */
-    transition: 0.5s;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084);
+  position: absolute;
+  top:0px;
+  right: 6px;
+  z-index: 500;
+  padding:10px;
+  -webkit-transition: 0.5s; /* Safari */
+  transition: 0.5s;
 }
 
 
 .hourlistr{
-    padding:19px 0 13px 0px;
-    /* Added to Fix Bug */
-    display: inherit;
+  h2 {
+    margin:0px;
+    text-align:center;
+  }
+  padding:19px 0 13px 0px;
+  /* Added to Fix Bug */
+  display: inherit;
 }
 
 .hourlistb{
-    font-size:12px;
-    margin:3px 1px;
-    min-width: 40px;
-    min-height: 20px;
-    line-height: 20px;
+  font-size:12px;
+  margin:3px 1px;
+  min-width: 40px;
+  min-height: 20px;
+  line-height: 20px;
 
 }

@@ -29,18 +29,33 @@ angular.module('voluntrApp')
       ([role.name, role.total_recorded_hours]);
     };
 
-
+    $scope.opportunity_role = {};
     $scope.createOpportunityRole = function(opportunity_role) {
       var attr = {};
       attr.name = opportunity_role.name
       attr.opportunity_id = $scope.opportunity.id;
       attr.volunteers_required = opportunity_role.volunteers_required;
+      attr.hours_required = opportunity_role.hours_required;
       attr.description = opportunity_role.description;
       OpportunityRole.create(attr).$promise.then(function(success){
         $scope.opportunity.opportunity_roles.push(success)
-        $scope.opportunity_role = undefined;
+        $scope.opportunity_role.name = '';
+        $scope.opportunity_role.volunteers_required = '';
+        $scope.opportunity_role.hours_required = '';
+        $scope.opportunity_role.description = '';
       })
-    }
+    };
+
+    $scope.updateOpportunityRole = function(opportunity_role) {
+      var attr = {};
+      attr.id = opportunity_role.id;
+      attr.name = opportunity_role.name;
+      attr.description = opportunity_role.description;
+      attr.volunteers_required = opportunity_role.volunteers_required;
+      attr.hours_required = opportunity_role.hours_required;
+      var opportunity_role = OpportunityRole.update(attr)
+      $scope.editing = false;
+    };
 
     $scope.deleteOpportunityRole = function(opportunity_role) {
       var index = $scope.opportunity.opportunity_roles.indexOf(opportunity_role);

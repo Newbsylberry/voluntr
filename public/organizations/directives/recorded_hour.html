@@ -1,4 +1,4 @@
-<md-list-item class="md-3-line" style="border-bottom:1px solid rgba(0,0,0,0.1);min-height:70px;position:relative;">
+<md-list-item class="md-3-line recorded-hour-list">
   <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
   <div class="md-list-item-text" >
     <h3 ng-show="type !== 'person || type === 'group'"
@@ -14,19 +14,33 @@
     <p ng-show="recordedHour.description">{{recordedHour.description}}</p>
   </div>
   <div class="hourlistr">
-    <h2 style="margin:0px;text-align:center;" >{{recordedHour.hours}}</h2>
-    <md-button  class="md-primary hourlistb"  href="#" ng-click="editing = true">Edit</md-button>
-    <md-button class="md-warn hourlistb"  href="" ng-click="deleteRecordedHour(recordedHour)">Delete</md-button>
+    <h2>
+      {{recordedHour.hours}}
+    </h2>
+    <md-button
+      class="md-primary hourlistb"
+      href="#"
+      ng-click="editing = true">
+      Edit
+    </md-button>
+    <md-button
+      class="md-warn hourlistb"
+      href=""
+      ng-click="deleteRecordedHour(recordedHour)">
+      Delete
+    </md-button>
   </div>
-  <div ng-show="editing" class="editzone">
+  <div ng-show="editing"
+       class="editzone">
       <md-select placeholder="Role"
                  ng-model="recordedHour.opportunity_role">
         <md-option ng-repeat=""
                    value="">
         </md-option>
       </md-select>
-    <div style="float:left;padding-top:27.5px;">
-      <span style="margin:0px 5px;color:rgba(0,0,0,0.5);">Hours </span>
+    <div>
+      <span>Hours
+      </span>
       <input
         required
         type="number"
@@ -35,8 +49,13 @@
         min="0"
         max="500">
     </div>
-    <div style="float:left;padding-top:27.5px;">
-      <md-button class="md-primary hourlistb"  href="" ng-click="saveRecordedHours(recordedHour)">Save</md-button>
+    <div>
+      <md-button
+        class="md-primary hourlistb"
+        href=""
+        ng-click="saveRecordedHours(recordedHour)">
+        Save
+      </md-button>
     </div>
   </div>
 </md-list-item>

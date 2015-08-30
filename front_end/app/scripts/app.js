@@ -228,6 +228,11 @@ angular
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_3.html', // url for partial
       })
 
+      .state('organization_volunteer_registration.4', { //default page loaded for landing state
+        url: '/4?token',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_4.html', // url for partial
+      })
+
 
       .state('registration_form', { //default page loaded for landing state
         url: '/:opportunity_Id/opportunity_registration',

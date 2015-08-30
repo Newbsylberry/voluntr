@@ -1,17 +1,14 @@
-<div ng-show="!submitted">
+
 <person-schedule person-id="{{person.id}}"></person-schedule>
 <br/>
  <md-button class="md-raised md-primary formbutton"
             aria-label="Use Android"
             ng-click="updateWithSchedule()">
-          Submit
+          Enter Additional Information
         </md-button>
 
  <md-button class="md-raised md-primary formbutton" aria-label="Use Android"  ui-sref="organization_volunteer_registration.2">
           Previous Step: Address
         </md-button>
-</div>
-<div ng-show="submitted">
-  <h1>Thanks for registering to volunteer! We're taking you somewhere you can find more great opportunities!</h1>
-</div>
+
 

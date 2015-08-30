@@ -19,12 +19,14 @@ describe('CreateOpportunity', function () {
     // scope.calendar.start_time = 'Sun May 31 2015 14:57:34 GMT-0400'
   }));
 
-  it("Should Equal Hello World", function() {
-    expect(scope.greeting).toEqual("Hello World!")
+  it("$scope.createRole(role)", function() {
+    var role = {};
+    scope.createRole(role);
   })
 
-  it("Should run the function to create an opportunity", function() {
+  it("$scope.newOpportunity", function() {
     scope.newOpportunity();
+    console.log("cabbage")
   })
 
 

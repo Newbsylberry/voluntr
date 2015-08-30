@@ -10,7 +10,7 @@
           <div class="accountwrapper">
             <div class="col-md-3">
               <!-- <div class="accimg"> -->
-                <img ng-src="{{organization.picture}}">
+                <img ng-src="{{organization.picture}}" class="accimg">
               <!-- </div> -->
             </div>
             <div class="col-md-9">
@@ -77,7 +77,7 @@
             model-type="organization"
             attribute-name="custom_url"
             model-id="{{organization.id}}"
-            text="http://www.voluapp.com/{{organization.custom_url}}/registration - Send to potential volunteers so they can register"
+            text="{{organization.custom_url}}"
             placeholder="Enter the Custom URL for your Volu Resources (i.e. - volu will give
                  you a volu/registration form for registering volunteers)"
             size="paragraph_text"

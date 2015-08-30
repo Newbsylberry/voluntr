@@ -17,17 +17,24 @@ angular.module('voluntrApp')
     $scope.calendar.repeat = {};
 
     $scope.roles = [];
-
+    $scope.role = {};
     $scope.createRole = function(role) {
       var attr = {};
       attr.name = role.name;
-      attr.description = role.description;
+      if (role.description) {
+        attr.description = role.description;
+      }
       if (role.volunteers_required) {
         attr.volunteers_required = role.volunteers_required;
+      }
+      if (role.hours_required) {
+        attr.volunteers_required = role.hours_required;
       }
       $scope.roles.push(attr)
       $scope.role.name = "";
       $scope.role.description = "";
+      $scope.role.volunteers_required = "";
+      $scope.role.hours_required = "";
     };
 
     $scope.newOpportunity = function(){
