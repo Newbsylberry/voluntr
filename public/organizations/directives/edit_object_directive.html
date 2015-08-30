@@ -1,28 +1,29 @@
-<h2 style="color:rgba(0,0,0,0.6); font-size:25px;"
+<h2
   class="detail-title-text"
   ng-hide="editing || !title_text"
-  >{{text}}</h2>
+  >{{text}}
+</h2>
 <h3
   class="detail-subtitle-text"
   ng-hide="editing || !subtitle_text"
-  >{{text}}</h3>
-<p style="color:rgba(0,0,0,0.5);"
+  >{{text}}
+</h3>
+<p
   class="detail-paragraph-text"
   ng-hide="editing || !paragraph_text"
-  >{{text}}</p>
-{{model_id}}
-{{text_name}}
+  >
+  {{text}}
+</p>
+<md-input-container ng-show="editing && title_text || editing && subtitle_text">
+  <label>{{placeholder}}</label>
+  <input ng-model="text">
+</md-input-container>
 
 
-  <md-input-container ng-show="editing && title_text || editing && subtitle_text">
-      <label>{{placeholder}}</label>
-      <input ng-model="text">
-    </md-input-container>
-
-  <md-input-container  ng-show="editing && paragraph_text || editing && bing_text">
-      <label>{{placeholder}}</label>
-      <input ng-model="text">
-    </md-input-container>
+<md-input-container  ng-show="editing && paragraph_text || editing && bing_text">
+  <label>{{placeholder}}</label>
+  <input ng-model="text">
+</md-input-container>
 
 <!--<md-button class="md-primary md-raised" ng-hide="editing" ng-show="parag_text"
    href=''

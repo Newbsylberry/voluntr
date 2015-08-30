@@ -146,6 +146,14 @@ class OrganizationsController < ApplicationController
     render json: results
   end
 
+  def search_people
+    @current_organization = Organization.find(params[:id])
+
+    results = Elasticsearch::Model.search(
+        "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [OrganizationPerson])
+    render json: results
+  end
+
 
   private
 

@@ -59,6 +59,23 @@
           });
       }
 
+      $scope.addGroup = function (size) {
+        var addGroupModal = $modal.open(
+          {
+            templateUrl: 'organizations/modals/add_group.html',
+            controller: 'AddGroupCtrl',
+            windowClass: 'add-event-modal-window',
+            size: size
+          });
+
+        addGroupModal.result.then(function () {
+
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
+      }
+
 
 
 

@@ -14,9 +14,9 @@ angular.module('voluntrApp')
     $scope.eventSources = [
       {
         url: 'api/v1/organizations/' + $stateParams.organization_Id + '/opportunities'
-      }
+      },
+      []
     ];
-
 
     $scope.uiConfig = {
       myCalendar:{
@@ -38,8 +38,8 @@ angular.module('voluntrApp')
           // (Monday-Thursday in this example)
         }
       }
-
     };
+
 
 
     $scope.opportunityDetail = function (size, id, start_time) {

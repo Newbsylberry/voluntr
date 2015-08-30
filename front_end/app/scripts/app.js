@@ -194,6 +194,12 @@ angular
         controller: 'PeopleHomeCtrl'
       })
 
+      .state('organizations.groups_home', { //default page loaded for landing state
+        url: '/:organization_Id/groups_home',
+        templateUrl: 'organizations/groups/groups_home.html', // url for partial
+        controller: 'GroupsHomeCtrl'
+      })
+
       .state('organizations.opportunities_home', { //default page loaded for landing state
         url: '/:organization_Id/opportunity_home',
         templateUrl: 'organizations/opportunities/opportunities_home.html', // url for partial
@@ -220,6 +226,11 @@ angular
       .state('organization_volunteer_registration.3', { //default page loaded for landing state
         url: '/3?token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_3.html', // url for partial
+      })
+
+      .state('organization_volunteer_registration.4', { //default page loaded for landing state
+        url: '/4?token',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_4.html', // url for partial
       })
 
 

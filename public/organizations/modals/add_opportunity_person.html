@@ -1,22 +1,10 @@
-<h2>This Event Happens:</h2>
-<h3>{{opportunity.schedule_to_string}}</h3>
-<h2>How Often Will They Volunteer?</h2>
-  Volunteer every
-  <select
-    ng-options="interval as interval for interval in opportunity.repeat_intervals"
-    ng-model="newPersonOpportunity.repeat_count"></select>
-
-<md-checkbox
-  class="add-person-day-checkbox"
-  ng-repeat="day in opportunity.active_days"
-  ng-model="scheduled_days[day]"
-  aria-label="{{day}}">
-  {{day}}
-</md-checkbox>
-
-
-
-
-
-
-<button ng-click="addOpportunityPerson()" class="btn btn-lg">Add to Opportunity</button>
+<form id="person-opportunity-form">
+<h3>Add {{person.first_name}} to {{opportunity.name}}</h3>
+<select
+  class="form-control"
+  ng-model="opportunity_role"
+  ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles">
+  <option value="">-- Select Role --</option>
+</select>
+<button ng-click="addOpportunityPerson()" class="btn btn-block">Add to Opportunity</button>
+</form>

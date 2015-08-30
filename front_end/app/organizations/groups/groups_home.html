@@ -1,0 +1,23 @@
+
+<md-card class="content" >
+  <md-card-content>
+    <div ng-if="!loaded">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-list class="home-person-list" ng-if="loaded">
+      <md-list-item
+        class="md-3-line"
+        ng-repeat="group in groups">
+        <div
+          class="md-list-item-text">
+          <h3
+            group-modal
+            id="{{group.id}}"
+            size="lg"
+            >{{group.name}}</h3>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
+

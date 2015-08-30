@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
 
 
-  resources :resources, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
       #devise_for :users,
        #          :controllers => { registrations: 'registrations',
         #                           sessions: 'sessions'}, defaults: {format: :json}
+      resources :group_administrators, except: [:new, :edit], defaults: {format: :json}
+      resources :groups, except: [:new, :edit], defaults: {format: :json}
+      resources :resources, except: [:new, :edit], defaults: {format: :json}
       resources :mailing_service_lists, except: [:new, :edit], defaults: {format: :json}
       resources :organization_mailing_services, except: [:new, :edit], defaults: {format: :json}
       resources :opportunity_roles, except: [:new, :edit], defaults: {format: :json}
@@ -35,6 +37,7 @@ Rails.application.routes.draw do
       # Organization Routes
       match '/organizations/by_url/:custom_url/', to: 'organizations#show_by_url', via: :get, defaults: {format: :json}
       match '/organizations/:id/search/', to: 'organizations#search_organization', via: :get, defaults: {format: :json}
+      match '/organizations/:id/people_search/', to: 'organizations#search_people', via: :get, defaults: {format: :json}
       match '/organizations/:id/people', to: 'organizations#people', via: :get, defaults: {format: :json}
       match '/organizations/:id/authorization', to: 'organizations#log_in', via: :get, defaults: {format: :json}
       match '/organizations/:id/daily_statistics', to: 'organizations#daily_statistics', via: :get, defaults: {format: :json}

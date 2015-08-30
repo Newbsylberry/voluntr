@@ -1,6 +1,6 @@
-describe('CreateOpportunity', function () {
+describe('AddPerson', function () {
 
-  var controller, scope, modalInstance;
+  var controller, scope, modalInstance, person, opportunity;
   beforeEach(module('voluntrApp'));
   beforeEach(inject(function ($controller, $rootScope, $injector) {
     modalInstance = {                    // Create a mock object using spies
@@ -10,21 +10,26 @@ describe('CreateOpportunity', function () {
         then: jasmine.createSpy('modalInstance.result.then')
       }
     }
+    var person = {};
+    var opportunity = {};
     $httpBackend = $injector.get('$httpBackend');
     scope = $rootScope.$new();
-    controller = $controller('AddOpportunityCtrl', {
+    controller = $controller('OpportunitySignInConfirmationCtrl', {
       $scope: scope,
-      $modalInstance: modalInstance
+      $modalInstance: modalInstance,
+      person: person,
+      opportunity: opportunity
     });
     // scope.calendar.start_time = 'Sun May 31 2015 14:57:34 GMT-0400'
   }));
 
-  it("Should Equal Hello World", function() {
-    expect(scope.greeting).toEqual("Hello World!")
+  it("$scope.searching", function() {
+    var opportunity_role = {};
+    // expect(scope.searching).toBe(false)
   })
 
-  it("Should run the function to create an opportunity", function() {
-    scope.newOpportunity();
+  it("Records a users hours", function() {
+    scope.timeDuration();
   })
 
 

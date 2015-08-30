@@ -9,23 +9,33 @@
  */
 angular.module('voluntrApp')
   .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal,
-                                              $modalInstance, OpportunityRole) {
+                                              $modalInstance, OpportunityRole, $state) {
+
+
 
     $scope.calendar = {};
     $scope.calendar.repeat = {};
 
     $scope.roles = [];
-
-    $scope.greeting = "Hello World!";
-
+    $scope.role = {};
     $scope.createRole = function(role) {
       var attr = {};
       attr.name = role.name;
-      attr.description = role.description;
+      if (role.description) {
+        attr.description = role.description;
+      }
+      if (role.volunteers_required) {
+        attr.volunteers_required = role.volunteers_required;
+      }
+      if (role.hours_required) {
+        attr.volunteers_required = role.hours_required;
+      }
       $scope.roles.push(attr)
       $scope.role.name = "";
       $scope.role.description = "";
-    }
+      $scope.role.volunteers_required = "";
+      $scope.role.hours_required = "";
+    };
 
     $scope.newOpportunity = function(){
       var attr = {};
@@ -45,19 +55,16 @@ angular.module('voluntrApp')
       attr.state = $scope.newOpportunity.state;
       attr.organization_id = $stateParams.organization_Id;
       attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
-      Opportunity.create(attr).$promise.then(function(opportunity){
+      var opportunity = Opportunity.create(attr).$promise.then(function(opportunity){
         angular.forEach($scope.roles, function(role){
           role.opportunity_id = opportunity.id;
           OpportunityRole.create(role)
         })
-      })
-
+      });
+      if ($state.current.name === 'organizations.opportunities_home') {
+        $state.go($state.current, {}, {reload: true});
+      }
       $modalInstance.dismiss('cancel');
-
-
-
-
-
 
     };
 

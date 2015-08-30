@@ -53,17 +53,17 @@
 
 
 <div class="schdaily" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_daily')">
-  <h4>Repeat ever</h4>
+  <h4>Repeat every</h4>
   <md-input-container>
     <label>Days</label>
     <input type="text" >
   </md-input-container>
 </div>
 <div class="schweekly" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_weekly')">
-  <h4>Repeat ever</h4>
+  <h4>Repeat every</h4>
   <md-input-container>
     <label>Weeks</label>
-    <input type="text" >
+    <input type="text" ng-model="calendar.repeat.repeat_count">
   </md-input-container>
   <h4>Repeat On</h4>
   <div>
@@ -90,54 +90,51 @@
     </md-checkbox>
     <div class="fixer"></div>
   </div>
-
 </div>
 <div class="schmonthly" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_monthly')">
-  <h4>Repeat ever</h4>
+  <h4>Repeat every</h4>
   <md-input-container>
     <label>Months</label>
     <input type="text" >
   </md-input-container>
 </div>
 <div class="schannually" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_annually')">
-  <h4>Repeat ever</h4>
+  <h4>Repeat every</h4>
   <md-input-container>
     <label>Years</label>
     <input type="text" >
   </md-input-container>
-
 </div>
-<div class="schdefault" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_weekly' || calendar.repeat === 'repeat_daily' || calendar.repeat === 'repeat_monthly' || calendar.repeat === 'repeat_annually') ">
+<div class="schdefault"
+     ng-show="calendar.repeating_event &&
+     (calendar.repeat.repeat_type === 'repeat_weekly' ||
+     calendar.repeat.repeat_type === 'repeat_daily' ||
+     calendar.repeat.repeat_type === 'repeat_monthly' ||
+     calendar.repeat.repeat_type === 'repeat_annually') ">
   <div>
-    <h4>Ends:</h4>
+    <h4>Set Opportunity End:</h4>
     <md-radio-group ng-model="calendar.ends"style="display:block;">
       <md-radio-button ng-model="calendar.repeat.repeat_daily" class="cradio"
                        aria-label="Daily"
                        value="after">
-        After certain occurrences
+        After certain occurrences?
       </md-radio-button>
       <md-radio-button ng-model="calendar.repeat.repeat_daily" class="cradio"
                        aria-label="Daily"
                        value="on">
-        On a sepcific date
+        On a specific date?
       </md-radio-button>
       <div class="fixer"></div>
     </md-radio-group>
   </div>
-
-  <div ng-show="calendar.ends === 'after'">
-    <md-input-container>
-      <label>How many times</label>
-      <input type="text" >
-    </md-input-container>
-
-  </div>
-
-  <div ng-show="calendar.ends === 'on'">
-    <md-input-container>
-      <label>Date</label>
-      <input type="date" ng-model="calendar.repeat.repeat_until">
-    </md-input-container></div>
+  <md-input-container ng-show="calendar.ends === 'after'">
+    <label>How many times should the opportunity repeat?</label>
+    <input type="text" >
+  </md-input-container>
+  <md-input-container ng-show="calendar.ends === 'on'">
+    <label>What date should the opportunity end?</label>
+    <input type="date" ng-model="calendar.repeat.repeat_until">
+  </md-input-container>
 </div>
 
 

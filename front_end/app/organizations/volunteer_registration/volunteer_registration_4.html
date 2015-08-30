@@ -1,0 +1,27 @@
+<div ng-show="!submitted">
+  <md-input-container>
+    <label>Your Phone Number:</label>
+    <input type="text" ng-model="person.phone">
+  </md-input-container>
+  <md-input-container>
+    <label>Your Company or College:</label>
+    <input type="text" ng-model="person.organization_name">
+  </md-input-container>
+  <md-input-container>
+    <label>What's Your Occupation:</label>
+    <input type="text" ng-model="person.occupation">
+  </md-input-container>
+  <md-button class="md-raised md-primary formbutton"
+             aria-label="Use Android"
+             ng-click="updateWithAdditionalInformation(person)">
+    Submit
+  </md-button>
+
+  <md-button class="md-raised md-primary formbutton" aria-label="Use Android"  ui-sref="organization_volunteer_registration.3">
+    Previous Step: Enter Schedule
+  </md-button>
+</div>
+<div ng-show="submitted">
+  <h1>Thanks for registering to volunteer! We're taking you somewhere you can find more great opportunities!</h1>
+</div>
+

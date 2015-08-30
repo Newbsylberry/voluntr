@@ -55,7 +55,7 @@ class RecordedHoursController < ApplicationController
   def recorded_hours_params
     params.require(:recorded_hour).permit(:id, :opportunity_id,
                                             :organization_id, :person_id, :hours, :description,
-                                            :opportunity_role_id, :photo_consent, :date_recorded)
+                                            :opportunity_role_id, :photo_consent, :group_id, :date_recorded)
   end
 
 

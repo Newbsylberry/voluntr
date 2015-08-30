@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731041814) do
+ActiveRecord::Schema.define(version: 20150830002716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20150731041814) do
     t.datetime "updated_at"
     t.datetime "date"
     t.integer  "planned_hours"
+  end
+
+  create_table "group_administrators", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "mailing_service_lists", force: :cascade do |t|
@@ -64,9 +80,11 @@ ActiveRecord::Schema.define(version: 20150731041814) do
   create_table "opportunity_roles", force: :cascade do |t|
     t.integer  "opportunity_id"
     t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.text     "description"
+    t.integer  "volunteers_required"
+    t.integer  "hours_required"
   end
 
   create_table "opportunity_types", force: :cascade do |t|
@@ -132,21 +150,23 @@ ActiveRecord::Schema.define(version: 20150731041814) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "fb_id",      limit: 255
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
+    t.string   "fb_id",             limit: 255
+    t.string   "first_name",        limit: 255
+    t.string   "last_name",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "zip_code",   limit: 255
-    t.string   "state",      limit: 255
-    t.string   "city",       limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "email",      limit: 255
+    t.string   "zip_code",          limit: 255
+    t.string   "state",             limit: 255
+    t.string   "city",              limit: 255
+    t.string   "phone",             limit: 255
+    t.string   "email",             limit: 255
     t.string   "address_1"
     t.string   "address_2"
     t.hstore   "schedule"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "organization_name"
+    t.string   "occupation"
   end
 
   create_table "person_opportunities", force: :cascade do |t|
@@ -155,6 +175,7 @@ ActiveRecord::Schema.define(version: 20150731041814) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "schedule"
+    t.integer  "opportunity_role_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -186,6 +207,7 @@ ActiveRecord::Schema.define(version: 20150731041814) do
     t.datetime "date_recorded"
     t.integer  "opportunity_role_id"
     t.boolean  "photo_consent"
+    t.integer  "group_id"
   end
 
   create_table "resources", force: :cascade do |t|

@@ -12,7 +12,7 @@ angular.module('voluntrApp')
     function OpportunityRole() {
       this.service = $resource('/api/v1/opportunity_roles/:opportunity_role_Id', //location of resource, tells it to look for ID
         {
-          OpportunityRole_Id: '@id'}, {
+          opportunity_role_Id: '@id'}, {
           update: {method: 'PATCH'},
           OpportunityRole_object: {method: 'GET', url:'/api/v1/opportunities/:opportunity_role_Id/:object', isArray: true}
 

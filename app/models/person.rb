@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
   has_many :person_opportunities
   has_many :opportunities, through: :person_opportunities
   has_many :recorded_hours
+  has_many :groups, through: :group_administrators
   attr_accessor :opportunity_hours, :opportunity_instances_count, :opportunity_role, :opportunity_photo_consent
   validates :email, uniqueness: true, if: :email_present?
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")

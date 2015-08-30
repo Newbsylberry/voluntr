@@ -7,8 +7,10 @@
 angular.module('voluntrApp')
   .controller('OpportunitySignInConfirmationCtrl', function ($scope, $modal, $modalInstance,
                                                              $stateParams, person, opportunity,
-                                                             RecordedHours, $timeout, Idle, Keepalive) {
+                                                             RecordedHours, $timeout,
+                                                             Idle, Keepalive, Group) {
 
+    $scope.groups = Group.all()
 
     $scope.opportunity = opportunity;
     $scope.photo_consent = true;
@@ -21,13 +23,14 @@ angular.module('voluntrApp')
       attr.date_recorded = new Date().toString();
       if ($scope.opportunity_role !== undefined) {
       attr.opportunity_role_id = $scope.opportunity_role.id;
+      } if ($scope.group !== undefined) {
+        attr.group_id = $scope.group.id;
       }
       attr.person_id = person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
       attr.organization_id = opportunity.organization_id;
       attr.photo_consent = $scope.photo_consent;
       attr.sign_in  = true;
-      console.log(attr)
       RecordedHours.create(attr);
       $scope.confirmed = true;
       $timeout(function() {

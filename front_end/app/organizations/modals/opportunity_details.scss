@@ -19,9 +19,14 @@
   }
 }
 
-.opportunity-information {
-
+#opportunity-people {
+  #organization-people-search {
+    md-input-container {
+      padding: 0px 16px;
+    }
+  }
 }
+
 
 .opportunity-dashboard {
 
@@ -50,7 +55,6 @@
   }
 }
 
-
 .rscard{
   width: 48%;
   float: left;
@@ -61,6 +65,9 @@
   border-radius: 2px;
   height: 350px;
   overflow-y: auto;
+  small {
+    display: block;
+  }
 }
 
 .rscard h3{
