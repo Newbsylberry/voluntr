@@ -32,16 +32,14 @@ angular.module('voluntrApp')
       url: 'api/v1/organizations/' + $stateParams.organization_Id +'/auth/mail_chimp_check',
       method: 'get'
     }).success(function(data){
-     console.log(data)
       if (data.response) {
         $scope.mailchimp_authorized = true;
         $scope.mailchimp = JSON.parse(data.response.body)
       } else if (!data.response) {
-
         $scope.mailchimp_authorized = false;
       }
     }).error(function(data){
-    })
+    });
 
     $scope.delete = function(mailing_service) {
       OrganizationMailingService.delete(mailing_service.id)

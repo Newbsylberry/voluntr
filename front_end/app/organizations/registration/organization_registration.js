@@ -30,7 +30,6 @@ angular.module('voluntrApp')
 
       Organization.existence_check(organization.id).$promise.then(function(data) {
         if (data.id) {
-          console.log(data)
           organization.exists = true;
           organization.v_id = data.id;
         } else if (!data.id) {

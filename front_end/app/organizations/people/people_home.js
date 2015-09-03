@@ -55,9 +55,6 @@ angular.module('voluntrApp')
           windowClass: 'add-event-modal-window',
           size: size
         });
-
-
-
       bulkAddModal.result.then(function () {
 
         },

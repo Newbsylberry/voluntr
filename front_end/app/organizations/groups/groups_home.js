@@ -15,6 +15,6 @@ angular.module('voluntrApp')
         $scope.loaded = true;
         $scope.groups = response;
     });
-    console.log($scope.groups)
+
   });
 

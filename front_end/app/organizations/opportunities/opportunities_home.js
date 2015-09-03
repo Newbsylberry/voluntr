@@ -72,10 +72,7 @@ angular.module('voluntrApp')
 
 
     $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
-
       $scope.opportunityDetail('lg', calEvent.id, calEvent.start_time);
-
-
     };
 
 

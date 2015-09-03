@@ -18,11 +18,6 @@ angular.module('voluntrApp')
     //})
 
 
-    $scope.center =
-    {
-      autoDiscover: true,
-      zoom: 14
-    }
 
     geolocation.getLocation().then(function(data){
       $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
@@ -73,7 +68,6 @@ angular.module('voluntrApp')
 
 
     var addOpportunityToMap = function(opportunity) {
-      console.log(opportunity)
       if (opportunity.latitude && opportunity.longitude) {
         $scope.markers[opportunity.name] = {
           lat: opportunity.latitude,
@@ -89,7 +83,6 @@ angular.module('voluntrApp')
           angular.forEach(opportunities, addOpportunityToMap)
           $scope.opportunities = opportunities;
         })
-        console.log($scope.markers)
       }
     });
 
