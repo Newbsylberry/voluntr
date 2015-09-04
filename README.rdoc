@@ -1,5 +1,13 @@
 == README
 
+* Please familiarize yourself with GIT:
+
+    Git - Github Flow - https://guides.github.com/introduction/flow/index.html
+    Git - How to 'fork' a repo - https://help.github.com/articles/fork-a-repo/
+    Git - How to create a new 'branch' - https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch
+    Git - Pulling a branch - https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch
+    Git - Merge - http://git-scm.com/docs/git-merge
+
 * For OSX Yosemite (Ubuntu users, you're on your own), this assumes you've set up git, so if you haven't go do that.
 
 * After install iterm2, or opening your terminal window, install Homebrew and RVM
