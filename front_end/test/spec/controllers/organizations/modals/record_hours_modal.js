@@ -28,7 +28,7 @@ describe('RecordHoursCtrl', function () {
 
   it("$scope.clearPerson()", function() {
     scope.clearPerson()
-  }) 
+  })
 
 
 

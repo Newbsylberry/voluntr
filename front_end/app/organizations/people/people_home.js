@@ -8,44 +8,82 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('PeopleHomeCtrl', function ($scope, Facebook, $http, $stateParams, $modal) {
+  .controller('PeopleHomeCtrl', function ($scope, Facebook, $http,
+                                          $stateParams, $modal, Organization) {
 
     $scope.loaded = false;
-    $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
-      success(function(data, status, headers, config) {
-        $scope.loaded = true;
-        $scope.people = data;
-      }).
-      error(function(data, status, headers, config) {
 
-      });
+    //$http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
+    //  success(function(data, status, headers, config) {
+    //    $scope.loaded = true;
+    //    $scope.people = data;
+    //  }).
+    //  error(function(data, status, headers, config) {
+    //
+    //  });
 
+    //Organization.people($stateParams.organization_Id, 'people').$promise.then(function(data) {
+    //      $scope.loaded = true;
+    //      $scope.people = data;
+    //})
 
-    $scope.personDetail = function (size, id) {
-      var personDetailModal = $modal.open(
-        {
-          templateUrl: 'organizations/modals/person_detail_modal.html',
-          controller: 'PersonDetailCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size,
-          resolve:
-          {
-            id: function () {
-              return id
-            }
-          }
+    $scope.selected = [];
 
-        });
-
-
-
-      personDetailModal.result.then(function () {
-
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
-        });
+    $scope.filter = {
+      options: {
+        debounce: 500
+      }
     };
+
+    $scope.query = {filter: '',limit: '5',order: 'nameToLower',page: 1};
+
+    function success(people) {
+
+      $scope.people = people;
+      $scope.loaded = true;
+    }
+
+    $scope.onChange = function () {
+      console.log($scope.query)
+      return Organization.people(
+        $stateParams.organization_Id,
+        'people',
+        $scope.query
+      ).$promise.then(function(data, status, headers, config) {
+          $scope.loaded = true;
+          success(data)
+        })
+    };
+
+    function getPeople() {
+      $scope.deferred = $scope.onChange();
+    }
+
+    $scope.removeFilter = function () {
+      $scope.filter.show = false;
+      $scope.query.filter = '';
+
+      if($scope.filter.form.$dirty) {
+        $scope.filter.form.$setPristine();
+      }
+    };
+
+    $scope.$watchGroup(['query.filter', 'query.order', 'query.limit'], function (newValue, oldValue) {
+      if(!oldValue) {
+        var bookmark = $scope.query.page;
+      }
+
+      if(newValue !== oldValue) {
+        $scope.query.page = 1;
+      }
+
+      if(!newValue) {
+        $scope.query.page = bookmark;
+      }
+      console.log("blargh")
+      getPeople();
+    })
+
 
     $scope.bulkAddPeople = function (size) {
       var bulkAddModal = $modal.open(

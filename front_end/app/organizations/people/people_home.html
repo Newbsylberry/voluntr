@@ -4,29 +4,40 @@
     <div ng-if="!loaded">
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <md-list class="home-person-list" ng-if="loaded">
-      <a href="" ng-click="bulkAddPeople('lg')">Import People From Spreadsheet</a>
-      <md-list-item
-        class="md-3-line"
-        ng-repeat="person in people | orderBy : 'first_name'">
-        <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=small"
-             class="face"
-             alt="{{item.who}}"
-             width="50"
-             height="50"
-          />
-        <div
-          person-modal
-          class="md-list-item-text"
-          size="lg"
-          id={{person.id}}>
-          <h3>{{person.first_name}} {{person.last_name}}</h3>
-          <h1>{{person.total_recorded_hours}}</h1>
-          <!-- <h4>{{ item.what }}</h4>
-           <p>{{ item.notes }}</p> -->
-        </div>
-      </md-list-item>
-    </md-list>
+    <div ng-if="loaded">
+      <md-data-table-toolbar>
+        <h2 class="md-title">Volunteers</h2>
+      </md-data-table-toolbar>
+      <md-data-table-container>
+        <table md-data-table md-row-select="selected" md-progress="deferred">
+          <thead md-order="query.order" md-trigger="onOrderChange">
+          <tr>
+            <th name="First Name" order-by="first_name"></th>
+            <th name="Last Name" order-by="last_name"></th>
+            <th numeric name="City" order-by="city"></th>
+            <th numeric name="State" order-by="state"></th>
+            <th numeric name="Total Volunteer Hours"
+                order-by="total_volunteer_hours.value"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr md-auto-select ng-repeat="person in people">
+            <td>{{person.first_name}}</td>
+            <td>{{person.last_name}}</td>
+            <td>{{person.city}}</td>
+            <td>{{company.state}}</td>
+            <td>{{person.total_volunteer_hours}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </md-data-table-container>
+      <md-data-table-pagination
+        md-limit="query.limit"
+        md-page="query.page"
+        md-total="{{people.count}}"
+        md-trigger="onPaginationChange">
+      </md-data-table-pagination>
+    </div>
   </md-card-content>
 </md-card>
 

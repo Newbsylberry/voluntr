@@ -39,7 +39,8 @@ angular
     'angulartics',
     'angulartics.google.analytics',
     'ngIdle',
-    'ngCsv'
+    'ngCsv',
+    'md.data.table'
   ])
 
   .config(function(IdleProvider, KeepaliveProvider) {

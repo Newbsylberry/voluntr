@@ -15,6 +15,7 @@ angular.module('voluntrApp')
           organization_Id: '@id'}, {
           existence_check: {method: 'GET', url:'/api/v1/organizations/existence_check/:fb_id'},
           organization_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
+          organization_filtered_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
           authorization: {method: 'GET', url:'/api/v1/organizations/:organization_Id/authorization'},
           get_by_url: {method: 'GET', url:'/api/v1/organizations/by_url/:organization_custom_Url'},
           update: {method: 'PATCH'}
@@ -70,8 +71,8 @@ angular.module('voluntrApp')
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 
-    Organization.prototype.people = function(oId, obj) {
-      return this.service.organization_object({organization_Id: oId,object: obj})
+    Organization.prototype.people = function(oId, obj, query) {
+      return this.service.organization_filtered_object({organization_Id: oId,object: obj, query: query})
     };
 
     Organization.prototype.posts = function(oId, obj) {

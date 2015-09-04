@@ -65,7 +65,10 @@ class OrganizationsController < ApplicationController
 
   # Route to find an organizations people
   def people
-    render json: @current_organization.people, each_serializer: PersonSerializer
+    @query = JSON(params[:query])
+
+    render json: @current_organization.people.limit(@query["limit"].to_i),
+           each_serializer: PersonSerializer
   end
 
 
