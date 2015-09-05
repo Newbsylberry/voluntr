@@ -31,4 +31,8 @@ class Organization < ActiveRecord::Base
                                          find_by_service_type(service_type).default_list_id)
     end
   end
+
+  def total_people
+    self.people.count
+  end
 end

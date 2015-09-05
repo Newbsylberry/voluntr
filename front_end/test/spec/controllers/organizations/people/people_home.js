@@ -20,11 +20,7 @@ describe('Controller: PeopleHomeCtrl', function () {
   }));
 
 
-  it("scope.personDetail()", function() {
-    scope.personDetail()
-  })
-
-  it("scope.personDetail()", function() {
+  it("scope.bulkAddPeople()", function() {
     scope.bulkAddPeople()
   })
 

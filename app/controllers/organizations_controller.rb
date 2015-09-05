@@ -66,9 +66,18 @@ class OrganizationsController < ApplicationController
   # Route to find an organizations people
   def people
     @query = JSON(params[:query])
+    @order = @query["order"]
+    if @query["order"].include?('-')
+      puts true
+      @order = "#{@query["order"].tr('-', '')} DESC"
+      puts @order
+    else
+      puts false
+      @order = @query["order"]
+    end
+    people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
 
-    render json: @current_organization.people.limit(@query["limit"].to_i),
-           each_serializer: PersonSerializer
+    render json: people, each_serializer: PersonSerializer
   end
 
 
@@ -162,7 +171,7 @@ class OrganizationsController < ApplicationController
 
   def organization_params
     params.require(:organization).permit(:id, :fb_id, :name, :description, :address, :state, :city, :zip_code, :custom_url,
-    :website_url, :facebook_url, :twitter_url, :instagram_url)
+                                         :website_url, :facebook_url, :twitter_url, :instagram_url)
   end
 
 end

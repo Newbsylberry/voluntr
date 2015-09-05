@@ -14,10 +14,9 @@
           <tr>
             <th name="First Name" order-by="first_name"></th>
             <th name="Last Name" order-by="last_name"></th>
-            <th numeric name="City" order-by="city"></th>
-            <th numeric name="State" order-by="state"></th>
-            <th numeric name="Total Volunteer Hours"
-                order-by="total_volunteer_hours.value"></th>
+            <th name="City" order-by="city"></th>
+            <th name="State" order-by="state"></th>
+            <th numeric name="Total Volunteer Hours" order-by="total_volunteer_hours"></th>
           </tr>
           </thead>
           <tbody>
@@ -25,8 +24,8 @@
             <td>{{person.first_name}}</td>
             <td>{{person.last_name}}</td>
             <td>{{person.city}}</td>
-            <td>{{company.state}}</td>
-            <td>{{person.total_volunteer_hours}}</td>
+            <td>{{person.state}}</td>
+            <td>{{person.total_recorded_hours}}</td>
           </tr>
           </tbody>
         </table>
@@ -34,7 +33,7 @@
       <md-data-table-pagination
         md-limit="query.limit"
         md-page="query.page"
-        md-total="{{people.count}}"
+        md-total="{{total_people_count}}"
         md-trigger="onPaginationChange">
       </md-data-table-pagination>
     </div>

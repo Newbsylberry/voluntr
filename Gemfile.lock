@@ -241,6 +241,9 @@ GEM
     ipaddress (0.8.0)
     json (1.8.3)
     jwt (1.5.1)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     koala (1.11.1)
       addressable
       faraday
@@ -433,6 +436,7 @@ DEPENDENCIES
   httparty
   ice_cube
   jwt
+  kaminari
   koala (~> 1.11.0rc)
   letter_opener
   mail!

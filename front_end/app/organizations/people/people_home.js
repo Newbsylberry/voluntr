@@ -27,6 +27,12 @@ angular.module('voluntrApp')
     //      $scope.people = data;
     //})
 
+    console.log($scope.organization)
+    Organization.get({organization_Id: $stateParams.organization_Id}).$promise.then(function(data){
+
+      $scope.total_people_count = data.total_people;
+    })
+
     $scope.selected = [];
 
     $scope.filter = {
@@ -35,7 +41,7 @@ angular.module('voluntrApp')
       }
     };
 
-    $scope.query = {filter: '',limit: '5',order: 'nameToLower',page: 1};
+    $scope.query = {filter: '',limit: '5',order: 'first_name',page: 1};
 
     function success(people) {
 
@@ -44,13 +50,24 @@ angular.module('voluntrApp')
     }
 
     $scope.onChange = function () {
-      console.log($scope.query)
       return Organization.people(
         $stateParams.organization_Id,
         'people',
         $scope.query
       ).$promise.then(function(data, status, headers, config) {
           $scope.loaded = true;
+          success(data)
+        })
+    };
+
+    $scope.onPaginationChange = function(){
+      return Organization.people(
+        $stateParams.organization_Id,
+        'people',
+        $scope.query
+      ).$promise.then(function(data, status, headers, config) {
+          $scope.loaded = true;
+          console.log(data)
           success(data)
         })
     };
