@@ -9,7 +9,8 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunitiesHomeCtrl', function ($scope, Facebook, $stateParams,
-                                                 $http, $state, $filter, uiCalendarConfig, $modal) {
+                                                 $http, $state, $filter, uiCalendarConfig,
+                                                 $modal, Opportunity) {
 
     $scope.eventSources = [
       {
@@ -56,6 +57,11 @@ angular.module('voluntrApp')
             },
             start_time: function() {
               return start_time;
+            },
+            opportunity: function(){
+              return $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
+                success(function(data, status, headers, config) {
+                })
             }
           }
         });

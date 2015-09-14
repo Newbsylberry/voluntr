@@ -9,7 +9,7 @@
         <h2 class="md-title">Volunteers</h2>
       </md-data-table-toolbar>
       <md-data-table-container>
-        <table md-data-table md-row-select="selected" md-progress="deferred">
+        <table md-data-table md-progress="deferred">
           <thead md-order="query.order" md-trigger="onOrderChange">
           <tr>
             <th name="First Name" order-by="first_name"></th>
@@ -21,8 +21,8 @@
           </thead>
           <tbody>
           <tr md-auto-select ng-repeat="person in people">
-            <td>{{person.first_name}}</td>
-            <td>{{person.last_name}}</td>
+            <td person-modal id="{{person.id}}" size="lg"><a href="">{{person.first_name}}</a></td>
+            <td person-modal id="{{person.id}}" size="lg"><a href="">{{person.last_name}}</a></td>
             <td>{{person.city}}</td>
             <td>{{person.state}}</td>
             <td>{{person.total_recorded_hours}}</td>

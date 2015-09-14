@@ -18,7 +18,7 @@ angular.module('voluntrApp')
 
     $scope.opportunity = opportunity;
     $scope.person = person;
-    console.log($scope.person)
+
     $scope.addOpportunityPerson = function() {
       var attr = {};
       attr.person_id = person.id;

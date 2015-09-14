@@ -18,6 +18,10 @@ md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
   color: rgba(255,255,255,0.5);
 }
 
+.no-data-div {
+  text-align: center;
+}
+
 .tabfix{
   width: 100%;
     position: fixed;

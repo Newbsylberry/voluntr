@@ -1,4 +1,4 @@
-describe('OpportunityDetail', function () {
+describe('Controller: OpportunityDetailCtrl', function () {
 
   var controller, scope, modalInstance;
   beforeEach(module('voluntrApp'));
@@ -17,8 +17,19 @@ describe('OpportunityDetail', function () {
       $modalInstance: modalInstance
     });
     // scope.calendar.start_time = 'Sun May 31 2015 14:57:34 GMT-0400'
+    it("$scope.createOpportunityRole()", function() {
+      scope.createOpportunityRole();
+    })
 
-    $scope.createOpportunityRole();
+    it("$scope.updateOpportunityRole()", function() {
+      scope.updateOpportunityRole();
+    })
+
+    it("$scope.deleteOpportunityfdasfdsaRole()", function() {
+      var opportunity_role = {};
+      scope.deleteOpportunityRole(opportunity_role);
+    })
+
 
   }));
 

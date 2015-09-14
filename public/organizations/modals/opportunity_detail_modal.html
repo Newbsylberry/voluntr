@@ -255,7 +255,6 @@
             filename="{{opportunity.name}}_volunteers.csv"
             csv-header="['First Name', 'Last Name', 'Email Address', 'Hours Recorded']">
             Export To CSV</md-button>
-
         </div>
       </div>
     </md-tab-body>
@@ -266,10 +265,11 @@
       <div class="tabcontrol">
         <div class="tabcontrolin">
           <md-list>
-            <recorded-hour ng-repeat="recorded_hour in opportunity.recorded_hours"
-                           recorded-hour="recorded_hour"
+            <recorded-hour recorded-hour="recorded_hour"
                            recorded-hours="opportunity.recorded_hours"
-                           type="opportunity"></recorded-hour>
+                           type="opportunity"
+                           ng-repeat="recorded_hour in opportunity.recorded_hours">
+            </recorded-hour>
           </md-list>
         </div>
       </div>

@@ -4,7 +4,6 @@
     <md-tab-body >
       <div class="tabcontrol">
         <div class="tabcontrolin persontab" >
-          <!--  -->
           <div class="row person-information">
             <div class="col-md-3">
               <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
@@ -46,21 +45,27 @@
     </md-tab-body>
   </md-tab>
   <md-tab id="tab2">
-    <md-tab-label>Opportunities</md-tab-label>
-
     <!-- The Opportunities Tab -->
+    <md-tab-label>Opportunities</md-tab-label>
     <md-tab-body>
-      <md-list>
-        <md-item ng-repeat="person_opportunity in person.opportunities">
-          <md-item-content>
-            <highchart config="personOpportunitiesChart"></highchart>
-            <div class="md-tile-content">
-              <h3>{{person_opportunity.opportunity.name}}</h3>
-              <h3>{{person_opportunity.total_hours}}</h3>
-            </div>
-          </md-item-content>
-        </md-item>
-      </md-list>
+      <div class="tabcontrol">
+        <div class="tabcontrolin persontab">
+          <div ng-show="person.opportunities.length == 0" class="no-data-div">
+            <h2>This Person Hasn't Volunteered at Any Opportunities Yet!</h2>
+          </div>
+          <highchart config="personOpportunitiesChart"></highchart>
+          <md-list>
+            <md-item ng-repeat="person_opportunity in person.opportunities">
+              <md-item-content>
+                <div class="md-tile-content">
+                  <h3>{{person_opportunity.opportunity.name}}</h3>
+                  <h3>{{person_opportunity.total_hours}}</h3>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </div>
+      </div>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">
@@ -68,25 +73,17 @@
     <md-tab-body>
       <div class="tabcontrol">
         <div class="tabcontrolin persontab" >
+          <div ng-show="person.recorded_hours.length == 0" class="no-data-div">
+            <h2>This Person Hasn't Recorded Any Hours!</h2>
+          </div>
           <md-list>
-
             <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
                            recorded-hour="recorded_hour"
                            recorded-hours="person.recorded_hours"
                            type="person"></recorded-hour>
-
-
           </md-list>
         </div>
       </div>
-    </md-tab-body>
-  </md-tab>
-  <md-tab id="tab4">
-    <md-tab-label>Additional Information</md-tab-label>
-    <md-tab-body>
-
-
-
     </md-tab-body>
   </md-tab>
 </md-tabs>

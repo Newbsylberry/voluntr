@@ -56,7 +56,7 @@
   <h4>Repeat every</h4>
   <md-input-container>
     <label>Days</label>
-    <input type="text" >
+    <input type="text" ng-model="calendar.repeat.repeat_count">
   </md-input-container>
 </div>
 <div class="schweekly" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_weekly')">
@@ -91,18 +91,153 @@
     <div class="fixer"></div>
   </div>
 </div>
-<div class="schmonthly" ng-show="calendar.repeating_event && (calendar.repeat === 'repeat_monthly')">
+
+<!-- If the event is recurring monthly -->
+<div class="schmonthly" ng-show="calendar.repeating_event &&
+(calendar.repeat.repeat_type === 'repeat_monthly')">
   <h4>Repeat every</h4>
   <md-input-container>
     <label>Months</label>
-    <input type="text" >
+    <input type="text" ng-model="calendar.repeat.repeat_count">
   </md-input-container>
+
+  <!-- Is the monthly even on a day of the month, or a specific week of the month? -->
+  <md-radio-group ng-model="calendar.repeat.monthly_repeat.type" style="display:block;">
+    <md-radio-button  class="cradio"
+                      aria-label="On Day of the Month?"
+                      value="day_of_month">
+      On Day of the Month?
+    </md-radio-button>
+    <md-radio-button  class="cradio"
+                      aria-label="On Day of a Specific Week?"
+                      value="day_of_week">
+      On Day Of The Week?
+    </md-radio-button>
+    <div class="fixer"></div>
+  </md-radio-group>
+
+  <!-- If the event repeats monthly on a specific day: -->
+  <div ng-show="calendar.repeating_event &&
+    (calendar.repeat.repeat_type === 'repeat_monthly') &&
+         (calendar.repeat.monthly_repeat.type === 'day_of_month')">
+    <md-input-container>
+      <label>Which Day of the Month?</label>
+      <input type="text" ng-model="calendar.repeat.monthly_repeat.day_of_month">
+    </md-input-container>
+    {{calendar.repeat.monthly_repeat.day_of_month}}
+  </div>
+
+  <!-- If the event repeats on a specific week on a day -->
+  <div ng-show="calendar.repeating_event &&
+    (calendar.repeat.repeat_type === 'repeat_monthly') &&
+         (calendar.repeat.monthly_repeat.type === 'day_of_week')">
+    First Week of the Month:
+    <div>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.monday_repeat" aria-label="Monday" class="monthly ccheck">
+        Mon
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.tuesday_repeat" aria-label="Tuesday" class=" monthly ccheck">
+        Tue
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.wednesday_repeat" aria-label="Wednesday" class="monthly ccheck">
+        Wed
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.thursday_repeat" aria-label="Thursday" class="monthly ccheck">
+        Thu
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.friday_repeat" aria-label="Friday" class="monthly ccheck">
+        Fri
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.saturday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sat
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.sunday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sun
+      </md-checkbox>
+      <div class="fixer"></div>
+    </div>
+    Second Week of the Month:
+    <div>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.monday_repeat" aria-label="Monday" class="monthly ccheck">
+        Mon
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.tuesday_repeat" aria-label="Tuesday" class=" monthly ccheck">
+        Tue
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.wednesday_repeat" aria-label="Wednesday" class="monthly ccheck">
+        Wed
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.thursday_repeat" aria-label="Thursday" class="monthly ccheck">
+        Thu
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.friday_repeat" aria-label="Friday" class="monthly ccheck">
+        Fri
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.saturday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sat
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.sunday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sun
+      </md-checkbox>
+      <div class="fixer"></div>
+    </div>
+    Third Week of the Month:
+    <div>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.monday_repeat" aria-label="Monday" class="monthly ccheck">
+        Mon
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.tuesday_repeat" aria-label="Tuesday" class=" monthly ccheck">
+        Tue
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.wednesday_repeat" aria-label="Wednesday" class="monthly ccheck">
+        Wed
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.thursday_repeat" aria-label="Thursday" class="monthly ccheck">
+        Thu
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.friday_repeat" aria-label="Friday" class="monthly ccheck">
+        Fri
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.saturday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sat
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.sunday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sun
+      </md-checkbox>
+      <div class="fixer"></div>
+    </div>
+    Fourth Week of the Month:
+    <div>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.monday_repeat" aria-label="Monday" class="monthly ccheck">
+        Mon
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.tuesday_repeat" aria-label="Tuesday" class=" monthly ccheck">
+        Tue
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.wednesday_repeat" aria-label="Wednesday" class="monthly ccheck">
+        Wed
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.thursday_repeat" aria-label="Thursday" class="monthly ccheck">
+        Thu
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.friday_repeat" aria-label="Friday" class="monthly ccheck">
+        Fri
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.saturday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sat
+      </md-checkbox>
+      <md-checkbox ng-model="calendar.repeat.monthly_repeat.sunday_repeat" aria-label="Saturday" class="monthly ccheck">
+        Sun
+      </md-checkbox>
+      <div class="fixer"></div>
+    </div>
+  </div>
 </div>
 <div class="schannually" ng-show="calendar.repeating_event && (calendar.repeat.repeat_type === 'repeat_annually')">
   <h4>Repeat every</h4>
   <md-input-container>
     <label>Years</label>
-    <input type="text" >
+    <input type="text" ng-model="calendar.repeat.repeat_count">
   </md-input-container>
 </div>
 <div class="schdefault"

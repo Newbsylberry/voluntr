@@ -12,14 +12,13 @@ angular.module('voluntrApp')
                                             $stateParams, id, People, $timeout) {
 
     var addRecordedHoursToDash = function (recorded_hour) {
-      if (recorded_hour.date_recorded != null) {
+      if (recorded_hour.date_recorded  != null) {
        $scope.personStatisticGraphConfig.series[0].data.push
        ([Date.parse(recorded_hour.date_recorded), recorded_hour.hours])
        }
     };
 
     var addToPersonOpportunitiesChart = function (person_opportunity) {
-      console.log(person_opportunity)
       $scope.personOpportunitiesChart.series[0].data.push
       ([person_opportunity.opportunity.name, person_opportunity.total_hours]);
     };
@@ -67,6 +66,7 @@ angular.module('voluntrApp')
         text: "Person Dashboard"
       },
       loading: false,
+      noData: "This Person Hasn't Volunteered Yet!",
       size: {
         height: "250"
       }

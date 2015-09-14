@@ -8,14 +8,13 @@ angular.module('voluntrApp').directive("objectSchedule", function () {
     },
     restrict: 'E',
     controller: function ($scope, $modal) {
-
       console.log($scope.object)
+        $scope.eventSources = [
+          {
+            url: 'api/v1/' + $scope.objectType + '/' + $scope.object.id + '/schedule'
+          }
+        ];
 
-      $scope.eventSources = [
-        {
-          url: 'api/v1/' + $scope.objectType + '/' + $scope.object.id + '/schedule'
-        }
-      ];
 
 
       $scope.editSchedule = function (size) {
