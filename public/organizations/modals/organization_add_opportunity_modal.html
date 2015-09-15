@@ -8,10 +8,16 @@
       <div class="tabcontrol">
         <div class="tabcontrolin">
           <!--<h1>Add Volunteering Position</h1>-->
-          <md-input-container>
+          <div layout="row">
+          <md-input-container flex="66">
             <label>Opportunity Name</label>
             <input ng-model="newOpportunity.opportunity_name">
           </md-input-container>
+            <md-input-container flex="33">
+              <label>How Many Volunteers?</label>
+              <input ng-model="newOpportunity.volunteer_goal">
+            </md-input-container>
+          </div>
           <md-input-container flex>
             <label>Description</label>
             <textarea ng-model="newOpportunity.description" columns="1" md-maxlength="150"></textarea>

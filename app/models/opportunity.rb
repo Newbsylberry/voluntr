@@ -9,6 +9,7 @@ class Opportunity < ActiveRecord::Base
   has_many :people, through: :person_opportunities
   has_many :opportunity_roles
   has_many :recorded_hours
+  has_many :opportunity_instances
   belongs_to :organization
   has_many :organization_email_templates, through: :organization
   geocoded_by :full_street_address   # can also be an IP address

@@ -97,8 +97,8 @@ module SchedulerTool
       schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
 
 
-        instance = opportunity.class.new
-        instance.title = opportunity.name
+        instance = OpportunityInstance.new
+        instance.opportunity = opportunity
         instance.id = opportunity.id
         instance.color = opportunity.color
         instance.start = occ.start_time

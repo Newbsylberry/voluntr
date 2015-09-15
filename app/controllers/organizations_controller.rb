@@ -103,7 +103,7 @@ class OrganizationsController < ApplicationController
 
 
     render json: SchedulerTool.list_of_instances(@organization, params[:start], params[:end]),
-           each_serializer: OpportunitySerializer
+           each_serializer: OpportunityInstanceSerializer
   end
 
   def recorded_hours
