@@ -17,6 +17,7 @@ angular.module('voluntrApp')
                                                  $modalInstance, $cacheFactory, $timeout,
                                                  OpportunityRole, opportunity) {
 
+
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
@@ -30,7 +31,6 @@ angular.module('voluntrApp')
     };
 
     $scope.opportunity = opportunity.data;
-    console.log($scope.opportunity)
 
     Opportunity.instance_statistics($scope.opportunity.id, 'instance_statistics').$promise.then(function(instance_statistics) {
       angular.forEach(instance_statistics, addToDashboard)
@@ -169,35 +169,35 @@ angular.module('voluntrApp')
     };
 
 
-    $scope.addOpportunityPersonModal = function (size, person) {
-      var addOpportunityPersonModal = $modal.open(
-        {
-          templateUrl: 'organizations/modals/add_opportunity_person.html',
-          controller: 'AddOpportunityPersonCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size,
-          resolve:
-          {
-            person: function() {
-              return person;
-            },
-            opportunity: function(){
-              return $scope.opportunity;
-            },
-            start_time: function(){
-              return start_time;
-            }
-          }
-        });
-
-      addOpportunityPersonModal.result.then(function () {
-
-        },
-        function () {
-
-          console.log('Modal dismissed at: ' + new Date());
-        });
-    };
+    //$scope.addOpportunityPersonModal = function (size, person) {
+    //  var addOpportunityPersonModal = $modal.open(
+    //    {
+    //      templateUrl: 'organizations/modals/add_person_opportunity.html',
+    //      controller: 'AddOpportunityPersonCtrl',
+    //      windowClass: 'add-event-modal-window',
+    //      size: size,
+    //      resolve:
+    //      {
+    //        person: function() {
+    //          return person;
+    //        },
+    //        opportunity: function(){
+    //          return $scope.opportunity;
+    //        },
+    //        start_time: function(){
+    //          return start_time;
+    //        }
+    //      }
+    //    });
+    //
+    //  addOpportunityPersonModal.result.then(function () {
+    //
+    //    },
+    //    function () {
+    //
+    //      console.log('Modal dismissed at: ' + new Date());
+    //    });
+    //};
 
     $scope.registerFormPreview = function (size, opportunity) {
       var registerFormPreview = $modal.open(

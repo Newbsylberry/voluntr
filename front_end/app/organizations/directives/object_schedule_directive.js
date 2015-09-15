@@ -61,8 +61,36 @@ angular.module('voluntrApp').directive("objectSchedule", function () {
             // (Monday-Thursday in this example)
           }
         }
-
       };
+
+      $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
+        if($scope.objectType == "opportunity") {
+            var addOpportunityPerson = $modal.open(
+              {
+                templateUrl: 'organizations/modals/add_person_opportunity.html',
+                controller: 'AddOpportunityPersonCtrl',
+                windowClass: 'add-opportunity-person',
+                size: 'sm',
+                resolve:
+                {
+                  opportunity: function () {
+                    return $scope.object;
+                  },
+                  start_time: function() {
+                    return calEvent
+                  }
+                }
+              });
+          addOpportunityPerson.result.then(function () {
+
+              },
+              function () {
+                console.log('Modal dismissed at: ' + new Date());
+              });
+          };
+      };
+
+
     }
   };
 });
