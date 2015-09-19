@@ -58,7 +58,7 @@ angular.module('voluntrApp')
           url: 'api/v1/organizations/' + $scope.organization.id,
           method: 'PATCH',
           // fields: { 'organization[name]': $scope.organization.name },
-          file: {'organization[upload]': file}
+          file: {'organization[terms_of_service_file]': file}
         });
 
         file.upload.then(function (response) {
