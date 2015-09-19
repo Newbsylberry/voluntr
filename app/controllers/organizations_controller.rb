@@ -170,8 +170,9 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organization).permit(:id, :fb_id, :name, :description, :address, :state, :city, :zip_code, :custom_url,
-                                         :website_url, :facebook_url, :twitter_url, :instagram_url)
+    params.require(:organization).permit(:id, :fb_id, :name, :description, :address, :state, :city, :zip_code,
+                                         :custom_url, :website_url, :facebook_url, :twitter_url, :instagram_url,
+                                         :terms_of_service_file)
   end
 
 end

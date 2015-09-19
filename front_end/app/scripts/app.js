@@ -23,6 +23,8 @@ angular
     'ui.router',
     'duScroll',
     'ngMaterial',
+    'ngFileUpload',
+    'pdf',
     'ngMap',
     'Devise',
     'geolocation',

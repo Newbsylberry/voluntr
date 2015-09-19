@@ -70,6 +70,19 @@
       <md-tab id="tab3">
         <md-tab-label>Organization Settings</md-tab-label>
         <md-tab-body>
+          <h4>Upload Custom Terms of Service</h4>
+          <button type="file" ngf-select="uploadFiles($file)"
+                  accept="application/pdf" ngf-max-height="1000" ngf-max-size="5MB">
+            Select File</button>
+          <br><br>
+          File:
+          <div style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+          <div style="width:{{f.progress}}%"
+               ng-bind="f.progress + '%'"></div>
+      </span>
+          </div>
+          {{errorMsg}}
             <md-list>
                 <md-list-item class="urledit">
           <edit-object-directive

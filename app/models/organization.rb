@@ -8,8 +8,9 @@ class Organization < ActiveRecord::Base
   has_many :organization_email_templates
   has_many :organization_mailing_services
   has_many :mailing_service_lists, through: :organization_mailing_services
-
+  require 'carrierwave/orm/activerecord'
   validates :custom_url, uniqueness: true
+  mount_uploader :terms_of_service_file, TermsOfServiceUploader
 
 
   after_initialize do |organization|
