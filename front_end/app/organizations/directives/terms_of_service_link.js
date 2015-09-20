@@ -7,7 +7,7 @@ angular.module('voluntrApp').directive("termsOfService", function ($modal) {
           templateUrl: 'organizations/modals/terms_of_service.html',
           controller: 'TOSCtrl',
           windowClass: 'terms-of-service-modal',
-          size: 'lg',
+          size: 'md',
           resolve:
           {
             organization_id: function () {

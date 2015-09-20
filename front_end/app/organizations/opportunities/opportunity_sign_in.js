@@ -15,11 +15,6 @@ angular.module('voluntrApp')
                                                        Opportunity, PersonOpportunity,
                                                         $modal, $filter, Facebook, Organization) {
 
-
-
-
-
-
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;
 
@@ -32,6 +27,25 @@ angular.module('voluntrApp')
       })
     });
 
+    $scope.terms_of_service = true;
+
+    $scope.$watchGroup([
+      'opportunitySignIn.first_name',
+      'opportunitySignIn.last_name',
+      'opportunitySignIn.email',
+      'opportunitySignIn.phone'], function(){
+      if (!$scope.opportunitySignIn.first_name ||
+        !$scope.opportunitySignIn.last_name ||
+        (!$scope.opportunitySignIn.email && !$scope.opportunitySignIn.phone)
+      ) {
+        $scope.form_complete = false;
+      } else if ($scope.opportunitySignIn.first_name ||
+        $scope.opportunitySignIn.last_name ||
+        ($scope.opportunitySignIn.email || $scope.opportunitySignIn.phone)
+      ) {
+        $scope.form_complete = true;
+      }
+    });
 
 
     $scope.signInForOpportunity = function() {
@@ -55,7 +69,7 @@ angular.module('voluntrApp')
       var opportunitySignInConfirmation = $modal.open(
         {
           templateUrl: 'organizations/modals/confirm_opportunity_sign_in.html',
-            controller: 'OpportunitySignInConfirmationCtrl',
+          controller: 'OpportunitySignInConfirmationCtrl',
           windowClass: 'add-event-modal-window',
           resolve: {
             person: function() {
