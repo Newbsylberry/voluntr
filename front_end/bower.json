@@ -54,5 +54,14 @@
     "angular": "~1.4.4",
     "angular-animate": "~1.4.0",
     "jquery": "~2.x"
+  },
+  "overrides": {
+    "pdfjs-dist": {
+      "main": [
+        "build/pdf.js",
+        "build/pdf.worker.js",
+        "build/pdf.combined.js"
+      ]
+    }
   }
 }
