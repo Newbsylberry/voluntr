@@ -13,25 +13,6 @@ angular.module('voluntrApp')
 
     $scope.loaded = false;
 
-    //$http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
-    //  success(function(data, status, headers, config) {
-    //    $scope.loaded = true;
-    //    $scope.people = data;
-    //  }).
-    //  error(function(data, status, headers, config) {
-    //
-    //  });
-
-    //Organization.people($stateParams.organization_Id, 'people').$promise.then(function(data) {
-    //      $scope.loaded = true;
-    //      $scope.people = data;
-    //})
-
-
-    Organization.get({organization_Id: $stateParams.organization_Id}).$promise.then(function(data){
-      $scope.total_people_count = data.total_people;
-    })
-
     $scope.selected = [];
 
     $scope.filter = {
@@ -44,6 +25,9 @@ angular.module('voluntrApp')
 
     function success(people) {
       $scope.people = people;
+      angular.forEach(people, function(person){
+        $scope.total_people_count = person.count;
+      })
       $scope.loaded = true;
     }
 
@@ -65,7 +49,6 @@ angular.module('voluntrApp')
         $scope.query
       ).$promise.then(function(data, status, headers, config) {
           $scope.loaded = true;
-          console.log(data)
           success(data)
         })
     };

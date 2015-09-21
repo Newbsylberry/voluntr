@@ -74,13 +74,14 @@ class OrganizationsController < ApplicationController
     end
     if @query["contact_only"] == true
       people = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i)
-      count = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i).count
+      count = @current_organization.people.contact_information_completed.count
     else
       people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+      count = @current_organization.people.count
     end
 
 
-    render json: people, each_serializer: PersonSerializer
+    render json: people, each_serializer: PersonSerializer, count: count
   end
 
 
