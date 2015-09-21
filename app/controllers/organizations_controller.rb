@@ -74,6 +74,7 @@ class OrganizationsController < ApplicationController
     end
     if @query["contact_only"] == true
       people = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+      count = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i).count
     else
       people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
     end

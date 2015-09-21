@@ -100,7 +100,6 @@ angular.module('voluntrApp')
 
 
     $scope.filterByContactInformation = function() {
-      $scope.query.contact_only = true;
       getPeople();
   };
 
