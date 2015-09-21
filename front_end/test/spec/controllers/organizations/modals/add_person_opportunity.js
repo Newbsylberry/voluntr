@@ -26,13 +26,14 @@ describe('Controller: AddOpportunityPersonCtrl', function () {
       $scope: scope,
       person: {},
       opportunity: {},
-      start_time: 1,
+      start_time: {_start:{_i:{}}},
       $modalInstance: modalInstance
       // place here mocked dependencies
     });
   }));
 
   it('$scope.addOpportunityPerson()', function () {
+    scope.person = {};
     scope.addOpportunityPerson()
   });
 

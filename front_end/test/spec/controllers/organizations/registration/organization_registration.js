@@ -24,7 +24,7 @@ describe('Controller: OrganizationRegistrationCtrl', function () {
     Organization = {                    // Create a mock object using spies
       authorization: jasmine.createSpy('Organization.authorization()'),
       getLoginStatus: jasmine.createSpy('Facebook.getLoginStatus()'),
-      $promise: jasmine.createSpy('User.create().$promise')
+      $promise: jasmine.createSpy('Organization.create().$promise')
     }
     scope = $rootScope.$new();
     StaticPagesCtrl = $controller('OrganizationRegistrationCtrl', {
