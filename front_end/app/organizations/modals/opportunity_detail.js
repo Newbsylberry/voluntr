@@ -15,7 +15,8 @@ angular.module('voluntrApp')
                                                  $http, $state, Opportunity, id,
                                                  PersonOpportunity, start_time, $modal,
                                                  $modalInstance, $cacheFactory, $timeout,
-                                                 OpportunityRole) {
+                                                 OpportunityRole, opportunity) {
+
 
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
@@ -28,6 +29,33 @@ angular.module('voluntrApp')
       $scope.opportunityRolesChart.series[0].data.push
       ([role.name, role.total_recorded_hours]);
     };
+
+    $scope.opportunity = opportunity.data;
+
+    Opportunity.instance_statistics($scope.opportunity.id, 'instance_statistics').$promise.then(function(instance_statistics) {
+      angular.forEach(instance_statistics, addToDashboard)
+    });
+
+    Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
+      $scope.opportunity.volunteers = volunteers;
+    });
+
+    Opportunity.roles($scope.opportunity.id, 'roles').$promise.then(function(roles) {
+      $scope.opportunity.opportunity_roles = roles;
+      angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
+    });
+
+    Opportunity.roles($scope.opportunity.id, 'recorded_hours').$promise.then(function(recorded_hours) {
+      $scope.opportunity.recorded_hours = recorded_hours;
+    });
+
+    $cacheFactory.current_calendar = {};
+    $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
+    $cacheFactory.current_calendar.id = $scope.opportunity.id;
+    $cacheFactory.current_calendar.type = 'Opportunity';
+    $cacheFactory.current_calendar.start_time = new Date(parseInt($scope.opportunity.start_time))
+    $cacheFactory.current_calendar.duration = $scope.opportunity.duration;
+
 
     $scope.opportunity_role = {};
     $scope.createOpportunityRole = function(opportunity_role) {
@@ -66,41 +94,6 @@ angular.module('voluntrApp')
       $scope.opportunity_role.name = "";
       $scope.opportunity_role.description = "";
     };
-
-    $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
-      success(function(data, status, headers, config) {
-        $scope.opportunity = data;
-        Opportunity.instance_statistics(id, 'instance_statistics').$promise.then(function(instance_statistics) {
-          angular.forEach(instance_statistics, addToDashboard)
-        });
-
-        Opportunity.volunteers(id, 'volunteers').$promise.then(function(volunteers) {
-          $scope.opportunity.volunteers = volunteers;
-        });
-
-        Opportunity.roles(id, 'roles').$promise.then(function(roles) {
-          console.log(roles)
-          $scope.opportunity.opportunity_roles = roles;
-          angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
-        });
-
-        Opportunity.roles(id, 'recorded_hours').$promise.then(function(recorded_hours) {
-          $scope.opportunity.recorded_hours = recorded_hours;
-        });
-
-
-
-
-        $cacheFactory.current_calendar = {};
-        $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
-        $cacheFactory.current_calendar.id = $scope.opportunity.id;
-        $cacheFactory.current_calendar.type = 'Opportunity';
-        $cacheFactory.current_calendar.start_time = new Date(parseInt($scope.opportunity.start_time))
-        $cacheFactory.current_calendar.duration = $scope.opportunity.duration;
-        //
-        //$cacheFactory.opportunity = $scope.opportunity;
-      })
-
 
     $scope.getArray = function() {
       var volunteers = []
@@ -146,10 +139,10 @@ angular.module('voluntrApp')
     var peopleResults = function(raw_result) {
       var base_result = raw_result._source
       var person = {}
-        person.id = base_result.person_id;
-        person.first_name = base_result.person.first_name;
-        person.last_name = base_result.person.last_name;
-        person.score = raw_result.score;
+      person.id = base_result.person_id;
+      person.first_name = base_result.person.first_name;
+      person.last_name = base_result.person.last_name;
+      person.score = raw_result.score;
       $scope.organization_people.push(person)
     };
 
@@ -176,35 +169,35 @@ angular.module('voluntrApp')
     };
 
 
-    $scope.addOpportunityPersonModal = function (size, person) {
-      var addOpportunityPersonModal = $modal.open(
-        {
-          templateUrl: 'organizations/modals/add_opportunity_person.html',
-          controller: 'AddOpportunityPersonCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size,
-          resolve:
-          {
-            person: function() {
-              return person;
-            },
-            opportunity: function(){
-              return $scope.opportunity;
-            },
-            start_time: function(){
-              return start_time;
-            }
-          }
-        });
-
-      addOpportunityPersonModal.result.then(function () {
-
-        },
-        function () {
-
-          console.log('Modal dismissed at: ' + new Date());
-        });
-    };
+    //$scope.addOpportunityPersonModal = function (size, person) {
+    //  var addOpportunityPersonModal = $modal.open(
+    //    {
+    //      templateUrl: 'organizations/modals/add_person_opportunity.html',
+    //      controller: 'AddOpportunityPersonCtrl',
+    //      windowClass: 'add-event-modal-window',
+    //      size: size,
+    //      resolve:
+    //      {
+    //        person: function() {
+    //          return person;
+    //        },
+    //        opportunity: function(){
+    //          return $scope.opportunity;
+    //        },
+    //        start_time: function(){
+    //          return start_time;
+    //        }
+    //      }
+    //    });
+    //
+    //  addOpportunityPersonModal.result.then(function () {
+    //
+    //    },
+    //    function () {
+    //
+    //      console.log('Modal dismissed at: ' + new Date());
+    //    });
+    //};
 
     $scope.registerFormPreview = function (size, opportunity) {
       var registerFormPreview = $modal.open(

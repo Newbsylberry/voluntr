@@ -8,8 +8,9 @@ class Organization < ActiveRecord::Base
   has_many :organization_email_templates
   has_many :organization_mailing_services
   has_many :mailing_service_lists, through: :organization_mailing_services
-
+  require 'carrierwave/orm/activerecord'
   validates :custom_url, uniqueness: true
+  mount_uploader :terms_of_service_file, TermsOfServiceUploader
 
 
   after_initialize do |organization|
@@ -30,5 +31,9 @@ class Organization < ActiveRecord::Base
       return MailingServiceList.find(self.organization_mailing_services.
                                          find_by_service_type(service_type).default_list_id)
     end
+  end
+
+  def total_people
+    self.people.count
   end
 end

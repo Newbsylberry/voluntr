@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
 gem 'fuzzy_match'
+gem 'kaminari'
 
 
 

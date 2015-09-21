@@ -60,6 +60,7 @@ module.exports = function(config) {
       "bower_components/ng-idle/angular-idle.js",
       "bower_components/ng-csv/build/ng-csv.min.js",
       "bower_components/angular-daterangepicker/js/angular-daterangepicker.js",
+      "bower_components/angular-material-data-table/dist/md-data-table.min.js",
       // endbower
       'app/scripts/**/*.js',
       'app/organizations/**/*.js',

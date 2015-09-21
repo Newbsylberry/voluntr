@@ -139,20 +139,31 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
 
     context "When a user wants to create a schedule that repeats monthly" do
-      before(:each) do
-        @params[:calendar][:repeat][:repeat_type] = 'repeat_monthly'
-      end
-
       it "creates a schedule that repeats monthly" do
-
+        @params[:calendar][:repeat][:repeat_type] = 'repeat_monthly'
+        ap @params
         schedule = IceCube::Schedule.from_yaml(SchedulerTool.schedule_from_params(@params, Opportunity.new))
-
+        ap schedule
         schedule.to_hash[:rrules].each do |r|
-
           expect(r[:rule_type]).to eq("IceCube::MonthlyRule")
         end
+      end
 
+      it "creates a schedule that repeats on the second and fourth tuesday and the first and third thursday" do
+        @params = {
+            :calendar => {
+                :start_time => 1441288800000,
+                :end_time => 1441298800000,
+                :repeating_event => true,
+                :repeat => {
+                    :repeat_type => "repeat_monthly",
+                    "monthly_repeat_type"=>{}, "repeat_count"=>"1", "monthly_repeat"=>{"type"=>"day_of_week", "tuesday_repeat"=>{"second_week"=>true, "fourth_week"=>true}, "thursday_repeat"=>{"first_week"=>true, "third_week"=>true}}
+                }
+            }
+        }
+        schedule = IceCube::Schedule.from_yaml(SchedulerTool.schedule_from_params(@params, Opportunity.new))
 
+        expect(schedule.occurrences(Time.now + 3.months).count).to eq(14)
       end
 
 
@@ -198,7 +209,7 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
 
       schedule = IceCube::Schedule.from_yaml(SchedulerTool.schedule_from_params(@params, @opportunity))
 
-      expect(schedule.occurrences(DateTime.parse("2015-08-12 22:33:07 -0600")).count).to eq(17)
+      expect(schedule.occurrences(DateTime.parse("2015-08-12 22:33:07 -0600")).count).to eq(11)
     end
 
 

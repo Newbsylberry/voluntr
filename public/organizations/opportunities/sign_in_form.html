@@ -26,15 +26,27 @@
           <label>Email Address:</label>
           <input type="text" ng-model="opportunitySignIn.email">
         </md-input-container>
-        <md-checkbox ng-model="no_email" aria-label="No Email Address?">
-          No Email Address?
-        </md-checkbox>
         <md-input-container ng-show="no_email">
           <label>Phone Number</label>
           <input type="text" ng-model="opportunitySignIn.phone">
         </md-input-container>
-        <button style="margin-top:20px;    float:right;"class="btn btn-lg bbutton"
-                ng-click="signInForOpportunity()">Sign In To This Event</button>
+        <md-checkbox ng-model="no_email" aria-label="No Email Address?">
+          No Email Address?
+        </md-checkbox>
+        <md-button class="bbutton"
+                ng-click="signInForOpportunity()"
+                ng-disabled="!terms_of_service || !form_complete">Sign In To This Event
+        </md-button>
+        <md-checkbox
+          class="tos_check"
+          ng-model="terms_of_service"
+          aria-label="No Email Address?">
+          I agree to {{opportunity.organization.name}}'s
+          <a href=""
+             terms-of-service
+             organization_id="{{opportunity.organization.id}}">
+          Terms of Service</a>
+        </md-checkbox>
       </div>
       <div class="fixer"></div>
     </div>

@@ -23,6 +23,8 @@ angular
     'ui.router',
     'duScroll',
     'ngMaterial',
+    'ngFileUpload',
+    'pdf',
     'ngMap',
     'Devise',
     'geolocation',
@@ -39,7 +41,8 @@ angular
     'angulartics',
     'angulartics.google.analytics',
     'ngIdle',
-    'ngCsv'
+    'ngCsv',
+    'md.data.table'
   ])
 
   .config(function(IdleProvider, KeepaliveProvider) {

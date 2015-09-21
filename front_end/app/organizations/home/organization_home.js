@@ -20,10 +20,8 @@ angular.module('voluntrApp')
 
 
     var addPostToGraph = function (post) {
-
       $scope.lineGraphConfig.series[0].data.push
       ([Date.parse(post.post_time), Number(post.likes)])
-
     };
 
     var addDailyStatisticsToGraph = function(day){
@@ -49,11 +47,9 @@ angular.module('voluntrApp')
           organization_Id: $stateParams.organization_Id,
           oauth_key: response.authResponse.accessToken
         }, function (successResponse) {
-
           // find the organizations information on facebook
           $scope.organization = successResponse
           $rootScope.organization_id = successResponse.id;
-
           Organization.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function (recorded_hours) {
             $scope.organization.recorded_hours = recorded_hours;
           });
@@ -72,91 +68,12 @@ angular.module('voluntrApp')
         }).$promise.then(function(){
             $scope.loaded = true;
           })
-
       }
-
       // If not connected then take them back to the first page
       else if (response.status !== 'connected') {
         $state.go('landing_page.initial_page')
       }
     });
-
-
-
-    $scope.generated_stories = ""
-    // Function that manages the post modal in the side bar
-    $scope.open = function (size) {
-      var addDataModal = $modal.open(
-        {
-          templateUrl: 'views/add_additional_data.html',
-          controller: 'AddDataCtrl',
-          // windowClass: 'create-profile-modal-window',
-          size: size,
-          resolve:{
-
-            // Example using function with simple return value.
-            // Since it's not a promise, it resolves immediately.
-            organization:  function(){
-              return $scope.organization;
-            }
-
-          }});
-
-      addDataModal.result.then(function () {
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
-
-          console.log($scope.generated_stories);
-        });
-    };
-
-    $scope.user_stories = false;
-
-    $scope.addEvent = function(event) {
-      var attr = {};
-      attr.fb_id = event.id;
-      attr.name = event.name;
-      attr.location = event.location;
-      attr.description = event.description;
-      attr.latitude = event.venue.latitude;
-      attr.longitude = event.venue.longitude;
-      attr.start_time = event.start_time;
-      attr.end_time = event.end_time;
-      attr.timezone = event.timezone;
-      attr.organization_id = $stateParams.organization_Id;
-      var newEvent = Event.create(attr);
-      $scope.event.exists;
-      console.log($scope.event);
-    };
-
-    $scope.addEventToGraph = function(event, index) {
-      console.log(index)
-      if (!event.graph_active) {
-        console.log(event)
-        var plotLine = {};
-        plotLine.color = 'red';
-        plotLine.dashStyle = 'longdashdot';
-        plotLine.value = Date.parse(event.start_time);
-        plotLine.width = 3;
-        plotLine.label = {};
-        plotLine.label.text = event.name;
-        $rootScope.lineGraphConfig.xAxis.plotLines.push(plotLine);
-        event.plot_line_index = $rootScope.lineGraphConfig.xAxis.plotLines.indexOf(plotLine);
-        var newDataPoint = [];
-        newDataPoint[0] = Date.parse(event.start_time) + 604800000;
-        newDataPoint[1] = null;
-        $rootScope.lineGraphConfig.series[0].data.push(newDataPoint);
-        event.event_data_point_index = $rootScope.lineGraphConfig.series[0].data.indexOf(newDataPoint);
-        $scope.organization.posts[index] = event;
-        console.log(event.event_data_point);
-      } else if (event.graph_active) {
-        if (index > - 1) {
-          $rootScope.lineGraphConfig.xAxis.plotLines.splice(event.plotLineIndex, 1)
-          $rootScope.lineGraphConfig.series[0].data.splice(event.event_data_point_index, 1)
-        }
-      };
-    };
 
 
     $rootScope.lineGraphConfig = {
@@ -211,7 +128,5 @@ angular.module('voluntrApp')
       }
     };
 
-
-    console.log($scope.lineGraphConfig)
   });
 

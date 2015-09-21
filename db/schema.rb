@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830002716) do
+ActiveRecord::Schema.define(version: 20150919161517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,13 @@ ActiveRecord::Schema.define(version: 20150830002716) do
     t.text     "schedule"
   end
 
+  create_table "opportunity_instances", force: :cascade do |t|
+    t.integer  "opportunity_id"
+    t.datetime "instance_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "opportunity_roles", force: :cascade do |t|
     t.integer  "opportunity_id"
     t.string   "name"
@@ -134,8 +141,8 @@ ActiveRecord::Schema.define(version: 20150830002716) do
   create_table "organizations", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "fb_id",              limit: 8
-    t.string   "name",               limit: 255
+    t.integer  "fb_id",                 limit: 8
+    t.string   "name",                  limit: 255
     t.text     "description"
     t.datetime "last_social_update"
     t.string   "address"
@@ -147,6 +154,7 @@ ActiveRecord::Schema.define(version: 20150830002716) do
     t.text     "facebook_url"
     t.text     "twitter_url"
     t.text     "instagram_url"
+    t.string   "terms_of_service_file"
   end
 
   create_table "people", force: :cascade do |t|
@@ -176,6 +184,7 @@ ActiveRecord::Schema.define(version: 20150830002716) do
     t.datetime "updated_at"
     t.text     "schedule"
     t.integer  "opportunity_role_id"
+    t.json     "instances",           default: []
   end
 
   create_table "posts", force: :cascade do |t|

@@ -184,6 +184,10 @@ class Person < ActiveRecord::Base
 
     return @resource
   end
+
+
+
+
 end
 
 

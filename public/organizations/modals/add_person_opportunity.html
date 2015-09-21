@@ -1,0 +1,13 @@
+<form id="person-opportunity-form">
+  <find-person person="person"></find-person>
+  <select
+    class="form-control"
+    ng-model="opportunity_role"
+    ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles">
+    <option value="">-- Select Role --</option>
+  </select>
+  <button
+    ng-click="addOpportunityPerson()"
+    class="btn btn-block">Add to Opportunity</button>
+  <p ng-show="!person" style="color: red;">Please Select a Volunteer to Add</p>
+</form>

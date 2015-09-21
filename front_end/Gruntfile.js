@@ -370,7 +370,8 @@ module.exports = function (grunt) {
           src: ['*.html', 'views/{,*/}*.html',
             'organizations{,*/}*.html',
             'volunteers{,*/}*.html',
-            'static_pages{,*/}*.html'],
+            'static_pages{,*/}*.html',
+            'partials{,*/}*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -414,6 +415,7 @@ module.exports = function (grunt) {
             'volunteers/**/*.html',
             'static_pages/**/*.html',
             'navigation/**/*.html',
+            'partials/**/*.html',
             'images/**/*.{webp}',
             'fonts/*'
           ]

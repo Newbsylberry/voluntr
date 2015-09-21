@@ -8,6 +8,7 @@ class PersonOpportunitiesController < ApplicationController
                               .find_or_initialize_by(person_id: params[:person_id],
                                                      opportunity_id: params[:opportunity_id],
                                                      opportunity_role_id: params[:opportunity_role_id])
+    @person_opportunity.instances.push(params[:instance])
     @person_opportunity.save
     end
 
@@ -17,7 +18,8 @@ class PersonOpportunitiesController < ApplicationController
     private
 
     def person_opportunity_params
-      params.require(:person_opportunity).permit(:person_id, :opportunity_id, :schedule, :opportunity_role_id)
+      params.require(:person_opportunity).permit(:person_id, :opportunity_id, :schedule,
+                                                 :opportunity_role_id, :instances)
     end
 
     end

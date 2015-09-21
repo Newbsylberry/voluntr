@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunityRegistrationCtrl', function ($scope, People, $stateParams,
-                                                      Opportunity, PersonOpportunity, $modal, Organization, Facebook) {
+                                                       Opportunity, PersonOpportunity, $modal, Organization, Facebook) {
 
 
 
@@ -26,16 +26,22 @@ angular.module('voluntrApp')
     });
 
     $scope.registerForOpportunity = function() {
-      var attr = {};
-      attr.opportunity_id = $stateParams.opportunity_Id;
-      attr.first_name = $scope.opportunityRegister.first_name;
-      attr.last_name = $scope.opportunityRegister.last_name;
-      attr.email = $scope.opportunityRegister.email;
-      PersonOpportunity.create(attr)
-      $scope.opportunityRegister.first_name = "";
-      $scope.opportunityRegister.last_name = "";
-      $scope.opportunityRegister.email = "";
-      $scope.opportunityRegistrationConfirmation('md')
+      if ($scope.opportunityRegister.first_name &&
+        $scope.opportunityRegister.last_name &&
+        $scope.opportunityRegister.email ) {
+        var attr = {};
+        attr.opportunity_id = $stateParams.opportunity_Id;
+        attr.first_name = $scope.opportunityRegister.first_name;
+        attr.last_name = $scope.opportunityRegister.last_name;
+        attr.email = $scope.opportunityRegister.email;
+        PersonOpportunity.create(attr)
+        $scope.opportunityRegister.first_name = "";
+        $scope.opportunityRegister.last_name = "";
+        $scope.opportunityRegister.email = "";
+        $scope.opportunityRegistrationConfirmation('md')
+      } else {
+        alert("Please Enter All Information")
+      }
     };
 
     $scope.opportunityRegistrationConfirmation = function (size) {

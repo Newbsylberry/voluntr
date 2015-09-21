@@ -39,7 +39,7 @@
         <md-option  ng-repeat="opportunity_role.name in opportunity.opportunity_roles" value="{{opportunity_role}}">{{opportunity_role}}</md-option>
       </md-select>-->
     <p class="check"><input type="checkbox" ng-model="photo_consent" checked="checked" >
-      I allow grant {{opportunity.organization.name}} to use my photo</p>
+      I allow {{opportunity.organization.name}} to use my photo</p>
     <p class="check"><input type="checkbox" checked="checked" >
       Please contact me about future volunteer  opportunites</p>
     <button class="bbutton" style="border:none; font-size:20px;font-weight:300; float:none;margin-top:30px;" type="btn btn-lg" ng-click="timeDuration()">Complete Sign In</button>
@@ -49,5 +49,12 @@
       <h3>Thank you!</h3>
     </div>
   </div>
+  <!--
+  <div class="signpopthx" ng-show="confirmed && under_18">
+    <div class="signpopin">
+      <h3>Thank you!  Please Speak With a Staff Member for Additional Information</h3>
+    </div>
+  </div>
+  -->
 
 </div>

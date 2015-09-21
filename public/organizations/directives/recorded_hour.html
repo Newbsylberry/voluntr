@@ -1,7 +1,7 @@
 <md-list-item class="md-3-line recorded-hour-list">
   <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
   <div class="md-list-item-text" >
-    <h3 ng-show="type !== 'person || type === 'group'"
+    <h3 ng-show="type !== 'person' || type === 'group'"
         person-modal
         size="lg"
         id="{{recordedHour.person.id}}"
@@ -32,12 +32,11 @@
   </div>
   <div ng-show="editing"
        class="editzone">
-      <md-select placeholder="Role"
-                 ng-model="recordedHour.opportunity_role">
-        <md-option ng-repeat=""
-                   value="">
-        </md-option>
-      </md-select>
+    <md-select placeholder="Role"
+               ng-model="recordedHour.opportunity_role">
+      <md-option value="">
+      </md-option>
+    </md-select>
     <div>
       <span>Hours
       </span>

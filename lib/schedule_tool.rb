@@ -91,24 +91,24 @@ module SchedulerTool
   def SchedulerTool.object_loop(opportunity, start_date, end_date)
 
     if opportunity.schedule
-    schedule = IceCube::Schedule.from_yaml(opportunity.schedule)
+      schedule = IceCube::Schedule.from_yaml(opportunity.schedule)
 
 
-    schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
+      schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
 
 
-      instance = opportunity.class.new
-      instance.title = opportunity.name
-      instance.id = opportunity.id
-      instance.color = opportunity.color
-      instance.start = occ.start_time
-      instance.end = occ.end_time
+        instance = OpportunityInstance.new
+        instance.opportunity = opportunity
+        instance.id = opportunity.id
+        instance.color = opportunity.color
+        instance.start = occ.start_time
+        instance.end = occ.end_time
 
 
 
-      # instance.end_time = occ + duration
-      @instances.push(instance)
-    end
+        # instance.end_time = occ + duration
+        @instances.push(instance)
+      end
     end
   end
 
@@ -126,9 +126,8 @@ module SchedulerTool
     if repeat_params[:repeat_until]
       repeat_stop_date = Time.at(repeat_params[:repeat_until] / 1000)
     end
-
     @rule = Hash.new
-
+    @rule["validations"] = Hash.new
     @days = Array.new
 
     if repeat_params[:monday_repeat] == true
@@ -159,11 +158,37 @@ module SchedulerTool
       @rule["rule_type"] = "IceCube::WeeklyRule"
     elsif repeat_type == 'monthly'
       @rule["rule_type"] = "IceCube::MonthlyRule"
+      if repeat_params["monthly_repeat"] && repeat_params["monthly_repeat"]["type"] == "day_of_week"
+        @rule["validations"]["day_of_week"] = Hash.new
+        repeat_params["monthly_repeat"].each do |k,v|
+          if k == "sunday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["0"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["0"], v)
+          elsif k == "monday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["1"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["1"], v)
+          elsif k == "tuesday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["2"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["2"], v)
+          elsif k == "wednesday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["3"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["3"], v)
+          elsif k == "thursday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["4"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["4"], v)
+          elsif k == "friday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["5"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["5"], v)
+          elsif k == "saturday_repeat" and !v.empty?
+            @rule["validations"]["day_of_week"]["6"] = Array.new
+            SchedulerTool.monthly_daily_rule(@rule["validations"]["day_of_week"]["6"], v)
+          end
+        end
+      end
     elsif repeat_type == 'annually'
       @rule["rule_type"] = "IceCube::YearlyRule"
     end
     @rule["interval"] = interval
-    @rule["validations"] = Hash.new
     @rule["validations"]["count"] = repeat_repititions.to_i unless repeat_repititions.to_i == 0
     @rule["validations"]["until"] = repeat_stop_date
     @rule["validations"]["day"] = @days
@@ -171,4 +196,22 @@ module SchedulerTool
 
     return schedule
   end
+
+  def SchedulerTool.monthly_daily_rule(array, params)
+    params.each do |k,v|
+      if k == "first_week" and v == true
+        array.push(1)
+      elsif k == "second_week" and v == true
+        array.push(2)
+      elsif k == "third_week" and v == true
+        array.push(3)
+      elsif k == "fourth_week" and v == true
+        array.push(4)
+      end
+    end
+    ap array
+    ap "loooooop"
+    return array
+  end
+
 end

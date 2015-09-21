@@ -46,6 +46,9 @@ angular.module('voluntrApp')
       if ($scope.calendar.repeat.repeat_until != undefined) {
         attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
       }
+      if ($scope.newOpportunity.volunteer_goal) {
+        attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
+      }
       attr.name = $scope.newOpportunity.opportunity_name;
       attr.calendar.end_time = $scope.calendar.end_time;
       attr.description = $scope.newOpportunity.description;

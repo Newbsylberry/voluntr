@@ -1,4 +1,4 @@
-describe('AddPerson', function () {
+describe('Controller: PeopleHomeCtrl', function () {
 
   var controller, scope, modalInstance;
   beforeEach(module('voluntrApp'));
@@ -11,6 +11,7 @@ describe('AddPerson', function () {
         then: jasmine.createSpy('modalInstance.result.then')
       }
     }
+    $modal = $injector.get("$modal")
     controller = $controller('PeopleHomeCtrl', {
       $scope: scope,
       $modalInstance: modalInstance
@@ -19,8 +20,8 @@ describe('AddPerson', function () {
   }));
 
 
-  it("Should run the function to list people", function() {
-
+  it("scope.bulkAddPeople()", function() {
+    scope.bulkAddPeople()
   })
 
 

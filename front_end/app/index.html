@@ -10,17 +10,18 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-  <link rel="stylesheet" href="bower_components/ng-mfb/mfb/src/mfb.css" />
-  <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
-  <link rel="stylesheet" href="bower_components/md-date-time/dist/md-date-time.css" />
-  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
-  <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css" />
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css" />
+  <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
+  <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
+  <link rel="stylesheet" href="bower_components/md-date-time/dist/md-date-time.css" />
+  <link rel="stylesheet" href="bower_components/ng-mfb/mfb/src/mfb.css" />
   <link rel="stylesheet" href="bower_components/pikaday/css/pikaday.css" />
   <link rel="stylesheet" href="bower_components/handsontable/dist/handsontable.full.css" />
-  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -75,55 +76,38 @@
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
-<script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
-<script src="bower_components/angular-devise/lib/devise.js"></script>
-<script src="bower_components/angularjs-geolocation/src/geolocation.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
-<script src="bower_components/angular-scroll/angular-scroll.js"></script>
-<script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/angular-material/angular-material.js"></script>
-<script src="bower_components/kendo-ui-core/js/kendo.ui.core.min.js"></script>
-<script src="bower_components/ng-mfb/src/mfb-directive.js"></script>
-<script src="bower_components/md-date-time/dist/md-date-time.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
-<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+<script src="bower_components/angular-devise/lib/devise.js"></script>
 <script src="bower_components/angular-duration-format/dist/angular-duration-format.js"></script>
-<script src="bower_components/snapjs/snap.js"></script>
-<script src="bower_components/angular-snap/angular-snap.js"></script>
+<script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
 <script src="bower_components/leaflet/dist/leaflet.js"></script>
 <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
 <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
-<script src="bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+<script src="bower_components/pdfjs-dist/build/pdf.js"></script>
+<script src="bower_components/pdfjs-dist/build/pdf.worker.js"></script>
+<script src="bower_components/pdfjs-dist/build/pdf.combined.js"></script>
+<script src="bower_components/angular-pdf/dist/angular-pdf.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-scroll/angular-scroll.js"></script>
 <script src="bower_components/angular-scroll-watch/build/angular-scroll-watch.js"></script>
-<script src="bower_components/lodash/lodash.js"></script>
-<script src="bower_components/jszip/dist/jszip.js"></script>
-<script src="bower_components/js-xlsx/dist/xlsx.js"></script>
-<script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
-<script src="bower_components/pikaday/pikaday.js"></script>
-<script src="bower_components/handsontable/dist/handsontable.full.js"></script>
-<script src="bower_components/ngHandsontable/dist/ngHandsontable.js"></script>
+<script src="bower_components/snapjs/snap.js"></script>
+<script src="bower_components/angular-snap/angular-snap.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angularjs-geolocation/src/geolocation.js"></script>
 <script src="bower_components/waypoints/waypoints.js"></script>
 <script src="bower_components/SHA-1/sha1.js"></script>
 <script src="bower_components/angulartics/src/angulartics.js"></script>
@@ -143,13 +127,36 @@
 <script src="bower_components/angulartics/src/angulartics-woopra.js"></script>
 <script src="bower_components/angulartics/src/angulartics-marketo.js"></script>
 <script src="bower_components/angulartics/src/angulartics-intercom.js"></script>
-<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-<script src="bower_components/ng-idle/angular-idle.js"></script>
-<script src="bower_components/ng-csv/build/ng-csv.min.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
 <script src="bower_components/classie/classie.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+<script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
+<script src="bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
+<script src="bower_components/js-xlsx/dist/xlsx.js"></script>
+<script src="bower_components/jszip/dist/jszip.js"></script>
+<script src="bower_components/kendo-ui-core/js/kendo.ui.core.min.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/md-date-time/dist/md-date-time.js"></script>
+<script src="bower_components/ng-csv/build/ng-csv.min.js"></script>
+<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+<script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+<script src="bower_components/ng-idle/angular-idle.js"></script>
+<script src="bower_components/ng-mfb/src/mfb-directive.js"></script>
+<script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+<script src="bower_components/pikaday/pikaday.js"></script>
+<script src="bower_components/handsontable/dist/handsontable.full.js"></script>
+<script src="bower_components/ngHandsontable/dist/ngHandsontable.js"></script>
+<script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -207,7 +214,6 @@
 
 <!-- Organization People Controllers -->
 <script src="organizations/people/people_home.js"></script>
-<script src="organizations/people/people_home.js"></script>
 
 
 <!-- Organization Opportunities Controllers -->
@@ -235,7 +241,6 @@
 <script src="organizations/modals/add_people.js"></script>
 <script src="organizations/modals/add_group.js"></script>
 <script src="organizations/modals/record_hours_modal.js"></script>
-<script src="organizations/modals/modal_controller.js"></script>
 <script src="organizations/modals/add_opportunity.js"></script>
 <script src="organizations/modals/bulk_add_people.js"></script>
 <script src="organizations/modals/opportunity_detail.js"></script>
@@ -246,6 +251,7 @@
 <script src="organizations/modals/add_resource.js"></script>
 <script src="organizations/modals/open_email_preview.js"></script>
 <script src="organizations/modals/support_form.js"></script>
+<script src="organizations/modals/terms_of_service.js"></script>
 
 
 <!-- Directives -->
@@ -265,6 +271,11 @@
 <script src="organizations/directives/mailing_service_list.js"></script>
 <script src="organizations/directives/report_link.js"></script>
 <script src="organizations/directives/person_schedule.js"></script>
+<script src="organizations/directives/find_person.js"></script>
+<script src="organizations/directives/terms_of_service_link.js"></script>
+
+<!-- Filters -->
+<script src="scripts/filters/trusted_filter.js"></script>
 
 
 <!-- endbuild -->

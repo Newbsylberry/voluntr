@@ -53,7 +53,6 @@ angular.module('voluntrApp')
 
     $scope.updateSchedule = function() {
       var attr = {};
-      console.log($scope.calendar)
       attr.calendar = $scope.calendar;
       if ($scope.calendar.start_time) {
         attr.calendar.start_time = $scope.calendar.start_time.getTime();

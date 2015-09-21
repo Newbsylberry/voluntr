@@ -9,7 +9,6 @@ angular.module('voluntrApp')
   .controller('OrganizationTutorialCtrl', function ($scope, $modal, $rootScope, $http, $stateParams,
                                                     searchService, $window, $state) {
 
-    console.log($scope.current_state)
     $scope.$watch('current_state', function(){
       if ($scope.current_state === 'organizations.tutorial.1') {
         $scope.link_text = "Importing People To Your Organization"

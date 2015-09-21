@@ -22,13 +22,14 @@ angular.module('voluntrApp')
         $scope.excelFile = files[0];
         XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function(xlsxData) {
             $scope.sheets = xlsxData.sheets;
+            console.log($scope.sheets)
           $scope.isProcessing = false;
         });
       };
 
     $scope.updateJSONString = function() {
       $scope.json_string = JSON.stringify($scope.sheets[$scope.selectedSheetName], null, 2);
-      angular.forEach($scope.sheets[$scope.selectedSheetName], prepareImport)
+      angular.forEach($scope.sheets[$scope.selectedSheetName])
     }
 
     $scope.uploadPeople = function(){

@@ -1,0 +1,19 @@
+<div class="row" id="organization-people-search">
+  <md-input-container>
+    <label>Search for a volunteer to add...</label>
+    <input ng-model="volunteer_search" ng-keyup="people_search(volunteer_search)">
+  </md-input-container>
+
+  <md-list
+    ng-show="!searching && !no_search"
+    id="organization-people-search">
+    <md-list-item
+      ng-show="people"
+      ng-repeat="person in people
+              | orderBy : 'score'">
+      <p>{{person.first_name}} {{person.last_name}}</p>
+      <a href="" ng-click="selectPerson(person)" style="float: right;">
+        Select</a>
+    </md-list-item>
+  </md-list>
+</div>

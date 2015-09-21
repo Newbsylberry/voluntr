@@ -31,6 +31,7 @@ Modal Styles
 @import "../organizations/modals/person_detail.scss";
 @import "../organizations/modals/support_form.scss";
 @import "../organizations/modals/edit-schedule.scss";
+@import "../organizations/modals/terms_of_service.scss";
 
 
 /************************************************************
@@ -43,6 +44,7 @@ Organization Directive Styles
 @import "../organizations/directives/recorded_hour.scss";
 @import "../organizations/directives/opportunity_role.scss";
 @import "../organizations/directives/schedule-form.scss";
+@import "../organizations/directives/find_person.scss";
 
 
 @import "../volunteers/volunteer_home.scss";

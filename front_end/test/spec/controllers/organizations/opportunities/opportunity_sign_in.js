@@ -3,7 +3,6 @@ describe('AddPerson', function () {
   var controller, scope;
   beforeEach(module('voluntrApp'));
   beforeEach(inject(function ($controller, $rootScope, $injector) {
-
     $httpBackend = $injector.get('$httpBackend');
     scope = $rootScope.$new();
     scope.opportunity = {};
@@ -16,9 +15,13 @@ describe('AddPerson', function () {
   }));
 
 
-  it("Run the function to sign a user in", function() {
+  it("$scope.signInForOpportunity();", function() {
     scope.signInForOpportunity();
-  })
+  });
+
+  it("$scope.opportunitySignInConfirmation();", function() {
+    scope.opportunitySignInConfirmation();
+  });
 
 
 
