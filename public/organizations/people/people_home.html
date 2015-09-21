@@ -7,6 +7,12 @@
     <div ng-if="loaded">
       <md-data-table-toolbar>
         <h2 class="md-title">Volunteers</h2>
+        <md-switch ng-model="query.contact_only"
+                   id="contact-only-switch"
+                   ng-change="filterByContactInformation()"
+                   aria-label="Switch 1">
+          Show Only Volunteers with Contact Information?
+        </md-switch>
       </md-data-table-toolbar>
       <md-data-table-container>
         <table md-data-table md-progress="deferred">
@@ -20,7 +26,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr md-auto-select ng-repeat="person in people">
+          <tr md-auto-select
+              ng-repeat="person in people">
             <td person-modal id="{{person.id}}" size="lg"><a href="">{{person.first_name}}</a></td>
             <td person-modal id="{{person.id}}" size="lg"><a href="">{{person.last_name}}</a></td>
             <td>{{person.city}}</td>

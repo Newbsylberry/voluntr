@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('PeopleHomeCtrl', function ($scope, Facebook, $http,
-                                          $stateParams, $modal, Organization) {
+                                          $stateParams, $modal, Organization, $filter) {
 
     $scope.loaded = false;
 
@@ -27,9 +27,8 @@ angular.module('voluntrApp')
     //      $scope.people = data;
     //})
 
-    console.log($scope.organization)
-    Organization.get({organization_Id: $stateParams.organization_Id}).$promise.then(function(data){
 
+    Organization.get({organization_Id: $stateParams.organization_Id}).$promise.then(function(data){
       $scope.total_people_count = data.total_people;
     })
 
@@ -97,9 +96,20 @@ angular.module('voluntrApp')
       if(!newValue) {
         $scope.query.page = bookmark;
       }
-      console.log("blargh")
       getPeople();
     })
+
+
+    $scope.filterByContactInformation = function() {
+      if ($scope.query.contact_only == true) {
+        $scope.pre_filter_people_count = $scope.total_people_count;
+        $scope.people = $filter('filter')($scope.people, {contact_information_completed:true})
+        $scope.total_people_count = $scope.people.length;
+      } else {
+        getPeople();
+        $scope.total_people_count = $scope.pre_filter_people_count;
+      }
+  };
 
 
     $scope.bulkAddPeople = function (size) {

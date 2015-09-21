@@ -10,4 +10,14 @@
     ng-click="addOpportunityPerson()"
     class="btn btn-block">Add to Opportunity</button>
   <p ng-show="!person" style="color: red;">Please Select a Volunteer to Add</p>
+  <div>
+    <h4>Already Signed Up:</h4><br>
+    <a ng-repeat="volunteer in instance_volunteers"
+       href=""
+       person-modal
+       id="{{volunteer.id}}"
+       size="lg">
+      {{volunteer.first_name}} {{volunteer.last_name}}
+    </a>
+  </div>
 </form>

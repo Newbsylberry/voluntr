@@ -12,15 +12,25 @@
  */
 angular.module('voluntrApp')
   .controller('AddOpportunityPersonCtrl', function ($scope, Facebook, $stateParams,
-                                                 $http, $state, opportunity, PersonOpportunity,
-                                                 $modal, start_time, $modalInstance) {
+                                                    $http, $state, opportunity, PersonOpportunity,
+                                                    $modal, start_time, $modalInstance) {
 
 
     $scope.opportunity = opportunity;
+    $scope.instance = start_time._start._i;
+
+    $http({
+      url: 'api/v1/opportunities/' + $scope.opportunity.id + '/instance',
+      method: "GET",
+      params: {instance_date: $scope.instance}
+    }).then(function(data){
+      $scope.instance_volunteers = data.data.instance_volunteers;
+
+    })
 
     // $scope.instance = start_time._d._i;
 
-    $scope.instance = start_time._start._i;
+
 
     $scope.addOpportunityPerson = function() {
       var attr = {};

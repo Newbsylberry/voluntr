@@ -64,6 +64,14 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def contact_information_completed?
+    if !email.blank? || !phone.blank?
+      true
+    else
+      false
+    end
+  end
+
   def total_recorded_hours
     recorded_hours.sum(:hours)
   end

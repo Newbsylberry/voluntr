@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
       # Opportunities Routes
       match '/opportunities/:id/volunteers', to: 'opportunities#volunteers', via: :get, defaults: {format: :json}
-      match '/opportunities/:id/instance', to: 'opportunities#opportunity_instance', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/instance', to: 'opportunities#instance', via: :get, defaults: {format: :json}
       match '/opportunities/:id/recorded_hours', to: 'opportunities#recorded_hours', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
       match '/opportunities/sign_in/:opportunity_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}

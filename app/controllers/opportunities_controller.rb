@@ -88,6 +88,15 @@ class OpportunitiesController < ApplicationController
     render json: @opportunity.instances_statistics, each_serializer: OpportunitySerializer
   end
 
+  def instance
+    @opportunity = Opportunity.find(params[:id])
+    @instance = OpportunityInstance.new
+    @instance.opportunity = @opportunity
+    @instance.start = Time.parse(params[:instance_date].to_s)
+
+    render json: @instance, serializer: OpportunityInstanceSerializer
+  end
+
 
   def volunteers
     @opportunity = Opportunity.find_by_id(params[:id])
