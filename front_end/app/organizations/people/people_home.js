@@ -40,10 +40,9 @@ angular.module('voluntrApp')
       }
     };
 
-    $scope.query = {filter: '',limit: '5',order: 'first_name',page: 1};
+    $scope.query = {filter: '',limit: '5',order: 'first_name',page: 1,contact_only:false};
 
     function success(people) {
-
       $scope.people = people;
       $scope.loaded = true;
     }
@@ -101,14 +100,8 @@ angular.module('voluntrApp')
 
 
     $scope.filterByContactInformation = function() {
-      if ($scope.query.contact_only == true) {
-        $scope.pre_filter_people_count = $scope.total_people_count;
-        $scope.people = $filter('filter')($scope.people, {contact_information_completed:true})
-        $scope.total_people_count = $scope.people.length;
-      } else {
-        getPeople();
-        $scope.total_people_count = $scope.pre_filter_people_count;
-      }
+      $scope.query.contact_only = true;
+      getPeople();
   };
 
 

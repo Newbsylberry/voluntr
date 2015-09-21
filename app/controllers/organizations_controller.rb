@@ -68,14 +68,16 @@ class OrganizationsController < ApplicationController
     @query = JSON(params[:query])
     @order = @query["order"]
     if @query["order"].include?('-')
-      puts true
       @order = "#{@query["order"].tr('-', '')} DESC"
-      puts @order
     else
-      puts false
       @order = @query["order"]
     end
-    people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+    if @query["contact_only"] == true
+      people = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+    else
+      people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+    end
+
 
     render json: people, each_serializer: PersonSerializer
   end

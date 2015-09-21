@@ -19,6 +19,7 @@ class Person < ActiveRecord::Base
   end
   after_validation :reverse_geocode, :if => :has_coordinates?
   after_validation :geocode, :if => :has_location?, :unless => :has_coordinates?
+  scope :contact_information_completed, -> { where("email is NOT NULL and email != '' OR phone is NOT NULL and phone != ''") }
 
 
 
