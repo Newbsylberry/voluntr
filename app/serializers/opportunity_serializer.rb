@@ -6,7 +6,7 @@ class OpportunitySerializer < ActiveModel::Serializer
              :zip_code, :volunteer_goal, :recorded_hours, :organization_email_templates, :opportunity_roles,
              :total_recorded_hours, :total_people_recording,
              :instance_hours, :instance_people_count, :selected_instance_recorded_hours,
-              :selected_instance_people_recording, :volunteers
+              :selected_instance_people_recording, :volunteers, :organization
              # :signed_up_volunteers, :person_opportunities, :signed_up_volunteer_count
 
 

@@ -17,13 +17,8 @@ angular.module('voluntrApp')
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;
-
-      Organization.get({organization_Id: successResponse.organization_id}, function(successResponse){
-        $scope.opportunity.organization = successResponse;
-        Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
-
+        Facebook.api('/' + successResponse.organization.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization_picture = response.data.url;
-        });
       })
     });
 
