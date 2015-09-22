@@ -1,23 +1,37 @@
-
-<md-card class="content" >
+<md-card class="content" id="group-home">
   <md-card-content>
     <div ng-if="!loaded">
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <md-list class="home-person-list" ng-if="loaded">
-      <md-list-item
-        class="md-3-line"
-        ng-repeat="group in groups">
-        <div
-          class="md-list-item-text">
-          <h3
-            group-modal
-            id="{{group.id}}"
-            size="lg"
-            >{{group.name}}</h3>
-        </div>
-      </md-list-item>
-    </md-list>
+    <h2>Existing Groups</h2>
+    <md-divider></md-divider>
+    <md-grid-list md-cols-sm="1"
+                  md-cols-md="2"
+                  md-cols-gt-md="6"
+                  md-row-height-gt-md="1:1"
+                  md-row-height="2:2"
+                  md-gutter="12px"
+                  md-gutter-gt-sm="8px"
+                  class="group-list">
+      <md-grid-tile
+        ng-repeat="group in groups"
+        group-modal
+        id="{{group.id}}"
+        size="lg"
+        ng-style="{
+    'background': group.bg_color
+    }"
+        md-rowspan="{{group.rowspan}}"
+        md-colspan="{{group.colspan}}"
+        md-colspan-sm="1"
+        >
+        <md-grid-tile-footer>
+          <h3>{{group.name}} <br><small>{{group.total_people}} volunteers</small></h3>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
   </md-card-content>
 </md-card>
+
+
 
