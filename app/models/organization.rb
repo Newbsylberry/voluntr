@@ -36,4 +36,14 @@ class Organization < ActiveRecord::Base
   def total_people
     self.people.count
   end
+
+  def terms_of_service_uploaded
+    if !terms_of_service_file.blank?
+      true
+    else
+      false
+    end
+  end
+
+
 end

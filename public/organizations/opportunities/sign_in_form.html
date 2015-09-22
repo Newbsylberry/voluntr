@@ -43,10 +43,17 @@
           ng-model="terms_of_service"
           aria-label="No Email Address?">
           I agree to {{opportunity.organization.name}}'s
-              </md-checkbox><a href=""
-             terms-of-service
-             organization_id="{{opportunity.organization.id}}">
-          Terms of Service</a></div>
+              </md-checkbox>
+            <a href=""
+               ng-show="opportunity.organization.terms_of_service_file.url"
+               terms-of-service
+               organization_id="{{opportunity.organization.id}}">
+          Terms of Service
+            </a>
+            <p ng-show="!opportunity.organization.terms_of_service_file.url">
+              Terms of Service
+            </p>
+          </div>
       </div>
       <div class="fixer"></div>
     </div>

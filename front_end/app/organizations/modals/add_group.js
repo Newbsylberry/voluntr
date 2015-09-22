@@ -49,6 +49,7 @@ angular.module('voluntrApp')
           })
         })
       });
+        $state.go($state.current, {}, {reload: true});
 
       $modalInstance.close();
     };
