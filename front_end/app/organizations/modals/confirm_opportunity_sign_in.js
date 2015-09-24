@@ -39,17 +39,17 @@ angular.module('voluntrApp')
     };
 
     $scope.$watch('opportunity_role', function(){
-      if ($scope.opportunity_role.hours_required){
+      if ($scope.opportunity_role && $scope.opportunity_role.hours_required){
         $scope.hours = $scope.opportunity_role.hours_required;
       }
     });
 
-    //
-    //Idle.watch();
-    //
-    //$scope.$on('IdleTimeout', function() {
-    //  $scope.timeDuration();
-    //});
+
+    Idle.watch();
+
+    $scope.$on('IdleTimeout', function() {
+      $scope.timeDuration();
+    });
 
 
 

@@ -124,7 +124,7 @@ class Person < ActiveRecord::Base
     @afternoon_schedule = Array.new
     @night_schedule = Array.new
     params[:schedule].each do |key, value|
-      if key.to_s == "morning"
+      if key.to_s == "morning" && self.schedule["morning_schedule"]
         hash = IceCube::Schedule.from_yaml(self.schedule["morning_schedule"]).to_hash
         hash[:rrules].each do |rr|
           rr[:validations][:day] = SchedulerTool.hash_array_loop(value, Array.new)

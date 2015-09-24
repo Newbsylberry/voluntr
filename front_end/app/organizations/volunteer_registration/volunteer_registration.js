@@ -76,10 +76,12 @@ angular.module('voluntrApp')
     $scope.updateWithSchedule = function() {
       var attr = {};
       attr.id = $scope.person.id;
+      if ($scope.morning && $scope.afternoon && $scope.night) {
       attr.schedule = {};
       attr.schedule.morning = $scope.morning;
       attr.schedule.afternoon = $scope.afternoon;
       attr.schedule.night = $scope.night;
+      };
       People.update(attr).$promise.then(function(person){
         $state.go('organization_volunteer_registration.4', {token:btoa($scope.person.id)})
       });
