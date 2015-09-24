@@ -27,7 +27,7 @@ class Organization < ActiveRecord::Base
   end
 
   def default_list(service_type)
-    if organization_mailing_services
+    if !organization_mailing_services.empty?
       return MailingServiceList.find(self.organization_mailing_services.
                                          find_by_service_type(service_type).default_list_id)
     end
