@@ -107,16 +107,16 @@ class Person < ActiveRecord::Base
   end
 
   def add_to_organization(organization)
-    @person_organization = OrganizationPerson.create_with(locked: false).
+    @organization_person = OrganizationPerson.create_with(locked: false).
         find_or_initialize_by(person: self, organization: organization)
     if !organization.organization_mailing_services.empty? && !email.nil?
-      @person_organization.add_to_lists(Array.new << organization.default_list("mail_chimp"))
+      @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
     end
-    if !@person_organization.persisted? && !email.nil?
-      @person_organization.send_registration_confirmation
+    if !@organization_person.persisted? && !email.nil?
+      @organization_person.send_registration_confirmation
     end
-    @person_organization.save
-    @person_organization.__elasticsearch__.index_document
+    @organization_person.save
+    @organization_person.__elasticsearch__.index_document
   end
 
   def update_schedule(params)

@@ -6,7 +6,7 @@ class PersonOrganizationMailer < ActionMailer::Base
     @organization = organization
     @person = Person.find(person.id)
     @scrambled_id = Base64.encode64(@person.id.to_s)
-    @link = "http://www.voluapp.com/#/#{@organization.custom_url}/registration/2?person_token=#{@scrambled_id}"
+    @link = "http://www.voluapp.com/#/#{@organization.custom_url}/registration/2?token=#{@scrambled_id}"
 
     mail(to: @email, subject: "Thanks for registering with #{@organization.name}")
   end

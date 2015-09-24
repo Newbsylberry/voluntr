@@ -17,7 +17,6 @@ angular.module('voluntrApp')
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;
-      console.log(successResponse)
         Facebook.api('/' + successResponse.organization.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization_picture = response.data.url;
       })
@@ -58,8 +57,6 @@ angular.module('voluntrApp')
       $scope.opportunitySignIn.phone = "";
       $scope.opportunitySignInConfirmation('md', person, $scope.opportunity)
     };
-
-
 
     $scope.opportunitySignInConfirmation = function (size, person, opportunity) {
       var opportunitySignInConfirmation = $modal.open(

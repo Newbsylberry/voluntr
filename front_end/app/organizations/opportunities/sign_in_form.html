@@ -4,17 +4,21 @@
 <div class="siboxout">
   <div class="sibox">
     <div class="sicontent">
+      <
       <div class="sileft">
 
         <img ng-src="{{organization_picture}}" />
         <div class="opinfo">
           <h2>Event:</h2>
           <p>{{opportunity.name}}</p>
-          <h2>Description:</h2>
+          <div id="sign-in-description-label">
+          <h2 >Description:</h2>
           <p>{{opportunity.description}}</p>
+        </div>
         </div>
       </div>
       <div class="siright">
+        <h1>Sign In</h1>
         <md-input-container>
           <label>First Name:</label>
           <input type="text" ng-model="opportunitySignIn.first_name"> </md-input-container>

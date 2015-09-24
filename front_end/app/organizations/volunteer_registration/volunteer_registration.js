@@ -14,12 +14,12 @@ angular.module('voluntrApp')
         });
 
         $scope.submittable = false;
-
-        if (!$state.params.person_token) {
+        if (!$state.params.token) {
           $scope.person = {};
-        } else if ($state.params.person_token) {
-          People.get({person_Id: atob($state.params.person_token)}, function(successResponse) {
+        } else if ($state.params.token) {
+          People.get({person_Id: atob($state.params.token)}, function(successResponse) {
             $scope.person = successResponse;
+            console.log($scope.person)
           })
         }
       })
@@ -40,15 +40,15 @@ angular.module('voluntrApp')
       attr.first_name = person.first_name;
       attr.last_name = person.last_name;
       attr.organization_id = $scope.organization.id;
-      if (!$state.params.person_token) {
+      if (!$state.params.token) {
         People.create(attr).$promise.then(function(person){
           $scope.person = person;
-          $state.go('organization_volunteer_registration.2', {person_token:btoa($scope.person.id)})
+          $state.go('organization_volunteer_registration.2', {token:btoa($scope.person.id)})
         })
-      } else if ($state.params.person_token) {
+      } else if ($state.params.token) {
         People.update(attr).$promise.then(function (person) {
           $scope.person = person;
-          $state.go('organization_volunteer_registration.2', {person_token:btoa($scope.person.id)})
+          $state.go('organization_volunteer_registration.2', {token:btoa($scope.person.id)})
         })
       }
     };
@@ -64,7 +64,7 @@ angular.module('voluntrApp')
       attr.zip_code = person.zip_code;
       People.update(attr).$promise.then(function(person){
         $scope.person = person;
-        $state.go('organization_volunteer_registration.3', {person_token:btoa($scope.person.id)})
+        $state.go('organization_volunteer_registration.3', {token:btoa($scope.person.id)})
       })
 
     };
@@ -81,7 +81,7 @@ angular.module('voluntrApp')
       attr.schedule.afternoon = $scope.afternoon;
       attr.schedule.night = $scope.night;
       People.update(attr).$promise.then(function(person){
-        $state.go('organization_volunteer_registration.4', {person_token:btoa($scope.person.id)})
+        $state.go('organization_volunteer_registration.4', {token:btoa($scope.person.id)})
       });
     };
 

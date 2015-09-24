@@ -59,6 +59,9 @@
 .siright{float:left;
   width:649px;
   padding:20px;
+  h1 {
+    margin: 0 auto;
+  }
 }
 .fixer{clear:both;}
 
@@ -99,6 +102,8 @@
   display: inline-block;
   margin: 8px 0px;
 }
+
+
 
 .bbutton{
   border-radius:2px;
@@ -141,6 +146,12 @@
   color:rgba(0,0,0,0.5);
   font-weight: 300;
   font-size:25px;
+}
+
+#sign-in-description-label {
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 md-card{

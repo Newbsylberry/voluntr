@@ -110,16 +110,28 @@ padding-top: 60px;
 
 @media screen and (max-width: 600px) {
 
+  .sicontent {
+    margin-top: -7%;
+  }
+
     .formbutton{float:none;
     width:100%;}
 
   .sileft{
     width:100vw;
     padding:30px 20px 20px 20px;
-    height:auto;}
+    height:auto;
+    h2 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
 
   .sileft img{
     width:130px;
+
   }
 
 .siright{
@@ -127,7 +139,7 @@ width:100vw;}
 
 .sicontent{
 width:100vw;
-height:100vh;
+height:100%;
 }
 }
 
