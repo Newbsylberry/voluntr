@@ -15,8 +15,7 @@
       <select
         class="form-control"
         ng-model="opportunity_role"
-
-              ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles">
+        ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles | orderBy : 'name'">
         <option value="">-- Select Your Role --</option>
       </select>
     <label>Select a volunteer group, if applicable:</label><br>
@@ -24,7 +23,7 @@
       class="form-control"
       ng-model="group"
 
-      ng-options="group.name for group in groups">
+      ng-options="group.name for group in groups | orderBy : 'name'">
       <option value="">-- Select Group (If Applicable) --</option>
     </select>
 
