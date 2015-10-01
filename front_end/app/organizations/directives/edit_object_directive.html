@@ -14,15 +14,15 @@
   >
   {{text}}
 </p>
-<md-input-container ng-show="editing && title_text || editing && subtitle_text">
+<md-input-container ng-show="editing && title_text || editing && title_text">
   <label>{{placeholder}}</label>
   <input ng-model="text">
 </md-input-container>
 
 
-<md-input-container  ng-show="editing && paragraph_text || editing && bing_text">
+<md-input-container ng-show="editing && paragraph_text">
   <label>{{placeholder}}</label>
-  <input ng-model="text">
+  <textarea ng-model="text" columns="1" rows="4" md-maxlength="250"></textarea>
 </md-input-container>
 
 <!--<md-button class="md-primary md-raised" ng-hide="editing" ng-show="parag_text"

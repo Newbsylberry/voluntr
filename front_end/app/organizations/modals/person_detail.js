@@ -9,7 +9,8 @@
  */
 angular.module('voluntrApp')
   .controller('PersonDetailCtrl', function ($scope, Facebook, $http,
-                                            $stateParams, id, People, $timeout) {
+                                            $stateParams, id, People,
+                                            $timeout, OrganizationPerson) {
 
     var addRecordedHoursToDash = function (recorded_hour) {
       if (recorded_hour.date_recorded  != null) {
@@ -23,8 +24,12 @@ angular.module('voluntrApp')
       ([person_opportunity.opportunity.name, person_opportunity.total_hours]);
     };
 
-    People.get({person_Id: id}, function(successResponse) {
-      $scope.person = successResponse;
+
+    OrganizationPerson.get_by_organization_and_person_id($stateParams.organization_Id, id).$promise.then(function(successResponse) {
+      $scope.organization_person_id = successResponse.id;
+      console.log($scope.organization_person_id);
+      $scope.person = successResponse.person;
+      $scope.person.notes = successResponse.notes;
       People.recorded_hours(id, 'recorded_hours').$promise.then(function(recorded_hours) {
         $scope.person.recorded_hours = recorded_hours;
         angular.forEach(recorded_hours, addRecordedHoursToDash)

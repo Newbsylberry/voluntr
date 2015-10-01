@@ -11,7 +11,7 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
       placeholder: '@'
     },
     restrict: 'E',
-    controller: function ($scope, Opportunity, Organization, People) {
+    controller: function ($scope, Opportunity, Organization, People, OrganizationPerson) {
       if ($scope.size === "title_text") {
         $scope.title_text = true;
       } else if ($scope.size === "subtitle_text") {
@@ -30,11 +30,9 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
 
 
         if ($scope.modelType === 'opportunity') {
-
           var attr = {};
           attr.id = $scope.modelId;
           attr[$scope.attributeName] = $scope.text;
-
           Opportunity.update(attr)
         }
         if ($scope.modelType === 'organization') {
@@ -48,6 +46,12 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
           attr.id = $scope.modelId;
           attr[$scope.attributeName] = $scope.text;
           People.update(attr)
+        }
+        if ($scope.modelType === 'organization_person') {
+          var attr = {};
+          attr.id = $scope.modelId;
+          attr[$scope.attributeName] = $scope.text;
+          OrganizationPerson.update(attr)
         }
       }
     },

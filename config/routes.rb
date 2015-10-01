@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :groups, except: [:new, :edit], defaults: {format: :json}
       resources :resources, except: [:new, :edit], defaults: {format: :json}
       resources :mailing_service_lists, except: [:new, :edit], defaults: {format: :json}
+      resources :organization_people, except: [:new, :edit], defaults: {format: :json}
       resources :organization_mailing_services, except: [:new, :edit], defaults: {format: :json}
       resources :opportunity_roles, except: [:new, :edit], defaults: {format: :json}
       resources :organization_email_templates, except: [:new, :edit], defaults: {format: :json}
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
       resources :user_event_hours, except: [:new, :edit], defaults: {format: :json}
       resources :opportunities, except: [:new, :edit], defaults: {format: :json}
       match '/organizations/existence_check/:fb_id', to: 'organizations#existence_check', via: :get, defaults: {format: :json}
+      match '/organization_people/:organization_id/:person_id', to: 'organization_people#show', via: :get, defaults: {format: :json}
 
       # People Routes
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
