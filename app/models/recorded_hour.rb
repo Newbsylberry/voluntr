@@ -6,6 +6,7 @@ class RecordedHour < ActiveRecord::Base
   belongs_to :person
   belongs_to :opportunity_role
 
+
   # validates :person_id, uniqueness: { scope: :opportunity_id }, if: :already_recorded_for_instance?
 
 

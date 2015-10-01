@@ -25,9 +25,14 @@ describe('Controller: OpportunityDetailCtrl', function () {
       scope.updateOpportunityRole();
     })
 
-    it("$scope.deleteOpportunityfdasfdsaRole()", function() {
+    it("$scope.deleteOpportunityRole()", function() {
       var opportunity_role = {};
       scope.deleteOpportunityRole(opportunity_role);
+    })
+
+    it("$scope.deleteInstance()", function() {
+      var date = "2015-07-15 21:54:30 -0600"
+      scope.deleteOpportunityInstance(date);
     })
 
 

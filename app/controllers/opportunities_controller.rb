@@ -63,6 +63,20 @@ class OpportunitiesController < ApplicationController
     head :no_content
   end
 
+  def destroy_instance
+    @opportunity = Opportunity.find(params[:id])
+    @opportunity.delete_instance(params[:date])
+
+    head :no_content
+  end
+
+  def destroy_future_instances
+    @opportunity = Opportunity.find(params[:id])
+    @opportunity.delete_future_instances(params[:date])
+
+    head :no_content
+  end
+
   def existence_check
     @opportunity = Opportunity.find_by_fb_id(params[:fb_id])
 

@@ -100,9 +100,12 @@ module SchedulerTool
         instance = OpportunityInstance.new
         instance.opportunity = opportunity
         instance.id = opportunity.id
+        instance.instance_date = occ.start_time
         instance.color = opportunity.color
         instance.start = occ.start_time
         instance.end = occ.end_time
+        instance.created_at = Time.now
+        instance.updated_at = Time.now
 
 
 
@@ -209,8 +212,7 @@ module SchedulerTool
         array.push(4)
       end
     end
-    ap array
-    ap "loooooop"
+
     return array
   end
 

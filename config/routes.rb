@@ -54,6 +54,8 @@ Rails.application.routes.draw do
 
       # Opportunities Routes
       match '/opportunities/:id/volunteers', to: 'opportunities#volunteers', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/delete_instance', to: 'opportunities#destroy_instance', via: :delete, defaults: {format: :json}
+      match '/opportunities/:id/delete_future_instances', to: 'opportunities#destroy_future_instances', via: :delete, defaults: {format: :json}
       match '/opportunities/:id/instance', to: 'opportunities#instance', via: :get, defaults: {format: :json}
       match '/opportunities/:id/recorded_hours', to: 'opportunities#recorded_hours', via: :get, defaults: {format: :json}
       match '/opportunities/existence_check/:fb_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}

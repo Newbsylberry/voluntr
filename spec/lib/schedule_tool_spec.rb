@@ -163,7 +163,7 @@ RSpec.describe SchedulerTool, "Working with an objects schedules" do
         }
         schedule = IceCube::Schedule.from_yaml(SchedulerTool.schedule_from_params(@params, Opportunity.new))
 
-        expect(schedule.occurrences(Time.now + 3.months).count).to eq(14)
+        expect(schedule.occurrences(DateTime.parse("2015-08-12 22:33:07 -0600") + 3.months).count).to eq(10)
       end
 
 

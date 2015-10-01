@@ -2,13 +2,12 @@ class Opportunity < ActiveRecord::Base
   require "prawn"
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-  has_many :user_event_hours
-  has_many :resources, as: :resourceable
+  has_many :resources, as: :resourceable, dependent: :destroy
   has_many :opportunities
-  has_many :person_opportunities
+  has_many :person_opportunities, dependent: :destroy
   has_many :people, through: :person_opportunities
-  has_many :opportunity_roles
-  has_many :recorded_hours
+  has_many :opportunity_roles, dependent: :destroy
+  has_many :recorded_hours, dependent: :destroy
   has_many :opportunity_instances
   belongs_to :organization
   has_many :organization_email_templates, through: :organization
@@ -16,32 +15,39 @@ class Opportunity < ActiveRecord::Base
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }          # auto-fetch coordinates
 
+
+  # This method combines all address information into one readable full address
   def full_street_address
     return "#{address} #{city} #{state} #{zip_code}"
   end
 
+  # This is the start_time for the opportunity, required by full calendar.js
   def start_time
     if schedule
       return IceCube::Schedule.from_yaml(schedule).start_time
     end
   end
 
+  # this is the duration for the opportunity, determined by IceCube
   def duration
     if schedule
       return IceCube::Schedule.from_yaml(schedule).duration / (60*60)
     end
   end
 
+  # This calculates the sum of all recorded hours for an opportunity
   def total_recorded_hours
     recorded_hours.sum(:hours)
   end
 
+  # The hours for a particular instance THIS SHOULD BE DEPRECATED in favor of an OpportunityInstance method
   def instance_recorded_hours(date)
     recorded_hours.where(:date_recorded => DateTime.parse(date)
                                                .beginning_of_day..DateTime.parse(date).end_of_day).sum(:hours)
   end
 
 
+  # These are the volunteers who have registered or participated in an opportunity
   def volunteers
     @opportunity_volunteers = Array.new
     person_opportunities.each do |p|
@@ -71,16 +77,19 @@ class Opportunity < ActiveRecord::Base
   end
 
 
+  # This is the total number of people who have recorded hours at an opportunity
   def total_people_recording
     recorded_hours.select(:person_id).map(&:person_id).uniq.count
   end
 
+  # This is the total number of people who have recorded hours at an opportunity instance SHOULD BE DEPRECATED
   def instance_people_recording(date)
     recorded_hours.where(:date_recorded => DateTime.parse(date)
                                                .beginning_of_day..DateTime.parse(date).end_of_day)
         .select(:person_id).map(&:person_id).uniq.count
   end
 
+  # These are the statistics for all the instances of an opportunity
   def instances_statistics
     @opportunities = Array.new
     IceCube::Schedule.from_yaml(schedule).occurrences(Time.now).each do |occ|
@@ -95,6 +104,7 @@ class Opportunity < ActiveRecord::Base
     return @opportunities
   end
 
+  # This function generates a report for an opportunity instance
   def generate_report(start_date, end_date)
     @resource = Resource.new
     @resource.name = "report"
@@ -139,10 +149,6 @@ class Opportunity < ActiveRecord::Base
      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(options))}").read
     end
 
-    # pdf = Prawn::Document.generate("hello.pdf") do
-    #   image file_name, position: :center
-    # end
-
     pdf = OpportunityReportPdf.new(self, file_name, start_date, end_date)
 
     pdf.render_file "hello.pdf"
@@ -154,12 +160,31 @@ class Opportunity < ActiveRecord::Base
     return @resource
   end
 
-  # def as_indexed_json(options={})
-  #   as_json(
-  #       only: [:id, :first_name, :email],
-  #       include: [:person]
-  #   )
-  # end
+
+  # This method deletes only an instance of an opportunity
+  def delete_instance(instance)
+    if !schedule.blank?
+      current_schedule = IceCube::Schedule.from_yaml(schedule)
+
+      current_schedule.add_exception_time(Time.at(DateTime.parse(instance)))
+      self.schedule = current_schedule.to_yaml
+      self.save
+    end
+  end
+
+  # This method deletes only an instance of an opportunity
+  def delete_future_instances(date)
+    if !schedule.blank?
+      current_schedule = IceCube::Schedule.from_yaml(schedule)
+
+      current_schedule.rrules.each do |rr|
+        rr.until(Time.at(DateTime.parse(date)))
+      end
+      self.schedule = current_schedule.to_yaml
+      self.save
+    end
+  end
+
 
 
 

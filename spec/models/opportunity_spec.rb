@@ -88,4 +88,44 @@ RSpec.describe Opportunity, "Working with an opportunity" do
 
   end
 
+  context "when a user wants to delete an event" do
+    before(:each) do
+      @opportunity = create(:opportunity, schedule: "---\n:start_time: &1 2015-07-12 21:54:30.117844000 -06:00\n:start_date: *1\n:rrules:\n- :validations: {}\n  :rule_type: IceCube::DailyRule\n  :interval: 1\n  :until: 2015-07-19 22:18:09.539033000 -06:00\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n  :until: 2015-07-19 22:18:09.539136000 -06:00\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n")
+      @instance_dates = Array.new
+
+
+      SchedulerTool.list_of_instances(
+          @opportunity, "2015-07-12 21:54:30.117844000",
+          "2015-08-12 21:54:30.117844000").each do |i| @instance_dates.push(i.instance_date) end
+      ap @instance_dates
+    end
+
+    it "#delete_instance" do
+      @opportunity.delete_instance("2015-07-15 21:54:30 -0600")
+
+      @instance = create(:opportunity_instance,
+                         opportunity_id: @opportunity.id,
+                         id: @opportunity.id,
+                         instance_date: "2015-07-15 21:54:30 -0600")
+
+
+      expect(@instance_dates)
+          .to_not include(@instance.instance_date)
+    end
+
+    it "#delete_future_instances" do
+      @opportunity.delete_future_instances("2015-07-15 21:54:30 -0600")
+
+      @instance_dates = Array.new
+      SchedulerTool.list_of_instances(
+          @opportunity, "2015-07-12 21:54:30.117844000",
+          "2015-08-12 21:54:30.117844000").each do |i| @instance_dates.push(i.instance_date) end
+
+      ap @instance_dates
+
+      expect(@instance_dates.count)
+          .to eq(4)
+    end
+  end
+
 end

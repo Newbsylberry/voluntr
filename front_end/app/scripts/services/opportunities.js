@@ -14,8 +14,9 @@ angular.module('voluntrApp')
         {
           opportunity_Id: '@id'}, {
           update: {method: 'PATCH'},
-          opportunity_object: {method: 'GET', url:'/api/v1/opportunities/:opportunity_Id/:object', isArray: true}
-
+          opportunity_object: {method: 'GET', url:'/api/v1/opportunities/:opportunity_Id/:object', isArray: true},
+          delete_instance: {method: 'DELETE', url:'/api/v1/opportunities/:opportunity_Id/delete_instance'},
+          delete_future_instances: {method: 'DELETE', url:'/api/v1/opportunities/:opportunity_Id/delete_future_instances'}
         })}; // sets ID variable, and update method (patch)
 
 
@@ -60,6 +61,15 @@ angular.module('voluntrApp')
     Opportunity.prototype.delete = function(oId) {
       return this.service.remove({opportunity_Id: oId});
     };
+
+    Opportunity.prototype.delete_instance = function(oId, date) {
+      return this.service.delete_instance({opportunity_Id: oId,date: date})
+    };
+
+    Opportunity.prototype.delete_future_instances = function(oId, date) {
+      return this.service.delete_future_instances({opportunity_Id: oId,date: date})
+    };
+
 
     // AngularJS will instantiate a singleton by calling "new" on this function
     return new Opportunity;

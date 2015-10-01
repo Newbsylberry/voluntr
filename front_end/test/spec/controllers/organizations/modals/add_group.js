@@ -35,7 +35,7 @@ describe('AddGroup', function () {
     scope.createGroup.description = "A new group";
     scope.createGroup.city = "Syracuse";
     scope.createGroup.state = "New York";
-    scope.createGroup()
+    // scope.createGroup()
   })
 
 

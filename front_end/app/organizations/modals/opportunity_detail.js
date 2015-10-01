@@ -58,6 +58,7 @@ angular.module('voluntrApp')
 
 
     $scope.opportunity_role = {};
+
     $scope.createOpportunityRole = function(opportunity_role) {
       var attr = {};
       attr.name = opportunity_role.name
@@ -93,6 +94,27 @@ angular.module('voluntrApp')
       OpportunityRole.delete(opportunity_role.id)
       $scope.opportunity_role.name = "";
       $scope.opportunity_role.description = "";
+    };
+
+    $scope.deleteOpportunityInstance = function() {
+      Opportunity.delete_instance($scope.opportunity.id, start_time).$promise.then(function(result){
+        $state.go($state.current, {}, {reload: true});
+      });
+
+    };
+
+    $scope.deleteFutureInstances = function() {
+      Opportunity.delete_future_instances($scope.opportunity.id, start_time).$promise.then(function(result){
+        $state.go($state.current, {}, {reload: true});
+      });
+
+    };
+
+    $scope.deleteOpportunity = function() {
+      Opportunity.delete($scope.opportunity.id).$promise.then(function(result){
+        $state.go($state.current, {}, {reload: true});
+      });
+      $state.go($state.current, {}, {reload: true});
     };
 
     $scope.getArray = function() {
