@@ -17,6 +17,14 @@ class Group < ActiveRecord::Base
     people.count
   end
 
+  def opportunity_ids
+    opportunity_ids = Array.new
+    opportunities.each do |o|
+      opportunity_ids << o.id
+    end
+    return opportunity_ids
+  end
+
 
 
 

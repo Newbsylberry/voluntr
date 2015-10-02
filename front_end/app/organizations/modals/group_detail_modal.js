@@ -18,6 +18,15 @@ angular.module('voluntrApp')
 
     Group.get({group_Id: id}, function(successResponse) {
       $scope.group = successResponse;
+      Group.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function (recorded_hours) {
+        $scope.group.recorded_hours = recorded_hours;
+      });
+      Group.people(successResponse.id, 'people').$promise.then(function(people) {
+        $scope.group.people = people;
+      });
+      Group.opportunities(successResponse.id, 'opportunities').$promise.then(function(opportunities) {
+        $scope.group.opportunities = opportunities;
+      });
       angular.forEach(successResponse.recorded_hours, addToDashboard)
     });
 

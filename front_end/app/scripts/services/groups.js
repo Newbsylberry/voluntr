@@ -17,6 +17,7 @@ angular.module('voluntrApp')
         {
           group_Id: '@id'}, {
           update: {method: 'PATCH'},
+          group_object: {method: 'GET', url:'/api/v1/groups/:group_Id/:object', isArray: true},
           // person_object: {method: 'GET', url:'/api/v1/people/:person_Id/:object', isArray: true}
         })}; // sets ID variable, and update method (patch)
 
@@ -34,6 +35,19 @@ angular.module('voluntrApp')
     Group.prototype.create = function(attr) {
       return this.service.save(attr);
     }
+
+    Group.prototype.people = function(gId, obj) {
+      return this.service.group_object({group_Id: gId,object: obj})
+    };
+
+    Group.prototype.recorded_hours = function(gId, obj) {
+      return this.service.group_object({group_Id: gId,object: obj})
+    };
+
+    Group.prototype.opportunities = function(gId, obj) {
+      return this.service.group_object({group_Id: gId,object: obj})
+    };
+
 
     Group.prototype.update = function(attr) {
       return this.service.update(attr);

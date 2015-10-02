@@ -49,6 +49,11 @@ Rails.application.routes.draw do
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
 
+      # group routes
+      match '/groups/:id/people', to: 'groups#people', via: :get, defaults: {format: :json}
+      match '/groups/:id/recorded_hours', to: 'groups#recorded_hours', via: :get, defaults: {format: :json}
+      match '/groups/:id/opportunities', to: 'groups#opportunities', via: :get, defaults: {format: :json}
+
 
       # email services
       match '/organizations/:id/auth/mail_chimp_check', to: 'organization_mailing_services#mailchimp_check', via: :get, defaults: {format: :json}

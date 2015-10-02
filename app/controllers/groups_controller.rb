@@ -20,6 +20,24 @@ class GroupsController < ApplicationController
     render json: @group
   end
 
+  def people
+    @group = Group.find(params[:id])
+
+    render json: @group.people, each_serializer: PeopleController
+  end
+
+  def recorded_hours
+    @group = Group.find(params[:id])
+
+    render json: @group.recorded_hours, each_serializer: RecordedHourSerializer
+  end
+
+  def opportunities
+    @group = Group.find(params[:id])
+
+    render json: @group.opportunities, each_serializer: OpportunitySerializer
+  end
+
   protected
 
   def group_params
