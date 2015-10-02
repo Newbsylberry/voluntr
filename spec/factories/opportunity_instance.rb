@@ -6,6 +6,5 @@ FactoryGirl.define do
     updated_at nil
 
 
-
   end
 end

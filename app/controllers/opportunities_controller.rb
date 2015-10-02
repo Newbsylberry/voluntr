@@ -106,7 +106,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.find(params[:id])
     @instance = OpportunityInstance.new
     @instance.opportunity = @opportunity
-    @instance.start = Time.parse(params[:instance_date].to_s)
+    @instance.instance_date = Time.parse(params[:instance_date].to_s)
 
     render json: @instance, serializer: OpportunityInstanceSerializer
   end

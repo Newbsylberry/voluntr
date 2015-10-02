@@ -2,6 +2,10 @@ class OpportunityInstance < ActiveRecord::Base
   belongs_to :opportunity
   attr_accessor :title, :color, :start, :end
 
+  def start
+    instance_date
+  end
+
   def instance_volunteers
     instance_volunteers = Array.new
     if !opportunity.person_opportunities.nil?
