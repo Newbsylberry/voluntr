@@ -6,7 +6,7 @@ class OpportunityReportPdf < Prawn::Document
     @start_date = start_date
     @end_date = end_date
     @total_hours = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).sum(:hours)
-    @total_volunteers_registered = opportunity.person_opportunities.where(:created_at => start_date..end_date).count
+    # @total_volunteers_registered = opportunity.person_opportunities.where(:created_at => start_date..end_date).count
     @total_number_of_volunteers = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).map(&:person_id).uniq.count
     # @opportunities = opportunities
     header

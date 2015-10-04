@@ -21,7 +21,6 @@ angular
     'ui.bootstrap',
     'pc035860.scrollWatch',
     'ui.router',
-    'duScroll',
     'ngMaterial',
     'ngFileUpload',
     'pdf',
@@ -84,7 +83,6 @@ angular
       // to be used for back button //won't work when page is reloaded.
       $rootScope.previousState_name = fromState.name;
       $rootScope.previousState_params = fromParams;
-      console.log($rootScope.previousState_name)
     });
     //back button function called from back button's ng-click="back()"
     $rootScope.back = function() {

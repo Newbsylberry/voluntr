@@ -111,15 +111,15 @@ class Opportunity < ActiveRecord::Base
     @recorded_hours_series = Hash.new
     @recorded_hours_series["name"] = "Recorded Hours"
     @recorded_hours_series["data"] = Array.new
-    @instance_hours_series = Hash.new
-    @instance_hours_series["name"] = "Hours Recorded During Instance"
-    @instance_hours_series["data"] = Array.new
-    @instance_people_series = Hash.new
-    @instance_people_series["name"] = "Hours Recorded During Instance"
-    @instance_people_series["data"] = Array.new
+    # @instance_hours_series = Hash.new
+    # @instance_hours_series["name"] = "Hours Recorded During Instance"
+    # @instance_hours_series["data"] = Array.new
+    # @instance_people_series = Hash.new
+    # @instance_people_series["name"] = "Hours Recorded During Instance"
+    # @instance_people_series["data"] = Array.new
     options = {
         title: {
-            text: "Instance Summary Chart"
+            text: "Opportunity Summary Chart"
         },
         xAxis: {
             type: 'datetime',
@@ -133,15 +133,15 @@ class Opportunity < ActiveRecord::Base
       @recorded_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), h.hours])
     end
 
-    instances_statistics.each do |i|
-      if !i.end_time.nil?  && i.end_time  >= start_date && i.end_time <= end_date
-        @instance_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_hours])
-        @instance_people_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_people_count])
-      end
-    end
+    # instances_statistics.each do |i|
+    #   if !i.end_time.nil?  && i.end_time  >= start_date && i.end_time <= end_date
+    #     @instance_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_hours])
+    #     @instance_people_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_people_count])
+    #   end
+    # end
     options["series"].push(@recorded_hours_series)
-    options["series"].push(@instance_hours_series)
-    options["series"].push(@instance_people_series)
+    #options["series"].push(@instance_hours_series)
+    #options["series"].push(@instance_people_series)
 
     file_name = "#{name}_report.png"
 

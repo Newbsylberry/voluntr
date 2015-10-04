@@ -15,14 +15,8 @@ angular.module('voluntrApp')
 
     var stickyNavTop = $('.nav').offset().top;
 
-    console.log(stickyNavTop);
-    
-    
-   
-    
     var stickyNav = function(){
       var scrollb = $('#screen2').offset().top;
-        console.log(scrollb);
       if (scrollb < 0 ){
         $('.nav').addClass('sticky');
       } else {
@@ -34,7 +28,6 @@ angular.module('voluntrApp')
 
 
     $('.ng-scope').scroll(function() {
-      console.log("HELLO COWBOY");
       stickyNav();
     });
 
@@ -59,24 +52,22 @@ angular.module('voluntrApp')
     });
 
     $('.navicon').click(function(){
-     
+
         $('.navmenu').toggleClass('navb');
-      
+
     });
 
-    
+
     $('.ng-scope').click(function(evn){
         evn.preventDefault();
-        $('.container-fluid').scrollTo(this.hash, this.hash); 
-        console.log('ddd');
+        $('.container-fluid').scrollTo(this.hash, this.hash);
     	});
-    
-    
+
+
     $('.navmenu a').click(function(){
       $('.navmenu').addClass('navb');
-      console.log("menu close");
     });
-    
+
 
 
 

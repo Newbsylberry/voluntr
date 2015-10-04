@@ -17,7 +17,6 @@
     "angular-resource": "~1.4.0",
     "angular-route": "~1.4.0",
     "angular-sanitize": "~1.4.0",
-    "angular-scroll": "~0.6.3",
     "angular-scroll-watch": "~0.5.4",
     "angular-snap": "~1.8.1",
     "angular-touch": "~1.4.0",
