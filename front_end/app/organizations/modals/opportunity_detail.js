@@ -38,6 +38,7 @@ angular.module('voluntrApp')
 
     Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
       $scope.opportunity.volunteers = volunteers;
+      console.log($scope.opportunity.volunteers)
     });
 
     Opportunity.roles($scope.opportunity.id, 'roles').$promise.then(function(roles) {
@@ -123,6 +124,12 @@ angular.module('voluntrApp')
         var v = {}
         v.first_name = volunteer.first_name;
         v.last_name = volunteer.last_name;
+        v.address_1 = volunteer.address_1;
+        v.address_2 = volunteer.address_2;
+        v.city = volunteer.city;
+        v.state = volunteer.state;
+        v.zip_code = volunteer.zip_code;
+        v.phone = volunteer.phone;
         v.email_address = volunteer.email;
         v.hours = volunteer.opportunity_hours;
         volunteers.push(v)

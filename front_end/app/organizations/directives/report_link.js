@@ -5,7 +5,7 @@ angular.module('voluntrApp').directive("reportLink", function ($modal) {
         {
           templateUrl: 'organizations/modals/generate_report.html',
           controller: 'GenerateReportCtrl',
-          windowClass: 'add-event-modal-window',
+          windowClass: 'generate-report-window',
           size: 'sm',
           resolve: {
             rm_id: function () {

@@ -1,8 +1,10 @@
 class OpportunityReportPdf < Prawn::Document
-  def initialize(opportunity, graph_name, start_date, end_date)
+  def initialize(opportunity, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date)
     super()
     @opportunity = opportunity
-    @graph_name = graph_name
+    @recorded_hours = recorded_hours
+    @opportunity_roles = opportunity_roles
+    @opportunity_groups = opportunity_groups
     @start_date = start_date
     @end_date = end_date
     @total_hours = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).sum(:hours)
@@ -10,8 +12,14 @@ class OpportunityReportPdf < Prawn::Document
     @total_number_of_volunteers = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).map(&:person_id).uniq.count
     # @opportunities = opportunities
     header
-    graphs
+    recorded_hours_graph
     text_content
+    start_new_page
+    opportunity_roles_graph
+    opportunity_role_text
+    start_new_page
+    groups_graph
+    groups_text
   end
 
   def header
@@ -32,8 +40,8 @@ class OpportunityReportPdf < Prawn::Document
     # end
   end
 
-  def graphs
-      image @graph_name, position: :center
+  def recorded_hours_graph
+    image @recorded_hours, position: :center
   end
 
   def text_content
@@ -43,42 +51,52 @@ class OpportunityReportPdf < Prawn::Document
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
     bounding_box([0, y_position], :width => 270, :height => 400) do
       text "People Involved:", size: 15, style: :bold
-      text "Number of Volunteers Registered: #{@total_volunteers_registered}", size: 11
       text "Number of Volunteers Recording Hours: #{@total_number_of_volunteers}", size: 11
       text "Total Recorded Hours: #{@total_hours}", size: 11
+    end
+  end
 
 
+    # bounding_box([300, y_position], :width => 270, :height => 400) do
+    #   text "Useful Metrics:", size: 15, style: :bold
+    #   if @total_number_of_volunteers != 0
+    #     text "Average Number of Hours Per Volunter: #{@total_hours / @total_number_of_volunteers}",
+    #          size: 11
+    #     text "Total Volunteers Registered / Actual Volunteers: #{@total_volunteers_registered / @total_number_of_volunteers}",
+    #          size: 11
+    #   end
+    # end
+
+    def opportunity_roles_graph
+      font_size(24) { text "Opportunity Roles", align: :center }
+      image @opportunity_roles, position: :center
     end
 
-
-    bounding_box([300, y_position], :width => 270, :height => 400) do
-      text "Useful Metrics:", size: 15, style: :bold
-      if @total_number_of_volunteers != 0
-        text "Average Number of Hours Per Volunter: #{@total_hours / @total_number_of_volunteers}",
-             size: 11
-        text "Total Volunteers Registered / Actual Volunteers: #{@total_volunteers_registered / @total_number_of_volunteers}",
-             size: 11
+    def opportunity_role_text
+      # The cursor for inserting content starts on the top left of the page. Here we move it down a little to create more space between the text and the image inserted above
+      y_position = cursor - 50
+      # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
+      bounding_box([0, y_position], :width => 540, :height => 400) do
+        @opportunity.opportunity_roles.each do |ors|
+          font_size(18) {text "#{ors.name}: #{ors.total_recorded_hours} hours |  #{ors.total_people} people"}
+        end
       end
     end
 
+  def groups_graph
+    font_size(24) { text "Groups", align: :center }
+    image @opportunity_groups, position: :center
+  end
 
-  # def table_content
-  #   # This makes a call to product_rows and gets back an array of data that will populate the columns and rows of a table
-  #   # I then included some styling to include a header and make its text bold. I made the row background colors alternate between grey and white
-  #   # Then I set the table column widths
-  #   table product_rows do
-  #     row(0).font_style = :bold
-  #     self.header = true
-  #     self.row_colors = ['DDDDDD', 'FFFFFF']
-  #     self.column_widths = [40, 300, 200]
-  #   end
-  # end
-  #
-  # def product_rows
-  #   [['#', 'Name', 'Price']] +
-  #       @products.map do |product|
-  #         [product.id, product.name, product.price]
-  #       end
-  # end
+  def groups_text
+    # The cursor for inserting content starts on the top left of the page. Here we move it down a little to create more space between the text and the image inserted above
+    y_position = cursor - 50
+    # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
+    bounding_box([0, y_position], :width => 540, :height => 400) do
+      @opportunity.groups.each do |g|
+        font_size(18) {text "#{g.name}: #{g.total_recorded_hours} hours | #{g.total_people} people"}
+      end
+    end
   end
 end
+

@@ -1,10 +1,12 @@
 
 <h3>What Date Range Should Be Exported?</h3>
+<p>A new window will open, and your report will be generated shortly afterwards.  Please be patient!</p>
 <input date-range-picker
        class="form-control date-picker"
        type="text"
        placeholder="Please select the two dates"
        ng-model="date" />
-<button href=""
-        class="btn btn-block"
-        ng-click="exportReport()">Export Report</button>
+<md-button class="md-raised md-primary"
+           ng-click="exportReport()"
+  >Export Report
+</md-button>

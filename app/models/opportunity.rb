@@ -9,6 +9,7 @@ class Opportunity < ActiveRecord::Base
   has_many :opportunity_roles, dependent: :destroy
   has_many :recorded_hours, dependent: :destroy
   has_many :opportunity_instances
+  has_many :groups, through: :recorded_hours
   belongs_to :organization
   has_many :organization_email_templates, through: :organization
   geocoded_by :full_street_address   # can also be an IP address
@@ -111,15 +112,11 @@ class Opportunity < ActiveRecord::Base
     @recorded_hours_series = Hash.new
     @recorded_hours_series["name"] = "Recorded Hours"
     @recorded_hours_series["data"] = Array.new
-    # @instance_hours_series = Hash.new
-    # @instance_hours_series["name"] = "Hours Recorded During Instance"
-    # @instance_hours_series["data"] = Array.new
-    # @instance_people_series = Hash.new
-    # @instance_people_series["name"] = "Hours Recorded During Instance"
-    # @instance_people_series["data"] = Array.new
-    options = {
+
+    # This is a line graph for recorded hours
+    recorded_hour_options = {
         title: {
-            text: "Opportunity Summary Chart"
+            text: "Recorded Hours Between #{DateTime.parse(start_date.to_s).strftime("%b/%d/%Y")} and #{DateTime.parse(end_date.to_s).strftime("%b/%d/%Y")}"
         },
         xAxis: {
             type: 'datetime',
@@ -128,35 +125,90 @@ class Opportunity < ActiveRecord::Base
             }
         }
     }
-    options["series"] = Array.new
+    recorded_hour_options["series"] = Array.new
     recorded_hours.where(date_recorded: start_date..end_date).each do |h|
-      @recorded_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), h.hours])
+      @recorded_hours_series["data"].push([(DateTime.parse(h.date_recorded.to_s).to_f * 1000), h.hours])
     end
 
-    # instances_statistics.each do |i|
-    #   if !i.end_time.nil?  && i.end_time  >= start_date && i.end_time <= end_date
-    #     @instance_hours_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_hours])
-    #     @instance_people_series["data"].push([(DateTime.parse(i.end_time).to_f * 1000), i.instance_people_count])
-    #   end
-    # end
-    options["series"].push(@recorded_hours_series)
-    #options["series"].push(@instance_hours_series)
-    #options["series"].push(@instance_people_series)
+    recorded_hour_options["series"].push(@recorded_hours_series)
 
-    file_name = "#{name}_report.png"
-
-    open(file_name, 'wb') do |file|
-     file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(options))}").read
+    recorded_hours = "#{name}_recorded_hour_chart.png"
+    ap "http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(recorded_hour_options))}"
+    open(recorded_hours, 'wb') do |file|
+      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(recorded_hour_options))}").read
     end
 
-    pdf = OpportunityReportPdf.new(self, file_name, start_date, end_date)
 
+    # This is the pie chart for roles
+    @opportunity_roles_series = Hash.new
+    @opportunity_roles_series["name"] = "Opportunity Roles"
+    @opportunity_roles_series["data"] = Array.new
+    opportunity_roles_options = {
+        title: {
+            text: "Hours Per Role Between #{DateTime.parse(start_date.to_s).strftime("%b/%d/%Y")} and #{DateTime.parse(end_date.to_s).strftime("%b/%d/%Y")}"
+        },
+        chart: {
+            type: 'pie'
+        },
+        xAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        }
+    }
+    opportunity_roles_options["series"] = Array.new
+    if !opportunity_roles.empty?
+      opportunity_roles.each do |opr|
+        @opportunity_roles_series["data"].push({name: "#{opr.name}", y: opr.total_recorded_hours})
+      end
+    end
+
+    opportunity_roles_options["series"].push(@opportunity_roles_series)
+    opportunity_roles = "#{name}_opportunity_hours.png"
+    ap "http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_roles_options))}"
+    open(opportunity_roles, 'wb') do |file|
+      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_roles_options))}").read
+    end
+
+
+
+    # This is the pie chart for groups
+    @opportunity_groups_series = Hash.new
+    @opportunity_groups_series["name"] = "Opportunity Roles"
+    @opportunity_groups_series["data"] = Array.new
+    opportunity_groups_options = {
+        title: {
+            text: "Groups Between #{DateTime.parse(start_date.to_s).strftime("%b/%d/%Y")} and #{DateTime.parse(end_date.to_s).strftime("%b/%d/%Y")}"
+        },
+        chart: {
+            type: 'pie'
+        },
+        xAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        }
+    }
+    opportunity_groups_options["series"] = Array.new
+    if !groups.empty?
+      groups.each do |opg|
+        @opportunity_groups_series["data"].push({name: "#{opg.name}", y: opg.total_recorded_hours})
+      end
+    end
+
+    opportunity_groups_options["series"].push(@opportunity_groups_series)
+    opportunity_groups = "#{name}_groups_opportunity_hours.png"
+    open(opportunity_groups, 'wb') do |file|
+      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_groups_options))}").read
+    end
+
+
+    pdf = OpportunityReportPdf.new(self, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date)
     pdf.render_file "hello.pdf"
 
     @resource.resource = File.open("hello.pdf")
     @resource.resourceable = self
     @resource.save
-
     return @resource
   end
 
