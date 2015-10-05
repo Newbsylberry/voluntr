@@ -51,22 +51,22 @@ angular.module('voluntrApp')
 
     });
 
-    $('.navicon').click(function(){
-
-        $('.navmenu').toggleClass('navb');
-
-    });
-
-
-    $('.ng-scope').click(function(evn){
-        evn.preventDefault();
-        $('.container-fluid').scrollTo(this.hash, this.hash);
-    	});
+    //$('.navicon').click(function(){
+    //
+    //    $('.navmenu').toggleClass('navb');
+    //
+    //});
 
 
-    $('.navmenu a').click(function(){
-      $('.navmenu').addClass('navb');
-    });
+    //$('.ng-scope').click(function(evn){
+    //    evn.preventDefault();
+    //    $('.container-fluid').scrollTo(this.hash, this.hash);
+    //	});
+
+
+    //$('.navmenu a').click(function(){
+    //  $('.navmenu').addClass('navb');
+    //});
 
 
 

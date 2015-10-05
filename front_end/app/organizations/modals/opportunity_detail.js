@@ -129,6 +129,9 @@ angular.module('voluntrApp')
         v.city = volunteer.city;
         v.state = volunteer.state;
         v.zip_code = volunteer.zip_code;
+        v.occupation = volunteer.occupation;
+        v.organization_name = volunteer.organization_name;
+        v.opportunity_role = volunteer.opportunity_role;
         v.phone = volunteer.phone;
         v.email_address = volunteer.email;
         v.hours = volunteer.opportunity_hours;
