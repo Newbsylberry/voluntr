@@ -14,6 +14,8 @@ angular.module('voluntrApp')
     // Code for the modal
     $scope.newPerson = {};
 
+    $scope.schedule = {};
+
     $scope.addPerson = function() {
       var attr = {};
       attr.id = $scope.newPerson.id;
@@ -21,14 +23,18 @@ angular.module('voluntrApp')
       attr.last_name = $scope.newPerson.last_name;
       attr.email = $scope.newPerson.email;
       attr.phone = $scope.newPerson.phone;
-      attr.address = $scope.newPerson.address;
+      attr.address_1 = $scope.newPerson.address_1;
+      attr.address_2 = $scope.newPerson.address_2;
       attr.city = $scope.newPerson.city;
       attr.state = $scope.newPerson.state;
       attr.zip_code = $scope.newPerson.zip_code;
+      attr.notes = $scope.newPerson.notes;
+      attr.organization_name = $scope.newPerson.organization_name;
+      attr.occupation = $scope.newPerson.occupation;
       attr.organization_id = $stateParams.organization_Id;
+      attr.schedule = $scope.schedule;
       var newPerson = People.create(attr)
       $modalInstance.dismiss('cancel');
-
     };
 
     $scope.matchedPerson = function (person) {
@@ -36,22 +42,6 @@ angular.module('voluntrApp')
       $scope.newPerson.first_name = person.first_name;
       $scope.newPerson.last_name = person.last_name;
     };
-
-    $http.get('api/v1/organizations/' + $stateParams.organization_Id + '/people' ).
-      success(function(data, status, headers, config) {
-        $scope.organization_people = data;
-
-      }).
-      error(function(data, status, headers, config) {
-        console.log(data)
-      });
-
-
-
-
-
-
-
 
 
 

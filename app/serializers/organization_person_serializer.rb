@@ -1,5 +1,6 @@
 class OrganizationPersonSerializer < ActiveModel::Serializer
-  attributes :id, :organization, :person, :notes
+  attributes :id, :organization, :notes
+  has_one :person
 
 
 

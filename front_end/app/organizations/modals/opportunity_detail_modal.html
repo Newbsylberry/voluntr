@@ -10,11 +10,7 @@
       <div class="tabcontrol">
         <div class="tabcontrolin">
           <div class="row oppinfo">
-            <div class="col-md-3">
-              <img src=""
-                   class="face">
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
                   <edit-object-directive
                     text_name="name"
                     model-type="opportunity"
@@ -24,18 +20,17 @@
                     size="title_text"
                     ></edit-object-directive>
               <div style="float: right">
-                  <h4 style="display: inline-block;">Volunteer Goal</h4>
-                  <edit-object-directive
-                    text_name="volunteer_goal"
-                    model-type="opportunity"
-                    attribute-name="volunteer_goal"
-                    model-id="{{opportunity.id}}"
-                    text="{{opportunity.volunteer_goal}}"
-                    size="subtitle_text"
-                    ></edit-object-directive>
+                <h4 style="display: inline-block;">Volunteer Goal</h4>
+                <edit-object-directive
+                  text_name="volunteer_goal"
+                  model-type="opportunity"
+                  attribute-name="volunteer_goal"
+                  model-id="{{opportunity.id}}"
+                  text="{{opportunity.volunteer_goal}}"
+                  size="subtitle_text"
+                  ></edit-object-directive>
               </div>
-
-
+              <p>{{instance | date:'medium'}}</p>
               <md-divider></md-divider>
               <h4 >Address:</h4>
               <edit-address

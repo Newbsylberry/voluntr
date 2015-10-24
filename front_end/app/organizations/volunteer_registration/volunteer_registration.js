@@ -1,7 +1,8 @@
 angular.module('voluntrApp')
   .controller('OrganizationVolunteerRegistrationCtrl', function ($scope, $stateParams, $http,
                                                                  $state, $filter, $rootScope, Facebook,
-                                                                 Organization, People, $timeout) {
+                                                                 Organization, People, $timeout,
+                                                                 OrganizationPerson) {
 
 
     Organization.get_by_url({organization_custom_Url: $stateParams.organization_custom_Url},
@@ -19,7 +20,12 @@ angular.module('voluntrApp')
         } else if ($state.params.token) {
           People.get({person_Id: atob($state.params.token)}, function(successResponse) {
             $scope.person = successResponse;
-            console.log($scope.person)
+            $scope.schedule = successResponse.schedule_update_form_settings;
+            OrganizationPerson.get_by_organization_and_person_id(
+              $scope.organization.id, $scope.person.id).$promise.then(function(successResponse) {
+                $scope.organization_person = successResponse;
+                $scope.person.notes = successResponse.notes;
+              })
           })
         }
       })
@@ -53,6 +59,9 @@ angular.module('voluntrApp')
       }
     };
 
+    if (!$scope.schedule) {
+      $scope.schedule = {};
+    }
 
     $scope.updateWithAddress = function(person) {
       var attr = {};
@@ -69,19 +78,10 @@ angular.module('voluntrApp')
 
     };
 
-    $scope.morning = {};
-    $scope.afternoon = {};
-    $scope.night = {};
-
     $scope.updateWithSchedule = function() {
       var attr = {};
       attr.id = $scope.person.id;
-      if ($scope.morning && $scope.afternoon && $scope.night) {
-      attr.schedule = {};
-      attr.schedule.morning = $scope.morning;
-      attr.schedule.afternoon = $scope.afternoon;
-      attr.schedule.night = $scope.night;
-      };
+      attr.schedule = $scope.schedule;
       People.update(attr).$promise.then(function(person){
         $state.go('organization_volunteer_registration.4', {token:btoa($scope.person.id)})
       });
@@ -93,6 +93,12 @@ angular.module('voluntrApp')
       attr.phone = person.phone;
       attr.organization_name = person.organization_name;
       attr.occupation = person.occupation;
+      if (person.notes) {
+        var org_per_attr = {};
+        org_per_attr.id = $scope.organization_person.id;
+        org_per_attr.notes = person.notes;
+        OrganizationPerson.update(org_per_attr)
+      }
       People.update(attr).$promise.then(function(person){
         $state.go('volunteer_home')
       });

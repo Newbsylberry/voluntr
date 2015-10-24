@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
       # People Routes
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
+      match '/people/:id/person_availability_schedule', to: 'people#person_availability_schedule', via: :get, defaults: {format: :json}
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/people/:id/recorded_hours', to: 'people#recorded_hours', via: :get, defaults: {format: :json}
 

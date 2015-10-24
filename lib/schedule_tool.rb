@@ -61,24 +61,22 @@ module SchedulerTool
   def SchedulerTool.hash_array_loop(schedule_hash, array)
     days = array
     schedule_hash.each do |key, value|
-
-      if key.to_s == "monday"
+      if key.to_s == "monday" && value == true
         days << 1
-      elsif key.to_s == "tuesday"
+      elsif key.to_s == "tuesday" && value == true
         days << 2
-      elsif key.to_s== "wednesday"
+      elsif key.to_s== "wednesday" && value == true
         days << 3
-      elsif key.to_s== "thursday"
+      elsif key.to_s== "thursday" && value == true
         days << 4
-      elsif key.to_s == "friday"
+      elsif key.to_s == "friday" && value == true
         days << 5
-      elsif key.to_s == "saturday"
+      elsif key.to_s == "saturday" && value == true
         days << 6
-      elsif key.to_s == "sunday"
+      elsif key.to_s == "sunday" && value == true
         days << 0
       end
     end
-    puts days.count
     return days
   end
 

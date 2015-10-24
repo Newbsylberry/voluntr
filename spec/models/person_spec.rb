@@ -12,7 +12,7 @@ RSpec.describe Person, "Working with the people model" do
       @person = create(:person)
       organization = create(:organization)
 
-      @person.add_to_organization(organization)
+      @person.add_to_organization(organization, "Hello World")
       expect(@person.organizations).to include(organization)
     end
 
@@ -67,7 +67,14 @@ RSpec.describe Person, "Working with the people model" do
     end
 
 
-    pending "should show only opportunities registered for"
-
+    it "#availability_schedule" do
+      @schedules = Hash.new
+      @schedules["morning_schedule"] = "---\n:start_time: &1 2015-07-14 06:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 12:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-14 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-14 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @person = create(:person, email: "Chris@chris.com", schedule: @schedules)
+      ap @person
+      expect(@person.availability_schedule("2015-07-15T08:02:17-05:00", "2015-08-15T08:02:17-05:00").count).to be(93)
+    end
   end
 end

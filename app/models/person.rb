@@ -27,8 +27,8 @@ class Person < ActiveRecord::Base
     if person.new_record?
       @schedules = Hash.new
       @schedules["morning_schedule"] = "---\n:start_time: &1 2015-07-13 06:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 12:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
-      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
-      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 23:59:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       self.schedule = @schedules
     end
   end
@@ -106,9 +106,10 @@ class Person < ActiveRecord::Base
     return @all_related_opportunities
   end
 
-  def add_to_organization(organization)
+  def add_to_organization(organization, notes)
     @organization_person = OrganizationPerson.create_with(locked: false).
         find_or_initialize_by(person: self, organization: organization)
+    @organization_person.notes = notes
     if !organization.organization_mailing_services.empty? && !email.nil?
       @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
     end
@@ -124,7 +125,7 @@ class Person < ActiveRecord::Base
     @afternoon_schedule = Array.new
     @night_schedule = Array.new
     params[:schedule].each do |key, value|
-      if key.to_s == "morning" && self.schedule["morning_schedule"]
+      if key.to_s == "morning"
         hash = IceCube::Schedule.from_yaml(self.schedule["morning_schedule"]).to_hash
         hash[:rrules].each do |rr|
           rr[:validations][:day] = SchedulerTool.hash_array_loop(value, Array.new)
@@ -136,7 +137,6 @@ class Person < ActiveRecord::Base
           rr[:validations][:day] = SchedulerTool.hash_array_loop(value, Array.new)
         end
         schedule["afternoon_schedule"] = IceCube::Schedule.from_hash(hash).to_yaml
-
       elsif key.to_s == "night"
         hash = IceCube::Schedule.from_yaml(self.schedule["night_schedule"]).to_hash
         hash[:rrules].each do |rr|
@@ -194,6 +194,143 @@ class Person < ActiveRecord::Base
     return @resource
   end
 
+  def availability_schedule(start_date, end_date)
+    @availability_schedule = Array.new
+    schedule.each do |k,v|
+      if k == "morning_schedule"
+        IceCube::Schedule.from_yaml(self.schedule["morning_schedule"]).to_hash[:rrules].each do |h|
+          if !h[:validations].empty?
+            IceCube::Schedule.from_yaml(v).occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |i|
+              morning_instance =
+                  {
+                      id: 1,
+                      title: "Morning Schedule",
+                      start: i.start_time,
+                      end: i.end_time,
+                      color: '#FFEB3B'
+
+                  }
+              @availability_schedule.push(morning_instance)
+            end
+          end
+        end
+      elsif k == "afternoon_schedule"
+        IceCube::Schedule.from_yaml(self.schedule["afternoon_schedule"]).to_hash[:rrules].each do |h|
+          if !h[:validations].empty?
+            IceCube::Schedule.from_yaml(v).occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |i|
+              afternoon_instance =
+                  {
+                      id: 2,
+                      title: "Afternoon Schedule",
+                      start: i.start_time,
+                      end: i.end_time,
+                      color: '#4CAF50'
+                  }
+              @availability_schedule.push(afternoon_instance)
+            end
+          end
+        end
+      elsif k == "night_schedule"
+        IceCube::Schedule.from_yaml(self.schedule["night_schedule"]).to_hash[:rrules].each do |h|
+          if !h[:validations].empty?
+            IceCube::Schedule.from_yaml(v).occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |i|
+              evening_instance =
+                  {
+                      id: 3,
+                      title: "Evening Schedule",
+                      start: i.start_time,
+                      end: i.end_time,
+                      color: '#3F51B5'
+                  }
+              @availability_schedule.push(evening_instance)
+            end
+          end
+        end
+      end
+    end
+    return @availability_schedule
+  end
+
+  def schedule_update_form_settings
+    @days = Array.new
+    @morning = Hash.new
+    @afternoon = Hash.new
+    @night = Hash.new
+    schedule.each do |k,v|
+      if k == "morning_schedule"
+        IceCube::Schedule.from_yaml(self.schedule["morning_schedule"]).to_hash[:rrules].each do |h|
+          if !h[:validations].empty?
+            IceCube::Schedule.from_yaml(v).occurrences_between(Time.now, Time.now + 7.days).each do |i|
+              if i.wday == 0
+                @morning["sunday"] = true
+              elsif i.wday == 1
+                @morning["monday"] = true
+              elsif i.wday == 2
+                @morning["tuesday"] = true
+              elsif i.wday == 3
+                @morning["wednesday"] = true
+              elsif i.wday == 4
+                @morning["thursday"] = true
+              elsif i.wday == 5
+                @morning["friday"] = true
+              elsif i.wday == 6
+                @morning["saturday"] = true
+              end
+            end
+          end
+
+        end
+
+      elsif k == "afternoon_schedule"
+        IceCube::Schedule.from_yaml(self.schedule["afternoon_schedule"]).to_hash[:rrules].each do |h|
+          if !h[:validations].empty?
+            IceCube::Schedule.from_yaml(v).occurrences_between(Time.now, Time.now + 7.days).each do |i|
+              if i.wday == 0
+                @afternoon["sunday"] = true
+              elsif i.wday == 1
+                @afternoon["monday"] = true
+              elsif i.wday == 2
+                @afternoon["tuesday"] = true
+              elsif i.wday == 3
+                @afternoon["wednesday"] = true
+              elsif i.wday == 4
+                @afternoon["thursday"] = true
+              elsif i.wday == 5
+                @afternoon["friday"] = true
+              elsif i.wday == 6
+                @afternoon["saturday"] = true
+              end
+            end
+          end
+
+        end
+
+      elsif k == "night_schedule"
+        IceCube::Schedule.from_yaml(self.schedule["night_schedule"]).to_hash[:rrules].each do |h|
+          if !h[:validations].empty?
+            IceCube::Schedule.from_yaml(v).occurrences_between(Time.now, Time.now + 7.days).each do |i|
+              if i.wday == 0
+                @night["sunday"] = true
+              elsif i.wday == 1
+                @night["monday"] = true
+              elsif i.wday == 2
+                @night["tuesday"] = true
+              elsif i.wday == 3
+                @night["wednesday"] = true
+              elsif i.wday == 4
+                @night["thursday"] = true
+              elsif i.wday == 5
+                @night["friday"] = true
+              elsif i.wday == 6
+                @night["saturday"] = true
+              end
+            end
+          end
+        end
+      end
+    end
+    return {morning: @morning, afternoon: @afternoon, night: @night}
+  end
 
 
 

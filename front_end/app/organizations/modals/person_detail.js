@@ -14,9 +14,9 @@ angular.module('voluntrApp')
 
     var addRecordedHoursToDash = function (recorded_hour) {
       if (recorded_hour.date_recorded  != null) {
-       $scope.personStatisticGraphConfig.series[0].data.push
-       ([Date.parse(recorded_hour.date_recorded), recorded_hour.hours])
-       }
+        $scope.personStatisticGraphConfig.series[0].data.push
+        ([Date.parse(recorded_hour.date_recorded), recorded_hour.hours])
+      }
     };
 
     var addToPersonOpportunitiesChart = function (person_opportunity) {
@@ -27,8 +27,9 @@ angular.module('voluntrApp')
 
     OrganizationPerson.get_by_organization_and_person_id($stateParams.organization_Id, id).$promise.then(function(successResponse) {
       $scope.organization_person_id = successResponse.id;
-      console.log($scope.organization_person_id);
       $scope.person = successResponse.person;
+      console.log($scope.person)
+      $scope.schedule = successResponse.person.schedule_update_form_settings;
       $scope.person.notes = successResponse.notes;
       People.recorded_hours(id, 'recorded_hours').$promise.then(function(recorded_hours) {
         $scope.person.recorded_hours = recorded_hours;
@@ -40,6 +41,46 @@ angular.module('voluntrApp')
         angular.forEach($scope.person.opportunities, addToPersonOpportunitiesChart)
       });
     });
+
+    $scope.updateWithSchedule = function() {
+      var attr = {};
+      attr.id = $scope.person.id;
+      attr.schedule = $scope.schedule;
+      People.update(attr).$promise.then(function(person){
+        $scope.edit_schedule = false;
+        $scope.schedule = {};
+      });
+    };
+
+    $scope.eventSources = [
+      {
+        url: 'api/v1/people/' + id + '/person_availability_schedule'
+      },
+      []
+    ];
+
+    $scope.uiConfig = {
+      myCalendar:{
+        height: 500,
+        editable: true,
+        eventTextColor: 'white',
+        defaultView: 'agendaWeek',
+        header:{
+          left: 'month agendaWeek agendaDay',
+          center: 'title',
+          right: 'today prev,next'
+        },
+        businessHours :
+        {
+          start: '7:00', // a start time (10am in this example)
+          end: '20:00', // an end time (6pm in this example)
+
+          dow: [ 1, 2, 3, 4, 5 ]
+          // days of week. an array of zero-based day of week integers (0=Sunday)
+          // (Monday-Thursday in this example)
+        }
+      }
+    };
 
 
     $scope.personStatisticGraphConfig =

@@ -1,5 +1,9 @@
 <div ng-show="!submitted">
   <md-input-container>
+    <md-input-container flex>
+      <label>Notes <small>(i.e. - additional schedule information)</small>:</label>
+      <textarea ng-model="person.notes" columns="1" md-maxlength="150"></textarea>
+    </md-input-container>
     <label>Your Phone Number:</label>
     <input type="text" ng-model="person.phone">
   </md-input-container>

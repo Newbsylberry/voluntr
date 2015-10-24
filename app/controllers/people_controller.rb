@@ -6,32 +6,43 @@ class PeopleController < ApplicationController
   end
 
   def show
-      @person = Person.find(params[:id])
+    @person = Person.find(params[:id])
 
-      render json: @person, serializer: PersonSerializer
+
+
+    render json: @person, serializer: PersonSerializer
   end
 
   def create
-    if params[:email] != ""
-        @person = Person.create_with(locked: false)
-                          .find_or_initialize_by(email: params[:email])
-    else params[:phone]
-        @person = Person.create_with(locked: false)
-                    .find_or_initialize_by(phone: params[:phone])
+    if params[:email]
+      @person = Person.create_with(locked: false)
+                    .find_or_initialize_by(email: params[:email])
+    elsif params[:phone]
+    @person = Person.create_with(locked: false)
+                  .find_or_initialize_by(phone: params[:phone])
+    else
+      @person = Person.new
     end
 
+    if @person.new_record?
+      @person.assign_attributes(person_params)
+    elsif !@person.new_record?
+      @person.update(person_params)
+    end
 
-    @person.first_name = params[:first_name]
-    @person.last_name = params[:last_name]
+    if params[:schedule]
+      @person.update_schedule(params)
+    end
 
     @person.save
 
     if params[:organization_id]
-      @person.add_to_organization(Organization.find(params[:organization_id]))
+      @person.add_to_organization(Organization.find(params[:organization_id]), params[:notes])
     end
 
     render json: @person, serializer: PersonSerializer
   end
+
 
   def update
     @person = Person.find(params[:id])
@@ -53,6 +64,18 @@ class PeopleController < ApplicationController
     render json: @person.all_related_opportunities, each_serializer: PersonOpportunitySerializer
   end
 
+  def opportunities
+    @person = Person.find(params[:id])
+
+    render json: @person.all_related_opportunities, each_serializer: PersonOpportunitySerializer
+  end
+
+  def person_availability_schedule
+    @person = Person.find(params[:id])
+
+    render json: @person.availability_schedule(params[:start], params[:end])
+  end
+
   def recorded_hours
     @person = Person.find(params[:id])
 
@@ -65,7 +88,8 @@ class PeopleController < ApplicationController
 
   def person_params
     params.require(:person).permit(:id, :first_name, :address_1, :address_2, :last_name, :phone, :email,
-                                   :fb_id, :city, :state, :zip_code, :occupation, :organization_name, :occupation)
+                                   :fb_id, :city, :state, :zip_code, :occupation, :organization_name,
+                                   :occupation)
   end
 
 end

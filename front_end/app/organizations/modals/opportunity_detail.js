@@ -18,6 +18,8 @@ angular.module('voluntrApp')
                                                  OpportunityRole, opportunity) {
 
 
+    $scope.instance = start_time;
+
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);

@@ -44,7 +44,7 @@
             </md-input-container>
           </div>
           <div class="window-bottom-button">
-            <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 1">Next: Enter Scheduling Information</md-button>
+            <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 1">Next: Enter Scheduling Information</md-button>
           </div>
         </div>
       </div>
@@ -63,8 +63,8 @@
             calendar="calendar">
           </schedule-form>
           <div class="window-bottom-button">
-            <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</md-button>
-            <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</md-button>
+            <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</md-button>
+            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</md-button>
           </div>
         </div>
       </div>
@@ -109,8 +109,8 @@
             <md-list-item style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;margin-bottom:10px;" ng-repeat="role in roles"><p>{{role.name}} - {{role.description}}</p></md-list-item>
           </md-list>
           <div class="window-bottom-button">
-            <md-button class="md-primary tabbutton" ng-click="newOpportunity()">Create Opportunity!</md-button>
-            <md-button class="md-primary tabbutton" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</md-button>
+            <md-button class="md-primary right-bottom-button" ng-click="newOpportunity()">Create Opportunity!</md-button>
+            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</md-button>
           </div>
         </div>
       </div>

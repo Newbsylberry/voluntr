@@ -30,6 +30,13 @@ md-tabs.md-default-theme.md-accent md-tab:not([disabled]) {
     transform: none;
 }
 
+.left-bottom-button {
+  float: left;
+}
+
+.right-bottom-button {
+  float: right;
+}
 
 .tabcontrol{
     height:450px;
@@ -47,9 +54,6 @@ padding:20px 20px 50px 20px;
     height: 500px;
 }
 
-.tabbutton{
-    float:right;
-}
 
 .diacontent{
 padding-top: 60px;
