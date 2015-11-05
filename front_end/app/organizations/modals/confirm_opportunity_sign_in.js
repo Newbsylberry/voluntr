@@ -33,10 +33,16 @@ angular.module('voluntrApp')
       attr.sign_in  = true;
       RecordedHours.create(attr);
       $scope.confirmed = true;
-      $timeout(function() {
-        $modalInstance.dismiss('cancel');
-      }, 1000)
+      //$timeout(function() {
+      //  $modalInstance.dismiss('cancel');
+      //}, 1000)
     };
+
+
+    $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+    'WY').split(' ').map(function (state) { return { abbrev: state }; });
+
 
     $scope.$watch('opportunity_role', function(){
       if ($scope.opportunity_role && $scope.opportunity_role.hours_required){

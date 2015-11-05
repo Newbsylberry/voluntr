@@ -10,7 +10,7 @@
 angular.module('voluntrApp')
   .controller('PersonDetailCtrl', function ($scope, Facebook, $http,
                                             $stateParams, id, People,
-                                            $timeout, OrganizationPerson) {
+                                            $timeout, OrganizationPerson, uiCalendarConfig) {
 
     var addRecordedHoursToDash = function (recorded_hour) {
       if (recorded_hour.date_recorded  != null) {
@@ -42,16 +42,6 @@ angular.module('voluntrApp')
       });
     });
 
-    $scope.updateWithSchedule = function() {
-      var attr = {};
-      attr.id = $scope.person.id;
-      attr.schedule = $scope.schedule;
-      People.update(attr).$promise.then(function(person){
-        $scope.edit_schedule = false;
-        $scope.schedule = {};
-      });
-    };
-
     $scope.eventSources = [
       {
         url: 'api/v1/people/' + id + '/person_availability_schedule'
@@ -81,6 +71,20 @@ angular.module('voluntrApp')
         }
       }
     };
+
+    $scope.updateWithSchedule = function() {
+      var attr = {};
+      attr.id = $scope.person.id;
+      attr.schedule = $scope.schedule;
+      People.update(attr).$promise.then(function(person){
+        $scope.edit_schedule = false;
+        $scope.schedule = {};
+        uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents');
+        uiCalendarConfig.calendars['calendar'].fullCalendar('rerenderEvents');
+      });
+    };
+
+
 
 
     $scope.personStatisticGraphConfig =

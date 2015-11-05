@@ -10,33 +10,6 @@
                max="{{opportunity.duration}}"
                aria-label="rating">
     </md-slider>
-    <!-- <h3>What Role Are You Volunteering For?</h3> -->
-    <label>What Role Are You Volunteering For?</label><br>
-      <select
-        class="form-control"
-        ng-model="opportunity_role"
-        ng-options="opportunity_role.name for opportunity_role in opportunity.opportunity_roles | orderBy : 'name'">
-        <option value="">-- Select Your Role --</option>
-      </select>
-    <label>Select a volunteer group, if applicable:</label><br>
-    <select
-      class="form-control"
-      ng-model="group"
-
-      ng-options="group.name for group in groups | orderBy : 'name'">
-      <option value="">-- Select Group (If Applicable) --</option>
-    </select>
-
-      <!--<md-select ng-model="opportunity_role">
-      <md-select-label>Choose A Volunteering Role</md-select-label>
-      <md-option style="z-index: 100"
-                 ng-repeat="opportunity_role.name in opportunity.opportunity_roles"
-                 ng-value="{{opportunity_role}}">
-      </md-option>
-    </md-select>-->
-      <!-- <md-select ng-model="opportunity_role" placeholder="Role" >
-        <md-option  ng-repeat="opportunity_role.name in opportunity.opportunity_roles" value="{{opportunity_role}}">{{opportunity_role}}</md-option>
-      </md-select>-->
     <p class="check"><input type="checkbox" ng-model="photo_consent" checked="checked" >
       I allow {{opportunity.organization.name}} to use my photo</p>
     <p class="check"><input type="checkbox" checked="checked" >

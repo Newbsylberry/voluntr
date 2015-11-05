@@ -63,7 +63,7 @@ angular.module('voluntrApp')
         {
           templateUrl: 'organizations/modals/confirm_opportunity_sign_in.html',
           controller: 'OpportunitySignInConfirmationCtrl',
-          windowClass: 'add-event-modal-window',
+          // windowClass: 'add-event-modal-window',
           resolve: {
             person: function() {
               return person
@@ -74,6 +74,8 @@ angular.module('voluntrApp')
           },
           size: size
         });
+
+
 
       opportunitySignInConfirmation.result.then(function () {
 
