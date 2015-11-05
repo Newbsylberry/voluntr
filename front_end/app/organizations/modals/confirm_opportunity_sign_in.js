@@ -33,9 +33,9 @@ angular.module('voluntrApp')
       attr.sign_in  = true;
       RecordedHours.create(attr);
       $scope.confirmed = true;
-      //$timeout(function() {
-      //  $modalInstance.dismiss('cancel');
-      //}, 1000)
+      $timeout(function() {
+        $modalInstance.dismiss('cancel');
+      }, 1000)
     };
 
 
