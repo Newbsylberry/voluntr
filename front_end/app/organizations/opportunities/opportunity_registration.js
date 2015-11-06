@@ -15,7 +15,11 @@ angular.module('voluntrApp')
 
 
     var createEligibleInstances = function (instance){
-      if ($scope.opportunity.volunteer_goal != null & instance.instance_volunteers.length < $scope.opportunity.volunteer_goal) {
+      console.log($scope.opportunity.volunteer_goal)
+      if ($scope.opportunity.volunteer_goal == null) {
+        $scope.opportunity.volunteer_goal = 5
+      }
+      if (instance.instance_volunteers.length < $scope.opportunity.volunteer_goal) {
         $scope.dates.push(instance.instance_date)
       }
     };
