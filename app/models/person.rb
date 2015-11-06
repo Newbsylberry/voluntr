@@ -120,6 +120,27 @@ class Person < ActiveRecord::Base
     @organization_person.__elasticsearch__.index_document
   end
 
+  def self.find_or_create_from_params(params)
+    if params[:email]
+      person = self.create_with(locked: false)
+                    .find_or_initialize_by(email: params[:email])
+    elsif params[:phone]
+      person = self.create_with(locked: false)
+                    .find_or_initialize_by(phone: params[:phone])
+    elsif params[:fb_id]
+      person = self.create_with(locked: false)
+                   .find_or_initialize_by(fb_id: params[:fb_id])
+    else
+      person = self.new
+    end
+
+    if person.new_record?
+      person.assign_attributes(params)
+      person.save
+    end
+    return person
+  end
+
   def update_schedule(params)
     @morning_schedule = Array.new
     @afternoon_schedule = Array.new

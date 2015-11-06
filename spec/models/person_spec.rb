@@ -16,6 +16,14 @@ RSpec.describe Person, "Working with the people model" do
       expect(@person.organizations).to include(organization)
     end
 
+    it "#find_or_create_from_params" do
+      params = {"first_name"=>"Chris", "last_name"=>"McCarthy", "email"=>"chris@voluapp.com"}
+      expect(Person.find_or_create_from_params(params)).to change(OrganizationPerson,:count).by(1)
+      @person = Person.find_or_create_from_params(params)
+
+      expect(@person.first_name).to eq("Chris")
+    end
+
 
     pending "It should create an organization person if an organization id is present and the record doesn't already exist"
 
@@ -49,23 +57,33 @@ RSpec.describe Person, "Working with the people model" do
     end
 
     it "#update_schedule" do
-      @person = Person.new
-      @params = Hash.new
-      @params[:schedule] = Hash.new
-      @params[:schedule][:morning] = Hash.new
-      @params[:schedule][:afternoon] = Hash.new
-      @params[:schedule][:night] = Hash.new
-      @params[:schedule][:morning]["wednesday"] = true
-      @params[:schedule][:afternoon]["monday"] = true
-      @params[:schedule][:afternoon]["tuesday"] = true
-      @params[:schedule][:afternoon]["wednesday"] = true
-      @params[:schedule][:night]["thursday"] = true
-      @person.update_schedule(@params)
-      expect(IceCube::Schedule.from_yaml(@person.schedule["morning_schedule"]).occurrences(Time.now + 6.days).count).to eq(1)
-      expect(IceCube::Schedule.from_yaml(@person.schedule["afternoon_schedule"]).occurrences(Time.now + 6.days).count).to eq(4)
-      expect(IceCube::Schedule.from_yaml(@person.schedule["night_schedule"]).occurrences(Time.now + 6.days).count).to eq(1)
+      # @person = Person.new
+      # @params = Hash.new
+      # @params[:schedule] = Hash.new
+      # @params[:schedule][:morning] = Hash.new
+      # @params[:schedule][:afternoon] = Hash.new
+      # @params[:schedule][:night] = Hash.new
+      # @params[:schedule][:morning]["wednesday"] = true
+      # @params[:schedule][:afternoon]["monday"] = true
+      # @params[:schedule][:afternoon]["tuesday"] = true
+      # @params[:schedule][:afternoon]["wednesday"] = true
+      # @params[:schedule][:night]["thursday"] = true
+      # @person.update_schedule(@params)
+      # expect(IceCube::Schedule.from_yaml(@person.schedule["morning_schedule"]).occurrences(Time.now + 6.days).count).to eq(1)
+      # expect(IceCube::Schedule.from_yaml(@person.schedule["afternoon_schedule"]).occurrences(Time.now + 6.days).count).to eq(4)
+      # expect(IceCube::Schedule.from_yaml(@person.schedule["night_schedule"]).occurrences(Time.now + 6.days).count).to eq(1)
     end
 
+
+    it "#availability_schedule" do
+      @schedules = Hash.new
+      @schedules["morning_schedule"] = "---\n:start_time: &1 2015-07-14 06:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 12:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-14 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-14 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @person = create(:person, email: "Chris@chris.com", schedule: @schedules)
+      ap @person
+      expect(@person.availability_schedule("2015-07-15T08:02:17-05:00", "2015-08-15T08:02:17-05:00").count).to be(93)
+    end
 
     it "#availability_schedule" do
       @schedules = Hash.new

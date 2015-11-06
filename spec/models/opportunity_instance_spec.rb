@@ -10,7 +10,9 @@ RSpec.describe OpportunityInstance, type: :model do
                                    opportunity_id: @opportunity.id,
                                    instances: ["2015-08-12 22:33:07 -0600"])
 
-      @instance = create(:opportunity_instance, opportunity_id: @opportunity.id, instance_date: "2015-08-12 22:33:07 -0600")
+      @instance = create(:opportunity_instance,
+                         opportunity_id: @opportunity.id,
+                         instance_date: "2015-08-12 22:33:07 -0600")
 
       expect(@instance.instance_volunteers).to include(@person_opportunity.person)
     end

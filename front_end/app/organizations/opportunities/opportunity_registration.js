@@ -9,21 +9,40 @@
  */
 angular.module('voluntrApp')
   .controller('OpportunityRegistrationCtrl', function ($scope, People, $stateParams,
-                                                       Opportunity, PersonOpportunity, $modal, Organization, Facebook) {
+                                                       Opportunity, PersonOpportunity, $modal, Organization,
+                                                       Facebook, $http, $state) {
 
 
 
-
+    var createEligibleInstances = function (instance){
+      if (instance.instance_volunteers.length < $scope.opportunity.volunteer_goal) {
+        $scope.dates.push(instance.instance_date)
+      }
+    };
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;
-      Organization.get({organization_Id: successResponse.organization_id}, function(successResponse){
-        Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
+      var todaysdate = new Date();
+      $http({
+        method: 'GET',
+        url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
+        params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
+      }).then(function(successResponse){
+        $scope.dates = [];
+        angular.forEach(successResponse.data, createEligibleInstances)
+      });
 
+
+
+      Organization.get({organization_Id: successResponse.organization_id}, function(successResponse){
+        $scope.custom_url = successResponse.custom_url;
+        Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization_picture = response.data.url;
         });
       })
     });
+
+
 
     $scope.registerForOpportunity = function() {
       if ($scope.opportunityRegister.first_name &&
@@ -34,32 +53,18 @@ angular.module('voluntrApp')
         attr.first_name = $scope.opportunityRegister.first_name;
         attr.last_name = $scope.opportunityRegister.last_name;
         attr.email = $scope.opportunityRegister.email;
-        PersonOpportunity.create(attr)
-        $scope.opportunityRegister.first_name = "";
-        $scope.opportunityRegister.last_name = "";
-        $scope.opportunityRegister.email = "";
-        $scope.opportunityRegistrationConfirmation('md')
+        attr.instances = $scope.opportunityRegister.dates;
+        attr.organization_id = $scope.opportunity.organization_id;
+        PersonOpportunity.create(attr).$promise.then(function(response){
+          console.log(response)
+          $state.go('organization_volunteer_registration.2', {token:btoa(response.id),
+            organization_custom_Url:$scope.custom_url})
+        });
       } else {
         alert("Please Enter All Information")
       }
     };
 
-    $scope.opportunityRegistrationConfirmation = function (size) {
-      var opportunityRegistrationConfirmation = $modal.open(
-        {
-          templateUrl: 'organizations/modals/confirm_opportunity_registration.html',
-          controller: 'OpportunityRegistrationConfirmationCtrl',
-          windowClass: 'add-event-modal-window',
-          size: size
-        });
-
-      opportunityRegistrationConfirmation.result.then(function () {
-
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
-        });
-    }
 
 
 

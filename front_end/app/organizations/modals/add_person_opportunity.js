@@ -35,7 +35,7 @@ angular.module('voluntrApp')
     $scope.addOpportunityPerson = function() {
       var attr = {};
       attr.person_id = $scope.person.id;
-      attr.instance = $scope.instance;
+      attr.instances = $scope.instance;
       if ($scope.opportunity_role) {
         attr.opportunity_role_id = $scope.opportunity_role.id;
       };

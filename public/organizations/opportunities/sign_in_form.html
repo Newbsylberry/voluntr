@@ -7,17 +7,15 @@
       <div class="sileft">
 
         <img ng-src="{{organization_picture}}" />
-        <div class="opinfo">
+        <div class="opinfo" hide-sm>
           <h2>Event:</h2>
           <p>{{opportunity.name}}</p>
-          <div id="sign-in-description-label">
           <h2 >Description:</h2>
           <p>{{opportunity.description}}</p>
         </div>
-        </div>
       </div>
       <div class="siright">
-        <h1>Sign In</h1>
+        <h1>Sign In to {{opportunity.name}}</h1>
         <md-input-container>
           <label>First Name:</label>
           <input type="text" ng-model="opportunitySignIn.first_name" autofocus>
@@ -38,26 +36,26 @@
           No Email Address?
         </md-checkbox>
         <md-button class="bbutton"
-                ng-click="signInForOpportunity()"
-                ng-disabled="!terms_of_service || !form_complete">Sign In To This Event
+                   ng-click="signInForOpportunity()"
+                   ng-disabled="!terms_of_service || !form_complete">Sign In To This Event
         </md-button>
-          <div class="terms">
-        <md-checkbox
-          class="tos_check"
-          ng-model="terms_of_service"
-          aria-label="No Email Address?">
-          I agree to {{opportunity.organization.name}}'s
-              </md-checkbox>
-            <a href=""
-               ng-show="opportunity.organization.terms_of_service_file.url"
-               terms-of-service
-               organization_id="{{opportunity.organization.id}}">
-          Terms of Service
-            </a>
-            <p ng-show="!opportunity.organization.terms_of_service_file.url">
-              Terms of Service
-            </p>
-          </div>
+        <div class="terms">
+          <md-checkbox
+            class="tos_check"
+            ng-model="terms_of_service"
+            aria-label="No Email Address?">
+            I agree to {{opportunity.organization.name}}'s
+          </md-checkbox>
+          <a href=""
+             ng-show="opportunity.organization.terms_of_service_file.url"
+             terms-of-service
+             organization_id="{{opportunity.organization.id}}">
+            Terms of Service
+          </a>
+          <p ng-show="!opportunity.organization.terms_of_service_file.url">
+            Terms of Service
+          </p>
+        </div>
       </div>
       <div class="fixer"></div>
     </div>

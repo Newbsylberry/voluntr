@@ -18,6 +18,7 @@ angular.module('voluntrApp')
         if (!$state.params.token) {
           $scope.person = {};
         } else if ($state.params.token) {
+          console.log($state.params.token + atob($state.params.token))
           People.get({person_Id: atob($state.params.token)}, function(successResponse) {
             $scope.person = successResponse;
             $scope.schedule = successResponse.schedule_update_form_settings;
