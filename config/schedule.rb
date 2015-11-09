@@ -21,6 +21,6 @@
 job_type :runner, "cd :path && $HOME/.rvm/scripts/rvm && rvm use 2.1.2 && rails runner ':task' :output"
 
 
-every '0 9 0 0 19-25 * *' do
+every '0 9 0 0 21 * *' do
   runner "OpportunityWorker.perform_now"
 end

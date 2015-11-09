@@ -103,8 +103,8 @@
       <file leaf-file-name="schedule.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/schedule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54505813">
-              <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.5232558">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -1114,8 +1114,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/schedule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54505813">
-          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.5232558">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding />
         </state>
       </provider>
