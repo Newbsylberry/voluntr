@@ -1,4 +1,4 @@
-class OrganizationImporter < ActiveJob::Base
+class OrganizationWorker < ActiveJob::Base
   queue_as :low_priority
 
   def perform(organization_id, oauth_access, account)

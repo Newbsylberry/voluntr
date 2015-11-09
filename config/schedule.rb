@@ -18,9 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-# job_type :runner, "cd :path && $HOME/.rvm/scripts/rvm && rvm use rbx && bundle exec rails runner ':task' :output"
+job_type :runner, "cd :path && $HOME/.rvm/scripts/rvm && rvm use 2.1.2 && rails runner ':task' :output"
 
 
-#every 24.hours do
-#  runner "OrganizationRecordHourJob.set.perform_later"
-#end
+every '0 9 00 19-25 * *' do
+  runner "OpportunityWorker.perform_now"
+end

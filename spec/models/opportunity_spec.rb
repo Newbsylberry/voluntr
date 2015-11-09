@@ -85,7 +85,6 @@ RSpec.describe Opportunity, "Working with an opportunity" do
     it "#generate_report" do
       # expect(@opportunity.instances_statistics.last.instance_people_count).to eq(0)
     end
-
   end
 
   context "when a user wants to delete an event" do

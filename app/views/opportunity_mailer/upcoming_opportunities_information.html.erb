@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,700,300" rel="stylesheet" type="text/css" />
+  <style>
+      .opportunity-container {
+          height: 126px;
+      }
+
+      .opportunity-list {
+          list-style: none;
+      }
+  </style>
+</head>
+<body style="
+background-color:#35c0ff;
+        font-family: 'Roboto', 'Arial', sans-serif;
+        font-weight:300;
+        margin:0px;
+">
+<div style="display:table;
+        width:100%;
+        height:100%;">
+  <div style="display:table-cell;
+          vertical-align:middle;">
+    <div style="background-color:#fff;
+            border-radius:4px;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
+            width:80%;
+            margin:20px auto;
+            padding:46px 30px 30px 30px;
+            position:relative;">
+      <div style="height: 130px;">
+        <%= image_tag("http://graph.facebook.com/v2.4/853043814762202/picture?type=small",
+                      class: "organization_picture", style: "height: 75px;float: left;") %>
+        <h1 style="text-align: center;
+                vertical-align: bottom;
+                top: 16%;
+                position: relative;
+        ">Here Are Your <%= Time.now.next_month.strftime("%B") %> Volunteer Opportunities</h1>
+      </div>
+      <div>
+        <p style="color:rgba(0,0,0,0.7)">
+          Dear <%= @person.first_name %>,
+        </p>
+        <p>
+          You registered for some volunteer opportunities this month!  Information about each opportunity, as well as a form
+          to sign into the opportunity when the time comes, is below.
+        </p>
+      </div>
+      <ul>
+        <% @person_opportunities.each do |po| %>
+            <li style="list-style: none; height: 100px;">
+              <div class="opportunity-container">
+                <div style="float: left; width: 50%">
+                  <% if po.opportunity.organization.fb_id %>
+                      <%= image_tag("http://graph.facebook.com/v2.4/#{po.opportunity.organization.fb_id}/picture?type=small",
+                                    class: "organization_picture", style: "height: 50px; float: left; clear: none;") %>
+                  <% end %>
+                  <div style="">
+                    <h3 style="margin: 0px 4%;"><%= po.opportunity.name %></h3>
+                    <ul>
+                      <%
+                         po.instances.each do |i|
+                      %>
+                         <li style="list-style: none; display: inline-block; margin-left: 0;"><%= "#{DateTime.parse(i).strftime("%l:%M %p - %-m/%e/%Y")}" %></li>
+                    <% end %>
+                    </ul>
+                    <% if po.opportunity.description? %>
+                        <p style="width: 126%;margin: 0px 2%;">
+                          <%= po.opportunity.description %>
+                        </p>
+                    <% end %>
+                  </div>
+                </div>
+                <div style="float: right;width: 22%;">
+                  <%= link_to "Sign In Form", "http://www.voluapp.com/#/#{po.opportunity_id}/sign_in", style:"display: block;margin-bottom: 2%;    font-size: 14px;" %>
+                  <% if po.opportunity.address? %>
+                      <strong> <%= "#{po.opportunity.address}" %></strong>
+                  <% end %>
+
+                  <% if po.opportunity.city? && po.opportunity.state? %>
+
+                      <p style="margin: 4px 0px">
+                        <%= "#{po.opportunity.city},  #{po.opportunity.state}" %>
+
+                  <% end %>
+                  <% if po.opportunity.zip_code? %>
+                      <%= ", #{po.opportunity.zip_code}" %>
+                      </p>
+                  <% end %>
+
+                  <% if !po.opportunity.zip_code? &&
+                          !po.opportunity.city? &&
+                          !po.opportunity.address? &&
+                          !po.opportunity.state? %>
+
+                      <strong>We don't have the address information for you at this time, stay tuned!</strong>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+        <% end %>
+
+      </ul>
+      <p style="text-align: left;">
+        Thanks for making the above opportunities a success, please contact each organization individually if your plans
+        change.
+      </p>
+      <p style="text-align:right;
+              color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

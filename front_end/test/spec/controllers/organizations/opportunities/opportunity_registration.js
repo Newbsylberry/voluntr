@@ -28,10 +28,6 @@ describe('Controller: OpportunityRegistrationCtrl', function () {
     scope.registerForOpportunity();
   });
 
-  it('$scope.opportunityRegistrationConfirmation()', function () {
-    scope.opportunityRegistrationConfirmation();
-  });
-
 });
 /**
  * Created by chrismccarthy on 9/1/15.

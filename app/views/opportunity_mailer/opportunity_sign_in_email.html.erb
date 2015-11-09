@@ -42,9 +42,15 @@
       </p>
       <br/>
       <div id="social">
-        <a href="https://www.facebook.com/SalArmySyr">Connect On Facebook!</a> |
-        <a href="https://twitter.com/salarmysyr">Follow Us On Twitter</a> |
-        <a href="https://instagram.com/salarmysyr">Follow Us On Instagram</a>
+        <% if @opportunity.organization.facebook_url %>
+            <%= link_to "Connect On Facebook!", "#{@opportunity.organization.facebook_url}" %><a href=""></a> |
+        <% end %>
+        <% if @opportunity.organization.twitter_url %>
+            <%= link_to "Follow Us On Twitter", "#{@opportunity.organization.twitter_url}" %><a href=""></a> |
+        <% end %>
+        <% if @opportunity.organization.instagram_url %>
+            <%= link_to "Follow Us On Instagram", "#{@opportunity.organization.instagram_url}" %><a href=""></a>
+        <% end %>
       </div>
       <p style="text-align:right;
               color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>

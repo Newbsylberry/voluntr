@@ -121,7 +121,9 @@ class Person < ActiveRecord::Base
   end
 
   def self.find_or_create_from_params(params)
+    ap params[:email]
     if params[:email]
+      ap "Has email"
       person = self.create_with(locked: false)
                     .find_or_initialize_by(email: params[:email])
     elsif params[:phone]

@@ -1,8 +1,85 @@
-<!DOCTYPE html>
-<html>
-<head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/></head>
-<h2>You are now registered for <%= @opportunity.name %></h2>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,700,300" rel="stylesheet" type="text/css" />
 
-<p>Thanks for registering for the <%= @organization.name %>'s opportunity.</p>
+</head>
+<body style="
+background-color:#35c0ff;
+        font-family: 'Roboto', 'Arial', sans-serif;
+        font-weight:300;
+        margin:0px;
+">
+<div style="display:table;
+        width:100%;
+        height:100%;">
+  <div style="display:table-cell;
+          vertical-align:middle;">
+    <div style="background-color:#fff;
+            border-radius:4px;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
+            width:80%;
+            margin:20px auto;
+            padding:46px 30px 30px 30px;
+            position:relative;">
 
+      <%= image_tag("http://graph.facebook.com/v2.4/#{@person_opportunity.opportunity.organization.fb_id}/picture?type=large",
+                    class: "organization_picture", style: "height: 125px;") %>
+      <p style="color:rgba(0,0,0,0.7)">
+        Dear <%= @person_opportunity.person.first_name %>,
+      </p>
+      <p>
+        Thank you for registering to volunteer at <%= @person_opportunity.opportunity.name %>.  This opportunity is
+        located at the following addresss:
+      </p>
+        <% if @person_opportunity.opportunity.address %>
+          <strong> <%= "#{@person_opportunity.opportunity.address}" %></strong>
+      <% end %>
+      <p>
+        <% if @person_opportunity.opportunity.city && @person_opportunity.opportunity.state %>
+            <%= "#{@person_opportunity.opportunity.city},  #{@person_opportunity.opportunity.state}" %>
+        <% end %>
+        <% if @person_opportunity.opportunity.zip_code %>
+            <%= ", #{@person_opportunity.opportunity.zip_code}" %>
+        <% end %>
+        <% if !@person_opportunity.opportunity.zip_code &&
+                !@person_opportunity.opportunity.city &&
+                !@person_opportunity.opportunity.address &&
+                !@person_opportunity.opportunity.state %>
+        <strong>We don't have the address information for you at this time, stay tuned!</strong>
+        <% end %>
+      </p>
+      <p>You signed
+        up for the following instances:
+      </p>
+      <ul>
+        <% @person_opportunity.instances.each do |i| %>
+            <li><%= Date.parse(i).strftime("%A - %B %d, %Y") %></li>
+        <% end %>
+      </ul>
+      <p>
+        As those dates approach, we will send additional information about the opportunity.
+      </p>
+      <p>
+        Thank you again for helping us make this event a success!
+      </p>
+      <br/>
+      <div id="social">
+        <% if @person_opportunity.opportunity.organization.facebook_url %>
+            <%= link_to "Connect On Facebook!", "#{@person_opportunity.opportunity.organization.facebook_url}" %><a href=""></a> |
+        <% end %>
+        <% if @person_opportunity.opportunity.organization.twitter_url %>
+            <%= link_to "Follow Us On Twitter", "#{@person_opportunity.opportunity.organization.twitter_url}" %><a href=""></a> |
+        <% end %>
+        <% if @person_opportunity.opportunity.organization.instagram_url %>
+            <%= link_to "Follow Us On Instagram", "#{@person_opportunity.opportunity.organization.instagram_url}" %><a href=""></a>
+        <% end %>
+      </div>
+      <p style="text-align:right;
+              color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>
+    </div>
+  </div>
+</div>
+</body>
 </html>

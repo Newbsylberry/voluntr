@@ -16,12 +16,18 @@ RSpec.describe Person, "Working with the people model" do
       expect(@person.organizations).to include(organization)
     end
 
-    it "#find_or_create_from_params" do
+    it "#find_or_create_from_params - create an unknown person" do
       params = {"first_name"=>"Chris", "last_name"=>"McCarthy", "email"=>"chris@voluapp.com"}
-      expect(Person.find_or_create_from_params(params)).to change(OrganizationPerson,:count).by(1)
       @person = Person.find_or_create_from_params(params)
-
       expect(@person.first_name).to eq("Chris")
+    end
+
+    it "#find_or_create_from_params find a known person" do
+      params = {email: 'chris@voluapp.com'}
+      create(:person, first_name: "Sue", email: "chris@voluapp.com")
+
+      @person = Person.find_or_create_from_params(params)
+      expect(@person.first_name).to eq("Sue")
     end
 
 
@@ -81,7 +87,6 @@ RSpec.describe Person, "Working with the people model" do
       @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-14 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-14 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       @person = create(:person, email: "Chris@chris.com", schedule: @schedules)
-      ap @person
       expect(@person.availability_schedule("2015-07-15T08:02:17-05:00", "2015-08-15T08:02:17-05:00").count).to be(93)
     end
 
@@ -91,7 +96,6 @@ RSpec.describe Person, "Working with the people model" do
       @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-14 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-14 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       @person = create(:person, email: "Chris@chris.com", schedule: @schedules)
-      ap @person
       expect(@person.availability_schedule("2015-07-15T08:02:17-05:00", "2015-08-15T08:02:17-05:00").count).to be(93)
     end
   end

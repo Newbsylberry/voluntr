@@ -52,9 +52,9 @@ background-color:#35c0ff;
       </p>
       <br/>
       <div id="social">
-            <%= link_to "Visit Our Webpage", "#{@organization.website_url}" if @organization.website_url %>
-            <%= link_to "Visit Our Facebook Page", "#{@organization.facebook_url}" if @organization.facebook_url %>
-            <%= link_to "Visit Our Twitter Page", "#{@organization.twitter_url}" if @organization.twitter_url %>
+            <%= link_to "Visit Our Webpage", "#{@organization.website_url}" if @organization.website_url %> |
+            <%= link_to "Visit Our Facebook Page", "#{@organization.facebook_url}" if @organization.facebook_url %> |
+            <%= link_to "Visit Our Twitter Page", "#{@organization.twitter_url}" if @organization.twitter_url %> |
             <%= link_to "Visit Our Instagram Page", "#{@organization.instagram_url}" if @organization.instagram_url %>
       </div>
       <p style="text-align:right;
