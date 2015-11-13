@@ -34,8 +34,12 @@ describe('Controller: OrganizationRegistrationCtrl', function () {
     });
   }));
 
-  it('$scope.log_in()', function () {
-    scope.log_in()
+  it('$scope.facebook_log_in()', function () {
+    scope.facebook_log_in()
+  });
+
+  it('$scope.email_registration_modal()', function () {
+    scope.email_registration_modal()
   });
 
   it('$scope.authorizeUser()', function () {

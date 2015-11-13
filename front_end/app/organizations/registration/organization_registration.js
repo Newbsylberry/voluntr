@@ -9,13 +9,30 @@
  */
 angular.module('voluntrApp')
   .controller('OrganizationRegistrationCtrl', function ($scope, Facebook, $http, Organization,
-                                                        $state, $stateParams) {
+                                                        $state, $stateParams, $modal) {
 
-    $scope.log_in = function () {
+    $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;
         $state.go($state.current, {}, {reload: true});
       }, {scope: 'user_groups,read_insights,manage_pages'})
+    };
+
+    $scope.email_registration_modal = function (size) {
+      var emailRegistrationModal = $modal.open(
+        {
+          templateUrl: 'organizations/modals/email_registration.html',
+          controller: 'EmailRegistrationCtrl',
+          windowClass: 'email-registration-modal',
+          size: size
+        });
+
+      emailRegistrationModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
     };
 
 

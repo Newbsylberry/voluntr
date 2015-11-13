@@ -24,6 +24,7 @@ class RecordedHoursController < ApplicationController
 
 
 
+
     @recorded_hours.send_sign_in_email
 
     render @recorded_hours, serializer: RecordedHourSerializer
@@ -55,7 +56,8 @@ class RecordedHoursController < ApplicationController
   def recorded_hours_params
     params.require(:recorded_hour).permit(:id, :opportunity_id,
                                             :organization_id, :person_id, :hours, :description,
-                                            :opportunity_role_id, :photo_consent, :group_id, :date_recorded)
+                                            :opportunity_role_id, :photo_consent, :group_id,
+                                          :date_recorded, :contact_me)
   end
 
 

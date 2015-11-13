@@ -11,9 +11,15 @@
       but you'll need to be an administrator of your organizations Facebook page to move further.
     </p>
     <md-button class="md-primary md-raised" style="width:150px; margin:5px auto;display:block;"
-            ng-click="log_in()">
+            ng-click="facebook_log_in()">
       Facebook Login
     </md-button>
+    <!--
+    <md-button class="md-primary md-raised" style="width:150px; margin:5px auto;display:block;"
+               ng-click="email_registration_modal()">
+      Email Login
+    </md-button>
+    -->
   </md-card-content>
 
   <md-card-content ng-if="connected_to_facebook && !organizations">
