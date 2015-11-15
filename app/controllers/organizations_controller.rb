@@ -36,6 +36,13 @@ class OrganizationsController < ApplicationController
     render json: {organization: @organization, token: token}
   end
 
+  def create_with_email
+    @organization = Organization.create(organization_params)
+    token = AuthToken.issue_token({ organization_id: @organization.id })
+
+    render json: {organization: @organization, token: token}
+  end
+
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update

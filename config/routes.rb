@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       match '/people/:id/recorded_hours', to: 'people#recorded_hours', via: :get, defaults: {format: :json}
 
       # Organization Routes
+      match '/organizations/create/with_email/', to: 'organizations#create_with_email', via: :post, defaults: {format: :json}
       match '/organizations/by_url/:custom_url/', to: 'organizations#show_by_url', via: :get, defaults: {format: :json}
       match '/organizations/:id/search/', to: 'organizations#search_organization', via: :get, defaults: {format: :json}
       match '/organizations/:id/people_search/', to: 'organizations#search_people', via: :get, defaults: {format: :json}

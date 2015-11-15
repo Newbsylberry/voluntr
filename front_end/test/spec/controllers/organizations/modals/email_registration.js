@@ -13,18 +13,18 @@ describe('Controller: OrganizationRegistrationCtrl', function () {
 
   beforeEach(inject(function ($controller, $rootScope, $injector) {
     scope = $rootScope.$new();
-    EmailRegistrationCtrl = $controller('OpportunitiesHomeCtrl', {
-      $scope: scope
-
-
-
+    var modalInstance = {}
+    EmailRegistrationCtrl = $controller('EmailRegistrationCtrl', {
+      $scope: scope,
+      $modalInstance: modalInstance
     })
   }))
+
   it('registers an organization and user email', function(){
     scope.register = {};
     scope.register.organization = "Volu";
     scope.register.email = "Chris@voluapp.com";
-    scope.registerOrganization();
+    scope.registerOrganization()
   })
 
   });
