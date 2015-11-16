@@ -3,7 +3,8 @@ angular.module('voluntrApp').directive("editAddress", function () {
     transclude: true,
     templateUrl: 'organizations/directives/edit_address.html',
     scope: {
-      address: '@',
+      address1: '@',
+      address2: '@',
       zipCode: '@',
       state: '@',
       city: '@',
@@ -22,7 +23,8 @@ angular.module('voluntrApp').directive("editAddress", function () {
       $scope.saveAddress = function() {
         var attr = {};
         attr.id = $scope.modelId;
-        attr.address = $scope.address;
+        attr.address_1 = $scope.address1;
+        attr.address_2 = $scope.address2;
         attr.city = $scope.city;
         attr.zip_code = $scope.zipCode;
         attr.state = $scope.state;
