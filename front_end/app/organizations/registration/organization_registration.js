@@ -11,6 +11,14 @@ angular.module('voluntrApp')
   .controller('OrganizationRegistrationCtrl', function ($scope, Facebook, $http, Organization,
                                                         $state, $stateParams, $modal) {
 
+    if (localStorage.token) {
+      console.log("Oh Wow")
+      $scope.logged_in = true
+    } else if (!localStorage.token) {
+      console.log("Shucks")
+      $scope.logged_in = false
+    }
+
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;

@@ -5,10 +5,11 @@
 <md-card class="content">
   <md-card-content ng-if="!connected_to_facebook">
     <img src="../../images/V_Logo.png">
-    <h2>Access Volu With Facebook</h2>
+    <h2>Access Volu</h2>
     <p id="facebook-login-text">
       You are about to have access to a complete and advanced toolset for managing your non-profit,
-      but you'll need to be an administrator of your organizations Facebook page to move further.
+      sign in with your Facebook account (you'll have to be an administer of your organizations Facebook page), or
+      register with email.
     </p>
     <md-button class="md-primary md-raised" style="width:150px; margin:5px auto;display:block;"
             ng-click="facebook_log_in()">
@@ -19,7 +20,6 @@
       Email Login
     </md-button>
   </md-card-content>
-
   <md-card-content ng-if="connected_to_facebook && !organizations">
     <img src="../../images/V_Logo.png">
     <p class="create-facebook-page-text">
@@ -37,13 +37,8 @@
     </a>
     </p>
   </md-card-content>
-
-
   <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized
    the volu app. -->
-
-
-
   <md-card-content ng-if="connected_to_facebook && !organization_registration && organizations.length > 0">
     <ul     class="list-group organization-login-list">
       <div ng-repeat="organization in organizations">
@@ -80,9 +75,6 @@
       </div>
     </ul>
   </md-card-content>
-
-
-
   <md-card-content ng-if="organization_registration" id="organization-registration-container">
     <h2>Register {{organization.name}} for Volu</h2><br/>
       <md-divider></md-divider><br/>

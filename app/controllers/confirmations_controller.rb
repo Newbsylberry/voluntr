@@ -28,6 +28,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
+    ap "HELLO"
     with_unconfirmed_confirmable do
       if @confirmable.has_no_password?
         do_show
@@ -44,6 +45,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   protected
 
   def with_unconfirmed_confirmable
+    ap "HELLO"
     @confirmable = User.find_or_initialize_with_error_by(:confirmation_token, params[:confirmation_token])
     if !@confirmable.new_record?
       @confirmable.only_if_unconfirmed {yield}

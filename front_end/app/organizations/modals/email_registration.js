@@ -10,19 +10,19 @@
 angular.module('voluntrApp')
   .controller('EmailRegistrationCtrl', function ($scope, $modalInstance, $http, Auth, $state) {
 
-    $scope.registerOrganization = function(){
-      var attr = {};
-      attr.organization = {};
-      attr.organization.name = $scope.register.organization_name;
-      attr.user_email = $scope.register.user_email;
-      $http({
-        method: 'post',
-        url: '/api/v1/organizations/create/with_email/',
-        data: attr
-      }).then(function(organization){
-        console.log(organization)
-      })
-    };
+    $scope.userSignIn = function() {
+      var logInCredentials = {};
+      logInCredentials.email = $scope.login.email;
+      logInCredentials.password = $scope.login.password;
+      Auth.login(logInCredentials).then(function(object) {
+        console.log(object)
+        localStorage.token = object.token;
+        $modalInstance.close()
+        $state.go('organizations.organization_home', {organization_Id:object.organization_id})
+      }, function(error) {
+        alert("Login Failed :(");
+      });
+    }
 
     $scope.createUser = function () {
       var credentials = {};

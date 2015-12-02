@@ -70,6 +70,8 @@ angular
   .config(function($httpProvider, AuthProvider) {
     AuthProvider.registerPath('/api/v1/users.json');
     AuthProvider.loginPath('/api/v1/users/sign_in.json');
+    // AuthProvider.loginMethod('GET');
+    // AuthProvider.resourceName('sign_in');
     //        AuthProvider.logoutPath('/api/users/sign_out.json');
     //authInterceptor to handle 401 errors and intercept the requests/responses
     $httpProvider.interceptors.push('authInterceptor');

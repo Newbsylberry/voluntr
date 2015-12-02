@@ -40,40 +40,42 @@ angular.module('voluntrApp')
     // from the database and use it's fb_id to get
     // information from facebook and see organizations
     // events and check whether they exist in the database
-    Facebook.getLoginStatus(function (response) {
-      if (response.status === 'connected') {
-        // Get the organization from the volu database
-        Organization.get({
-          organization_Id: $stateParams.organization_Id,
-          oauth_key: response.authResponse.accessToken
-        }, function (successResponse) {
-          // find the organizations information on facebook
-          $scope.organization = successResponse
-          $rootScope.organization_id = successResponse.id;
-          Organization.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function (recorded_hours) {
-            $scope.organization.recorded_hours = recorded_hours;
-          });
-          Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function (data) {
-            $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
-            angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
-          })
-          Organization.contact_volunteers(successResponse.id, 'contact_volunteers').$promise.then(function (data) {
-            $scope.organization.contact_volunteers = data;
+    // Get the organization from the volu database
+    Organization.get({
+      organization_Id: $stateParams.organization_Id,
+    }, function (successResponse) {
 
-          })
-          Organization.posts(successResponse.id, 'posts').$promise.then(function (data) {
-            $scope.organization.posts = $scope.organization.posts = $filter('orderBy')(data, 'post_time');
-            angular.forEach($scope.organization.posts, addPostToGraph)
-          })
-        }).$promise.then(function(){
-            $scope.loaded = true;
-          })
+      // DO FB STUFF HERE
+      if (successResponse.fb_id) {
+        Facebook.getLoginStatus(function (response) {
+          if (response.status === 'connected') {
+
+          }
+        });
       }
-      // If not connected then take them back to the first page
-      else if (response.status !== 'connected') {
-        $state.go('landing_page.initial_page')
-      }
-    });
+      // find the organizations information on facebook
+      $scope.organization = successResponse
+      Organization.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function (recorded_hours) {
+        $scope.organization.recorded_hours = recorded_hours;
+      });
+      Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function (data) {
+        $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
+        angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
+      })
+      Organization.contact_volunteers(successResponse.id, 'contact_volunteers').$promise.then(function (data) {
+        $scope.organization.contact_volunteers = data;
+      })
+      Organization.posts(successResponse.id, 'posts').$promise.then(function (data) {
+        $scope.organization.posts = $scope.organization.posts = $filter('orderBy')(data, 'post_time');
+        angular.forEach($scope.organization.posts, addPostToGraph)
+      })
+    }).$promise.then(function(){
+        $scope.loaded = true;
+      })
+
+
+
+
 
 
     $rootScope.lineGraphConfig = {

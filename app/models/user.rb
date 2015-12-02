@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
-
+  has_many :user_organizations
+  has_many :organizations, through: :user_organizations
   has_one :profile
   has_many :user_event_hours
 

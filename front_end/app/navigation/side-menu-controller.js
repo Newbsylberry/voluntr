@@ -5,9 +5,7 @@
 angular.module('voluntrApp')
   .controller('SideMenuCtrl', function ($scope, $stateParams, $state, Opportunity,
                                         $modal, $rootScope, $mdSidenav) {
-
-
-
+    
 
 
 
@@ -18,4 +16,4 @@ angular.module('voluntrApp')
 
 
 
- 
+

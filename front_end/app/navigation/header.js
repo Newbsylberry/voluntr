@@ -1,6 +1,6 @@
 angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window,
-                                      $mdSidenav, $http, $stateParams, $timeout, $modal) {
+                                      $mdSidenav, $http, $stateParams, $timeout, $modal, $state) {
 
     $scope.search_filter = searchService.search;
 
@@ -31,6 +31,11 @@ angular.module('voluntrApp')
 
         });
     }
+
+    $scope.logOut = function () {
+      localStorage.clear()
+      $state.go('landing_page')
+    };
 
     $scope.open = function() {
       $mdSidenav('left').open()
