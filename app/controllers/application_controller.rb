@@ -15,6 +15,10 @@ class ApplicationController < ActionController::API
       token = request.headers['Authorization'].split(' ').last # token is taken from request headers
       payload, header = AuthToken.valid?(token) #checks to see if token is valid
       @current_organization = Organization.find_by(id: payload['organization_id']) # takes the user id from the payload in order to make current user
+      ap payload['user_id']
+      if payload['user_id']
+        @current_user = User.find(payload['user_id'])
+      end
     rescue
       render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
     end

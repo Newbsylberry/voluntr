@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
 
 
+  resources :user_organizations, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
-      #devise_for :users,
-       #          :controllers => { registrations: 'registrations',
-        #                           sessions: 'sessions'}, defaults: {format: :json}
+      match '/users/update_password', to: 'users#update_password', via: :patch, defaults: {format: :json}
+      devise_for :users,
+                :controllers => { registrations: 'registrations',
+                                  sessions: 'sessions'}, defaults: {format: :json}
       resources :group_administrators, except: [:new, :edit], defaults: {format: :json}
       resources :groups, except: [:new, :edit], defaults: {format: :json}
       resources :resources, except: [:new, :edit], defaults: {format: :json}

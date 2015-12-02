@@ -7,7 +7,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     if @current_organization.last_social_update.nil? ||
-        @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y")
+        @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
+        params[:oauth_key]
       OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).enqueue
     end
 
