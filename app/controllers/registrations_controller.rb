@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, only: [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
-  skip_before_filter :authenticate
+  skip_before_filter :authenticate_user, only: [:new, :create]
 
 
   # GET /resource/sign_up
@@ -26,8 +26,8 @@ class RegistrationsController < Devise::RegistrationsController
       @organization = Organization.create(name: params[:user][:organization][:organization_name])
       UserOrganization.create(organization_id: @organization.id, user_id: resource.id)
 
-      token = AuthToken.issue_token({ user_id: resource.id, organization_id: @organization.id })
-      render json: { token: token }
+      token = AuthToken.issue_token({ user_id: resource.id })
+      render json: { token: token, organization_id: @organization.id }
     else
 
 

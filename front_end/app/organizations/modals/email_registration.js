@@ -8,17 +8,18 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('EmailRegistrationCtrl', function ($scope, $modalInstance, $http, Auth, $state) {
+  .controller('EmailRegistrationCtrl', function ($scope, $modalInstance, $http, Auth, $state,
+                                                 $localStorage, Organization) {
+
+
 
     $scope.userSignIn = function() {
       var logInCredentials = {};
       logInCredentials.email = $scope.login.email;
       logInCredentials.password = $scope.login.password;
       Auth.login(logInCredentials).then(function(object) {
-        console.log(object)
-        localStorage.token = object.token;
+        $localStorage.token = object.token;
         $modalInstance.close()
-        $state.go('organizations.organization_home', {organization_Id:object.organization_id})
       }, function(error) {
         alert("Login Failed :(");
       });
@@ -29,17 +30,9 @@ angular.module('voluntrApp')
       credentials.email = $scope.register.user_email;
       credentials.organization = {};
       credentials.organization.organization_name = $scope.register.organization_name;
-      //credentials.password = $scope.signUp.password; // see above
-      //credentials.passwordConfirmation = $scope.signUp.passwordConfirmation; // see above
-      //var attr = {}
-      //attr.organization_name = $scope.register.organization_name;
-      //var config = {
-      //  data: {'organization_name': $scope.register.organization_name}
-      //};
-      Auth.register(credentials).then(function(object){ //credentials are passed to Auth, which speaks with the devise gem in rails
-        // $rootScope.user = object.user;
-        //when a new user is created assign data to both local and session storage
-        localStorage.token = object.token;
+      Auth.register(credentials).then(function(object){
+        $localStorage.token = object.token;
+        $scope.organization_id = object.organization_id;
         $scope.update_with_password = true;
       })
     };
@@ -53,9 +46,13 @@ angular.module('voluntrApp')
         method: 'PATCH',
         url: '/api/v1/users/update_password',
         data: attr
-      }).then(function successCallback(response){
-        $modalInstance.close()
-        $state.go('organizations.tutorial.1', {organization_Id:response.data.organization_id})
+      }).then(function successCallback(response) {
+        console.log($scope.organization_id);
+        Organization.get_token($scope.organization_id).$promise.then(function (data) {
+          $localStorage.token = data.token;
+          $modalInstance.close()
+          $state.go('organizations.tutorial.1', {organization_Id: $scope.organization_id})
+        })
       })
     };
   });

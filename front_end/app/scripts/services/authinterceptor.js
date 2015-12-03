@@ -11,13 +11,13 @@
 
 
 angular.module('voluntrApp')
-  .service('authInterceptor', function authInterceptor($rootScope, $q, $location,$injector) {
-        
+  .service('authInterceptor', function authInterceptor($rootScope, $q, $location,$injector, $localStorage) {
+
 	  return {
             'request': function (config) {
                 config.headers = config.headers || {}; // creates header
-                if (localStorage.token) { // check to see if a token exists on clients computer
-                    config.headers.Authorization = 'Bearer ' + localStorage.token; // Adds authorization:token to header from local storage 
+                if ($localStorage.token) { // check to see if a token exists on clients computer
+                    config.headers.Authorization = 'Bearer ' + $localStorage.token; // Adds authorization:token to header from local storage
                 }
                 else if(sessionStorage.token){
                 	 config.headers.Authorization = 'Bearer ' + sessionStorage.token; // Adds authorization:token to header from session storage which will be cleared on session close
@@ -27,7 +27,7 @@ angular.module('voluntrApp')
             'response': function (response) {
                 return response || $q.when(response);
             }
-            //401 Unauthorized error handler 
+            //401 Unauthorized error handler
 //            'responseError': function(rejection) {
 //
 //            	var modalInstance = null;

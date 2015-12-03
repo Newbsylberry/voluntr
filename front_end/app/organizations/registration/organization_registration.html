@@ -3,7 +3,7 @@
  the volu app. -->
 
 <md-card class="content">
-  <md-card-content ng-if="!connected_to_facebook">
+  <md-card-content ng-if="!connected_to_facebook && !logged_in">
     <img src="../../images/V_Logo.png">
     <h2>Access Volu</h2>
     <p id="facebook-login-text">
@@ -20,6 +20,26 @@
       Email Login
     </md-button>
   </md-card-content>
+
+  <md-card-content ng-if="logged_in">
+    <div ng-repeat="organization in organizations">
+      <li class="list-group-item">
+        <img class="organization-login-image" ng-src="{{organization.picture}}">
+
+        <!-- Organization Name -->
+        <p class="lead" style="display: inline-block; float: left;">{{organization.name}}</p>
+
+        <!-- Link to the organizations Voluntr if added Page -->
+        <md-button class="md-primary md-raised"
+                   style="    display: inline-block; float: right;"
+                   ng-click="logInWithEmaiLregistration(organization)"
+
+          >Home Page
+        </md-button>
+      </li>
+    </div>
+  </md-card-content>
+
   <md-card-content ng-if="connected_to_facebook && !organizations">
     <img src="../../images/V_Logo.png">
     <p class="create-facebook-page-text">
@@ -29,12 +49,8 @@
       get access.</a>
     </p>
     <p class="create-facebook-page-text">
-      If you would like access to Volu with your email address, please
-      <a href="mailto:christian@voluapp.com?subject=Add%20an%20Email%20Registration%20Method!!!&body=I%20would%20like%20to%20be%20able%20to%20use%20an%20email%20address%20in%20order%20to%20register%20for%20Volu%2C%20I%20don%27t%20think%20that%27s%20asking%20too%20much!"
-
-      >
-      by emailing one of our happy to help team members.
-    </a>
+      You can also
+      <a href="" ng-click="email_registration_modal()">register with a valid email address</a>
     </p>
   </md-card-content>
   <!-- The following screen is visible if the volunteer isn't connected to Facebook, or hasn't authorized

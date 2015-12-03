@@ -9,14 +9,34 @@
  */
 angular.module('voluntrApp')
   .controller('OrganizationRegistrationCtrl', function ($scope, Facebook, $http, Organization,
-                                                        $state, $stateParams, $modal) {
+                                                        $state, $stateParams, $modal, $localStorage) {
 
-    if (localStorage.token) {
-      console.log("Oh Wow")
-      $scope.logged_in = true
-    } else if (!localStorage.token) {
-      console.log("Shucks")
-      $scope.logged_in = false
+
+    $scope.$watch(function () { return $localStorage.token; },function(){
+      if ($localStorage.token) {
+        $scope.logged_in = true;
+        console.log($scope.logged_in)
+        $http({
+          url: 'api/v1/users/current/organizations'
+        }).then(function successCallback(response) {
+          // this callback will be called asynchronously
+          // when the response is available
+          $scope.organizations = response.data;
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+      } else if (!$localStorage.token) {
+        $scope.logged_in = false
+      }
+    })
+
+    $scope.logInWithEmaiLregistration = function(organization){
+      console.log(organization.id)
+      Organization.get_token(organization.id).$promise.then(function (data) {
+          $localStorage.token = data.token;
+        $state.go('organizations.organization_home', {organization_Id:organization.id})
+      })
     }
 
     $scope.facebook_log_in = function () {
@@ -99,7 +119,7 @@ angular.module('voluntrApp')
       attr.description = organization.description;
       attr.oauth_key = $scope.oauth_key;
       var newOrganization = Organization.create(attr).$promise.then(function(data){
-        localStorage.token = data.token;
+        $localStorage.token = data.token;
         $state.go('organizations.tutorial.1', {organization_Id:data.organization.id})
         $stateParams.organization_Id = data.id;
       });

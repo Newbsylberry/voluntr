@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate_user, only: [:current_user_organizations, :update_password]
+
   def index
 
   end
-
-
 
   def show
     @user = User.find(params[:id])
@@ -16,8 +15,8 @@ class UsersController < ApplicationController
     @user = User.find(@current_user.id)
 
     if @user.update(user_params)
-      token = AuthToken.issue_token({ user_id: @user.id, organization_id: @current_organization.id })
-      render json: { token: token, organization_id: @current_organization.id }
+      token = AuthToken.issue_token({ user_id: @user.id })
+      render json: { token: token }
     end
   end
 
@@ -26,4 +25,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:password, :password_confirmation)
   end
 
+  def current_user_organizations
+    render json: @current_user.organizations, each_serializer: OrganizationSerializer
+  end
 end

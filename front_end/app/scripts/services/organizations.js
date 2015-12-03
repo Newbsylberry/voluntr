@@ -15,6 +15,7 @@ angular.module('voluntrApp')
           organization_Id: '@id'}, {
           existence_check: {method: 'GET', url:'/api/v1/organizations/existence_check/:fb_id'},
           organization_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
+          get_token: {method: 'GET', url:'/api/v1/organizations/:organization_Id/get_token'},
           organization_filtered_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
           authorization: {method: 'GET', url:'/api/v1/organizations/:organization_Id/authorization'},
           get_by_url: {method: 'GET', url:'/api/v1/organizations/by_url/:organization_custom_Url'},
@@ -86,6 +87,12 @@ angular.module('voluntrApp')
     Organization.prototype.authorization = function(oauth, organization_id) {
       return this.service.authorization({organization_Id: organization_id, oauth: oauth})
     };
+
+    Organization.prototype.get_token = function(oId) {
+      return this.service.get_token({organization_Id: oId})
+    };
+
+
 
 
 

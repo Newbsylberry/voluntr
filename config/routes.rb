@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
       match '/users/update_password', to: 'users#update_password', via: :patch, defaults: {format: :json}
+      match '/users/current/organizations', to: 'users#current_user_organizations', via: :get, defaults: {format: :json}
       devise_for :users,
                 :controllers => { registrations: 'registrations',
                                   sessions: 'sessions'}, defaults: {format: :json}
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
 
       # Organization Routes
       match '/organizations/create/with_email/', to: 'organizations#create_with_email', via: :post, defaults: {format: :json}
+      match '/organizations/:id/get_token/', to: 'organizations#provide_token', via: :get, defaults: {format: :json}
       match '/organizations/by_url/:custom_url/', to: 'organizations#show_by_url', via: :get, defaults: {format: :json}
       match '/organizations/:id/search/', to: 'organizations#search_organization', via: :get, defaults: {format: :json}
       match '/organizations/:id/people_search/', to: 'organizations#search_people', via: :get, defaults: {format: :json}

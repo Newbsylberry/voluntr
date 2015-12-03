@@ -1,7 +1,9 @@
 class OrganizationsController < ApplicationController
   include HTTParty
   before_action :authenticate, except: [:log_in, :existence_check, :opportunities, :create,
-                                        :mailchimp_integration, :mailchimp_callback, :show_by_url]
+                                        :mailchimp_integration, :mailchimp_callback, :show_by_url,
+                                        :provide_token]
+  before_action :authenticate_user, only: :provide_token
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
   # GET /organizations/1
   # GET /organizations/1.json
@@ -176,6 +178,19 @@ class OrganizationsController < ApplicationController
     results = Elasticsearch::Model.search(
         "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [OrganizationPerson])
     render json: results
+  end
+
+  def provide_token
+    @current_organization = Organization.find(params[:id])
+
+    if @current_organization.users.include? @current_user
+      token = AuthToken.issue_token({ user_id: @current_user.id, organization_id: @current_organization.id })
+      render json: { token: token }
+    else
+      render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
+    end
+
+
   end
 
 

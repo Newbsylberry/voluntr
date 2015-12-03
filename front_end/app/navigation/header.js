@@ -1,6 +1,7 @@
 angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window,
-                                      $mdSidenav, $http, $stateParams, $timeout, $modal, $state) {
+                                      $mdSidenav, $http, $stateParams, $timeout,
+                                      $modal, $state, $localStorage) {
 
     $scope.search_filter = searchService.search;
 
@@ -33,7 +34,7 @@ angular.module('voluntrApp')
     }
 
     $scope.logOut = function () {
-      localStorage.clear()
+      delete $localStorage.token;
       $state.go('landing_page')
     };
 
