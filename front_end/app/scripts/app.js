@@ -111,6 +111,19 @@ angular
         controller: 'LandingPageCtrl'
       })
 
+      .state('users', {
+        url: '/users',
+        absolute: true,
+        templateUrl: 'users/users.html',
+        controller: 'UsersCtrl'
+      })
+
+      .state('users.confirm_registration', {
+        url: '/confirm_registration/:token',
+        templateUrl: 'users/confirm_registration/confirm_registration.html',
+        controller: 'ConfirmUserRegistrationCtrl'
+      })
+
       .state('volunteer_home', { //default page loaded for landing state
         url: '/volunteer_home',
         templateUrl: 'volunteers/volunteer_home.html', // url for partial
