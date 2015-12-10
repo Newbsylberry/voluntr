@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       match '/users/current/organizations', to: 'users#current_user_organizations', via: :get, defaults: {format: :json}
       devise_for :users,
                 :controllers => { registrations: 'registrations',
+                                  confirmations: 'confirmations',
                                   sessions: 'sessions'}, defaults: {format: :json}
       resources :group_administrators, except: [:new, :edit], defaults: {format: :json}
       resources :groups, except: [:new, :edit], defaults: {format: :json}
