@@ -67,6 +67,7 @@ angular.module('voluntrApp')
       $scope.last_name = "";
       $scope.email = "";
       $scope.volunteer_id = "";
+      $scope.filtered = []
     };
 
 
