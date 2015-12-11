@@ -12,14 +12,13 @@
   </md-card>
   <div class="row"   style="margin: 0 -15px;">
     <div class="col-md-6">
-      <md-card class="homecsm">
-        <md-card-content class="dashboard-module">
-          <h3>Volunteers to Contact</h3>
-          <div ng-show="!loaded">
+      <md-card class="dashboard-module">
+        <h3 class="dashboard-module-header">Volunteers to Contact</h3>
+        <md-card-content class="dashboard-module-content">
+          <div ng-show="!loaded" ng-show="loaded">
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
           </div>
-          <div class="homecsm"
-               ng-show="loaded">
+          <div>
             <md-list ng-repeat="volunteer in organization.contact_volunteers"
                      ng-show="organization.contact_volunteers.length !== 0">
               <md-list-item >
@@ -54,15 +53,15 @@
       </md-card>
     </div>
     <div class="col-md-6">
-      <md-card class="homecsm">
-        <md-card-content class="dashboard-module">
-          <h3>Recently Recorded Hours</h3>
+      <md-card class="dashboard-module">
+        <h3 class="dashboard-module-header">Recently Recorded Hours</h3>
+        <md-card-content ng-show="loaded" class="dashboard-module-content">
           <div ng-show="!loaded">
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
           </div>
-          <div class="homecsm" ng-show="loaded">
+          <div ng-show="loaded">
             <md-list layout="column">
-              <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours"
+              <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours | orderBy:'-updated_at'"
                              recorded-hour="recorded_hour"
                              recorded-hours="organization.recorded_hours"
                              type="opportunity"></recorded-hour>
