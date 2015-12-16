@@ -7,7 +7,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 set :bundle_binstubs, nil
 
 
-set :rvm1_ruby_version, 'rbx'
+# set :rvm1_ruby_version, 'rbx'
 
 set :resque_environment_task, true
 
