@@ -459,7 +459,7 @@ DEPENDENCIES
   oauth2
   pg
   prawn (~> 2.0)
-  puma (= 2.9.2)
+  puma
   rails (= 4.2.0)
   rails-api
   rails_12factor
