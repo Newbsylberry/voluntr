@@ -1,13 +1,13 @@
 set :application, 'volu'
 set :repo_url, 'git@github.com:Newbsylberry/voluntr.git'
 set :user, 'voluser'
-set :puma_threads,    [4, 16]
+set :puma_threads,    [0, 16]
 set :puma_workers,    0
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :bundle_binstubs, nil
 
 
-# set :rvm1_ruby_version, 'rbx'
+set :rvm1_ruby_version, 'rbx'
 
 set :resque_environment_task, true
 
