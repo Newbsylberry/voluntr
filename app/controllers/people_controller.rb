@@ -72,7 +72,7 @@ class PeopleController < ApplicationController
 
   def person_availability_schedule
     @person = Person.find(params[:id])
-
+    ap @person.availability_schedule(params[:start], params[:end])
     render json: @person.availability_schedule(params[:start], params[:end])
   end
 

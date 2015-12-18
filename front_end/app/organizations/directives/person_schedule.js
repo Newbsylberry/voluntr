@@ -4,7 +4,7 @@ angular.module('voluntrApp').directive("personSchedule", function () {
     templateUrl: 'organizations/directives/person_schedule.html',
     scope: {
       personId: "@",
-      schedule: "=",
+      schedule: "="
     },
     restrict: 'E',
     controller: function ($scope, Opportunity, $modal) {

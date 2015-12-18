@@ -21,6 +21,7 @@ angular.module('voluntrApp')
           console.log($state.params.token + atob($state.params.token))
           People.get({person_Id: atob($state.params.token)}, function(successResponse) {
             $scope.person = successResponse;
+            console.log(successResponse)
             $scope.schedule = successResponse.schedule_update_form_settings;
             OrganizationPerson.get_by_organization_and_person_id(
               $scope.organization.id, $scope.person.id).$promise.then(function(successResponse) {

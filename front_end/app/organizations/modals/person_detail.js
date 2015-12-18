@@ -78,9 +78,9 @@ angular.module('voluntrApp')
       attr.schedule = $scope.schedule;
       People.update(attr).$promise.then(function(person){
         $scope.edit_schedule = false;
-        $scope.schedule = {};
-        uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents');
-        uiCalendarConfig.calendars['calendar'].fullCalendar('rerenderEvents');
+        // uiCalendarConfig.calendars['calendar'].fullCalendar('removeEventSource');
+        // uiCalendarConfig.calendars['calendar'].fullCalendar('addEventSource', $scope.eventSources);
+        uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents', $scope.eventSources);
       });
     };
 
