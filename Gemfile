@@ -6,7 +6,7 @@ gem 'responders', '~> 2.0', require: true
 
 gem 'rails-api'
 
-gem 'puma', '2.15.3'
+gem 'puma'
 gem 'elasticsearch', '~> 1.0.12'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

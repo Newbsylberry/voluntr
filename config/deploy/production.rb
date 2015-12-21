@@ -9,7 +9,7 @@ set :stage, :production
 
 server '159.203.119.205', user: 'voluser', roles: %w{app, web}
 server '159.203.112.145', user: 'voluser', roles: %w{app, web}
-server '45.55.189.171', user: 'voluser', roles: %w{db}
+# server '45.55.189.171', user: 'voluser', roles: %w{db}
 
 
 role :resque_worker, '107.170.56.15', user: 'voluser'

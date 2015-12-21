@@ -36,6 +36,8 @@ set(:config_files, %w(
   database.yml, puma.rb, secrets.yml
 ))
 
+set :branch, fetch(:branch, "master")
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
