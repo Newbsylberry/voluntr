@@ -5,6 +5,7 @@ set :puma_threads,    [0, 16]
 set :puma_workers,    0
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :bundle_binstubs, nil
+# set :linked_files, %w{config/database.yml}
 
 
 set :rvm1_ruby_version, 'rbx'
@@ -56,13 +57,13 @@ namespace :deploy do
 
   desc "Make sure local git is in sync with remote."
   task :check_revision do
-    on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
-    end
+    # on roles(:app) do
+    #   unless `git rev-parse HEAD` == `git rev-parse origin/master`
+    #     puts "WARNING: HEAD is not the same as origin/master"
+    #     puts "Run `git push` to sync changes."
+    #     exit
+    #   end
+    # end
   end
 
   desc 'Initial Deploy'

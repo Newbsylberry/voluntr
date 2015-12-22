@@ -81,7 +81,7 @@ test: &test
 production:
   <<: *default
   database: voluntr_api_production
-  host: 104.236.215.139
+  host: 45.55.237.154
   username: voluser
   pool: 25
   password: L33tman!
