@@ -79,6 +79,7 @@ angular.module('voluntrApp')
     $scope.$watch('connected_to_facebook', function () {
       if ($scope.connected_to_facebook && !$scope.organizations){
         Facebook.api('/me/accounts', function (response) {
+          console.log(response)
           angular.forEach(response.data, listOrganization)
         });
       }
