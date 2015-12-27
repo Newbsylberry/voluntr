@@ -1,7 +1,10 @@
 class Opportunity < ActiveRecord::Base
   require "prawn"
+  require "json"
+  require 'gchart'
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+
   has_many :resources, as: :resourceable, dependent: :destroy
   has_many :opportunities
   has_many :person_opportunities, dependent: :destroy
@@ -114,29 +117,43 @@ class Opportunity < ActiveRecord::Base
     @recorded_hours_series["data"] = Array.new
 
     # This is a line graph for recorded hours
-    recorded_hour_options = {
-        title: {
-            text: "Recorded Hours Between #{DateTime.parse(start_date.to_s).strftime("%b/%d/%Y")} and #{DateTime.parse(end_date.to_s).strftime("%b/%d/%Y")}"
-        },
-        xAxis: {
-            type: 'datetime',
-            title: {
-                text: 'Date'
-            }
-        }
-    }
-    recorded_hour_options["series"] = Array.new
+    # recorded_hour_options = {
+    #     title: {
+    #         text: "Recorded Hours Between #{DateTime.parse(start_date.to_s).strftime("%b/%d/%Y")} and #{DateTime.parse(end_date.to_s).strftime("%b/%d/%Y")}"
+    #     },
+    #     xAxis: {
+    #         type: 'datetime',
+    #         title: {
+    #             text: 'Date'
+    #         }
+    #     }
+    # }
+    @data = Array.new
+    @labels = Array.new
     recorded_hours.where(date_recorded: start_date..end_date).each do |h|
-      @recorded_hours_series["data"].push([(DateTime.parse(h.date_recorded.to_s).to_f * 1000), h.hours])
+      @data.push(h.hours)
     end
+    #recorded_hour_options["series"].push(@recorded_hours_series)
+    recorded_hours = "#{name}_recorded_hours.png"
+    Gchart.line(:size => '500x300',
+                :title => "Timeline of Recorded Hours at #{name}",
+                :bg => 'FFFFFF',
+                :data => @data,
+                :format => 'file',
+                :axis_with_labels => 'y',
+                :axis_labels => ['0|2|4|6|8|10'],
+                :filename => recorded_hours)
+    # open(recorded_hours, 'wb') do |file|
+    #   file << Gchart.line(:size => '200x300',
+    #                       :title => "example title",
+    #                       :bg => 'efefef',
+    #                       :legend => ['first data set label', 'second data set label'],
+    #                       :data => data,
+    #                       :format => 'file',
+    #                       :filename => 'custom_filename.png')
+    #   # << HTTParty.post("http://export.highcharts.com",recorded_hour_options)
+    # end
 
-    recorded_hour_options["series"].push(@recorded_hours_series)
-
-    recorded_hours = "#{name}_recorded_hour_chart.png"
-    ap "http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(recorded_hour_options))}"
-    open(recorded_hours, 'wb') do |file|
-      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(recorded_hour_options))}").read
-    end
 
 
     # This is the pie chart for roles
@@ -165,7 +182,6 @@ class Opportunity < ActiveRecord::Base
 
     opportunity_roles_options["series"].push(@opportunity_roles_series)
     opportunity_roles = "#{name}_opportunity_hours.png"
-    ap "http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_roles_options))}"
     open(opportunity_roles, 'wb') do |file|
       file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_roles_options))}").read
     end

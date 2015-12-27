@@ -54,7 +54,7 @@ gem 'oauth2'
 
 
 gem 'pg'
-
+gem 'googlecharts'
 gem 'devise'
 gem 'jwt'
 gem 'ice_cube'
