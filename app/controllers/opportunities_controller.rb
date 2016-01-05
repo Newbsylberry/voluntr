@@ -14,7 +14,8 @@ class OpportunitiesController < ApplicationController
   # GET /events/1.json
   def show
     @opportunity = Opportunity.find(params[:id])
-
+    @opportunity.instance_hours = @opportunity.instance_recorded_hours(params[:instance_date])
+    @opportunity.instance_people_count = @opportunity.instance_people_recording(params[:instance_date])
 
     render json: @opportunity, instance_date:  params[:instance_date]
   end

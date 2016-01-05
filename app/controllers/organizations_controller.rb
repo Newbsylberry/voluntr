@@ -115,15 +115,10 @@ class OrganizationsController < ApplicationController
            each_serializer: OpportunityInstanceSerializer
   end
 
-  def recorded_hours
+  def recently_recorded_hours
     @current_organization_recorded_hours = Array.new
-    @current_organization.opportunities.each do |op|
-      op.recorded_hours.each do |oph|
-        @current_organization_recorded_hours.push(oph)
-      end
-    end
     @current_organization.recorded_hours.each do |rh|
-      if !@current_organization_recorded_hours.include? rh
+      if rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
         @current_organization_recorded_hours.push(rh)
       end
     end
@@ -144,9 +139,11 @@ class OrganizationsController < ApplicationController
   def contact_volunteers
     @volunteer_contacts = Array.new
     @current_organization.people.each do |o|
-      if o.email || o.phone
-        if o.created_at > Date.current - 14
-          @volunteer_contacts.push(o)
+      if @volunteer_contacts.count < 20
+        if o.email || o.phone
+          if o.created_at > Date.current - 14
+            @volunteer_contacts.push(o)
+          end
         end
       end
     end

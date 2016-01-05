@@ -46,7 +46,7 @@ Rails.application.routes.draw do
       match '/organizations/:id/daily_statistics', to: 'organizations#daily_statistics', via: :get, defaults: {format: :json}
       match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
       match '/opportunity/:id/schedule', to: 'opportunities#opportunity_schedule', via: :get, defaults: {format: :json}
-      match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
+      match '/organizations/:id/recently_recorded_hours', to: 'organizations#recently_recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
 
