@@ -31,10 +31,6 @@ class Opportunity < ActiveRecord::Base
     end
   end
 
-  def past_volunteers
-    past_volunteers = Array.new
-    past_volunteers
-  end
 
   def selected_instance_people_recording
     if @options[:instance_date]
@@ -209,24 +205,41 @@ class Opportunity < ActiveRecord::Base
     @recorded_hours_series["name"] = "Recorded Hours"
     @recorded_hours_series["data"] = Array.new
 
-    # This is a line graph for recorded hours
-    # recorded_hour_options = {
-    #     title: {
-    #         text: "Recorded Hours Between #{DateTime.parse(start_date.to_s).strftime("%b/%d/%Y")} and #{DateTime.parse(end_date.to_s).strftime("%b/%d/%Y")}"
-    #     },
-    #     xAxis: {
-    #         type: 'datetime',
-    #         title: {
-    #             text: 'Date'
-    #         }
-    #     }
-    # }
     @data = Array.new
-    @labels = Array.new
-    recorded_hours.where(date_recorded: start_date..end_date).each do |h|
-      @data.push(h.hours)
+    @opportunity_volunteers = []
+    @email_suffixes = []
+    recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
+      @data.push(rh.hours)
+      if rh.person
+        existing_volunteer = @opportunity_volunteers.find { |ov| ov[:id] == rh.person_id }
+        if existing_volunteer
+            existing_volunteer[:hours] += rh.hours
+        else
+          @opportunity_volunteers.push({
+                                           id: rh.person_id,
+                                           name: "#{rh.person.first_name} #{rh.person.last_name}",
+                                           hours: rh.hours
+                                       })
+        end
+        if rh.person.email
+          existing_suffix = @email_suffixes.find { |es| es[:suffix] == rh.person.email.split("@").last }
+          if existing_suffix
+            existing_suffix[:hours] += rh.hours
+          else
+            @email_suffixes.push({
+                                     suffix: rh.person.email.split("@").last,
+                                     hours: rh.hours
+                                 })
+          end
+        end
+      end
     end
-    #recorded_hour_options["series"].push(@recorded_hours_series)
+
+    top_volunteers = @opportunity_volunteers.sort_by { |i| i[:hours] }.reverse!.take(10)
+    top_suffixes = @email_suffixes.sort_by { |i| i[:hours] }.reverse!.take(10)
+
+    ap top_suffixes
+
     recorded_hours = "#{name}_recorded_hours.png"
     Gchart.line(:size => '500x300',
                 :title => "Timeline of Recorded Hours at #{name}",
@@ -234,18 +247,9 @@ class Opportunity < ActiveRecord::Base
                 :data => @data,
                 :format => 'file',
                 :axis_with_labels => 'y',
+                :line_colors => '35c0ff',
                 :axis_labels => ['0|2|4|6|8|10'],
                 :filename => recorded_hours)
-    # open(recorded_hours, 'wb') do |file|
-    #   file << Gchart.line(:size => '200x300',
-    #                       :title => "example title",
-    #                       :bg => 'efefef',
-    #                       :legend => ['first data set label', 'second data set label'],
-    #                       :data => data,
-    #                       :format => 'file',
-    #                       :filename => 'custom_filename.png')
-    #   # << HTTParty.post("http://export.highcharts.com",recorded_hour_options)
-    # end
 
 
 
@@ -312,7 +316,7 @@ class Opportunity < ActiveRecord::Base
     end
 
 
-    pdf = OpportunityReportPdf.new(self, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date)
+    pdf = OpportunityReportPdf.new(self, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date, top_volunteers, top_suffixes)
     pdf.render_file "hello.pdf"
 
     @resource.resource = File.open("hello.pdf")
