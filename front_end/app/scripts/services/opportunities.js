@@ -14,6 +14,7 @@ angular.module('voluntrApp')
         {
           opportunity_Id: '@id'}, {
           update: {method: 'PATCH'},
+          update_schedule: {method: 'PATCH', url:'/api/v1/opportunities/:opportunity_Id/update_schedule'},
           opportunity_object: {method: 'GET', url:'/api/v1/opportunities/:opportunity_Id/:object', isArray: true},
           delete_instance: {method: 'DELETE', url:'/api/v1/opportunities/:opportunity_Id/delete_instance'},
           delete_future_instances: {method: 'DELETE', url:'/api/v1/opportunities/:opportunity_Id/delete_future_instances'}
@@ -55,6 +56,10 @@ angular.module('voluntrApp')
 
     Opportunity.prototype.update = function(attr) {
       return this.service.update(attr);
+    };
+
+    Opportunity.prototype.update_schedule = function(attr) {
+      return this.service.update_schedule(attr);
     };
 
     // Calls the destroy function located in app/controllers/communities_controller.rb

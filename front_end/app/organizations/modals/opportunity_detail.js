@@ -118,6 +118,7 @@ angular.module('voluntrApp')
 
     $scope.deleteOpportunityInstance = function() {
       Opportunity.delete_instance($scope.opportunity.id, start_time).$promise.then(function(result){
+        $modalInstance.close();
         $state.go($state.current, {}, {reload: true});
       });
 
@@ -132,9 +133,9 @@ angular.module('voluntrApp')
 
     $scope.deleteOpportunity = function() {
       Opportunity.delete($scope.opportunity.id).$promise.then(function(result){
+        $modalInstance.close();
         $state.go($state.current, {}, {reload: true});
       });
-      $state.go($state.current, {}, {reload: true});
     };
 
     $scope.getArray = function() {

@@ -51,12 +51,12 @@ angular
   })
 
 
-.config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('pink')
-    .warnPalette('red');
-})
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue')
+      .accentPalette('pink')
+      .warnPalette('red');
+  })
 
 
 
@@ -106,6 +106,38 @@ angular
         url: '/',
         templateUrl: 'static_pages/landing_page.html',
         controller: 'LandingPageCtrl'
+      })
+
+      .state('volunteer_drive_16', {
+        url: '/volunteer_drive',
+        templateUrl: 'static_pages/volunteer_drive_16.html',
+        abstract: true,
+        controller: 'VolunteerDrive16Ctrl'
+      })
+
+      .state('volunteer_drive_16.1', {
+        url: '',
+        templateUrl: 'static_pages/vd_2016_1.html'
+      })
+
+      .state('volunteer_drive_16.2', {
+        url: '',
+        templateUrl: 'static_pages/vd_2016_2.html'
+      })
+
+      .state('volunteer_drive_16.3', {
+        url: '',
+        templateUrl: 'static_pages/vd_2016_3.html'
+      })
+
+      .state('volunteer_drive_16.4', {
+        url: '',
+        templateUrl: 'static_pages/vd_2016_4.html'
+      })
+
+      .state('volunteer_drive_16.form', {
+        url: '',
+        templateUrl: 'static_pages/vd_2016_form.html'
       })
 
       .state('volunteer_home', { //default page loaded for landing state

@@ -15,7 +15,7 @@ module SchedulerTool
         @hash[:rrules].each do |rr|
           # Chance the until for the rule until the day before the new schedule
           if rr[:until].nil?
-            rr[:until] = Time.at(params[:calendar][:start_time].to_i  / 1000)
+            rr[:until] = Time.at(params[:start_time].to_i  / 1000)
           end
           # If the schedule hasn't started yet, then destroy it
         end
@@ -24,18 +24,31 @@ module SchedulerTool
     end
 
     if !schedule
-      schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000) )
-      schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
+      schedule = Schedule.new( Time.parse(params[:start_time]) )
+      if params[:end_time]
+        schedule.end_time = Time.at(params[:end_time].to_i / 1000)
+      end
     end
 
-    if params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_daily'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'daily')
-    elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_weekly'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'weekly')
-    elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_monthly'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'monthly')
-    elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_annually'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'annually')
+    if params[:repeat].class == String
+      params[:repeat] = JSON.parse(params[:repeat])
+      if params[:repeating_event] === "true"
+        params[:repeating_event] = true
+      end
+    end
+
+    if params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_daily'
+      ap "repeat_daily"
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'daily')
+    elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_weekly'
+      ap "repeat_weekly"
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'weekly')
+    elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_monthly'
+      ap "repeat_monthly"
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'monthly')
+    elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_annually'
+      ap "repeat_annually"
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'annually')
     end
 
     return schedule.to_yaml

@@ -13,8 +13,20 @@ angular.module('voluntrApp')
 
 
 
+
     $scope.calendar = {};
     $scope.calendar.repeat = {};
+
+    $scope.$watch('calendar.duration', function () {
+      if ($scope.calendar.duration < 3600000){
+        $scope.duration_label = 'minutes'
+      } else if ($scope.calendar.duration < (3600000 * 2)) {
+        $scope.duration_label = 'hour'
+      } else {
+        $scope.duration_label = 'hours'
+      };
+      $scope.calendar.end_time = $scope.calendar.start_time.getTime() + $scope.calendar.duration;
+    });
 
     $scope.roles = [];
     $scope.role = {};
@@ -38,6 +50,7 @@ angular.module('voluntrApp')
     };
 
     $scope.newOpportunity = function(){
+      conn
       var attr = {};
       attr.calendar = $scope.calendar;
       if ($scope.calendar.start_time != undefined) {

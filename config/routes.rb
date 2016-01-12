@@ -70,11 +70,18 @@ Rails.application.routes.draw do
       match '/opportunities/sign_in/:opportunity_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
       match '/opportunities/:id/instance_statistics', to: 'opportunities#instance_statistics', via: :get, defaults: {format: :json}
       match '/opportunities/:id/roles', to: 'opportunities#roles', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/update_schedule', to: 'opportunities#update_schedule', via: :patch, defaults: {format: :json}
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
 
       # Reports
       match '/reports/opportunity/:id', to: 'reports#opportunity', via: :get, defaults: {format: :json}
       match '/reports/person/:id', to: 'reports#person', via: :get, defaults: {format: :json}
+
+
+      #schedule
+      match '/schedules/format/schedule_string', to: 'schedules#schedule_string', via: :get, defaults: {format: :json}
+
+
     end
   end
 

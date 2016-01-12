@@ -1,0 +1,23 @@
+<div ng-if="type == 'recurring-schedule' || type == 'edit-schedule'">
+  <schedule-form
+    start-date-text="When will this opportunity start?"
+    recurring-label-text="Is this a recurring opportunity?"
+    calendar="calendar">
+  </schedule-form>
+</div>
+<div class="window-bottom-button">
+  <md-button
+    ng-show="type == 'recurring-schedule'"
+    class="md-primary right-bottom-button"
+    ng-click="closeWindow()">Save Schedule And Close Window</md-button>
+  <md-button
+    ng-show="type == 'edit-schedule'"
+    class="md-primary left-bottom-button"
+    ng-click="closeWindow()">Close Window</md-button>
+  <md-button
+    ng-show="type == 'edit-schedule'"
+    class="md-primary right-bottom-button"
+    ng-click="updateSchedule()">Update Schedule</md-button>
+</div>
+
+

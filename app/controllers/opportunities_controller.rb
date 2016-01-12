@@ -29,7 +29,7 @@ class OpportunitiesController < ApplicationController
 
 
     if params[:calendar]
-      @opportunity.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
+      @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
     end
 
     @opportunity.save
@@ -42,17 +42,17 @@ class OpportunitiesController < ApplicationController
   def update
     @opportunity = Opportunity.find(params[:id])
 
-
-
     @opportunity.update(opportunity_params)
-    if params[:calendar]
-      @opportunity.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
-
-      @opportunity.save
-    end
 
 
     render json: @opportunity
+  end
+
+  def update_schedule
+    @opportunity = Opportunity.find(params[:id])
+    @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
+
+    @opportunity.save
   end
 
   # DELETE /events/1

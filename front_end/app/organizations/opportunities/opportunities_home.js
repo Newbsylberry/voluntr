@@ -46,7 +46,7 @@ angular.module('voluntrApp')
         {
           templateUrl: 'organizations/modals/opportunity_detail_modal.html',
           controller: 'OpportunityDetailCtrl',
-          windowClass: 'add-event-modal-window',
+          windowClass: 'create-opportunity-modal',
           size: size,
           resolve:
           {

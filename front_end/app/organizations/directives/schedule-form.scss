@@ -1,16 +1,17 @@
-.cradio{
-float:left;
-    display:inline-block;
-    width:23%;
-    margin-right: 0px;
+.repeat-type-radio-group {
+  display: inline-block;
+  .cradio{
+    float: left;
+    display: inline-block;
+  }
 }
 
 .ccheck{
-float:left;
-display:inline-block;
-    width:10%;
+  float:left;
+  display:inline-block;
+  width:10%;
 }
 
 .monthly {
-  width: 6%;
+  width: 10%;
 }
