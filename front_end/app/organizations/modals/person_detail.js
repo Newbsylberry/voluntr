@@ -52,10 +52,10 @@ angular.module('voluntrApp')
 
     $scope.uiConfig = {
       myCalendar:{
-        height: 500,
+        height: 325,
         editable: true,
         eventTextColor: 'white',
-        defaultView: 'agendaWeek',
+        defaultView: 'month',
         header:{
           left: 'month agendaWeek agendaDay',
           center: 'title',
@@ -82,6 +82,7 @@ angular.module('voluntrApp')
         // uiCalendarConfig.calendars['calendar'].fullCalendar('removeEventSource');
         // uiCalendarConfig.calendars['calendar'].fullCalendar('addEventSource', $scope.eventSources);
         uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents', $scope.eventSources);
+        console.log("hello")
       });
     };
 

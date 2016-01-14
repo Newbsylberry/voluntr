@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
-
+  include IceCube
+  require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 
   def import
     PersonImporter.new(params[:people], params[:organization_id]).enqueue
@@ -72,8 +73,15 @@ class PeopleController < ApplicationController
 
   def person_availability_schedule
     @person = Person.find(params[:id])
-    ap @person.availability_schedule(params[:start], params[:end])
+
     render json: @person.availability_schedule(params[:start], params[:end])
+  end
+
+  def add_schedule
+    @person = Person.find(params[:id])
+
+    @person.add_schedule(params[:calendar][:name], SchedulerTool.schedule_from_params(params[:calendar], Opportunity.new))
+    render json: @person
   end
 
   def recorded_hours
@@ -81,6 +89,7 @@ class PeopleController < ApplicationController
 
     render json: @person.recorded_hours, each_serializer: RecordedHourSerializer
   end
+
 
 
 

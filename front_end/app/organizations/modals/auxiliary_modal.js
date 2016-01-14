@@ -6,7 +6,8 @@
  */
 angular.module('voluntrApp')
   .controller('AuxiliaryModalWindowCtrl', function ($scope, $modal, type, object,
-                                                    $modalInstance, Opportunity) {
+                                                    $modalInstance, Opportunity,
+                                                    People, object_id, uiCalendarConfig) {
 
 
     $scope.calendar = {};
@@ -64,7 +65,6 @@ angular.module('voluntrApp')
           $scope.calendar.repeat.repeat_annually = true;
           $scope.calendar.repeat.repeat_type = 'repeat_annually';
         }
-        console.log(typeof $scope.calendar.schedule.BYDAY);
         if (typeof $scope.calendar.schedule.BYDAY === 'string') {
           $scope.calendar.schedule.BYDAY = $scope.calendar.schedule.BYDAY.split(",")
         }
@@ -76,13 +76,29 @@ angular.module('voluntrApp')
       var attr = {};
       attr.calendar = $scope.calendar;
       if ($scope.calendar.repeat.repeat_until) {
-        attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
+        attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until;
       }
       attr.id = $scope.calendar.id;
       Opportunity.update_schedule(attr)
       var queryResult = document.getElementsByClassName("modal-dialog")
       queryResult[0].classList.remove('auxiliary-open')
+      console.log(uiCalendarConfig)
+      console.log("hello")
       $modalInstance.close();
+    };
+
+    $scope.addSchedule = function() {
+      var attr = {};
+      attr.name = $scope.calendar.name;
+      attr.calendar = $scope.calendar;
+      attr.id = object_id;
+      People.add_schedule(attr).$promise.then(function(person){
+        uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents', $scope.eventSources);
+        console.log("hello")
+        var queryResult = document.getElementsByClassName("modal-dialog")
+        queryResult[0].classList.remove('auxiliary-open')
+        $modalInstance.close();
+      });
     };
 
     $scope.closeWindow = function(){

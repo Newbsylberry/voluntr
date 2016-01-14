@@ -2,6 +2,7 @@ angular.module('voluntrApp').directive("auxiliaryModalWindow", function ($modal)
   return {
     scope: {
       type: '@',
+      id: '@',
       object: '='
     },
     link: function link(scope, element, attrs) {
@@ -18,6 +19,9 @@ angular.module('voluntrApp').directive("auxiliaryModalWindow", function ($modal)
               },
               object: function(){
                 return scope.object
+              },
+              object_id: function(){
+                return scope.id
               }
             }
           });

@@ -1,25 +1,34 @@
-<div class="repeat_main_selection repetition_rule_select_box" ng-show="calendar.repeating_event">
-  <div layout="column">
-
+<div layout="column">
+  <div flex>
 
     <!-- SCREEN 1 -->
-    <input ng-show="start_time"
-           kendo-date-time-picker
-           k-ng-model="calendar.start_time"
-      />
-    <div ng-show="end_time">
-      <h3>Duration</h3>
-      <h4>{{calendar.duration | duration:'h:mm'}} {{duration_label}}</h4>
-      <md-slider flex min="900000"
-                 step="900000"
-                 max="43200000"
-                 ng-model="calendar.duration"
-                 aria-label="red"
-                 id="red-slider" class>
-      </md-slider>
+    <div ng-show="current_screen === 'beginning-information'">
+      <h4>When does the new schedule start?</h4>
+      <input ng-show="start_time"
+             kendo-date-time-picker
+             k-ng-model="calendar.start_time"
+        />
+      <div ng-show="end_time">
+        <h4>Duration</h4>
+        <h4>{{calendar.duration | duration:'h:mm'}} {{duration_label}}</h4>
+        <md-slider flex min="900000"
+                   step="900000"
+                   max="43200000"
+                   ng-model="calendar.duration"
+                   aria-label="red"
+                   id="red-slider" class>
+        </md-slider>
+      </div>
+      <md-button
+        ng-click="nextScreen('beginning-information', calendar.repeat.repeat_type)"
+        class="md-raised md-primary">
+        Is This A Recurring Schedule?
+      </md-button>
     </div>
-    <div flex ng-show="current_screen === 'repeat_type'">
-      <h3>Repeats Every:</h3>
+
+    <!-- SCREEN 2 - Day week month year chooser -->
+    <div class="repeat_main_selection repetition_rule_select_box" ng-show="current_screen === 'repeat_type'">
+      <h3>This Schedule Repeats Every:</h3>
       <md-radio-group ng-model="calendar.repeat.repeat_type" class="repeat-type-radio-group">
         <md-radio-button  class="cradio"
                           aria-label="Daily"
@@ -43,16 +52,21 @@
         </md-radio-button>
         <div class="fixer"></div>
       </md-radio-group>
-      <md-button
-        ng-click="nextScreen('repeat_type', calendar.repeat.repeat_type)"
-        class="md-raised md-primary">
-        Next
-      </md-button>
+      <div class="schedule-button-bar">
+        <md-button
+          ng-click="previousScreen('repeat_type')"
+          class="md-raised md-primary">
+          Back
+        </md-button>
+        <md-button
+          ng-click="nextScreen('repeat_type', calendar.repeat.repeat_type)"
+          class="md-raised md-primary">
+          Next
+        </md-button>
+      </div>
     </div>
-
-    <!-- SCREEN 2 -->
-    <div flex
-         ng-show="current_screen === 'repeat_frequency'"
+    <!-- SCREEN 3 -->
+    <div ng-show="current_screen === 'repeat_frequency'"
          class="schdaily">
       <h4>Repeat every</h4>
       <md-input-container>
@@ -62,20 +76,29 @@
         <label ng-show="calendar.repeat.repeat_type === 'repeat_monthly'">Months</label>
         <label ng-show="calendar.repeat.repeat_type === 'repeat_annually'">Years</label>
       </md-input-container>
-      <md-button
-        ng-click="previousScreen('repeat_frequency')"
-        class="md-raised md-primary">
-        Back
-      </md-button>
-      <md-button
-        ng-click="nextScreen('repeat_frequency', calendar.repeat.repeat_count)"
-        class="md-raised md-primary">
-        Next
-      </md-button>
+      <div class="schedule-button-bar">
+        <md-button
+          ng-click="previousScreen('repeat_frequency')"
+          class="md-raised md-primary">
+          Back
+        </md-button>
+        <md-button
+          ng-show="calendar.repeat.repeat_type === 'repeat_daily'"
+          ng-click="nextScreen('repeat_daily', calendar.repeat.repeat_count)"
+          class="md-raised md-primary">
+          Next
+        </md-button>
+        <md-button
+          ng-click="nextScreen('repeat_frequency', calendar.repeat.repeat_count)"
+          ng-show="calendar.repeat.repeat_type !== 'repeat_daily'"
+          class="md-raised md-primary">
+          Next
+        </md-button>
+      </div>
     </div>
 
     <!-- SCREEN 3 - Weekly -->
-    <div flex class="schweekly" ng-show="current_screen === 'repeat_weekly'">
+    <div class="schweekly" ng-show="current_screen === 'repeat_weekly'">
       <h4>Repeat On</h4>
       <div>
         <md-checkbox ng-model="calendar.repeat.monday_repeat" aria-label="Monday" class="ccheck">
@@ -260,13 +283,13 @@
       <div>
         <h4>Set Opportunity End:</h4>
         <md-radio-group ng-model="calendar.ends"style="display:block;">
-          <md-radio-button ng-model="calendar.repeat.repeat_daily" class="cradio"
-                           aria-label="Daily"
+          <md-radio-button class="cradio"
+                           aria-label="occurrences"
                            value="after">
             After certain occurrences?
           </md-radio-button>
-          <md-radio-button ng-model="calendar.repeat.repeat_daily" class="cradio"
-                           aria-label="Daily"
+          <md-radio-button class="cradio"
+                           aria-label="On a specific date"
                            value="on">
             On a specific date?
           </md-radio-button>
@@ -281,10 +304,22 @@
         <label>What date should the opportunity end?</label>
         <input type="date" ng-model="calendar.repeat.repeat_until">
       </md-input-container>
+      <div class="schedule-button-bar">
+        <md-button
+          ng-click="previousScreen('opportunity_end')"
+          class="md-raised md-primary">
+          Back
+        </md-button>
+      </div>
     </div>
-    <h2 style="text-align: center;">
-    {{schedule_string}}
-    </h2>
   </div>
+</div>
+</div>
+<div flex class="schedule-string-box">
+  <small>Current Schedule</small>
+  <h4 style="text-align: center;">
+    {{schedule_string}}
+  </h4>
+</div>
 </div>
 

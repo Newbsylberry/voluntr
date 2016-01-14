@@ -30,6 +30,7 @@ module SchedulerTool
       end
     end
 
+    ap params[:repeat]
     if params[:repeat].class == String
       params[:repeat] = JSON.parse(params[:repeat])
       if params[:repeating_event] === "true"
@@ -138,7 +139,7 @@ module SchedulerTool
       repeat_repititions = repeat_params[:number_of_repeats]
     end
     if repeat_params[:repeat_until]
-      repeat_stop_date = Time.at(repeat_params[:repeat_until] / 1000)
+      repeat_stop_date = Time.parse(repeat_params[:repeat_until])
     end
     @rule = Hash.new
     @rule["validations"] = Hash.new
