@@ -276,6 +276,8 @@ class Person < ActiveRecord::Base
           end
         end
       else
+        color = ['#f44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4',
+                 '#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FFC107'].sample
         IceCube::Schedule.from_yaml(v).occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |i|
           custom_instance =
               {
@@ -283,7 +285,7 @@ class Person < ActiveRecord::Base
                   title: k,
                   start: i.start_time,
                   end: i.end_time,
-                  color: '#3F51B5'
+                  color: color
               }
           @availability_schedule.push(custom_instance)
         end

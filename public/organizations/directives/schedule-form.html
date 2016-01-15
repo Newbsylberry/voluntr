@@ -83,14 +83,7 @@
           Back
         </md-button>
         <md-button
-          ng-show="calendar.repeat.repeat_type === 'repeat_daily'"
-          ng-click="nextScreen('repeat_daily', calendar.repeat.repeat_count)"
-          class="md-raised md-primary">
-          Next
-        </md-button>
-        <md-button
           ng-click="nextScreen('repeat_frequency', calendar.repeat.repeat_count)"
-          ng-show="calendar.repeat.repeat_type !== 'repeat_daily'"
           class="md-raised md-primary">
           Next
         </md-button>
@@ -98,7 +91,7 @@
     </div>
 
     <!-- SCREEN 3 - Weekly -->
-    <div class="schweekly" ng-show="current_screen === 'repeat_weekly'">
+    <div class="schweekly" ng-show="current_screen === 'repeat_weekly' || current_screen === 'repeat_daily'">
       <h4>Repeat On</h4>
       <div>
         <md-checkbox ng-model="calendar.repeat.monday_repeat" aria-label="Monday" class="ccheck">

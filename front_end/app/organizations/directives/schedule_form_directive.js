@@ -33,13 +33,11 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
       };
 
       $scope.nextScreen = function(current_screen, saved_value) {
-        console.log(current_screen)
         if (current_screen === 'beginning-information'){
           $scope.calendar.repeating_event = true;
           $scope.current_screen = 'repeat_type';
         } if (current_screen === 'repeat_type') {
           $scope.calendar.repeat.repeat_type = saved_value;
-          console.log($scope.calendar.repeat.repeat_type)
           $scope.current_screen = 'repeat_frequency';
         } if (current_screen === 'repeat_frequency') {
           $scope.calendar.repeat.repeat_count = saved_value;
