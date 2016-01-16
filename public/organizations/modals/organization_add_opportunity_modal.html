@@ -57,22 +57,11 @@
     <md-tab-body>
       <div class="tabcontrol">
         <div class="tabcontrolin">
-          <input kendo-date-time-picker
-                 k-ng-model="calendar.start_time"
-            />
-
-          <div>
-            <h3>Duration</h3>
-            <h4>{{calendar.duration | duration:'h:mm'}} {{duration_label}}</h4>
-            <md-slider flex min="900000"
-                       step="900000"
-                       max="43200000"
-                       ng-model="calendar.duration"
-                       aria-label="red"
-                       id="red-slider" class>
-            </md-slider>
-          </div>
-          <md-button auxiliary-modal-window type="recurring-schedule" object="calendar" >Is this a recurring schedule?</md-button>
+          <schedule-form
+            start-date-text="When will this opportunity start?"
+            recurring-label-text="Is this a recurring opportunity?"
+            calendar="calendar">
+          </schedule-form>
           <div class="window-bottom-button">
             <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</md-button>
             <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</md-button>
