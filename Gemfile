@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-
+gem 'dotenv-rails'
 gem 'responders', '~> 2.0', require: true
-
 gem 'rails-api'
-
 gem 'puma'
 gem 'elasticsearch', '~> 1.0.12'
 gem 'elasticsearch-model'

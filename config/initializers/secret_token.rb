@@ -20,6 +20,6 @@ VoluntrApi::Application.config.secret_token =
     if Rails.env.development? or Rails.env.test?
     'a624bb2a9d6882cc7d300b9c783e53bcf55919b990721af197f33f167b391db5e95c02c46a845d123123b37f2cb5f9bed7abbf7ce535c3335ee48139a2650e49'
     else
-      ENV['SECRET_TOKEN']       
+      ENV['SECRET_TOKEN']
     end
 
