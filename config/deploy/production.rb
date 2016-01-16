@@ -11,7 +11,7 @@ server '159.203.119.205', user: 'voluser', roles: %w{app}
 server '159.203.119.205', user: 'voluser', roles: %w{web}
 server '159.203.112.145', user: 'voluser', roles: %w{app}
 server '159.203.112.145', user: 'voluser', roles: %w{web}
-server '104.236.215.139', user: 'voluser', roles: %w{db}, port: 6969
+server '45.55.237.154', user: 'voluser', roles: %w{db}
 
 
 role :resque_worker, '107.170.56.15', user: 'voluser'
