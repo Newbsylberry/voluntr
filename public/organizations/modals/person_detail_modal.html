@@ -63,14 +63,21 @@
     <md-tab-body >
       <div class="tabcontrol">
         <div class="tabcontrolin persontab" >
-          <a href=""
-             ng-show="!edit_schedule"
-             class="person-detail-edit-schedule-link"
-            ng-click="edit_schedule = true">Edit Schedule</a>
+          <md-button
+            ng-show="!edit_schedule"
+            ng-click="edit_schedule = true"
+            class="md-primary md-raised"
+            >Edit Default Schedule</md-button>
+          <md-button auxiliary-modal-window
+                     ng-show="!edit_schedule"
+                     type="person-custom-schedule"
+                     class="md-secondary md-raised"
+                     id="{{person.id}}"
+                     object="custom_calendar" >Add Custom Schedule</md-button>
           <a href=""
              ng-show="edit_schedule"
              class="person-detail-edit-schedule-link"
-             ng-click="edit_schedule = false">View Schedule</a>
+             ng-click="edit_schedule = false">Back to Schedule</a>
           <div
             ng-show="!edit_schedule"
             ui-calendar="uiConfig.myCalendar"
@@ -83,8 +90,9 @@
             person-id="{{person.id}}"
             schedule="schedule"></person-schedule>
           <md-button
-            class="md-primary md-raise right-bottom-button"
+            class="md-primary md-raised right-bottom-button"
             ng-click="updateWithSchedule()"
+            ng-show="edit_schedule"
             >Update Schedule</md-button>
         </div>
       </div>
