@@ -3,7 +3,7 @@
 
     <!-- SCREEN 1 -->
     <div ng-show="current_screen === 'beginning-information'">
-      <h4>When does the new schedule start?</h4>
+      <h4 ng-show="start_time">When does the new schedule start?</h4>
       <input ng-show="start_time"
              kendo-date-time-picker
              k-ng-model="calendar.start_time"
@@ -21,6 +21,7 @@
       </div>
       <md-button
         ng-click="nextScreen('beginning-information', calendar.repeat.repeat_type)"
+        ng-show="start_time"
         class="md-raised md-primary">
         Is This A Recurring Schedule?
       </md-button>

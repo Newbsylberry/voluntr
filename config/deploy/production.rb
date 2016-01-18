@@ -7,10 +7,10 @@ set :stage, :production
 
 
 
-server '159.203.119.205', user: 'voluser', roles: %w{app}
-server '159.203.119.205', user: 'voluser', roles: %w{web}
-server '159.203.112.145', user: 'voluser', roles: %w{app}
-server '159.203.112.145', user: 'voluser', roles: %w{web}
+server '159.203.113.43', user: 'voluser', roles: %w{app}
+server '159.203.113.43', user: 'voluser', roles: %w{web}
+server '104.236.68.119', user: 'voluser', roles: %w{app}
+server '104.236.68.119', user: 'voluser', roles: %w{web}
 server '45.55.237.154', user: 'voluser', roles: %w{db}
 
 

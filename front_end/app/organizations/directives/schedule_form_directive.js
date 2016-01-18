@@ -12,22 +12,25 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
 
       $scope.calendar.repeat.monthly_repeat_type = {};
 
+      if (!$scope.start_time && !$scope.end_time) {
+        $scope.current_screen = 'repeat_type';
+      } else if ($scope.start_time && $scope.end_time) {
       $scope.current_screen = 'beginning-information';
+      }
 
       $scope.previousScreen = function(current_screen) {
         if (current_screen === 'repeat_type') {
           $scope.calendar.repeat = {};
           $scope.calendar.repeating_event = false;
           $scope.current_screen = 'beginning-information'
-        }
-        if (current_screen === 'repeat_frequency') {
+        } if (current_screen === 'repeat_frequency') {
           $scope.current_screen = 'repeat_type'
         } if (current_screen === 'repeat_daily' ||
           current_screen === 'repeat_weekly' ||
           current_screen === 'repeat_monthly' ||
           current_screen === 'repeat_annually') {
           $scope.current_screen = 'repeat_frequency'
-        }if (current_screen === 'opportunity_end') {
+        } if (current_screen === 'opportunity_end') {
           $scope.current_screen = $scope.calendar.repeat.repeat_type;
         }
       };
