@@ -86,5 +86,13 @@ production:
   pool: 25
   password: L33tman!
 
+staging:
+  <<: *default
+  database: voluntr_api_production
+  host: 45.55.237.154
+  username: voluser
+  pool: 25
+  password: L33tman!
+
 cucumber:
   <<: *test

@@ -7,9 +7,9 @@ set :stage, :staging
 
 
 
-server '104.236.215.139', user: 'voluser', roles: %w{app}, port: 6969
-server '104.236.215.139', user: 'voluser', roles: %w{web, db}, port: 6969
-
+server '104.236.113.30', user: 'voluser', roles: %w{app}
+server '104.236.113.30', user: 'voluser', roles: %w{web}
+server '45.55.237.154', user: 'voluser', roles: %w{db}
 
 role :resque_worker, '107.170.56.15', user: 'voluser'
 set :workers, {"high_priority" => 4, "low_priority" => 2}
