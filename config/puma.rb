@@ -1,13 +1,8 @@
 #!/usr/bin/env puma
-if Rails.env == 'staging'
-  env = 'staging'
-elsif Rails.env == 'production'
-  env = 'production'
-end
 
 directory '/home/voluser/apps/volu/current'
 rackup '/home/voluser/apps/volu/current/config.ru'
-environment env
+environment 'staging'
 
 pidfile '/home/voluser/apps/volu/shared/tmp/pids/puma.pid'
 state_path '/home/voluser/apps/volu/shared/tmp/pids/puma.state'
