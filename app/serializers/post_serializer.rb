@@ -1,3 +1,3 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :fb_id, :post_time, :likes
+  attributes :id, :fb_id, :message, :post_time, :likes
 end
