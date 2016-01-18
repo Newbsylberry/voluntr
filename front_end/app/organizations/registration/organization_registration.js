@@ -37,6 +37,7 @@ angular.module('voluntrApp')
 
 
     var listOrganization = function(organization) {
+      console.log(organization)
       if (!$scope.organizations) {
         var organizations = [];
         $scope.organizations = organizations;
@@ -44,8 +45,9 @@ angular.module('voluntrApp')
       Facebook.api('/' + organization.id + '/picture', {"type": "large"}, function (response) {
         organization.picture = response.data.url;
       });
-
+        console.log(organization)
       Organization.existence_check(organization.id).$promise.then(function(data) {
+        console.log(organization)
         if (data.id) {
           organization.exists = true;
           organization.v_id = data.id;

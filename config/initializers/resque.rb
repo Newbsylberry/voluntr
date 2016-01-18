@@ -1,7 +1,7 @@
 require 'rake'
 require 'resque/tasks'
 
-if Rails.env == 'production'
+if Rails.env == 'production' || Rails.env == 'staging'
   Resque.redis = "107.170.56.15:6379"
   Resque.logger = Logger.new("new_resque_log_file")
 else

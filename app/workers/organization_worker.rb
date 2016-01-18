@@ -14,7 +14,7 @@ class OrganizationWorker < ActiveJob::Base
                     .find_or_initialize_by(fb_id: p['id'])
         @post.message = p['message']
         @post.fb_id = p['id']
-        @post.organization_id = organization_id
+        @post.organization = Organization.find(organization_id)
         @post.post_time = p['created_time']
         if !(p["likes"].nil? || p["likes"].empty?)
           @post.likes = p['likes']['data'].count
