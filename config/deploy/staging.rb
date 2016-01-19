@@ -11,7 +11,7 @@ server '104.236.113.30', user: 'voluser', roles: %w{app}
 server '104.236.113.30', user: 'voluser', roles: %w{web}
 server '45.55.237.154', user: 'voluser', roles: %w{db}
 
-role :resque_worker, '107.170.56.15', user: 'voluser'
+role :resque_worker, '104.131.74.71', user: 'voluser'
 set :workers, {"high_priority" => 4, "low_priority" => 2}
 
 # set :whenever_roles, [:resque_worker]
