@@ -1,7 +1,10 @@
-<md-input-container ng-show="type == 'person-custom-schedule'">
-  <label>What is the name of the schedule</label>
-  <input ng-model="calendar.name">
-</md-input-container>
+<div ng-show="type == 'person-custom-schedule'">
+  <h4>Create A New Availability Schedule</h4>
+  <md-input-container>
+    <label>What is the name of the schedule</label>
+    <input ng-model="calendar.name">
+  </md-input-container>
+</div>
 <div ng-if="type == 'recurring-schedule' || type == 'edit-schedule' || type == 'person-custom-schedule'">
   <schedule-form
     start-date-text="When will this opportunity start?"

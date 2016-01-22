@@ -25,7 +25,7 @@ angular.module('voluntrApp')
       } else {
         $scope.duration_label = 'hours'
       };
-      $scope.calendar.end_time = $scope.calendar.start_time.getTime() + $scope.calendar.duration;
+      $scope.calendar.end_time = $scope.calendar.raw_start.getTime() + $scope.calendar.duration;
     });
 
     $scope.roles = [];
@@ -50,18 +50,12 @@ angular.module('voluntrApp')
     };
 
     $scope.newOpportunity = function(){
-      conn
       var attr = {};
       attr.calendar = $scope.calendar;
-      if ($scope.calendar.start_time != undefined) {
-        attr.calendar.start_time = $scope.calendar.start_time.getTime();
-      }
-      if ($scope.calendar.repeat.repeat_until != undefined) {
-        attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until.getTime();
-      }
       if ($scope.newOpportunity.volunteer_goal) {
         attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
       }
+      attr.calendar.start_time = Date.parse($scope.calendar.raw_start)
       attr.name = $scope.newOpportunity.opportunity_name;
       attr.calendar.end_time = $scope.calendar.end_time;
       attr.description = $scope.newOpportunity.description;

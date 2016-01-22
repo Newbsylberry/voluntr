@@ -1,3 +1,9 @@
+#schedule-form {
+  h3 {
+    margin: 2px 0;
+  }
+}
+
 .repeat-type-radio-group {
   display: inline-block;
   .cradio{
@@ -25,4 +31,8 @@
   h4 {
     color: black;
   }
+}
+.schedule-direction-text {
+  display: block;
+  margin-bottom: 12px;
 }
