@@ -89,10 +89,10 @@ production:
 staging:
   <<: *default
   database: voluntr_api_production
-  host: 45.55.237.154
+  host: 10.132.12.92
   username: voluser
   pool: 25
-  password: L33tman!
+  password: <%= ENV['DATABASE_PASS'] %>
 
 cucumber:
   <<: *test
