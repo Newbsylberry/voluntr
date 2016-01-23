@@ -1,0 +1,19 @@
+<div class="volunteer_drive_2016">
+  <div ng-class="{introduction: introduction, loaded: loaded}">
+    <img src="../../images/V_Logo.png">
+    <h1>VOLUnteer Drive 2016</h1>
+    <h4>April - Syracuse, NY</h4>
+    <ul ng-show="loaded && menu">
+      <li><a ui-sref="volunteer_drive_16.volunteers">Volunteers</a></li>
+      <li><a ui-sref="volunteer_drive_16.non_profits.1">Non Profits</a></li>
+      <li><a ui-sref="volunteer_drive_16.sponsors">Sponsors</a></li>
+    </ul>
+  </div>
+  <div ng-if="loaded">
+    <ui-view></ui-view>
+  </div>
+  <a class="contact-us-link"
+     ng-show="loaded"
+     href="mailto:aj@evoluapp.com?Subject=Volunteer%20Drive"
+     target="_top">Contact Us</a>
+</div>

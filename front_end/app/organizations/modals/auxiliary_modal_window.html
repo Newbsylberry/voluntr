@@ -5,6 +5,7 @@
     <input ng-model="calendar.name">
   </md-input-container>
 </div>
+<h4 ng-show="type == 'edit-schedule'">Edit Schedule</h4>
 <div ng-if="type == 'recurring-schedule' || type == 'edit-schedule' || type == 'person-custom-schedule'">
   <schedule-form
     start-date-text="When will this opportunity start?"

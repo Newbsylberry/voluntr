@@ -76,7 +76,7 @@
          class="schdaily">
       <h4>Repeat every</h4>
       <small class="schedule-direction-text">
-        How many {{repeat_type_text}} must pass before the opportunity repeats?
+        How many {{repeat_type_text}} must pass before the schedule repeats?
         <a href="">
           See our support article for additional help.</a></small>
       <md-input-container>
@@ -99,8 +99,8 @@
 
     <!-- SCREEN 3 - Weekly -->
     <div class="schweekly" ng-show="current_screen === 'repeat_weekly'">
-      <h4>Repeat On</h4>
-      <small class="schedule-direction-text">Choose the increment that this schedule will repeat.<a href="">
+      <h4>What days of the week will the schedule repeat on?</h4>
+      <small class="schedule-direction-text">Select the days the schedule<a href="">
         See our support article for additional help.</a></small>
       <div>
         <md-checkbox ng-model="calendar.repeat.monday_repeat" aria-label="Monday" class="ccheck">
@@ -131,7 +131,10 @@
     <!-- SCREEN 3 - Monthly -->
     <div class="schmonthly"
          ng-show="current_screen === 'repeat_monthly'">
-      <small class="schedule-direction-text">Choose the increment that this schedule will repeat.<a href="">
+      <h4>Will the schedule repeat on a day of the month? Or Days of the Week in the Month?</h4>
+      <small class="schedule-direction-text">If a schedule repeats on a day, for example the
+        third day of every month, select 'On Day of the Month?', if it repeats on a day of the week
+        like the first and last Tuesday of the month, select 'On Day of The Week'<a href="">
         See our support article for additional help.</a></small>
       <md-radio-group ng-model="calendar.repeat.monthly_repeat.type" style="display:block;">
         <md-radio-button  class="cradio"
@@ -162,9 +165,6 @@
       <div ng-show="calendar.repeating_event &&
     (calendar.repeat.repeat_type === 'repeat_monthly') &&
          (calendar.repeat.monthly_repeat.type === 'day_of_week')">
-        <h4>Monthly</h4>
-        <small class="schedule-direction-text">Choose the increment that this schedule will repeat.<a href="">
-          See our support article for additional help.</a></small>
         <strong>First Week of the Month:</strong><br>
         <div>
           <md-checkbox ng-model="calendar.repeat.monthly_repeat.monday_repeat.first_week" aria-label="Monday" class="monthly ccheck">
@@ -285,8 +285,9 @@
     </div>
     <!-- SCREEN 4 - Opportunity End -->
     <div class="schdefault" ng-show="current_screen === 'opportunity_end'">
-      <h4>Monthly</h4>
-      <small class="schedule-direction-text">Choose the increment that this schedule will repeat.<a href="">
+      <h4>When will the schedule end (if the schedule doesn't end than simply save the schedule)?</h4>
+      <small class="schedule-direction-text">Choose a number of times for the schedule to repeat, or
+        a specific date that the schedule will end.<a href="">
         See our support article for additional help.</a></small>
       <div>
         <h4>Set Opportunity End:</h4>

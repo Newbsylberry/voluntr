@@ -13,23 +13,7 @@ angular.module('voluntrApp')
                                            $window, $modal) {
 
 
-    var stickyNavTop = $('.nav').offset().top;
 
-    var stickyNav = function(){
-      var scrollb = $('#screen2').offset().top;
-      if (scrollb < 0 ){
-        $('.nav').addClass('sticky');
-      } else {
-        $('.nav').removeClass('sticky');
-      };
-    };
-    stickyNav();
-
-
-
-    $('.ng-scope').scroll(function() {
-      stickyNav();
-    });
 
 
     $('.fadein img:gt(0)').hide();

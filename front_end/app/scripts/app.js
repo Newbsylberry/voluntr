@@ -110,34 +110,58 @@ angular
 
       .state('volunteer_drive_16', {
         url: '/volunteer_drive',
-        templateUrl: 'static_pages/volunteer_drive_16.html',
+        templateUrl: 'static_pages/volunteer_drive_16/home.html',
         abstract: true,
         controller: 'VolunteerDrive16Ctrl'
       })
 
-      .state('volunteer_drive_16.1', {
+      .state('volunteer_drive_16.menu', {
         url: '',
-        templateUrl: 'static_pages/vd_2016_1.html'
+        templateUrl: 'static_pages/volunteer_drive_16/menu.html',
+        controller: 'VolunteerDrive16Ctrl'
       })
 
-      .state('volunteer_drive_16.2', {
+      .state('volunteer_drive_16.volunteers', {
         url: '',
-        templateUrl: 'static_pages/vd_2016_2.html'
+        templateUrl: 'static_pages/volunteer_drive_16/volunteers.html',
+        controller: 'VolunteerDrive16Ctrl'
       })
 
-      .state('volunteer_drive_16.3', {
+      .state('volunteer_drive_16.sponsors', {
         url: '',
-        templateUrl: 'static_pages/vd_2016_3.html'
+        templateUrl: 'static_pages/volunteer_drive_16/sponsors.html',
+        controller: 'VolunteerDrive16Ctrl'
       })
 
-      .state('volunteer_drive_16.4', {
+      .state('volunteer_drive_16.non_profits', {
         url: '',
-        templateUrl: 'static_pages/vd_2016_4.html'
+        abstract: true,
+        templateUrl: 'static_pages/volunteer_drive_16/non_profits.html'
       })
 
-      .state('volunteer_drive_16.form', {
+      .state('volunteer_drive_16.non_profits.1', {
         url: '',
-        templateUrl: 'static_pages/vd_2016_form.html'
+        templateUrl: 'static_pages/volunteer_drive_16/non_profits_1.html'
+      })
+
+      .state('volunteer_drive_16.non_profits.2', {
+        url: '',
+        templateUrl: 'static_pages/volunteer_drive_16/non_profits_2.html'
+      })
+
+      .state('volunteer_drive_16.non_profits.3', {
+        url: '',
+        templateUrl: 'static_pages/volunteer_drive_16/non_profits_3.html'
+      })
+
+      .state('volunteer_drive_16.non_profits.4', {
+        url: '',
+        templateUrl: 'static_pages/volunteer_drive_16/non_profits_4.html'
+      })
+
+      .state('volunteer_drive_16.non_profits.form', {
+        url: '',
+        templateUrl: 'static_pages/volunteer_drive_16/non_profits_form.html'
       })
 
       .state('volunteer_home', { //default page loaded for landing state

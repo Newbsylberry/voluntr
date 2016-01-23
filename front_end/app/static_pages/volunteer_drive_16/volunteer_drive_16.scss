@@ -11,6 +11,29 @@
   }
 }
 
+.contact-us-link {
+  position: fixed;
+  right: 2vw;
+  bottom: 4vh;
+  font-size: 18pt;
+}
+.volunteer-drive-16-content {
+  padding: 8vh 32vw;
+  text-align: center;
+  .button-group {
+    margin: 2vh auto;
+    width: 300px;
+    a {
+      display: block;
+      width: 300px;
+      margin-bottom: 8px;
+    }
+    md-button {
+
+    }
+  }
+}
+
 .loaded {
   text-align: center;
   position: relative;
@@ -30,6 +53,15 @@
     text-align: center;
     font-weight: bold;
 
+  }
+  ul {
+    list-style: none;
+    position: relative;
+    right: 22px;
+    li {
+      display: inline-block;
+      margin-left: 4px;
+    }
   }
 }
 

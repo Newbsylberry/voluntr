@@ -58,7 +58,7 @@
       <div class="tabcontrol">
         <div class="tabcontrolin">
           <input kendo-date-time-picker
-                 k-ng-model="calendar.start_time"
+                 k-ng-model="calendar.raw_start"
             />
 
           <div>
@@ -72,7 +72,12 @@
                        id="red-slider" class>
             </md-slider>
           </div>
-          <md-button auxiliary-modal-window type="recurring-schedule" object="calendar" >Is this a recurring schedule?</md-button>
+          <md-button auxiliary-modal-window
+                     type="recurring-schedule"
+                     object="calendar"
+            ng-click="calendar.repeating_event = true">
+            Is this a recurring schedule?
+          </md-button>
           <div class="window-bottom-button">
             <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</md-button>
             <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</md-button>
