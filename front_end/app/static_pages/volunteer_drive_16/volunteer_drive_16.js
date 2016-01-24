@@ -26,13 +26,13 @@ angular.module('voluntrApp')
 
     $scope.prod = {imagePaths: []};
     $scope.prod.imagePaths = [
-      { custom: 'static_pages/volunteer_drive_16/logos/frat_council.png', thumbnail: 'static_pages/volunteer_drive_16/logos/frat_council.png' },
-      { custom: 'static_pages/volunteer_drive_16/logos/young_leaders_united.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/young_leaders_united.jpg' },
-      { custom: 'static_pages/volunteer_drive_16/logos/centerstate.png', thumbnail: 'static_pages/volunteer_drive_16/logos/centerstate.png' },
-      { custom: 'static_pages/volunteer_drive_16/logos/believe_in_cuse.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/believe_in_cuse.jpg' },
-      { custom: 'static_pages/volunteer_drive_16/logos/40below.png', thumbnail: 'static_pages/volunteer_drive_16/logos/40below.png' },
-      { custom: 'static_pages/volunteer_drive_16/logos/onondaga_community_college.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/onondaga_community_college.jpg' },
-      { custom: 'static_pages/volunteer_drive_16/logos/rha.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/rha.jpg' }
+      { custom: 'images/voldrive/logos/frat_council.png', thumbnail: 'images/voldrive/logos/frat_council.png' },
+      { custom: 'images/voldrive/logos/young_leaders_united.jpg', thumbnail: 'images/voldrive/logos/young_leaders_united.jpg' },
+      { custom: 'images/voldrive/logos/centerstate.png', thumbnail: 'images/voldrive/logos/centerstate.png'},
+      { custom: 'images/voldrive/logos/believe_in_cuse.jpg', thumbnail: 'images/voldrive/logos/believe_in_cuse.jpg' },
+      { custom: 'images/voldrive/logos/40below.png', thumbnail: 'images/voldrive/logos/40below.png' },
+      { custom: 'images/voldrive/logos/onondaga_community_college.jpg', thumbnail: 'images/voldrive/logos/onondaga_community_college.jpg' },
+      { custom: 'images/voldrive/logos/rha.jpg', thumbnail: 'images/voldrive/logos/rha.jpg' }
     ];
 
     $scope.introduction = true;
@@ -44,7 +44,7 @@ angular.module('voluntrApp')
 
 
     $scope.formScreen = function() {
-      $state.go('volunteer_drive_16.form')
+      $state.go('volunteer_drive_16.non_profits.form')
       $scope.no_buttons = true;
     }
 

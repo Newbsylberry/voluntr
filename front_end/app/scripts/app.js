@@ -161,7 +161,7 @@ angular
       })
 
       .state('volunteer_drive_16.non_profits.form', {
-        url: '',
+        url: '/form',
         templateUrl: 'static_pages/volunteer_drive_16/non_profits_form.html'
       })
 
