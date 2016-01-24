@@ -438,6 +438,12 @@ module.exports = function (grunt) {
           },
           {
             expand: true,
+            cwd: 'bower_components/flexslider/',
+            src: 'fonts/*',
+            dest: '<%= yeoman.dist %>/styles/'
+          },
+          {
+            expand: true,
             cwd: 'bower_components/kendo-ui-core/styles/',
             src: 'Default/*',
             dest: '<%= yeoman.dist %>/styles/'
