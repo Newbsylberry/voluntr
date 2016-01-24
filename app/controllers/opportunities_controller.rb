@@ -2,8 +2,6 @@ class OpportunitiesController < ApplicationController
   include IceCube
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 
-
-
   def index
     @opportunities = Opportunity.all
 
