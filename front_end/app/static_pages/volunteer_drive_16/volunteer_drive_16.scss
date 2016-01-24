@@ -75,6 +75,15 @@
   margin-top: 12vh;
   width: 60vw;
   text-align: center;
+  .flexslider {
+    width: 100%;
+    height: 200px;
+  }
+
+  .flexslider .slides img {
+    width: 100%;
+    height: 200px;
+  }
 }
 .vd-2 {
   small {

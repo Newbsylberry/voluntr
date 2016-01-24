@@ -41,6 +41,7 @@ angular
     'angulartics.google.analytics',
     'ngIdle',
     'ngCsv',
+    'angular-flexslider',
     'md.data.table'
   ])
 

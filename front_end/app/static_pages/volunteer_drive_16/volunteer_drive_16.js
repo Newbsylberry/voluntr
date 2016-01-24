@@ -24,6 +24,16 @@ angular.module('voluntrApp')
 
 
 
+    $scope.prod = {imagePaths: []};
+    $scope.prod.imagePaths = [
+      { custom: 'static_pages/volunteer_drive_16/logos/frat_council.png', thumbnail: 'static_pages/volunteer_drive_16/logos/frat_council.png' },
+      { custom: 'static_pages/volunteer_drive_16/logos/young_leaders_united.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/young_leaders_united.jpg' },
+      { custom: 'static_pages/volunteer_drive_16/logos/centerstate.png', thumbnail: 'static_pages/volunteer_drive_16/logos/centerstate.png' },
+      { custom: 'static_pages/volunteer_drive_16/logos/believe_in_cuse.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/believe_in_cuse.jpg' },
+      { custom: 'static_pages/volunteer_drive_16/logos/40below.png', thumbnail: 'static_pages/volunteer_drive_16/logos/40below.png' },
+      { custom: 'static_pages/volunteer_drive_16/logos/onondaga_community_college.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/onondaga_community_college.jpg' },
+      { custom: 'static_pages/volunteer_drive_16/logos/rha.jpg', thumbnail: 'static_pages/volunteer_drive_16/logos/rha.jpg' }
+    ];
 
     $scope.introduction = true;
     $timeout(function(){
