@@ -30,7 +30,7 @@ angular.module('voluntrApp')
       { custom: 'images/voldrive/logos/young_leaders_united.jpg', thumbnail: 'images/voldrive/logos/young_leaders_united.jpg' },
       { custom: 'images/voldrive/logos/centerstate.png', thumbnail: 'images/voldrive/logos/centerstate.png'},
       { custom: 'images/voldrive/logos/believe_in_cuse.jpg', thumbnail: 'images/voldrive/logos/believe_in_cuse.jpg' },
-      { custom: 'images/voldrive/logos/40below.png', thumbnail: 'images/voldrive/logos/40below.png' },
+      { custom: 'images/voldrive/logos/forty_below.png', thumbnail: 'images/voldrive/logos/forty_below.png' },
       { custom: 'images/voldrive/logos/onondaga_community_college.jpg', thumbnail: 'images/voldrive/logos/onondaga_community_college.jpg' },
       { custom: 'images/voldrive/logos/rha.jpg', thumbnail: 'images/voldrive/logos/rha.jpg' }
     ];
