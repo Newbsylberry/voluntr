@@ -14,3 +14,9 @@ OrganizationEmailType.create(name: 'Opportunity Volunteer Follow Up Email',
                              description: 'The email that is delivered after a
                                             volunteer has recorded hours at an opportunity.')
 
+OrganizationType.create(name: "Nonprofit",
+                             description: "Nonprofit organization's which requires volunteers.")
+
+OrganizationType.create(name: "Volunteer Group",
+                        description: "A group of volunteers")
+

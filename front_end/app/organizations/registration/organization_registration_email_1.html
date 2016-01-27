@@ -1,0 +1,19 @@
+<h2>Register</h2>
+<md-radio-group ng-model="register.organization_type_name" id="organization-type-selector" ng-init="register.organization_type = 'Non-Profit'">
+  <md-radio-button value="Nonprofit" style="float: left;">Non-Profit</md-radio-button>
+  <md-radio-button value="Volunteer Group" style="float: right;">Volunteer Group</md-radio-button>
+</md-radio-group>
+<md-input-container>
+  <label>What's the name of your organization?</label>
+  <input ng-model="register.organization_name">
+</md-input-container>
+<md-input-container>
+  <label>What's your email adddress?</label>
+  <input ng-model="register.user_email" type="email">
+</md-input-container>
+<md-button
+  class="md-raised md-primary"
+  style="float: right;"
+  ng-click="createUser()"
+  ng-disabled="!register.organization_name || !register.user_email || !register.organization_type"
+  >Register For Volu</md-button>

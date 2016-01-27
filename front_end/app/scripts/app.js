@@ -149,6 +149,29 @@ angular
         controller: 'OrganizationRegistrationCtrl'
       })
 
+      .state('organizations.email_registration', {
+        url: '/email_registration',
+        abstract: true,
+        templateUrl: 'organizations/registration/organization_registration_email.html',
+        controller: 'OrganizationRegistrationCtrl'
+      })
+
+      .state('organizations.email_registration.1', {
+        url: '',
+        templateUrl: 'organizations/registration/organization_registration_email_1.html',
+      })
+
+      .state('organizations.email_registration.2', {
+        url: '',
+        templateUrl: 'organizations/registration/organization_registration_email_2.html',
+      })
+
+      .state('organizations.user_organizations', {
+        url: '/user_organizations',
+        templateUrl: 'organizations/user_organizations/user_organizations.html',
+        controller: 'UserOrganizationsCtrl'
+      })
+
       .state('organizations.tutorial', {
         url: '/:organization_Id/tutorial',
         templateUrl: 'organizations/tutorial/tutorial.html',

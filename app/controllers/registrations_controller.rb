@@ -21,11 +21,13 @@ class RegistrationsController < Devise::RegistrationsController
     resource_saved = resource.save
 
     yield resource if block_given?
+
     if resource_saved
       # UserMailer.registration_email(resource).deliver
       @organization = Organization.create(name: params[:user][:organization][:organization_name])
       UserOrganization.create(organization_id: @organization.id, user_id: resource.id)
-
+      @organization.organization_type = OrganizationType.find_by_name(params[:user][:organization][:organization_type_name])
+      @organization.save
       token = AuthToken.issue_token({ user_id: resource.id })
       render json: { token: token, organization_id: @organization.id }
     else

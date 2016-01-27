@@ -5,6 +5,7 @@ angular.module('voluntrApp')
 
     $scope.$on("$stateChangeSuccess", function updatePage() {
       $scope.current_state = $state.current.name;
+      console.log($scope.current_state)
       $rootScope.organization_id = $state.params.organization_Id
       // $scope.current_state = $state.params.slug;
     });

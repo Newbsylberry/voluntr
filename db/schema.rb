@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201034130) do
+ActiveRecord::Schema.define(version: 20160126230140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,13 @@ ActiveRecord::Schema.define(version: 20151201034130) do
     t.text     "notes"
   end
 
+  create_table "organization_types", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -156,6 +163,7 @@ ActiveRecord::Schema.define(version: 20151201034130) do
     t.text     "twitter_url"
     t.text     "instagram_url"
     t.string   "terms_of_service_file"
+    t.integer  "organization_type_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -191,12 +199,12 @@ ActiveRecord::Schema.define(version: 20151201034130) do
   create_table "posts", force: :cascade do |t|
     t.string   "fb_id"
     t.text     "message"
-    t.string   "organization_id"
     t.datetime "post_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "likes"
     t.integer  "person_id"
+    t.integer  "organization_id"
+    t.integer  "likes"
   end
 
   create_table "profiles", force: :cascade do |t|

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :organization_types, except: [:new, :edit]
   resources :user_organizations, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do

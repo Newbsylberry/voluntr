@@ -1,0 +1,21 @@
+<h2>Sign In</h2>
+<md-input-container>
+  <label>Email</label>
+  <input ng-model="login.email">
+</md-input-container>
+<md-input-container flex>
+  <label>Password</label>
+  <input ng-model="login.password" type="password">
+</md-input-container>
+<md-button
+  class="md-raised md-primary"
+  ng-click="userSignIn()"
+  >Sign In To Volu
+</md-button>
+<md-button class="md-primary md-raised"
+           ng-click="facebook_log_in()"
+           id="facebook-log-in">
+  Sign In With Facebook
+</md-button>
+
+

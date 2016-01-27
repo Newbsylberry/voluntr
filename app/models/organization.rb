@@ -1,4 +1,5 @@
 class Organization < ActiveRecord::Base
+  belongs_to :organization_type
   has_many :opportunities
   has_many :posts
   has_many :organization_people
@@ -41,6 +42,22 @@ class Organization < ActiveRecord::Base
 
   def terms_of_service_uploaded
     if !terms_of_service_file.blank?
+      true
+    else
+      false
+    end
+  end
+
+  def nonprofit?
+    if organization_type.name === 'Nonprofit'
+      true
+    else
+      false
+    end
+  end
+
+  def volunteer_group?
+    if organization_type.name === 'Volunteer Group'
       true
     else
       false

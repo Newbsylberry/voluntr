@@ -1,4 +1,7 @@
-<nav ng-if="current_state !== 'organizations.registration'"
+<nav ng-hide="current_state === 'organizations.registration' &&
+            current_state === 'organizations.email_registration.1' &&
+            current_state === 'organizations.email_registration.2' &&
+            current_state === 'organizations.user_organizations'"
      mfb-menu position="br" effect="zoomin"
      label="Add To Your Organization"
      active-icon="ion-edit"

@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   def current_user_organizations
+    ap @current_user.organizations
     render json: @current_user.organizations, each_serializer: OrganizationSerializer
   end
 end

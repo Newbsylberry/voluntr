@@ -22,6 +22,7 @@
 
       };
 
+      console.log($scope.current_state)
       $scope.recordHours = function (size) {
         var recordHoursModal = $modal.open(
           {

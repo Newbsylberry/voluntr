@@ -1,0 +1,106 @@
+<md-card class="content">
+  <md-card-content ng-if="connected_to_facebook || logged_in && !organization_registration && organizations.length > 0">
+    <ul     class="list-group organization-login-list">
+      <div ng-repeat="organization in organizations">
+        <li class="list-group-item" ng-if="organization.users.length > 0">
+          <img class="organization-login-image" ng-src="{{organization.picture}}">
+
+          <!-- Organization Name -->
+          <p class="lead">{{organization.name}}</p>
+
+          <!-- Link to the organizations Voluntr if added Page -->
+          <md-button class="md-primary md-raised"
+                     style="    display: inline-block; float: right;"
+                     ng-click="logInWithEmaiLregistration(organization)"
+
+            >Home Page
+          </md-button>
+        </li>
+        <li class="list-group-item"  ng-if="organization.exists === true" >
+          <img class="organization-login-image" ng-src="{{organization.picture}}">
+
+          <!-- Organization Name -->
+          <p class="lead">{{organization.name}}</p>
+
+          <!-- Link to the organizations Voluntr if added Page -->
+          <md-button class="md-primary md-raised"
+                     ng-click="authorizeUser(organization)"
+
+            >Home Page
+          </md-button>
+        </li>
+      </div>
+      <md-divider></md-divider>
+      <md-subheader class="md-no-sticky">These Organizations Have Not Been Added:</md-subheader>
+      <div ng-repeat="organization in organizations">
+        <li class="list-group-item" ng-if="organization.exists !== true && !organization.users.length">
+          <img class="organization-login-image" ng-src="{{organization.picture}}">
+
+          <!-- Organization Name -->
+          <p class="lead">{{organization.name}}</p>
+
+          <!-- Link to the organizations Voluntr if added Page -->
+          <md-button ng-if="organization.exists === false"
+                     class="md-primary md-raised"
+                     ng-click="organizationRegistration(organization)">
+            Add
+          </md-button>
+        </li>
+      </div>
+    </ul>
+  </md-card-content>
+  <md-card-content ng-if="connected_to_facebook && !organizations">
+    <img src="../../images/V_Logo.png">
+    <p class="create-facebook-page-text">
+      Whoops, looks like you aren't an administrator of any volunteer Facebook pages,
+      <a href="https://www.facebook.com/help/104002523024878">if you don't have a Facebook page, create one</a>, or
+      <a href="https://www.facebook.com/help/187316341316631">send this link to the manager of your Facebook page to
+        get access.</a>
+    </p>
+    <p class="create-facebook-page-text">
+      You can also
+      <a href="" ng-click="email_registration_modal()">register with a valid email address</a>
+    </p>
+  </md-card-content>
+  <md-card-content ng-if="organization_registration" id="organization-registration-container">
+    <h2>Register {{organization.name}} for Volu</h2><br/>
+    <md-divider></md-divider><br/>
+    <!--<img class="organization-login-image" ng-src="{{organization.picture}}">-->
+    <p>Thanks for your interest in registering for Volu, you are a few clicks away from having
+      the ability to manage the opportunities your organization provides, and the people interested in them.  Before we
+      move forward, we want you to know exactly what data we're accessing from your account, and why.
+    </p>
+    <h3>
+      Information About Your Organization
+    </h3>
+    <p>
+      When you register for Volu, we save your organizations name, a brief description, a link to your current Facebook
+      picture, and the identification number that Facebook uses.  This is so volunteers who don't have a Facebook account
+      can find out about your organization, and so we can ensure that anyone who tries to access your Volu account has
+      permission.
+    </p>
+    <h3>
+      Your Organization's Facebook Page Posts
+    </h3>
+    <p>
+      At Volu, we believe that connecting with your community begins long before someone actually comes in contact with
+      your organization.  We import your Facebook posts, and insights about them, so that we can help you get a
+      better understanding of what has helped you connect with your audience in the past, and how to build off your
+      success.
+    </p>
+    <h3>
+      The People Who Like Those Posts
+    </h3>
+    <p>
+      Liking a post on your Facebook wall is the first step to getting involved and supporting your organizations mission.
+      When you register for Volu, we want to see you succeed, so we give you a list of people you have already impacted
+      through your marketing.
+    </p>
+    <h4>Oh yeah, and all of the above we do for free, so what are you waiting for?</h4>
+    <md-button class="md-primary md-raised" style="display:block;margin:0 auto;"
+               ng-click="addOrganization(organization)">
+      Register {{organization.name}} For Volu and Import Facebook Data
+    </md-button>
+    <a href="" ng-click="organizationList();">Back</a>
+  </md-card-content>
+</md-card>

@@ -1,0 +1,43 @@
+.content .organization-login-list {
+  clear: both;
+  li {
+    img {
+      display: inline-block;
+      height: 75px;
+      width: 75px;
+      @include breakpoint($mobile) {
+        height: 125px;
+        width: 125px;
+        display: block;
+      }
+    }
+    button {
+      display: inline-block;
+      color: white;
+      background-color: $primary;
+      float: right;
+      position: relative;
+      @include breakpoint($mobile) {
+        top: .5em;
+        display: block;
+        float: none;
+        margin: auto;
+      }
+    }
+    p {
+      display: inline-block;
+      margin-left: 2em;
+      @include breakpoint($tablet) {
+        font-size: 15px;
+      }
+      @include breakpoint($mobile) {
+        text-align: center;
+        display: block;
+        margin-left: 0;
+      }
+    }
+  }
+  .md-subheader .md-default-theme {
+    float: left;
+  }
+}
