@@ -2,8 +2,6 @@ class OpportunitiesController < ApplicationController
   include IceCube
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 
-
-
   def index
     @opportunities = Opportunity.all
 
@@ -14,7 +12,8 @@ class OpportunitiesController < ApplicationController
   # GET /events/1.json
   def show
     @opportunity = Opportunity.find(params[:id])
-
+    @opportunity.instance_hours = @opportunity.instance_recorded_hours(params[:instance_date])
+    @opportunity.instance_people_count = @opportunity.instance_people_recording(params[:instance_date])
 
     render json: @opportunity, instance_date:  params[:instance_date]
   end
@@ -28,7 +27,7 @@ class OpportunitiesController < ApplicationController
 
 
     if params[:calendar]
-      @opportunity.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
+      @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
     end
 
     @opportunity.save
@@ -41,17 +40,17 @@ class OpportunitiesController < ApplicationController
   def update
     @opportunity = Opportunity.find(params[:id])
 
-
-
     @opportunity.update(opportunity_params)
-    if params[:calendar]
-      @opportunity.schedule  = SchedulerTool.schedule_from_params(params, @opportunity)
-
-      @opportunity.save
-    end
 
 
     render json: @opportunity
+  end
+
+  def update_schedule
+    @opportunity = Opportunity.find(params[:id])
+    @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
+
+    @opportunity.save
   end
 
   # DELETE /events/1

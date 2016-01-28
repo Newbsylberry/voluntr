@@ -7,12 +7,14 @@ set :stage, :production
 
 
 
-server '104.236.215.139', user: 'voluser', roles: %w{app}, port: 6969
-server '104.236.215.139', user: 'voluser', roles: %w{web, db}, port: 6969
+server '159.203.113.43', user: 'voluser', roles: %w{app}
+server '159.203.113.43', user: 'voluser', roles: %w{web}
+server '104.236.68.119', user: 'voluser', roles: %w{app}
+server '104.236.68.119', user: 'voluser', roles: %w{web}
+server '45.55.62.200', user: 'voluser', roles: %w{db}
 
 
-role :resque_worker, '45.55.137.193', user: 'voluser'
-role :resque_schedule, '45.55.137.193', user: 'voluser'
+role :resque_worker, '159.203.160.218', user: 'voluser'
 set :workers, {"high_priority" => 4, "low_priority" => 2}
 
 # set :whenever_roles, [:resque_worker]
@@ -20,9 +22,6 @@ set :workers, {"high_priority" => 4, "low_priority" => 2}
 set :ssh_options, {
                     forward_agent: true
                                     }
-
-
-
 
 # Extended Server Syntax
 # ======================

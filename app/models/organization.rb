@@ -26,6 +26,8 @@ class Organization < ActiveRecord::Base
       end
       o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
       organization.custom_url = (0...16).map { o[rand(o.length)] }.join
+      organization.organization_type = OrganizationType.find_by_name('Nonprofit')
+      organization.save
     end
   end
 

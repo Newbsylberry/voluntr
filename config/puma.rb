@@ -12,4 +12,4 @@ stdout_redirect '/home/voluser/apps/volu/current/log/puma.error.log',
 
 threads 1,4
 
-bind 'unix:///home/volu/apps/volu/shared/tmp/sockets/volu-puma.sock'
+bind 'unix:///home/voluser/apps/volu/shared/tmp/sockets/volu-puma.sock'

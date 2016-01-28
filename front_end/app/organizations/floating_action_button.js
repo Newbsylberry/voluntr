@@ -9,7 +9,7 @@
           {
             templateUrl: 'organizations/modals/organization_add_opportunity_modal.html',
             controller: 'AddOpportunityCtrl',
-            windowClass: 'add-event-modal-window',
+            windowClass: 'create-opportunity-modal',
             size: size
           });
 

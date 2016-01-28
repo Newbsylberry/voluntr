@@ -1,13 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-
 gem 'responders', '~> 2.0', require: true
-
 gem 'rails-api'
-
 gem 'puma'
-
 gem 'elasticsearch', '~> 1.0.12'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
@@ -28,9 +24,9 @@ gem 'spring', :group => :development
 
 group :development do
   gem 'letter_opener', :group => :development
-  gem 'net-ssh', '>2.0'
+  gem 'net-ssh', '2.9.2'
   gem 'capistrano',         require: false
-  gem 'rvm1-capistrano3', require: false
+  gem 'rvm1-capistrano3', '1.3.2.2', require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
@@ -55,7 +51,7 @@ gem 'oauth2'
 
 
 gem 'pg'
-
+gem 'googlecharts'
 gem 'devise'
 gem 'jwt'
 gem 'ice_cube'

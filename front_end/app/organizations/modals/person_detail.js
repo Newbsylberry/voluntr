@@ -24,11 +24,9 @@ angular.module('voluntrApp')
       ([person_opportunity.opportunity.name, person_opportunity.total_hours]);
     };
 
-
     OrganizationPerson.get_by_organization_and_person_id($stateParams.organization_Id, id).$promise.then(function(successResponse) {
       $scope.organization_person_id = successResponse.id;
       $scope.person = successResponse.person;
-      console.log($scope.person)
       $scope.schedule = successResponse.person.schedule_update_form_settings;
       $scope.person.notes = successResponse.notes;
       People.recorded_hours(id, 'recorded_hours').$promise.then(function(recorded_hours) {
@@ -42,6 +40,9 @@ angular.module('voluntrApp')
       });
     });
 
+    $scope.custom_calendar = {};
+    $scope.custom_calendar.repeat = {};
+
     $scope.eventSources = [
       {
         url: 'api/v1/people/' + id + '/person_availability_schedule'
@@ -51,10 +52,10 @@ angular.module('voluntrApp')
 
     $scope.uiConfig = {
       myCalendar:{
-        height: 500,
+        height: 325,
         editable: true,
         eventTextColor: 'white',
-        defaultView: 'agendaWeek',
+        defaultView: 'month',
         header:{
           left: 'month agendaWeek agendaDay',
           center: 'title',
@@ -78,14 +79,12 @@ angular.module('voluntrApp')
       attr.schedule = $scope.schedule;
       People.update(attr).$promise.then(function(person){
         $scope.edit_schedule = false;
-        $scope.schedule = {};
-        uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents');
-        uiCalendarConfig.calendars['calendar'].fullCalendar('rerenderEvents');
+        // uiCalendarConfig.calendars['calendar'].fullCalendar('removeEventSource');
+        // uiCalendarConfig.calendars['calendar'].fullCalendar('addEventSource', $scope.eventSources);
+        uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents', $scope.eventSources);
+        console.log("hello")
       });
     };
-
-
-
 
     $scope.personStatisticGraphConfig =
     {
@@ -143,11 +142,7 @@ angular.module('voluntrApp')
         height: "250"
       }
     };
-
     $timeout(function(){window.dispatchEvent(new Event('resize')), 50})
-
-
-
 
 
   });

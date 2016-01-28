@@ -2,36 +2,69 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+
 @import "_variables.scss";
 @import "mixins/_breakpoint.scss";
 @import "mixins/_placeholder.scss";
 @import "mixins/_box-shadow.scss";
 @import "mixins/_inner-shadow.scss";
+
 @import "../organizations/registration/organization_registration.scss";
+@import "../organizations/floating_action_button.scss";
 @import "../navigation/header.scss";
-@import "../organizations/search/organization_search.scss";
 @import "../organizations/people/people.scss";
+@import "../organizations/tutorial/tutorial.scss";
 @import "../organizations/home/organization_home.scss";
+@import "../organizations/groups/groups_home.scss";
 @import "../organizations/opportunities/opportunities.scss";
+@import "../organizations/volunteer_registration/volunteer_registration.scss";
+@import "../organizations/account/organization_account.scss";
+@import "../users/users.scss";
+@import "../users/confirm_registration/confirm_registration.scss";
+@import "../organizations/user_organizations/user_organizations.scss";
+
+
 
 /************************************************************
 Modal Styles
 ************************************************************/
 @import "../organizations/modals/opportunity_details.scss";
+@import "../organizations/modals/add_opportunity_person.scss";
 @import "../organizations/modals/add_opportunity_window.scss";
 @import "../organizations/modals/record_hours_modal.scss";
+@import "../organizations/modals/add_resources.scss";
+@import "../organizations/modals/person_detail.scss";
+@import "../organizations/modals/support_form.scss";
+@import "../organizations/modals/edit-schedule.scss";
+@import "../organizations/modals/terms_of_service.scss";
+@import "../organizations/modals/generate_report.scss";
+@import "../organizations/modals/email_registration.scss";
+<<<<<<< HEAD
+@import "../organizations/modals/log_in.scss";
+=======
+@import "../organizations/modals/auxiliary-modal-window.scss";
+>>>>>>> master
+
+
+/************************************************************
+Organization Directive Styles
+************************************************************/
+
+/* Details in Opportunity and Person  */
+@import "../organizations/directives/edit_object_directive.scss";
+@import "../organizations/directives/edit_address.scss";
+@import "../organizations/directives/recorded_hour.scss";
+@import "../organizations/directives/opportunity_role.scss";
+@import "../organizations/directives/schedule-form.scss";
+@import "../organizations/directives/find_person.scss";
 
 
 @import "../volunteers/volunteer_home.scss";
 @import "../navigation/side-menu.scss";
 @import "../static_pages/landing_page.scss";
-<<<<<<< HEAD
+@import "../static_pages/volunteer_drive_16/volunteer_drive_16.scss";
 @import "../organizations/modals/record_hours_modal.scss";
 @import "../organizations/modals/global_modal_styles.scss";
-=======
-
-@import "../organizations/modals/bulk_add_people.scss";
->>>>>>> 75827a467623bbb4e549dc1174d110f9ba3855b5
 
 html {
   height: 100%;
@@ -46,6 +79,9 @@ html {
     font-family:'roboto';
     font-weight:300;
     overflow: scroll;
+    .row {
+      margin: 0 0;
+    }
   }
   .snap-content {
     background-color: $background-color;
@@ -69,6 +105,15 @@ md-tab {
 }
 
 
+.centered-container{
+    width:100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    overflow: scroll;
+    z-index: -10;
+}
+
 .centered-container {
   .top {
     background-color: $primary;
@@ -77,7 +122,7 @@ md-tab {
   .content {
     width: 1000px;
     position: relative;
-    bottom: 11em;
+    top:120px;
     /* height: 560px; */
     overflow: scroll;
     overflow-y: auto;
@@ -120,6 +165,7 @@ md-tab {
 .add-event-modal-window{
     padding:0px;
 }
+
 
 /***************************************************************
 Floating Action Button Styles

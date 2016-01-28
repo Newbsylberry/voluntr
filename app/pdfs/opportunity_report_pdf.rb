@@ -1,5 +1,5 @@
 class OpportunityReportPdf < Prawn::Document
-  def initialize(opportunity, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date)
+  def initialize(opportunity, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date, top_volunteers, top_suffixes)
     super()
     @opportunity = opportunity
     @recorded_hours = recorded_hours
@@ -7,6 +7,8 @@ class OpportunityReportPdf < Prawn::Document
     @opportunity_groups = opportunity_groups
     @start_date = start_date
     @end_date = end_date
+    @top_volunteers = top_volunteers
+    @top_suffixes = top_suffixes
     @total_hours = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).sum(:hours)
     # @total_volunteers_registered = opportunity.person_opportunities.where(:created_at => start_date..end_date).count
     @total_number_of_volunteers = opportunity.recorded_hours.where(:date_recorded => start_date..end_date).map(&:person_id).uniq.count
@@ -14,6 +16,7 @@ class OpportunityReportPdf < Prawn::Document
     header
     recorded_hours_graph
     text_content
+    top_lists
     start_new_page
     opportunity_roles_graph
     opportunity_role_text
@@ -49,10 +52,35 @@ class OpportunityReportPdf < Prawn::Document
     y_position = cursor - 50
 
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
-    bounding_box([0, y_position], :width => 270, :height => 400) do
-      text "People Involved:", size: 15, style: :bold
-      text "Number of Volunteers Recording Hours: #{@total_number_of_volunteers}", size: 11
-      text "Total Recorded Hours: #{@total_hours}", size: 11
+    bounding_box([30, y_position], :width => 150, :height => 100) do
+      text "#{@total_number_of_volunteers}", size: 24, align: :center
+      text "Total Volunteers", size: 15, style: :bold, align: :center
+    end
+    bounding_box([205, y_position], :width => 150, :height => 100) do
+      text "#{@total_hours}", size: 24, align: :center
+      text "Total Hours", size: 15, style: :bold, align: :center
+    end
+    bounding_box([380, y_position], :width => 150, :height => 100) do
+      text "$#{@total_hours * 22}", size: 24, align: :center
+      text "Volunteer Hour Worth", size: 15, style: :bold,align: :center
+    end
+  end
+
+  def top_lists
+    # The cursor for inserting content starts on the top left of the page. Here we move it down a little to create more space between the text and the image inserted above
+
+    # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
+    bounding_box([50, 180], :width => 200, :height => 200) do
+      text "Top Individual Volunteers", size: 16, align: :center, style: :bold
+      @top_volunteers.each do |tv|
+      text "#{tv[:name]}                 #{tv[:hours]} hours", size: 12
+      end
+    end
+    bounding_box([330, 180], :width => 200, :height => 200) do
+      text "Top Email Suffixes", size: 16, align: :center, style: :bold
+      @top_suffixes.each do |ts|
+        text "#{ts[:suffix]}                 #{ts[:hours]} hours", size: 12
+      end
     end
   end
 

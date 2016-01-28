@@ -7,7 +7,7 @@
 angular.module('voluntrApp')
   .controller('RecordHoursCtrl', function ($scope, $modal, $rootScope, RecordedHours,
                                            $stateParams, $http, People,
-                                           $modalInstance, Organization, $filter) {
+                                           $modalInstance, Organization, $filter, $state) {
 
 
 
@@ -23,28 +23,33 @@ angular.module('voluntrApp')
       record_hours_attr.hours = $scope.recordHours.hours;
       record_hours_attr.organization_id = $stateParams.organization_Id;
       record_hours_attr.description = $scope.description;
+      var attr = {};
+      attr.first_name = $scope.first_name;
+      attr.last_name = $scope.last_name;
+      attr.email = $scope.email;
       if ($scope.opportunity) {
         record_hours_attr.opportunity_id = $scope.opportunity.id;
       } if ($scope.opportunity_role) {
         record_hours_attr.opportunity_role_id = $scope.opportunity_role.id;
       } if ($scope.new_volunteer) {
-        var attr = {};
-        attr.first_name = $scope.first_name;
-        attr.last_name = $scope.last_name;
-        attr.description = $scope.description;
-        attr.email = $scope.email;
         attr.organization_id = $stateParams.organization_Id;
         People.create(attr)
           .$promise.then(function (person) {
             record_hours_attr.person_id = person.id;
             var newRecordedHours = RecordedHours.create(record_hours_attr);
           })
-        $modalInstance.close();
       } else {
-        record_hours_attr.person_id = $scope.volunteer_id;
-        var newRecordedHours = RecordedHours.create(record_hours_attr);
-        $modalInstance.close();
+        attr.id = $scope.volunteer_id;
+        People.update(attr)
+          .$promise.then(function(person) {
+            record_hours_attr.person_id = $scope.volunteer_id;
+            var newRecordedHours = RecordedHours.create(record_hours_attr);
+        })
       }
+      if ($state.current.name === 'organizations.organization_home') {
+        $state.go($state.current, {}, {reload: true});
+      }
+      $modalInstance.close();
     };
 
 
@@ -62,6 +67,7 @@ angular.module('voluntrApp')
       $scope.last_name = "";
       $scope.email = "";
       $scope.volunteer_id = "";
+      $scope.filtered = []
     };
 
 

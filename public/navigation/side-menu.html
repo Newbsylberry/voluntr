@@ -14,8 +14,13 @@
        ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a>
     <a href=""
        ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a>
+    <div id="side-menu-buttons">
+    <md-button style="width:274px;margin:0px 15px;" class="md-raised md-warning"ng-click="logOut()">
+      Log Out
+    </md-button>
     <md-button style="width:274px;margin:30px 15px;" class="md-raised md-primary"ng-click="close()">
       Close Menu
     </md-button>
+    </div>
   </md-content>
 </md-sidenav>

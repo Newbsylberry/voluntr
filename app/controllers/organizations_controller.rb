@@ -27,7 +27,8 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.create(organization_params)
-
+    @organization.organization_type = OrganizationType.find_by_name(params[:organization_type_name])
+    @organization.save
     if @organization.save
       OrganizationWorker.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
       token = AuthToken.issue_token({ organization_id: @organization.id })
@@ -61,7 +62,7 @@ class OrganizationsController < ApplicationController
   def existence_check
     @organization = Organization.find_by_fb_id(params[:fb_id])
 
-    puts @organization if @organization
+    ap @organization if @organization
     render json: @organization
   end
 
@@ -75,20 +76,25 @@ class OrganizationsController < ApplicationController
 
   # Route to find an organizations people
   def people
-    @query = JSON(params[:query])
-    @order = @query["order"]
-    if @query["order"].include?('-')
-      @order = "#{@query["order"].tr('-', '')} DESC"
-    else
+    if params[:query]
+      @query = JSON(params[:query])
       @order = @query["order"]
-    end
-    if @query["contact_only"] == true
-      people = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i)
-      count = @current_organization.people.contact_information_completed.count
+      if @query["order"].include?('-')
+        @order = "#{@query["order"].tr('-', '')} DESC"
+      else
+        @order = @query["order"]
+      end
+      if @query["contact_only"] == true
+        people = @current_organization.people.contact_information_completed.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+        count = @current_organization.people.contact_information_completed.count
+      else
+        people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
+        count = @current_organization.people.count
+      end
     else
-      people = @current_organization.people.order(@order).page(@query["page"]).per(@query["limit"].to_i)
-      count = @current_organization.people.count
+      people = @current_organization.people
     end
+
 
 
     render json: people, each_serializer: PersonSerializer, count: count
@@ -120,15 +126,10 @@ class OrganizationsController < ApplicationController
            each_serializer: OpportunityInstanceSerializer
   end
 
-  def recorded_hours
+  def recently_recorded_hours
     @current_organization_recorded_hours = Array.new
-    @current_organization.opportunities.each do |op|
-      op.recorded_hours.each do |oph|
-        @current_organization_recorded_hours.push(oph)
-      end
-    end
     @current_organization.recorded_hours.each do |rh|
-      if !@current_organization_recorded_hours.include? rh
+      if rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
         @current_organization_recorded_hours.push(rh)
       end
     end
@@ -149,9 +150,11 @@ class OrganizationsController < ApplicationController
   def contact_volunteers
     @volunteer_contacts = Array.new
     @current_organization.people.each do |o|
-      if o.email || o.phone
-        if o.created_at > Date.current - 14
-          @volunteer_contacts.push(o)
+      if @volunteer_contacts.count < 20
+        if o.email || o.phone
+          if o.created_at > Date.current - 14
+            @volunteer_contacts.push(o)
+          end
         end
       end
     end

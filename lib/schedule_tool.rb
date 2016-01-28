@@ -2,40 +2,46 @@ module SchedulerTool
   include IceCube
 
   def SchedulerTool.schedule_from_params(params, object)
+    start_time = Time.at(params[:start_time].to_i / 1000)
 
-
-    # If the object has existing schedules, and this schedule is replacing a current
-    # schedule:
     if !object.schedule.nil?
 
       schedule = IceCube::Schedule.from_yaml(object.schedule)
       @hash = schedule.to_hash
-      # If the schedule has rules which define it repeat endlessly
       if schedule.recurrence_rules
         @hash[:rrules].each do |rr|
-          # Chance the until for the rule until the day before the new schedule
           if rr[:until].nil?
-            rr[:until] = Time.at(params[:calendar][:start_time].to_i  / 1000)
+            rr[:until] = start_time
           end
-          # If the schedule hasn't started yet, then destroy it
         end
         schedule = IceCube::Schedule.from_hash(@hash)
       end
     end
 
     if !schedule
-      schedule = Schedule.new( Time.at(params[:calendar][:start_time].to_i / 1000) )
-      schedule.end_time = Time.at(params[:calendar][:end_time].to_i / 1000)
+      schedule = Schedule.new(start_time)
+      ap start_time
+      ap schedule.to_s
+      if params[:end_time]
+        schedule.end_time = Time.at(params[:end_time].to_i / 1000)
+      end
     end
 
-    if params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_daily'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'daily')
-    elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_weekly'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'weekly')
-    elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_monthly'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'monthly')
-    elsif params[:calendar][:repeating_event] === true && params[:calendar][:repeat][:repeat_type] == 'repeat_annually'
-      SchedulerTool.rule_creation(schedule, params[:calendar][:repeat], 'annually')
+    if params[:repeat].class == String
+      params[:repeat] = JSON.parse(params[:repeat])
+      if params[:repeating_event] === "true"
+        params[:repeating_event] = true
+      end
+    end
+
+    if params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_daily'
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'daily')
+    elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_weekly'
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'weekly')
+    elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_monthly'
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'monthly')
+    elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_annually'
+      SchedulerTool.rule_creation(schedule, params[:repeat], 'annually')
     end
 
     return schedule.to_yaml
@@ -125,7 +131,7 @@ module SchedulerTool
       repeat_repititions = repeat_params[:number_of_repeats]
     end
     if repeat_params[:repeat_until]
-      repeat_stop_date = Time.at(repeat_params[:repeat_until] / 1000)
+      repeat_stop_date = Time.parse(repeat_params[:repeat_until])
     end
     @rule = Hash.new
     @rule["validations"] = Hash.new
@@ -190,7 +196,8 @@ module SchedulerTool
       @rule["rule_type"] = "IceCube::YearlyRule"
     end
     @rule["interval"] = interval
-    @rule["validations"]["count"] = repeat_repititions.to_i unless repeat_repititions.to_i == 0
+
+    @rule["validations"]["count"] = repeat_repititions.to_i unless repeat_repititions.to_i == 0 || repeat_repititions.null?
     @rule["validations"]["until"] = repeat_stop_date
     @rule["validations"]["day"] = @days
     schedule.add_recurrence_rule Rule.from_hash(@rule)

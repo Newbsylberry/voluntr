@@ -13,7 +13,8 @@
 angular.module('voluntrApp')
   .controller('OpportunitySignInCtrl', function ($scope, People, $stateParams,
                                                        Opportunity, PersonOpportunity,
-                                                        $modal, $filter, Facebook, Organization) {
+                                                        $modal, $filter, Facebook) {
+
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;

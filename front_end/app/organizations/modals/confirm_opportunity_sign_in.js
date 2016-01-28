@@ -16,7 +16,7 @@ angular.module('voluntrApp')
     $scope.photo_consent = true;
     $scope.contact_me = true;
 
-    $scope.hours = 1;
+    $scope.hours = 3;
 
     $scope.timeDuration = function () {
       var attr = {};

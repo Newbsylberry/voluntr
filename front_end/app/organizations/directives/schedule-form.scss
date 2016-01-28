@@ -1,16 +1,38 @@
-.cradio{
-float:left;
-    display:inline-block;
-    width:23%;
-    margin-right: 0px;
+#schedule-form {
+  h3 {
+    margin: 2px 0;
+  }
+}
+
+.repeat-type-radio-group {
+  display: inline-block;
+  .cradio{
+    float: left;
+    display: inline-block;
+  }
 }
 
 .ccheck{
-float:left;
-display:inline-block;
-    width:10%;
+  float:left;
+  display:inline-block;
+  width:10%;
 }
 
 .monthly {
-  width: 6%;
+  width: 10%;
+}
+
+.schedule-string-box {
+  margin: 2vh 0;
+  text-align: center;
+  small {
+    display: block;
+  }
+  h4 {
+    color: black;
+  }
+}
+.schedule-direction-text {
+  display: block;
+  margin-bottom: 12px;
 }

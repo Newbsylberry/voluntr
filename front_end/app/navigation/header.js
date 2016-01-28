@@ -65,8 +65,8 @@ angular.module('voluntrApp')
     $scope.$watch('search_query', function () {
       $scope.loaded = false;
       $scope.results = [];
-      console.log($scope.search_query)
       if ($scope.search_query && !$scope.loading) {
+        $scope.loading = true;
         $scope.searching = true;
         $http({
           url: 'api/v1/organizations/' + $stateParams.organization_Id + '/search',

@@ -1,5 +1,8 @@
 <div class="application-header"
-     ng-show="current_state !== 'organizations.registration'"
+     ng-hide="current_state === 'organizations.registration' ||
+     current_state === 'organizations.email_registration.1' ||
+      current_state === 'organizations.email_registration.2' ||
+     current_state === 'organizations.user_organizations'"
      ng-controller="HeaderCtrl">
   <i class="icon ion-navicon"
      ng-show="current_state !== 'organizations.registration' && !menu_open"

@@ -1,0 +1,17 @@
+.modal-backdrop {
+  display: none;
+}
+.auxiliary-modal-window {
+  .modal-dialog {
+    left: 22vw;
+    width: 42vw;
+  }
+  .modal-content {
+    padding: 2vh 2vw;
+    width: 42vw;
+    overflow-y: auto;
+    md-input-container {
+      padding-bottom: 2px;
+    }
+  }
+}

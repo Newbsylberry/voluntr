@@ -47,7 +47,6 @@ angular.module('voluntrApp')
 
 
     var listOrganization = function(organization) {
-      console.log(organization)
       if (!$scope.organizations) {
         var organizations = [];
         $scope.organizations = organizations;
@@ -60,10 +59,17 @@ angular.module('voluntrApp')
         if (data.id) {
           organization.exists = true;
           organization.v_id = data.id;
+          organization.fb_id = data.fb_id;
+          if (data.nonprofit) {
+            organization.nonprofit = true
+          } else if (data.volunteer_group) {
+            organization.volunteer_group = true
+          }
         } else if (!data.id) {
           organization.exists = false;
         }
         $scope.organizations.push(organization)
+        console.log($scope.organizations)
       });
     };
 
@@ -83,37 +89,29 @@ angular.module('voluntrApp')
           angular.forEach(response.data, listOrganization)
         });
       }
-      console.log($scope.organizations)
     });
 
+    $scope.addFacebookOrganization = function(organization) {
+      var facebookModal = $modal.open(
+        {
+          templateUrl: 'organizations/modals/add_facebook_organization.html',
+          controller: 'AddFacebookOrganization',
+          windowClass: 'add-facebook-organization-window',
+          size: 'sm',
+          resolve:
+          {
+            organization: function () {
+              return organization
+            }
+          }
+        });
+      facebookModal.result.then(function () {
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    }
 
-    $scope.addOrganization = function(organization) {
-      $scope.organization = organization;
-      var attr = {};
-      attr.fb_id = organization.id;
-      attr.name = organization.name;
-      attr.description = organization.description;
-      attr.oauth_key = $scope.oauth_key;
-      var newOrganization = Organization.create(attr).$promise.then(function(data){
-        $localStorage.token = data.token;
-        $state.go('organizations.tutorial.1', {organization_Id:data.organization.id})
-        $stateParams.organization_Id = data.id;
-      });
-    };
-
-    $scope.organizationRegistration = function (organization) {
-      $scope.organization_registration = true;
-      Facebook.api('/' + organization.id, function (response) {
-        organization.description = response.description;
-
-      });
-      $scope.organization = organization;
-
-    };
-
-    $scope.organizationList = function () {
-      $scope.organization_registration = false;
-    };
 
 
 

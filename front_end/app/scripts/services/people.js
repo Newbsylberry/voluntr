@@ -14,6 +14,7 @@ angular.module('voluntrApp')
         {
           person_Id: '@id'}, {
           update: {method: 'PATCH'},
+          add_schedule: {method: 'PATCH', url: '/api/v1/people/:person_Id/add_schedule'},
           person_object: {method: 'GET', url:'/api/v1/people/:person_Id/:object', isArray: true}
         })}; // sets ID variable, and update method (patch)
 
@@ -36,6 +37,10 @@ angular.module('voluntrApp')
 
     People.prototype.update = function(attr) {
       return this.service.update(attr);
+    }
+
+    People.prototype.add_schedule = function(attr) {
+      return this.service.add_schedule(attr);
     }
 
     // Calls the destroy function located in app/controllers/communities_controller.rb

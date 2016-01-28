@@ -11,10 +11,7 @@ angular.module('voluntrApp')
   .controller('OrganizationRegistrationCtrl', function ($scope, Facebook, $http, Organization,
                                                         $state, $stateParams, $modal,
                                                         $localStorage, Auth) {
-
     $scope.register = {};
-    $scope.register.organization_type = 1;
-
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;

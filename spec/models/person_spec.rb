@@ -98,5 +98,10 @@ RSpec.describe Person, "Working with the people model" do
       @person = create(:person, email: "Chris@chris.com", schedule: @schedules)
       expect(@person.availability_schedule("2015-07-15T08:02:17-05:00", "2015-08-15T08:02:17-05:00").count).to be(93)
     end
+
+    it "#add_schedule" do
+      @person = create(:person, email: "Chris@chris.com", schedule: @schedules)
+      @person.add_schedule("person", "---\n:start_time: &1 2015-07-14 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-15 00:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n")
+    end
   end
 end

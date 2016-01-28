@@ -1,0 +1,34 @@
+<div ng-show="type == 'person-custom-schedule'">
+  <h4>Create A New Availability Schedule</h4>
+  <md-input-container>
+    <label>What is the name of the schedule</label>
+    <input ng-model="calendar.name">
+  </md-input-container>
+</div>
+<h4 ng-show="type == 'edit-schedule'">Edit Schedule</h4>
+<div ng-if="type == 'recurring-schedule' || type == 'edit-schedule' || type == 'person-custom-schedule'" style="margin-bottom: 40px;">
+  <schedule-form
+    start-date-text="When will this opportunity start?"
+    recurring-label-text="Is this a recurring opportunity?"
+    calendar="calendar">
+  </schedule-form>
+</div>
+<div class="window-bottom-button">
+  <md-button
+    class="md-primary left-bottom-button"
+    ng-click="closeWindow()">Close Window</md-button>
+  <md-button
+    ng-show="type == 'recurring-schedule'"
+    class="md-primary right-bottom-button"
+    ng-click="closeWindow()">Save Schedule</md-button>
+  <md-button
+    ng-show="type == 'edit-schedule'"
+    class="md-primary right-bottom-button"
+    ng-click="updateSchedule()">Update Schedule</md-button>
+  <md-button
+    ng-show="type == 'person-custom-schedule'"
+    class="md-primary right-bottom-button"
+    ng-click="addSchedule()">Add Schedule</md-button>
+</div>
+
+

@@ -1,10 +1,11 @@
 set :application, 'volu'
 set :repo_url, 'git@github.com:Newbsylberry/voluntr.git'
 set :user, 'voluser'
-set :puma_threads,    [1, 16]
+set :puma_threads,    [0, 16]
 set :puma_workers,    0
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :bundle_binstubs, nil
+# set :linked_files, %w{config/database.yml}
 
 
 set :rvm1_ruby_version, 'rbx'
@@ -36,6 +37,20 @@ set(:config_files, %w(
   database.yml, puma.rb, secrets.yml
 ))
 
+def red(str)
+  "\e[31m#{str}\e[0m"
+end
+
+# Figure out the name of the current local branch
+def current_git_branch
+  branch = `git symbolic-ref HEAD 2> /dev/null`.strip.gsub(/^refs\/heads\//, '')
+  puts "Deploying branch #{red branch}"
+  branch
+end
+
+# Set the deploy branch to the current branch
+set :branch, current_git_branch
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -48,19 +63,31 @@ set(:config_files, %w(
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 
+namespace :puma do
+  desc 'Create Directories for Puma Pids and Socket'
+  task :make_dirs do
+    on roles(:app) do
+      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/pids -p"
+    end
+  end
+
+  before :start, :make_dirs
+end
+
 
 namespace :deploy do
 
 
   desc "Make sure local git is in sync with remote."
   task :check_revision do
-    on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
-    end
+    # on roles(:app) do
+    #   unless "git rev-parse HEAD" == "git rev-parse origin/#{branch}"
+    #     puts "WARNING: HEAD is not the same as origin/#{branch}"
+    #     puts "Run `git push` to sync changes."
+    #     exit
+    #   end
+    # end
   end
 
   desc 'Initial Deploy'

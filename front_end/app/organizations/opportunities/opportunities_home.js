@@ -41,14 +41,12 @@ angular.module('voluntrApp')
       }
     };
 
-
-
     $scope.opportunityDetail = function (size, id, start_time) {
       var opportunityDetailModal = $modal.open(
         {
           templateUrl: 'organizations/modals/opportunity_detail_modal.html',
           controller: 'OpportunityDetailCtrl',
-          windowClass: 'add-event-modal-window',
+          windowClass: 'create-opportunity-modal',
           size: size,
           resolve:
           {
@@ -61,13 +59,11 @@ angular.module('voluntrApp')
             opportunity: function(){
               return $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
                 success(function(data, status, headers, config) {
+                  console.log(data)
                 })
             }
           }
         });
-
-
-
       opportunityDetailModal.result.then(function () {
 
         },
@@ -76,14 +72,8 @@ angular.module('voluntrApp')
         });
     };
 
-
     $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
-      console.log(calEvent._start._i)
       $scope.opportunityDetail('lg', calEvent.id, calEvent._start._i);
     };
-
-
-
-
 
   });

@@ -1,6 +1,6 @@
 <md-tabs class="md-primary"
          md-dynamic-height
-         md-selected="data.selectedIndex"
+         md-selected="selectedIndex"
          md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
   <!-- Event Information -->
@@ -60,7 +60,7 @@
                 <h4 class="opportunity-dashboard-label">Total Hours</h4>
               </div>
               <div class="col-xs-3">
-                <h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_recorded_hours}}</h2>
+                <h2 class="opportunity-dashboard-statistic">{{opportunity.instance_hours}}</h2>
                 <h4 class="opportunity-dashboard-label">Hours This Instance</h4>
               </div>
               <div class="col-xs-3">
@@ -68,7 +68,7 @@
                 <h4 class="opportunity-dashboard-label">Volunteers</h4>
               </div>
               <div class="col-xs-3">
-                <h2 class="opportunity-dashboard-statistic">{{opportunity.selected_instance_people_recording}}</h2>
+                <h2 class="opportunity-dashboard-statistic">{{opportunity.instance_people_count}}</h2>
                 <h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>
               </div>
             </div>
@@ -97,10 +97,10 @@
       <object-schedule
         object-type="opportunity"
         object="opportunity"
-        ></object-schedule>
+      ></object-schedule>
     </md-tab-body>
   </md-tab>
-  <md-tab id="tab3">
+  <md-tab id="tab3" md-on-select="grabData('roles')">
     <md-tab-label>Roles</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">
@@ -215,7 +215,7 @@
       </div>
     </md-tab-body>
   </md-tab>
-  <md-tab id="tab4 opportunity-people">
+  <md-tab id="tab4 opportunity-people" md-on-select="grabData('people')">
     <md-tab-label>People</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol" id="opportunity-people">
@@ -282,7 +282,7 @@
       </div>
     </md-tab-body>
   </md-tab>
-  <md-tab id="tab5">
+  <md-tab id="tab5" md-on-select="grabData('recorded_hours')">
     <md-tab-label>Recorded Hours</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">

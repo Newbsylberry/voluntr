@@ -26,9 +26,9 @@ class Person < ActiveRecord::Base
   after_initialize do |person|
     if person.new_record?
       @schedules = Hash.new
-      @schedules["morning_schedule"] = "---\n:start_time: &1 2015-07-13 06:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 12:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
-      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 18:00:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
-      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 23:59:00.000000000 -06:00\n:rrules:\n- :validations:\n    :day:\n    - 0\n    - 1\n    - 2\n    - 3\n    - 4\n    - 5\n    - 6\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["morning_schedule"] = "---\n:start_time: &1 2015-07-13 06:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 14:00:00.000000000 -04:00\n:rrules:\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["afternoon_schedule"] = "---\n:start_time: &1 2015-07-13 12:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-13 20:00:00.000000000 -04:00\n:rrules:\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
+      @schedules["night_schedule"] = "---\n:start_time: &1 2015-07-13 18:00:00.000000000 -06:00\n:start_date: *1\n:end_time: 2015-07-14 01:59:00.000000000 -04:00\n:rrules:\n- :validations: {}\n  :rule_type: IceCube::WeeklyRule\n  :interval: 1\n  :week_start: 0\n:rtimes: []\n:extimes: []\n"
       self.schedule = @schedules
     end
   end
@@ -125,10 +125,10 @@ class Person < ActiveRecord::Base
     if params[:email]
       ap "Has email"
       person = self.create_with(locked: false)
-                    .find_or_initialize_by(email: params[:email])
+                   .find_or_initialize_by(email: params[:email])
     elsif params[:phone]
       person = self.create_with(locked: false)
-                    .find_or_initialize_by(phone: params[:phone])
+                   .find_or_initialize_by(phone: params[:phone])
     elsif params[:fb_id]
       person = self.create_with(locked: false)
                    .find_or_initialize_by(fb_id: params[:fb_id])
@@ -142,6 +142,12 @@ class Person < ActiveRecord::Base
     end
     return person
   end
+
+  def add_schedule(name, schedule)
+    self.schedule["#{name}"] = schedule
+    self.save
+  end
+
 
   def update_schedule(params)
     @morning_schedule = Array.new
@@ -268,6 +274,20 @@ class Person < ActiveRecord::Base
               @availability_schedule.push(evening_instance)
             end
           end
+        end
+      else
+        color = ['#f44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4',
+                 '#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FFC107'].sample
+        IceCube::Schedule.from_yaml(v).occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |i|
+          custom_instance =
+              {
+                  id: 3,
+                  title: k,
+                  start: i.start_time,
+                  end: i.end_time,
+                  color: color
+              }
+          @availability_schedule.push(custom_instance)
         end
       end
     end

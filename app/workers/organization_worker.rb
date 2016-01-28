@@ -14,7 +14,7 @@ class OrganizationWorker < ActiveJob::Base
                     .find_or_initialize_by(fb_id: p['id'])
         @post.message = p['message']
         @post.fb_id = p['id']
-        @post.organization_id = organization_id
+        @post.organization = Organization.find(organization_id)
         @post.post_time = p['created_time']
         if !(p["likes"].nil? || p["likes"].empty?)
           @post.likes = p['likes']['data'].count
@@ -25,10 +25,10 @@ class OrganizationWorker < ActiveJob::Base
               @person.first_name = l["name"].split(" ")[0]
               @person.last_name =  l["name"].split(" ")[1]
               @person.save
-              @person.add_to_organization(Organization.find(organization_id))
+              @person.add_to_organization(Organization.find(organization_id), '')
             else @person = Person.find_by_fb_id(l["id"])
             if (!OrganizationPerson.find_by_person_id_and_organization_id(@person.id, organization_id))
-              @person.add_to_organization(Organization.find(organization_id))
+              @person.add_to_organization(Organization.find(organization_id), '')
             end
             end
           end

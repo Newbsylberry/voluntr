@@ -20,7 +20,10 @@ angular.module('voluntrApp')
 
     $scope.instance = start_time;
 
+
+
     var addToDashboard = function (instance) {
+      console.log(instance)
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
       $scope.instanceStatisticGraphConfig.series[1].data.push
@@ -34,23 +37,37 @@ angular.module('voluntrApp')
 
     $scope.opportunity = opportunity.data;
 
+
     Opportunity.instance_statistics($scope.opportunity.id, 'instance_statistics').$promise.then(function(instance_statistics) {
       angular.forEach(instance_statistics, addToDashboard)
     });
+    //
+    //Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
+    //  $scope.opportunity.volunteers = volunteers;
+    //  console.log($scope.opportunity.volunteers)
+    //});
+    //
 
-    Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
-      $scope.opportunity.volunteers = volunteers;
-      console.log($scope.opportunity.volunteers)
-    });
+    //
+    //
 
-    Opportunity.roles($scope.opportunity.id, 'roles').$promise.then(function(roles) {
-      $scope.opportunity.opportunity_roles = roles;
-      angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
-    });
-
-    Opportunity.roles($scope.opportunity.id, 'recorded_hours').$promise.then(function(recorded_hours) {
-      $scope.opportunity.recorded_hours = recorded_hours;
-    });
+    $scope.grabData = function(tab) {
+      console.log(tab)
+      if (tab == 'roles') {
+        Opportunity.roles($scope.opportunity.id, 'roles').$promise.then(function(roles) {
+          $scope.opportunity.opportunity_roles = roles;
+          angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
+        });
+      } if (tab == 'people' && !$scope.opportunity.volunteers) {
+        Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
+          $scope.opportunity.volunteers = volunteers;
+        });
+      } if (tab == 'recorded_hours' && !$scope.opportunity.recorded_hours) {
+        Opportunity.roles($scope.opportunity.id, 'recorded_hours').$promise.then(function(recorded_hours) {
+            $scope.opportunity.recorded_hours = recorded_hours;
+          });
+      }
+    }
 
     $cacheFactory.current_calendar = {};
     $cacheFactory.current_calendar.schedule = $scope.opportunity.ical;
@@ -101,6 +118,7 @@ angular.module('voluntrApp')
 
     $scope.deleteOpportunityInstance = function() {
       Opportunity.delete_instance($scope.opportunity.id, start_time).$promise.then(function(result){
+        $modalInstance.close();
         $state.go($state.current, {}, {reload: true});
       });
 
@@ -115,9 +133,9 @@ angular.module('voluntrApp')
 
     $scope.deleteOpportunity = function() {
       Opportunity.delete($scope.opportunity.id).$promise.then(function(result){
+        $modalInstance.close();
         $state.go($state.current, {}, {reload: true});
       });
-      $state.go($state.current, {}, {reload: true});
     };
 
     $scope.getArray = function() {

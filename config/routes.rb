@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       # People Routes
       match '/people/import', to: 'people#import', via: :post, defaults: {format: :json}
       match '/people/:id/person_availability_schedule', to: 'people#person_availability_schedule', via: :get, defaults: {format: :json}
+      match '/people/:id/add_schedule', to: 'people#add_schedule', via: :patch, defaults: {format: :json}
       match '/people/:id/opportunities', to: 'people#opportunities', via: :get, defaults: {format: :json}
       match '/people/:id/recorded_hours', to: 'people#recorded_hours', via: :get, defaults: {format: :json}
 
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
       match '/organizations/:id/daily_statistics', to: 'organizations#daily_statistics', via: :get, defaults: {format: :json}
       match '/organizations/:id/opportunities', to: 'organizations#opportunities', via: :get, defaults: {format: :json}
       match '/opportunity/:id/schedule', to: 'opportunities#opportunity_schedule', via: :get, defaults: {format: :json}
-      match '/organizations/:id/recorded_hours', to: 'organizations#recorded_hours', via: :get, defaults: {format: :json}
+      match '/organizations/:id/recently_recorded_hours', to: 'organizations#recently_recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
 
@@ -77,11 +78,18 @@ Rails.application.routes.draw do
       match '/opportunities/sign_in/:opportunity_id', to: 'opportunities#existence_check', via: :get, defaults: {format: :json}
       match '/opportunities/:id/instance_statistics', to: 'opportunities#instance_statistics', via: :get, defaults: {format: :json}
       match '/opportunities/:id/roles', to: 'opportunities#roles', via: :get, defaults: {format: :json}
+      match '/opportunities/:id/update_schedule', to: 'opportunities#update_schedule', via: :patch, defaults: {format: :json}
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
 
       # Reports
       match '/reports/opportunity/:id', to: 'reports#opportunity', via: :get, defaults: {format: :json}
       match '/reports/person/:id', to: 'reports#person', via: :get, defaults: {format: :json}
+
+
+      #schedule
+      match '/schedules/format/schedule_string', to: 'schedules#schedule_string', via: :get, defaults: {format: :json}
+
+
     end
   end
 
