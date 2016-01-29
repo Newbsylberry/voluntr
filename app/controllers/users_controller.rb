@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_profile
+    @current_user.profile = Profile.new(first_name: params[:first_name], last_name: params[:last_name])
+    @current_user.save
+
+    render json: @current_user
+  end
+
   def user_params
     # NOTE: Using `strong_parameters` gem
     params.require(:user).permit(:password, :password_confirmation)

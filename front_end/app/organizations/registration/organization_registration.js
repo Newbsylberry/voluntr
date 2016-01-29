@@ -10,7 +10,7 @@
 angular.module('voluntrApp')
   .controller('OrganizationRegistrationCtrl', function ($scope, Facebook, $http, Organization,
                                                         $state, $stateParams, $modal,
-                                                        $localStorage, Auth) {
+                                                        $localStorage, Auth, Profile) {
     $scope.register = {};
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
@@ -57,6 +57,10 @@ angular.module('voluntrApp')
       attr.user = {};
       attr.user.password = $scope.register.password;
       attr.user.password_confirmation = $scope.register.confirm_password;
+      var profile = {}
+      profile.first_name = $scope.register.first_name;
+      profile.last_name = $scope.register.last_name;
+      Profile.create(profile);
       $http({
         method: 'PATCH',
         url: '/api/v1/users/update_password',

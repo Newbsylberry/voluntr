@@ -1,4 +1,12 @@
-<h2>Add Password</h2>
+<h2>Finish Registration</h2>
+<md-input-container>
+  <label>First Name</label>
+  <input ng-model="register.first_name" type="text">
+</md-input-container>
+<md-input-container>
+  <label>Last Name</label>
+  <input ng-model="register.last_name" type="text">
+</md-input-container>
 <md-input-container>
   <label>Password</label>
   <input ng-model="register.password" type="password">
@@ -10,5 +18,9 @@
 <md-button
   class="md-raised md-primary"
   ng-click="updateNewUserWithPassword()"
-  ng-disabled="!register.password || !register.confirm_password || register.confirm_password != register.password"
+  ng-disabled="!register.password ||
+  !register.confirm_password ||
+  register.confirm_password != register.password ||
+  !register.first_name ||
+  !register.last_name"
   >Finish Registration</md-button>

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-
+  before_action :authenticate_user
 
   # GET /profiles
   # GET /profiles.json
@@ -20,9 +20,15 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.create(profile_params)
+        @profile = Profile.create(profile_params)
+        if @current_user
+          @profile.user = @current_user
+          @profile.save
+        elsif !@current_user && params[:user_id]
+          @profile.user = User.find(params[:user_id])
+        end
 
-    respond_with @profile
+        respond_with @profile
   end
 
   # PATCH/PUT /profiles/1
