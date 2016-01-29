@@ -132,7 +132,7 @@ angular
       })
 
       .state('volunteer_drive_16.sponsors', {
-        url: '',
+        url: '/sponsors',
         templateUrl: 'static_pages/volunteer_drive_16/sponsors.html',
         controller: 'VolunteerDrive16Ctrl'
       })

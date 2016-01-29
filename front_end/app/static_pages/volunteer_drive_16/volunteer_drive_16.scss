@@ -2,9 +2,14 @@
   text-align: center;
   position: relative;
   top: 33vh;
+  color: white;
   h1 {
     font-size: 48pt;
     margin-bottom: 2vh;
+    color: white;
+  }
+  h4 {
+    color: white;
   }
   button {
     display: none;
@@ -16,6 +21,7 @@
   right: 2vw;
   bottom: 4vh;
   font-size: 18pt;
+  color: white;
 }
 .volunteer-drive-16-content {
   padding: 8vh 32vw;
@@ -37,6 +43,7 @@
 .loaded {
   text-align: center;
   position: relative;
+  color: white;
   top: 4vh;
   img {
     height: 25px;
@@ -45,22 +52,30 @@
   h1 {
     font-size: 16pt;
     margin-bottom: 0vh;
+    color: white;
   }
   h4{
     font-size: 12pt;
+    color: white;
   }
   h2 {
     text-align: center;
     font-weight: bold;
+    color: white;
 
   }
   ul {
     list-style: none;
     position: relative;
     right: 22px;
+    color: white;
     li {
       display: inline-block;
       margin-left: 4px;
+    }
+    a {
+       color: white;
+
     }
   }
   .volunteer-group-logo {
@@ -75,6 +90,7 @@
   margin-top: 12vh;
   width: 60vw;
   text-align: center;
+  color: white;
   .flexslider {
     width: 100%;
     height: 200px;
@@ -108,5 +124,34 @@
   }
   li {
     margin: 2vh;
+  }
+}
+
+#sponsors-page {
+
+  h4 {
+    color: white;
+  }
+  .perks-list {
+    list-style: none;
+    margin-top: 2vh;
+    text-align: left;
+    li {
+      margin: 16px 0;
+    }
+  }
+  #sponsorship-option-menu {
+    margin-top: 10vh;
+    text-align: left;
+  }
+  a {
+    display: block;
+    color: white;
+  }
+  .not_selected {
+    font-size: 14pt;
+  }
+  .selected {
+    font-size: 18pt;
   }
 }

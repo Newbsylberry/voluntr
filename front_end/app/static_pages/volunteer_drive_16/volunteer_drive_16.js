@@ -13,8 +13,13 @@
 angular.module('voluntrApp')
   .controller('VolunteerDrive16Ctrl', function ($scope,$timeout,$state,$rootScope) {
 
-    $scope.menu = false;
+    if ($state.current.name !== 'volunteer_drive_16.menu'){
+      $scope.menu = true;
+    } else if ($state.current.name === 'volunteer_drive_16.menu') {
+      $scope.menu = false;
+    }
 
+    $scope.volu = true;
     $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams){
         if (toState.name !== 'volunteer_drive_16.menu') {
@@ -22,7 +27,7 @@ angular.module('voluntrApp')
         } if (toState.name === 'volunteer_drive_16.non_profits.form') {
         $scope.no_buttons = true;
         }
-      })
+      });
 
 
 

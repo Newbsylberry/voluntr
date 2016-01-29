@@ -1,13 +1,49 @@
-<div class="vd-2016">
-  <h2>Sponsors</h2>
-  <div flex>
-    <div flex="33">
-      The Volu Package ($200)
-      The Spreadsheet Package ($100)
-      The Clipboard Package ($25)
+<div class="vd-2016" id="sponsors-page">
+  <h2>Sponsorship Packages</h2>
+  <h4  ng-if="clipboard">The Clipboard Package</h4>
+  <h4 ng-if="spreadsheet">The Spreadsheet Package</h4>
+  <h4 ng-if="volu">The Volu Package</h4>
+  <div layout>
+    <div flex="25" id="sponsorship-option-menu">
+      <a href=""
+         ng-click="volu = true;spreadsheet = false;clipboard = false;"
+         ng-class="{selected: volu, not_selected:!volu}">
+        Volu Package
+      </a>
+      <a href=""
+         ng-click="volu = false;spreadsheet = true;clipboard = false;"
+         ng-class="{selected: spreadsheet, not_selected: !spreadsheet}"
+        >
+        Spreadsheet Package
+      </a>
+      <a href=""
+         ng-click="volu = false;spreadsheet = false;clipboard = true;"
+         ng-class="{selected: clipboard, not_selected: !clipboard}">
+        Clipboard Package
+      </a>
     </div>
-    <div flex="66">
-
+    <div flex="75">
+      <div ng-if="volu" class="sponsorship-details">
+        <ul class="perks-list">
+          <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
+          <li>Your organization will be publically thanked via our social media pages for a total of at least 3 times garnering over 2K impressions.</li>
+          <li>You will receive a sweet VOLUnteer Drive t-shirt to sport around the office.</li>
+          <li>Certain materials given out about and at the VOLUnteer Drive events will have your organization’s logo.</li>
+        </ul>
+      </div>
+      <div ng-if="spreadsheet">
+        <ul class="perks-list">
+          <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
+          <li>Your organization will be publically thanked via our social media pages.</li>
+          <li>You will receive a sweet VOLUnteer Drive t-shirt to sport around the office.</li>
+        </ul>
+      </div>
+      <div ng-if="clipboard">
+        <ul class="perks-list">
+          <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
+          <li>You may be publically thanked via our social media pages.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
