@@ -21,7 +21,8 @@
   right: 2vw;
   bottom: 4vh;
   font-size: 18pt;
-  color: white;
+  color: #F44336;
+  font-weight: bolder;
 }
 .volunteer-drive-16-content {
   padding: 8vh 32vw;
@@ -60,7 +61,7 @@
   }
   h2 {
     text-align: center;
-    font-weight: bold;
+    font-weight: bolder;
     color: white;
 
   }
@@ -74,8 +75,8 @@
       margin-left: 4px;
     }
     a {
-       color: white;
-
+       color: #E91E63;
+      font-weight: bolder;
     }
   }
   .volunteer-group-logo {
@@ -91,6 +92,10 @@
   width: 60vw;
   text-align: center;
   color: white;
+  a {
+    color: #F44336;
+    font-weight: bolder;
+  }
   .flexslider {
     width: 100%;
     height: 200px;
@@ -133,11 +138,11 @@
     color: white;
   }
   .perks-list {
-    list-style: none;
+    /* list-style: none; */
     margin-top: 2vh;
     text-align: left;
     li {
-      margin: 16px 0;
+      /* margin: 16px 0; */
     }
   }
   #sponsorship-option-menu {
@@ -146,7 +151,8 @@
   }
   a {
     display: block;
-    color: white;
+    color: #F44336;
+    font-weight: bolder;
   }
   .not_selected {
     font-size: 14pt;
@@ -154,4 +160,9 @@
   .selected {
     font-size: 18pt;
   }
+}
+
+.vd-2016 .flexslider {
+  background: #35c0ff;
+  border: #35c0ff;
 }

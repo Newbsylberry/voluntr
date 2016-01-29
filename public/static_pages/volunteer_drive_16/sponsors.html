@@ -1,25 +1,25 @@
 <div class="vd-2016" id="sponsors-page">
   <h2>Sponsorship Packages</h2>
-  <h4  ng-if="clipboard">The Clipboard Package</h4>
-  <h4 ng-if="spreadsheet">The Spreadsheet Package</h4>
-  <h4 ng-if="volu">The Volu Package</h4>
+  <h4  ng-if="clipboard">Platinum Level</h4>
+  <h4 ng-if="spreadsheet">Gold Level</h4>
+  <h4 ng-if="volu">Silver Level</h4>
   <div layout>
     <div flex="25" id="sponsorship-option-menu">
       <a href=""
          ng-click="volu = true;spreadsheet = false;clipboard = false;"
          ng-class="{selected: volu, not_selected:!volu}">
-        Volu Package
+        Platinum Level
       </a>
       <a href=""
          ng-click="volu = false;spreadsheet = true;clipboard = false;"
          ng-class="{selected: spreadsheet, not_selected: !spreadsheet}"
         >
-        Spreadsheet Package
+        Gold Level
       </a>
       <a href=""
          ng-click="volu = false;spreadsheet = false;clipboard = true;"
          ng-class="{selected: clipboard, not_selected: !clipboard}">
-        Clipboard Package
+        Silver Level
       </a>
     </div>
     <div flex="75">
@@ -34,6 +34,7 @@
       <div ng-if="spreadsheet">
         <ul class="perks-list">
           <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
+          <li>Your organization will be publically thanked via our social media pages for a total of at least 3 times garnering over 2K impressions.</li>
           <li>Your organization will be publically thanked via our social media pages.</li>
           <li>You will receive a sweet VOLUnteer Drive t-shirt to sport around the office.</li>
         </ul>

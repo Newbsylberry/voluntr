@@ -78,7 +78,7 @@ angular.module('voluntrApp')
     // Write authorization method here, needs to send oauth key and organization id to server
     $scope.authorizeUser = function(organization) {
       Organization.authorization($scope.oauth_key, organization.v_id).$promise.then(function(data) {
-        localStorage.token = data.token;
+        $localStorage.token = data.token;
         $state.go('organizations.organization_home', {organization_Id:data.organization.id})
       })
     };

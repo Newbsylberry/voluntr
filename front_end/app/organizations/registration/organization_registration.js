@@ -17,8 +17,9 @@ angular.module('voluntrApp')
         $scope.oauth_key = response.authResponse.accessToken;
           $state.go('organizations.user_organizations');
       }, {scope: 'user_groups,read_insights,manage_pages'})
-
     };
+
+    $scope.progress = 33;
 
     $scope.createUser = function () {
       var credentials = {};
@@ -30,6 +31,7 @@ angular.module('voluntrApp')
         $localStorage.token = object.token;
         $scope.organization_id = object.organization_id;
         $state.go('organizations.email_registration.2')
+        $scope.progress = 66;
       })
     };
 
@@ -68,6 +70,7 @@ angular.module('voluntrApp')
       }).then(function successCallback(response) {
         Organization.get_token($scope.organization_id).$promise.then(function (data) {
           $localStorage.token = data.token;
+          $scope.progress = 99;
           $state.go('organizations.user_organizations', {organization_Id: $scope.organization_id})
         })
       })
