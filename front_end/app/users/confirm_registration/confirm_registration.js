@@ -3,7 +3,7 @@
  */
 angular.module('voluntrApp')
   .controller('ConfirmUserRegistrationCtrl', function ($scope, $modal, $rootScope, $stateParams,
-                                                       $http, $state) {
+                                                       $http, $state, Profile) {
     // /api/v1/users/confirmation
 
 
@@ -12,16 +12,17 @@ angular.module('voluntrApp')
       url: '/api/v1/users/confirmation/',
       params: {confirmation_token: $stateParams.token}
     }).then(function successCallback(response) {
-      console.log(response)
       $scope.user = response.data;
+      if ($scope.user.password && $scope.user.profile) {
+        $state.go('organizations.registration')
+      }
     }, function errorCallback(response) {
       $state.go('organizations.registration')
     });
 
     $scope.userPass = {};
-
-    $scope.updateNewUserWithPassword = function () {
-      console.log($scope.user)
+    $scope.profile = {};
+    $scope.updateNewUserWithPasswordAndProfile = function () {
       var attr = {};
       attr.user = {};
       attr.user.id = $scope.user.id;
@@ -32,7 +33,13 @@ angular.module('voluntrApp')
         url: '/api/v1/users/update_password',
         data: attr
       }).then(function successCallback(response) {
-        $state.go('organizations.registration')
+        var new_profile = {};
+        new_profile.first_name = $scope.profile.first_name;
+        new_profile.last_name = $scope.profile.last_name;
+        new_profile.user_id = $scope.user.id;
+        Profile.create(new_profile).$promise.then(function(){
+          $state.go('organizations.registration')
+        });
       })
     };
 

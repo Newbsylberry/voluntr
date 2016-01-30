@@ -26,9 +26,10 @@ class ProfilesController < ApplicationController
           @profile.save
         elsif !@current_user && params[:user_id]
           @profile.user = User.find(params[:user_id])
+          @profile.save
         end
 
-        respond_with @profile
+        render json: @profile
   end
 
   # PATCH/PUT /profiles/1

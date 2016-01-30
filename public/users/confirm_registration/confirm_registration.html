@@ -4,14 +4,14 @@
       <h1>Thanks for confirming your email!</h1>
       <h4>Please Complete Your Registration</h4>
       <div class="confirmation-fields">
-        <div layout="row" ng-show="!profile.first_name || !profile.last_name">
+        <div layout="row" ng-show="!user.profile.first_name || !user.profile.last_name">
           <md-input-container flex="50" >
             <label>First Name</label>
             <input ng-model="profile.first_name">
           </md-input-container>
           <md-input-container flex="50" >
             <label>Last Name</label>
-            <input ng-model="profile.first_name">
+            <input ng-model="profile.last_name">
           </md-input-container>
         </div>
         <div layout="column">
@@ -27,7 +27,7 @@
       </div>
       <md-button class="md-primary md-raised"
                  id="confirm-password-button"
-                 ng-click="updateNewUserWithPassword()">Add Password</md-button>
+                 ng-click="updateNewUserWithPasswordAndProfile()">Update Registration</md-button>
     </md-card-content>
   </md-card>
 </div>
