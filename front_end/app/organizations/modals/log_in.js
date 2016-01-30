@@ -20,16 +20,21 @@ angular.module('voluntrApp')
 
     };
 
+    $scope.close = function(){
+      $modalInstance.close()
+    }
     $scope.userSignIn = function() {
       var logInCredentials = {};
       logInCredentials.email = $scope.login.email;
       logInCredentials.password = $scope.login.password;
       Auth.login(logInCredentials).then(function(object) {
+        if (object){
         $localStorage.token = object.token;
         $state.go('organizations.user_organizations');
-        $modalInstance.close()
-      }, function(error) {
-        alert("Login Failed :(");
+          $modalInstance.close()
+        } if (!object) {
+          console.log("Error")
+        }
       });
     }
   });

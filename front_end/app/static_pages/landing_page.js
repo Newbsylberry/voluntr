@@ -26,12 +26,15 @@ angular.module('voluntrApp')
 
     $(".screen1button").click(function(){
       $("#login").fadeIn(400);
-
+      $('.nav').addClass('hide');
+      $('.sticky').addClass('hide');
     });
 
 
     $(".close").click(function(){
       $("#login").fadeOut(400);
+      $('.nav').removeClass('hide');
+      $('.sticky').removeClass('hide');
 
     });
 

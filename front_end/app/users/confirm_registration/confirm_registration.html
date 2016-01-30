@@ -1,17 +1,29 @@
-<div class="content">
+<div class="content user-confirmation-content">
   <md-card>
     <md-card-content>
       <h1>Thanks for confirming your email!</h1>
-      <div layout="column" class="password-fields" ng-if="!user.password">
-        <p>Please Complete Your Registration By Entering a Password:</p>
-        <md-input-container flex >
-          <label>Password</label>
-          <input ng-model="userPass.password" type="password">
-        </md-input-container>
-        <md-input-container flex>
-          <label>Confirm Password</label>
-          <input ng-model="userPass.password_confirmation" type="password">
-        </md-input-container>
+      <h4>Please Complete Your Registration</h4>
+      <div class="confirmation-fields">
+        <div layout="row" ng-show="!profile.first_name || !profile.last_name">
+          <md-input-container flex="50" >
+            <label>First Name</label>
+            <input ng-model="profile.first_name">
+          </md-input-container>
+          <md-input-container flex="50" >
+            <label>Last Name</label>
+            <input ng-model="profile.first_name">
+          </md-input-container>
+        </div>
+        <div layout="column">
+          <md-input-container flex >
+            <label>Password</label>
+            <input ng-model="userPass.password" type="password">
+          </md-input-container>
+          <md-input-container flex>
+            <label>Confirm Password</label>
+            <input ng-model="userPass.password_confirmation" type="password">
+          </md-input-container>
+        </div>
       </div>
       <md-button class="md-primary md-raised"
                  id="confirm-password-button"

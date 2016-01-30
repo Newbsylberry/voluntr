@@ -181,12 +181,26 @@ angular
         controller: 'OrganizationMainCtrl'
       })
 
+      .state('users', {
+        url: '/users',
+        absolute: true,
+        templateUrl: 'users/users.html',
+        controller: 'UsersCtrl'
+      })
+
+      .state('users.confirm_registration', {
+        url: '/confirm_registration/:token',
+        templateUrl: 'users/confirm_registration/confirm_registration.html',
+        controller: 'ConfirmUserRegistrationCtrl'
+      })
+
       //.state('organizations_public', {
       //  url: ':custom_url' + '.' + '/',
       //  templateUrl: 'organizations/public/organization_public.html',
       //  controller: 'OrganizationPublicCtrl'
       //})
       //
+
       .state('organizations.registration', {
         url: '/registration',
         templateUrl: 'organizations/registration/organization_registration.html',

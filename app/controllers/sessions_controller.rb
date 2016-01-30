@@ -15,9 +15,7 @@ class SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    ap auth_options
-    self.resource = warden.authenticate!(auth_options)
-    set_flash_message(:notice, :signed_in) if is_flashing_format?
+    self.resource = warden.authenticate!(scope: resource_name, recall: "#{controller_path}#failure")
     sign_in(resource_name, resource)
     yield resource if block_given?
     organization_id = User.find(resource.id).organizations.first.id
@@ -31,6 +29,10 @@ class SessionsController < Devise::SessionsController
     set_flash_message :notice, :signed_out if signed_out && is_flashing_format?
     yield if block_given?
     respond_to_on_destroy
+  end
+
+  def failure
+    return render json: { success: false, errors: ['Login information is incorrect, please try again'] }
   end
 
   protected
