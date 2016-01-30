@@ -416,6 +416,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'organizations/**/*.html',
+            'users/**/*.html',
             'volunteers/**/*.html',
             'static_pages/**/*.html',
             'navigation/**/*.html',
