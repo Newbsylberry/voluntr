@@ -1,11 +1,13 @@
-<md-input-container>
+<div layout="row">
+<md-input-container flex="50">
   <label>First Name</label>
   <input ng-model="register.first_name" type="text">
 </md-input-container>
-<md-input-container>
+<md-input-container flex="50">
   <label>Last Name</label>
   <input ng-model="register.last_name" type="text">
 </md-input-container>
+</div>
 <md-input-container>
   <label>Password</label>
   <input ng-model="register.password" type="password">
@@ -15,11 +17,11 @@
   <input ng-model="register.confirm_password" type="password">
 </md-input-container>
 <md-button
-  class="md-raised md-primary"
+  class="md-raised md-primary right-bottom-button"
   ng-click="updateNewUserWithPassword()"
   ng-disabled="!register.password ||
   !register.confirm_password ||
   register.confirm_password != register.password ||
   !register.first_name ||
   !register.last_name"
-  >Finish Registration</md-button>
+  >Enter Location Information</md-button>

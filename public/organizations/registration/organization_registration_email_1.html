@@ -1,3 +1,5 @@
+
+<label id="organization-type-selector-label">What Type of Organization Are You Registering?</label>
 <md-radio-group ng-model="register.organization_type_name" id="organization-type-selector" ng-init="register.organization_type_name = 'Nonprofit'">
   <md-radio-button value="Nonprofit" style="float: left;">Nonprofit</md-radio-button>
   <md-radio-button value="Volunteer Group" style="float: right;">Volunteer Group</md-radio-button>
@@ -11,8 +13,7 @@
   <input ng-model="register.user_email" type="email">
 </md-input-container>
 <md-button
-  class="md-raised md-primary"
-  style="float: right;"
+  class="md-raised md-primary right-bottom-button"
   ng-click="createUser()"
   ng-disabled="!register.organization_name || !register.user_email || !register.organization_type_name"
   >Register For Volu</md-button>

@@ -210,6 +210,11 @@ angular
         templateUrl: 'organizations/registration/organization_registration_email_2.html',
       })
 
+      .state('organizations.email_registration.3', {
+        url: '',
+        templateUrl: 'organizations/registration/organization_registration_email_3.html',
+      })
+
       .state('organizations.user_organizations', {
         url: '/user_organizations',
         templateUrl: 'organizations/user_organizations/user_organizations.html',

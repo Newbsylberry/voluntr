@@ -55,7 +55,7 @@ angular.module('voluntrApp')
       }
       // find the organizations information on facebook
       $scope.organization = successResponse
-      Organization.recorded_hours(successResponse.id, 'recorded_hours').$promise.then(function (recorded_hours) {
+      Organization.recorded_hours(successResponse.id, 'recently_recorded_hours').$promise.then(function (recorded_hours) {
         $scope.organization.recorded_hours = recorded_hours;
       });
       Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function (data) {

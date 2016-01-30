@@ -14,6 +14,7 @@ angular.module('voluntrApp')
     var organization_ids = [];
 
     Organization.get({organization_Id: $stateParams.organization_Id},function(data){
+      $scope.organization = data;
       angular.forEach(data.opportunities, function(opportunity){
         organization_ids.push(opportunity.id)
       })

@@ -12,6 +12,7 @@ angular.module('voluntrApp')
                                                         $state, $stateParams, $modal,
                                                         $localStorage, Auth, Profile) {
     $scope.register = {};
+    $scope.organization = {};
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;
@@ -20,6 +21,7 @@ angular.module('voluntrApp')
     };
 
     $scope.progress = 33;
+    $scope.registration_prompt = 'Step 1:  Initial Information'
 
     $scope.createUser = function () {
       var credentials = {};
@@ -30,8 +32,9 @@ angular.module('voluntrApp')
       Auth.register(credentials).then(function(object){
         $localStorage.token = object.token;
         $scope.organization_id = object.organization_id;
-        $state.go('organizations.email_registration.2')
-        $scope.progress = 66;
+      $state.go('organizations.email_registration.2')
+      $scope.registration_prompt = 'Step 2:  Additional Information'
+      $scope.progress = 66;
       })
     };
 
@@ -71,10 +74,30 @@ angular.module('voluntrApp')
         Organization.get_token($scope.organization_id).$promise.then(function (data) {
           $localStorage.token = data.token;
           $scope.progress = 99;
-          $state.go('organizations.user_organizations', {organization_Id: $scope.organization_id})
+          $scope.registration_prompt = 'Step 3:  Add Organization Address'
+      $state.go('organizations.email_registration.3')
         })
       })
     };
+
+    $scope.updateNewUserWithAddress = function(){
+      var attr = {}
+      attr.id = $scope.organization_id;
+      attr.address_1 = $scope.organization.address;
+      attr.address_2 = $scope.organization.address2;
+      attr.city = $scope.organization.city;
+      attr.state = $scope.organization.state;
+      attr.zip_code = $scope.organization.postalCode;
+      Organization.update(attr).$promise.then(function(){
+        $state.go('organizations.user_organizations', {organization_Id: $scope.organization_id})
+      });
+    }
+
+    $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+    'WY').split(' ').map(function(state) {
+        return {abbrev: state};
+      })
   });
 
 

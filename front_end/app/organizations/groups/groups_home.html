@@ -3,7 +3,8 @@
     <div ng-if="!loaded">
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <h2>Groups That You've Worked With In Past</h2>
+    <h2 ng-show="organization.nonprofit">Groups That You've Worked With In Past</h2>
+    <h2 ng-show="organization.volunteer_group">Nonprofits That You've Worked With In Past</h2>
     <md-divider></md-divider>
     <md-grid-list md-cols-sm="1"
                   md-cols-md="2"
@@ -31,9 +32,11 @@
       </md-grid-tile>
     </md-grid-list>
     <div ng-if="organization_groups.length == 0" class="add-groups-text">
-      <h4>You Haven't Worked With Any Volunteer Groups, Find Some Below!</h4>
+      <h4 ng-if="organization.nonprofit">You Haven't Worked With Any Volunteer Groups, Find Some Below!</h4>
+      <h4 ng-if="organization.volunteer_group">You Haven't Worked With Any Nonprofits, Find Some Below!</h4>
     </div>
-    <h2>Other Groups</h2>
+    <h2 ng-if="organization.volunteer_group">Nearby Nonprofits</h2>
+    <h2 ng-if="organization.nonprofit">Nearby Nonprofits</h2>
     <md-divider></md-divider>
     <md-grid-list md-cols-sm="1"
                   md-cols-md="2"

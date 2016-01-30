@@ -1,7 +1,7 @@
 angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window,
                                       $mdSidenav, $http, $stateParams, $timeout,
-                                      $modal, $state, $localStorage) {
+                                      $modal, $state, $localStorage, Organization) {
 
     $scope.search_filter = searchService.search;
 
@@ -11,6 +11,8 @@ angular.module('voluntrApp')
       count: 0,
       selectedAlignment: 'md-right'
     };
+
+
 
     $scope.supportModal = function(size){
       var supportModal = $modal.open(
@@ -37,6 +39,11 @@ angular.module('voluntrApp')
       delete $localStorage.token;
       $state.go('landing_page')
     };
+
+    Organization.get({organization_Id:$stateParams.organization_Id})
+      .$promise.then(function(data){
+        $scope.organization = data;
+      });
 
     $scope.open = function() {
       $mdSidenav('left').open()
