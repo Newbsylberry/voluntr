@@ -35,12 +35,12 @@ angular.module('voluntrApp')
 
     $scope.prod = {imagePaths: []};
     $scope.prod.imagePaths = [
-      { custom: 'images/frat_council.png', thumbnail: 'images/frat_council.png' },
+      // { custom: 'images/frat_council.png', thumbnail: 'images/frat_council.png' },
       { custom: 'images/young_leaders_united.jpg', thumbnail: 'images/young_leaders_united.jpg' },
       { custom: 'images/centerstate.png', thumbnail: 'images/centerstate.png'},
       { custom: 'images/believe_in_cuse.jpg', thumbnail: 'images/believe_in_cuse.jpg' },
       { custom: 'images/forty_below.png', thumbnail: 'images/forty_below.png' },
-      { custom: 'images/onondaga_community_college.jpg', thumbnail: 'images/onondaga_community_college.jpg' },
+      // { custom: 'images/onondaga_community_college.jpg', thumbnail: 'images/onondaga_community_college.jpg' },
       { custom: 'images/rha.jpg', thumbnail: 'images/rha.jpg' }
     ];
 

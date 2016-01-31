@@ -1,7 +1,8 @@
 <div class="vd-2016" id="sponsors-page">
   <div layout>
-    <div flex="25" id="sponsorship-option-menu">
+    <div flex="20" id="sponsorship-option-menu">
       <h2>Sponsorship Packages</h2>
+      <small><a href="/images/volunteerdrivesponsorshippage.pdf" download>(Download PDF)</a></small>
       <a href=""
          ng-click="platinum = false;gold = false;silver = false;name = true;brass=false"
          ng-class="{selected: name, not_selected:!name}">
@@ -29,7 +30,9 @@
         Bronze Level
       </a>
     </div>
-    <div flex="75">
+    <div flex="10">
+    </div>
+    <div flex="70">
       <div ng-if="name" class="sponsorship-details">
         <h4  ng-if="name">Name Sponsor</h4><small ng-if="name">$1000</small>
         <ul class="perks-list">

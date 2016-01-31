@@ -133,13 +133,20 @@
 }
 
 #sponsors-page {
-  [flex="75"] {
+  [flex="70"] {
     background: white;
     color: black;
     border-radius: 25px;
     padding: 4vh 4vw;
     box-shadow: 4px 4px 4px grey;
     margin-bottom: 4vh;
+  }
+  h2 {
+    margin-bottom: 0px;
+  }
+  small a {
+      color: white;
+    text-decoration: underline;
   }
   h4 {
     color: #03a9f5;
