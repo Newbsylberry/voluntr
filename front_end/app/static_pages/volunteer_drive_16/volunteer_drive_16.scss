@@ -21,7 +21,7 @@
   right: 2vw;
   bottom: 4vh;
   font-size: 18pt;
-  color: #F44336;
+  color: #E91E63;
   font-weight: bolder;
 }
 .volunteer-drive-16-content {
@@ -93,7 +93,7 @@
   text-align: center;
   color: white;
   a {
-    color: #F44336;
+    color: #E91E63;
     font-weight: bolder;
   }
   .flexslider {
@@ -133,9 +133,19 @@
 }
 
 #sponsors-page {
+  [flex="75"] {
+    background: white;
+    color: black;
+    border-radius: 25px;
+    padding: 4vh 4vw;
+    box-shadow: 4px 4px 4px grey;
+    margin-bottom: 4vh;
+  }
   h4 {
-    color: white;
+    color: #03a9f5;
     margin-bottom: 4px;
+    font-size: 22pt;
+    text-transform: uppercase;
   }
   small {
     display: block;
@@ -154,7 +164,7 @@
   }
   a {
     display: block;
-    color: #F44336;
+    color: #E91E63;
     font-weight: bolder;
   }
   .not_selected {
@@ -162,6 +172,7 @@
   }
   .selected {
     font-size: 18pt;
+    color: #F48FB1;
   }
 }
 

@@ -26,6 +26,8 @@ angular.module('voluntrApp')
           $scope.menu = true;
         } if (toState.name === 'volunteer_drive_16.non_profits.form') {
         $scope.no_buttons = true;
+        } if (toState.name !== 'volunteer_drive_16.non_profits.form'){
+          $scope.no_buttons = false;
         }
       });
 
