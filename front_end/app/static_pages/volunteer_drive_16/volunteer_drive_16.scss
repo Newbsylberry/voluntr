@@ -133,9 +133,12 @@
 }
 
 #sponsors-page {
-
   h4 {
     color: white;
+    margin-bottom: 4px;
+  }
+  small {
+    display: block;
   }
   .perks-list {
     /* list-style: none; */

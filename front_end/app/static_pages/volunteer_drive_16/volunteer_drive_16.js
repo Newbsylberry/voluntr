@@ -19,7 +19,7 @@ angular.module('voluntrApp')
       $scope.menu = false;
     }
 
-    $scope.volu = true;
+    $scope.name = true;
     $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams){
         if (toState.name !== 'volunteer_drive_16.menu') {

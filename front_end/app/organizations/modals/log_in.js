@@ -17,12 +17,12 @@ angular.module('voluntrApp')
         $state.go('organizations.user_organizations');
         $modalInstance.close()
       }, {scope: 'user_groups,read_insights,manage_pages'})
-
     };
 
-    $scope.close = function(){
+    $scope.close = function() {
       $modalInstance.close()
-    }
+    };
+
     $scope.userSignIn = function() {
       var logInCredentials = {};
       logInCredentials.email = $scope.login.email;

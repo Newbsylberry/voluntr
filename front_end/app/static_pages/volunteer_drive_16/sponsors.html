@@ -1,48 +1,81 @@
 <div class="vd-2016" id="sponsors-page">
   <h2>Sponsorship Packages</h2>
-  <h4  ng-if="clipboard">Platinum Level</h4>
-  <h4 ng-if="spreadsheet">Gold Level</h4>
-  <h4 ng-if="volu">Silver Level</h4>
+  <h4  ng-if="name">Name Sponsor</h4><small ng-if="name">$1000</small>
+  <h4  ng-if="platinum">Platinum Level</h4><small ng-if="platinum">$500</small>
+  <h4 ng-if="gold">Gold Level</h4><small ng-if="gold">$350</small>
+  <h4 ng-if="silver">Silver Level</h4><small ng-if="silver">$250</small>
+  <h4 ng-if="brass">Brass Level</h4><small ng-if="brass">$100</small>
   <div layout>
     <div flex="25" id="sponsorship-option-menu">
       <a href=""
-         ng-click="volu = true;spreadsheet = false;clipboard = false;"
-         ng-class="{selected: volu, not_selected:!volu}">
+         ng-click="platinum = false;gold = false;clipboard = false;name = true;brass=false"
+         ng-class="{selected: name, not_selected:!name}">
+        Name Sponsor
+      </a>
+      <a href=""
+         ng-click="platinum = true;gold = false;silver = false;brass = false;name = false;"
+         ng-class="{selected: platinum, not_selected:!platinum}">
         Platinum Level
       </a>
       <a href=""
-         ng-click="volu = false;spreadsheet = true;clipboard = false;"
-         ng-class="{selected: spreadsheet, not_selected: !spreadsheet}"
+         ng-click="platinum = false;gold = true;silver = false;name = false;brass = false;"
+         ng-class="{selected: gold, not_selected: !gold}"
         >
         Gold Level
       </a>
       <a href=""
-         ng-click="volu = false;spreadsheet = false;clipboard = true;"
-         ng-class="{selected: clipboard, not_selected: !clipboard}">
+         ng-click="platinum = false;gold = false;silver = true;name = false;brass = false;"
+         ng-class="{selected: silver, not_selected: !silver}">
         Silver Level
+      </a>
+      <a href=""
+         ng-click="platinum = false;gold = false;silver = false;name = false;brass = true"
+         ng-class="{selected: brass, not_selected: !brass}">
+        Brass Level
       </a>
     </div>
     <div flex="75">
-      <div ng-if="volu" class="sponsorship-details">
+      <div ng-if="name" class="sponsorship-details">
         <ul class="perks-list">
-          <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
-          <li>Your organization will be publically thanked via our social media pages for a total of at least 3 times garnering over 2K impressions.</li>
-          <li>You will receive a sweet VOLUnteer Drive t-shirt to sport around the office.</li>
-          <li>Certain materials given out about and at the VOLUnteer Drive events will have your organization’s logo.</li>
+          <li>Ability to Sponsor a Volunteer Team on all marketing material and the VOLUnteer Drive  leaderboard (i.e. Team Syracuse--Sponsored by Centerstate CEO).</li>
+          <li>Be the official sponsor of three nonprofit events during the Volunteer Drive.</li>
+          <li>Have a week of the volunteer drive named after your company (i.e. It’s Centerstate CEO Week at the VOLUnteer Drive). </li>
+          <li>Your company logo and website link will be placed on our website under ‘Name Sponsors’ from the date you donate until the end of the VOLUnteer Drive event on May 1st. </li>
+          <li>You will receive 3 VOLUnteer Drive t-shirts to sport around the office.</li>
+          <li>Mentioned by our COO when being interviewed for the VOLUnteer Drive.</li>
         </ul>
       </div>
-      <div ng-if="spreadsheet">
+      <div ng-if="platinum" class="sponsorship-details">
         <ul class="perks-list">
-          <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
-          <li>Your organization will be publically thanked via our social media pages for a total of at least 3 times garnering over 2K impressions.</li>
-          <li>Your organization will be publically thanked via our social media pages.</li>
-          <li>You will receive a sweet VOLUnteer Drive t-shirt to sport around the office.</li>
+          <li>Be the official sponsor of two nonprofit events during the Volunteer Drive.</li>
+          <li>Have a week of the volunteer drive named after your company (i.e. It’s Centerstate CEO Week at the VOLUnteer Drive). </li>
+          <li>Your company will be publically thanked via our social media pages at least 3 times garnering over 2K impressions. </li>
+          <li>Your company logo and website link will be placed on our website under ‘Platinum Sponsors’ from the date you donate until the end of the VOLUnteer Drive event on May 1st. </li>
+          <li>You will receive a VOLUnteer Drive t-shirt to sport around the office.</li>
+          <li>Mentioned by our COO when being interviewed for the VOLUnteer Drive. </li>
         </ul>
       </div>
-      <div ng-if="clipboard">
+      <div ng-if="gold">
         <ul class="perks-list">
-          <li>Your organization logo and website link will be placed on our website www.voluapp.com from the date you donate until the end of the VOLUnteer Drive event.</li>
-          <li>You may be publically thanked via our social media pages.</li>
+          <li>Be the official sponsor of one nonprofit event during the Volunteer Drive.</li>
+          <li>Have a week of the volunteer drive named after your company (i.e. It’s Centerstate CEO Week at the VOLUnteer Drive). </li>
+          <li>Your company will be publically thanked via our social media pages at least twice. </li>
+          <li>Your company logo and website link will be placed on our website under ‘Gold Level’ from the date you donate until the end of the VOLUnteer Drive event on May 1st. </li>
+          <li>You will receive a VOLUnteer Drive t-shirt to sport around the office.</li>
+        </ul>
+      </div>
+      <div ng-if="silver">
+        <ul class="perks-list">
+          <li>Have a day of the volunteer drive named after your company (i.e. It’s Centerstate CEO Day at the VOLUnteer Drive).</li>
+          <li>Your company will be publically thanked via our social media pages. </li>
+          <li>Your company logo and website link will be placed on our website under ‘Silver Sponsors’ from the date you donate until the end of the VOLUnteer Drive event on May 1st. </li>
+          <li>You will receive a VOLUnteer Drive t-shirt to sport around the office.</li>
+        </ul>
+      </div>
+      <div ng-if="brass">
+        <ul class="perks-list">
+          <li>Your company will be publically thanked via our social media pages. </li>
+          <li>Your company logo and website link will be placed on our website under ‘Bronze Sponsors’ from the date you donate until the end of the VOLUnteer Drive event on May 1st. </li>
         </ul>
       </div>
     </div>
