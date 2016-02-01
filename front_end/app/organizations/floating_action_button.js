@@ -2,7 +2,7 @@
  * Created by chrismccarthy on 3/9/15.
  */
   angular.module('voluntrApp')
-    .controller('FABCtrl', function ($scope, $modal, $rootScope) {
+    .controller('FABCtrl', function ($scope, $modal, $rootScope, $state) {
 
       $scope.addVolunteerOpportunity = function (size) {
         var organizationEventModal = $modal.open(
@@ -22,7 +22,11 @@
 
       };
 
-      console.log($scope.current_state)
+      $scope.current_state = $state.current.name;
+      if ($state.current.name === 'organizations.registration' || $state.current.name === 'organizations.email_registration.1' || $state.current.name === 'organizations.user_organizations' || $state.current.name === 'organizations.email_registration.2') {
+        $scope.show = false;
+        console.log($scope.show)
+      }
       $scope.recordHours = function (size) {
         var recordHoursModal = $modal.open(
           {
