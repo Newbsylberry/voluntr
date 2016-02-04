@@ -297,10 +297,10 @@ angular
         controller: 'PeopleHomeCtrl'
       })
 
-      .state('organizations.groups_home', { //default page loaded for landing state
-        url: '/:organization_Id/groups_home',
-        templateUrl: 'organizations/groups/groups_home.html', // url for partial
-        controller: 'GroupsHomeCtrl'
+      .state('organizations.nearby_organizations', { //default page loaded for landing state
+        url: '/:organization_Id/nearby_organizations',
+        templateUrl: 'organizations/nearby_organizations/nearby_organizations.html', // url for partial
+        controller: 'NearbyOrganizationsCtrl'
       })
 
       .state('organizations.opportunities_home', { //default page loaded for landing state

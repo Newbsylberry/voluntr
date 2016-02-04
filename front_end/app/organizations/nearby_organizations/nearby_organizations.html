@@ -3,8 +3,7 @@
     <div ng-if="!loaded">
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <h2 ng-show="organization.nonprofit">Volunteer Groups That You've Worked With In Past</h2>
-    <h2 ng-show="organization.volunteer_group">Nonprofits That You've Worked With In Past</h2>
+    <h2>Organizations You've Worked With In Past</h2>
     <md-divider></md-divider>
     <md-grid-list md-cols-sm="1"
                   md-cols-md="2"
@@ -32,11 +31,9 @@
       </md-grid-tile>
     </md-grid-list>
     <div ng-if="organization_groups.length == 0" class="add-groups-text">
-      <h4 ng-if="organization.nonprofit">You Haven't Worked With Any Volunteer Groups, Find Some Below!</h4>
-      <h4 ng-if="organization.volunteer_group">You Haven't Worked With Any Nonprofits, Find Some Below!</h4>
+      <h4>You Haven't Worked With Any Organizations, Find Some Below!</h4>
     </div>
-    <h2 ng-if="organization.volunteer_group">Nearby Nonprofits</h2>
-    <h2 ng-if="organization.nonprofit">Nearby Volunteer Groups</h2>
+    <h2>Nearby Organizations</h2>
     <md-divider></md-divider>
     <md-grid-list md-cols-sm="1"
                   md-cols-md="2"
@@ -45,7 +42,8 @@
                   md-row-height="2:2"
                   md-gutter="12px"
                   md-gutter-gt-sm="8px"
-                  class="group-list">
+                  class="group-list"
+                  ng-show="!add_an_address">
       <md-grid-tile
         ng-repeat="group in all_groups"
         group-modal
@@ -63,6 +61,9 @@
         </md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
+    <p ng-show="add_an_address">
+      You Need to Enter an Address to See Nearby Organizations!
+    </p>
   </md-card-content>
 </md-card>
 

@@ -14,6 +14,9 @@ class Organization < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
   validates :custom_url, uniqueness: true
   mount_uploader :terms_of_service_file, TermsOfServiceUploader
+  geocoded_by :full_street_address   # can also be an IP address
+  after_validation :geocode
+
 
 
   after_initialize do |organization|
@@ -36,6 +39,10 @@ class Organization < ActiveRecord::Base
       return MailingServiceList.find(self.organization_mailing_services.
                                          find_by_service_type(service_type).default_list_id)
     end
+  end
+
+  def full_street_address
+    return "#{address_1} #{address_2} #{city} #{state} #{zip_code}"
   end
 
   def total_people

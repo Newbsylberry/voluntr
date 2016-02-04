@@ -40,6 +40,14 @@ class OrganizationsController < ApplicationController
     render json: {organization: @organization, token: token}
   end
 
+  def nearby_organizations
+    if @current_organization.latitude and @current_organization.longitude
+      render json: @current_organization.nearbys(20), each_serializer: OrganizationSerializer
+    else
+      render json: @current_organization.nearbys(20), each_serializer: OrganizationSerializer
+    end
+  end
+
   def create_with_email
     @organization = Organization.create(organization_params)
     token = AuthToken.issue_token({ organization_id: @organization.id })

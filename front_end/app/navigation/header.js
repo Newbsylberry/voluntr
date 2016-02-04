@@ -40,19 +40,12 @@ angular.module('voluntrApp')
       $state.go('landing_page')
     };
 
-    if ($stateParams.organization_Id) {
-    Organization.get({organization_Id:$stateParams.organization_Id})
-      .$promise.then(function(data){
-        $scope.organization = data;
-      });
-    }
-
     $scope.open = function() {
       $mdSidenav('left').open()
         .then(function () {
           $scope.menu_open = true;
         });
-    }
+    };
 
     var resultsFormat = function(raw_result) {
       var base_result = raw_result._source

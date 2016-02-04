@@ -64,6 +64,10 @@ angular.module('voluntrApp')
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 
+    Organization.prototype.nearby_opportunities = function(oId, obj) {
+      return this.service.organization_object({organization_Id: oId,object: obj})
+    };
+
     Organization.prototype.contact_volunteers = function(oId, obj) {
       return this.service.organization_object({organization_Id: oId,object: obj})
     };

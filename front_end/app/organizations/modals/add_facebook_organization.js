@@ -21,6 +21,7 @@ angular.module('voluntrApp')
       attr.oauth_key = $scope.oauth_key;
       var newOrganization = Organization.create(attr).$promise.then(function(data){
         $localStorage.token = data.token;
+        $modalInstance.close();
         $state.go('organizations.tutorial.1', {organization_Id:data.organization.id})
         $stateParams.organization_Id = data.id;
       });

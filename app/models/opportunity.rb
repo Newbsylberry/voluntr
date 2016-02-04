@@ -111,7 +111,7 @@ class Opportunity < ActiveRecord::Base
 
   # This method combines all address information into one readable full address
   def full_street_address
-    return "#{address} #{city} #{state} #{zip_code}"
+    return "#{address_1} #{address_2} #{city} #{state} #{zip_code}"
   end
 
   # This is the start_time for the opportunity, required by full calendar.js
@@ -208,6 +208,7 @@ class Opportunity < ActiveRecord::Base
     @data = Array.new
     @opportunity_volunteers = []
     @email_suffixes = []
+    top_suffixes = ["gmail.com", "hotmail.com","aol.com","yahoo.com"]
     recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
       @data.push(rh.hours)
       if rh.person
@@ -223,7 +224,7 @@ class Opportunity < ActiveRecord::Base
         end
         if rh.person.email
           existing_suffix = @email_suffixes.find { |es| es[:suffix] == rh.person.email.split("@").last }
-          if existing_suffix
+          if existing_suffix && !top_suffixes.include?(existing_suffix[:suffix])
             existing_suffix[:hours] += rh.hours
           else
             @email_suffixes.push({
@@ -237,8 +238,6 @@ class Opportunity < ActiveRecord::Base
 
     top_volunteers = @opportunity_volunteers.sort_by { |i| i[:hours] }.reverse!.take(10)
     top_suffixes = @email_suffixes.sort_by { |i| i[:hours] }.reverse!.take(10)
-
-    ap top_suffixes
 
     recorded_hours = "#{name}_recorded_hours.png"
     Gchart.line(:size => '500x300',
