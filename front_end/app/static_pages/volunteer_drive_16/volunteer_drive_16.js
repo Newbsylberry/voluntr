@@ -40,8 +40,10 @@ angular.module('voluntrApp')
       { custom: 'images/centerstate.png', thumbnail: 'images/centerstate.png'},
       { custom: 'images/believe_in_cuse.jpg', thumbnail: 'images/believe_in_cuse.jpg' },
       { custom: 'images/forty_below.png', thumbnail: 'images/forty_below.png' },
-      // { custom: 'images/onondaga_community_college.jpg', thumbnail: 'images/onondaga_community_college.jpg' },
-      { custom: 'images/rha.jpg', thumbnail: 'images/rha.jpg' }
+      { custom: 'images/onondaga_community_college.jpg', thumbnail: 'images/onondaga_community_college.jpg' },
+      { custom: 'images/esf.png', thumbnail: 'images/esf.png' },
+      { custom: 'images/rha.jpg', thumbnail: 'images/rha.jpg' },
+      { custom: 'images/the_tech_garden.png', thumbnail: 'images/the_tech_garden.png' }
     ];
 
     $scope.introduction = true;

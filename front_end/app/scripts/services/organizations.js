@@ -15,6 +15,7 @@ angular.module('voluntrApp')
           organization_Id: '@id'}, {
           existence_check: {method: 'GET', url:'/api/v1/organizations/existence_check/:fb_id'},
           organization_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
+          nearby_opportunities: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object?distance=:distance', isArray: true},
           get_token: {method: 'GET', url:'/api/v1/organizations/:organization_Id/get_token'},
           organization_filtered_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
           authorization: {method: 'GET', url:'/api/v1/organizations/:organization_Id/authorization'},
@@ -64,8 +65,8 @@ angular.module('voluntrApp')
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 
-    Organization.prototype.nearby_opportunities = function(oId, obj) {
-      return this.service.organization_object({organization_Id: oId,object: obj})
+    Organization.prototype.nearby_opportunities = function(oId, obj, distance) {
+      return this.service.nearby_opportunities({organization_Id: oId,object: obj,distance: distance})
     };
 
     Organization.prototype.contact_volunteers = function(oId, obj) {

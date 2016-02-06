@@ -8,12 +8,8 @@
        ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a>
     <a href=""
        ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a>
-    <a ng-show="organization.nonprofit"
-      href=""
-      ui-sref='organizations.groups_home({organization_Id:organization_id})'>Volunteer Groups</a>
-    <a ng-show="organization.volunteer_group"
-       href=""
-       ui-sref='organizations.groups_home({organization_Id:organization_id})'>Nonprofits</a>
+    <a href=""
+       ui-sref='organizations.nearby_organizations({organization_Id:organization_id})'>Nearby Organizations</a>
     <a href=""
        ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a>
     <a href=""

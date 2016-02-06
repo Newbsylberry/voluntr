@@ -42,9 +42,9 @@ class OrganizationsController < ApplicationController
 
   def nearby_organizations
     if @current_organization.latitude and @current_organization.longitude
-      render json: @current_organization.nearbys(20), each_serializer: OrganizationSerializer
+      render json: @current_organization.nearbys(params[:distance]), each_serializer: OrganizationSerializer
     else
-      render json: @current_organization.nearbys(20), each_serializer: OrganizationSerializer
+      render json: @current_organization.nearbys(params[:distance]), each_serializer: OrganizationSerializer
     end
   end
 
