@@ -11,6 +11,7 @@ angular.module('voluntrApp')
 
     $scope.$watch('current_state', function(){
       if ($scope.current_state === 'organizations.tutorial.1') {
+        $scope.back_link_text = ""
         $scope.link_text = "Importing People To Your Organization"
         $scope.link_state = "organizations.tutorial.2"
       } else if ($scope.current_state === 'organizations.tutorial.2') {
