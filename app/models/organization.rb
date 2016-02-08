@@ -49,6 +49,14 @@ class Organization < ActiveRecord::Base
     self.people.count
   end
 
+  def total_recorded_hours
+    recorded_hours.sum(:hours)
+  end
+
+  def total_opportunities
+    opportunities.count
+  end
+
   def terms_of_service_uploaded
     if !terms_of_service_file.blank?
       true

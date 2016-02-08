@@ -154,6 +154,13 @@ class OrganizationsController < ApplicationController
 
   end
 
+  def statistics
+    render json: {
+               volunteers: @current_organization.total_people,
+               total_hours: @current_organization.total_hours,
+
+           }
+  end
 
   def contact_volunteers
     @volunteer_contacts = Array.new

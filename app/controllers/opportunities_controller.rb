@@ -95,6 +95,11 @@ class OpportunitiesController < ApplicationController
            each_serializer: OpportunityInstanceSerializer
   end
 
+  def by_user_location
+    @opportunities = Opportunities.geocoded
+    render json: @opportunities.near([params[:lat],params[:long]], params[:distance]), each_serializer: OpportunitySerializer
+  end
+
   def instance_statistics
     @opportunity = Opportunity.find(params[:id])
 

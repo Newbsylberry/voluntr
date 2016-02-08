@@ -4,6 +4,23 @@
       <div ng-show="!loaded">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
+      <div layout="row" id="organization-home-statistics">
+        <div flex="20">
+          <h2>Stat 1</h2>
+        </div>
+        <div flex="20">
+          <h2>Stat 2</h2>
+        </div>
+        <div flex="20">
+          <h2>Stat 3</h2>
+        </div>
+        <div flex="20">
+          <h2>Stat 4</h2>
+        </div>
+        <div flex="20">
+          <h2>Stat 5</h2>
+        </div>
+      </div>
       <highchart
         ng-show="loaded"
         config="lineGraphConfig">

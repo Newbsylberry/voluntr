@@ -79,6 +79,7 @@ Rails.application.routes.draw do
       match '/opportunities/:id/instance_statistics', to: 'opportunities#instance_statistics', via: :get, defaults: {format: :json}
       match '/opportunities/:id/roles', to: 'opportunities#roles', via: :get, defaults: {format: :json}
       match '/opportunities/:id/update_schedule', to: 'opportunities#update_schedule', via: :patch, defaults: {format: :json}
+      match '/organizations/by_location/by_user_location/', to: 'opportunities#by_user_location', via: :get, defaults: {format: :json}
       match '/organizations/:id/nearby_organizations/', to: 'organizations#nearby_organizations', via: :get, defaults: {format: :json}
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
 
