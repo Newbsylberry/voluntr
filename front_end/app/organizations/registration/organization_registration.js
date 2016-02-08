@@ -89,7 +89,7 @@ angular.module('voluntrApp')
       attr.state = $scope.organization.state;
       attr.zip_code = $scope.organization.postalCode;
       Organization.update(attr).$promise.then(function(){
-        $state.go('organizations.user_organizations', {organization_Id: $scope.organization_id})
+        $state.go('organizations.tutorial.1', {organization_Id:$scope.organization_id})
       });
     }
 

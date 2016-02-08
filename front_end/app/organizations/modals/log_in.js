@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('EmailLogInCtrl', function ($scope, $modalInstance, $http, Auth, $state,
-                                                 $localStorage, Facebook) {
+                                          $localStorage, Facebook) {
 
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
@@ -28,12 +28,13 @@ angular.module('voluntrApp')
       logInCredentials.email = $scope.login.email;
       logInCredentials.password = $scope.login.password;
       Auth.login(logInCredentials).then(function(object) {
-        if (object){
-        $localStorage.token = object.token;
-        $state.go('organizations.user_organizations');
+        if (object.token){
+          console.log(object)
+          $localStorage.token = object.token;
+          $state.go('organizations.user_organizations');
           $modalInstance.close()
-        } if (!object) {
-          console.log("Error")
+        } else if (!object.token) {
+          $scope.error = object.error;
         }
       });
     }

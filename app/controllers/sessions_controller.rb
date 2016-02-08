@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
-  prepend_before_filter :require_no_authentication, only: [:new, :create]
-  prepend_before_filter :allow_params_authentication!, only: :create
+  prepend_before_filter :require_no_authentication, only: [:new, :create, :failure]
+  prepend_before_filter :allow_params_authentication!, only: [:create, :new, :failure]
   prepend_before_filter :verify_signed_out_user, only: :destroy
   prepend_before_filter only: [:create, :destroy] { request.env["devise.skip_timeout"] = true }
   skip_before_filter :authenticate, only: [:new, :create]
@@ -15,12 +15,20 @@ class SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    self.resource = warden.authenticate!(scope: resource_name, recall: "#{controller_path}#failure")
-    sign_in(resource_name, resource)
-    yield resource if block_given?
-    organization_id = User.find(resource.id).organizations.first.id
-    token = AuthToken.issue_token({ user_id: resource.id, organization_id: organization_id })
-    render json: { token: token, organization_id:  organization_id }
+    ap params
+    if User.exists?(email: params[:user][:email]) &&
+        User.find_by_email(params[:user][:email]).valid_password?(params[:user][:password])
+      self.resource = warden.authenticate!(auth_options)
+      sign_in(resource_name, resource)
+      yield resource if block_given?
+      organization_id = User.find(resource.id).organizations.first.id
+      token = AuthToken.issue_token({ user_id: resource.id, organization_id: organization_id })
+      render json: { token: token, organization_id:  organization_id }
+    elsif !User.exists?(email: params[:user][:email])
+      render json: { error: "That email address does not exist, perhaps you haven't registered yet!"  }
+    else
+      render json: { error: "That password is incorrect, try again!"  }
+    end
   end
 
   # DELETE /resource/sign_out
@@ -29,10 +37,6 @@ class SessionsController < Devise::SessionsController
     set_flash_message :notice, :signed_out if signed_out && is_flashing_format?
     yield if block_given?
     respond_to_on_destroy
-  end
-
-  def failure
-    return render json: { success: false, errors: ['Login information is incorrect, please try again'] }
   end
 
   protected
