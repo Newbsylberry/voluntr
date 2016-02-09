@@ -154,11 +154,12 @@ class OrganizationsController < ApplicationController
 
   end
 
-  def statistics
+  def summary_statistics
     render json: {
                volunteers: @current_organization.total_people,
-               total_hours: @current_organization.total_hours,
-
+               total_hours: @current_organization.total_recorded_hours,
+               total_opportunities: @current_organization.total_opportunities,
+               average_hours_recorded: @current_organization.average_hours_recorded
            }
   end
 

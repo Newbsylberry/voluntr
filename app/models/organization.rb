@@ -57,6 +57,10 @@ class Organization < ActiveRecord::Base
     opportunities.count
   end
 
+  def average_hours_recorded
+    recorded_hours.average(:hours)
+  end
+
   def terms_of_service_uploaded
     if !terms_of_service_file.blank?
       true

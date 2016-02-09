@@ -5,20 +5,21 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
       <div layout="row" id="organization-home-statistics">
-        <div flex="20">
-          <h2>Stat 1</h2>
+        <div flex="25">
+          <h4>Total Volunteers</h4>
+          <p>{{organization.statistics.volunteers}}</p>
         </div>
-        <div flex="20">
-          <h2>Stat 2</h2>
+        <div flex="25">
+          <h4>Total Hours Recorded</h4>
+          <p>{{organization.statistics.total_hours}}</p>
         </div>
-        <div flex="20">
-          <h2>Stat 3</h2>
+        <div flex="25">
+          <h4>Number of Opportunities</h4>
+          <p>{{organization.statistics.total_opportunities}}</p>
         </div>
-        <div flex="20">
-          <h2>Stat 4</h2>
-        </div>
-        <div flex="20">
-          <h2>Stat 5</h2>
+        <div flex="25">
+          <h4>Average Hours Recorded</h4>
+          <p>{{organization.statistics.average_hours_recorded}}</p>
         </div>
       </div>
       <highchart

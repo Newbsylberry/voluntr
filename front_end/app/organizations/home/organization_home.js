@@ -62,6 +62,13 @@ angular.module('voluntrApp')
         $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
         angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
       })
+      Organization.summary_statistics(successResponse.id, 'summary_statistics').$promise.then(function (data) {
+        $scope.organization.statistics = data;
+        if (!$scope.organization.statistics.average_hours_recorded) {
+          $scope.organization.statistics.average_hours_recorded = 0;
+        }
+        console.log($scope.organization.statistics)
+      })
       Organization.contact_volunteers(successResponse.id, 'contact_volunteers').$promise.then(function (data) {
         $scope.organization.contact_volunteers = data;
       })

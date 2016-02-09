@@ -15,6 +15,7 @@ angular.module('voluntrApp')
           organization_Id: '@id'}, {
           existence_check: {method: 'GET', url:'/api/v1/organizations/existence_check/:fb_id'},
           organization_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
+          organization_information: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object'},
           nearby_opportunities: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object?distance=:distance', isArray: true},
           get_token: {method: 'GET', url:'/api/v1/organizations/:organization_Id/get_token'},
           organization_filtered_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
@@ -59,6 +60,10 @@ angular.module('voluntrApp')
 
     Organization.prototype.daily_statistics = function(oId, obj) {
       return this.service.organization_object({organization_Id: oId,object: obj})
+    };
+
+    Organization.prototype.summary_statistics = function(oId, obj) {
+      return this.service.organization_information({organization_Id: oId,object: obj})
     };
 
     Organization.prototype.opportunities = function(oId, obj) {

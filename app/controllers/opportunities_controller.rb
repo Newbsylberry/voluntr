@@ -100,7 +100,7 @@ class OpportunitiesController < ApplicationController
   def by_user_location
     @opportunities = Opportunity.geocoded
 
-    render json: @opportunities.near([params[:lat].to_f,params[:lng]].to_f, params[:distance].to_f), each_serializer: OpportunitySerializer
+    render json: @opportunities.near([params[:lat].to_f,params[:lng].to_f], params[:distance].to_f), each_serializer: OpportunitySerializer
   end
 
   def instance_statistics

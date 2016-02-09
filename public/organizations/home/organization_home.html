@@ -4,6 +4,24 @@
       <div ng-show="!loaded">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
+      <div layout="row" id="organization-home-statistics">
+        <div flex="25">
+          <h4>Total Volunteers</h4>
+          <p>{{organization.statistics.volunteers}}</p>
+        </div>
+        <div flex="25">
+          <h4>Total Hours Recorded</h4>
+          <p>{{organization.statistics.total_hours}}</p>
+        </div>
+        <div flex="25">
+          <h4>Number of Opportunities</h4>
+          <p>{{organization.statistics.total_opportunities}}</p>
+        </div>
+        <div flex="25">
+          <h4>Average Hours Recorded</h4>
+          <p>{{organization.statistics.average_hours_recorded}}</p>
+        </div>
+      </div>
       <highchart
         ng-show="loaded"
         config="lineGraphConfig">
