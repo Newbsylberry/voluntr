@@ -27,4 +27,10 @@ class ReportsController < ApplicationController
     render json: @person.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]), @organization)
   end
 
+  def organization
+    @organization = Organization.find(params[:organization_id])
+
+    render json: @organization.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]))
+  end
+
 end

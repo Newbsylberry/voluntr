@@ -116,6 +116,15 @@ class Person < ActiveRecord::Base
     if !@organization_person.persisted? && !email.nil?
       @organization_person.send_registration_confirmation
     end
+    @daily_statistic = DailyStatistic.create_with(locked: false)
+            .find_or_initialize_by(date: Time.now.beginning_of_day,
+                                   organization_id: organization.id)
+    if !@daily_statistic.persisted?
+      @daily_statistic.total_added_volunteers = 1
+    else
+      @daily_statistic.total_added_volunteers += 1
+    end
+    @daily_statistic.save
     @organization_person.save
     @organization_person.__elasticsearch__.index_document
   end

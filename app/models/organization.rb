@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
   belongs_to :organization_type
   has_many :opportunities
+  has_many :resources, as: :resourceable, dependent: :destroy
   has_many :posts
   has_many :organization_people
   has_many :user_organizations
@@ -83,6 +84,63 @@ class Organization < ActiveRecord::Base
     else
       false
     end
+  end
+
+  # This function generates a report for an opportunity instance
+  def generate_report(start_date, end_date)
+    @resource = Resource.new
+    @resource.name = "report"
+    @recorded_hours_series = Hash.new
+    @recorded_hours_series["name"] = "Recorded Hours"
+    @recorded_hours_series["data"] = Array.new
+    @organization_volunteers = []
+    summary_graph = Hash.new
+    summary_graph["Total Volunteers Added"] = Hash.new
+    summary_graph["Total Recorded Hours"] = Hash.new
+    @email_suffixes = []
+    top_suffixes = ["gmail.com", "hotmail.com","aol.com","yahoo.com"]
+    daily_statistics.where(date: start_date..end_date).each do |ds|
+      summary_graph["Total Volunteers Added"][ds.date] = ds.total_added_volunteers
+      summary_graph["Total Recorded Hours"][ds.date] = ds.total_recorded_hours
+    end
+    recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
+      if rh.person
+        existing_volunteer = @organization_volunteers.find { |ov| ov[:id] == rh.person_id }
+        if existing_volunteer
+          existing_volunteer[:hours] += rh.hours
+        else
+          @organization_volunteers.push({
+                                           id: rh.person_id,
+                                           name: "#{rh.person.first_name} #{rh.person.last_name}",
+                                           hours: rh.hours
+                                       })
+        end
+        if rh.person.email
+          existing_suffix = @email_suffixes.find { |es| es[:suffix] == rh.person.email.split("@").last }
+          if existing_suffix && !top_suffixes.include?(existing_suffix[:suffix])
+            existing_suffix[:hours] += rh.hours
+          else
+            @email_suffixes.push({
+                                     suffix: rh.person.email.split("@").last,
+                                     hours: rh.hours
+                                 })
+          end
+        end
+      end
+    end
+
+    top_volunteers = @organization_volunteers.sort_by { |i| i[:hours] }.reverse!.take(10)
+    top_suffixes = @email_suffixes.sort_by { |i| i[:hours] }.reverse!.take(10)
+
+
+
+    pdf = OrganizationReportPdf.new(self, summary_graph, start_date, end_date, top_volunteers, top_suffixes)
+    pdf.render_file "hello.pdf"
+
+    @resource.resource = File.open("hello.pdf")
+    @resource.resourceable = self
+    @resource.save
+    return @resource
   end
 
 

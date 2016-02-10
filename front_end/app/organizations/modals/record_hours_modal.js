@@ -22,6 +22,7 @@ angular.module('voluntrApp')
       var record_hours_attr = {};
       record_hours_attr.hours = $scope.recordHours.hours;
       record_hours_attr.organization_id = $stateParams.organization_Id;
+      record_hours_attr.date_recorded = new Date().toString();
       record_hours_attr.description = $scope.description;
       var attr = {};
       attr.first_name = $scope.first_name;

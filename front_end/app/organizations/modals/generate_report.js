@@ -42,6 +42,21 @@ angular.module('voluntrApp')
             console.log(data)
             tabWindowId.location.href = data.resource.resource.url;
           });
+      } else if (type == 'organization') {
+        $http.get('api/v1/reports/organization/' + rm_id,
+          {
+            params: {
+              start_date: $scope.date.startDate,
+              end_date: $scope.date.endDate,
+              organization_id: $stateParams.organization_Id
+            },
+            headers: {
+              'Content-Type': 'application/pdf'
+            }
+          }).success(function(data){
+            console.log(data)
+            tabWindowId.location.href = data.resource.resource.url;
+          });
       }
       $modalInstance.close();
     };

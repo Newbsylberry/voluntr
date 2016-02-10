@@ -27,9 +27,9 @@ angular.module('voluntrApp')
     var addDailyStatisticsToGraph = function(day){
       $scope.lineGraphConfig.series[1].data.push
       ([Date.parse(day.date), Number(day.total_recorded_hours)])
+      //$scope.lineGraphConfig.series[2].data.push
+      //([Date.parse(day.date), Number(day.planned_hours)])
       $scope.lineGraphConfig.series[2].data.push
-      ([Date.parse(day.date), Number(day.planned_hours)])
-      $scope.lineGraphConfig.series[3].data.push
       ([Date.parse(day.date), Number(day.total_added_volunteers)])
     };
 
@@ -114,11 +114,6 @@ angular.module('voluntrApp')
         },
         {
           name: 'Total Recorded Volunteer Hours',
-          data: []
-
-        },
-        {
-          name: 'Total Planned Volunteer Hours',
           data: []
 
         },

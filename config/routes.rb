@@ -87,7 +87,7 @@ Rails.application.routes.draw do
       # Reports
       match '/reports/opportunity/:id', to: 'reports#opportunity', via: :get, defaults: {format: :json}
       match '/reports/person/:id', to: 'reports#person', via: :get, defaults: {format: :json}
-
+      match '/reports/organization/:id', to: 'reports#organization', via: :get, defaults: {format: :json}
 
       #schedule
       match '/schedules/format/schedule_string', to: 'schedules#schedule_string', via: :get, defaults: {format: :json}

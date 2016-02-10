@@ -24,3 +24,7 @@ job_type :runner, "cd :path && $HOME/.rvm/scripts/rvm && rvm use 2.1.2 && rails 
 every '30 9 22 * *' do
   runner "OpportunityWorker.perform_now"
 end
+
+every '00 00 * * *' do
+  runner "DailyStatisticsWorker.perform_now"
+end

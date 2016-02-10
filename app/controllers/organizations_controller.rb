@@ -137,7 +137,7 @@ class OrganizationsController < ApplicationController
   def recently_recorded_hours
     @current_organization_recorded_hours = Array.new
     @current_organization.recorded_hours.each do |rh|
-      if rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
+      if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
         @current_organization_recorded_hours.push(rh)
       end
     end
@@ -208,8 +208,10 @@ class OrganizationsController < ApplicationController
     else
       render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
     end
+  end
 
-
+  def export_report
+    @current_organization.generate_report()
   end
 
 
