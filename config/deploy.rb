@@ -30,7 +30,7 @@ set :puma_preload_app, false
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to true if using ActiveRecord
 set :resque_log_file, "log/resque.log"
-
+set :whenever_roles, [:web,:app]
 
 
 set(:config_files, %w(

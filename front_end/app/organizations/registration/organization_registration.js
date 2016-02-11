@@ -30,11 +30,15 @@ angular.module('voluntrApp')
       credentials.organization.organization_type_name = $scope.register.organization_type_name;
       credentials.organization.organization_name = $scope.register.organization_name;
       Auth.register(credentials).then(function(object){
+        if (object.token) {
         $localStorage.token = object.token;
-        $scope.organization_id = object.organization_id;
-      $state.go('organizations.email_registration.2')
-      $scope.registration_prompt = 'Step 2:  Additional Information'
-      $scope.progress = 66;
+          $state.go('organizations.email_registration.2')
+          $scope.registration_prompt = 'Step 2:  Additional Information'
+          $scope.progress = 66;
+          $scope.organization_id = object.organization_id;
+        } else if (!object.token){
+          $scope.error = object.error;
+        }
       })
     };
 

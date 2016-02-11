@@ -25,6 +25,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 
 
+
 /************************************************************
 Modal Styles
 ************************************************************/
@@ -86,7 +87,10 @@ html {
   }
 }
 
-
+.error-message {
+  color: red;
+  text-align: center;
+}
 
 md-card {
   background-color: white;
