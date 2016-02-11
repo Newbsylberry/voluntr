@@ -4,6 +4,7 @@
   <md-radio-button value="Nonprofit" style="float: left;">Nonprofit</md-radio-button>
   <md-radio-button value="Volunteer Group" style="float: right;">Volunteer Group</md-radio-button>
 </md-radio-group>
+<p ng-if="error" class="error-message">{{error}}</p>
 <md-input-container>
   <label>What's the name of your organization?</label>
   <input ng-model="register.organization_name">
