@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def password_entered?
-    if encrypted_password.nil?
+    if encrypted_password.blank?
       false
     else
       true
