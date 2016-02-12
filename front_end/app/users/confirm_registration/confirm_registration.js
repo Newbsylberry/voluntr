@@ -3,7 +3,7 @@
  */
 angular.module('voluntrApp')
   .controller('ConfirmUserRegistrationCtrl', function ($scope, $modal, $rootScope, $stateParams,
-                                                       $http, $state, Profile) {
+                                                       $http, $state, Profile,$timeout) {
     // /api/v1/users/confirmation
 
 
@@ -13,8 +13,10 @@ angular.module('voluntrApp')
       params: {confirmation_token: $stateParams.token}
     }).then(function successCallback(response) {
       $scope.user = response.data;
-      if ($scope.user.password && $scope.user.profile) {
-        $state.go('organizations.registration')
+      console.log(response.data);
+      if ($scope.user.password_entered && $scope.user.profile.first_name && $scope.user.profile.last_name) {
+        $scope.all_information_completed = true;
+        $timeout($state.go('organizations.registration'),2500)
       }
     }, function errorCallback(response) {
       $state.go('organizations.registration')

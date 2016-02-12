@@ -17,4 +17,12 @@ class User < ActiveRecord::Base
     new_record? ? false : super
   end
 
+  def password_entered?
+    if encrypted_password.nil?
+      false
+    else
+      true
+    end
+  end
+
 end

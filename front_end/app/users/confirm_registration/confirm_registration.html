@@ -2,6 +2,7 @@
   <md-card>
     <md-card-content>
       <h1>Thanks for confirming your email!</h1>
+      <div ng-if="!all_information_completed">
       <h4>Please Complete Your Registration</h4>
       <div class="confirmation-fields">
         <div layout="row" ng-show="!user.profile.first_name || !user.profile.last_name">
@@ -28,6 +29,7 @@
       <md-button class="md-primary md-raised"
                  id="confirm-password-button"
                  ng-click="updateNewUserWithPasswordAndProfile()">Update Registration</md-button>
+      </div>
     </md-card-content>
   </md-card>
 </div>

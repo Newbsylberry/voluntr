@@ -14,6 +14,7 @@ class Organization < ActiveRecord::Base
   has_many :mailing_service_lists, through: :organization_mailing_services
   require 'carrierwave/orm/activerecord'
   validates :custom_url, uniqueness: true
+  validates :name, uniqueness: true
   mount_uploader :terms_of_service_file, TermsOfServiceUploader
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode

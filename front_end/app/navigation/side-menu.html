@@ -7,11 +7,6 @@
     <a href=""
        ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a>
     <a href=""
-       class="side-menu-sub-link"
-       id="{{organization_id}}"
-       type="organization"
-       report-link>Export Organization Report</a>
-    <a href=""
        ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a>
     <!--<a href=""
        ui-sref='organizations.nearby_organizations({organization_Id:organization_id})'>Nearby Organizations</a>-->
@@ -19,6 +14,11 @@
        ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a>
     <a href=""
        ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a>
+    <a href=""
+       class="side-menu-sub-link"
+       id="{{organization_id}}"
+       type="organization"
+       report-link>Export Organization Report</a>
     <div id="side-menu-buttons">
     <md-button style="width:274px;margin:0px 15px;" class="md-raised md-warning"ng-click="logOut()">
       Log Out

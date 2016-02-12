@@ -16,14 +16,19 @@ class RegistrationsController < Devise::RegistrationsController
   # Commented out everything except for the relevant token stuff, will need to revisit
   # and ensure that I did not accidentally get rid of anything.
   def create
+    @organization = Organization.create(name: params[:user][:organization][:organization_name])
+    if !@organization.save
+      render json:
+                 {
+                     error:
+                         "That organization name already exists, please choose another or contact its administrator to be added to the account."
+                 }
+    end
     build_resource(sign_up_params)
     resource_saved = resource.save
-
     yield resource if block_given?
-
     if resource_saved
       # UserMailer.registration_email(resource).deliver
-      @organization = Organization.create(name: params[:user][:organization][:organization_name])
       UserOrganization.create(organization_id: @organization.id, user_id: resource.id)
       @organization.organization_type = OrganizationType.find_by_name(params[:user][:organization][:organization_type_name])
       @organization.save

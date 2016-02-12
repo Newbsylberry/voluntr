@@ -29,10 +29,11 @@ background-color:#35c0ff;
         we're very passionated about managing volunteers.  We appreciate any feedback you're willing to give us, and exist
       to best serve you, so don't ever hesitate to make suggestions or reach out to us directly!</p>
 
-      <p>You can confirm your account email through the link below:</p>
+      <p>You can confirm your account email through the link below, if you haven't finished registering you will have the
+        chance to do so on the same page.  If you have than you will be taken immediately to Volu so you can log in:</p>
 
       <p><%= link_to "Click Here To Finish Registering", "http://www.voluapp.com/#/users/confirm_registration/#{@token}" %></p>
-
+      <p><%#= link_to "Click Here To Finish Registering", "http://localhost:9000/#/users/confirm_registration/#{@token}" %></p>
       <p style="text-align:right;
               color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>
     </div>
