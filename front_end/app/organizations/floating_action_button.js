@@ -7,9 +7,9 @@
       $scope.addVolunteerOpportunity = function (size) {
         var organizationEventModal = $modal.open(
           {
-            templateUrl: 'organizations/modals/organization_add_opportunity_modal.html',
+            templateUrl: 'organizations/modals/add_opportunity.html',
             controller: 'AddOpportunityCtrl',
-            windowClass: 'create-opportunity-modal',
+            windowClass: 'add-opportunity-modal',
             size: size
           });
 

@@ -15,7 +15,6 @@ angular.module('voluntrApp')
 
 
     var createEligibleInstances = function (instance){
-      console.log($scope.opportunity.volunteer_goal)
       if ($scope.opportunity.volunteer_goal == null) {
         $scope.opportunity.volunteer_goal = 5
       }
@@ -57,7 +56,9 @@ angular.module('voluntrApp')
         attr.first_name = $scope.opportunityRegister.first_name;
         attr.last_name = $scope.opportunityRegister.last_name;
         attr.email = $scope.opportunityRegister.email;
+        if ($scope.opportunityRegister.dates) {
         attr.instances = $scope.opportunityRegister.dates;
+        }
         attr.organization_id = $scope.opportunity.organization_id;
         PersonOpportunity.create(attr).$promise.then(function(response){
           $state.go('organization_volunteer_registration.2', {token:btoa(response.id),

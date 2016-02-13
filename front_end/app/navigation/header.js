@@ -119,7 +119,7 @@ angular.module('voluntrApp')
       } else if (result.type === 'opportunity') {
         var opportunityDetailModal = $modal.open(
           {
-            templateUrl: 'organizations/modals/opportunity_detail_modal.html',
+            templateUrl: 'organizations/modals/opportunity_detail.html',
             controller: 'OpportunityDetailCtrl',
             windowClass: 'add-event-modal-window',
             size: 'lg',

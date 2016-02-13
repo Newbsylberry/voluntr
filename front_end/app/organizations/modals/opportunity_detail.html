@@ -327,6 +327,17 @@
               ng-click="deleteOpportunity();">
               Delete All Instances</a><br>
           </div>
+          <div class="rscard">
+            <h3>Opportunity Resources:</h3>
+            <a
+              ng-repeat="resource in opportunity.resources"
+              href="{{resource.resource.url}}"
+              target="_blank"
+              >
+              {{resource.name}}
+              </a>
+            <br>
+          </div>
           <div class="fixer"></div>
         </div>
         <div class="window-bottom-button"></div>

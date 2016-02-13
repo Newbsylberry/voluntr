@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal,
-                                              $modalInstance, OpportunityRole, $state) {
+                                              $modalInstance, OpportunityRole, $state,Upload) {
 
 
 
@@ -27,6 +27,38 @@ angular.module('voluntrApp')
       };
       $scope.calendar.end_time = $scope.calendar.raw_start.getTime() + $scope.calendar.duration;
     });
+
+    var uploadFile = function(file, opportunity_id){
+
+    }
+
+    $scope.testFileUpload = function() {
+      var resource = {};
+      resource.resourceable_id = 4;
+      resource.name = "Resource Name";
+      resource.description = "A new Resource";
+      if ($scope.files.length > 0) {
+        angular.forEach($scope.files, function (file) {
+          Upload.upload({
+            url: '/api/v1/resources',
+            method: 'POST',
+            fields: {
+              "resource[name]": file.name,
+              "resource[resourceable_type]": "Opportunity",
+              "resource[resourceable_id]": 3
+            },
+            file: {'resource[resource]': file}
+          }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+          }, function (resp) {
+            console.log('Error status: ' + resp.status);
+          }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+          });
+        })
+      }
+    }
 
     $scope.roles = [];
     $scope.role = {};
@@ -49,6 +81,10 @@ angular.module('voluntrApp')
       $scope.role.hours_required = "";
     };
 
+    $scope.$watch('files',function(){
+      console.log($scope.files)
+    })
+
     $scope.newOpportunity = function(){
       var attr = {};
       attr.calendar = $scope.calendar;
@@ -70,6 +106,27 @@ angular.module('voluntrApp')
           role.opportunity_id = opportunity.id;
           OpportunityRole.create(role)
         })
+        if ($scope.files.length > 0) {
+          angular.forEach($scope.files, function (file) {
+            Upload.upload({
+              url: '/api/v1/resources',
+              method: 'POST',
+              fields: {
+                "resource[name]": file.name,
+                "resource[resourceable_type]": "Opportunity",
+                "resource[resourceable_id]": opportunity.id
+              },
+              file: {'resource[resource]': file}
+            }).then(function (resp) {
+              console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function (resp) {
+              console.log('Error status: ' + resp.status);
+            }, function (evt) {
+              var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+              console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
+          })
+        }
       });
       if ($state.current.name === 'organizations.opportunities_home') {
         $state.go($state.current, {}, {reload: true});

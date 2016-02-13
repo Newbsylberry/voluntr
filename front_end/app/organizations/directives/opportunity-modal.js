@@ -3,7 +3,7 @@ angular.module('voluntrApp').directive("opportunityModal", function ($modal) {
     element.bind('click', function () {
       var opportunityDetailModal = $modal.open(
         {
-          templateUrl: 'organizations/modals/opportunity_detail_modal.html',
+          templateUrl: 'organizations/modals/opportunity_detail.html',
           controller: 'OpportunityDetailCtrl',
           windowClass: 'add-event-modal-window',
           size: attrs.size,

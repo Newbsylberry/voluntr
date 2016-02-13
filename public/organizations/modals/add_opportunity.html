@@ -120,6 +120,12 @@
               </textarea>
           </md-input-container>
           <md-button style="margin-right:0px;float:right;"class="md-raised md-primary" ng-click="createRole(role)">Add Role</md-button>
+          <button ng-click="testFileUpload(files)">Upload Files</button>
+          <div class="file-drop-box" ngf-drop ng-model="files" ngf-multiple="true">
+            <p ng-repeat="file in files">
+              {{file.name}}
+            </p>
+          </div>
           <div class="fixer"></div>
           <md-list>
             <md-list-item style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;margin-bottom:10px;" ng-repeat="role in roles"><p>{{role.name}} - {{role.description}}</p></md-list-item>
