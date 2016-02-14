@@ -82,6 +82,13 @@ angular.module('voluntrApp')
     };
 
     $scope.$watch('files',function(){
+      $scope.resources = [];
+      angular.forEach($scope.files,function(file){
+        var resource = {};
+        resource.name = file.name;
+        resource.file = file
+        $scope.resources.push(resource);
+      })
       console.log($scope.files)
     })
 
@@ -107,16 +114,17 @@ angular.module('voluntrApp')
           OpportunityRole.create(role)
         })
         if ($scope.files.length > 0) {
-          angular.forEach($scope.files, function (file) {
+          angular.forEach($scope.resources, function (resource) {
             Upload.upload({
               url: '/api/v1/resources',
               method: 'POST',
               fields: {
-                "resource[name]": file.name,
+                "resource[name]": resource.name,
+                "resource[description]": resource.description,
                 "resource[resourceable_type]": "Opportunity",
                 "resource[resourceable_id]": opportunity.id
               },
-              file: {'resource[resource]': file}
+              file: {'resource[resource]': resource.file}
             }).then(function (resp) {
               console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {

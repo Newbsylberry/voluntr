@@ -22,7 +22,6 @@
 
       };
 
-      $scope.current_state = $state.current.name;
       $scope.recordHours = function (size) {
         var recordHoursModal = $modal.open(
           {

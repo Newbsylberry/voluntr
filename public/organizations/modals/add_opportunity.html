@@ -1,6 +1,4 @@
 <md-tabs  class="md-primary" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
-
-
   <!-- <md-content class="md-padding diacontent"> -->
   <md-tab id="tab1">
     <md-tab-label>Add Opportunity Information</md-tab-label>
@@ -88,7 +86,7 @@
   </md-tab>
   <!-- <md-content class="md-padding diacontent"> -->
   <md-tab id="tab3">
-    <md-tab-label>Additional Resources</md-tab-label>
+    <md-tab-label>Add Roles</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">
         <div class="tabcontrolin">
@@ -120,19 +118,44 @@
               </textarea>
           </md-input-container>
           <md-button style="margin-right:0px;float:right;"class="md-raised md-primary" ng-click="createRole(role)">Add Role</md-button>
-          <button ng-click="testFileUpload(files)">Upload Files</button>
-          <div class="file-drop-box" ngf-drop ng-model="files" ngf-multiple="true">
-            <p ng-repeat="file in files">
-              {{file.name}}
-            </p>
-          </div>
           <div class="fixer"></div>
           <md-list>
             <md-list-item style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;margin-bottom:10px;" ng-repeat="role in roles"><p>{{role.name}} - {{role.description}}</p></md-list-item>
           </md-list>
           <div class="window-bottom-button">
-            <md-button class="md-primary right-bottom-button" ng-click="newOpportunity()">Create Opportunity!</md-button>
+            <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 3">Next: Add Opportunity Resources</md-button>
             <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 1">Back: Enter Opportunity Schedule</md-button>
+          </div>
+        </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab3">
+    <md-tab-label>Add Resources</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+          <div class="file-drop-box" ngf-select ngf-drop ng-model="files" ngf-multiple="true">
+            <h4>Drop Files Here</h4>
+            <p>(Or Click to Select From Computer)</p>
+            <h4 class="ionicon ion-document-text" style="font-size: 36pt;left: 50px;text-align: left;"></h4>
+          </div>
+          <md-list style="margin-bottom: 60px;" ng-if="resources.length > 0">
+            <h4>Add More Information About Resources Below</h4>
+            <md-list-item ng-repeat="resource in resources" layout="row">
+              <md-input-container flex="33" class="md-block">
+                <label>Resource Name</label>
+                <input ng-model="resource.name">
+              </md-input-container>
+              <md-input-container class="md-block" flex="66">
+                <label>Resource Description:</label>
+                <textarea ng-model="resource.description" md-maxlength="150" rows="1" md-select-on-focus></textarea>
+              </md-input-container>
+            </md-list-item>
+          </md-list>
+          <div class="window-bottom-button">
+            <md-button class="md-primary right-bottom-button" ng-click="newOpportunity()">Create Opportunity!</md-button>
+            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 2">Back: Enter Additional Resources</md-button>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
   def show
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
-        params[:oauth_key]
+        !params[:oauth_key].blank?
       OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).enqueue
     end
 

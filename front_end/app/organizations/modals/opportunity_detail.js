@@ -20,6 +20,8 @@ angular.module('voluntrApp')
 
     $scope.instance = start_time;
 
+    console.log(opportunity)
+
     var addToDashboard = function (instance) {
       console.log(instance)
       $scope.instanceStatisticGraphConfig.series[0].data.push

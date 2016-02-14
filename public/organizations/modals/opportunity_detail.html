@@ -317,26 +317,29 @@
             <a
               href=""
               ng-click="deleteOpportunityInstance();">
-              Delete This Instance</a><br>
+              Delete This Instance</a>
             <a
               href=""
               ng-click="deleteFutureInstances();">
-              Delete All Future Instances</a><br>
+              Delete All Future Instances</a>
             <a
               href=""
               ng-click="deleteOpportunity();">
-              Delete All Instances</a><br>
+              Delete All Instances</a>
           </div>
           <div class="rscard">
             <h3>Opportunity Resources:</h3>
+            <span ng-repeat="resource in opportunity.resources">
             <a
-              ng-repeat="resource in opportunity.resources"
               href="{{resource.resource.url}}"
               target="_blank"
               >
               {{resource.name}}
               </a>
-            <br>
+              <p style="color: black;">
+                {{resource.description}}
+              </p>
+              </span>
           </div>
           <div class="fixer"></div>
         </div>
