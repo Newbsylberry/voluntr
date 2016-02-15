@@ -8,6 +8,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    ap params
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
         !params[:oauth_key].blank?

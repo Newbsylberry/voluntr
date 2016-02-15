@@ -18,7 +18,8 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-job_type :runner, "cd :path && $HOME/.rvm/scripts/rvm && rvm use 2.1.2 && rails runner ':task' :output"
+job_type :runner, "{ cd #{@current_path} } && (export RACK_ENV=:environment; bundle exec rails runner :task :output"
+
 
 
 every '30 9 22 * *' do

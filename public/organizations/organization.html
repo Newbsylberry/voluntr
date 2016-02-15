@@ -1,6 +1,16 @@
-<style>html, body {
+<style>
+  html, body {
     overflow: hidden;
-  }</style> <div ng-include="'../navigation/side-menu.html'"></div> <div class="snap-content"> <div ng-include="'../navigation/header.html'"></div> <div class="centered-container" sw-stage="centered-container"> <div ui-view></div> </div> <div ng-hide="current_state === 'organizations.registration' ||
+  }
+</style>
+<div ng-include="'../navigation/side-menu.html'"></div>
+<div class="snap-content">
+<div ng-include="'../navigation/header.html'"></div>
+  <div class="centered-container" sw-stage="centered-container">
+      <div ui-view></div>
+    </div>
+  <div
+    ng-hide="current_state === 'organizations.registration' ||
      current_state === 'organizations.email_registration.1' ||
       current_state === 'organizations.email_registration.2' ||
      current_state === 'organizations.user_organizations' ||
@@ -10,4 +20,7 @@
      current_state === 'organizations.tutorial.4' ||
      current_state === 'organizations.tutorial.5' ||
      current_state === 'organizations.tutorial.6'
-     " ng-controller="FABCtrl" ng-include="'organizations/organization_floating_action_button.html'"></div> </div>
+     "
+    ng-controller="FABCtrl"
+    ng-include="'organizations/organization_floating_action_button.html'"></div>
+</div>

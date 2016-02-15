@@ -131,7 +131,7 @@
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3">
-    <md-tab-label>Add Resources</md-tab-label>
+    <md-tab-label>Add Files</md-tab-label>
     <md-tab-body>
       <div class="tabcontrol">
         <div class="tabcontrolin">
@@ -141,21 +141,21 @@
             <h4 class="ionicon ion-document-text" style="font-size: 36pt;left: 50px;text-align: left;"></h4>
           </div>
           <md-list style="margin-bottom: 60px;" ng-if="resources.length > 0">
-            <h4>Add More Information About Resources Below</h4>
+            <h4>Add More Information About Files Below</h4>
             <md-list-item ng-repeat="resource in resources" layout="row">
               <md-input-container flex="33" class="md-block">
-                <label>Resource Name</label>
+                <label>File Name</label>
                 <input ng-model="resource.name">
               </md-input-container>
               <md-input-container class="md-block" flex="66">
-                <label>Resource Description:</label>
+                <label>Description</label>
                 <textarea ng-model="resource.description" md-maxlength="150" rows="1" md-select-on-focus></textarea>
               </md-input-container>
             </md-list-item>
           </md-list>
           <div class="window-bottom-button">
             <md-button class="md-primary right-bottom-button" ng-click="newOpportunity()">Create Opportunity!</md-button>
-            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 2">Back: Enter Additional Resources</md-button>
+            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 2">Back: Enter Additional Files</md-button>
           </div>
         </div>
       </div>
