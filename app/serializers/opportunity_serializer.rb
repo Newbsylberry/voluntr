@@ -5,7 +5,7 @@ class OpportunitySerializer < ActiveModel::Serializer
              :schedule_to_string, :start_schedule, :ical, :address, :city, :state,
              :zip_code, :volunteer_goal, :organization_email_templates, :opportunity_roles,
              :total_recorded_hours, :total_people_recording,:instance_hours, :instance_people_count,
-             :organization, :resources
+             :organization, :resources, :organizations
 
 
 end

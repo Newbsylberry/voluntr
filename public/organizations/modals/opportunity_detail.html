@@ -308,7 +308,6 @@
             <small>(These should be sent around, or opened in a new window)</small>
             <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
               Registration Form for Opportunity</a>
-            <br>
             <a ui-sref="sign_in_form({opportunity_Id:opportunity.id})">
               Sign In Form for Opportunity</a>
           </div>
@@ -340,6 +339,12 @@
                 {{resource.description}}
               </p>
               </span>
+          </div>
+          <div class="rscard">
+            <h3>Collaborators:</h3>
+            <span ng-repeat="organization in opportunity.organizations">
+            <p>{{organization.name}}</p>
+            </span>
           </div>
           <div class="fixer"></div>
         </div>

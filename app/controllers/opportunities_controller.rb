@@ -14,7 +14,6 @@ class OpportunitiesController < ApplicationController
   # GET /events/1.json
   def show
     @opportunity = Opportunity.find(params[:id])
-    ap @opportunity
     @opportunity.instance_hours = @opportunity.instance_recorded_hours(params[:instance_date])
     @opportunity.instance_people_count = @opportunity.instance_people_recording(params[:instance_date])
 
@@ -25,15 +24,19 @@ class OpportunitiesController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    ap params
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
-
-
     if params[:calendar]
       @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
     end
-
     @opportunity.save
+    @opportunity.add_organization({id: Organization.find(params[:organization_id]).id, administrator: true})
+    params[:organizations].each do |o|
+      @opportunity.add_organization(o)
+    end
+
+
 
     render json: @opportunity
   end
@@ -139,7 +142,7 @@ class OpportunitiesController < ApplicationController
     params.require(:opportunity).permit(:fb_id, :name, :location, :opportunity_type_id,
                                         :description, :start_time, :end_time, :about,
                                         :city, :state, :zip_code, :timezone, :latitude, :longitude,
-                                        :organization_id, :color, :address, :volunteer_goal, :start_schedule)
+                                        :organization_id, :collaborative, :color, :address, :volunteer_goal, :start_schedule)
   end
 
 end

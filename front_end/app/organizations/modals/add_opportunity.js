@@ -13,7 +13,8 @@ angular.module('voluntrApp')
 
 
 
-
+    $scope.organization = {};
+    $scope.organizations = [];
     $scope.calendar = {};
     $scope.calendar.repeat = {};
 
@@ -28,37 +29,12 @@ angular.module('voluntrApp')
       $scope.calendar.end_time = $scope.calendar.raw_start.getTime() + $scope.calendar.duration;
     });
 
-    var uploadFile = function(file, opportunity_id){
-
-    }
-
-    $scope.testFileUpload = function() {
-      var resource = {};
-      resource.resourceable_id = 4;
-      resource.name = "Resource Name";
-      resource.description = "A new Resource";
-      if ($scope.files.length > 0) {
-        angular.forEach($scope.files, function (file) {
-          Upload.upload({
-            url: '/api/v1/resources',
-            method: 'POST',
-            fields: {
-              "resource[name]": file.name,
-              "resource[resourceable_type]": "Opportunity",
-              "resource[resourceable_id]": 3
-            },
-            file: {'resource[resource]': file}
-          }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-          }, function (resp) {
-            console.log('Error status: ' + resp.status);
-          }, function (evt) {
-            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-          });
-        })
+    $scope.removeOrganization = function(organization) {
+      var index = $scope.organizations.indexOf(organization);
+      if (index > -1) {
+        $scope.organizations.splice(index, 1);
       }
-    }
+    };
 
     $scope.roles = [];
     $scope.role = {};
@@ -89,7 +65,6 @@ angular.module('voluntrApp')
         resource.file = file
         $scope.resources.push(resource);
       })
-      console.log($scope.files)
     })
 
     $scope.newOpportunity = function(){
@@ -105,9 +80,12 @@ angular.module('voluntrApp')
       attr.address = $scope.newOpportunity.address;
       attr.zip_code = $scope.newOpportunity.zip_code;
       attr.city = $scope.newOpportunity.city;
+      attr.collaborative = $scope.newOpportunity.collaborative;
       attr.state = $scope.newOpportunity.state;
       attr.organization_id = $stateParams.organization_Id;
+      attr.collaborative = $scope.newOpportunity.collaborative;
       attr.volunteer_goal = $scope.newOpportunity.volunteer_goal;
+      attr.organizations = $scope.organizations;
       var opportunity = Opportunity.create(attr).$promise.then(function(opportunity){
         angular.forEach($scope.roles, function(role){
           role.opportunity_id = opportunity.id;
@@ -140,7 +118,6 @@ angular.module('voluntrApp')
         $state.go($state.current, {}, {reload: true});
       }
       $modalInstance.dismiss('cancel');
-
     };
 
 

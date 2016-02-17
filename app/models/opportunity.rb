@@ -4,6 +4,8 @@ class Opportunity < ActiveRecord::Base
   require 'gchart'
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  has_many :organization_opportunities
+  has_many :organizations, through: :organization_opportunities
   has_many :resources, as: :resourceable, dependent: :destroy
   has_many :opportunities
   has_many :person_opportunities, dependent: :destroy
@@ -30,6 +32,14 @@ class Opportunity < ActiveRecord::Base
     end
   end
 
+  def add_organization(organization)
+    ap self
+    @organization_opportunity = OrganizationOpportunity.new(
+        organization_id: organization[:id],
+        opportunity_id: self.id)
+    @organization_opportunity.administrator = organization[:administrator]
+    @organization_opportunity.save
+  end
 
   def selected_instance_people_recording
     if @options[:instance_date]

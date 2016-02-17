@@ -11,12 +11,14 @@ class OrganizationsController < ApplicationController
     ap params
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
-        !params[:oauth_key].blank?
+            !params[:oauth_key].blank?
+      ap "FACEBOOOOK"
       OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).enqueue
     end
 
     render json: @current_organization, serializer: OrganizationSerializer
   end
+
 
   def show_by_url
     @organization = Organization.find_by_custom_url(params[:custom_url])
@@ -135,6 +137,18 @@ class OrganizationsController < ApplicationController
            each_serializer: OpportunityInstanceSerializer
   end
 
+  def public_opportunities
+    @organization = Organization.find(params[:id])
+
+    ap @organization.public_opportunities
+    render json: @organization.public_opportunities, each_serializer: OpportunitySerializer
+  end
+
+  def associated_organizations
+    ap @current_organization.associated_organizations
+    render json: @current_organization.associated_organizations, each_serializer: OrganizationSerializer
+  end
+
   def recently_recorded_hours
     @current_organization_recorded_hours = Array.new
     @current_organization.recorded_hours.each do |rh|
@@ -148,19 +162,23 @@ class OrganizationsController < ApplicationController
   end
 
   def daily_statistics
-    if !@current_organization.daily_statistics.nil?
+    @organization = Organization.find(params[:id])
 
-      render json: @current_organization.daily_statistics, each_serializer: DailyStatisticSerializer
+    if !@organization.daily_statistics.nil?
+
+      render json: @organization.daily_statistics, each_serializer: DailyStatisticSerializer
     end
 
   end
 
   def summary_statistics
+    @organization = Organization.find(params[:id])
+
     render json: {
-               volunteers: @current_organization.total_people,
-               total_hours: @current_organization.total_recorded_hours,
-               total_opportunities: @current_organization.total_opportunities,
-               average_hours_recorded: @current_organization.average_hours_recorded
+               volunteers: @organization.total_people,
+               total_hours: @organization.total_recorded_hours,
+               total_opportunities: @organization.total_opportunities,
+               average_hours_recorded: @organization.average_hours_recorded
            }
   end
 
@@ -210,11 +228,6 @@ class OrganizationsController < ApplicationController
       render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
     end
   end
-
-  def export_report
-    @current_organization.generate_report()
-  end
-
 
   private
 

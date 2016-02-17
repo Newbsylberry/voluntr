@@ -1,0 +1,101 @@
+<md-tabs class="md-primary"
+         md-dynamic-height
+         md-selected="data.selectedIndex"
+         md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+  <!-- Event Information -->
+  <md-tab id="tab1">
+    <md-tab-label>Dashboard</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+          <div class="row oppinfo">
+            <div class="col-md-3">
+              <img src=""
+                   class="face">
+            </div>
+            <div class="col-md-9">
+              <h2>{{organization.name}}</h2>
+              <md-divider></md-divider>
+              <h4 >Description:</h4>
+              {{organization.description}}
+            </div>
+          </div><br/>
+          <md-divider></md-divider>
+          <div class="opportunity-dashboard">
+            <div layout="row" id="organization-home-statistics" style="margin-left: 5%">
+              <div flex="20">
+                <h4>Total Volunteers</h4>
+                <p>{{organization.statistics.volunteers}}</p>
+              </div>
+              <div flex="5">
+              </div>
+              <div flex="20">
+                <h4>Total Hours Recorded</h4>
+                <p>{{organization.statistics.total_hours}}</p>
+              </div>
+              <div flex="5">
+              </div>
+              <div flex="20">
+                <h4>Number of Opportunities</h4>
+                <p>{{organization.statistics.total_opportunities}}</p>
+              </div>
+              <div flex="5">
+              </div>
+              <div flex="20">
+                <h4>Average Hours Recorded</h4>
+                <p>{{organization.statistics.average_hours_recorded}}</p>
+              </div>
+            </div>
+            <md-divider></md-divider>
+            <div class="row">
+              <highchart config="opportunityGraphConfig"></highchart>
+            </div>
+          </div>
+        </div>
+        <div class="window-bottom-button">
+          <md-button class="md-primary" style="float:right;" href=""
+                     >
+            Contact Organization
+          </md-button>
+        </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab2">
+    <md-tab-label>Public Opportunities</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+          <h3>{{organization.name}}'s Public Opportunities</h3>
+          <md-divider></md-divider>
+          <md-list>
+            <md-list-item ng-repeat="opportunity in organization.public_opportunities"
+                          class="secondary-button-padding"
+                          style="margin: 4px 0px 26px 0px;">
+              <div class="md-list-item-text">
+                <h4 style="color: black;">{{opportunity.name}}</h4>
+                <p ng-show="opportunity.description">{{opportunity.description}}</p>
+                <p ng-show="!opportunity.description">
+                  This opportunity doesn't have a description, get involved to find out more!
+                </p>
+                <md-button class="md-raised md-primary">Get Involved!</md-button>
+              </div>
+            </md-list-item>
+          </md-list>
+        </div>
+      </div>
+      <div class="window-bottom-button">
+        <!--<md-button class="md-primary" style="float:right;" href=""-->
+        <!--report-link-->
+        <!--type="group"-->
+        <!--id="{{group.id}}">-->
+        <!--Export PDF Report-->
+        <!--</md-button>-->
+      </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
+
+
+

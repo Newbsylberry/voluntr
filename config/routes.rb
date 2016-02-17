@@ -58,6 +58,11 @@ Rails.application.routes.draw do
       match '/organizations/:id/recently_recorded_hours', to: 'organizations#recently_recorded_hours', via: :get, defaults: {format: :json}
       match '/organizations/:id/posts', to: 'organizations#posts', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
+      match '/organizations/:id/public_opportunities', to: 'organizations#public_opportunities', via: :get, defaults: {format: :json}
+      match '/organizations/:id/associated_organizations', to: 'organizations#associated_organizations', via: :get, defaults: {format: :json}
+
+      #search
+      match '/search/organizations_search/', to: 'search#search_organizations', via: :get, defaults: {format: :json}
 
       # group routes
       match '/groups/:id/people', to: 'groups#people', via: :get, defaults: {format: :json}

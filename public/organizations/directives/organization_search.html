@@ -1,0 +1,15 @@
+<md-input-container class="md-block">
+  <label>Search and Select an Organization</label>
+  <input ng-model="search_query">
+</md-input-container>
+<md-list ng-show="loaded">
+  <md-list-item ng-repeat="organization in organizations"
+                class="md-2-line secondary-button-padding"
+                ng-click="addOrganization(organization)">
+    <div class="md-list-item-text">
+      <h3>{{organization.name}}</h3>
+      <p ng-show="organization.city && organization.state">{{organization.city}} - {{organization.state}}</p>
+    </div>
+  </md-list-item>
+  {{selectedOrganizations}}
+</md-list>

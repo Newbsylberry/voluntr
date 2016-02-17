@@ -1,6 +1,6 @@
 class Organization < ActiveRecord::Base
   belongs_to :organization_type
-  has_many :opportunities
+  has_many :organization_opportunities
   has_many :resources, as: :resourceable, dependent: :destroy
   has_many :posts
   has_many :organization_people
@@ -13,13 +13,13 @@ class Organization < ActiveRecord::Base
   has_many :organization_mailing_services
   has_many :mailing_service_lists, through: :organization_mailing_services
   require 'carrierwave/orm/activerecord'
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   validates :custom_url, uniqueness: true
   validates :name, uniqueness: true
   mount_uploader :terms_of_service_file, TermsOfServiceUploader
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode
-
-
 
   after_initialize do |organization|
     if organization.new_record?
@@ -36,11 +36,35 @@ class Organization < ActiveRecord::Base
     end
   end
 
+  def opportunities
+    opportunities = [];
+    OrganizationOpportunity.where(organization_id: id).each do |oo|
+      opportunities.push(Opportunity.find(oo.opportunity_id))
+    end
+    Opportunity.where(organization_id: id).each do |o|
+      opportunities.push(o)
+    end
+    return opportunities
+  end
+
+  def public_opportunities
+    return Opportunity.where(organization_id: id, collaborative: true)
+  end
+
   def default_list(service_type)
     if !organization_mailing_services.empty?
       return MailingServiceList.find(self.organization_mailing_services.
                                          find_by_service_type(service_type).default_list_id)
     end
+  end
+
+  def associated_organizations
+    organizations = [];
+    opportunities.each do |oo|
+      OrganizationOpportunity.where(opportunity_id: oo.id)
+      organizations.push(Organization.find(oo.organization_id))
+    end
+    return organizations
   end
 
   def full_street_address

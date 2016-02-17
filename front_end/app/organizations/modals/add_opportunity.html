@@ -7,10 +7,10 @@
         <div class="tabcontrolin">
           <!--<h1>Add Volunteering Position</h1>-->
           <div layout="row">
-          <md-input-container flex="66">
-            <label>Opportunity Name</label>
-            <input ng-model="newOpportunity.opportunity_name">
-          </md-input-container>
+            <md-input-container flex="66">
+              <label>Opportunity Name</label>
+              <input ng-model="newOpportunity.opportunity_name">
+            </md-input-container>
             <md-input-container flex="33">
               <label>How Many Volunteers?</label>
               <input ng-model="newOpportunity.volunteer_goal">
@@ -73,12 +73,12 @@
           <md-button auxiliary-modal-window
                      type="recurring-schedule"
                      object="calendar"
-            ng-click="calendar.repeating_event = true">
+                     ng-click="calendar.repeating_event = true">
             Is this a recurring schedule?
           </md-button>
           <div class="window-bottom-button">
-            <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 2">Next: Tag Volunteers and Skills</md-button>
-            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 0">Back: Enter Basic Opportunity Information</md-button>
+            <md-button class="md-primary right-bottom-button" ng-click="data.selectedIndex = 2">Next: Add Opportunity Roles</md-button>
+            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 0">Back: Enter Opportunity Schedule</md-button>
           </div>
         </div>
       </div>
@@ -154,8 +154,57 @@
             </md-list-item>
           </md-list>
           <div class="window-bottom-button">
-            <md-button class="md-primary right-bottom-button" ng-click="newOpportunity()">Create Opportunity!</md-button>
-            <md-button class="md-primary left-bottom-button" ng-click="data.selectedIndex = 2">Back: Enter Additional Files</md-button>
+            <md-button
+              class="md-primary right-bottom-button"
+              ng-click="data.selectedIndex = 4">
+              Next: Add Other Organizations
+            </md-button>
+            <md-button
+              class="md-primary left-bottom-button"
+              ng-click="data.selectedIndex = 2">
+              Back: Enter Opportunity Role
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab4">
+    <md-tab-label>Collaborate</md-tab-label>
+    <md-tab-body>
+      <div class="tabcontrol">
+        <div class="tabcontrolin">
+          <md-checkbox ng-model="newOpportunity.collaborative" aria-label="Checkbox 1">
+            Would you like to collaborate with other organizations?
+          </md-checkbox>
+          <organization-search
+            ng-show="newOpportunity.collaborative"
+            organization="organization"
+            selected-organizations="organizations"></organization-search>
+          <div id="collaboration-text" ng-show="newOpportunity.collaborative">
+          <h4>These organizations will be invited to collaborate with you on this opportunity:</h4>
+          <p>(click to remove from the list)</p>
+          </div>
+          <md-list>
+            <md-list-item ng-repeat="organization in organizations" ng-click="removeOrganization(organization)">
+              {{organization.name}}
+              <md-switch class="md-secondary" ng-model="organization.administrator">
+                Give this organization administrative rights?
+              </md-switch>
+            </md-list-item>
+
+          </md-list>
+          <div class="window-bottom-button">
+            <md-button
+              class="md-primary right-bottom-button"
+              ng-click="newOpportunity()">
+              Create Opportunity!
+            </md-button>
+            <md-button
+              class="md-primary left-bottom-button"
+              ng-click="data.selectedIndex = 3">
+              Back: Add Files
+            </md-button>
           </div>
         </div>
       </div>

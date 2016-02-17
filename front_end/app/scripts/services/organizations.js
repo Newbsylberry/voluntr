@@ -58,6 +58,10 @@ angular.module('voluntrApp')
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 
+    Organization.prototype.associated_organizations = function(oId, obj) {
+      return this.service.organization_object({organization_Id: oId,object: obj})
+    };
+
     Organization.prototype.daily_statistics = function(oId, obj) {
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
@@ -75,6 +79,10 @@ angular.module('voluntrApp')
     };
 
     Organization.prototype.contact_volunteers = function(oId, obj) {
+      return this.service.organization_object({organization_Id: oId,object: obj})
+    };
+
+    Organization.prototype.public_opportunities = function(oId, obj) {
       return this.service.organization_object({organization_Id: oId,object: obj})
     };
 

@@ -14,19 +14,18 @@
                   md-gutter-gt-sm="8px"
                   class="group-list">
       <md-grid-tile
-        ng-repeat="group in organization_groups"
-        group-modal
-        id="{{group.id}}"
-        size="lg"
+        ng-repeat="organization in associated_organizations"
+        organization-modal
+        url="{{organization.custom_url}}"
         ng-style="{
-    'background': group.bg_color
+    'background': organization.bg_color
     }"
-        md-rowspan="{{group.rowspan}}"
-        md-colspan="{{group.colspan}}"
+        md-rowspan="{{organization.rowspan}}"
+        md-colspan="{{organization.colspan}}"
         md-colspan-sm="1"
         >
         <md-grid-tile-footer>
-          <h3>{{group.name}} <br><small>{{group.total_people}} volunteers</small></h3>
+          <h3>{{organization.name}} <br><small>0 volunteers</small></h3>
         </md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
@@ -57,9 +56,8 @@
                   ng-show="!add_an_address && nearby_loaded">
       <md-grid-tile
         ng-repeat="organization in nearby_organizations"
-        group-modal
-        id="{{organization.id}}"
-        size="lg"
+        organization-modal
+        url="{{organization.custom_url}}"
         ng-style="{
     'background': organization.bg_color
     }"
