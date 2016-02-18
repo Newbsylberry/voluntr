@@ -7,7 +7,7 @@ class PersonReportPdf < Prawn::Document
     @summary_graph = Hash.new
     @summary_graph["Recorded Hours"] = Hash.new
     person.recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
-      @summary_graph["Recorded Hours"][rh.created_at] = rh.hours.to_f
+      @summary_graph["Recorded Hours"][rh.created_at.strftime("%T - %m/%d/%Y")] = rh.hours
     end
     @total_hours = person.recorded_hours.where(date_recorded: start_date..end_date).sum(:hours)
     @opportunities = Array.new
@@ -22,7 +22,7 @@ class PersonReportPdf < Prawn::Document
               "#{rh.created_at.strftime("%m/%d/%Y")}",
               "#{rh.opportunity.name.to_s}",
               "#{rh.organization.name.to_s}",
-              "#{rh.hours.to_s}"
+              "#{rh.hours.to_f}"
       ]
     end
     # @opportunities = opportunities
@@ -46,7 +46,7 @@ class PersonReportPdf < Prawn::Document
     text "Recorded Hours Graph", size: 16, align: :center
     if !@summary_graph["Recorded Hours"].nil? && @summary_graph["Recorded Hours"].count <= 1
       chart @summary_graph, colors: %w(9C27B0 2196F3)
-    elsif !@summary_graph["Recorded Hours"].nil? && @summary_graph["Recorded Hours"].count > 1
+     elsif !@summary_graph["Recorded Hours"].nil? && @summary_graph["Recorded Hours"].count > 1
       chart @summary_graph, type: :line, colors: %w(9C27B0 2196F3)
     end
   end
@@ -71,7 +71,6 @@ class PersonReportPdf < Prawn::Document
   end
 
   def opportunity_list
-    ap @table
     table(@table)
   end
 end

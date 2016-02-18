@@ -8,7 +8,7 @@ set :bundle_binstubs, nil
 # set :linked_files, %w{config/database.yml}
 
 
-set :rvm1_ruby_version, 'rbx'
+set :rvm1_ruby_version, '2.2.1'
 
 set :resque_environment_task, true
 
