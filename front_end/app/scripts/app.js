@@ -174,6 +174,19 @@ angular
         controller: 'VolunteerHomeCtrl'
       })
 
+      .state('volunteers', { //default page loaded for landing state
+        url: '/volunteers',
+        abstract: true,
+        templateUrl: 'volunteers/volunteers.html', // url for partial
+        controller: 'VolunteerMainCtrl'
+      })
+
+      .state('volunteers.export_report', { //default page loaded for landing state
+        url: '/export_report',
+        templateUrl: 'volunteers/volunteer_export.html', // url for partial
+        controller: 'ExportVolunteerReportCtrl'
+      })
+
       .state('organizations', {
         url: '/organizations',
         abstract: true,

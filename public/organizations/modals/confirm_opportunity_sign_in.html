@@ -1,8 +1,24 @@
+<style>
+  .confirm-opportunity-sign-in .modal-content {
+    height: auto;
+  }
+  h4 {
+    margin-bottom: 32px;
+    display: inline-block;
+    text-align: center;
+  }
+  #close-button {
+    display: inline-block;
+    margin-left: 24px;
+    color: red;
+    font-size: 24pt;
+  }
+</style>
 <div class="signpop">
   <div class="signpopin" ng-hide="confirmed">
     <h3>How Many Hours Will You Be Volunteering?</h3>
     <p>Slide the round button to select</p>
-    <md-input-container>
+    <md-input-container style="padding-bottom: 0">
       <md-slider flex class="md-primary"
                  md-discrete
                  ng-model="hours"
@@ -12,10 +28,24 @@
                  aria-label="rating">
       </md-slider>
     </md-input-container>
+    <h3>Are You Here With an Organization?</h3>
+    <h4>{{organization.name}}</h4>
+    <span class="ionicon ion-close-round"
+          id="close-button"
+          ng-click="organization = {}"
+          ng-show="organization.name"></span>
+    <organization-search
+      ng-show="!organization.name"
+      organization="organization"
+      style="position: relative;bottom: 34px;"
+      selected-organizations="organizations"
+      type="single"></organization-search>
+    <div style="text-align: left;">
     <p class="check"><input type="checkbox" ng-model="photo_consent">
       I allow {{opportunity.organization.name}} to use my photo</p>
     <p class="check"><input type="checkbox" ng-model="contact_me">
       Please contact me about future volunteer  opportunites</p>
+    </div>
     <button class="bbutton" style="border:none; font-size:20px;font-weight:300; float:none;margin-top:30px;" type="btn btn-lg" ng-click="timeDuration()">Complete Sign In</button>
   </div>
   <div class="signpopthx" ng-show="confirmed">

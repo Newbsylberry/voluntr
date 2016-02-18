@@ -1,0 +1,23 @@
+<div ng-show="organization.users && !confirmation_message">
+<h3>Contact the Administrators of this Organizations</h3>
+<p>
+  Looking to talk to the administrators of this organization?  Type your message below and we'll send it along
+  with your email address so they can respond to you directly.
+</p>
+<md-input-container class="md-block">
+  <label>Email Content</label>
+  <textarea ng-model="email_content" md-maxlength="1000" rows="10" md-select-on-focus></textarea>
+</md-input-container>
+<md-button class="md-raised md-primary"
+           ng-disabled="!email_content"
+           ng-click="sendEmail()">
+  Send Email
+</md-button>
+</div>
+<div ng-show="!organization.users && !confirmation_message">
+  <h3>Yikes, looks like this organization doesn't have any email addresses associated with their account.
+  Hopefully they add one soon, in the mean time we're working to provide you other ways to contact them.</h3>
+</div>
+<div ng-show="confirmation_message">
+  <h3>Your Email has Been Sent!</h3>
+</div>

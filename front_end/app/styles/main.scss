@@ -43,6 +43,12 @@ Modal Styles
 @import "../organizations/modals/log_in.scss";
 @import "../organizations/modals/auxiliary-modal-window.scss";
 @import "../organizations/modals/add_facebook_organization.scss";
+@import "../organizations/modals/contact_organization.scss";
+
+/************************************************************
+Volunteer Styles
+************************************************************/
+@import "../volunteers/volunteers.scss";
 
 
 /************************************************************
@@ -108,12 +114,12 @@ md-tab {
 
 
 .centered-container{
-    width:100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    overflow: scroll;
-    z-index: -10;
+  width:100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  overflow: scroll;
+  z-index: -10;
 }
 
 .centered-container {
@@ -146,21 +152,21 @@ md-tab {
 
 
 
-  h2 {
-    text-align: center;
-    color: $primary;
-  }
-  h3 {
-    color: #123994;
-  }
-  img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-  a {
-    color: $primary;
-  }
+    h2 {
+      text-align: center;
+      color: $primary;
+    }
+    h3 {
+      color: #123994;
+    }
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    a {
+      color: $primary;
+    }
   }
 }
 

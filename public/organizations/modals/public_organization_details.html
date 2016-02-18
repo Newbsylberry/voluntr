@@ -53,10 +53,17 @@
           </div>
         </div>
         <div class="window-bottom-button">
-          <md-button class="md-primary" style="float:right;" href=""
+          <md-button class="md-primary"
+                     style="float:right;"
+                     href=""
+                     ng-click="contactOrganization()"
+                     ng-show="contact_by_email"
                      >
             Contact Organization
           </md-button>
+          <small style="float:right;color: red;margin-right: 16px;" ng-show="!contact_by_email">
+            Add an Email Address to Contact Organizations
+          </small>
         </div>
       </div>
     </md-tab-body>

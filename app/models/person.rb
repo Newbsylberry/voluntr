@@ -186,45 +186,46 @@ class Person < ActiveRecord::Base
     self.save
   end
 
-  def generate_report(start_date, end_date, organization)
+  def generate_report(start_date, end_date)
     @resource = Resource.new
     @resource.name = "report"
-    @recorded_hours_series = Hash.new
-    @recorded_hours_series["name"] = "Recorded Hours"
-    @recorded_hours_series["data"] = Array.new
-    options = {
-        title: {
-            text: "Recorded Hours Summary Chart"
-        },
-        xAxis: {
-            type: 'datetime',
-            title: {
-                text: 'Date'
-            }
-        }
-    }
-    options["series"] = Array.new
-    recorded_hours.where(date_recorded: start_date..end_date).each do |h|
-      @recorded_hours_series["data"].push([(DateTime.parse(h.date_recorded.to_s).to_f * 1000), h.hours])
-    end
-
-
-    options["series"].push(@recorded_hours_series)
-
-    file_name = "#{first_name}_#{last_name}_report.png"
-
-    open(file_name, 'wb') do |file|
-      file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(options))}").read
-    end
-
-    # pdf = Prawn::Document.generate("hello.pdf") do
-    #   image file_name, position: :center
+    # summary_graph = Hash.new
+    # summary_graph["Recorded Hours"] = Hash.new
+    # recorded_hours = recorded_hours.where(date: start_date..end_date).each do |rh|
+    #   summary_graph["Recorded Hours"][rh.date_recorded] = rh.hours
     # end
 
-    pdf = PersonReportPdf.new(self, file_name, start_date, end_date, organization)
+    # This is the pie chart for roles
+    # @opportunities_series = Hash.new
+    # @opportunities_series["name"] = "#{first_name} #{last_name} Opportunities"
+    # @opportunities_series["data"] = Array.new
+    # opportunities_options = {
+    #     title: {
+    #         text: "#{first_name} #{last_name} Opportunities"
+    #     },
+    #     chart: {
+    #         type: 'pie'
+    #     },
+    #     xAxis: {
+    #         title: {
+    #             text: 'Percentage'
+    #         }
+    #     }
+    # }
+    # opportunities_options["series"] = Array.new
+    # if !opportunity_roles.empty?
+    #   opportunity_roles.each do |opr|
+    #     @opportunities_series["data"].push({name: "#{opr.name}", y: opr.total_recorded_hours})
+    #   end
+    # end
+    # opportunities_options["series"].push(@opportunities_series)
+    # opportunities_pie = "#{name}_opportunity_hours.png"
+    # open(opportunities_pie, 'wb') do |file|
+    #   file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunities_options))}").read
+    # end
 
+    pdf = PersonReportPdf.new(self, start_date, end_date)
     pdf.render_file "hello.pdf"
-
     @resource.resource = File.open("hello.pdf")
     @resource.resourceable = self
     @resource.save

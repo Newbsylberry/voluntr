@@ -8,7 +8,7 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('OrganizationDetailCtrl', function ($scope, url, Organization, $timeout,$filter) {
+  .controller('OrganizationDetailCtrl', function ($scope, url, Organization, $timeout,$filter,$modal,$stateParams) {
 
 
     var addDailyStatisticsToGraph = function(day){
@@ -20,8 +20,18 @@ angular.module('voluntrApp')
       ([Date.parse(day.date), Number(day.total_added_volunteers)])
     };
 
+    Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse){
+      if (successResponse.users.length > 0) {
+        $scope.contact_by_email = true;
+      } else if (successResponse.users.length === 0) {
+        $scope.contact_by_email = false;
+      }
+      console.log($scope.contact_by_email)
+    })
+
     Organization.get_by_url({organization_custom_Url: url}, function(successResponse) {
       $scope.organization = successResponse;
+      console.log($scope.organization)
       Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function (data) {
         $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
         angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
@@ -36,6 +46,27 @@ angular.module('voluntrApp')
         }
       })
     });
+
+    $scope.contactOrganization = function(){
+      var contactOrganizationModal = $modal.open(
+        {
+          templateUrl: 'organizations/modals/contact_organization.html',
+          controller: 'ContactOrganizationModal',
+          windowClass: 'contact-organization-modal',
+          size: 'md',
+          resolve: {
+            organization: function () {
+              return $scope.organization;
+            }
+          }
+        });
+        contactOrganizationModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    }
 
 
     $scope.opportunityGraphConfig = {

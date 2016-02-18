@@ -24,7 +24,17 @@ class ReportsController < ApplicationController
     @person = Person.find(params[:id])
     @organization = Organization.find(params[:organization_id])
 
-    render json: @person.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]), @organization)
+    render json: @person.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]))
+  end
+
+  def export_person_report
+    ap params
+    @person = Person.find_by_email(params[:email])
+
+    PersonMailer.send_report(
+        params[:email],
+        @person.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]))
+    ).deliver_now
   end
 
   def organization

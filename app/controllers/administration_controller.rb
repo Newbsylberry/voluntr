@@ -14,4 +14,6 @@ class AdministrationController < ApplicationController
                                         params[:data][:current_state]).deliver
   end
 
+
+
 end

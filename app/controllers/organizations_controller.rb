@@ -168,7 +168,6 @@ class OrganizationsController < ApplicationController
 
       render json: @organization.daily_statistics, each_serializer: DailyStatisticSerializer
     end
-
   end
 
   def summary_statistics
@@ -208,6 +207,13 @@ class OrganizationsController < ApplicationController
     results = Elasticsearch::Model.search(
         "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [Opportunity, OrganizationPerson])
     render json: results
+  end
+
+  def contact_organization
+    OrganizationMailer.contact_organization_email(
+        Organization.find(params[:contacting_organization_id]),
+        @current_organization,
+        params[:message]).deliver
   end
 
   def search_people

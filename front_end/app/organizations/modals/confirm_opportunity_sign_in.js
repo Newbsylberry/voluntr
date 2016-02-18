@@ -10,13 +10,10 @@ angular.module('voluntrApp')
                                                              RecordedHours, $timeout,
                                                              Idle, Keepalive, Group) {
 
-    $scope.groups = Group.all()
-
+    $scope.organization = {};
     $scope.opportunity = opportunity;
     $scope.photo_consent = true;
     $scope.contact_me = true;
-
-    $scope.hours = 3;
 
     $scope.timeDuration = function () {
       var attr = {};
@@ -29,7 +26,9 @@ angular.module('voluntrApp')
       }
       attr.person_id = person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
-      attr.organization_id = opportunity.organization_id;
+      if ($scope.organization.id) {
+        attr.organization_id = $scope.organization.id;
+      }
       attr.photo_consent = $scope.photo_consent;
       attr.contact_me = $scope.photo_consent;
       attr.sign_in  = true;

@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       match '/organizations/:id/contact_volunteers', to: 'organizations#contact_volunteers', via: :get, defaults: {format: :json}
       match '/organizations/:id/public_opportunities', to: 'organizations#public_opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/associated_organizations', to: 'organizations#associated_organizations', via: :get, defaults: {format: :json}
+      match '/organizations/:id/contact_organization', to: 'organizations#contact_organization', via: :post, defaults: {format: :json}
 
       #search
       match '/search/organizations_search/', to: 'search#search_organizations', via: :get, defaults: {format: :json}
@@ -93,7 +94,7 @@ Rails.application.routes.draw do
       match '/reports/opportunity/:id', to: 'reports#opportunity', via: :get, defaults: {format: :json}
       match '/reports/person/:id', to: 'reports#person', via: :get, defaults: {format: :json}
       match '/reports/organization/:id', to: 'reports#organization', via: :get, defaults: {format: :json}
-
+      match '/reports/public/person', to: 'reports#export_person_report', via: :get, defaults: {format: :json}
       #schedule
       match '/schedules/format/schedule_string', to: 'schedules#schedule_string', via: :get, defaults: {format: :json}
 

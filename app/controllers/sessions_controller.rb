@@ -15,9 +15,10 @@ class SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    ap params
     if User.exists?(email: params[:user][:email]) &&
-        User.find_by_email(params[:user][:email]).valid_password?(params[:user][:password])
+        User.find_by_email(params[:user][:email]).valid_password?(params[:user][:password]) &&
+        User.find_by_email(params[:user][:email]).confirmed?
+      ap "We good"
       self.resource = warden.authenticate!(auth_options)
       sign_in(resource_name, resource)
       yield resource if block_given?
@@ -26,6 +27,12 @@ class SessionsController < Devise::SessionsController
       render json: { token: token, organization_id:  organization_id }
     elsif !User.exists?(email: params[:user][:email])
       render json: { error: "That email address does not exist, perhaps you haven't registered yet!"  }
+    elsif User.exists?(email: params[:user][:email]) && !User.find_by_email(params[:user][:email]).confirmed?
+      User.find_by_email(params[:user][:email]).send_confirmation_instructions
+      render json:
+                 { error:
+                         "That email address has not been confirmed, we've resent the confirmation email so you can do that!"
+                 }
     else
       render json: { error: "That password is incorrect, try again!"  }
     end

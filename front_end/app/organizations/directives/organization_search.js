@@ -4,25 +4,29 @@ angular.module('voluntrApp').directive("organizationSearch", function () {
     templateUrl: 'organizations/directives/organization_search.html',
     scope: {
       organization: "=",
-      selectedOrganizations: "="
+      selectedOrganizations: "=",
+      type: "@"
     },
     restrict: 'E',
     controller: function ($scope, $http) {
       var resultsFormat = function(raw_result) {
         var base_result = raw_result._source
         var result = {}
-        console.log(raw_result)
           result.id = base_result.id;
           result.name = base_result.name;
           result.city = base_result.city;
           result.state = base_result.state;
         $scope.organizations.push(result)
-        console.log($scope.organizations)
       };
 
       $scope.addOrganization = function(organization){
-        $scope.selectedOrganizations.push(organization)
-        $scope.search_query = '';
+        if ($scope.type === 'multiple') {
+          $scope.selectedOrganizations.push(organization)
+          $scope.search_query = '';
+        } if ($scope.type === 'single'){
+          $scope.organization = organization;
+          $scope.search_query = '';
+        }
       };
 
       $scope.$watch('search_query', function () {
