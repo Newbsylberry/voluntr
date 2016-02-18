@@ -120,7 +120,7 @@ class Opportunity < ActiveRecord::Base
 
   # This method combines all address information into one readable full address
   def full_street_address
-    return "#{address_1} #{address_2} #{city} #{state} #{zip_code}"
+    return "#{address} #{city} #{state} #{zip_code}"
   end
 
   # This is the start_time for the opportunity, required by full calendar.js
