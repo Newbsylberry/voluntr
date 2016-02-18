@@ -7,7 +7,7 @@ class PersonReportPdf < Prawn::Document
     @summary_graph = Hash.new
     @summary_graph["Recorded Hours"] = Hash.new
     person.recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
-      @summary_graph["Recorded Hours"][rh.created_at] = rh.hours
+      @summary_graph["Recorded Hours"][rh.created_at] = rh.hours.to_f
     end
     @total_hours = person.recorded_hours.where(date_recorded: start_date..end_date).sum(:hours)
     @opportunities = Array.new
