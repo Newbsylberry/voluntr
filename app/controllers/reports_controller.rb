@@ -39,8 +39,9 @@ class ReportsController < ApplicationController
 
   def organization
     @organization = Organization.find(params[:organization_id])
-
-    render json: @organization.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]))
+    url = @organization.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date])).resource.url
+    ap url
+    render json: {url: url}
   end
 
 end
