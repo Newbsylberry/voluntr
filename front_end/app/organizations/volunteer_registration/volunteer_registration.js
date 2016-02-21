@@ -15,10 +15,7 @@ angular.module('voluntrApp')
         });
 
         $scope.submittable = false;
-        if (!$state.params.token) {
-          $scope.person = {};
-        } else if ($state.params.token) {
-          console.log($state.params.token + atob($state.params.token))
+        if ($state.params.token) {
           People.get({person_Id: atob($state.params.token)}, function(successResponse) {
             $scope.person = successResponse;
             console.log(successResponse)
@@ -30,23 +27,14 @@ angular.module('voluntrApp')
               })
           })
         }
-      })
-
-    $scope.$watchGroup(['person.first_name',
-      'person.last_name',
-      'person.email'], function () {
-      if ($scope.person.first_name && $scope.person.last_name &&  $scope.person.email) {
-        $scope.submittable = true;
-      } else if (!$scope.person.first_name || !$scope.person.last_name || !$scope.person.email) {
-        $scope.submittable = false;
-      }
-    });
+      });
 
     $scope.createPerson = function(person) {
       var attr = {};
       attr.email = person.email;
       attr.first_name = person.first_name;
       attr.last_name = person.last_name;
+      attr.phone = person.phone;
       attr.organization_id = $scope.organization.id;
       if (!$state.params.token) {
         People.create(attr).$promise.then(function(person){

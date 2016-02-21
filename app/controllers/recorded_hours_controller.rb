@@ -26,13 +26,13 @@ class RecordedHoursController < ApplicationController
     @daily_statistic = DailyStatistic.create_with(locked: false)
                            .find_or_initialize_by(date: Time.now.beginning_of_day,
                                                   organization_id: @recorded_hour.organization_id)
-    if !@daily_statistic.persisted?
+    if !@daily_statistic.persisted? && !@daily_statistic.total_recorded_hours.nil?
       @daily_statistic.total_recorded_hours = @recorded_hour.hours
     else
       @daily_statistic.total_recorded_hours += @recorded_hour.hours
     end
-    ap @daily_statistic
     @daily_statistic.save
+
     @recorded_hour.send_sign_in_email
 
     render @recorded_hour, serializer: RecordedHourSerializer

@@ -24,7 +24,6 @@ class OpportunitiesController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    ap params
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.color = ['#F44336', '#E91E63', '#9C27B0', '#2196F3', '#4CAF50', '#CDDC39'].sample
     if params[:calendar]
@@ -32,8 +31,10 @@ class OpportunitiesController < ApplicationController
     end
     @opportunity.save
     @opportunity.add_organization({id: Organization.find(params[:organization_id]).id, administrator: true})
-    params[:organizations].each do |o|
-      @opportunity.add_organization(o)
+    if !params[:organizations].nil? && !params[:organization].empty?
+      params[:organizations].each do |o|
+        @opportunity.add_organization(o)
+      end
     end
 
 
@@ -134,6 +135,11 @@ class OpportunitiesController < ApplicationController
 
     render json: @opportunity.opportunity_roles, each_serializer: OpportunityRoleSerializer
   end
+
+  def opportunity_registration
+
+  end
+
 
 
   protected

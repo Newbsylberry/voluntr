@@ -25,7 +25,6 @@ class Organization < ActiveRecord::Base
     if organization.new_record?
       OrganizationEmailType.all.each do |oet|
         template = oet.organization_email_templates.new
-
         template.organization_id = organization.id
         template.save
       end
@@ -39,10 +38,14 @@ class Organization < ActiveRecord::Base
   def opportunities
     opportunities = [];
     OrganizationOpportunity.where(organization_id: id).each do |oo|
-      opportunities.push(Opportunity.find(oo.opportunity_id))
+      if !opportunities.include?(oo)
+        opportunities.push(Opportunity.find(oo.opportunity_id))
+      end
     end
     Opportunity.where(organization_id: id).each do |o|
-      opportunities.push(o)
+      if !opportunities.include?(o)
+        opportunities.push(o)
+      end
     end
     return opportunities
   end
@@ -60,9 +63,12 @@ class Organization < ActiveRecord::Base
 
   def associated_organizations
     organizations = [];
-    opportunities.each do |oo|
-      OrganizationOpportunity.where(opportunity_id: oo.id)
-      organizations.push(Organization.find(oo.organization_id))
+    opportunities.each do |o|
+      OrganizationOpportunity.where(opportunity_id: o.id).each do |org_opp|
+        if org_opp.organization != self && !organizations.include?(org_opp.organization)
+          organizations.push(org_opp.organization)
+        end
+      end
     end
     return organizations
   end

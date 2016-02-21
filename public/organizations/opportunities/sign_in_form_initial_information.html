@@ -1,0 +1,43 @@
+<h1>Sign In to {{opportunity.name}}</h1>
+<md-input-container>
+  <label>First Name:</label>
+  <input type="text" ng-model="opportunitySignIn.first_name" autofocus>
+</md-input-container>
+<md-input-container>
+  <label>Last Name:</label>
+  <input type="text" ng-model="opportunitySignIn.last_name">
+</md-input-container>
+<md-input-container ng-hide="no_email || opportunitySignIn.no_email_or_phone">
+  <label>Email Address:</label>
+  <input type="text" ng-model="opportunitySignIn.email">
+</md-input-container>
+<md-input-container ng-show="no_email && !no_email_or_phone">
+  <label>Phone Number</label>
+  <input type="text" ng-model="opportunitySignIn.phone">
+</md-input-container>
+<md-checkbox ng-model="no_email" ng-hide="opportunitySignIn.no_email_or_phone" aria-label="No Email Address?">
+  No Email Address?
+</md-checkbox>
+<md-checkbox ng-model="opportunitySignIn.no_email_or_phone" aria-label="No Email Address or Phone Number?">
+  No Email Address or Phone Number?
+</md-checkbox>
+<md-button class="bbutton"
+           ng-click="signInForOpportunity()"
+           ng-disabled="!terms_of_service || !form_complete">Sign In To This Event
+</md-button>
+<div class="terms">
+  <md-checkbox
+    class="tos_check"
+    ng-model="terms_of_service"
+    aria-label="No Email Address?">
+    I agree to {{opportunity.organization.name}}'s
+  </md-checkbox>
+  <a href=""
+     ng-show="opportunity.organization.terms_of_service_file.url"
+     terms-of-service
+     organization_id="{{opportunity.organization.id}}">
+    Terms of Service
+  </a>
+  <p ng-show="!opportunity.organization.terms_of_service_file.url">
+    Terms of Service
+  </p>

@@ -9,19 +9,17 @@
 </md-input-container>
 <md-input-container>
   <label>Email Address:</label>
-  <input type="text" ng-model="person.email">
+  <input type="email" ng-model="person.email">
+</md-input-container>
+<md-input-container>
+  <label>Phone Number:</label>
+  <input type="text" ng-model="person.phone">
 </md-input-container>
 <br/>
-<md-button ng-hide="submittable"
-           class="md-raised md-primary formbutton"
-           aria-label="Use Android"
-           ng-disabled="true">
-  Please Fill Everything Out!
-</md-button>
 
-<md-button ng-show="submittable"
-           class="md-raised md-primary formbutton"
+<md-button class="md-raised md-primary formbutton"
            aria-label="Use Android"
+           ng-disabled="!person.first_name || !person.last_name || (!person.email && !person.phone)"
            ng-click="createPerson(person)">
   Next Step: Address
 </md-button>

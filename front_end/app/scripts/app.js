@@ -358,8 +358,19 @@ angular
 
       .state('sign_in_form', { //default page loaded for landing state
         url: '/:opportunity_Id/sign_in',
+        abstract: true,
         templateUrl: 'organizations/opportunities/sign_in_form.html', // url for partial
         controller: 'OpportunitySignInCtrl'
+      })
+
+      .state('sign_in_form.initial_information', { //default page loaded for landing state
+        url: '',
+        templateUrl: 'organizations/opportunities/sign_in_form_initial_information.html' // url for partial
+      })
+
+      .state('sign_in_form.confirmation_information', { //default page loaded for landing state
+        url: '',
+        templateUrl: 'organizations/opportunities/sign_in_form_confirmation_information.html' // url for partia
       })
 
       .state('profile', {

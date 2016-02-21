@@ -17,6 +17,8 @@ angular.module('voluntrApp')
     $scope.organizations = [];
     $scope.calendar = {};
     $scope.calendar.repeat = {};
+    $scope.calendar.raw_start = new Date();
+    $scope.files = [];
 
     $scope.$watch('calendar.duration', function () {
       if ($scope.calendar.duration < 3600000){

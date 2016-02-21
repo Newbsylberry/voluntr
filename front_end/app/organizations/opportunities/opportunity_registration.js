@@ -14,6 +14,7 @@ angular.module('voluntrApp')
 
 
 
+
     var createEligibleInstances = function (instance){
       if ($scope.opportunity.volunteer_goal == null) {
         $scope.opportunity.volunteer_goal = 5
@@ -48,25 +49,20 @@ angular.module('voluntrApp')
 
 
     $scope.registerForOpportunity = function() {
-      if ($scope.opportunityRegister.first_name &&
-        $scope.opportunityRegister.last_name &&
-        $scope.opportunityRegister.email ) {
         var attr = {};
         attr.opportunity_id = $stateParams.opportunity_Id;
         attr.first_name = $scope.opportunityRegister.first_name;
         attr.last_name = $scope.opportunityRegister.last_name;
         attr.email = $scope.opportunityRegister.email;
+        console.log($scope.opportunityRegister.dates)
         if ($scope.opportunityRegister.dates) {
-        attr.instances = $scope.opportunityRegister.dates;
+          attr.instances = $scope.opportunityRegister.dates;
         }
         attr.organization_id = $scope.opportunity.organization_id;
         PersonOpportunity.create(attr).$promise.then(function(response){
           $state.go('organization_volunteer_registration.2', {token:btoa(response.id),
             organization_custom_Url:$scope.custom_url})
         });
-      } else {
-        alert("Please Enter All Information")
-      }
     };
 
 
