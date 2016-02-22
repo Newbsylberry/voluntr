@@ -37,6 +37,16 @@ Rails.application.configure do
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
 
+  config.middleware.insert_before 0, "Rack::Cors" do
+    allow do
+      # In development, we don't care about the origin.
+      origins '*'
+      # Reminder: On the following line, the 'methods' refer to the 'Access-
+      # Control-Request-Method', not the normal Request Method.
+      resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put, :patch], credentials: true
+    end
+  end
+
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
