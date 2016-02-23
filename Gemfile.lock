@@ -309,6 +309,7 @@ GEM
       slop (~> 3.4)
     puma (2.15.3)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -467,6 +468,7 @@ DEPENDENCIES
   prawn (~> 2.0)
   prawn-table (~> 0.2.2)
   puma
+  rack-cors
   rails (= 4.2.0)
   rails-api
   rails_12factor
@@ -479,3 +481,6 @@ DEPENDENCIES
   spring
   squid (~> 1.2)
   whenever
+
+BUNDLED WITH
+   1.11.2

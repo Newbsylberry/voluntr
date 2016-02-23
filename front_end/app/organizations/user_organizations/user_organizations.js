@@ -88,6 +88,10 @@ angular.module('voluntrApp')
         Facebook.api('/me/accounts', function (response) {
           angular.forEach(response.data, listOrganization)
         });
+        //Facebook.api('/me', function (response) {
+        //  $scope.user = response;
+        //  console.log($scope.user)
+        //});
       }
     });
 
@@ -103,6 +107,9 @@ angular.module('voluntrApp')
             organization: function () {
               return organization
             }
+            //user: function(){
+            //  return $scope.user;
+            //}
           }
         });
       facebookModal.result.then(function () {

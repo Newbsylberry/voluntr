@@ -16,6 +16,7 @@ gem 'fog'
 gem 'fog-aws'
 gem 'fuzzy_match'
 gem 'kaminari'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 

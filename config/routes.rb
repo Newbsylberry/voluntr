@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
 
-      match '/people', to: 'people#create', via: [ :post, :options], defaults: {format: :json}
-      match '/recorded_hours', to: 'recorded_hours#create', via: [ :post, :options], defaults: {format: :json}
-      match '/person_opportunities', to: 'person_opportunities#create', via: [ :post, :options], defaults: {format: :json}
+      # match '/people', to: 'people#create', via: [ :post, :options], defaults: {format: :json}
+      # match '/recorded_hours', to: 'recorded_hours#create', via: [ :post, :options], defaults: {format: :json}
+      # match '/person_opportunities', to: 'person_opportunities#create', via: [ :post, :options], defaults: {format: :json}
 
 
 

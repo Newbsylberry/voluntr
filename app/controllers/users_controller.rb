@@ -11,6 +11,15 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  # def add_fb_user
+  #   @user = User.new
+  #   @user.email = params[:email]
+  #   @user.save
+  #   @profile = Profile.new
+  #   @profile.first_name = params[:first_name]
+  #   @profile.last_name = params[:last_name]
+  # end
+
   def update_password
     @user = User.find(@current_user.id)
 
