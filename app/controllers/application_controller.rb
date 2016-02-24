@@ -2,32 +2,8 @@ class ApplicationController < ActionController::API
   include ActionController::RespondWith
   include ActionController::ParamsWrapper
   wrap_parameters format: :json
-  # before_filter :cors_preflight_check
-  # after_filter :cors_set_access_control_headers
 
 
-  # def cors_set_access_control_headers
-  #   ap headers
-  #   ap request
-  #   headers['Access-Control-Allow-Origin'] = '*'
-  #   headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-  #   headers['Access-Control-Max-Age'] = "1728000"
-  # end
-
-# If this is a preflight OPTIONS request, then short-circuit the
-# request, return only the necessary headers and return an empty
-# text/plain.
-
-  # def cors_preflight_check
-  #   ap request
-  #   ap headers
-  #   if request.method == :options
-  #     headers['Access-Control-Allow-Origin'] = '*'
-  #     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-  #     headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version'
-  #     headers['Access-Control-Max-Age'] = '1728000'
-  #   end
-  # end
   
 
   def default_serializer_options
@@ -52,10 +28,8 @@ class ApplicationController < ActionController::API
 
   def authenticate_user
     begin
-      ap request.headers['Authorization']
       token = request.headers['Authorization'].split(' ').last # token is taken from request headers
       payload, header = AuthToken.valid?(token) #checks to see if token is valid
-      ap payload['user_id']
       if payload['user_id']
         @current_user = User.find(payload['user_id'])
       end

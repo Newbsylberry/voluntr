@@ -65,7 +65,7 @@ gem 'whenever'
 gem 'mail', github: 'robin850/mail', branch: 'composition-parts-list'
 
 
-gem "koala", "~> 1.11.0rc"
+gem "koala", "2.2.0"
 
 # Use active model serializers to serve JSON
 gem "active_model_serializers", github: "rails-api/active_model_serializers", branch: "0-8-stable"

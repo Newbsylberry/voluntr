@@ -17,7 +17,7 @@ angular.module('voluntrApp')
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;
           $state.go('organizations.user_organizations');
-      }, {scope: 'user_groups,read_insights,manage_pages'})
+      }, {scope: 'user_groups,read_insights,manage_pages,email'})
     };
 
     $scope.progress = 33;

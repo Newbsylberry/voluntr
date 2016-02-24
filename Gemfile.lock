@@ -257,7 +257,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    koala (1.11.1)
+    koala (2.2.0)
       addressable
       faraday
       multi_json
@@ -458,7 +458,7 @@ DEPENDENCIES
   ice_cube
   jwt
   kaminari
-  koala (~> 1.11.0rc)
+  koala (= 2.2.0)
   letter_opener
   mail!
   net-ssh (= 2.9.2)

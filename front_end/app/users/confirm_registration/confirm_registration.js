@@ -14,7 +14,7 @@ angular.module('voluntrApp')
     }).then(function successCallback(response) {
       $scope.user = response.data;
       console.log(response.data);
-      if (response.data.password_entered && $scope.user.profile.first_name && $scope.user.profile.last_name) {
+      if (response.data.facebook_user || response.data.password_entered && $scope.user.profile.first_name && $scope.user.profile.last_name) {
         $scope.all_information_completed = true;
         $timeout(function(){$state.go('organizations.registration')},2500)
       }
@@ -24,6 +24,7 @@ angular.module('voluntrApp')
 
     $scope.userPass = {};
     $scope.profile = {};
+
     $scope.updateNewUserWithPasswordAndProfile = function () {
       var attr = {};
       attr.user = {};

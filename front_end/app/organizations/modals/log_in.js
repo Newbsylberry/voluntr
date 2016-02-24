@@ -16,7 +16,7 @@ angular.module('voluntrApp')
         $scope.oauth_key = response.authResponse.accessToken;
         $state.go('organizations.user_organizations');
         $modalInstance.close()
-      }, {scope: 'user_groups,read_insights,manage_pages'})
+      }, {scope: 'user_groups,read_insights,manage_pages,email'})
     };
 
     $scope.close = function() {

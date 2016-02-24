@@ -12,7 +12,7 @@ class OrganizationsController < ApplicationController
     if @current_organization.last_social_update.nil? ||
         @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
             !params[:oauth_key].blank?
-      ap "FACEBOOOOK"
+
       OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).enqueue
     end
 
@@ -29,18 +29,39 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
+    # '1558882161041937'
+    # @graph = Koala::Facebook::API.new(params[:oauth_key].to_s)
+    # url = "/oauth/access_token?grant_type=fb_exchange_token&client_id=1558882161041937&client_secret=72851321ddef5f835633c5dbbfe714f3&fb_exchange_token=" + params[:oauth_key].to_s
+    # @graph.api(url)
+    @graph = Koala::Facebook::OAuth.new(1558882161041937, '72851321ddef5f835633c5dbbfe714f3', 'http://localhost:9000')
+    token = @graph.exchange_access_token_info(params[:oauth_key].to_s)
+    @user = User.new
+    @user.oauth_token = token["access_token"];
+    @user.provider = 'facebook';
+    @user.profile = Profile.new
+    @user.email = params[:email]
+    @user.uid = params[:u_fb_id]
+    @user.oauth_token
+
+
+    # @user.oauth_expires_at = Time.now + 60.days
+    @user.save
+    @user.profile.first_name = params[:first_name]
+    @user.profile.last_name = params[:last_name]
+    @user.profile.save
     @organization = Organization.create(organization_params)
+    UserOrganization.create(user_id: @user.id, organization_id: @organization.id)
     @organization.organization_type = OrganizationType.find_by_name(params[:organization_type_name])
     @organization.save
     if @organization.save
-      OrganizationWorker.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
-      token = AuthToken.issue_token({ organization_id: @organization.id })
-    end
+     OrganizationWorker.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
+     token = AuthToken.issue_token({ organization_id: @organization.id })
+   end
 
 
     token = AuthToken.issue_token({ organization_id: @organization.id })
 
-    render json: {organization: @organization, token: token}
+    render json: {hello: "World"}
   end
 
   def nearby_organizations
