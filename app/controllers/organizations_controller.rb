@@ -61,7 +61,7 @@ class OrganizationsController < ApplicationController
 
     token = AuthToken.issue_token({ organization_id: @organization.id })
 
-    render json: {hello: "World"}
+    render json: {organization: @organization, token: token}
   end
 
   def nearby_organizations
