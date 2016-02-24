@@ -5,7 +5,6 @@ class Opportunity < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   has_many :organization_opportunities
-  has_many :organizations, through: :organization_opportunities
   has_many :resources, as: :resourceable, dependent: :destroy
   has_many :opportunities
   has_many :person_opportunities, dependent: :destroy
@@ -30,6 +29,14 @@ class Opportunity < ActiveRecord::Base
         return r.to_s
       end
     end
+  end
+
+  def organizations
+    organizations = []
+    organization_opportunities.each do |oo|
+      organizations << Organization.find(oo.organization_id)
+    end
+    return organizations
   end
 
   def add_organization(organization)

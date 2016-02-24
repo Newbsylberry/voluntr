@@ -33,7 +33,8 @@ class OrganizationsController < ApplicationController
     # @graph = Koala::Facebook::API.new(params[:oauth_key].to_s)
     # url = "/oauth/access_token?grant_type=fb_exchange_token&client_id=1558882161041937&client_secret=72851321ddef5f835633c5dbbfe714f3&fb_exchange_token=" + params[:oauth_key].to_s
     # @graph.api(url)
-    @graph = Koala::Facebook::OAuth.new(1478625579067596, 'e4916f3f086885ddb5b06a97d290a662', 'http://localhost:9000')
+
+    @graph = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'], ENV['FB_SECRET_KEY'], ENV['FB_CALLBACK_URL'])
     token = @graph.exchange_access_token_info(params[:oauth_key].to_s)
     @user = User.new
     @user.oauth_token = token["access_token"];

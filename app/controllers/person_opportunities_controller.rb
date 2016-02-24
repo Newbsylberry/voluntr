@@ -17,6 +17,8 @@ class PersonOpportunitiesController < ApplicationController
                                                      opportunity_id: params[:opportunity_id])
 
     @person_opportunity.opportunity_role_id = params[:opportunity_role_id]
+    ap Organization.find(@person_opportunity.opportunity.organization.id)
+
 
     if params[:instances]
       params[:instances].each do |instance|
@@ -28,9 +30,11 @@ class PersonOpportunitiesController < ApplicationController
     @person_opportunity.save
 
 
-    @person.add_to_organization(
-        Organization.find(params[:organization_id]), params[:notes]
-    )
+    # @person_opportunity.opportunity.organizations.each do |o|
+      @person.add_to_organization(
+          Organization.find(@person_opportunity.opportunity.organization_id), params[:notes]
+      )
+    # end
 
 
 
