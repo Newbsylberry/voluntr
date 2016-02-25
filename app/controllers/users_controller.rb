@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @user.profile.first_name = params[:first_name]
       @user.profile.last_name = params[:last_name]
       @user.profile.save
-    elsif @user.persisted? && @user.uid.blank? || @user.uid.nil?
+    elsif @user.persisted? && User.exists?(email: params[:email])
       @user.provider = 'facebook'
     end
     token = @graph.exchange_access_token_info(params[:token].to_s)
