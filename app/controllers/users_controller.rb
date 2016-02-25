@@ -22,8 +22,10 @@ class UsersController < ApplicationController
       @user.profile.first_name = params[:first_name]
       @user.profile.last_name = params[:last_name]
       @user.profile.save
-    elsif @user.persisted? && User.exists?(email: params[:email])
+    elsif User.exists?(email: params[:email])
+      @user = User.find_by_email(params[:email])
       @user.provider = 'facebook'
+      @user.uid = params[:fb_id]
     end
     token = @graph.exchange_access_token_info(params[:token].to_s)
     @user.oauth_token = token["access_token"];
