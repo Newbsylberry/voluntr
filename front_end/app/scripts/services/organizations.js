@@ -102,8 +102,8 @@ angular.module('voluntrApp')
       return this.service.get_by_url(id, successCallback, errorCallback);
     };
 
-    Organization.prototype.authorization = function(oauth, organization_id) {
-      return this.service.authorization({organization_Id: organization_id, oauth: oauth})
+    Organization.prototype.authorization = function(id, organization_id) {
+      return this.service.authorization({organization_Id: organization_id, fb_id: id})
     };
 
     Organization.prototype.get_token = function(oId) {

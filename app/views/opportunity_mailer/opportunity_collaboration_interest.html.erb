@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,700,300" rel="stylesheet" type="text/css" />
+
+</head>
+<body style="
+background-color:#35c0ff;
+        font-family: 'Roboto', 'Arial', sans-serif;
+        font-weight:300;
+        margin:0px;
+">
+<div style="display:table;
+        width:100%;
+        height:100%;">
+  <div style="display:table-cell;
+          vertical-align:middle;">
+    <div style="background-color:#fff;
+            border-radius:4px;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
+            width:80%;
+            margin:20px auto;
+            padding:46px 30px 30px 30px;
+            position:relative;">
+
+      <%= image_tag("http://graph.facebook.com/v2.4/#{@person_opportunity.opportunity.organization.fb_id}/picture?type=large",
+                    class: "organization_picture", style: "height: 125px;") %>
+      <p style="color:rgba(0,0,0,0.7)">
+        <%= @organization.name %> has reached out with interest in collaborating on <%= @opportunity.name %>
+      </p>
+      <% if !@message.blank? %>
+      <p>
+        <%= @message %>
+      </p>
+      <% end %>
+
+      <div id="social">
+        <% if @person_opportunity.opportunity.organization.facebook_url %>
+            <%= link_to "Connect On Facebook!", "#{@person_opportunity.opportunity.organization.facebook_url}" %><a href=""></a> |
+        <% end %>
+        <% if @person_opportunity.opportunity.organization.twitter_url %>
+            <%= link_to "Follow Us On Twitter", "#{@person_opportunity.opportunity.organization.twitter_url}" %><a href=""></a> |
+        <% end %>
+        <% if @person_opportunity.opportunity.organization.instagram_url %>
+            <%= link_to "Follow Us On Instagram", "#{@person_opportunity.opportunity.organization.instagram_url}" %><a href=""></a>
+        <% end %>
+      </div>
+      <p style="text-align:right;
+              color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

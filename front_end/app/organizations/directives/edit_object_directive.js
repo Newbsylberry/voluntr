@@ -28,7 +28,6 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
         $scope.editing = false;
         $scope.text = $scope.text;
 
-
         if ($scope.modelType === 'opportunity') {
           var attr = {};
           attr.id = $scope.modelId;

@@ -29,35 +29,40 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
-    # '1558882161041937'
-    # @graph = Koala::Facebook::API.new(params[:oauth_key].to_s)
-    # url = "/oauth/access_token?grant_type=fb_exchange_token&client_id=1558882161041937&client_secret=72851321ddef5f835633c5dbbfe714f3&fb_exchange_token=" + params[:oauth_key].to_s
-    # @graph.api(url)
-
     @graph = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'], ENV['FB_SECRET_KEY'], ENV['FB_CALLBACK_URL'])
     token = @graph.exchange_access_token_info(params[:oauth_key].to_s)
-    @user = User.new
-    @user.oauth_token = token["access_token"];
-    @user.provider = 'facebook';
-    @user.profile = Profile.new
-    @user.email = params[:email]
-    @user.uid = params[:u_fb_id]
-    @user.oauth_token
-
-
-    # @user.oauth_expires_at = Time.now + 60.days
-    @user.save
-    @user.profile.first_name = params[:first_name]
-    @user.profile.last_name = params[:last_name]
-    @user.profile.save
+    @user.find_by_oauth_token(params[:oauth_key].to_s)
+    # @user = User.create_with(locked: false)
+    #             .find_or_initialize_by(email: params[:email])
+    # if !@user.persisted? && !User.exists?(email: params[:email])
+    #   @user.oauth_token = token["access_token"];
+    #   @user.provider = 'facebook';
+    #   @user.profile = Profile.new
+    #   @user.profile.first_name = params[:first_name]
+    #   @user.profile.last_name = params[:last_name]
+    #   @user.profile.save
+    #   @user.email = params[:email]
+    #   @user.uid = params[:u_fb_id]
+    # elsif @user.persisted? && @user.uid.blank? || @user.uid.nil?
+    #   @user.provider = 'facebook'
+    #   @user.uid = params[:u_fb_id]
+    #   @user.oauth_token = token["access_token"];
+    # end
+    #
+    #
+    # # @user.oauth_expires_at = Time.now + 60.days
+    # @user.save
+    # @user.profile.first_name = params[:first_name]
+    # @user.profile.last_name = params[:last_name]
+    # @user.profile.save
     @organization = Organization.create(organization_params)
     UserOrganization.create(user_id: @user.id, organization_id: @organization.id)
     @organization.organization_type = OrganizationType.find_by_name(params[:organization_type_name])
     @organization.save
     if @organization.save
-     OrganizationWorker.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
-     token = AuthToken.issue_token({ organization_id: @organization.id })
-   end
+      OrganizationWorker.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
+      token = AuthToken.issue_token({ organization_id: @organization.id })
+    end
 
 
     token = AuthToken.issue_token({ organization_id: @organization.id })
@@ -136,10 +141,14 @@ class OrganizationsController < ApplicationController
 
   def log_in
     @organization = Organization.find(params[:id])
-    @user = Koala::Facebook::API.new(params[:oauth].to_s)
-    @user_accounts = @user.get_connections("me", "accounts").count
-    @user.get_connections("me", "accounts").each do |a|
+    @user = User.find_by_uid(params[:fb_id])
+    @api = Koala::Facebook::API.new(@user.oauth_token)
+    @user_accounts = @api.get_connections("me", "accounts").count
+    @api.get_connections("me", "accounts").each do |a|
       if a["id"].to_i == @organization.fb_id.to_i
+        if !@organization.users.include?(@user)
+          UserOrganization.create!(user_id: @user.id, organization_id: @organization.id)
+        end
         token = AuthToken.issue_token({ organization_id: @organization.id })
         render json: {organization: @organization,
                       token: token}

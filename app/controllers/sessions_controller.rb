@@ -18,7 +18,6 @@ class SessionsController < Devise::SessionsController
     if User.exists?(email: params[:user][:email]) &&
         User.find_by_email(params[:user][:email]).valid_password?(params[:user][:password]) &&
         User.find_by_email(params[:user][:email]).confirmed?
-      ap "We good"
       self.resource = warden.authenticate!(auth_options)
       sign_in(resource_name, resource)
       yield resource if block_given?

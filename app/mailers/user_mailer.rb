@@ -6,4 +6,5 @@ class UserMailer < ActionMailer::Base
     @email = email
     mail(to: 'arichichi@chronicleme.com', cc: 'cmccarthy@chronicleme.com', subject: "Volu Contact Email")
   end
+
 end

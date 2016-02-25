@@ -49,8 +49,8 @@ class OrganizationMailingServicesController < ApplicationController
 
   def mailchimp_check
     @organization = Organization.find(params[:id])
-
     if @organization.organization_mailing_services.first
+      ap "Call"
       render json: Mailchimp.api(@organization.organization_mailing_services.first.token).get('')
     else
       return :status => 404

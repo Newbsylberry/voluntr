@@ -1,0 +1,19 @@
+.get-involved-opportunity {
+  .modal-dialog {
+    /* top: 20vh; */
+    /* width: 60vw; */
+  }
+  .modal-content {
+    height: auto;
+    clear: both;
+    padding: 16px 22px;
+    padding-bottom: 58px;
+    text-align: center;
+    button {
+      float: right;
+    }
+    md-input-container {
+      text-align: left;
+    }
+  }
+}

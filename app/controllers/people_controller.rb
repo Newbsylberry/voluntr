@@ -26,6 +26,7 @@ class PeopleController < ApplicationController
       @person = Person.new
     end
 
+
     if @person.new_record?
       @person.assign_attributes(person_params)
     elsif !@person.new_record?

@@ -11,13 +11,37 @@ angular.module('voluntrApp')
   .controller('EmailLogInCtrl', function ($scope, $modalInstance, $http, Auth, $state,
                                           $localStorage, Facebook) {
 
+
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;
+      }, {scope: 'user_groups,read_insights,manage_pages,email'})
+      Facebook.api('/me', function(response) {
+        $scope.user = response;
+        var attr = {};
+        attr.fb_id = $scope.user.id;
+        attr.token = $scope.oauth_key;
+        attr.first_name = $scope.user.first_name;
+        attr.last_name = $scope.user.last_name;
+        attr.email = $scope.user.email;
+        $http({
+          url: '/api/v1/users/login/facebook_login',
+          method: 'GET',
+          params: attr
+        })
         $state.go('organizations.user_organizations');
         $modalInstance.close()
-      }, {scope: 'user_groups,read_insights,manage_pages,email'})
+      });
     };
+
+
+    //$scope.facebook_log_in = function () {
+    //  Facebook.login(function(response) {
+    //    $scope.oauth_key = response.authResponse.accessToken;
+    //    $state.go('organizations.user_organizations');
+    //    $modalInstance.close()
+    //  }, {scope: 'user_groups,read_insights,manage_pages,email'})
+    //};
 
     $scope.close = function() {
       $modalInstance.close()
