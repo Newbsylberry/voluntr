@@ -31,7 +31,7 @@ class OpportunitiesController < ApplicationController
     end
     @opportunity.save
     @opportunity.add_organization({id: Organization.find(params[:organization_id]).id, administrator: true})
-    if !params[:organizations].nil? && !params[:organization].empty?
+    if !params[:organizations].nil? && !params[:organizations].empty?
       params[:organizations].each do |o|
         @opportunity.add_organization(o)
       end
