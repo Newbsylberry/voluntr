@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     token = @graph.exchange_access_token_info(params[:token].to_s)
     @user.oauth_token = token["access_token"];
     @user.save
-
+    ap @user
     render json: @user, serializer: UserSerializer
   end
 
