@@ -19,6 +19,11 @@ class Opportunity < ActiveRecord::Base
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }          # auto-fetch coordinates
 
+  after_initialize do |opportunity|
+    if opportunity.new_record?
+      opportunity.schedules = Array.new;
+    end
+  end
 
 
   # BEGIN SERIALIZEER

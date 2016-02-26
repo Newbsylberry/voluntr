@@ -481,6 +481,3 @@ DEPENDENCIES
   spring
   squid (~> 1.2)
   whenever
-
-BUNDLED WITH
-   1.11.2

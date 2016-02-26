@@ -5,18 +5,12 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
     scope: {
       recurringLabelText: "@",
       startDateText: "@",
-      calendar: "="
+      calendar: "=",
     },
     restrict: 'E',
     controller: function ($scope, $http, Schedule) {
 
       $scope.calendar.repeat.monthly_repeat_type = {};
-
-      if ($scope.calendar.raw_start !== undefined) {
-        $scope.start_time_set = true;
-      } if ($scope.calendar.end_time !== undefined) {
-        $scope.end_time_set = true;
-      }
 
       $scope.$watch('calendar', function(oldValue, newValue) {
         $scope.calendar.start_time = Date.parse($scope.calendar.raw_start);
@@ -63,6 +57,7 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
             $scope.duration_label = 'hours'
           };
           $scope.calendar.end_time = $scope.calendar.raw_start.getTime() + $scope.calendar.duration;
+          console.log($scope.calendar.end_time)
         }
       });
 

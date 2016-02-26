@@ -44,10 +44,13 @@ angular.module('voluntrApp')
 
     // Are editing a calendar?
     if ($scope.type === 'edit-schedule') {
+      if (object.duration) {
+        $scope.calendar.duration = object.duration * 3600000
+      }
       $scope.editing_calendar = true;
+      $scope.calendar.raw_start = new Date(object.start_time)
       $scope.calendar.schedule = object.ical;
       $scope.calendar.id = object.id;
-      $scope.calendar.duration = object.duration;
       if($scope.calendar.schedule) {
         $scope.calendar.repeating_event = true;
         $scope.calendar.repeat = {};

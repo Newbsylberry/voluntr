@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224015304) do
+ActiveRecord::Schema.define(version: 20160226132521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160224015304) do
     t.integer  "volunteer_goal"
     t.text     "schedule"
     t.boolean  "collaborative"
+    t.json     "schedules"
   end
 
   create_table "opportunity_instances", force: :cascade do |t|
