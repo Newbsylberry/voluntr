@@ -15,7 +15,7 @@ angular.module('voluntrApp')
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;
-      }, {scope: 'user_groups,read_insights,manage_pages,email'});
+      }, {scope: 'manage_pages,email'});
     };
 
     $scope.$watch('oauth_key',function(){
@@ -28,7 +28,6 @@ angular.module('voluntrApp')
           attr.first_name = $scope.user.first_name;
           attr.last_name = $scope.user.last_name;
           attr.email = $scope.user.email;
-          console.log(attr)
           $http({
             url: '/api/v1/users/login/facebook_login',
             method: 'GET',
