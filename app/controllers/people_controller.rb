@@ -19,7 +19,6 @@ class PeopleController < ApplicationController
   end
 
   def create
-    ap params
     if params[:email]
       @person = Person.create_with(locked: false)
                     .find_or_initialize_by(email: params[:email])

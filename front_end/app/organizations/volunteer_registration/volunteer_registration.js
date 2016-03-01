@@ -90,7 +90,7 @@ angular.module('voluntrApp')
         OrganizationPerson.update(org_per_attr)
       }
       People.update(attr).$promise.then(function(person){
-        $state.go('volunteer_home')
+        $state.go('organization_volunteer_registration.5', {token:btoa($scope.person.id)})
       });
     }
 
