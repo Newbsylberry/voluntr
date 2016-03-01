@@ -16,15 +16,18 @@ angular.module('voluntrApp')
 
 
 
+
     $scope.fileChanged = function(files) {
-        $scope.isProcessing = true;
-        $scope.sheets = [];
-        $scope.excelFile = files[0];
-        XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function(xlsxData) {
-            $scope.sheets = xlsxData.sheets;
-            console.log($scope.sheets)
-          $scope.isProcessing = false;
-        });
+      $scope.isProcessing = true;
+      var reader = new FileReader(files[0]);
+      var file = files[0]
+      var name = file.name;
+      reader.onload = function(file) {
+        var data = file.result;
+        var workbook = XLSX.read(data, {type: 'binary'});
+        console.log(workbook)
+          /* DO SOMETHING WITH workbook HERE */
+        };
       };
 
     $scope.updateJSONString = function() {

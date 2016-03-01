@@ -106,6 +106,9 @@ Rails.application.routes.draw do
       #schedule
       match '/schedules/format/schedule_string', to: 'schedules#schedule_string', via: :get, defaults: {format: :json}
 
+      #spreadsheets
+      match '/spreadsheet_import/check', to: 'spread_sheet_import#spreadsheet_check', via: :get, defaults: {format: :json}
+
 
     end
   end

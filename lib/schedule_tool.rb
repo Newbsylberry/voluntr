@@ -46,7 +46,7 @@ module SchedulerTool
     elsif params[:repeating_event] === true && params[:repeat][:repeat_type] == 'repeat_annually'
       SchedulerTool.rule_creation(schedule, params[:repeat], 'annually')
     end
-    ap schedule
+
     return schedule.to_yaml
   end
 

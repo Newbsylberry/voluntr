@@ -1,4 +1,5 @@
 class OpportunitiesController < ApplicationController
+  before_action :authenticate
   skip_before_filter :authenticate, only: [:by_user_location]
   skip_before_filter :authenticate_user, only: [:by_user_location]
   include IceCube
@@ -30,7 +31,7 @@ class OpportunitiesController < ApplicationController
       @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
     end
     @opportunity.save
-    @opportunity.add_organization({id: Organization.find(params[:organization_id]).id, administrator: true})
+    @opportunity.add_organization({id: @current_organization.id, administrator: true})
     if !params[:organizations].nil? && !params[:organizations].empty?
       params[:organizations].each do |o|
         @opportunity.add_organization(o)
@@ -125,7 +126,7 @@ class OpportunitiesController < ApplicationController
 
 
   def volunteers
-    @opportunity = Opportunity.find_by_id(params[:id])
+    @opportunity = Opportunity.find_by_id(params[:id]).first
 
     render json: @opportunity.volunteers, each_serializer: PersonSerializer
   end
