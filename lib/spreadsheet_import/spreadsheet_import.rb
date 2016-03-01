@@ -2,7 +2,7 @@ module SpreadsheetImport
   require 'fuzzy_match'
 
   def self.check_spreadsheet(params)
-    database_attributes = ['first_name','last_name','address_1','address_2','email','zip_code','state','city','occupation','phone','organization_name']
+    database_attributes = ['first_name','last_name','address_1','address_2','email','zip_code','state','city','occupation','phone','organization_name','notes']
     ap params
     @matched = Hash.new
     database_attributes.each do |da|

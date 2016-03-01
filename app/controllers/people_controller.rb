@@ -4,6 +4,10 @@ class PeopleController < ApplicationController
 
   def import
     PersonImporter.new(params[:people], params[:organization_id]).enqueue
+
+    params = {success_message: "Your spreadsheet will be imported now!"}
+
+    render json: params
   end
 
   def show
