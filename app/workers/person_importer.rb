@@ -32,11 +32,12 @@ class PersonImporter < ActiveJob::Base
         p["last_name"] = name.last
         p.delete("name")
       end
-      ap p
+
+
       @person = Person.create!(p)
 
       if p["notes"]
-        @person.add_to_organization(Organization.find(organization_id), "#{p.notes}")
+        @person.add_to_organization(Organization.find(organization_id), "#{p["notes"]}")
       else
         @person.add_to_organization(Organization.find(organization_id), "")
       end
