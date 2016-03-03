@@ -95,7 +95,6 @@
 <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
 <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/angular-messages/angular-messages.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 <script src="bower_components/pdfjs-dist/build/pdf.js"></script>
@@ -172,12 +171,12 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.core.min.js"></script>
 
 
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/services/xlsx-reader.js"></script>
 <script src="scripts/services/excel_import.js"></script>
 <script src="scripts/services/organizations.js"></script>
 <script src="scripts/services/opportunities.js"></script>
@@ -217,6 +216,7 @@
 <script src="organizations/user_organizations/user_organizations.js"></script>
 <script src="organizations/organization_main.js"></script>
 <script src="organizations/home/organization_home.js"></script>
+<script src="organizations/people/bulk_import_people.js"></script>
 <script src="organizations/account/organization_account.js"></script>
 <script src="organizations/volunteer_registration/volunteer_registration.js"></script>
 <script src="organizations/modals/generate_report.js"></script>
@@ -259,7 +259,6 @@
 <script src="organizations/modals/add_group.js"></script>
 <script src="organizations/modals/record_hours_modal.js"></script>
 <script src="organizations/modals/add_opportunity.js"></script>
-<script src="organizations/modals/bulk_add_people.js"></script>
 <script src="organizations/modals/opportunity_detail.js"></script>
 <script src="organizations/modals/add_person_opportunity.js"></script>
 <script src="organizations/modals/log_in.js"></script>
@@ -275,6 +274,7 @@
 
 <!-- Directives -->
 <script src="scripts/directives/window-scroll-watch.js"></script>
+<script src="organizations/directives/import_from_spreadsheet.js"></script>
 <script src="organizations/directives/log_in_modal_link.js"></script>
 <script src="organizations/directives/search_input.html"></script>
 <script src="organizations/directives/organization_modal_link.js"></script>

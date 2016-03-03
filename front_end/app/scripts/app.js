@@ -310,6 +310,12 @@ angular
         controller: 'PeopleHomeCtrl'
       })
 
+      .state('organizations.bulk_import_people', { //default page loaded for landing state
+        url: '/:organization_Id/bulk_import',
+        templateUrl: 'organizations/people/bulk_import_people.html', // url for partial
+        controller: 'BulkImportPeopleCtrl'
+      })
+
       .state('organizations.nearby_organizations', { //default page loaded for landing state
         url: '/:organization_Id/nearby_organizations',
         templateUrl: 'organizations/nearby_organizations/nearby_organizations.html', // url for partial

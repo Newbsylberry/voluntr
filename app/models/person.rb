@@ -113,9 +113,9 @@ class Person < ActiveRecord::Base
     # if !organization.organization_mailing_services.empty? && !email.nil?
     #   @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
     # end
-    if !@organization_person.persisted? && !email.nil? && !email.blank?
-      @organization_person.send_registration_confirmation
-    end
+    # if !@organization_person.persisted? && !email.nil? && !email.blank?
+    #  @organization_person.send_registration_confirmation
+    #end
     @daily_statistic = DailyStatistic.create_with(locked: false)
             .find_or_initialize_by(date: Time.now.beginning_of_day,
                                    organization_id: organization.id)

@@ -1,0 +1,75 @@
+<md-card class="content bulk-import-people" >
+  <md-card-content>
+    <div ng-show="!imported">
+    <div id="header">
+      <h2>Import Volunteers From a Spreadsheet</h2>
+    </div>
+    <div layout="row">
+      <div flex="50" class="import-box">
+        <h4><h3>Step 1:</h3>
+          Select the spreadsheet and worksheet containing your volunteers and give us some
+          information about it's formatting.
+        </h4>
+        <input type="file"
+               fileread="data.workbook">
+        <md-input-container id="worksheet-select">
+          <label>Choose Worksheet With Volunteers:</label>
+          <md-select ng-model="data.checkResponse[attr]">
+            <md-option ng-repeat="sheet in data.worksheetNames" value="{{sheet}}">
+              {{sheet}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <md-checkbox ng-model="name_column" aria-label="Checkbox 1">
+            Is the volunteer's name one column?
+          </md-checkbox>
+        </md-input-container>
+        <md-input-container>
+          <md-checkbox ng-model="address_column" aria-label="Checkbox 1">
+            Is the volunteer's address in one column?
+          </md-checkbox>
+        </md-input-container>
+        <md-button class="md-primary md-raised"
+                   ng-disabled="!data.workbook"
+                   ng-click="importWorksheet()">Import</md-button>
+      </div>
+      <div flex="50" class="import-box" ng-show="mapped">
+        <h4><h3>Step 2</h3>Ensure that the fields on the left match your spreadsheet fields:</h4>
+        <md-list>
+          <md-input-container ng-if="name_column">
+            <label>Name</label>
+            <md-select ng-model="data.checkResponse.name">
+                <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
+                  {{title}}
+                </md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container ng-if="address_column">
+              <label>Address</label>
+              <md-select ng-model="data.checkResponse.address">
+                  <md-option ng-repeat="row_title in data.rowTitles" value="{{row_title}}">
+                    {{row_title}}
+                  </md-option>
+              </md-select>
+          </md-input-container>
+          <md-input-container ng-repeat="attr in database_attributes">
+            <div
+              ng-hide="((attr === 'first_name' || attr === 'last_name') && name_column) || ((attr === 'address_1' || attr === 'address_2') && address_column)">
+            <label>{{attr}}</label>
+            <md-select ng-model="data.checkResponse[attr]">
+              <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
+                {{title}}
+              </md-option>
+            </md-select>
+            </div>
+          </md-input-container>
+        </md-list>
+      </div>
+    </div>
+    </div>
+    <div ng-show="imported">
+      <h2>{{success_message}}</h2>
+    </div>
+  </md-card-content>
+</md-card>

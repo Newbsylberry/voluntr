@@ -7,10 +7,6 @@
     <div ng-if="loaded">
       <md-data-table-toolbar>
         <h2 class="md-title">Volunteers</h2>
-        <a
-          style="position: relative;top: 32px;right: 96px;color: black;text-decoration: underline;"
-          href=""
-          ng-click="bulkAddPeople('lg')">Import People From Spreadsheet</a>
         <md-switch ng-model="query.contact_only"
                    id="contact-only-switch"
                    ng-change="filterByContactInformation()"

@@ -21,6 +21,34 @@ md-progress-circular {
   }
 }
 
+.bulk-import-people {
+  h3 {
+    margin-top: 0;
+  }
+  md-input-container {
+    padding-bottom: 8px;
+  }
+  .import-box {
+    padding: 12px 24px;
+  }
+  #header {
+    text-align: center;
+    margin: 12px 0;
+  }
+  button {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+  }
+  input {
+    margin: 24px 0;
+    margin-bottom: 0px;
+  }
+  #worksheet-select {
+
+  }
+}
+
 
 
 
