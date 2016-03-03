@@ -9,7 +9,7 @@ class PersonImporter < ActiveJob::Base
         address = StreetAddress::US.parse(p["address"])
         if address
           if address.number && address.street && address.street_type
-            p["address_1 "]= "#{address.number} #{address.street} #{address.street_type}"
+            p["address_1"]= "#{address.number} #{address.street} #{address.street_type}"
           end
           if address.unit_prefix && address.unit
             p["address_2"] = "#{address.unit_prefix} #{address.unit}"
@@ -32,9 +32,9 @@ class PersonImporter < ActiveJob::Base
         p["last_name"] = name.last
         p.delete("name")
       end
-
-
       @person = Person.create!(p)
+
+
 
       if p["notes"]
         @person.add_to_organization(Organization.find(organization_id), "#{p["notes"]}")
@@ -42,8 +42,6 @@ class PersonImporter < ActiveJob::Base
         @person.add_to_organization(Organization.find(organization_id), "")
       end
     end
-
-
   end
 end
 
