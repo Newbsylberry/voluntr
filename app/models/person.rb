@@ -9,9 +9,18 @@ class Person < ActiveRecord::Base
   attr_accessor :opportunity_hours, :opportunity_instances_count, :opportunity_role, :opportunity_photo_consent
   validates :email, uniqueness: true, if: :email_present?
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
+  reverse_geocoded_by :latitude, :longitude do |obj,results|
+    if geo = results.first
+      obj.address_1 = geo.address.split(",")[0]
+      obj.city    = geo.city
+      obj.state    = geo.state
+      obj.zip_code = geo.postal_code
+    end
+  end
   after_validation :reverse_geocode, :if => :has_coordinates?
   after_validation :geocode, :if => :has_location?, :unless => :has_coordinates?
   scope :contact_information_completed, -> { where("email is NOT NULL and email != '' OR phone is NOT NULL and phone != ''") }
+
 
 
   after_initialize do |person|

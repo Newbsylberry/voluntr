@@ -70,7 +70,7 @@ angular.module('voluntrApp')
       };
 
       $http.post('/api/v1/people/import', formattedObjectForServer).then(function(response) {
-        $scope.imported = true;
+        // $scope.imported = true;
         $scope.success_message = response.data.success_message;
       });
     };

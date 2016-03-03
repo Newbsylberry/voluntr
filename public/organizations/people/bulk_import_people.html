@@ -55,7 +55,7 @@
           </md-input-container>
           <md-input-container ng-repeat="attr in database_attributes">
             <div
-              ng-hide="((attr === 'first_name' || attr === 'last_name') && name_column) || ((attr === 'address_1' || attr === 'address_2') && address_column)">
+              ng-hide="((attr === 'first_name' || attr === 'last_name') && name_column) || ((attr === 'address_1' || attr === 'address_2' || attr === 'zip_code' || attr === 'city' || attr === 'state') && address_column)">
             <label>{{attr}}</label>
             <md-select ng-model="data.checkResponse[attr]">
               <md-option ng-repeat="title in data.rowTitles" value="{{title}}">

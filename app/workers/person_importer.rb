@@ -5,7 +5,7 @@ class PersonImporter < ActiveJob::Base
 
   def perform(people, organization_id, address_column, name_column)
     people.each do |p|
-      if address_column && p["address"]
+      if address_column === true && p["address"]
         address = StreetAddress::US.parse(p["address"])
         if address
           if address.number && address.street && address.street_type
@@ -26,7 +26,7 @@ class PersonImporter < ActiveJob::Base
         end
         p.delete("address")
       end
-      if name_column && p["name"].split(' ').count >= 2
+      if name_column === true && p["name"].split(' ').count >= 2
         name = p["name"].split(' ')
         p["first_name"] = name.first
         p["last_name"] = name.last
