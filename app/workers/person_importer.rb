@@ -34,7 +34,19 @@ class PersonImporter < ActiveJob::Base
       end
 
       ap p
-      @person = Person.create!(p)
+      @person = Person.create!(
+          first_name: p["first_name"],
+          last_name: p["last_name"],
+          email: p["email"],
+          state: p["state"],
+          city: p["city"],
+          zip_code: p["zip_code"],
+          address_1: p["address_1"],
+          address_2: p["address_2"],
+          organization_name: p["organization_name"],
+          occupation: p["occupation"],
+          phone: p["phone"]
+      )
 
 
 
