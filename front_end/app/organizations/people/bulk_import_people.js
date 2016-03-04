@@ -2,32 +2,24 @@
  * Created by chrismccarthy on 3/9/15.
  */
 angular.module('voluntrApp')
-  .controller('BulkImportPeopleCtrl', function ($scope, $modal, $http, $stateParams) {
+  .controller('BulkImportPeopleCtrl', function ($scope, $modal, $http, $stateParams,$state) {
 
     $scope.database_attributes = ['first_name','last_name','address_1','address_2','email','zip_code','state','city','occupation','phone','organization_name','notes'];
+
     $scope.data = {};
+    $scope.errors = {};
+    $scope.errors.file = false;
     var worksheets;
     var activeWorksheet;
 
     $scope.$on('fileChange', execute);
 
-    // 4. When select changes, change active worksheet
+    $scope.$on('fileError', fileError);
+
+    // When select changes, change active worksheet
     $scope.setWorksheet = function() {
       setWorksheet();
     };
-
-    function execute() {
-      // Get a list of the worksheet names in the workbook and
-      // Set the active worksheet name to be the first worksheet name
-      $scope.data.activeWorksheet = $scope.data.workbook.SheetNames[0];
-
-      // Make a list of worksheet names available on scope for a select input
-      $scope.data.worksheetNames = $scope.data.workbook.SheetNames;
-
-      // When select changes, change active worksheet
-      setWorksheet();
-      // Make a corresponding list of selects to the right with best guess of matching user row titles on the right
-    }
 
     $scope.importWorksheet = function() {
 
@@ -70,9 +62,57 @@ angular.module('voluntrApp')
       };
 
       $http.post('/api/v1/people/import', formattedObjectForServer).then(function(response) {
-        // $scope.imported = true;
+        $scope.imported = true;
+        $state.go('organizations.people_home', {organization_Id:$stateParams.organization_Id})
         $scope.success_message = response.data.success_message;
       });
+    };
+
+    function execute() {
+      if($scope.data.workbook) {
+        $scope.errors.file = false;
+        // Get a list of the worksheet names in the workbook and
+        // Set the active worksheet name to be the first worksheet name
+        $scope.data.activeWorksheet = $scope.data.workbook.SheetNames[0];
+
+        // Make a list of worksheet names available on scope for a select input
+        $scope.data.worksheetNames = $scope.data.workbook.SheetNames;
+
+        // When select changes, change active worksheet
+        setWorksheet();
+      }
+    }
+
+    $scope.isUnique = function() {
+      $scope.data.isUnique = true;
+      var unique = {};
+      var query = $scope.data.checkResponse;
+      console.log(query);
+
+      // for every attribute in the query
+      for (var attribute in query) {
+        // check if the value is unique && not false
+        if (unique[query[attribute]] === undefined && (query[attribute] !== false && query[attribute] !== "" && query[attribute] !== null)) {
+          // if its unique && not false
+          // add it to the unique object as true
+          unique[query[attribute]] = true;
+
+
+        } else if (query[attribute] !== false && query[attribute] !== "" && query[attribute] !== null) {
+          // if its not unique && not false
+          // modify it on the unique object as false
+          unique[query[attribute]] = false;
+
+          // make data.isUnique === false so that errors will display on view
+          $scope.data.isUnique = false;
+        }
+
+      }
+
+      // set errors object on scope
+      $scope.errors.unique = unique;
+      console.log('unique', unique);
+
     };
 
     function setWorksheet() {
@@ -86,13 +126,16 @@ angular.module('voluntrApp')
         // get the best guesses for how the row titles match volu database attributes
         $http({
           method: 'GET',
-          url: 'api/v1/spreadsheet_import/check',
+          url: 'http://staging.voluapp.com/api/v1/spreadsheet_import/check',
           params: {
             'row_titles[]': $scope.data.rowTitles
           }
         }).then(function(response) {
-          $scope.mapped = true;
           $scope.data.checkResponse = response.data.database_map;
+          $scope.mapped = true;
+
+          // check if fields are unique
+          $scope.isUnique();
         });
       }
     }
@@ -145,4 +188,7 @@ angular.module('voluntrApp')
       return ret;
     }
 
+    function fileError() {
+      $scope.errors.file = true;
+    }
   });

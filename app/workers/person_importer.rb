@@ -33,7 +33,6 @@ class PersonImporter < ActiveJob::Base
         p.delete("name")
       end
 
-      ap p
       @person = Person.create!(
           first_name: p["first_name"],
           last_name: p["last_name"],
