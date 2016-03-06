@@ -13,12 +13,13 @@
                fileread="data.workbook">
         <md-input-container id="worksheet-select">
           <label>Choose Worksheet With Volunteers:</label>
-          <md-select ng-model="data.checkResponse[attr]">
+          <md-select ng-model="data.activeWorksheet">
             <md-option ng-repeat="sheet in data.worksheetNames" value="{{sheet}}">
               {{sheet}}
             </md-option>
           </md-select>
         </md-input-container>
+        <div ng-if="errors.file">Wrong File Type</div>
       </div>
       </div>
       <div layout="row">
@@ -80,7 +81,7 @@
 
       <div flex="100">
       <md-button class="md-primary md-raised"
-                 ng-disabled="!data.workbook"
+                 ng-disabled="!data.workbook || !data.isUnique"
                  ng-click="importWorksheet()">Import</md-button>
       </div>
       </div>

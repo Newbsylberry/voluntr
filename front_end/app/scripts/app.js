@@ -258,38 +258,32 @@ angular
 
       .state('organizations.tutorial.1', {
         url: '/1',
-        templateUrl: 'organizations/tutorial/tutorial_screen_1.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_1.html'
       })
 
       .state('organizations.tutorial.2', {
         url: '/2',
-        templateUrl: 'organizations/tutorial/tutorial_screen_2.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_2.html'
       })
 
       .state('organizations.tutorial.3', {
         url: '/3',
-        templateUrl: 'organizations/tutorial/tutorial_screen_3.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_3.html'
       })
 
       .state('organizations.tutorial.4', {
         url: '/4',
-        templateUrl: 'organizations/tutorial/tutorial_screen_4.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_4.html'
       })
 
       .state('organizations.tutorial.5', {
         url: '/5',
-        templateUrl: 'organizations/tutorial/tutorial_screen_5.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_5.html'
       })
 
       .state('organizations.tutorial.6', {
         url: '/6',
-        templateUrl: 'organizations/tutorial/tutorial_screen_6.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_6.html'
       })
 
       .state('organizations.organization_home', { //default page loaded for landing state
