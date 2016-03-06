@@ -8,12 +8,13 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    if @current_organization.last_social_update.nil? ||
-        @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
-            !params[:oauth_key].blank?
-
-      OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).perform_now
-    end
+    ap params[:oauth_key]
+    # if (!params[:oauth_key].nil? && !params[:oauth_key].blank?) && @current_organization.last_social_update.nil? ||
+    #     @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
+    #         @current_organization.fb_id &&
+    #
+    #   OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).perform_now
+    # end
 
     render json: @current_organization, serializer: OrganizationSerializer
   end
