@@ -38,11 +38,11 @@ angular.module('voluntrApp')
 
     });
 
-    //$('.navicon').click(function(){
-    //
-    //    $('.navmenu').toggleClass('navb');
-    //
-    //});
+    $('.navicon').click(function(){
+
+       $('.navmenu').toggleClass('navb');
+
+    });
 
 
     //$('.ng-scope').click(function(evn){
