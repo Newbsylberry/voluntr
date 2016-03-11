@@ -8,13 +8,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    ap params[:oauth_key]
-    # if (!params[:oauth_key].nil? && !params[:oauth_key].blank?) && @current_organization.last_social_update.nil? ||
-    #     @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
-    #         @current_organization.fb_id &&
-    #
-    #   OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).perform_now
-    # end
 
     render json: @current_organization, serializer: OrganizationSerializer
   end
@@ -38,7 +31,7 @@ class OrganizationsController < ApplicationController
     @organization.organization_type = OrganizationType.find_by_name(params[:organization_type_name])
     @organization.save
     if @organization.save
-      OrganizationWorker.new(@organization.id, params[:oauth_key], @organization.fb_id).enqueue
+      OrganizationWorker.perform_later(@organization.id, params[:oauth_key], @organization.fb_id)
       token = AuthToken.issue_token({ organization_id: @organization.id })
     end
 
@@ -121,18 +114,23 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @user = User.find_by_uid(params[:fb_id])
     @api = Koala::Facebook::API.new(@user.oauth_token)
-    @user_accounts = @api.get_connections("me", "accounts").count
-    @api.get_connections("me", "accounts").each do |a|
-      if a["id"].to_i == @organization.fb_id.to_i
-        if !@organization.users.include?(@user)
-          UserOrganization.create!(user_id: @user.id, organization_id: @organization.id)
-        end
-        token = AuthToken.issue_token({ organization_id: @organization.id })
-        render json: {organization: @organization,
+     if @organization.last_social_update.nil? ||
+         @organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
+             @organization.fb_id
+       OrganizationWorker.perform_later(@organization.id, @user.oauth_token, @organization.fb_id)
+     end
+      @user_accounts = @api.get_connections("me", "accounts").count
+      @api.get_connections("me", "accounts").each do |a|
+        if a["id"].to_i == @organization.fb_id.to_i
+          if !@organization.users.include?(@user)
+            UserOrganization.create!(user_id: @user.id, organization_id: @organization.id)
+          end
+          token = AuthToken.issue_token({ organization_id: @organization.id })
+          render json: {organization: @organization,
                       token: token}
-        break
-      elsif @user_accounts == 0 && a["id"].to_i != @organization.fb_id.to_i
-        render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
+          break
+        elsif @user_accounts == 0 && a["id"].to_i != @organization.fb_id.to_i
+          render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
       end
 
     end

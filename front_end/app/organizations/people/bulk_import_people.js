@@ -141,14 +141,30 @@ angular.module('voluntrApp')
         organization_id: $stateParams.organization_Id
       };
 
-      $http.post('/api/v1/people/import', formattedObjectForServer).then(function(response) {
-        $scope.imported = true;
-        $state.go('organizations.people_home', {organization_Id:$stateParams.organization_Id})
-        $scope.success_message = response.data.success_message;
-      });
+      var bulkAddModal = $modal.open(
+          {
+            templateUrl: 'organizations/modals/import_people.html',
+            controller: 'ImportPeopleModalCtrl',
+            windowClass: 'import-people-modal',
+            size: 'lg',
+            resolve:
+            {
+              import_information: function () {
+                return formattedObjectForServer
+              }
+            }
+          });
+        bulkAddModal.result.then(function () {
+
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
 
 
     };
+
+
 
     function execute() {
       if($scope.data.workbook) {

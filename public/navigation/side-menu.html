@@ -5,24 +5,30 @@
       <md-divider></md-divider><br/>
       </div>
     <a href=""
-       ui-sref='organizations.organization_home({organization_Id:organization_id})'>Home</a>
+       ui-sref='organizations.organization_home({organization_Id:organization_id})'
+       ng-click="close()">Home</a>
     <a href=""
-       ui-sref='organizations.people_home({organization_Id:organization_id})'>People</a>
+       ui-sref='organizations.people_home({organization_Id:organization_id})'
+       ng-click="close()">People</a>
     <a href=""
        class="side-menu-sub-link"
        ui-sref='organizations.bulk_import_people({organization_Id:organization_id})'
-       >Bulk Import People</a>
+       ng-click="close()">Bulk Import People</a>
     <a href=""
-       ui-sref='organizations.nearby_organizations({organization_Id:organization_id})'>Nearby Organizations</a>
+       ui-sref='organizations.nearby_organizations({organization_Id:organization_id})'
+       ng-click="close()">Nearby Organizations</a>
     <a href=""
-       ui-sref='organizations.opportunities_home({organization_Id:organization_id})'>Opportunities</a>
+       ui-sref='organizations.opportunities_home({organization_Id:organization_id})'
+       ng-click="close()">Opportunities</a>
     <a href=""
-       ui-sref='organizations.organization_account({organization_Id:organization_id})'>Account</a>
+       ui-sref='organizations.organization_account({organization_Id:organization_id})'
+       ng-click="close()">Account</a>
     <a href=""
        class="side-menu-sub-link"
        id="{{organization_id}}"
        type="organization"
-       report-link>Export Organization Report</a>
+       report-link
+       ng-click="close()">Export Organization Report</a>
     <div id="side-menu-buttons">
     <md-button style="width:274px;margin:0px 15px;" class="md-raised md-warning"ng-click="logOut()">
       Log Out

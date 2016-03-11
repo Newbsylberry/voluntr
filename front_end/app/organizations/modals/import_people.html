@@ -1,0 +1,80 @@
+<style>
+  .import-people-modal .modal-content{
+    height: auto;
+    padding: 10px 12px;
+  }
+  .md-select-menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1200;
+    opacity: 0;
+  }
+  button.md-raised {
+    color: rgba(0,0,0,0.87);
+    background-color: rgb(250,250,250);
+    width: 100%;
+  }
+</style>
+<md-data-table-toolbar>
+  <h2 class="md-title">Volunteers to Import</h2>
+</md-data-table-toolbar>
+<md-data-table-container>
+  <table md-data-table
+         md-row-select="selected"
+         md-progress="deferred">
+    <thead md-order="query.order" md-trigger="onOrderChange">
+    <tr>
+      <th name="First Name" order-by="first_name"></th>
+      <th name="Last Name" order-by="last_name"></th>
+      <th name="Email" order-by="email"></th>
+      <th name="Phone #" order-by="phone"></th>
+      <th name="Address 1" order-by="address_1"></th>
+      <th name="Address 2" order-by="address_2"></th>
+      <th name="City" order-by="city"></th>
+      <th name="State" order-by="state"></th>
+      <th name="Zip Code" order-by="zip_code"></th>
+      <th name="Occupation" order-by="occupation"></th>
+      <th name="Organization" order-by="organization"></th>
+      <th name="Notes" order-by="notes"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr md-auto-select
+        ng-repeat="person in people | orderBy:query.order | limitTo: query.limit:(query.page - 1)*query.limit ">
+      <td>{{person.first_name}}</td>
+      <td>{{person.last_name}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.phone}}</td>
+      <td>{{person.address_1}}</td>
+      <td>{{person.address_2}}</td>
+      <td>{{person.city}}</td>
+      <td>{{person.state}}</td>
+      <td>{{person.zip_code}}</td>
+      <td>{{person.occupation}}</td>
+      <td>{{person.organization}}</td>
+      <td>{{person.notes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</md-data-table-container>
+<md-data-table-pagination md-limit="query.limit"
+                          md-page="query.page"
+                          md-total="{{people.length}}"
+                          md-trigger="onPaginate"></md-data-table-pagination>
+<div layout="row">
+  <div flex="40">
+    <md-button class="md-warning md-raised"
+               ng-click="redoMappings()">Redo Mappings</md-button>
+  </div>
+  <div flex="10">
+  </div>
+  <div flex="40">
+    <md-button class="md-primary md-raised"
+               ng-click="import()">Import</md-button>
+  </div>
+</div>
+
+
+
+
