@@ -1,89 +1,118 @@
 <md-card class="content bulk-import-people" >
   <md-card-content>
     <div ng-show="!imported">
-    <div id="header">
-      <h2>Import Volunteers From a Spreadsheet</h2>
-    </div>
-    <div layout="row">
-      <div flex="100" class="import-box">
-        <h4><h3>Step 1:</h3>
-          Select the spreadsheet and if necessary also select the worksheet which contains your volunteers.
-        </h4>
-        <input type="file"
-               fileread="data.workbook">
-        <md-input-container id="worksheet-select">
-          <label>Choose Worksheet With Volunteers:</label>
-          <md-select ng-model="data.activeWorksheet">
-            <md-option ng-repeat="sheet in data.worksheetNames" value="{{sheet}}">
-              {{sheet}}
-            </md-option>
-          </md-select>
-        </md-input-container>
-        <div ng-if="errors.file">Wrong File Type</div>
-      </div>
+      <div id="header">
+        <h2>Import Volunteers From a Spreadsheet</h2>
       </div>
       <div layout="row">
-      <div flex="100" class="import-box" ng-show="mapped">
-        <h4><h3>Step 2</h3>This next step is a little tricky.  In order to successfully import all your
-          data we need to map the headers in your spreadsheet to our format.  We have done our best to
-          identify the correct match but you'll need to complete the following step to make sure it's correct.
-        </h4>
-        <h4>First answer a couple questions about how your data is organized:</h4>
-        <md-input-container>
-          <md-checkbox ng-model="name_column" aria-label="Checkbox 1">
-            Is the volunteer's name one column?
-          </md-checkbox>
-        </md-input-container>
-        <md-input-container>
-          <md-checkbox ng-model="address_column" aria-label="Checkbox 1">
-            Is the volunteer's address in one column?
-          </md-checkbox>
-        </md-input-container>
-        <h4>
-          For each of the fields below, select the header from your spreadsheet which matches.  We've started you
-          out with our best guess:
-        </h4>
-        <small style="color: red">Make sure the relevant fields match, this is very hard to undo!</small>
-        <md-list>
-          <md-input-container ng-if="name_column">
-            <label>Make sure to select a spreadsheet header for name!</label>
-            <md-select ng-model="data.checkResponse.name">
+        <div flex="100" class="import-box">
+          <h4><h3>Step 1:</h3>
+            Select the spreadsheet and if necessary also select the worksheet which contains your volunteers.
+          </h4>
+          <input type="file"
+                 fileread="data.workbook">
+          <md-input-container id="worksheet-select">
+            <label>Choose Worksheet With Volunteers:</label>
+            <md-select ng-model="data.activeWorksheet">
+              <md-option ng-repeat="sheet in data.worksheetNames" value="{{sheet}}">
+                {{sheet}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <div ng-if="errors.file">Wrong File Type</div>
+        </div>
+      </div>
+      <div layout="row">
+        <div flex="100" class="import-box" ng-show="mapped">
+          <h4><h3>Step 2</h3>This next step is a little tricky.  In order to successfully import all your
+            data we need to map the headers in your spreadsheet to our format.  We have done our best to
+            identify the correct match but you'll need to complete the following step to make sure it's correct.
+          </h4>
+          <h4>First answer a couple questions about how your data is organized:</h4>
+          <md-input-container>
+            <md-checkbox ng-model="name_column" aria-label="Checkbox 1">
+              Is the volunteer's name one column?
+            </md-checkbox>
+          </md-input-container>
+          <md-input-container>
+            <md-checkbox ng-model="address_column" aria-label="Checkbox 1">
+              Is the volunteer's address in one column?
+            </md-checkbox>
+          </md-input-container>
+          <h4>
+            For each of the fields below, select the header from your spreadsheet which matches.  We've started you
+            out with our best guess:
+          </h4>
+          <small style="color: red">Make sure the relevant fields match, this is very hard to undo!</small>
+          <md-list>
+            <md-input-container ng-if="name_column">
+              <label>Make sure to select a spreadsheet header for name!</label>
+              <md-select ng-model="data.checkResponse.name">
                 <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
                   {{title}}
                 </md-option>
-            </md-select>
-          </md-input-container>
-          <md-input-container ng-if="address_column">
+              </md-select>
+            </md-input-container>
+            <md-input-container ng-if="address_column">
               <label>Make sure to select a spreadsheet header for address!</label>
               <md-select ng-model="data.checkResponse.address">
-                  <md-option ng-repeat="row_title in data.rowTitles" value="{{row_title}}">
-                    {{row_title}}
-                  </md-option>
+                <md-option ng-repeat="row_title in data.rowTitles" value="{{row_title}}">
+                  {{row_title}}
+                </md-option>
               </md-select>
-          </md-input-container>
-          <md-input-container ng-repeat="attr in database_attributes">
-            <div
-              ng-hide="((attr === 'first_name' || attr === 'last_name') && name_column) || ((attr === 'address_1' || attr === 'address_2' || attr === 'zip_code' || attr === 'city' || attr === 'state') && address_column)">
-            <label>{{attr}}</label>
-            <md-select ng-model="data.checkResponse[attr]">
-              <md-option value="">No Match</md-option>
-              <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
-                {{title}}
-              </md-option>
-            </md-select>
-              <span ng-show="data.workbook && errors.unique[data.checkResponse[attr]] === false">X</span>
-            </div>
-          </md-input-container>
-        </md-list>
-      </div>
+            </md-input-container>
+            <md-input-container ng-repeat="attr in database_attributes">
+              <div
+                ng-hide="((attr === 'first_name' || attr === 'last_name') && name_column) || ((attr === 'address_1' || attr === 'address_2' || attr === 'zip_code' || attr === 'city' || attr === 'state') && address_column)">
+                <label>{{attr}}</label>
+                <md-select ng-model="data.checkResponse[attr]">
+                  <md-option value="">No Match</md-option>
+                  <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
+                    {{title}}
+                  </md-option>
+                </md-select>
+                <span ng-show="data.workbook && errors.unique[data.checkResponse[attr]] === false">X</span>
+              </div>
+            </md-input-container>
+          </md-list>
+            <md-button class="md-primary md-raised"
+                     ng-disabled="!data.workbook || !data.isUnique"
+                     ng-click="confirmDatabaseMatch()">Final Step
+            </md-button>
         </div>
-      <div layout="row">
-
-      <div flex="100">
-      <md-button class="md-primary md-raised"
-                 ng-disabled="!data.workbook || !data.isUnique"
-                 ng-click="importWorksheet()">Import</md-button>
       </div>
+      <div layout="row">
+        <div flex="100">
+          <div ng-if="data.matchConfirmed">
+            <span>Custom Fields to Import</span>
+            <br>
+            <ol>
+              <li ng-repeat="field in data.possibleCustomFields">
+                {{field}} <a href="" ng-click="removePossibleCustomField($index)">x</a>
+              </li>
+            </ol>
+          </div>
+          <br>
+          <div ng-if="data.matchConfirmed">
+            <span>Custom Fields which won't be Imported</span>
+            <br>
+            <ol>
+              <li ng-repeat="field in data.notImportedFields">
+                {{field}} <a href="" ng-click="addPossibleCustomField($index)">x</a>
+              </li>
+            </ol>
+          </div>
+          <br>
+          <span>Is Unique? </span><span>{{data.isUnique}}</span>
+          <br>
+        </div>
+      </div>
+      <div layout="row">
+        <div flex="100">
+          <md-button class="md-primary md-raised"
+                     ng-disabled="!data.workbook || !data.isUnique"
+                     ng-click="importWorksheet()">Import</md-button>
+        </div>
       </div>
     </div>
     <div ng-show="imported">

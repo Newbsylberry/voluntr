@@ -5,12 +5,23 @@ angular.module('voluntrApp')
   .controller('BulkImportPeopleCtrl', function ($scope, $modal, $http, $stateParams,$state) {
 
     $scope.database_attributes = ['first_name','last_name','address_1','address_2','email','zip_code','state','city','occupation','phone','organization_name','notes'];
-
     $scope.data = {};
     $scope.errors = {};
     $scope.errors.file = false;
+    $scope.data.possibleCustomFields = [];
+    $scope.data.notImportedFields = [];
     var worksheets;
     var activeWorksheet;
+
+    $scope.removePossibleCustomField = function(index) {
+      var removed = $scope.data.possibleCustomFields.splice(index,1);
+      $scope.data.notImportedFields.push(removed[0]);
+    };
+
+    $scope.addPossibleCustomField = function(index) {
+      var removed = $scope.data.notImportedFields.splice(index,1);
+      $scope.data.possibleCustomFields.push(removed[0]);
+    };
 
     $scope.$on('fileChange', execute);
 
@@ -21,7 +32,7 @@ angular.module('voluntrApp')
       setWorksheet();
     };
 
-    $scope.importWorksheet = function() {
+    $scope.confirmDatabaseMatch = function() {
 
       // select the active worksheet
       activeWorksheet = $scope.data.workbook.Sheets[$scope.data.activeWorksheet];
@@ -36,29 +47,98 @@ angular.module('voluntrApp')
       var swappedResponse = swap($scope.data.checkResponse);
 
       // for each column of the header row
-      for(C = range.s.c; C < range.e.c; C++) {
+      for(C = range.s.c; C <= range.e.c; C++) {
 
-        // get the text of the cell
-        var cellText = activeWorksheet[XLSX.utils.encode_cell({c:C, r:R})].w;
+        // default cellText to unintelligible string that won't appear in swappedResponse object
+        var cellText = "345u2@#22891ndmvdv.124/sjsshv$#";
+        // encode cell with given column and row
+        var encodedCell = XLSX.utils.encode_cell({c:C, r:R});
 
-        // check if that text matches swappedResponse
-        if (cellText in swappedResponse) {
-          // if text matches replace the text with the database attribute
-          activeWorksheet[XLSX.utils.encode_cell({c:C, r:R})].w = swappedResponse[cellText];
+        // if there is a cell
+        if (activeWorksheet[encodedCell]) {
+          // get the text of the cell
+          cellText = activeWorksheet[encodedCell].w;
+
+          // check if that text matches swappedResponse
+          if (cellText in swappedResponse) {
+            // if text matches replace the text with the database attribute
+            activeWorksheet[encodedCell].w = swappedResponse[cellText];
+
+            // else when there's  cellText not in swappedResponse
+            // (doesn't match a database attribute)
+          } else {
+            // cell is a potential custom Field
+
+            // add the name to possibleCustomFields array for further processing
+            $scope.data.possibleCustomFields.push(activeWorksheet[encodedCell].w);
+
+            // create a temporary name
+            var customFieldTempName = 'customField ' + activeWorksheet[encodedCell].w;
+
+            // set temporary name
+            activeWorksheet[encodedCell].w = customFieldTempName;
+          }
         }
 
       }
 
+      $scope.data.matchConfirmed = true;
 
+    };
+
+    $scope.importWorksheet = function() {
       // convert the worksheet to a json Object
       var jsonSheet = XLSX.utils.sheet_to_json(activeWorksheet);
 
+      // look through the sheet
+      for (var i = 0; i < jsonSheet.length; i++) {
+        // if there is a null key
+        if (jsonSheet[i][null]){
+          // delete it it and its value because it isn't a part of the request
+          // body
+          delete jsonSheet[i][null];
+        }
+
+        // handle custom fields if they exist
+        if ($scope.data.possibleCustomFields.length > 0) {
+          // set a blank custom_fields property on each object
+          jsonSheet[i].custom_fields = {};
+
+          // for every custom field
+          for (var j = 0; j < $scope.data.possibleCustomFields.length; j++) {
+
+            // retrieve the temporary key
+            var fieldName = $scope.data.possibleCustomFields[j];
+
+            // retrieve the associated value
+            var value = jsonSheet[i]['customField ' + fieldName];
+
+            // delete the key
+            delete jsonSheet[i]['customField ' + fieldName];
+
+            // add the value to custom_fields property on object
+            jsonSheet[i].custom_fields[fieldName] = value;
+
+          }
+        }
+
+        // remove not imported fields if they exist
+        if ($scope.data.notImportedFields.length > 0) {
+          for (var k = 0; k < $scope.data.notImportedFields.length; k++) {
+            // retrieve the key
+            var notImportedfieldName = $scope.data.notImportedFields[k];
+
+            // delete the property
+            delete jsonSheet[i]['customField ' + notImportedfieldName];
+          }
+        }
+
+      }
+
       // send json object to server
       var formattedObjectForServer = {
-        address_column: $scope.address_column,
-        name_column: $scope.name_column,
         people: jsonSheet,
-        organization_id: 10
+        organization_id: $stateParams.organization_Id
       };
 
       $http.post('/api/v1/people/import', formattedObjectForServer).then(function(response) {
@@ -66,11 +146,20 @@ angular.module('voluntrApp')
         $state.go('organizations.people_home', {organization_Id:$stateParams.organization_Id})
         $scope.success_message = response.data.success_message;
       });
+
+
     };
 
     function execute() {
       if($scope.data.workbook) {
+        // reset all variables
         $scope.errors.file = false;
+        $scope.data.matchConfirmed = false;
+        $scope.data.possibleCustomFields = [];
+        $scope.data.notImportedFields = [];
+        $scope.data.rowTitles = [];
+        $scope.data.checkResponse = null;
+
         // Get a list of the worksheet names in the workbook and
         // Set the active worksheet name to be the first worksheet name
         $scope.data.activeWorksheet = $scope.data.workbook.SheetNames[0];
@@ -87,7 +176,6 @@ angular.module('voluntrApp')
       $scope.data.isUnique = true;
       var unique = {};
       var query = $scope.data.checkResponse;
-      console.log(query);
 
       // for every attribute in the query
       for (var attribute in query) {
@@ -111,7 +199,6 @@ angular.module('voluntrApp')
 
       // set errors object on scope
       $scope.errors.unique = unique;
-      console.log('unique', unique);
 
     };
 
@@ -133,7 +220,6 @@ angular.module('voluntrApp')
         }).then(function(response) {
           $scope.data.checkResponse = response.data.database_map;
           $scope.mapped = true;
-
           // check if fields are unique
           $scope.isUnique();
         });
@@ -169,12 +255,12 @@ angular.module('voluntrApp')
         if(cell && cell.t) {
           //get the text of the cell and set to headerText
           headerText = XLSX.utils.format_cell(cell);
-        } else {
-          // set default header text
-          headerText = "UNKNOWN " + C;
+          headers.push(headerText);
         }
+        // the else case is when there is an empty cell, as in when a cell is
+        // intentionally blank for spacing, hidden row, etc...
 
-        headers.push(headerText);
+
       }
       return headers;
     }

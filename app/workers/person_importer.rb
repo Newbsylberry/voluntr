@@ -33,29 +33,37 @@ class PersonImporter < ActiveJob::Base
         p.delete("name")
       end
 
-      @person = Person.create!(
-          first_name: p["first_name"],
-          last_name: p["last_name"],
-          email: p["email"],
-          state: p["state"],
-          city: p["city"],
-          zip_code: p["zip_code"],
-          address_1: p["address_1"],
-          address_2: p["address_2"],
-          organization_name: p["organization_name"],
-          occupation: p["occupation"],
-          phone: p["phone"]
-      )
+      @person = Person.create_with(locked: false)
+                    .find_or_initialize_by(email: p["email"])
+      if @person.new_record?
+        @person = Person.create!(
+            first_name: p["first_name"],
+            last_name: p["last_name"],
+            email: p["email"],
+            state: p["state"],
+            city: p["city"],
+            zip_code: p["zip_code"],
+            address_1: p["address_1"],
+            address_2: p["address_2"],
+            organization_name: p["organization_name"],
+            occupation: p["occupation"],
+            phone: p["phone"]
+        )
+      end
 
 
 
-      if p["notes"]
-        @person.add_to_organization(Organization.find(organization_id), "#{p["notes"]}")
-      else
-        @person.add_to_organization(Organization.find(organization_id), "")
+
+        if p["notes"]
+          @po = @person.add_to_organization(Organization.find(organization_id), "#{p["notes"]}")
+        else
+          @po = @person.add_to_organization(Organization.find(organization_id), "")
+        end
+
+        @po.custom_fields = p["custom_fields"]
+        @po.save
       end
     end
   end
-end
 
 

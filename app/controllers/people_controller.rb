@@ -9,8 +9,8 @@ class PeopleController < ApplicationController
     if !params[:name_column]
       params[:name_column] = false
     end
-    PersonImporter.new(params[:people], params[:organization_id], params[:address_column], params[:name_column]).perform_now
 
+    PersonImporter.perform_later(params[:people], params[:organization_id], params[:address_column], params[:name_column])
 
     params = {success_message: "Your spreadsheet will be imported now!"}
     render json: params

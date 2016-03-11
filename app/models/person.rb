@@ -127,6 +127,7 @@ class Person < ActiveRecord::Base
     @daily_statistic.save
     @organization_person.save
     @organization_person.__elasticsearch__.index_document
+    return @organization_person
   end
 
   def self.find_or_create_from_params(params)
