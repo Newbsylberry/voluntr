@@ -8,12 +8,15 @@
   ng-hide="editing || !subtitle_text"
   >{{text}}
 </h3>
-<p
-  class="detail-paragraph-text"
-  ng-hide="editing || !paragraph_text"
-  >
-  {{text}}
-</p>
+
+<div>
+  <p
+    class="detail-paragraph-text"
+    ng-hide="editing || !paragraph_text"
+    >
+    {{text}}
+  </p>
+</div>
 <md-input-container ng-show="editing && title_text || editing && subtitle_text">
   <label>{{placeholder}}</label>
   <input ng-model="text">
