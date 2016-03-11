@@ -92,7 +92,7 @@ angular.module('voluntrApp')
         {
           templateUrl: 'organizations/modals/bulk_add_people_modal.html',
           controller: 'BulkAddPeopleCtrl',
-          windowClass: 'add-event-modal-window',
+          windowClass: 'import-people-modal',
           size: size
         });
       bulkAddModal.result.then(function () {

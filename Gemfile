@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
 gem 'rails', '4.2.0'
 gem 'responders', '~> 2.0', require: true
 gem 'rails-api'
@@ -17,6 +16,8 @@ gem 'fog'
 gem 'fog-aws'
 gem 'fuzzy_match'
 gem 'kaminari'
+gem 'StreetAddress'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 
@@ -65,7 +66,7 @@ gem 'whenever'
 gem 'mail', github: 'robin850/mail', branch: 'composition-parts-list'
 
 
-gem "koala", "~> 1.11.0rc"
+gem "koala", "2.2.0"
 
 # Use active model serializers to serve JSON
 gem "active_model_serializers", github: "rails-api/active_model_serializers", branch: "0-8-stable"

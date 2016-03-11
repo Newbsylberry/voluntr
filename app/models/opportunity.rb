@@ -5,7 +5,6 @@ class Opportunity < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   has_many :organization_opportunities
-  has_many :organizations, through: :organization_opportunities
   has_many :resources, as: :resourceable, dependent: :destroy
   has_many :opportunities
   has_many :person_opportunities, dependent: :destroy
@@ -20,6 +19,11 @@ class Opportunity < ActiveRecord::Base
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }          # auto-fetch coordinates
 
+  after_initialize do |opportunity|
+    if opportunity.new_record?
+      opportunity.schedules = Array.new;
+    end
+  end
 
 
   # BEGIN SERIALIZEER
@@ -30,6 +34,14 @@ class Opportunity < ActiveRecord::Base
         return r.to_s
       end
     end
+  end
+
+  def organizations
+    organizations = []
+    organization_opportunities.each do |oo|
+      organizations << Organization.find(oo.organization_id)
+    end
+    return organizations
   end
 
   def add_organization(organization)

@@ -8,13 +8,13 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    ap params
-    if @current_organization.last_social_update.nil? ||
-        @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
-            !params[:oauth_key].blank?
-      ap "FACEBOOOOK"
-      OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).enqueue
-    end
+    ap params[:oauth_key]
+    # if (!params[:oauth_key].nil? && !params[:oauth_key].blank?) && @current_organization.last_social_update.nil? ||
+    #     @current_organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
+    #         @current_organization.fb_id &&
+    #
+    #   OrganizationWorker.new(@current_organization.id, params[:oauth_key], @current_organization.fb_id).perform_now
+    # end
 
     render json: @current_organization, serializer: OrganizationSerializer
   end
@@ -29,7 +29,12 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
+    @graph = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'], ENV['FB_SECRET_KEY'], ENV['FB_CALLBACK_URL'])
+    token = @graph.exchange_access_token_info(params[:oauth_key].to_s)
+    @user.find_by_oauth_token(params[:oauth_key].to_s)
+
     @organization = Organization.create(organization_params)
+    UserOrganization.create(user_id: @user.id, organization_id: @organization.id)
     @organization.organization_type = OrganizationType.find_by_name(params[:organization_type_name])
     @organization.save
     if @organization.save
@@ -114,10 +119,14 @@ class OrganizationsController < ApplicationController
 
   def log_in
     @organization = Organization.find(params[:id])
-    @user = Koala::Facebook::API.new(params[:oauth].to_s)
-    @user_accounts = @user.get_connections("me", "accounts").count
-    @user.get_connections("me", "accounts").each do |a|
+    @user = User.find_by_uid(params[:fb_id])
+    @api = Koala::Facebook::API.new(@user.oauth_token)
+    @user_accounts = @api.get_connections("me", "accounts").count
+    @api.get_connections("me", "accounts").each do |a|
       if a["id"].to_i == @organization.fb_id.to_i
+        if !@organization.users.include?(@user)
+          UserOrganization.create!(user_id: @user.id, organization_id: @organization.id)
+        end
         token = AuthToken.issue_token({ organization_id: @organization.id })
         render json: {organization: @organization,
                       token: token}

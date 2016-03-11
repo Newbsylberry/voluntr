@@ -23,7 +23,7 @@ angular.module('voluntrApp').directive("objectSchedule", function () {
             templateUrl: 'organizations/modals/edit-schedule.html',
             controller: 'EditScheduleCtrl',
             windowClass: 'edit-schedule-window',
-            size: size
+            size: size,
             //resolve:
             //{
             //  id: function () {
@@ -46,6 +46,7 @@ angular.module('voluntrApp').directive("objectSchedule", function () {
         myCalendar:{
           height: 500,
           editable: true,
+          timezone: 'local',
           header:{
             left: 'month agendaWeek agendaDay',
             center: 'title',

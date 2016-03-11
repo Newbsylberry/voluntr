@@ -13,12 +13,6 @@ angular.module('voluntrApp')
                                                 $http, $filter, $parse, $modal,
                                                 $rootScope) {
 
-
-
-
-
-
-
     var addPostToGraph = function (post) {
       $scope.lineGraphConfig.series[0].data.push
       ([Date.parse(post.post_time), Number(post.likes)])

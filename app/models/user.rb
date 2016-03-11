@@ -25,4 +25,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def facebook_user?
+    if uid && provider === 'facebook'
+      true
+    else
+      false
+    end
+  end
+
 end

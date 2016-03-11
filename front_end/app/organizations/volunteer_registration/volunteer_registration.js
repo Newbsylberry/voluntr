@@ -90,8 +90,30 @@ angular.module('voluntrApp')
         OrganizationPerson.update(org_per_attr)
       }
       People.update(attr).$promise.then(function(person){
-        $state.go('volunteer_home')
+        $state.go('organization_volunteer_registration.5', {token:btoa($scope.person.id)})
       });
+    }
+
+    $scope.occupations = ['Management','Sales','Accounting','Marketing','Information Technology','Medial','Engineering']
+    $scope.referrers =
+      [
+        'Through a Friend',
+        'Through Social Media',
+        "Through Another Organization I'm Involved In",
+        'Through A Religious Group',
+        'Through Work',
+        'Walked In One Day'
+      ]
+    $scope.demographic = {};
+    $scope.demographic.birthday = new Date;
+
+    $scope.demographicData = function(demographic){
+      var attr = {};
+      attr.date_of_birth = $scope.demographic.date_of_birth;
+      attr.gender = $scope.demographic.gender;
+      attr.occupation = $scope.demographic.occupation;
+      attr.referred_from = $scope.demographic.referred_from;
+
     }
 
   });

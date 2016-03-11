@@ -3,7 +3,17 @@ class PeopleController < ApplicationController
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 
   def import
-    PersonImporter.new(params[:people], params[:organization_id]).enqueue
+    if !params[:address_column]
+      params[:address_column] = false
+    end
+    if !params[:name_column]
+      params[:name_column] = false
+    end
+
+    PersonImporter.perform_later(params[:people], params[:organization_id], params[:address_column], params[:name_column])
+
+    params = {success_message: "Your spreadsheet will be imported now!"}
+    render json: params
   end
 
   def show
@@ -24,6 +34,7 @@ class PeopleController < ApplicationController
     else
       @person = Person.new
     end
+
 
     if @person.new_record?
       @person.assign_attributes(person_params)

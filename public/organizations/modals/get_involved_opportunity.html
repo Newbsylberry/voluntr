@@ -1,0 +1,10 @@
+<h2>Get Involved With {{opportunity.name}}</h2>
+<h5>({{opportunity.organization.name}} will receive an email with your message below)</h5>
+<md-input-container class="md-block">
+  <label>Message</label>
+  <textarea ng-model="email_content" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+</md-input-container>
+<md-button class="md-raised md-primary"
+           ng-click="sendEmail()">
+  Send Email
+</md-button>

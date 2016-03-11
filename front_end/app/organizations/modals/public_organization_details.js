@@ -60,7 +60,29 @@ angular.module('voluntrApp')
             }
           }
         });
-        contactOrganizationModal.result.then(function () {
+      contactOrganizationModal.result.then(function () {
+
+        },
+        function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+
+    $scope.getInvolved = function(opportunity){
+      var getInvolvedModal = $modal.open(
+        {
+          templateUrl: 'organizations/modals/get_involved_opportunity.html',
+          controller: 'GetInvolvedOpportunityCtrl',
+          windowClass: 'get-involved-opportunity',
+          size: 'md',
+          resolve:
+          {
+            opportunity: function () {
+              return opportunity
+            }
+          }
+        })
+      getInvolvedModal.result.then(function () {
 
         },
         function () {

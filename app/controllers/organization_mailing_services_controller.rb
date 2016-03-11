@@ -15,11 +15,11 @@ class OrganizationMailingServicesController < ApplicationController
 
     if Rails.env == "development"
       token = client.auth_code.get_token(params["code"],
-                                         :redirect_uri => 'http://127.0.0.1:3000/api/v1/auth/mailchimp_callback',
+                                         :redirect_uri => 'https://127.0.0.1:3000/api/v1/auth/mailchimp_callback',
                                          :headers => {'grant_type' => 'authorization_code'})
     else
       token = client.auth_code.get_token(params["code"],
-                                         :redirect_uri => 'http://www.voluapp.com/api/v1/auth/mailchimp_callback',
+                                         :redirect_uri => 'https://www.voluapp.com/api/v1/auth/mailchimp_callback',
                                          :headers => {'grant_type' => 'authorization_code'})
     end
 
@@ -49,8 +49,8 @@ class OrganizationMailingServicesController < ApplicationController
 
   def mailchimp_check
     @organization = Organization.find(params[:id])
-
     if @organization.organization_mailing_services.first
+      ap "Call"
       render json: Mailchimp.api(@organization.organization_mailing_services.first.token).get('')
     else
       return :status => 404

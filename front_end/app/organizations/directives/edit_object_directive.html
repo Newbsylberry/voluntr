@@ -14,11 +14,10 @@
   >
   {{text}}
 </p>
-<md-input-container ng-show="editing && title_text || editing && title_text">
+<md-input-container ng-show="editing && title_text || editing && subtitle_text">
   <label>{{placeholder}}</label>
   <input ng-model="text">
 </md-input-container>
-
 
 <md-input-container ng-show="editing && paragraph_text">
   <label>{{placeholder}}</label>

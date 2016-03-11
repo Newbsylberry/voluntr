@@ -258,38 +258,32 @@ angular
 
       .state('organizations.tutorial.1', {
         url: '/1',
-        templateUrl: 'organizations/tutorial/tutorial_screen_1.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_1.html'
       })
 
       .state('organizations.tutorial.2', {
         url: '/2',
-        templateUrl: 'organizations/tutorial/tutorial_screen_2.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_2.html'
       })
 
       .state('organizations.tutorial.3', {
         url: '/3',
-        templateUrl: 'organizations/tutorial/tutorial_screen_3.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_3.html'
       })
 
       .state('organizations.tutorial.4', {
         url: '/4',
-        templateUrl: 'organizations/tutorial/tutorial_screen_4.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_4.html'
       })
 
       .state('organizations.tutorial.5', {
         url: '/5',
-        templateUrl: 'organizations/tutorial/tutorial_screen_5.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_5.html'
       })
 
       .state('organizations.tutorial.6', {
         url: '/6',
-        templateUrl: 'organizations/tutorial/tutorial_screen_6.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_6.html'
       })
 
       .state('organizations.organization_home', { //default page loaded for landing state
@@ -308,6 +302,12 @@ angular
         url: '/:organization_Id/people_home',
         templateUrl: 'organizations/people/people_home.html', // url for partial
         controller: 'PeopleHomeCtrl'
+      })
+
+      .state('organizations.bulk_import_people', { //default page loaded for landing state
+        url: '/:organization_Id/bulk_import',
+        templateUrl: 'organizations/people/bulk_import_people.html', // url for partial
+        controller: 'BulkImportPeopleCtrl'
       })
 
       .state('organizations.nearby_organizations', { //default page loaded for landing state
@@ -347,6 +347,11 @@ angular
       .state('organization_volunteer_registration.4', { //default page loaded for landing state
         url: '/4?token',
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_4.html', // url for partial
+      })
+
+      .state('organization_volunteer_registration.5', { //default page loaded for landing state
+        url: '/5?token',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_5.html', // url for partial
       })
 
 

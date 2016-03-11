@@ -110,12 +110,12 @@ class Person < ActiveRecord::Base
     @organization_person = OrganizationPerson.create_with(locked: false).
         find_or_initialize_by(person: self, organization: organization)
     @organization_person.notes = notes
-    if !organization.organization_mailing_services.empty? && !email.nil?
-      @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
-    end
-    if !@organization_person.persisted? && !email.nil? && !email.blank?
-      @organization_person.send_registration_confirmation
-    end
+    # if !organization.organization_mailing_services.empty? && !email.nil?
+    #   @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
+    # end
+    # if !@organization_person.persisted? && !email.nil? && !email.blank?
+    #  @organization_person.send_registration_confirmation
+    #end
     @daily_statistic = DailyStatistic.create_with(locked: false)
             .find_or_initialize_by(date: Time.now.beginning_of_day,
                                    organization_id: organization.id)
@@ -127,6 +127,7 @@ class Person < ActiveRecord::Base
     @daily_statistic.save
     @organization_person.save
     @organization_person.__elasticsearch__.index_document
+    return @organization_person
   end
 
   def self.find_or_create_from_params(params)

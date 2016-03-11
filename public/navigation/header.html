@@ -11,14 +11,11 @@
      current_state === 'organizations.tutorial.6'
      "
      ng-controller="HeaderCtrl">
-  <i class="icon ion-navicon"
-     ng-show="current_state !== 'organizations.registration' && !menu_open"
+  <a class="icon ion-navicon"
+     id="side-menu-icon"
+     href=""
      ng-click="open();">
-  </i>
-  <i class="icon ion-navicon"
-     ng-show="current_state !== 'organizations.registration' && menu_open"
-     ng-click="close()">
-  </i>
+  </a>
   <div class="headerpar"
        scroll-watch="{from: 0, to: -1, stage: 'centered-container'}"
        sw-class="{red: $offsetTop > 57}">

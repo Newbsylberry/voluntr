@@ -6,8 +6,16 @@ Rails.application.routes.draw do
   resources :user_organizations, except: [:new, :edit]
   scope '/api' do
     scope '/v1' do
+
+      # match '/people', to: 'people#create', via: [ :post, :options], defaults: {format: :json}
+      # match '/recorded_hours', to: 'recorded_hours#create', via: [ :post, :options], defaults: {format: :json}
+      # match '/person_opportunities', to: 'person_opportunities#create', via: [ :post, :options], defaults: {format: :json}
+
+
+
       match '/users/update_password', to: 'users#update_password', via: :patch, defaults: {format: :json}
       match '/users/current/organizations', to: 'users#current_user_organizations', via: :get, defaults: {format: :json}
+      match '/users/login/facebook_login', to: 'users#facebook_login', via: :get, defaults: {format: :json}
       devise_for :users,
                 :controllers => { registrations: 'registrations',
                                   confirmations: 'confirmations',
@@ -97,6 +105,9 @@ Rails.application.routes.draw do
       match '/reports/public/person', to: 'reports#export_person_report', via: :get, defaults: {format: :json}
       #schedule
       match '/schedules/format/schedule_string', to: 'schedules#schedule_string', via: :get, defaults: {format: :json}
+
+      #spreadsheets
+      match '/spreadsheet_import/check', to: 'spread_sheet_import#spreadsheet_check', via: :get, defaults: {format: :json}
 
 
     end

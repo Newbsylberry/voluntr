@@ -9,6 +9,12 @@ angular.module('voluntrApp')
   .controller('OrganizationTutorialCtrl', function ($scope, $modal, $rootScope, $http, $stateParams,
                                                     searchService, $window, $state) {
 
+
+
+
+    $scope.$on("$stateChangeSuccess", function updatePage() {
+      $scope.current_state = $state.current.name;
+    });
     $scope.$watch('current_state', function(){
       if ($scope.current_state === 'organizations.tutorial.1') {
         $scope.back_link_text = ""

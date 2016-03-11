@@ -15,6 +15,24 @@ class OpportunityMailer < ActionMailer::Base
     mail(to: @person.email, subject: "Your Volunteer Opportunities Next Month")
   end
 
+  def opportunity_collaboration_interest(opportunity, organization, message)
+    @opportunity = opportunity
+    @organization = organization
+    @message = message
+    opportunity_emails = [];
+    organization_emails = [];
+    @opportunity.organization.users.each do |u|
+      opportunity_emails << u.email
+    end
+    @organization.users.each do |u|
+      organization_emails << u.email
+    end
+
+    mail(to: opportunity_emails,
+         from: organization_emails,
+         subject: "#{@organization.name} wants to collaborate on #{@opportunity.name}")
+  end
+
   def opportunity_sign_in_email(person, opportunity, recorded_hours)
     @person = person
     @opportunity = opportunity
@@ -23,4 +41,7 @@ class OpportunityMailer < ActionMailer::Base
 
     mail(to: @person.email, subject: "Sign In Confirmation")
   end
+
+
+
 end

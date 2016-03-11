@@ -53,7 +53,6 @@
         var workbook = XLSX.read(data, {
           type: 'binary'
         });
-
         obj.sheets = XLSXReader.utils.parseWorkbook(workbook, readCells, toJSON);
         handler(obj);
       }

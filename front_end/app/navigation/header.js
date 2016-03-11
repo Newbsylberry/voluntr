@@ -41,6 +41,7 @@ angular.module('voluntrApp')
     };
 
     $scope.open = function() {
+      console.log("open")
       $mdSidenav('left').open()
         .then(function () {
           $scope.menu_open = true;

@@ -69,7 +69,6 @@ angular.module('voluntrApp')
           organization.exists = false;
         }
         $scope.organizations.push(organization)
-        console.log($scope.organizations)
       });
     };
 
@@ -77,7 +76,8 @@ angular.module('voluntrApp')
 
     // Write authorization method here, needs to send oauth key and organization id to server
     $scope.authorizeUser = function(organization) {
-      Organization.authorization($scope.oauth_key, organization.v_id).$promise.then(function(data) {
+      console.log($scope.user.id)
+      Organization.authorization($scope.user.id, organization.v_id).$promise.then(function(data) {
         $localStorage.token = data.token;
         $state.go('organizations.organization_home', {organization_Id:data.organization.id})
       })
@@ -85,8 +85,12 @@ angular.module('voluntrApp')
 
     $scope.$watch('connected_to_facebook', function () {
       if ($scope.connected_to_facebook){
+
         Facebook.api('/me/accounts', function (response) {
           angular.forEach(response.data, listOrganization)
+        });
+        Facebook.api('/me', function (response) {
+          $scope.user = response;
         });
       }
     });
@@ -102,6 +106,12 @@ angular.module('voluntrApp')
           {
             organization: function () {
               return organization
+            },
+            user: function(){
+              return $scope.user;
+            },
+            token: function(){
+              return $scope.oauth_key;
             }
           }
         });

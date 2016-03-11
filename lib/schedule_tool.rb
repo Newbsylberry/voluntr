@@ -3,11 +3,16 @@ module SchedulerTool
 
   def SchedulerTool.schedule_from_params(params, object)
     start_time = Time.at(params[:start_time].to_i / 1000)
-
+    end_time = Time.at(params[:end_time].to_i / 1000)
     if !object.schedule.nil?
-
       schedule = IceCube::Schedule.from_yaml(object.schedule)
       @hash = schedule.to_hash
+      ap end_time
+      if @hash[:start_date] > Time.now
+        @hash[:start_date] = start_time
+        @hash[:end_time] = end_time
+      end
+      ap @hash[:start_time]
       if schedule.recurrence_rules
         @hash[:rrules].each do |rr|
           if rr[:until].nil?
@@ -20,8 +25,6 @@ module SchedulerTool
 
     if !schedule
       schedule = Schedule.new(start_time)
-      ap start_time
-      ap schedule.to_s
       if params[:end_time]
         schedule.end_time = Time.at(params[:end_time].to_i / 1000)
       end

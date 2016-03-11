@@ -23,6 +23,7 @@ angular.module('voluntrApp')
       myCalendar:{
         height: 500,
         editable: true,
+        timezone: 'local',
         eventTextColor: 'white',
         header:{
           left: 'month agendaWeek agendaDay',

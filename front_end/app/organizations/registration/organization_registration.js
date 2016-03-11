@@ -16,9 +16,31 @@ angular.module('voluntrApp')
     $scope.facebook_log_in = function () {
       Facebook.login(function(response) {
         $scope.oauth_key = response.authResponse.accessToken;
-          $state.go('organizations.user_organizations');
-      }, {scope: 'user_groups,read_insights,manage_pages'})
+      }, {scope: 'manage_pages,email'})
     };
+
+
+    $scope.$watch('oauth_key',function() {
+      if ($scope.oauth_key) {
+        Facebook.api('/me', function (response) {
+          $scope.user = response;
+          console.log($scope.user)
+          var attr = {};
+          attr.fb_id = $scope.user.id;
+          attr.token = $scope.oauth_key;
+          attr.first_name = $scope.user.first_name;
+          attr.last_name = $scope.user.last_name;
+          attr.email = $scope.user.email;
+          console.log(attr)
+          $http({
+            url: '/api/v1/users/login/facebook_login',
+            method: 'GET',
+            params: attr
+          })
+          $state.go('organizations.user_organizations');
+        });
+      }
+    })
 
     $scope.progress = 33;
     $scope.registration_prompt = 'Step 1:  Initial Information'
@@ -31,7 +53,7 @@ angular.module('voluntrApp')
       credentials.organization.organization_name = $scope.register.organization_name;
       Auth.register(credentials).then(function(object){
         if (object.token) {
-        $localStorage.token = object.token;
+          $localStorage.token = object.token;
           $state.go('organizations.email_registration.2')
           $scope.registration_prompt = 'Step 2:  Additional Information'
           $scope.progress = 66;
@@ -79,7 +101,7 @@ angular.module('voluntrApp')
           $localStorage.token = data.token;
           $scope.progress = 99;
           $scope.registration_prompt = 'Step 3:  Add Organization Address'
-      $state.go('organizations.email_registration.3')
+          $state.go('organizations.email_registration.3')
         })
       })
     };

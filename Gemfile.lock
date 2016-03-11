@@ -18,6 +18,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.2)
+    StreetAddress (1.0.6)
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
       actionview (= 4.2.0)
@@ -257,7 +258,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    koala (1.11.1)
+    koala (2.2.0)
       addressable
       faraday
       multi_json
@@ -309,6 +310,7 @@ GEM
       slop (~> 3.4)
     puma (2.15.3)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -433,6 +435,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  StreetAddress
   active_model_serializers!
   awesome_print
   capistrano
@@ -457,7 +460,7 @@ DEPENDENCIES
   ice_cube
   jwt
   kaminari
-  koala (~> 1.11.0rc)
+  koala (= 2.2.0)
   letter_opener
   mail!
   net-ssh (= 2.9.2)
@@ -467,6 +470,7 @@ DEPENDENCIES
   prawn (~> 2.0)
   prawn-table (~> 0.2.2)
   puma
+  rack-cors
   rails (= 4.2.0)
   rails-api
   rails_12factor
@@ -479,3 +483,6 @@ DEPENDENCIES
   spring
   squid (~> 1.2)
   whenever
+
+BUNDLED WITH
+   1.11.2
