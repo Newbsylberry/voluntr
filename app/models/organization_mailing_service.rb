@@ -2,6 +2,7 @@ class OrganizationMailingService < ActiveRecord::Base
   belongs_to :organization
   has_many :mailing_service_lists, dependent: :destroy
 
+
   def update_or_create_lists
     if service_type == "mail_chimp"
       response = Mailchimp.api(token).get('lists/')
@@ -14,6 +15,12 @@ class OrganizationMailingService < ActiveRecord::Base
         @list.save
         mailing_service_lists.push(@list)
       end
+    end
+  end
+
+  def default_list
+    if default_list_id
+      @mailing_list = MailingServiceList.find(default_list_id)
     end
   end
 

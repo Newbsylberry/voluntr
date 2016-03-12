@@ -3,6 +3,7 @@ class OrganizationSerializer < ActiveModel::Serializer
              :twitter_url, :instagram_url, :total_people, :terms_of_service_file, :terms_of_service_uploaded,
              :nonprofit?, :volunteer_group?, :users
 
+  has_many :organization_mailing_services
   has_many :opportunities
 
 

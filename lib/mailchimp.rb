@@ -2,12 +2,12 @@ module Mailchimp
 
   def self.client(site)
     if Rails.env == "development"
-      client = OAuth2::Client.new('135535067599',
-                                  '8eee168235a9ae2c8a042e19ef176cfc',
-                                  :site => site, :raise_errors => false)
+      client = OAuth2::Client.new('908200191566',
+                                  'ae7ee8904a4a650521de1a88bbf35de8',
+                                  :site => site, :raise_errors => true)
     else
-      client = OAuth2::Client.new('491000452870',
-                                  'f42b8b94d89b7cf50a81feaad3530c7d',
+      client = OAuth2::Client.new('399304833589',
+                                  '55f26460d3d708d322bd45989b17e46e',
                                   :site => site, :raise_errors => false)
     end
 
@@ -21,8 +21,6 @@ module Mailchimp
     client = Mailchimp.client("https://#{domain}.api.mailchimp.com/3.0/")
     return OAuth2::AccessToken.new(client, token)
   end
-
-
 
 
 

@@ -16,6 +16,7 @@ angular.module('voluntrApp')
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
+      console.log(successResponse)
       Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
         $scope.organization.picture = response.data.url;
       });
@@ -33,13 +34,14 @@ angular.module('voluntrApp')
       url: 'api/v1/organizations/' + $stateParams.organization_Id +'/auth/mail_chimp_check',
       method: 'get'
     }).success(function(data){
-      if (data.response) {
+      if (data.mail_chimp) {
         $scope.mailchimp_authorized = true;
-        $scope.mailchimp = JSON.parse(data.response.body)
-      } else if (!data.response) {
+        $scope.mailchimp = data.mail_chimp
+      } else if (data.error) {
         $scope.mailchimp_authorized = false;
       }
     }).error(function(data){
+
     });
 
     $scope.delete = function(mailing_service) {

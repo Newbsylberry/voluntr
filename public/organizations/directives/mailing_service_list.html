@@ -1,5 +1,9 @@
 
+
 <p ng-show="!editing">{{organization_mailing_service.default_list.name}}</p>
+<p style="color: red;"ng-show="editing && !organization_mailing_service.default_list.name">
+  Please click edit below and select a Mailchimp list
+</p>
 <select ng-options="mailing_service_list.name for mailing_service_list in
         organization_mailing_service.mailing_service_lists"
         ng-show="editing"
