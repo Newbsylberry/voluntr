@@ -25,15 +25,17 @@
          md-progress="deferred">
     <thead md-order="query.order" md-trigger="onOrderChange">
     <tr>
-      <th name="First Name" order-by="first_name"></th>
-      <th name="Last Name" order-by="last_name"></th>
+      <th ng-if="name_column" name="Name" order-by="name"></th>
+      <th ng-if="!name_column" name="First Name" order-by="first_name"></th>
+      <th  ng-if="!name_column" name="Last Name" order-by="last_name"></th>
       <th name="Email" order-by="email"></th>
       <th name="Phone #" order-by="phone"></th>
-      <th name="Address 1" order-by="address_1"></th>
-      <th name="Address 2" order-by="address_2"></th>
-      <th name="City" order-by="city"></th>
-      <th name="State" order-by="state"></th>
-      <th name="Zip Code" order-by="zip_code"></th>
+      <th ng-if="address_column" name="Address" order-by="address"></th>
+      <th ng-if="!address_column" name="Address 1" order-by="address_1"></th>
+      <th ng-if="!address_column" name="Address 2" order-by="address_2"></th>
+      <th ng-if="!address_column" name="City" order-by="city"></th>
+      <th ng-if="!address_column" name="State" order-by="state"></th>
+      <th ng-if="!address_column" name="Zip Code" order-by="zip_code"></th>
       <th name="Occupation" order-by="occupation"></th>
       <th name="Organization" order-by="organization"></th>
       <th name="Notes" order-by="notes"></th>
@@ -42,16 +44,18 @@
     <tbody>
     <tr md-auto-select
         ng-repeat="person in people | orderBy:query.order | limitTo: query.limit:(query.page - 1)*query.limit ">
-      <td>{{person.first_name}}</td>
-      <td>{{person.last_name}}</td>
+      <td ng-if="name_column">{{person.name}}</td>
+      <td ng-if="!name_column">{{person.first_name}}</td>
+      <td ng-if="!name_column">{{person.last_name}}</td>
       <td>{{person.email}}</td>
       <td>{{person.phone}}</td>
-      <td>{{person.address_1}}</td>
-      <td>{{person.address_2}}</td>
-      <td>{{person.city}}</td>
-      <td>{{person.state}}</td>
-      <td>{{person.zip_code}}</td>
-      <td>{{person.occupation}}</td>
+      <td ng-if="address_column">{{person.address}}</td>
+      <td ng-if="!address_column">{{person.address_1}}</td>
+      <td ng-if="!address_column">{{person.address_2}}</td>
+      <td ng-if="!address_column">{{person.city}}</td>
+      <td ng-if="!address_column">{{person.state}}</td>
+      <td ng-if="!address_column">{{person.zip_code}}</td>
+      <td >{{person.occupation}}</td>
       <td>{{person.organization}}</td>
       <td>{{person.notes}}</td>
     </tr>
@@ -62,17 +66,14 @@
                           md-page="query.page"
                           md-total="{{people.length}}"
                           md-trigger="onPaginate"></md-data-table-pagination>
-<div layout="row">
-  <div flex="40">
+
     <md-button class="md-warning md-raised"
+               style="float: left;width: 300px;"
                ng-click="redoMappings()">Redo Mappings</md-button>
-  </div>
-  <div flex="10">
-  </div>
-  <div flex="40">
     <md-button class="md-primary md-raised"
+               style="float: right;width: 300px;"
                ng-click="import()">Import</md-button>
-  </div>
+    <div style="clear: both"></div>
 </div>
 
 

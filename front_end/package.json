@@ -41,6 +41,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "grunt-include-source": "^0.7.1",
     "grunt-ng-constant": "^1.1.0",
     "karma-phantomjs-launcher": "^0.1.4"
   }

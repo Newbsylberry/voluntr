@@ -6,6 +6,7 @@ angular.module('voluntrApp')
 
     $scope.database_attributes = ['first_name','last_name','address_1','address_2','email','zip_code','state','city','occupation','phone','organization_name','notes'];
     $scope.data = {};
+    $scope.joined_columns = {};
     $scope.errors = {};
     $scope.errors.file = false;
     $scope.data.possibleCustomFields = [];
@@ -138,7 +139,9 @@ angular.module('voluntrApp')
       // send json object to server
       var formattedObjectForServer = {
         people: jsonSheet,
-        organization_id: $stateParams.organization_Id
+        organization_id: $stateParams.organization_Id,
+        name_column: $scope.joined_columns.name_column,
+        address_column: $scope.joined_columns.address_column
       };
 
       var bulkAddModal = $modal.open(

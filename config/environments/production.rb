@@ -69,9 +69,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address: "smtp.mandrillapp.com",
       port:  587,
-      domain: "chronicleme.com",
-      user_name: "cmccarthy@chronicleme.com",
-      password: "rPwoSZtKJDn65DdQTmsm5g",
+      domain: "voluapp.com",
+      user_name: "chris@voluapp.com",
+      password: "It1fJ0InhCJYUTdraoe02w",
       authentication: "plain",
       enable_starttls_auto: true }
 

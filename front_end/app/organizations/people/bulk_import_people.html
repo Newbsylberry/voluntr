@@ -1,70 +1,81 @@
 <md-card class="content bulk-import-people" >
   <md-card-content>
-    <div ng-show="!imported">
-      <div id="header">
-        <h2>Import Volunteers From a Spreadsheet</h2>
-      </div>
-      <div layout="row">
-        <div flex="100" class="import-box">
-          <h4><h3>Step 1:</h3>
-            Select the spreadsheet and if it's different from the first sheet, also select the worksheet which contains your volunteers.
-          </h4>
-          <input type="file"
-                 fileread="data.workbook">
-          <md-input-container id="worksheet-select">
-            <label>Choose Worksheet With Volunteers:</label>
-            <md-select ng-model="data.activeWorksheet">
-              <md-option ng-repeat="sheet in data.worksheetNames" value="{{sheet}}">
-                {{sheet}}
-              </md-option>
-            </md-select>
-          </md-input-container>
-          <div ng-if="errors.file">Wrong File Type</div>
-        </div>
-      </div>
-      <div layout="row">
-        <div flex="100" class="import-box" ng-show="mapped">
-          <h4><h3>Step 2</h3>This next step is a little tricky.  In order to successfully import all your
+    <volu-form
+      title="Import Volunteers from Spreadsheet"
+      description="Have a spreadsheet with rows and rows of volunteers?  Follow the steps below to match the columns in
+        your spreadsheet with the data we store in our database.">
+      <volu-form-section
+        title="Step 1:"
+        description="Select the spreadsheet and if it's different from the first sheet, also select the worksheet which contains your volunteers.">
+        <input type="file"
+               fileread="data.workbook">
+        <md-input-container id="worksheet-select">
+          <label>Choose Worksheet With Volunteers:</label>
+          <md-select ng-model="data.activeWorksheet">
+            <md-option ng-repeat="sheet in data.worksheetNames" value="{{sheet}}">
+              {{sheet}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <div ng-if="errors.file">Wrong File Type</div>
+      </volu-form-section>
+      <volu-form-section
+        title="Step 2:"
+        ng-show="mapped"
+        description="This next step is a little tricky.  In order to successfully import all your
             data we need to map the headers in your spreadsheet to our format.  We have done our best to
             identify the correct match but you'll need to complete the following step to make sure it's correct.
-            If there is a database field that you do not have a match for, please select "No Match."
-          </h4><br>
-          <h4>First answer a couple questions about how your data is organized:</h4>
+            If there is a database field that you do not have a match for, please select 'No Match.'">
+        <volu-form-group direction="First answer a couple questions about how your data is organized:">
           <md-input-container>
-            <md-checkbox ng-model="name_column" aria-label="Checkbox 1">
-              Is the volunteer's name one column?
-            </md-checkbox>
+                <strong>name</strong>
+                <md-checkbox ng-model="joined_columns.name_column" aria-label="Checkbox 1">
+                  Is the volunteer's name one column?
+                </md-checkbox>
           </md-input-container>
           <md-input-container>
-            <md-checkbox ng-model="address_column" aria-label="Checkbox 1">
-              Is the volunteer's address in one column?
-            </md-checkbox>
+                <md-checkbox ng-model="joined_columns.address_column" aria-label="Checkbox 1">
+                  Is the volunteer's address in one column?
+                </md-checkbox>
           </md-input-container>
-          <h4>
-            For each of the fields below, select the header from your spreadsheet which matches.  We've started you
-            out with our best guess:
-          </h4>
+        </volu-form-group>
+        <volu-form-group direction="For each of the fields below, select the header from your spreadsheet which matches.  We've started you
+            out with our best guess:">
           <small style="color: red">Make sure the relevant fields match, this is very hard to undo!</small>
           <md-list>
-            <md-input-container ng-if="name_column">
+            <md-input-container ng-if="joined_columns.name_column">
+              <div layout="row">
+              <div flex="20">
+                <strong>name</strong>
+              </div>
+              <div flex="80">
               <label>Make sure to select a spreadsheet header for name!</label>
               <md-select ng-model="data.checkResponse.name">
                 <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
                   {{title}}
                 </md-option>
               </md-select>
+              </div>
+              </div>
             </md-input-container>
-            <md-input-container ng-if="address_column">
+            <md-input-container ng-if="joined_columns.address_column">
+              <div layout="row">
+                <div flex="20">
+                  <strong>address</strong>
+                </div>
+                <div flex="80">
               <label>Make sure to select a spreadsheet header for address!</label>
               <md-select ng-model="data.checkResponse.address">
                 <md-option ng-repeat="row_title in data.rowTitles" value="{{row_title}}">
                   {{row_title}}
                 </md-option>
               </md-select>
+                </div>
+                </div>
             </md-input-container>
             <md-input-container ng-repeat="attr in database_attributes">
               <div
-                ng-hide="((attr === 'first_name' || attr === 'last_name') && name_column) || ((attr === 'address_1' || attr === 'address_2' || attr === 'zip_code' || attr === 'city' || attr === 'state') && address_column)"
+                ng-hide="((attr === 'first_name' || attr === 'last_name') && joined_columns.name_column) || ((attr === 'address_1' || attr === 'address_2' || attr === 'zip_code' || attr === 'city' || attr === 'state') && joined_columns.address_column)"
                 layout="row">
                 <div flex="20">
                   <strong>{{attr}}</strong>
@@ -82,37 +93,40 @@
               </div>
             </md-input-container>
           </md-list>
-          <md-button class="md-primary md-raised"
-                     ng-disabled="!data.workbook || !data.isUnique"
-                     ng-click="confirmDatabaseMatch()">Add Custom Fields Not Included Above
-          </md-button>
-        </div>
-      </div>
-      <div ng-if="data.matchConfirmed">
-        <div layout="row">
-          <div flex="100">
-            <span>Custom Fields to Import</span>
-            <br>
-            <ol>
-              <li ng-repeat="field in data.possibleCustomFields">
-                {{field}} <a href="" ng-click="removePossibleCustomField($index)">x</a>
-              </li>
-            </ol>
-            <br>
-            <div ng-if="data.matchConfirmed">
-              <span>Custom Fields which won't be Imported</span>
-              <br>
-              <ol>
-                <li ng-repeat="field in data.notImportedFields">
-                  {{field}} <a href="" ng-click="addPossibleCustomField($index)">x</a>
-                </li>
-              </ol>
-            </div>
-            <!--<br>-->
-            <!--<span>Is Unique? </span><span>{{data.isUnique}}</span>-->
-            <!--<br>-->
-          </div>
-        </div>
+        </volu-form-group>
+        <md-button class="md-primary md-raised"
+                   ng-disabled="!data.workbook || !data.isUnique"
+                   ng-click="confirmDatabaseMatch()">Move on to the Final Step
+        </md-button>
+      </volu-form-section>
+      <volu-form-section
+        ng-if="data.matchConfirmed"
+        title="Step 3"
+        description="Almost done!  The following columns did not match any of the data that we typically collect, but
+        don't be concerned, we can add whichever you'd like.  If you are not interested in importing a specific field
+        click the 'x' next to it."
+        >
+        <volu-form-group direction="These custom fields will be added in addition to the fields you specified above">
+          <ol>
+            <li ng-repeat="field in data.possibleCustomFields">
+              {{field}} <a href="" ng-click="removePossibleCustomField($index)">x</a>
+            </li>
+          </ol>
+        </volu-form-group>
+        <volu-form-group
+          direction="These custom fields will NOT be added"
+          ng-if="data.matchConfirmed && data.notImportedFields.length > 0"
+          >
+          <ol>
+            <li ng-repeat="field in data.notImportedFields">
+              {{field}} <a href="" ng-click="addPossibleCustomField($index)">x</a>
+            </li>
+          </ol>
+        </volu-form-group>
+
+        <!--<br>-->
+        <!--<span>Is Unique? </span><span>{{data.isUnique}}</span>-->
+        <!--<br>-->
         <div layout="row">
           <div flex="100">
             <md-button class="md-primary md-raised"
@@ -120,10 +134,7 @@
                        ng-click="importWorksheet()">Import</md-button>
           </div>
         </div>
-      </div>
-    </div>
-    <div ng-show="imported">
-      <h2>{{success_message}}</h2>
-    </div>
+      </volu-form-section>
+    </volu-form>
   </md-card-content>
 </md-card>

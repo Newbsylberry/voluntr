@@ -1,0 +1,30 @@
+.form-container {
+  padding: 2% 8%;
+  .form-title {
+    margin-bottom: 2%;
+  }
+  .form-description {
+    font-size: 18px;
+    text-align: center;
+  }
+  .form-section {
+    margin: 4% 0 8% 0;
+    .form-section-title {
+      margin-bottom: 2%;
+      font-size: 28px;
+    }
+    .form-section-text {
+      font-size: 18px;
+      margin-bottom: 2%;
+    }
+  }
+  .form-group {
+  margin-bottom: 2%;
+  .form-group-description {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  }
+}
+
+
