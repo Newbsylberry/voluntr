@@ -4,15 +4,15 @@
   "volunteer_dollars": 18337,
   "most_active_teams": [
     {
-      "team_name": "Syracuse University",
+      "name": "Syracuse University",
       "score": 7.1
     },
     {
-      "team_name": "Lemoyne",
+      "name": "Lemoyne",
       "score": 6.8
     },
     {
-      "team_name": "40 Below",
+      "name": "40 Below",
       "score": 5.3
     }
   ],
@@ -43,5 +43,21 @@
       "name": "Al Jacobs",
       "hours": 13
     }
-  ]
+  ],
+  "team": {
+    "hours_per_person": [
+      {
+        "name": "Lamoyne",
+        "hours": 5
+      },
+      {
+        "name": "Syracuse University",
+        "hours": 4
+      },
+      {
+        "name": "40 Below",
+        "hours": 3
+      }
+    ]
+  }
 }

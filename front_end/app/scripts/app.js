@@ -390,6 +390,11 @@ angular
         controller: 'LeaderboardCtrl'
       })
 
+      .state('team', {
+        url: '/leaderboard/team',
+        templateUrl: 'leaderboard/team.html',
+        controller: 'LeaderboardCtrl'
+      })
 
 
 
