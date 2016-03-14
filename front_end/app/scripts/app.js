@@ -35,7 +35,7 @@ angular
     'ui.calendar',
     'snap',
     'leaflet-directive',
-    "kendo.directives",
+    'kendo.directives',
     'ngHandsontable',
     'angulartics',
     'angulartics.google.analytics',
@@ -384,7 +384,11 @@ angular
         controller: 'ProfileCtrl'
       })
 
-
+      .state('leaderboard', {
+        url: '/leaderboard',
+        templateUrl: 'leaderboard/leaderboard.html',
+        controller: 'LeaderboardCtrl'
+      })
 
 
 
