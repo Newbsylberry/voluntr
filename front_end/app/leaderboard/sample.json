@@ -1,0 +1,47 @@
+{
+  "volunteers": 3019,
+  "volunteer_hours": 815,
+  "volunteer_dollars": 18337,
+  "most_active_teams": [
+    {
+      "team_name": "Syracuse University",
+      "score": 7.1
+    },
+    {
+      "team_name": "Lemoyne",
+      "score": 6.8
+    },
+    {
+      "team_name": "40 Below",
+      "score": 5.3
+    }
+  ],
+  "top_nonprofits": [
+    {
+      "name": "Salvation Army",
+      "hours": 317
+    },
+    {
+      "name": "United Way",
+      "hours": 211
+    },
+    {
+      "name": "Meals On Wheels",
+      "hours": 108
+    }
+  ],
+  "top_individuals": [
+    {
+      "name": "Tom Marcetti",
+      "hours": 17
+    },
+    {
+      "name": "Rachel Stewart",
+      "hours": 14
+    },
+    {
+      "name": "Al Jacobs",
+      "hours": 13
+    }
+  ]
+}
