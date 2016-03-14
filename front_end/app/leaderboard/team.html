@@ -5,3 +5,12 @@
   </horizontal-bar-chart>
   <a href="">more...</a>
 </div>
+<div>
+  Top Team By Participation Rate
+  <ol>
+    <li ng-repeat="datum in data.lb.team.participation_rate">
+      {{datum.name}}
+      <pie-chart data="datum"></pie-chart>
+    </li>
+  </ol>
+</div>

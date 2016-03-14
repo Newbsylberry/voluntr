@@ -58,6 +58,20 @@
         "name": "40 Below",
         "hours": 3
       }
+    ],
+    "participation_rate": [
+      {
+        "name": "40 Below",
+        "rate": 80
+      },
+      {
+        "name": "Lamoyne",
+        "rate": 75
+      },
+      {
+        "name": "Syracuse University",
+        "rate": 60
+      }
     ]
   }
 }
