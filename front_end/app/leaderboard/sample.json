@@ -72,6 +72,20 @@
         "name": "Syracuse University",
         "rate": 60
       }
+    ],
+    "total_hours": [
+      {
+        "name": "Syracuse University",
+        "hours": 1000
+      },
+      {
+        "name": "Lamoyne",
+        "hours": 500
+      },
+      {
+        "name": "40 Below",
+        "hours": 300
+      }
     ]
   }
 }
