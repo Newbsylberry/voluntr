@@ -11,16 +11,16 @@ angular.module('voluntrApp')
 
     //Boilerplate chart append
     var chart = d3.select(element[0]).append('svg')
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+              .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     scope.$watch('data', function(data) {
       if (!data) return;
 
       var color = d3.scale.ordinal()
-                      .range(["#444444","#333333", "#555555"]);
+                      .range(['#444444','#333333', '#555555']);
 
       data = [data[1],data[0],data[2]];
       console.log(data);
@@ -28,10 +28,10 @@ angular.module('voluntrApp')
       var bar = chart.selectAll('.bar')
                    .data(data)
                  .enter()
-                   .append("g")
-                   .attr('transform', function(d,i) { return "translate("+ i * barWidth + ",20)"; });
+                   .append('g')
+                   .attr('transform', function(d,i) { return 'translate('+ i * barWidth + ',20)'; });
 
-     bar.append("rect")
+     bar.append('rect')
         .attr('width', barWidth-1)
         .attr('height', function(d,i){
           if (i === 0) return 60;
@@ -45,13 +45,13 @@ angular.module('voluntrApp')
         })
         .attr('fill', function(d,i) {return color(i);});
 
-     bar.append("text")
+     bar.append('text')
         .attr('x', barWidth/2)
         .attr('y', 80)
-        .attr('fill',"#FFFFFF")
-        .text(function(d) { return d.events; })
+        .attr('fill','#FFFFFF')
+        .text(function(d) { return d.value; })
 
-     bar.append("text")
+     bar.append('text')
         .attr('x', barWidth/2)
         .attr('y', function(d,i) {
           if (i === 0) return 30;

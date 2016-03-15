@@ -11,10 +11,13 @@ angular.module('voluntrApp')
 
     //Boilerplate chart append
     var chart = d3.select(element[0]).append('svg')
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+              .append('g')
+                .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+
+    var color = d3.scale.ordinal()
+                    .range(['#333333','#555555']);
 
     var radius = Math.min(width,height) / 2;
 
@@ -24,10 +27,7 @@ angular.module('voluntrApp')
 
     var pie = d3.layout.pie()
       .sort(null)
-      .value(function(d) { return d.rate; });
-
-    var color = d3.scale.ordinal()
-      .range(["#0000FF", "#FF0000"]);
+      .value(function(d) { return d.value; });
 
 
     scope.$watch('data', function(data) {
@@ -36,26 +36,26 @@ angular.module('voluntrApp')
       data = [
         data,
         {
-          rate: 100 - data.rate
+          value: 100 - data.value
         }
       ];
 
       var arcs = chart.selectAll('.arc')
                    .data(pie(data))
-                 .enter().append("g")
-                   .attr("class", "arc");
+                 .enter().append('g')
+                   .attr('class', 'arc');
 
-      arcs.append("path")
-       .attr("d", arc)
-       .style("fill", function(d,i) { return color(i); });;
+      arcs.append('path')
+       .attr('d', arc)
+       .style('fill', function(d,i) { return color(i); });;
 
 
-     chart.append("text")
-          .attr("x", 0)
-          .attr("y", 0)
-          .style("text-anchor", "center")
-          .style("fill", "#FFFFFF")
-          .text(data[0].rate + "%");
+     chart.append('text')
+          .attr('x', 0)
+          .attr('y', 0)
+          .style('text-anchor', 'center')
+          .style('fill', '#FFFFFF')
+          .text(data[0].value + '%');
 
 
     });

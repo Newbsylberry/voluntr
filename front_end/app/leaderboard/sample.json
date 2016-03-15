@@ -5,100 +5,100 @@
   "most_active_teams": [
     {
       "name": "Syracuse University",
-      "score": 7.1
+      "value": 7.1
     },
     {
       "name": "Lemoyne",
-      "score": 6.8
+      "value": 6.8
     },
     {
       "name": "40 Below",
-      "score": 5.3
+      "value": 5.3
     }
   ],
   "top_nonprofits": [
     {
       "name": "Salvation Army",
-      "hours": 317
+      "value": 317
     },
     {
       "name": "United Way",
-      "hours": 211
+      "value": 211
     },
     {
       "name": "Meals On Wheels",
-      "hours": 108
+      "value": 108
     }
   ],
   "top_individuals": [
     {
       "name": "Tom Marcetti",
-      "hours": 17
+      "value": 17
     },
     {
       "name": "Rachel Stewart",
-      "hours": 14
+      "value": 14
     },
     {
       "name": "Al Jacobs",
-      "hours": 13
+      "value": 13
     }
   ],
   "team": {
     "hours_per_person": [
       {
         "name": "Lamoyne",
-        "hours": 5
+        "value": 5
       },
       {
         "name": "Syracuse University",
-        "hours": 4
+        "value": 4
       },
       {
         "name": "40 Below",
-        "hours": 3
+        "value": 3
       }
     ],
     "participation_rate": [
       {
         "name": "40 Below",
-        "rate": 80
+        "value": 80
       },
       {
         "name": "Lamoyne",
-        "rate": 75
+        "value": 75
       },
       {
         "name": "Syracuse University",
-        "rate": 60
+        "value": 60
       }
     ],
     "total_hours": [
       {
         "name": "Syracuse University",
-        "hours": 1000
+        "value": 1000
       },
       {
         "name": "Lamoyne",
-        "hours": 500
+        "value": 500
       },
       {
         "name": "40 Below",
-        "hours": 300
+        "value": 300
       }
     ],
     "total_events": [
       {
         "name": "Syracuse University",
-        "events": 5
+        "value": 5
       },
       {
         "name": "Lamoyne",
-        "events": 4
+        "value": 4
       },
       {
         "name": "40 Below",
-        "events": 3
+        "value": 3
       }
     ]
   }

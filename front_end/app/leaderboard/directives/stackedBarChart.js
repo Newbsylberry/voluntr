@@ -9,36 +9,36 @@ angular.module('voluntrApp')
 
     //Boilerplate chart append
     var chart = d3.select(element[0]).append('svg')
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+              .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     var y = d3.scale.linear()
                     .range([0,height]);
 
     var color = d3.scale.ordinal()
-                    .range(["#333333","#444444", "#555555"]);
+                    .range(['#333333','#444444', '#555555']);
 
     scope.$watch('data', function(data) {
       if (!data) return;
 
 
-      y.domain([0,d3.sum(data,function(d){ return d.hours;})]);
+      y.domain([0,d3.sum(data,function(d){ return d.value;})]);
 
 
 
       var y0 = 0;
       data.forEach(function(d) {
         d.y0 = y0;
-        y0 += y(d.hours);
+        y0 += y(d.value);
       });
 
       var bars = chart.selectAll('.bar')
                       .data(data)
                     .enter().append('rect')
                       .attr('class','bar')
-                      .attr('height', function(d) {return y(d.hours);})
+                      .attr('height', function(d) {return y(d.value);})
                       .attr('width', width-10)
                       .attr('x',5)
                       .attr('y', function(d) {return d.y0;})
@@ -52,6 +52,7 @@ angular.module('voluntrApp')
                       .attr('x', width/2)
                       .attr('y', function(d) { return d.y0+20; })
                       .attr('text-anchor', 'middle')
+                      .attr('fill', '#FFFFFF')
                       .text(function(d) { return d.name; });
 
                       text.enter().append('text')
@@ -59,7 +60,8 @@ angular.module('voluntrApp')
                       .attr('x', width/2)
                       .attr('y', function(d) { return d.y0+50; })
                       .attr('text-anchor', 'middle')
-                      .text(function(d) { return d.hours + " hours" });
+                      .attr('fill', '#FFFFFF')
+                      .text(function(d) { return d.value + ' hours' });
 
     });
   }
