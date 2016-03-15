@@ -86,6 +86,20 @@
         "name": "40 Below",
         "hours": 300
       }
+    ],
+    "total_events": [
+      {
+        "name": "Syracuse University",
+        "events": 5
+      },
+      {
+        "name": "Lamoyne",
+        "events": 4
+      },
+      {
+        "name": "40 Below",
+        "events": 3
+      }
     ]
   }
 }
