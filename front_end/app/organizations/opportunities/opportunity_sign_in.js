@@ -58,7 +58,6 @@ angular.module('voluntrApp')
       }
       attr.organization_id = $scope.opportunity.organization_id;
       People.create(attr).$promise.then(function(response){
-        console.log(response)
         $scope.person = response;
         $scope.opportunitySignIn.first_name = "";
         $scope.opportunitySignIn.last_name = "";

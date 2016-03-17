@@ -14,11 +14,15 @@ angular.module('voluntrApp')
   .controller('OpportunityDetailCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, Opportunity, id,
                                                  PersonOpportunity, start_time, $modal,
-                                                 $modalInstance, $cacheFactory, $timeout,
-                                                 OpportunityRole, opportunity) {
+                                                 $cacheFactory, $timeout,OpportunityRole,
+                                                 opportunity,$mdDialog) {
 
 
     $scope.instance = start_time;
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
 
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
@@ -84,27 +88,6 @@ angular.module('voluntrApp')
       })
     };
 
-    $scope.updateOpportunityRole = function(opportunity_role) {
-      var attr = {};
-      attr.id = opportunity_role.id;
-      attr.name = opportunity_role.name;
-      attr.description = opportunity_role.description;
-      attr.volunteers_required = opportunity_role.volunteers_required;
-      attr.hours_required = opportunity_role.hours_required;
-      var opportunity_role = OpportunityRole.update(attr)
-      $scope.editing = false;
-    };
-
-    $scope.deleteOpportunityRole = function(opportunity_role) {
-      var index = $scope.opportunity.opportunity_roles.indexOf(opportunity_role);
-      if (index > -1) {
-        $scope.opportunity.opportunity_roles.splice(index, 1);
-      }
-      OpportunityRole.delete(opportunity_role.id)
-      $scope.opportunity_role.name = "";
-      $scope.opportunity_role.description = "";
-    };
-
     $scope.deleteOpportunityInstance = function() {
       Opportunity.delete_instance($scope.opportunity.id, start_time).$promise.then(function(result){
         $modalInstance.close();
@@ -154,25 +137,6 @@ angular.module('voluntrApp')
 
     var addDataToSeries = function(chart_series) {
       series.push(chart_series)
-    };
-
-    $scope.exportReport = function() {
-      angular.forEach($scope.instanceStatisticGraphConfig.series, addDataToSeries)
-      var optionsJSON = {
-        title: {
-          text: "Opportunity Dashboard"
-        },
-        xAxis: {
-          type: 'datetime',
-          title: {
-            text: 'Date'
-          }},
-        "series": series
-      };
-      var optionsStr = JSON.stringify(optionsJSON)
-      var dataString = 'async=false&type=png&width=300&options=' + encodeoptionsStr;
-
-      $http.get('api/v1/reports/opportunities/' + id, {params:{url: dataString}}).success(function(data){console.log(data)});
     };
 
 
@@ -317,8 +281,6 @@ angular.module('voluntrApp')
       }
     };
 
+
     $timeout(function(){window.dispatchEvent(new Event('resize')), 50})
-
-
-
   });

@@ -10,7 +10,7 @@
 angular.module('voluntrApp')
   .controller('OpportunitiesHomeCtrl', function ($scope, Facebook, $stateParams,
                                                  $http, $state, $filter, uiCalendarConfig,
-                                                 $modal, Opportunity) {
+                                                 $modal, Opportunity,$mdDialog) {
 
     $scope.eventSources = [
       {
@@ -42,41 +42,61 @@ angular.module('voluntrApp')
       }
     };
 
-    
 
-    $scope.opportunityDetail = function (size, id, start_time) {
-      var opportunityDetailModal = $modal.open(
-        {
-          templateUrl: 'organizations/modals/opportunity_detail.html',
-          controller: 'OpportunityDetailCtrl',
-          windowClass: 'create-opportunity-modal',
-          size: size,
-          resolve:
-          {
-            id: function () {
-              return id
-            },
-            start_time: function() {
-              return start_time;
-            },
-            opportunity: function(){
-              return $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
-                success(function(data, status, headers, config) {
-                  console.log(data)
-                })
-            }
-          }
-        });
-      opportunityDetailModal.result.then(function () {
 
-        },
-        function () {
-          console.log('Modal dismissed at: ' + new Date());
+    //$scope.opportunityDetail = function (size, id, start_time) {
+    //  var opportunityDetailModal = $modal.open(
+    //    {
+    //      templateUrl: 'organizations/modals/opportunity_detail.html',
+    //      controller: 'OpportunityDetailCtrl',
+    //      windowClass: 'create-opportunity-modal',
+    //      size: size,
+    //      resolve:
+    //      {
+    //        id: function () {
+    //          return id
+    //        },
+    //        start_time: function() {
+    //          return start_time;
+    //        },
+    //        opportunity: function(){
+    //          return $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}}).
+    //            success(function(data, status, headers, config) {
+    //              console.log(data)
+    //            })
+    //        }
+    //      }
+    //    });
+    //  opportunityDetailModal.result.then(function () {
+    //
+    //    },
+    //    function () {
+    //      console.log('Modal dismissed at: ' + new Date());
+    //    });
+    //};
+
+    $scope.opportunityDetail = function(id, start_time){
+      $mdDialog.show({
+        controller: 'OpportunityDetailCtrl',
+        templateUrl: 'organizations/modals/opportunity_detail.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true,
+        locals: {
+          id: id,
+          start_time: start_time,
+          opportunity: $http.get('api/v1/opportunities/' + id, {params: {instance_date: new Date(start_time).getTime()}})
+        }
+      })
+        .then(function(answer) {
+          $scope.status = 'You said the information was "' + answer + '".';
+        }, function() {
+          $scope.status = 'You cancelled the dialog.';
         });
     };
 
+
     $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
-      $scope.opportunityDetail('lg', calEvent.id, calEvent._start._i);
+      $scope.opportunityDetail(calEvent.id, calEvent._start._i);
     };
 
   });

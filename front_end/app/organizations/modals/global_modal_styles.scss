@@ -1,3 +1,41 @@
+md-toolbar {
+  height: auto;
+}
+.object-dialog-toolbar-component {
+  padding: 0 16px;
+  h2 {
+  color: white;
+  }
+  p {
+    color: white;
+  }
+  a {
+    font-size: 10pt;
+  }
+  input {
+    color: white;
+  }
+}
+.dialog-toolbar-action-list {
+  margin-top: 20px;
+  font-size: 16pt;
+  font-weight: bold;
+  text-decoration: underline;
+  list-style: none;
+}
+md-tabs.md-dynamic-height md-tabs-content-wrapper {
+  padding: 0 12px;
+}
+
+
+
+
+
+
+
+
+
+
 .add-event-modal-window .modal-content {
   padding: 0px;
 }

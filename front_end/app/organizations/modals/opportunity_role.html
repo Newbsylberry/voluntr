@@ -1,0 +1,9 @@
+<md-toolbar>
+{{opportunity_role.name}}
+</md-toolbar>
+<p ng-repeat="person in role_people">
+  {{person.name}}
+  <small ng-repeat="date in person.dates">
+    {{date | date:'medium'}}
+  </small>
+</p>

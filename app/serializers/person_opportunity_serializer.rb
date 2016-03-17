@@ -1,5 +1,5 @@
 class PersonOpportunitySerializer < ActiveModel::Serializer
-  attributes :id, :person_id, :opportunity_id, :total_hours, :person, :opportunity
+  attributes :id, :person_id, :opportunity_id, :total_hours, :person, :opportunity, :instances
 
   def person
     return Person.find(person_id)

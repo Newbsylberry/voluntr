@@ -1,0 +1,69 @@
+<md-list-item class="md-3-line"
+              ng-repeat="opportunity_role in rolesList">
+  <div class="md-list-item-text" layout="row">
+    <div flex="80">
+      <h3
+        >{{opportunity_role.name}}
+      </h3>
+      <p ng-show="opportunity_role.description">{{opportunity_role.description}}</p>
+      </div>
+    <div flex="20">
+      <div class="hourlistr">
+        <md-button
+          class="md-primary hourlistb"
+          href=""
+          ng-click="viewVolunteers(opportunity_role)">
+          View
+        </md-button>
+        <md-button
+          class="md-primary hourlistb"
+          href=""
+          ng-click="editing = true">
+          Edit
+        </md-button>
+        <md-button
+          class="md-warn hourlistb"
+          href=""
+          ng-click="deleteOpportunityRole(opportunity_role)">
+          Delete
+        </md-button>
+      </div>
+      <div ng-show="editing"
+           class="editzone" layout="row">
+        <md-input-container flex="15">
+          <label>What's the name?</label>
+          <input
+            ng-model="opportunity_role.name">
+          </input>
+        </md-input-container>
+        <md-input-container flex="50">
+          <label>What's the description?</label>
+                      <textarea
+                        md-maxlength="250"
+                        ng-model="opportunity_role.description">
+                      </textarea>
+        </md-input-container>
+        <md-input-container flex="15">
+          <label>How Many Volunteers?</label>
+          <input
+            ng-model="opportunity_role.volunteers_required">
+          </input>
+        </md-input-container>
+        <md-input-container flex="15">
+          <label>How Many Hours Expected?</label>
+          <input
+            ng-model="opportunity_role.hours_required">
+          </input>
+        </md-input-container>
+        <div flex="5">
+          <md-button
+            class="md-primary hourlistb"
+            href=""
+            ng-click="updateOpportunityRole(opportunity_role); editing = false">
+            Save
+          </md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</md-list-item>

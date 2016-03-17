@@ -1,0 +1,17 @@
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.opportunity-role-modal {
+  .modal-dialog {
+    margin: 20vh auto;
+  }
+  .modal-content {
+    height: 66vh;
+    md-toolbar {
+      text-align: center;
+      color: white;
+      margin-top: 12px;
+    }
+  }
+}
