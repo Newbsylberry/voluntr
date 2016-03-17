@@ -248,7 +248,7 @@
 <!-- Modals -->
 <script src="organizations/modals/person_detail.js"></script>
 <script src="organizations/modals/public_organization_details.js"></script>
-<script src="organizations/modals/add_people.js"></script>
+<script src="organizations/modals/add_person.js"></script>
 <script src="organizations/modals/add_group.js"></script>
 <script src="organizations/modals/record_hours_modal.js"></script>
 <script src="organizations/modals/add_opportunity.js"></script>

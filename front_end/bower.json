@@ -11,7 +11,7 @@
     "angular-duration-format": "https://github.com/erykpiast/angular-duration-format.git",
     "angular-facebook": "~0.2.3",
     "angular-leaflet-directive": "~0.7.11",
-    "angular-material": "0.11.4",
+    "angular-material": "1.1.0-rc1",
     "angular-material-data-table": "~0.8.10",
     "angular-pdf": "~1.1.1",
     "angular-resource": "~1.4.0",

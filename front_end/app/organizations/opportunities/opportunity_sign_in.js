@@ -15,6 +15,7 @@ angular.module('voluntrApp')
                                                        Opportunity, PersonOpportunity,
                                                         $modal, $filter, Facebook, $state, RecordedHours, $timeout) {
 
+    $scope.confirmed = false;
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;

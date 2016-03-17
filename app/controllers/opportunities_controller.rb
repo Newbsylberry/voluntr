@@ -1,7 +1,7 @@
 class OpportunitiesController < ApplicationController
   before_action :authenticate
-  skip_before_filter :authenticate, only: [:by_user_location]
-  skip_before_filter :authenticate_user, only: [:by_user_location]
+  skip_before_filter :authenticate, only: [:by_user_location, :opportunity_schedule]
+  skip_before_filter :authenticate_user, only: [:by_user_location, :opportunity_schedule]
   include IceCube
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
 

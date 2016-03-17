@@ -99,15 +99,21 @@ html {
   text-align: center;
 }
 
-md-card {
+.md-button.md-primary.md-raised {
+ color: white;
+}
+
+md-input-container {
+  width: 100%;
+}
+
+.md-subheader {
   background-color: white;
 }
 
-md-tab {
-  overflow-x: hidden;
+.md-tabs.md-primary {
+  color: white;
 }
-
-
 
 .container-fluid {
   padding: 0;

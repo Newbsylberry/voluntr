@@ -1,4 +1,4 @@
-<div ng-hide="confirmed">
+<div ng-show="!confirmed">
 <h3>How Many Hours Will You Be Volunteering?</h3>
 <p>Slide the round button to select</p>
 <md-input-container style="padding-bottom: 0">
@@ -18,7 +18,7 @@
       ng-click="organization = {}"
       ng-show="organization.name"></span>
 <organization-search
-  ng-show="!organization.name"
+  ng-hide="organization.name"
   organization="organization"
   style="position: relative;bottom: 34px;"
   selected-organizations="organizations"

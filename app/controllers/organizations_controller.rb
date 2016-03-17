@@ -24,7 +24,8 @@ class OrganizationsController < ApplicationController
   def create
     @graph = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'], ENV['FB_SECRET_KEY'], ENV['FB_CALLBACK_URL'])
     token = @graph.exchange_access_token_info(params[:oauth_key].to_s)
-    @user.find_by_oauth_token(params[:oauth_key].to_s)
+
+    @user = User.find_by_email(params[:email].to_s)
 
     @organization = Organization.create(organization_params)
     UserOrganization.create(user_id: @user.id, organization_id: @organization.id)
@@ -240,6 +241,10 @@ class OrganizationsController < ApplicationController
     else
       render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
     end
+  end
+
+  def destroy
+    @current_organization.destroy!
   end
 
   private

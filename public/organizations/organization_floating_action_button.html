@@ -1,20 +1,19 @@
-<nav mfb-menu position="br" effect="zoomin" label="Add To Your Organization" active-icon="ion-edit" label="Add Opportunity" resting-icon="ion-plus-round" toggling-method="hover"> <a mfb-button icon="ion-clock" ng-click="recordHours('lg');" label="Record Hours"></a> <a mfb-button icon="ion-flag" ng-click="addVolunteerOpportunity('lg');" label="Add Opportunity"></a> <a mfb-button icon="ion-person-add" ng-click="addOrganizationPerson('lg');" label="Add Person"></a> <a mfb-button icon="ion-ios-people" ng-click="addGroup('lg');" label="Add Group"></a> </nav> <!--
-<md-fab-speed-dial md-direction="up">
-  <md-fab-trigger>
-    <md-button aria-label="menu" class="md-fab md-warn">
-      <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
-    </md-button>
-  </md-fab-trigger>
-  <md-fab-actions>
-    <md-button aria-label="twitter" class="md-fab md-raised md-mini">
-      <md-icon md-svg-src="img/icons/twitter.svg"></md-icon>
-    </md-button>
-    <md-button aria-label="facebook" class="md-fab md-raised md-mini">
-      <md-icon md-svg-src="img/icons/facebook.svg"></md-icon>
-    </md-button>
-    <md-button aria-label="Google hangout" class="md-fab md-raised md-mini">
-      <md-icon md-svg-src="img/icons/hangout.svg"></md-icon>
-    </md-button>
-  </md-fab-actions>
-</md-fab-speed-dial>
--->
+<!--<nav
+     mfb-menu position="br" effect="zoomin"
+     label="Add To Your Organization"
+     active-icon="ion-edit"
+     label="Add Opportunity"
+     resting-icon="ion-plus-round"
+     toggling-method="hover"
+     style="color: white;font-size: 24px;"
+  >
+  <a mfb-button icon="ion-clock"
+     "
+     label="Record Hours"></a>
+  <a mfb-button icon="ion-flag"
+     "
+     label="Add Opportunity"></a>
+  <a mfb-button icon="ion-person-add"
+     ng-click="addOrganizationPerson('lg');"
+     label="Add Person"></a>
+</nav>--> <md-fab-speed-dial md-open="false" md-direction="up" ng-class="md-fling" class="md-fab-bottom-right" style="font-size: 32pt"> <md-fab-trigger> <md-button aria-label="menu" class="md-fab md-accent ion-plus-round"> </md-button> </md-fab-trigger> <md-fab-actions> <md-button aria-label="Record Hours" class="md-fab md-raised md-mini ion-clock" ng-click="recordHours('lg')"> <md-tooltip md-direction="left" md-visible="false">Record Hours</md-tooltip> </md-button> <md-button aria-label="Add Opportunity" class="md-fab md-raised md-mini ion-flag" ng-click="addVolunteerOpportunity('lg');"> <md-tooltip md-direction="left" md-visible="false">Add Opportunity</md-tooltip> </md-button> <md-button aria-label="Add Person" ng-click="addOrganizationPerson('lg');" class="md-fab md-raised md-mini ion-person-add"> <md-tooltip md-direction="left" md-visible="false">Add Person</md-tooltip> </md-button> </md-fab-actions> </md-fab-speed-dial>

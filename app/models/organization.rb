@@ -1,16 +1,16 @@
 class Organization < ActiveRecord::Base
   belongs_to :organization_type
-  has_many :organization_opportunities
+  has_many :organization_opportunities, dependent: :destroy
   has_many :resources, as: :resourceable, dependent: :destroy
-  has_many :posts
-  has_many :organization_people
+  has_many :posts, dependent: :destroy
+  has_many :organization_people, dependent: :destroy
   has_many :user_organizations
   has_many :users, through: :user_organizations
   has_many :recorded_hours
-  has_many :daily_statistics
+  has_many :daily_statistics, dependent: :destroy
   has_many :people, through: :organization_people
-  has_many :organization_email_templates
-  has_many :organization_mailing_services
+  has_many :organization_email_templates, dependent: :destroy
+  has_many :organization_mailing_services, dependent: :destroy
   has_many :mailing_service_lists, through: :organization_mailing_services
   require 'carrierwave/orm/activerecord'
   include Elasticsearch::Model

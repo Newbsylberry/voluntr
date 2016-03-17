@@ -1,6 +1,12 @@
 .accountmain{
-padding:0px 10px;
+    padding:0px 10px;
     min-height: 400px;
+}
+
+#settings-tab {
+  h4 {
+    display: inline-block;
+  }
 }
 
 .accountmain h4{

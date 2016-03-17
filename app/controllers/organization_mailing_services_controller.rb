@@ -48,7 +48,7 @@ class OrganizationMailingServicesController < ApplicationController
 
   def mailchimp_check
     @organization = Organization.find(params[:id])
-    if @organization.organization_mailing_services
+    if !@organization.organization_mailing_services.empty?
       token = @organization.organization_mailing_services.first.token
       mailchimp = Mailchimp.api(token).get('')
       if @organization.organization_mailing_services.first

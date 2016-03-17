@@ -117,9 +117,10 @@ class Person < ActiveRecord::Base
       @organization_person.send_registration_confirmation
     end
     if @organization_person.new_record?
-    @daily_statistic = DailyStatistic.create_with(locked: false)
+      @daily_statistic = DailyStatistic.create_with(locked: false)
             .find_or_initialize_by(date: Time.now.beginning_of_day,
                                    organization_id: organization.id)
+
     if !@daily_statistic.persisted?
       @daily_statistic.total_added_volunteers = 1
     else
@@ -136,7 +137,6 @@ class Person < ActiveRecord::Base
   def self.find_or_create_from_params(params)
     ap params[:email]
     if params[:email]
-      ap "Has email"
       person = self.create_with(locked: false)
                    .find_or_initialize_by(email: params[:email])
     elsif params[:phone]

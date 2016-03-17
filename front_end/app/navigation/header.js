@@ -5,12 +5,6 @@ angular.module('voluntrApp')
 
     $scope.search_filter = searchService.search;
 
-    $scope.isOpen = false;
-    $scope.demo = {
-      isOpen: false,
-      count: 0,
-      selectedAlignment: 'md-right'
-    };
 
 
 

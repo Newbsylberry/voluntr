@@ -45,7 +45,7 @@
       $scope.addOrganizationPerson = function (size) {
         var organizationPersonModal = $modal.open(
           {
-            templateUrl: 'organizations/modals/organization_add_person_modal.html',
+            templateUrl: 'organizations/modals/add_person.html',
             controller: 'AddPeopleCtrl',
             windowClass: 'add-event-modal-window',
             size: size

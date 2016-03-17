@@ -12,7 +12,7 @@ angular.module('voluntrApp')
                                                    $stateParams, $state,
                                                    $rootScope, $http, $window, ENV,
                                                    OrganizationMailingService, Facebook,
-                                                   Upload, $timeout) {
+                                                   Upload, $timeout,$mdDialog) {
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
@@ -52,6 +52,29 @@ angular.module('voluntrApp')
       }
       $scope.mailchimp_authorized = false;
     }
+
+
+
+    var warning_messages = ['DANGER ZONE','HERE BE DRAGONS']
+    $scope.warning_message = warning_messages[Math.floor(Math.random()*warning_messages.length)]
+
+    $scope.showConfirm = function(ev) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.confirm()
+        .title('Would you like to delete your Organization?')
+        .textContent('Everything will be deleted.')
+        .targetEvent(ev)
+        .ok('I Want Out!')
+        .cancel("I'll Give You More Time");
+      $mdDialog.show(confirm).then(function() {
+          Organization.delete($scope.organization.id).$promise.then(function(){
+          })
+        $scope.status = 'You decided to get rid of your debt.';
+        $state.go('landing_page')
+      }, function() {
+        $scope.status ="We're glad you decided to stay";
+      });
+    };
 
     $scope.uploadFiles = function(file) {
       $scope.f = file;
