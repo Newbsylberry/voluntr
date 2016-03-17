@@ -23,8 +23,9 @@ angular.module('voluntrApp')
       url: 'api/v1/opportunities/' + $scope.opportunity.id + '/instance',
       method: "GET",
       params: {instance_date: $scope.instance}
-    }).then(function(data){
-      $scope.instance_volunteers = data.data.instance_volunteers;
+    }).then(function(instance){
+      console.log(instance)
+      $scope.instance_volunteers = instance.data.instance_volunteers;
 
     })
 
@@ -40,6 +41,7 @@ angular.module('voluntrApp')
         attr.opportunity_role_id = $scope.opportunity_role.id;
       };
       attr.opportunity_id = opportunity.id;
+      console.log(attr)
       PersonOpportunity.create(attr)
       $modalInstance.close()
     };

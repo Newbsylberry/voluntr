@@ -21,7 +21,6 @@ angular.module('voluntrApp')
     $scope.instance = start_time;
 
     var addToDashboard = function (instance) {
-      console.log(instance)
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
       $scope.instanceStatisticGraphConfig.series[1].data.push

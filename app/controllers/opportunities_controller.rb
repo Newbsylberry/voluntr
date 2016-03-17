@@ -120,6 +120,7 @@ class OpportunitiesController < ApplicationController
     @instance = OpportunityInstance.new
     @instance.opportunity = @opportunity
     @instance.instance_date = Time.parse(params[:instance_date].to_s)
+    ap @instance
 
     render json: @instance, serializer: OpportunityInstanceSerializer
   end

@@ -42,6 +42,8 @@ angular.module('voluntrApp')
       }
     };
 
+    
+
     $scope.opportunityDetail = function (size, id, start_time) {
       var opportunityDetailModal = $modal.open(
         {

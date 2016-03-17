@@ -12,6 +12,7 @@ class OpportunityInstance < ActiveRecord::Base
       opportunity.person_opportunities.each do |po|
         if !po.instances.nil?
           po.instances.each do |i|
+            ap po.person
             if i > start.beginning_of_day and i < start.end_of_day
               instance_volunteers << po.person
             end
