@@ -24,7 +24,7 @@ class OpportunityInstance < ActiveRecord::Base
               if po.opportunity_role_id
                 role = OpportunityRole.find(po.opportunity_role_id)
               end
-              instance_volunteers << PersonOpportunity.new({person: person,opportunity_role: role, opportunity: opportunity})
+              instance_volunteers << {person: person,opportunity_role: role, opportunity: opportunity}
             end
           end
         end

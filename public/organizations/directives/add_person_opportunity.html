@@ -1,0 +1,54 @@
+<md-menu md-position-mode="target-right target" md-offset="2 0">
+  <md-button
+    style="color: lawngreen;font-size: 18pt;"
+    class="md-primary hourlistb ion-plus"
+    href=""
+    aria-label="Add Volunteer"
+    ng-click="$mdOpenMenu()"
+    md-menu-origin
+    md-menu-align-target>
+  </md-button>
+  <md-menu-content id="add-person-opportunity">
+    <strong ng-show="type === 'role'">Add to {{selectedObject.name}}</strong>
+    <strong ng-show="type === 'instance'">Add to {{selectedObject.instance_date | date:'short'}}</strong>
+    <div layout="row" layout-wrap>
+      <md-input-container flex="33">
+        <label>First Name</label>
+        <input ng-model="person.first_name">
+      </md-input-container>
+      <md-input-container flex="33">
+        <label>Last Name</label>
+        <input ng-model="person.last_name">
+      </md-input-container>
+      <div flex="33">
+      <md-input-container  ng-if="!no_email">
+        <label>Email</label>
+        <input ng-model="person.email">
+      </md-input-container>
+      <md-input-container ng-if="no_email">
+        <label>Phone</label>
+        <input ng-model="person.phone">
+      </md-input-container>
+      </div>
+      <md-checkbox ng-model="no_email" flex="20">
+        No Email?
+      </md-checkbox><br>
+      <div flex="80"></div>
+      <md-input-container flex="100">
+        <label>Choose Role</label>
+        <md-select ng-model="person_opportunity.opportunity_role" aria-label="Choose Role" ng-show="type !== 'role'">
+          <md-option ng-repeat="opportunity_role in opportunity.opportunity_roles" value="{{opportunity_role.id}}">
+            {{opportunity_role.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <div flex="20">
+      <!--<md-button class="md-raised" style="float: left;">Add to {{type}} and Open</md-button>-->
+      </div>
+      <div flex="60"></div>
+      <div flex="20">
+      <md-button class="md-raised md-primary" style="float: right;"ng-click="addPersonOpportunity()">Add to {{type}}</md-button>
+      </div>
+    </div>
+  </md-menu-content>
+</md-menu>

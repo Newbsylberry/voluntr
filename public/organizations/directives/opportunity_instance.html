@@ -1,0 +1,80 @@
+<md-list-item class="md-3-line" ng-repeat="instance in instancesList" layout="row" layout-wrap id="opportunity-role">
+  <div flex="80">
+    <h3>{{instance.instance_date | date:'short'}}
+      <p>{{instance.instance_volunteers.length}} / {{opportunity.volunteer_goal}}</p>
+    </h3>
+    <a href=""
+       ng-click="getInstanceVolunteers(instance.instance_date);show_volunteers = true"
+       ng-show="!show_volunteers && instance.instance_volunteers.length > 0"
+       class="volunteer-toggle-link">
+      Show Volunteers?
+    </a>
+    <a href="" ng-click="show_volunteers = false" ng-show="show_volunteers" class="volunteer-toggle-link">Hide
+      Volunteers?</a>
+  </div>
+  <div flex="20">
+    <div class="hourlistr">
+      <md-button
+        class="md-primary hourlistb"
+        href=""
+        >
+        Edit
+      </md-button>
+      <md-button
+        class="md-primary hourlistb"
+        href=""
+        ng-click="switchDates(instance.instance_date)"
+        >
+        Switch
+      </md-button>
+      <add-person-opportunity
+        type="instance" selected-object="instance" opportunity="opportunity ">
+      </add-person-opportunity>
+    </div>
+    <div ng-show="editing"
+         class="editzone" layout="row">
+      <md-input-container flex="25">
+        <label>Start Time?</label>
+        <input
+          ng-model="instance.start_time">
+        </input>
+      </md-input-container>
+      <md-input-container flex="15">
+        <label>Duration (in hours)?</label>
+        <input
+          ng-model="instance.duration"
+          type="number">
+        </input>
+      </md-input-container>
+      <md-input-container flex="15">
+        <label>Volunteers Required?</label>
+                      <textarea
+                        md-maxlength="250"
+                        ng-model="instance.volunteers_required">
+                      </textarea>
+      </md-input-container>
+      <div flex="5">
+        <md-button
+          class="md-primary hourlistb"
+          href=""
+          ng-click="">
+          Save
+        </md-button>
+      </div>
+    </div>
+  </div>
+  <div flex="5">
+  </div>
+  <div flex="95">
+    <div ng-show="show_volunteers">
+      <small ng-repeat="person in instance.instance_volunteers | limitTo:5">
+        {{person.first_name}} {{person.last_name}}
+      </small>
+      <a href=""
+         ng-show="instance.instance_volunteers.length > 5"
+         ng-click="viewVolunteers(opportunity_instance)">
+        See Additional Volunteers
+      </a>
+    </div>
+  </div>
+</md-list-item>

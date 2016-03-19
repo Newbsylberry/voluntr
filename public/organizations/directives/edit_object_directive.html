@@ -2,11 +2,21 @@
   class="detail-title-text"
   ng-hide="editing || !title_text"
   >{{text}}
+  <a
+     href=''
+     ng-click="editText()"
+     class="action-text"
+    >edit</a>
 </h2>
 <h3
   class="detail-subtitle-text"
   ng-hide="editing || !subtitle_text"
   >{{text}}
+  <a
+    href=''
+    ng-click="editText()"
+    class="action-text"
+    >edit</a>
 </h3>
 
 <div>
@@ -15,16 +25,29 @@
     ng-hide="editing || !paragraph_text"
     >
     {{text}}
+    <a
+      href=''
+      ng-click="editText()"
+      class="action-text"
+      >edit</a>
   </p>
 </div>
 <md-input-container ng-show="editing && title_text || editing && subtitle_text">
   <label>{{placeholder}}</label>
   <input ng-model="text">
+  <a href=''
+     ng-click="updateText()"
+     class="action-text"
+    >save</a>
 </md-input-container>
 
 <md-input-container ng-show="editing && paragraph_text">
   <label>{{placeholder}}</label>
   <textarea ng-model="text" columns="1" rows="4" md-maxlength="250"></textarea>
+  <a href=''
+     ng-click="updateText()"
+     class="action-text"
+    >save</a>
 </md-input-container>
 
 <!--<md-button class="md-primary md-raised" ng-hide="editing" ng-show="parag_text"
@@ -40,14 +63,4 @@
   >save</md-button>-->
 
 
-<a ng-hide="editing"
-   href=''
-   ng-click="editText()"
-   class="action-text"
-  >edit</a>
 
-<a ng-show="editing"
-   href=''
-   ng-click="updateText()"
-   class="action-text"
-  >save</a>
