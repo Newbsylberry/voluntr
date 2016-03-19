@@ -54,7 +54,6 @@ angular.module('voluntrApp')
         attr.first_name = $scope.opportunityRegister.first_name;
         attr.last_name = $scope.opportunityRegister.last_name;
         attr.email = $scope.opportunityRegister.email;
-        console.log($scope.opportunityRegister.dates)
         if ($scope.opportunityRegister.dates) {
           attr.instances = $scope.opportunityRegister.dates;
         }

@@ -1,6 +1,7 @@
 class Opportunity < ActiveRecord::Base
   require "prawn"
   require "json"
+  require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
   require 'gchart'
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
@@ -368,6 +369,10 @@ class Opportunity < ActiveRecord::Base
       self.schedule = current_schedule.to_yaml
       self.save
     end
+  end
+
+  def instances
+    return SchedulerTool.list_of_instances(self, start_time, start_time + 1.year)
   end
 
 

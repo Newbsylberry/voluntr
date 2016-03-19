@@ -1,6 +1,27 @@
 md-toolbar {
   height: auto;
 }
+
+.modal-list{
+  h3 {
+    margin: 0 0;
+  }
+  p {
+    margin: 0 0 10px;
+    display: inline-block;
+    font-size: 10pt;
+  }
+  .volunteer-toggle-link {
+    font-size: 8pt;
+    display: block;
+  }
+}
+
+.modal-subheader-text {
+  display: inline-block;
+}
+
+
 .object-dialog-toolbar-component {
   padding: 0 16px;
   h2 {

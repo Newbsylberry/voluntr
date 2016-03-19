@@ -17,9 +17,9 @@ Rails.application.routes.draw do
       match '/users/current/organizations', to: 'users#current_user_organizations', via: :get, defaults: {format: :json}
       match '/users/login/facebook_login', to: 'users#facebook_login', via: :get, defaults: {format: :json}
       devise_for :users,
-                :controllers => { registrations: 'registrations',
-                                  confirmations: 'confirmations',
-                                  sessions: 'sessions'}, defaults: {format: :json}
+                 :controllers => { registrations: 'registrations',
+                                   confirmations: 'confirmations',
+                                   sessions: 'sessions'}, defaults: {format: :json}
       resources :group_administrators, except: [:new, :edit], defaults: {format: :json}
       resources :groups, except: [:new, :edit], defaults: {format: :json}
       resources :resources, except: [:new, :edit], defaults: {format: :json}
@@ -97,6 +97,11 @@ Rails.application.routes.draw do
       match '/opportunities/by_location/user_location/', to: 'opportunities#by_user_location', via: :get, defaults: {format: :json}
       match '/organizations/:id/nearby_organizations/', to: 'organizations#nearby_organizations', via: :get, defaults: {format: :json}
       # match '/opportunities/:fb_id', to: 'opportunities#instance_schedule', via: :get, defaults: {format: :json}
+
+      #opportunity instances
+      match '/opportunity_instances/:id/:date', to: 'opportunity_instances#show', via: :get, defaults: {format: :json}
+      match '/opportunity_instances/:id/:date/instance_roles', to: 'opportunity_instances#instance_roles', via: :get, defaults: {format: :json}
+
 
       # Reports
       match '/reports/opportunity/:id', to: 'reports#opportunity', via: :get, defaults: {format: :json}

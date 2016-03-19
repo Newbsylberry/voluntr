@@ -3,12 +3,13 @@ angular.module('voluntrApp').directive("opportunityRole", function () {
     transclude: true,
     templateUrl: 'organizations/directives/opportunity_role.html',
     scope: {
-      rolesList: "="
+      rolesList: "=",
+      opportunity: "="
     },
     restrict: 'E',
     controller: function ($scope, OpportunityRole, $mdDialog,$modal) {
 
-      console.log($scope.rolesList)
+      console.log($scope.opportunity)
       console.log("Hello World")
 
       $scope.updateOpportunityRole = function(opportunity_role) {
@@ -31,6 +32,8 @@ angular.module('voluntrApp').directive("opportunityRole", function () {
         $scope.opportunity_role.name = "";
         $scope.opportunity_role.description = "";
       };
+
+
 
       $scope.viewVolunteers = function(opportunity_role){
         var opportunityRoleModal = $modal.open(

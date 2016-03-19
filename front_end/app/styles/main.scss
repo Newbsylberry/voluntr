@@ -59,6 +59,7 @@ Organization Directive Styles
 
 /* Details in Opportunity and Person  */
 @import "../organizations/directives/edit_object_directive.scss";
+@import "../organizations/directives/add_person_opportunity.scss";
 @import "../organizations/directives/edit_address.scss";
 @import "../organizations/directives/recorded_hour.scss";
 @import "../organizations/directives/opportunity_role.scss";
@@ -89,11 +90,21 @@ html {
     .row {
       margin: 0 0;
     }
+    ._md-select-menu-container {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+      opacity: 0;
+      display: none;
+    }
   }
   .snap-content {
     background-color: $background-color;
   }
 }
+
+
 
 .error-message {
   color: red;

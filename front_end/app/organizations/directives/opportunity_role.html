@@ -1,19 +1,21 @@
 <md-list-item class="md-3-line"
-              ng-repeat="opportunity_role in rolesList">
-  <div class="md-list-item-text" layout="row">
+              ng-repeat="opportunity_role in rolesList" layout="row" layout-wrap id="opportunity-role">
     <div flex="80">
       <h3
         >{{opportunity_role.name}}
+        <p>{{opportunity_role.person_opportunities.length}} / {{opportunity_role.volunteers_required}}</p>
       </h3>
       <p ng-show="opportunity_role.description">{{opportunity_role.description}}</p>
-      </div>
+      <a href="" ng-click="show_volunteers = true" ng-show="!show_volunteers && opportunity_role.person_opportunities.length > 0" class="volunteer-toggle-link">Show Volunteers?</a>
+      <a href="" ng-click="show_volunteers = false" ng-show="show_volunteers" class="volunteer-toggle-link">Hide Volunteers?</a>
+    </div>
     <div flex="20">
       <div class="hourlistr">
         <md-button
-          class="md-primary hourlistb"
+          class="md-warn hourlistb"
           href=""
-          ng-click="viewVolunteers(opportunity_role)">
-          View
+          ng-click="deleteOpportunityRole(opportunity_role)">
+          Delete
         </md-button>
         <md-button
           class="md-primary hourlistb"
@@ -21,12 +23,9 @@
           ng-click="editing = true">
           Edit
         </md-button>
-        <md-button
-          class="md-warn hourlistb"
-          href=""
-          ng-click="deleteOpportunityRole(opportunity_role)">
-          Delete
-        </md-button>
+        <add-person-opportunity
+          type="role" selected-object="opportunity_role" instance="opportunity.instance_date" opportunity="opportunity">
+        </add-person-opportunity>
       </div>
       <div ng-show="editing"
            class="editzone" layout="row">
@@ -65,5 +64,21 @@
         </div>
       </div>
     </div>
-  </div>
+    <div flex="5">
+    </div>
+    <div flex="95">
+      <div ng-show="show_volunteers">
+      <small ng-repeat="person in opportunity_role.person_opportunities | limitTo:5">
+        {{person.first_name}} {{person.last_name}}
+        <!--<small ng-repeat="date in person.instances">
+          {{date | date:'medium'}}
+        </small>-->
+      </small>
+      <a href=""
+         ng-show="opportunity_role.person_opportunities.length > 5"
+         ng-click="viewVolunteers(opportunity_role)">
+        See Additional Volunteers
+      </a>
+      </div>
+    </div>
 </md-list-item>

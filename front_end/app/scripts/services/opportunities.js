@@ -16,6 +16,7 @@ angular.module('voluntrApp')
           update: {method: 'PATCH'},
           update_schedule: {method: 'PATCH', url:'/api/v1/opportunities/:opportunity_Id/update_schedule'},
           opportunity_object: {method: 'GET', url:'/api/v1/opportunities/:opportunity_Id/:object', isArray: true},
+          instances: {method: 'GET', url:'/api/v1/opportunities/:opportunity_Id/instances', isArray: true},
           delete_instance: {method: 'DELETE', url:'/api/v1/opportunities/:opportunity_Id/delete_instance'},
           delete_future_instances: {method: 'DELETE', url:'/api/v1/opportunities/:opportunity_Id/delete_future_instances'}
         })}; // sets ID variable, and update method (patch)
@@ -73,6 +74,10 @@ angular.module('voluntrApp')
 
     Opportunity.prototype.delete_future_instances = function(oId, date) {
       return this.service.delete_future_instances({opportunity_Id: oId,date: date})
+    };
+
+    Opportunity.prototype.instances = function(oId, start_date) {
+      return this.service.instances({opportunity_Id: oId,start_date: start_date})
     };
 
 

@@ -4,7 +4,7 @@ class PersonOpportunitiesController < ApplicationController
 
 
   def create
-
+    ap params[:instances]
     person_params = {
         first_name: params[:first_name],
         last_name: params[:last_name],
@@ -35,7 +35,8 @@ class PersonOpportunitiesController < ApplicationController
     elsif params[:instances].kind_of?(String)
       @person_opportunity.instances.push(params[:instances])
     end
-    ap @person_opportunity
+
+
     @person_opportunity.save
 
 

@@ -18,11 +18,37 @@ angular.module('voluntrApp')
                                                  opportunity,$mdDialog) {
 
 
-    $scope.instance = start_time;
-
     $scope.cancel = function() {
       $mdDialog.cancel();
     };
+
+    $scope.$watch('opportunity.instance_date',function() {
+      if ($scope.opportunity){
+        $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date))
+          .then(function(data){
+            $scope.opportunity.instance = data.data;
+            $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/instance_roles')
+              .then(function(data){
+                console.log("roles")
+                $scope.opportunity.instance.instance_roles = data.data;
+              })
+            $scope.change_instance = false;
+        })
+      }
+    });
+
+    $scope.$watch('change_instance',function(){
+      if ($scope.change_instance === true && !$scope.opportunity.instances) {
+      var todaysdate = new Date();
+      $http({
+        method: 'GET',
+        url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
+        params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
+      }).then(function(successResponse){
+        $scope.opportunity.instances = successResponse.data;
+      });
+      }
+    })
 
     var addToDashboard = function (instance) {
       $scope.instanceStatisticGraphConfig.series[0].data.push
@@ -37,6 +63,7 @@ angular.module('voluntrApp')
     };
 
     $scope.opportunity = opportunity.data;
+    $scope.opportunity.instance_date = start_time;
 
 
     Opportunity.instance_statistics($scope.opportunity.id, 'instance_statistics').$promise.then(function(instance_statistics) {
@@ -45,20 +72,30 @@ angular.module('voluntrApp')
 
 
     $scope.grabData = function(tab) {
-      console.log(tab)
       if (tab == 'roles') {
-        Opportunity.roles($scope.opportunity.id, 'roles').$promise.then(function(roles) {
-          $scope.opportunity.opportunity_roles = roles;
-          angular.forEach($scope.opportunity.opportunity_roles, addToRolePieChart)
-        });
+        $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/instance_roles')
+          .then(function(data){
+            $scope.opportunity.instance.instance_roles = data.data;
+          })
+      } if (tab == 'schedule') {
+        if (!$scope.opportunity.instances) {
+          var todaysdate = new Date();
+          $http({
+            method: 'GET',
+            url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
+            params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
+          }).then(function(successResponse){
+            $scope.opportunity.instances = successResponse.data;
+          });
+        }
       } if (tab == 'people' && !$scope.opportunity.volunteers) {
         Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
           $scope.opportunity.volunteers = volunteers;
         });
       } if (tab == 'recorded_hours' && !$scope.opportunity.recorded_hours) {
         Opportunity.roles($scope.opportunity.id, 'recorded_hours').$promise.then(function(recorded_hours) {
-            $scope.opportunity.recorded_hours = recorded_hours;
-          });
+          $scope.opportunity.recorded_hours = recorded_hours;
+        });
       }
     }
 

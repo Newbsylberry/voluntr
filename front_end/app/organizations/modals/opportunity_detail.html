@@ -1,5 +1,5 @@
 <md-dialog flex="90" style="height:90vh">
-  <md-toolbar>
+  <md-toolbar class="md-tall">
     <div layout="row" layout-xs="column">
       <div flex="80" class="object-dialog-toolbar-component">
         <edit-object-directive
@@ -10,7 +10,32 @@
           text="{{opportunity.name}}"
           size="title_text"
           ></edit-object-directive>
-        <p>{{instance | date:'medium'}}</p>
+        <md-input-container flex="20" ng-show="change_instance">
+          <label style="color: white;">Choose Instance Date</label>
+          <md-select ng-model="opportunity.instance_date" aria-label="Choose Instance Date" ng-show="change_instance" style="color: white;">
+            <md-option ng-repeat="instance in opportunity.instances" value="{{instance.instance_date}}">
+              {{instance.instance_date | date:'short'}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <p
+          ng-hide="change_instance"
+          class="modal-subheader-text"
+          >{{opportunity.instance_date | date:'short'}}
+        </p>
+        <a href=""
+           ng-hide="change_instance"
+           class="change_instance_link"
+           ng-click="change_instance = true">
+          change instance
+        </a>
+        <a href=""
+           ng-hide="!change_instance"
+           ng-click="change_instance = false"
+            class="change_instance_link">
+          cancel
+        </a>
+
       </div>
       <div flex="20" class="object-dialog-toolbar-component">
         <!--<md-button class="ion-close dialog-close-button" ng-click="cancel()">
@@ -49,7 +74,7 @@
                 <h4 class="opportunity-dashboard-label">Volunteers</h4>
               </div>
               <div class="col-xs-3">
-                <h2 class="opportunity-dashboard-statistic">{{opportunity.instance_people_count}}</h2>
+                <h2 class="opportunity-dashboard-statistic">{{opportunity.instance.instance_volunteers.length}}</h2>
                 <h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>
               </div>
             </div>
@@ -95,27 +120,21 @@
       </md-tab>
 
       <!-- Opportunity Schedule -->
-      <md-tab id="tab3">
+      <md-tab id="tab3" md-on-select="grabData('schedule')">
         <md-tab-label>Schedule</md-tab-label>
         <md-tab-body>
-          <object-schedule
-            object-type="opportunity"
-            object="opportunity"
-            ></object-schedule>
+            <md-list class="recorded-hour-list">
+              <opportunity-instance
+                instances-list="opportunity.instances"
+                opportunity="opportunity"
+                current-instance="opportunity.instance_date">
+              </opportunity-instance>
+            </md-list>
         </md-tab-body>
       </md-tab>
-
-
       <md-tab id="tab4" md-on-select="grabData('roles')">
         <md-tab-label>Roles</md-tab-label>
         <md-tab-body>
-          <div class="tabcontrol">
-            <div class="tabcontrolin">
-              <div class="row">
-                <div class="col-md-12" style="position: relative">
-                  <highchart ng-show="opportunity.opportunity_roles.length != 0" config="opportunityRolesChart"></highchart>
-                </div>
-              </div>
               <a href=""
                  ng-click="add_role = true"
                  ng-hide="add_role">Add New Role</a>
@@ -156,11 +175,9 @@
               </div>
               <div id="roles-list">
                 <md-list class="recorded-hour-list">
-                  <opportunity-role roles-list="opportunity.opportunity_roles"></opportunity-role>
+                  <opportunity-role roles-list="opportunity.instance.instance_roles" opportunity="opportunity"></opportunity-role>
                 </md-list>
               </div>
-            </div>
-          </div>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab5 opportunity-people" md-on-select="grabData('people')">
