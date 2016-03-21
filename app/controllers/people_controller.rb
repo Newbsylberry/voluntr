@@ -25,12 +25,12 @@ class PeopleController < ApplicationController
   end
 
   def create
-    if params[:email]
+    if params[:person][:email]
       @person = Person.create_with(locked: false)
-                    .find_or_initialize_by(email: params[:email])
-    elsif params[:phone]
+                    .find_or_initialize_by(email: params[:person][:email])
+    elsif params[:person][:phone]
     @person = Person.create_with(locked: false)
-                  .find_or_initialize_by(phone: params[:phone])
+                  .find_or_initialize_by(phone: params[:person][:phone])
     else
       @person = Person.new
     end
@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
       @person.update(person_params)
     end
 
-    if params[:schedule]
+    if params[:person][:schedule]
       @person.update_schedule(params)
       @person.save
     end
@@ -51,7 +51,7 @@ class PeopleController < ApplicationController
     if params[:organization_id]
       @person.add_to_organization(Organization.find(params[:organization_id]), params[:notes])
     end
-    ap @person
+
     render json: @person, serializer: PersonSerializer
   end
 

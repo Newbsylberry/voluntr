@@ -99,7 +99,7 @@ class OpportunitiesController < ApplicationController
   def opportunity_schedule
     @opportunity = Opportunity.find(params[:id])
 
-    render json: @opportunity.instances(params[:start_time], params[:end_time]),
+    render json: @opportunity.instances(params[:start], params[:end]),
            each_serializer: OpportunityInstanceSerializer
   end
 

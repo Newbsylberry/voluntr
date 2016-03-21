@@ -28,8 +28,10 @@ class RecordedHoursController < ApplicationController
                                                   organization_id: @recorded_hour.organization_id)
     if !@daily_statistic.persisted? && !@daily_statistic.total_recorded_hours.nil?
       @daily_statistic.total_recorded_hours = @recorded_hour.hours
-    else
-      @daily_statistic.total_recorded_hours += @recorded_hour.hours
+    elsif @daily_statistic.persisted? && @daily_statistic.total_recorded_hours.nil?
+      @daily_statistic.total_recorded_hours = @recorded_hour.hours
+    elsif @daily_statistic.persisted? && !@daily_statistic.total_recorded_hours.nil?
+              @daily_statistic.total_recorded_hours += @recorded_hour.hours
     end
     @daily_statistic.save
 

@@ -2,6 +2,7 @@ class PersonOrganizationMailer < ActionMailer::Base
   default from: "admin@voluapp.com"
 
   def registration_confirmation_email(organization, person)
+    ap person
     @email = person.email
     @organization = organization
     @person = Person.find(person.id)

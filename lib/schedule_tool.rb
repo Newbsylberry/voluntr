@@ -7,7 +7,6 @@ module SchedulerTool
     if !object.schedule.nil?
       schedule = IceCube::Schedule.from_yaml(object.schedule)
       @hash = schedule.to_hash
-      ap end_time
       if @hash[:start_date] > Time.now
         @hash[:start_date] = start_time
         @hash[:end_time] = end_time
@@ -101,7 +100,7 @@ module SchedulerTool
       schedule = IceCube::Schedule.from_yaml(opportunity.schedule)
 
 
-      schedule.occurrences_between(Time.parse(start_date.to_s), Time.parse(end_date.to_s)).each do |occ|
+      schedule.occurrences_between(DateTime.parse(start_date.to_s), DateTime.parse(end_date.to_s)).each do |occ|
 
 
         instance = OpportunityInstance.new
