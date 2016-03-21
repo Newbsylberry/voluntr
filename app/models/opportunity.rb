@@ -371,8 +371,8 @@ class Opportunity < ActiveRecord::Base
     end
   end
 
-  def instances
-    return SchedulerTool.list_of_instances(self, start_time, start_time + 1.year)
+  def instances(start_time, end_time)
+    return SchedulerTool.list_of_instances(self, start_time, end_time)
   end
 
 
