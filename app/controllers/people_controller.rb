@@ -51,7 +51,7 @@ class PeopleController < ApplicationController
     if params[:organization_id]
       @person.add_to_organization(Organization.find(params[:organization_id]), params[:notes])
     end
-
+    ap @person
     render json: @person, serializer: PersonSerializer
   end
 
