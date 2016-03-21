@@ -33,8 +33,8 @@ background-color:#35c0ff;
         Thank you for registering to volunteer at <%= @person_opportunity.opportunity.name %>.  This opportunity is
         located at the following addresss:
       </p>
-        <% if @person_opportunity.opportunity.address %>
-          <strong> <%= "#{@person_opportunity.opportunity.address}" %></strong>
+        <% if @person_opportunity.opportunity.address_1  && @person_opportunity.opportunity.address_2 %>
+          <strong> <%= "#{@person_opportunity.opportunity.address_1} #{@person_opportunity.opportunity.address_2}" %></strong>
       <% end %>
       <p>
         <% if @person_opportunity.opportunity.city && @person_opportunity.opportunity.state %>

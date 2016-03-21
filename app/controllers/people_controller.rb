@@ -38,15 +38,15 @@ class PeopleController < ApplicationController
 
     if @person.new_record?
       @person.assign_attributes(person_params)
+      @person.save
     elsif !@person.new_record?
       @person.update(person_params)
     end
 
     if params[:schedule]
       @person.update_schedule(params)
+      @person.save
     end
-
-    @person.save
 
     if params[:organization_id]
       @person.add_to_organization(Organization.find(params[:organization_id]), params[:notes])
