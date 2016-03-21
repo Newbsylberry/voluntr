@@ -14,7 +14,7 @@ RSpec.describe OpportunityInstance, type: :model do
                          opportunity_id: @opportunity.id,
                          instance_date: "2015-08-12 22:33:07 -0600")
 
-      expect(@instance.instance_volunteers).to include(@person_opportunity.person)
+      expect(@instance.registered_instance_volunteers).to include(@person_opportunity.person)
     end
   end
 end

@@ -138,19 +138,14 @@ class OpportunitiesController < ApplicationController
     render json: @opportunity.opportunity_roles, each_serializer: OpportunityRoleSerializer
   end
 
-  def opportunity_registration
-
-  end
-
-
-
   protected
 
   def opportunity_params
     params.require(:opportunity).permit(:fb_id, :name, :location, :opportunity_type_id,
                                         :description, :start_time, :end_time, :about,
                                         :city, :state, :zip_code, :timezone, :latitude, :longitude,
-                                        :organization_id, :collaborative, :color, :address, :volunteer_goal, :start_schedule)
+                                        :organization_id, :collaborative, :color, :address_1,
+                                        :volunteer_goal, :start_schedule,:address_2)
   end
 
 end

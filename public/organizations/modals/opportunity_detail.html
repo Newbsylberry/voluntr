@@ -74,7 +74,7 @@
                 <h4 class="opportunity-dashboard-label">Volunteers</h4>
               </div>
               <div class="col-xs-3">
-                <h2 class="opportunity-dashboard-statistic">{{opportunity.instance.instance_volunteers.length}}</h2>
+                <h2 class="opportunity-dashboard-statistic">{{opportunity.instance.registered_instance_volunteers.length}}</h2>
                 <h4 class="opportunity-dashboard-label">Volunteers This Instance</h4>
               </div>
             </div>
@@ -108,7 +108,8 @@
                 ></edit-object-directive>
           <h4 >Address:</h4>
           <edit-address
-            address="{{opportunity.address}}"
+            address_1="{{opportunity.address_1}}"
+            address_2="{{opportunity.address_2}}"
             zip-code="{{opportunity.zip_code}}"
             state="{{opportunity.state}}"
             city="{{opportunity.city}}"
@@ -266,8 +267,6 @@
       <md-tab id="tab6">
         <md-tab-label>Additional</md-tab-label>
         <md-tab-body>
-          <div class="tabcontrol">
-            <div class="tabcontrolin">
               <div class="rscard">
                 <h3>Forms</h3>
                 <small>(These should be sent around, or opened in a new window)</small>
@@ -312,9 +311,6 @@
             </span>
               </div>
               <div class="fixer"></div>
-            </div>
-            <div class="window-bottom-button"></div>
-          </div>
         </md-tab-body>
       </md-tab>
     </md-tabs>

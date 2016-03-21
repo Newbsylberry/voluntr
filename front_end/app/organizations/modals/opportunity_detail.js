@@ -117,7 +117,7 @@ angular.module('voluntrApp')
       attr.hours_required = opportunity_role.hours_required;
       attr.description = opportunity_role.description;
       OpportunityRole.create(attr).$promise.then(function(success){
-        $scope.opportunity.opportunity_roles.push(success)
+        $scope.opportunity.instance.instance_roles.push(success)
         $scope.opportunity_role.name = '';
         $scope.opportunity_role.volunteers_required = '';
         $scope.opportunity_role.hours_required = '';

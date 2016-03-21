@@ -13,7 +13,7 @@ class OpportunityInstance < ActiveRecord::Base
     return OpportunityInstance.new(opportunity: @opportunity, instance_date: Time.parse(instance_date))
   end
 
-  def instance_volunteers
+  def registered_instance_volunteers
     instance_volunteers = Array.new
     if !opportunity.person_opportunities.nil?
       opportunity.person_opportunities.each do |po|
@@ -38,10 +38,10 @@ class OpportunityInstance < ActiveRecord::Base
     if opportunity.opportunity_roles
       opportunity.opportunity_roles.each do |role|
         role = {name: role.name, id: role.id, volunteers_required: role.volunteers_required, person_opportunities: []}
-        if !instance_volunteers.empty?
-          instance_volunteers.each do |v|
-            if v.opportunity_role && v.opportunity_role.id === role[:id]
-              role[:person_opportunities] << {first_name: v.person.first_name, last_name: v.person.last_name, id: v.person.id}
+        if !registered_instance_volunteers.empty?
+          registered_instance_volunteers.each do |v|
+            if v[:opportunity_role] && v[:opportunity_role][:id] === role[:id]
+              role[:person_opportunities] << {first_name: v[:person][:first_name], last_name: v[:person][:last_name], id: v[:person][:id]}
             end
           end
         end
@@ -50,5 +50,28 @@ class OpportunityInstance < ActiveRecord::Base
     end
     return instance_roles
   end
+
+  def total_instance_people
+    instance_people = [];
+    registered_instance_volunteers.each do |p| instance_people << p.person end
+  end
+
+  def instance_recorded_hours
+    instance_recorded_hours = [];
+    if !opportunity.recorded_hours.nil?
+      opportunity.recorded_hours.each do |rh|
+        if rh.date?
+            if i > start.beginning_of_day and i < start.end_of_day
+              person = Person.find(po.person_id)
+              if po.opportunity_role_id
+                role = OpportunityRole.find(po.opportunity_role_id)
+              end
+              instance_volunteers << {person: person,opportunity_role: role, opportunity: opportunity}
+            end
+        end
+      end
+    end
+  end
+
 end
 

@@ -79,7 +79,8 @@ angular.module('voluntrApp')
       attr.name = $scope.newOpportunity.opportunity_name;
       attr.calendar.end_time = $scope.calendar.end_time;
       attr.description = $scope.newOpportunity.description;
-      attr.address = $scope.newOpportunity.address;
+      attr.address_1 = $scope.newOpportunity.address_1;
+      attr.address_2 = $scope.newOpportunity.address_2;
       attr.zip_code = $scope.newOpportunity.zip_code;
       attr.city = $scope.newOpportunity.city;
       attr.collaborative = $scope.newOpportunity.collaborative;

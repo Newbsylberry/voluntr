@@ -18,7 +18,7 @@ class Opportunity < ActiveRecord::Base
   has_many :organization_email_templates, through: :organization
   geocoded_by :full_street_address   # can also be an IP address
   attr_accessor :end, :start, :allDay, :timezone, :duration, :title, :instance_hours, :instance_people_count
-  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }          # auto-fetch coordinates
+  after_validation :geocode, if: ->(obj){ obj.address_1.present? and obj.address_1_changed? }          # auto-fetch coordinates
 
   after_initialize do |opportunity|
     if opportunity.new_record?
@@ -133,7 +133,7 @@ class Opportunity < ActiveRecord::Base
 
   # This method combines all address information into one readable full address
   def full_street_address
-    return "#{address} #{city} #{state} #{zip_code}"
+    return "#{address_1} #{city} #{state} #{zip_code}"
   end
 
   # This is the start_time for the opportunity, required by full calendar.js
