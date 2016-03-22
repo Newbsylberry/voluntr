@@ -14,7 +14,7 @@ angular.module('voluntrApp')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
               .append('g')
-                .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+                .attr('transform', 'translate(' + 50 +  ',' + 50 + ')');
 
     var color = d3.scale.ordinal()
                     .range(['#333333','#555555']);
@@ -23,7 +23,7 @@ angular.module('voluntrApp')
 
     var arc = d3.svg.arc()
       .innerRadius(0)
-      .outerRadius(radius * 0.9);
+      .outerRadius(radius);
 
     var pie = d3.layout.pie()
       .sort(null)
