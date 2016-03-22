@@ -24,6 +24,8 @@ angular.module('voluntrApp')
     scope.$watch('data', function(data) {
       if (!data) return;
 
+      data = [data[0],data[1],data[2]];
+
       var x = d3.scale.linear()
                 .domain([0,d3.max(data, function(d) {return d.value;})])
                 .range([0,width-80]);

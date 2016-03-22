@@ -3,17 +3,17 @@
 
   <div layout="row" layout-align="space-around center">
     <div layout="column" layout-align="center center">
-      <span class="lb-big-number">{{data.lb.volunteers}}</span>
+      <span class="lb-big-number">{{data.lb.leaderboard.volunteers}}</span>
        <div class="lb-number-text">volunteers</div>
     </div>
     <div layout="column" layout-align="center center">
-      <span class="lb-big-number">{{data.lb.volunteer_hours}}</span>
+      <span class="lb-big-number">{{data.lb.leaderboard.volunteer_hours}}</span>
        <div class="lb-number-text">volunteer hours</div>
     </div>
   </div>
   <div layout="row" layout-align="center start">
     <div layout="column" layout-align="center center">
-      <span class="lb-big-number">${{data.lb.volunteer_dollars}}</span>
+      <span class="lb-big-number">${{data.lb.leaderboard.volunteer_dollars}}</span>
        <span class="lb-number-text">volunteer dollars</span><span><a href="">(?)</a></span>
     </div>
   </div>
@@ -26,12 +26,13 @@
         <h2>Most Active Teams</h2>
         <span><a href="">(?)</a></span>
         <ol>
-          <li ng-repeat="team in data.lb.most_active_teams" class="lb-list-text">
+          <li ng-repeat="team in data.lb.leaderboard.team_most_active | limitTo: teamMostActive.count" class="lb-list-text">
             <span>{{team.name}}</span> <span>{{team.value}}</span>
           </li>
         </ol>
         <div class="lb-more-text" layout="row" layout-align="space-between start">
-          <a href="">top ten...</a>
+          <a ng-if="!teamMostActive.more" ng-click="showMore(teamMostActive)">show more...</a>
+          <a ng-if="teamMostActive.more" ng-click="showMore(teamMostActive)">show less...</a>
           <a ui-sref="team">more team stats</a>
         </div>
       </div>
@@ -46,12 +47,13 @@
       <div>
         <h2>Top Non-Profit By Hours</h2>
         <ol>
-          <li ng-repeat="nonprofit in data.lb.top_nonprofits" class="lb-list-text">
+          <li ng-repeat="nonprofit in data.lb.leaderboard.nonprofit_hours | limitTo: nonprofitHours.count" class="lb-list-text">
             <span>{{nonprofit.name}}</span> <span>{{nonprofit.value}}</span>
           </li>
         </ol>
         <div class="lb-more-text" layout="row" layout-align="space-between start">
-          <a href="">top ten...</a>
+          <a ng-if="!nonprofitHours.more" ng-click="showMore(nonprofitHours)">show more...</a>
+          <a ng-if="nonprofitHours.more" ng-click="showMore(nonprofitHours)">show less...</a>
           <a href="">more non-profit stats</a>
         </div>
       </div>
@@ -66,12 +68,13 @@
       <div>
         <h2>Top Individual By Hours</h2>
         <ol>
-          <li ng-repeat="individual in data.lb.top_individuals" class="lb-list-text">
+          <li ng-repeat="individual in data.lb.leaderboard.individual_hours | limitTo: individualHours.count" class="lb-list-text">
             <span>{{individual.name}}</span> <span>{{individual.value}}</span>
           </li>
         </ol>
         <div class="lb-more-text" layout="row" layout-align="space-between start">
-          <a href="">top ten...</a>
+          <a ng-if="!individualHours.more" ng-click="showMore(individualHours)">show more...</a>
+          <a ng-if="individualHours.more" ng-click="showMore(individualHours)">show less...</a>
           <a href="">more non-profit stats</a>
         </div>
       </div>

@@ -23,6 +23,7 @@ angular.module('voluntrApp')
     scope.$watch('data', function(data) {
       if (!data) return;
 
+      data = [data[0],data[1],data[2]];
 
       y.domain([0,d3.sum(data,function(d){ return d.value;})]);
 

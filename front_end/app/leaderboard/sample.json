@@ -128,7 +128,7 @@
         "name": "Amy Kasten",
         "value": 13
       }
-    ],
+    ]
 
   },
   "team_additional": {
@@ -144,6 +144,34 @@
       {
         "name": "40 Below",
         "value": 3
+      },
+      {
+        "name": "Skaneateles High School",
+        "value": 2
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 2
+      },
+      {
+        "name": "Terakeet",
+        "value": 2
+      },
+      {
+        "name": "The Tech Garden",
+        "value": 2
+      },
+      {
+        "name": "Nottingham High School",
+        "value": 2
+      },
+      {
+        "name": "The Syracuse City Bowling League",
+        "value": 2
+      },
+      {
+        "name": "Laborers Local 633",
+        "value": 2
       }
     ],
     "participation_rate": [
@@ -158,6 +186,34 @@
       {
         "name": "Syracuse University",
         "value": 60
+      },
+      {
+        "name": "Skaneateles High School",
+        "value": 2
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 2
+      },
+      {
+        "name": "Terakeet",
+        "value": 2
+      },
+      {
+        "name": "The Tech Garden",
+        "value": 2
+      },
+      {
+        "name": "Nottingham High School",
+        "value": 2
+      },
+      {
+        "name": "The Syracuse City Bowling League",
+        "value": 2
+      },
+      {
+        "name": "Laborers Local 633",
+        "value": 2
       }
     ],
     "total_hours": [
@@ -172,6 +228,34 @@
       {
         "name": "40 Below",
         "value": 300
+      },
+      {
+        "name": "Skaneateles High School",
+        "value": 2
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 2
+      },
+      {
+        "name": "Terakeet",
+        "value": 2
+      },
+      {
+        "name": "The Tech Garden",
+        "value": 2
+      },
+      {
+        "name": "Nottingham High School",
+        "value": 2
+      },
+      {
+        "name": "The Syracuse City Bowling League",
+        "value": 2
+      },
+      {
+        "name": "Laborers Local 633",
+        "value": 2
       }
     ],
     "total_events": [

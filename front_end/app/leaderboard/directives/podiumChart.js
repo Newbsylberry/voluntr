@@ -19,6 +19,8 @@ angular.module('voluntrApp')
     scope.$watch('data', function(data) {
       if (!data) return;
 
+      data = [data[0],data[1],data[2]];
+
       var color = d3.scale.ordinal()
                       .range(['#444444','#333333', '#555555']);
 
