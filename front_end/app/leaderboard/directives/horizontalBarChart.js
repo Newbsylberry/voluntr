@@ -52,6 +52,7 @@ angular.module('voluntrApp')
         .attr('x', function(d) { return x(d.value) + 5; })
         .attr('y', barHeight/2)
         .attr('dy', '.35em')
+        .attr('fill', '#FFFFFF')
         .text(function(d) { return d.value + 'hrs/person'; });
 
     });

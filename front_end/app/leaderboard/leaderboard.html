@@ -14,7 +14,7 @@
   <div layout="row" layout-align="center start">
     <div layout="column" layout-align="center center">
       <span class="lb-big-number">${{data.lb.leaderboard.volunteer_dollars}}</span>
-       <span class="lb-number-text">volunteer dollars</span><span><a href="">(?)</a></span>
+       <span class="lb-number-text">volunteer dollars<a class="question-link" href="">(?)</a></span>
     </div>
   </div>
   <div class="lb-stats" layout="column" layout-align="start start">
@@ -23,8 +23,7 @@
 
       </div>
       <div>
-        <h2>Most Active Teams</h2>
-        <span><a href="">(?)</a></span>
+        <h2>Most Active Teams<a class="question-link" href="">(?)</a></h2>
         <ol>
           <li ng-repeat="team in data.lb.leaderboard.team_most_active | limitTo: teamMostActive.count" class="lb-list-text">
             <span>{{team.name}}</span> <span>{{team.value}}</span>

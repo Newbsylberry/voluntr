@@ -1,7 +1,7 @@
 .leaderboard {
   background-color: $primary;
   color: #FFFFFF;
-  font-family: 'Roboto'
+  font-family: 'Roboto';
 }
 
 .lb-big-number {
@@ -12,6 +12,10 @@
 .leaderboard h2 {
   font-size: 1.875em;
   font-weight: bold;
+}
+
+.question-link {
+  color: #FFFFFF;
 }
 
 .leaderboard h1 {
@@ -35,6 +39,7 @@
   color: white;
   font-size: 1em;
   text-decoration: underline;
+  display: inline;
 }
 
 .lb-stats {

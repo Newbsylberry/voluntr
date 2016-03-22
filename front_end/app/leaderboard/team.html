@@ -1,43 +1,55 @@
-<div>
-  Top Team By Hours Per Person
-  <horizontal-bar-chart data="data.lb.team_additional.hours_per_person"></horizontal-bar-chart>
+<div class="leaderboard lb-stats">
+  <h1>Team Stats</h1>
+
   <div>
-    <div ng-repeat="team in data.lb.team_additional.hours_per_person | startFrom: 3 | limitTo: teamAdditional.hoursPerPerson.count">{{$index + 4}}. {{team.name}}</div>
-  </div>
-  <a ng-if="!teamAdditional.hoursPerPerson.more" ng-click="additionalShowMore(teamAdditional.hoursPerPerson)">show more...</a>
-  <a ng-if="teamAdditional.hoursPerPerson.more" ng-click="additionalShowMore(teamAdditional.hoursPerPerson)">show less...</a>
-</div>
-<div>
-  Top Team By Participation Rate
-  <div layout="row" layout-align="center" layout-fill layout-align="center start">
-    <div layout="column" ng-repeat="datum in data.lb.team_additional.participation_rate | limitTo: 3">
-      {{datum.name}}
-      <pie-chart data="datum"></pie-chart>
+    <h2>Top Team By Hours Per Person</h2>
+    <horizontal-bar-chart data="data.lb.team_additional.hours_per_person"></horizontal-bar-chart>
+    <div>
+      <div ng-repeat="team in data.lb.team_additional.hours_per_person | startFrom: 3 | limitTo: teamAdditional.hoursPerPerson.count">{{$index + 4}}. {{team.name}}</div>
+    </div>
+    <div class="lb-more-text">
+      <a ng-if="!teamAdditional.hoursPerPerson.more" ng-click="additionalShowMore(teamAdditional.hoursPerPerson)">show more...</a>
+      <a ng-if="teamAdditional.hoursPerPerson.more" ng-click="additionalShowMore(teamAdditional.hoursPerPerson)">show less...</a>
     </div>
   </div>
   <div>
-    <div ng-repeat="team in data.lb.team_additional.participation_rate | startFrom: 3 | limitTo: teamAdditional.participationRate.count">{{$index + 4}}. {{team.name}}</div>
+    <h2>Top Team By Participation Rate</h2>
+    <div layout="row" layout-fill layout-align="start start">
+      <div layout="column" ng-repeat="datum in data.lb.team_additional.participation_rate | limitTo: 3">
+        {{datum.name}}
+        <pie-chart data="datum"></pie-chart>
+      </div>
+    </div>
+    <div>
+      <div ng-repeat="team in data.lb.team_additional.participation_rate | startFrom: 3 | limitTo: teamAdditional.participationRate.count">{{$index + 4}}. {{team.name}}</div>
+    </div>
+    <div class="lb-more-text">
+      <a ng-if="!teamAdditional.participationRate.more" ng-click="additionalShowMore(teamAdditional.participationRate)">show more...</a>
+      <a ng-if="teamAdditional.participationRate.more" ng-click="additionalShowMore(teamAdditional.participationRate)">show less...</a>
+    </div>
   </div>
-  <a ng-if="!teamAdditional.participationRate.more" ng-click="additionalShowMore(teamAdditional.participationRate)">show more...</a>
-  <a ng-if="teamAdditional.participationRate.more" ng-click="additionalShowMore(teamAdditional.participationRate)">show less...</a>
-</div>
 
-<div>
-  Top Team By Total Hours
-  <stacked-bar-chart data="data.lb.team_additional.total_hours"></stacked-bar-chart>
   <div>
-    <div ng-repeat="team in data.lb.team_additional.total_hours | startFrom: 3 | limitTo: teamAdditional.totalHours.count">{{$index + 4}}. {{team.name}}</div>
+    <h2>Top Team By Total Hours</h2>
+    <stacked-bar-chart data="data.lb.team_additional.total_hours"></stacked-bar-chart>
+    <div>
+      <div ng-repeat="team in data.lb.team_additional.total_hours | startFrom: 3 | limitTo: teamAdditional.totalHours.count">{{$index + 4}}. {{team.name}}</div>
+    </div>
+    <div class="lb-more-text">
+      <a ng-if="!teamAdditional.totalHours.more" ng-click="additionalShowMore(teamAdditional.totalHours)">show more...</a>
+      <a ng-if="teamAdditional.totalHours.more" ng-click="additionalShowMore(teamAdditional.totalHours)">show less...</a>
+    </div>
   </div>
-  <a ng-if="!teamAdditional.totalHours.more" ng-click="additionalShowMore(teamAdditional.totalHours)">show more...</a>
-  <a ng-if="teamAdditional.totalHours.more" ng-click="additionalShowMore(teamAdditional.totalHours)">show less...</a>
-</div>
 
-<div>
-  Top Team # Events
-  <podium-chart data="data.lb.team_additional.total_events"></podium-chart>
   <div>
-    <div ng-repeat="team in data.lb.team_additional.total_events | startFrom: 3 | limitTo: teamAdditional.totalEvents.count">{{$index + 4}}. {{team.name}}</div>
+    <h2>Top Team # Events</h2>
+    <podium-chart data="data.lb.team_additional.total_events"></podium-chart>
+    <div>
+      <div ng-repeat="team in data.lb.team_additional.total_events | startFrom: 3 | limitTo: teamAdditional.totalEvents.count">{{$index + 4}}. {{team.name}}</div>
+    </div>
+    <div class="lb-more-text">
+      <a ng-if="!teamAdditional.totalEvents.more" ng-click="additionalShowMore(teamAdditional.totalEvents)">show more...</a>
+      <a ng-if="teamAdditional.totalEvents.more" ng-click="additionalShowMore(teamAdditional.totalEvents)">show less...</a>
+    </div>
   </div>
-  <a ng-if="!teamAdditional.totalEvents.more" ng-click="additionalShowMore(teamAdditional.totalEvents)">show more...</a>
-  <a ng-if="teamAdditional.totalEvents.more" ng-click="additionalShowMore(teamAdditional.totalEvents)">show less...</a>
 </div>

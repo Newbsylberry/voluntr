@@ -3,7 +3,7 @@ angular.module('voluntrApp')
 .directive('podiumChart', function() {
   function link(scope,element,attrs) {
     //Conventional D3 Margin
-    var margin = {top: 5, right: 5, bottom: 5, left: 5};
+    var margin = {top: 5, right: 5, bottom: 5, left: 0};
     var width = 375 - margin.left - margin.right;
     var height = 110 - margin.top - margin.bottom
 
@@ -51,6 +51,7 @@ angular.module('voluntrApp')
         .attr('x', barWidth/2)
         .attr('y', 80)
         .attr('fill','#FFFFFF')
+        .attr('text-anchor', 'middle')
         .text(function(d) { return d.value; })
 
      bar.append('text')
@@ -60,6 +61,7 @@ angular.module('voluntrApp')
           if (i === 1) return 10;
           if (i === 2) return 50;
         })
+        .attr('fill','#FFFFFF')
         .attr('text-anchor', 'middle')
         .text(function(d) { return d.name; })
 
