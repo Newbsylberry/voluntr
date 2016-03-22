@@ -35,7 +35,6 @@
             class="change_instance_link">
           cancel
         </a>
-
       </div>
       <div flex="20" class="object-dialog-toolbar-component">
         <!--<md-button class="ion-close dialog-close-button" ng-click="cancel()">
@@ -45,7 +44,14 @@
           <li><a report-link
                  type="opportunity"
                  id="{{opportunity.id}}"
-                 href="">Export Report</a></li>
+                 href="javascript:;">Export Report</a></li>
+          <li><a
+            auxiliary-modal-window
+            href="javascript:;"
+            type="edit-schedule"
+            object="opportunity">
+            Edit Schedule
+          </a></li>
         </ul>
       </div>
     </div>
