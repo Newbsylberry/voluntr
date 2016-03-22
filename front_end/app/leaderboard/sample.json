@@ -1,50 +1,137 @@
 {
-  "volunteers": 3019,
-  "volunteer_hours": 815,
-  "volunteer_dollars": 18337,
-  "most_active_teams": [
-    {
-      "name": "Syracuse University",
-      "value": 7.1
-    },
-    {
-      "name": "Lemoyne",
-      "value": 6.8
-    },
-    {
-      "name": "40 Below",
-      "value": 5.3
-    }
-  ],
-  "top_nonprofits": [
-    {
-      "name": "Salvation Army",
-      "value": 317
-    },
-    {
-      "name": "United Way",
-      "value": 211
-    },
-    {
-      "name": "Meals On Wheels",
-      "value": 108
-    }
-  ],
-  "top_individuals": [
-    {
-      "name": "Tom Marcetti",
-      "value": 17
-    },
-    {
-      "name": "Rachel Stewart",
-      "value": 14
-    },
-    {
-      "name": "Al Jacobs",
-      "value": 13
-    }
-  ],
-  "team": {
+  "leaderboard": {
+    "volunteers": 3019,
+    "volunteer_hours": 815,
+    "volunteer_dollars": 18337,
+    "team_most_active": [
+      {
+        "name": "Syracuse University",
+        "value": 7.1
+      },
+      {
+        "name": "Lemoyne",
+        "value": 6.8
+      },
+      {
+        "name": "40 Below",
+        "value": 5.3
+      },
+      {
+        "name": "Skaneateles High School",
+        "value": 5.2
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 5.1
+      },
+      {
+        "name": "Terakeet",
+        "value": 4.3
+      },
+      {
+        "name": "The Tech Garden",
+        "value": 3.8
+      },
+      {
+        "name": "Nottingham High School",
+        "value": 3.6
+      },
+      {
+        "name": "The Syracuse City Bowling League",
+        "value": 3.5
+      },
+      {
+        "name": "Laborers Local 633",
+        "value": 3.4
+      }
+    ],
+    "nonprofit_hours": [
+      {
+        "name": "Salvation Army",
+        "value": 317
+      },
+      {
+        "name": "United Way",
+        "value": 300
+      },
+      {
+        "name": "Meals On Wheels",
+        "value": 274
+      },
+      {
+        "name": "Paige's Butterfly Run",
+        "value": 251
+      },
+      {
+        "name": "Habitat for Humanity",
+        "value": 238
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 201
+      },
+      {
+        "name": "Charity for Children",
+        "value": 199
+      },
+      {
+        "name": "Make a Wish Foundation",
+        "value": 148
+      },
+      {
+        "name": "St Jude's Childrens Hospital",
+        "value": 112
+      },
+      {
+        "name": "Assumption Church Food Pantry",
+        "value": 98
+      }
+    ],
+    "individual_hours": [
+      {
+        "name": "Tom Marcetti",
+        "value": 42
+      },
+      {
+        "name": "Rachel Stewart",
+        "value": 41
+      },
+      {
+        "name": "Al Jacobs",
+        "value": 40
+      },
+      {
+        "name": "Anne York",
+        "value": 33
+      },
+      {
+        "name": "Andrew Chen",
+        "value": 31
+      },
+      {
+        "name": "Thomas Larsen",
+        "value": 30
+      },
+      {
+        "name": "Mary Cook",
+        "value": 24
+      },
+      {
+        "name": "Zoe Luther",
+        "value": 21
+      },
+      {
+        "name": "Steve Rosenblatt",
+        "value": 17
+      },
+      {
+        "name": "Amy Kasten",
+        "value": 13
+      }
+    ],
+
+  },
+  "team_additional": {
     "hours_per_person": [
       {
         "name": "Lamoyne",
@@ -90,16 +177,133 @@
     "total_events": [
       {
         "name": "Syracuse University",
-        "value": 5
+        "value": 17
       },
       {
-        "name": "Lamoyne",
-        "value": 4
+        "name": "Lemoyne",
+        "value": 14
       },
       {
         "name": "40 Below",
+        "value": 13
+      },
+      {
+        "name": "Skaneateles High School",
+        "value": 12
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 11
+      },
+      {
+        "name": "Terakeet",
+        "value": 10
+      },
+      {
+        "name": "The Tech Garden",
+        "value": 9
+      },
+      {
+        "name": "Nottingham High School",
+        "value": 9
+      },
+      {
+        "name": "The Syracuse City Bowling League",
+        "value": 8
+      },
+      {
+        "name": "Laborers Local 633",
+        "value": 7
+      }
+    ]
+  },
+  "non_profit_additional": {
+    "total_events": [
+      {
+        "name": "Salvation Army",
+        "value": 10
+      },
+      {
+        "name": "United Way",
+        "value": 9
+      },
+      {
+        "name": "Meals On Wheels",
+        "value": 9
+      },
+      {
+        "name": "Paige's Butterfly Run",
+        "value": 8
+      },
+      {
+        "name": "Habitat for Humanity",
+        "value": 7
+      },
+      {
+        "name": "Westcott Community Center",
+        "value": 6
+      },
+      {
+        "name": "Charity for Children",
+        "value": 4
+      },
+      {
+        "name": "Make a Wish Foundation",
         "value": 3
+      },
+      {
+        "name": "St Jude's Childrens Hospital",
+        "value": 2
+      },
+      {
+        "name": "Assumption Church Food Pantry",
+        "value": 1
+      }
+    ]
+  },
+  "individual_additional": {
+    "total_events": [
+      {
+        "name": "Tom Marcetti",
+        "value": 5
+      },
+      {
+        "name": "Rachel Stewart",
+        "value": 5
+      },
+      {
+        "name": "Al Jacobs",
+        "value": 4
+      },
+      {
+        "name": "Anne York",
+        "value": 4
+      },
+      {
+        "name": "Andrew Chen",
+        "value": 4
+      },
+      {
+        "name": "Thomas Larsen",
+        "value": 4
+      },
+      {
+        "name": "Mary Cook",
+        "value": 3
+      },
+      {
+        "name": "Zoe Luther",
+        "value": 3
+      },
+      {
+        "name": "Steve Rosenblatt",
+        "value": 3
+      },
+      {
+        "name": "Amy Kasten",
+        "value": 2
       }
     ]
   }
+
 }
