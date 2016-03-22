@@ -1,43 +1,83 @@
-<div>
-  Leaderboard
-  <div class="">
-    {{data.lb.volunteers}} volunteers
+<div class="leaderboard">
+  <h1>Leaderboard</h1>
+
+  <div layout="row" layout-align="space-around center">
+    <div layout="column" layout-align="center center">
+      <span class="lb-big-number">{{data.lb.volunteers}}</span>
+       <div class="lb-number-text">volunteers</div>
+    </div>
+    <div layout="column" layout-align="center center">
+      <span class="lb-big-number">{{data.lb.volunteer_hours}}</span>
+       <div class="lb-number-text">volunteer hours</div>
+    </div>
   </div>
-  <div class="">
-    {{data.lb.volunteer_hours}} volunteer hours
+  <div layout="row" layout-align="center start">
+    <div layout="column" layout-align="center center">
+      <span class="lb-big-number">${{data.lb.volunteer_dollars}}</span>
+       <span class="lb-number-text">volunteer dollars</span><span><a href="">(?)</a></span>
+    </div>
   </div>
-  <div class="">
-    ${{data.lb.volunteer_dollars}} volunteer dollars <span><a href="">(?)</a></span>
-  </div>
-  <div class="">
-    Most Active Teams <span><a href="">(?)</a></span>
-    <ol>
-      <li ng-repeat="team in data.lb.most_active_teams">
-        <span>{{team.name}}</span> <span>{{team.score}}</span>
-      </li>
-    </ol>
-    <a href="">more</a>
-    <a ui-sref="team">more team stats</a>
-  </div>
-  <div class="">
-    Top Non-Profit By Hours
-    <ol>
-      <li ng-repeat="nonprofit in data.lb.top_nonprofits">
-        <span>{{nonprofit.name}}</span> <span>{{nonprofit.hours}}</span>
-      </li>
-    </ol>
-    <a href="">more</a>
-    <a href="">more non-profit stats</a>
-  </div>
-  <div class="">
-    Top Individual By Hours
-    <ol>
-      <li ng-repeat="individual in data.lb.top_individuals">
-        <span>{{individual.name}}</span> <span>{{individual.hours}}</span>
-      </li>
-    </ol>
-    <a href="">more</a>
-    <a href="">more individual stats</a>
-  </div>
+  <div class="lb-stats" layout="column" layout-align="start start">
+    <div layout="row">
+      <div flex>
+
+      </div>
+      <div>
+        <h2>Most Active Teams</h2>
+        <span><a href="">(?)</a></span>
+        <ol>
+          <li ng-repeat="team in data.lb.most_active_teams" class="lb-list-text">
+            <span>{{team.name}}</span> <span>{{team.value}}</span>
+          </li>
+        </ol>
+        <div class="lb-more-text" layout="row" layout-align="space-between start">
+          <a href="">top ten...</a>
+          <a ui-sref="team">more team stats</a>
+        </div>
+      </div>
+      <div flex>
+
+      </div>
+    </div>
+    <div layout="row">
+      <div flex>
+
+      </div>
+      <div>
+        <h2>Top Non-Profit By Hours</h2>
+        <ol>
+          <li ng-repeat="nonprofit in data.lb.top_nonprofits" class="lb-list-text">
+            <span>{{nonprofit.name}}</span> <span>{{nonprofit.value}}</span>
+          </li>
+        </ol>
+        <div class="lb-more-text" layout="row" layout-align="space-between start">
+          <a href="">top ten...</a>
+          <a href="">more non-profit stats</a>
+        </div>
+      </div>
+      <div flex>
+
+      </div>
+    </div>
+    <div layout="row" layout-align="start start">
+      <div flex>
+
+      </div>
+      <div>
+        <h2>Top Individual By Hours</h2>
+        <ol>
+          <li ng-repeat="individual in data.lb.top_individuals" class="lb-list-text">
+            <span>{{individual.name}}</span> <span>{{individual.value}}</span>
+          </li>
+        </ol>
+        <div class="lb-more-text" layout="row" layout-align="space-between start">
+          <a href="">top ten...</a>
+          <a href="">more non-profit stats</a>
+        </div>
+      </div>
+      <div flex>
+
+      </div>
+    </div>
   </div>
 </div>
