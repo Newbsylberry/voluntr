@@ -97,10 +97,11 @@ angular.module('voluntrApp')
     $scope.organization = {};
     $scope.photo_consent = true;
     $scope.contact_me = true;
+    $scope.recordedHour = {}
 
     $scope.recordHours = function () {
       var attr = {};
-      attr.hours = $scope.hours;
+      attr.hours = $scope.recordedHour.hours;
       attr.date_recorded = new Date().toString();
       if ($scope.opportunity_role !== undefined) {
         attr.opportunity_role_id = $scope.opportunity_role.id;
@@ -114,6 +115,7 @@ angular.module('voluntrApp')
       attr.contact_me = $scope.contact_me;
       attr.sign_in  = true;
       RecordedHours.create(attr);
+      console.log(attr)
       $scope.confirmed = true;
       $timeout(function() {
         $state.go('sign_in_form.initial_information', {opportunity_Id:$scope.opportunity.id}, {reload: true})

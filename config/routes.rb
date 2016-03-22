@@ -101,6 +101,8 @@ Rails.application.routes.draw do
       #opportunity instances
       match '/opportunity_instances/:id/:date', to: 'opportunity_instances#show', via: :get, defaults: {format: :json}
       match '/opportunity_instances/:id/:date/instance_roles', to: 'opportunity_instances#instance_roles', via: :get, defaults: {format: :json}
+      match '/opportunity_instances/:id/:date/recorded_hours', to: 'opportunity_instances#recorded_hours', via: :get, defaults: {format: :json}
+      match '/opportunity_instances/:id/:date/instance_volunteers', to: 'opportunity_instances#volunteers', via: :get, defaults: {format: :json}
 
 
       # Reports

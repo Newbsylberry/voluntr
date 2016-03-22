@@ -5,7 +5,7 @@ class Opportunity < ActiveRecord::Base
   require 'gchart'
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-  has_many :organization_opportunities
+  has_many :organization_opportunities, dependent: :destroy
   has_many :resources, as: :resourceable, dependent: :destroy
   has_many :opportunities
   has_many :person_opportunities, dependent: :destroy

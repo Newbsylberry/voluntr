@@ -29,44 +29,49 @@ angular.module('voluntrApp')
             $scope.opportunity.instance = data.data;
             $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/instance_roles')
               .then(function(data){
-                console.log("roles")
                 $scope.opportunity.instance.instance_roles = data.data;
               })
-            $scope.change_instance = false;
-        })
+          })
+        $http({
+          method: 'GET',
+          url: 'api/v1/opportunity_instances' + '/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/recorded_hours'
+        }).then(function(successResponse){
+          $scope.opportunity.recorded_hours = successResponse.data;
+        });
+        $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/instance_volunteers')
+          .then(function(data){
+            $scope.opportunity.instance.instance_volunteers = data.data;
+          })
+        $scope.change_instance = false;
       }
     });
 
     $scope.$watch('change_instance',function(){
       if ($scope.change_instance === true && !$scope.opportunity.instances) {
-      var todaysdate = new Date();
-      $http({
-        method: 'GET',
-        url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
-        params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
-      }).then(function(successResponse){
-        $scope.opportunity.instances = successResponse.data;
-      });
+        var todaysdate = new Date();
+        $http({
+          method: 'GET',
+          url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
+          params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
+        }).then(function(successResponse){
+          $scope.opportunity.instances = successResponse.data;
+        });
       }
     })
 
     var addToDashboard = function (instance) {
+      console.log(instance)
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
       $scope.instanceStatisticGraphConfig.series[1].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_people_count)]);
     };
-
-    var addToRolePieChart = function (role) {
-      $scope.opportunityRolesChart.series[0].data.push
-      ([role.name, role.total_recorded_hours]);
-    };
-
     $scope.opportunity = opportunity.data;
     $scope.opportunity.instance_date = start_time;
 
 
     Opportunity.instance_statistics($scope.opportunity.id, 'instance_statistics').$promise.then(function(instance_statistics) {
+      console.log(instance_statistics)
       angular.forEach(instance_statistics, addToDashboard)
     });
 
@@ -89,12 +94,18 @@ angular.module('voluntrApp')
           });
         }
       } if (tab == 'people' && !$scope.opportunity.volunteers) {
-        Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function(volunteers) {
-          $scope.opportunity.volunteers = volunteers;
-        });
+        $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/instance_volunteers')
+          .then(function(data){
+            console.log(data)
+            $scope.opportunity.instance.instance_volunteers = data.data;
+          })
       } if (tab == 'recorded_hours' && !$scope.opportunity.recorded_hours) {
-        Opportunity.roles($scope.opportunity.id, 'recorded_hours').$promise.then(function(recorded_hours) {
-          $scope.opportunity.recorded_hours = recorded_hours;
+        $http({
+          method: 'GET',
+          url: 'api/v1/opportunity_instances' + '/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/recorded_hours'
+        }).then(function(successResponse){
+          console.log(successResponse.data[0])
+          $scope.opportunity.recorded_hours = successResponse.data;
         });
       }
     }

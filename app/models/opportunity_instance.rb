@@ -60,18 +60,42 @@ class OpportunityInstance < ActiveRecord::Base
     instance_recorded_hours = [];
     if !opportunity.recorded_hours.nil?
       opportunity.recorded_hours.each do |rh|
-        if rh.date?
-            if i > start.beginning_of_day and i < start.end_of_day
-              person = Person.find(po.person_id)
-              if po.opportunity_role_id
-                role = OpportunityRole.find(po.opportunity_role_id)
+        if rh.date_recorded?
+            if rh.date_recorded > instance_date.beginning_of_day and rh.date_recorded < instance_date.end_of_day
+              person = Person.find(rh.person_id)
+              if rh.opportunity_role_id
+                role = OpportunityRole.find(rh.opportunity_role_id)
               end
-              instance_volunteers << {person: person,opportunity_role: role, opportunity: opportunity}
+              if rh.organization_id
+                organization = Organization.find(rh.organization_id)
+              end
+              instance_recorded_hours << {person: person,opportunity_role: role, opportunity: opportunity, organization: organization, hours: rh.hours, id: rh.id}
             end
         end
       end
     end
+    return instance_recorded_hours
   end
 
+  def instance_total_recorded_hours
+    instance_total_recorded_hours = 0
+    instance_recorded_hours.each do |rh|
+      instance_total_recorded_hours += rh[:hours]
+    end
+    return instance_total_recorded_hours
+  end
+
+  def instance_volunteers
+    instance_people = []
+    registered_instance_volunteers.each do |v|
+      instance_people << v[:person]
+    end
+    instance_recorded_hours.each do |rh|
+      if rh[:person] && !instance_people.include?(rh[:person])
+          instance_people << rh[:person]
+      end
+    end
+    return instance_people
+  end
 end
 
