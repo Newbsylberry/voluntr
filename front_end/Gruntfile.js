@@ -91,7 +91,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/users/**/*.{scss,sass}',
           '<%= yeoman.app %>/volunteers/**/*.{scss,sass}',
           '<%= yeoman.app %>/users/**/*.{scss,sass}',
-          '<%= yeoman.app %>/static_pages/**/*.{scss,sass}'],
+          '<%= yeoman.app %>/static_pages/**/*.{scss,sass}',
+          '<%= yeoman.app %>/leaderboard/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {

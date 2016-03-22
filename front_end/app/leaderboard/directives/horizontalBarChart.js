@@ -7,7 +7,7 @@ angular.module('voluntrApp')
     //Conventional D3 Margin
     var margin = {top: 5, right: 5, bottom: 5, left: 5};
     var width = 375 - margin.left - margin.right;
-    var height = 200 - margin.top - margin.bottom;
+    var height = 130 - margin.top - margin.bottom;
 
     var barHeight = 40;
 
