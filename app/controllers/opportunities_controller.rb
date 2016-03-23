@@ -105,8 +105,15 @@ class OpportunitiesController < ApplicationController
 
   def by_user_location
     @opportunities = Opportunity.geocoded
+    @upcoming_opportunities = []
+    @opportunities.near([params[:lat].to_f,params[:lng].to_f], params[:distance].to_f).each do |o|
+      schedule = IceCube::Schedule.from_yaml(o.schedule)
+      if schedule.occurs_between?(Time.now, Time.now + 3.years)
+        @upcoming_opportunities << o
+      end
+    end
 
-    render json: @opportunities.near([params[:lat].to_f,params[:lng].to_f], params[:distance].to_f), each_serializer: OpportunitySerializer
+    render json: @upcoming_opportunities, each_serializer: OpportunitySerializer
   end
 
   def instance_statistics
