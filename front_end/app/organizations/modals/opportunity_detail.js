@@ -48,11 +48,11 @@ angular.module('voluntrApp')
 
     $scope.$watch('change_instance',function(){
       if ($scope.change_instance === true && !$scope.opportunity.instances) {
-        var todaysdate = new Date();
+        var todaysdate = new Date($scope.opportunity.start_time);
         $http({
           method: 'GET',
           url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
-          params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
+          params: {start: new Date(todaysdate), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
         }).then(function(successResponse){
           $scope.opportunity.instances = successResponse.data;
         });
@@ -60,7 +60,7 @@ angular.module('voluntrApp')
     })
 
     var addToDashboard = function (instance) {
-      console.log(instance)
+
       $scope.instanceStatisticGraphConfig.series[0].data.push
       ([Date.parse(instance.end_time), Number(instance.instance_hours)]);
       $scope.instanceStatisticGraphConfig.series[1].data.push
@@ -71,7 +71,6 @@ angular.module('voluntrApp')
 
 
     Opportunity.instance_statistics($scope.opportunity.id, 'instance_statistics').$promise.then(function(instance_statistics) {
-      console.log(instance_statistics)
       angular.forEach(instance_statistics, addToDashboard)
     });
 
@@ -84,11 +83,11 @@ angular.module('voluntrApp')
           })
       } if (tab == 'schedule') {
         if (!$scope.opportunity.instances) {
-          var todaysdate = new Date();
+          var todaysdate = new Date($scope.opportunity.start_time);
           $http({
             method: 'GET',
             url: 'api/v1/opportunity' + '/' + $scope.opportunity.id + '/schedule',
-            params: {start: new Date(), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
+            params: {start: new Date(todaysdate), end: new Date(new Date(todaysdate).setMonth(todaysdate.getMonth()+6))}
           }).then(function(successResponse){
             $scope.opportunity.instances = successResponse.data;
           });
@@ -96,7 +95,6 @@ angular.module('voluntrApp')
       } if (tab == 'people' && !$scope.opportunity.volunteers) {
         $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date) + '/instance_volunteers')
           .then(function(data){
-            console.log(data)
             $scope.opportunity.instance.instance_volunteers = data.data;
           })
       } if (tab == 'recorded_hours' && !$scope.opportunity.recorded_hours) {

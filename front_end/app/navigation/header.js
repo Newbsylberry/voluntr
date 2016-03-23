@@ -1,7 +1,7 @@
 angular.module('voluntrApp')
   .controller('HeaderCtrl', function ($scope, $rootScope, searchService,$window,
                                       $mdSidenav, $http, $stateParams, $timeout,
-                                      $modal, $state, $localStorage, Organization) {
+                                      $modal, $state, $localStorage, Organization, $mdDialog) {
 
     $scope.search_filter = searchService.search;
 
@@ -44,6 +44,7 @@ angular.module('voluntrApp')
 
     var resultsFormat = function(raw_result) {
       var base_result = raw_result._source
+      console.log(base_result)
       var result = {}
       if (raw_result._type == "organization_person" &&
         base_result.person &&
@@ -53,6 +54,7 @@ angular.module('voluntrApp')
         result.title = base_result.person.first_name + " " + base_result.person.last_name;
       } else if (raw_result._type == "opportunity") {
         result.id = base_result.id;
+        result.start_time = base_result.start_time;
         result.type = "opportunity";
         result.title = base_result.name;
       }
@@ -112,31 +114,21 @@ angular.module('voluntrApp')
             console.log('Modal dismissed at: ' + new Date());
           });
       } else if (result.type === 'opportunity') {
-        var opportunityDetailModal = $modal.open(
-          {
-            templateUrl: 'organizations/modals/opportunity_detail.html',
-            controller: 'OpportunityDetailCtrl',
-            windowClass: 'add-event-modal-window',
-            size: 'lg',
-            resolve:
-            {
-              id: function () {
-                return result.id
-              },
-              start_time: function() {
-                return 0
-              }
-            }
-
-          });
-
-
-
-        opportunityDetailModal.result.then(function () {
-
-          },
-          function () {
-            console.log('Modal dismissed at: ' + new Date());
+        $mdDialog.show({
+          controller: 'OpportunityDetailCtrl',
+          templateUrl: 'organizations/modals/opportunity_detail.html',
+          parent: angular.element(document.body),
+          clickOutsideToClose:true,
+          locals: {
+            id: result.id,
+            start_time: result.start_time,
+            opportunity: $http.get('api/v1/opportunities/' + result.id, {params: {instance_date: new Date(result.start_time).getTime()}})
+          }
+        })
+          .then(function(answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+          }, function() {
+            $scope.status = 'You cancelled the dialog.';
           });
       }
     };
