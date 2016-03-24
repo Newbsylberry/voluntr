@@ -10,9 +10,9 @@ class PersonReportPdf < Prawn::Document
       @summary_graph["Recorded Hours"][rh.created_at.strftime("%T - %m/%d/%Y")] = rh.hours
     end
     @total_hours = person.recorded_hours.where(date_recorded: start_date..end_date).sum(:hours)
-    @opportunities = Array.new
+    @opportunities_count = 0
     person.recorded_hours.where(date_recorded: start_date..end_date).uniq.pluck(:opportunity_id).each do |oid|
-      @opportunities << Opportunity.find(oid)
+      @opportunities_count += 1
     end
     @table = []
     @table << ["Date of Volunteering", "Name of Opportunity", "Organization", "Number of Hours Volunteered"]
@@ -23,7 +23,7 @@ class PersonReportPdf < Prawn::Document
         opportunity_name = "DELETED"
       end
       if rh.organization && !rh.organization.nil?
-        organization_name = "#{rh.opportunity.name.to_s}"
+        organization_name = "#{rh.organization.name.to_s}"
       else
         organization_name = "DELETED"
       end
@@ -67,7 +67,7 @@ class PersonReportPdf < Prawn::Document
 
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
     bounding_box([30, y_position], :width => 150, :height => 100) do
-      text "#{@opportunities.count}", size: 24, align: :center
+      text "#{@opportunities_count}", size: 24, align: :center
       text "Total Opportunities", size: 15, style: :bold, align: :center
     end
     bounding_box([205, y_position], :width => 150, :height => 100) do

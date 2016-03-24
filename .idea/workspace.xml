@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/generate_report.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/generate_report.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/main.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/opportunity.rb" afterPath="$PROJECT_DIR$/app/models/opportunity.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pdfs/opportunity_report_pdf.rb" afterPath="$PROJECT_DIR$/app/pdfs/opportunity_report_pdf.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/organization.rb" afterPath="$PROJECT_DIR$/app/models/organization.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pdfs/organization_report_pdf.rb" afterPath="$PROJECT_DIR$/app/pdfs/organization_report_pdf.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pdfs/person_report_pdf.rb" afterPath="$PROJECT_DIR$/app/pdfs/person_report_pdf.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
@@ -95,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="organization_report_pdf.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="organization_report_pdf.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pdfs/organization_report_pdf.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7847534">
+            <state vertical-scroll-proportion="0.0">
               <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
               <folding />
             </state>
@@ -115,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="person_report_pdf.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="person_report_pdf.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pdfs/person_report_pdf.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.48430493">
+              <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -216,12 +207,12 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/home/organization_home.html" />
         <option value="$PROJECT_DIR$/app/models/opportunity.rb" />
         <option value="$PROJECT_DIR$/app/models/person.rb" />
-        <option value="$PROJECT_DIR$/app/pdfs/person_report_pdf.rb" />
         <option value="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/generate_report.js" />
         <option value="$PROJECT_DIR$/app/pdfs/opportunity_report_pdf.rb" />
         <option value="$PROJECT_DIR$/app/models/organization.rb" />
         <option value="$PROJECT_DIR$/app/pdfs/organization_report_pdf.rb" />
+        <option value="$PROJECT_DIR$/app/pdfs/person_report_pdf.rb" />
       </list>
     </option>
   </component>
@@ -349,7 +340,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="pdfs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -996,14 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pdfs/person_report_pdf.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/reports_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1062,8 +1045,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pdfs/organization_report_pdf.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7847534">
+        <state vertical-scroll-proportion="0.0">
           <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pdfs/person_report_pdf.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48430493">
+          <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
           <folding />
         </state>
       </provider>
