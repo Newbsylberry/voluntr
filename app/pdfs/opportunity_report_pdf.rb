@@ -21,8 +21,6 @@ class OpportunityReportPdf < Prawn::Document
     opportunity_roles_graph
     opportunity_role_text
     start_new_page
-    groups_graph
-    groups_text
   end
 
   def header

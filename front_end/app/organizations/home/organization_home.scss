@@ -1,6 +1,11 @@
 #organization-home-statistics {
   text-align: center;
 }
+#home-dashboard {
+  @include breakpoint($mobile) {
+    display: none;
+  }
+}
 .dashboard-module {
   height: 40vh;
   .icon {

@@ -11,6 +11,7 @@ class Organization < ActiveRecord::Base
   has_many :people, through: :organization_people
   has_many :organization_email_templates, dependent: :destroy
   has_many :organization_mailing_services, dependent: :destroy
+  has_many :opportunities, dependent: :destroy
   has_many :mailing_service_lists, through: :organization_mailing_services
   require 'carrierwave/orm/activerecord'
   include Elasticsearch::Model
@@ -131,9 +132,10 @@ class Organization < ActiveRecord::Base
     @email_suffixes = []
     top_suffixes = ["gmail.com", "hotmail.com","aol.com","yahoo.com"]
     daily_statistics.where(date: start_date..end_date).each do |ds|
-      summary_graph["Total Volunteers Added"][ds.date] = ds.total_added_volunteers
-      summary_graph["Total Recorded Hours"][ds.date] = ds.total_recorded_hours
+      summary_graph["Total Volunteers Added"][ds.date.strftime("%m/%e")] = ds.total_added_volunteers
+      summary_graph["Total Recorded Hours"][ds.date.strftime("%m/%e")] = ds.total_recorded_hours
     end
+    ap summary_graph
     recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
       if rh.person
         existing_volunteer = @organization_volunteers.find { |ov| ov[:id] == rh.person_id }

@@ -15,9 +15,8 @@ class ReportsController < ApplicationController
     #         "series": series
     # };
     @opportunity = Opportunity.find(params[:id])
-
-    render json: @opportunity.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date])),
-           serializer: ResourceSerializer
+    url = @opportunity.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date])).resource.url
+    render json: {url: url}
   end
 
   def person
@@ -40,7 +39,6 @@ class ReportsController < ApplicationController
   def organization
     @organization = Organization.find(params[:organization_id])
     url = @organization.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date])).resource.url
-    ap url
     render json: {url: url}
   end
 

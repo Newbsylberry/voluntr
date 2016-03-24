@@ -17,11 +17,21 @@ class PersonReportPdf < Prawn::Document
     @table = []
     @table << ["Date of Volunteering", "Name of Opportunity", "Organization", "Number of Hours Volunteered"]
     @person.recorded_hours.each do |rh|
+      if rh.opportunity && !rh.opportunity.nil?
+        opportunity_name = "#{rh.opportunity.name.to_s}"
+      else
+        opportunity_name = "DELETED"
+      end
+      if rh.organization && !rh.organization.nil?
+        organization_name = "#{rh.opportunity.name.to_s}"
+      else
+        organization_name = "DELETED"
+      end
       @table <<
           [
               "#{rh.created_at.strftime("%m/%d/%Y")}",
-              "#{rh.opportunity.name.to_s}",
-              "#{rh.organization.name.to_s}",
+              opportunity_name,
+              organization_name,
               "#{rh.hours.to_f}"
       ]
     end

@@ -43,9 +43,9 @@ class OrganizationReportPdf < Prawn::Document
 
   def summary_chart
     if @summary_graph["Total Volunteers Added"].count <= 1
-      chart @summary_graph, colors: %w(9C27B0 2196F3)
+        chart @summary_graph, colors: %w(9C27B0 2196F3), every: 3
      elsif @summary_graph["Total Volunteers Added"].count > 1
-       chart @summary_graph, type: :line, colors: %w(9C27B0 2196F3)
+        chart @summary_graph, type: :line, colors: %w(9C27B0 2196F3), every: 2
      end
   end
 

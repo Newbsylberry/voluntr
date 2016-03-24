@@ -23,9 +23,7 @@ angular.module('voluntrApp')
               'Content-Type': 'application/pdf'
             }
           }).success(function(data){
-
-            tabWindowId.location.href = data.resource.resource.url;
-
+            tabWindowId.location.href = data.url;
           });
       } else if (type == 'person') {
         $http.get('api/v1/reports/person/' + rm_id,
@@ -39,7 +37,6 @@ angular.module('voluntrApp')
               'Content-Type': 'application/pdf'
             }
           }).success(function(data){
-            console.log(data)
             tabWindowId.location.href = data.resource.resource.url;
           });
       } else if (type == 'organization') {
@@ -51,7 +48,6 @@ angular.module('voluntrApp')
               organization_id: $stateParams.organization_Id
             }
           }).success(function(data){
-            console.log(data)
             tabWindowId.location.href = data.url;
           });
       }

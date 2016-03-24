@@ -11,7 +11,7 @@ class Opportunity < ActiveRecord::Base
   has_many :person_opportunities, dependent: :destroy
   has_many :people, through: :person_opportunities
   has_many :opportunity_roles, dependent: :destroy
-  has_many :recorded_hours, dependent: :destroy
+  has_many :recorded_hours
   has_many :opportunity_instances
   has_many :groups, through: :recorded_hours
   belongs_to :organization

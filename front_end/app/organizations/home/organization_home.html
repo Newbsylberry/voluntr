@@ -1,5 +1,5 @@
 <div class="content">
-  <md-card >
+  <md-card id="home-dashboard">
     <md-card-content>
       <div ng-show="!loaded">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
@@ -29,6 +29,26 @@
     </md-card-content>
   </md-card>
   <div class="row"   style="margin: 0 -15px;">
+
+    <div class="col-md-6">
+      <md-card class="dashboard-module">
+        <h3 class="dashboard-module-header">Recently Recorded Hours</h3>
+        <md-card-content ng-show="loaded" class="dashboard-module-content">
+          <div ng-show="!loaded">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+          <div ng-show="loaded">
+            <md-list layout="column">
+              <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours | orderBy:'-updated_at'"
+                             recorded-hour="recorded_hour"
+                             recorded-hours="organization.recorded_hours"
+                             type="opportunity"></recorded-hour>
+            </md-list>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+
     <div class="col-md-6">
       <md-card class="dashboard-module">
         <h3 class="dashboard-module-header">Volunteers to Contact</h3>
@@ -67,24 +87,6 @@
             </md-item-content>
           </md-item>
           </md-list>
-        </md-card-content>
-      </md-card>
-    </div>
-    <div class="col-md-6">
-      <md-card class="dashboard-module">
-        <h3 class="dashboard-module-header">Recently Recorded Hours</h3>
-        <md-card-content ng-show="loaded" class="dashboard-module-content">
-          <div ng-show="!loaded">
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-          </div>
-          <div ng-show="loaded">
-            <md-list layout="column">
-              <recorded-hour ng-repeat="recorded_hour in organization.recorded_hours | orderBy:'-updated_at'"
-                             recorded-hour="recorded_hour"
-                             recorded-hours="organization.recorded_hours"
-                             type="opportunity"></recorded-hour>
-            </md-list>
-          </div>
         </md-card-content>
       </md-card>
     </div>
