@@ -46,6 +46,7 @@ angular.module('voluntrApp')
     $scope.registration_prompt = 'Step 1:  Initial Information'
 
     $scope.createUser = function () {
+      $scope.loading = true;
       var credentials = {};
       credentials.email = $scope.register.user_email;
       credentials.organization = {};
@@ -53,12 +54,14 @@ angular.module('voluntrApp')
       credentials.organization.organization_name = $scope.register.organization_name;
       Auth.register(credentials).then(function(object){
         if (object.token) {
+          $scope.loading = false;
           $localStorage.token = object.token;
           $state.go('organizations.email_registration.2')
           $scope.registration_prompt = 'Step 2:  Additional Information'
           $scope.progress = 66;
           $scope.organization_id = object.organization_id;
         } else if (!object.token){
+          $scope.loading = false;
           $scope.error = object.error;
         }
       })
@@ -84,6 +87,7 @@ angular.module('voluntrApp')
 
 
     $scope.updateNewUserWithPassword = function () {
+      $scope.loading = true;
       var attr = {};
       attr.user = {};
       attr.user.password = $scope.register.password;
@@ -98,6 +102,7 @@ angular.module('voluntrApp')
         data: attr
       }).then(function successCallback(response) {
         Organization.get_token($scope.organization_id).$promise.then(function (data) {
+          $scope.loading = false;
           $localStorage.token = data.token;
           $scope.progress = 99;
           $scope.registration_prompt = 'Step 3:  Add Organization Address'
@@ -107,6 +112,7 @@ angular.module('voluntrApp')
     };
 
     $scope.updateNewUserWithAddress = function(){
+      $scope.loading = true;
       var attr = {}
       attr.id = $scope.organization_id;
       attr.address_1 = $scope.organization.address;
@@ -115,6 +121,7 @@ angular.module('voluntrApp')
       attr.state = $scope.organization.state;
       attr.zip_code = $scope.organization.postalCode;
       Organization.update(attr).$promise.then(function(){
+        $scope.loading = false;
         $state.go('organizations.tutorial.1', {organization_Id:$scope.organization_id})
       });
     }
