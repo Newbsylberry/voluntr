@@ -12,9 +12,6 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   # POST /resource
-
-  # Commented out everything except for the relevant token stuff, will need to revisit
-  # and ensure that I did not accidentally get rid of anything.
   def create
     @organization = Organization.create(name: params[:user][:organization][:organization_name])
     if !@organization.save

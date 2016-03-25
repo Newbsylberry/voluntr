@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   include HTTParty
   before_action :authenticate, except: [:log_in, :existence_check, :opportunities, :create,
                                         :mailchimp_integration, :mailchimp_callback, :show_by_url,
-                                        :provide_token]
+                                        :provide_token, :sign_in_create]
   before_action :authenticate_user, only: :provide_token
   require_dependency ("#{Rails.root}/lib/schedule_tool.rb")
   # GET /organizations/1
@@ -55,6 +55,19 @@ class OrganizationsController < ApplicationController
     token = AuthToken.issue_token({ organization_id: @organization.id })
 
     render json: {organization: @organization, token: token}
+  end
+
+  def sign_in_create
+    person = Person.find(params[:person_id])
+    @organization = Organization.new(name: params[:name])
+    @organization.organization_type = OrganizationType.find_by_name('Volunteer Group')
+    @organization.save
+
+    if params[:administrator] === true && person.email
+      User.create!({:email => person.email})
+    end
+
+    render json: {organization: @organization}
   end
 
   # PATCH/PUT /organizations/1

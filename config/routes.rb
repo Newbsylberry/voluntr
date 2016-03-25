@@ -69,6 +69,7 @@ Rails.application.routes.draw do
       match '/organizations/:id/public_opportunities', to: 'organizations#public_opportunities', via: :get, defaults: {format: :json}
       match '/organizations/:id/associated_organizations', to: 'organizations#associated_organizations', via: :get, defaults: {format: :json}
       match '/organizations/:id/contact_organization', to: 'organizations#contact_organization', via: :post, defaults: {format: :json}
+      match '/organizations/sign_in/create', to: 'organizations#sign_in_create', via: :post, defaults: {format: :json}
 
       #search
       match '/search/organizations_search/', to: 'search#search_organizations', via: :get, defaults: {format: :json}
