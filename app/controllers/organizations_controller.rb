@@ -128,23 +128,23 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @user = User.find_by_uid(params[:fb_id])
     @api = Koala::Facebook::API.new(@user.oauth_token)
-     if @organization.last_social_update.nil? ||
-         @organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
-             @organization.fb_id
-       OrganizationWorker.perform_later(@organization.id, @user.oauth_token, @organization.fb_id)
-     end
-      @user_accounts = @api.get_connections("me", "accounts").count
-      @api.get_connections("me", "accounts").each do |a|
-        if a["id"].to_i == @organization.fb_id.to_i
-          if !@organization.users.include?(@user)
-            UserOrganization.create!(user_id: @user.id, organization_id: @organization.id)
-          end
-          token = AuthToken.issue_token({ organization_id: @organization.id })
-          render json: {organization: @organization,
+    if @organization.last_social_update.nil? ||
+        @organization.last_social_update.strftime("%B %d, %Y") != Time.now.strftime("%B %d, %Y") &&
+            @organization.fb_id
+      OrganizationWorker.perform_later(@organization.id, @user.oauth_token, @organization.fb_id)
+    end
+    @user_accounts = @api.get_connections("me", "accounts").count
+    @api.get_connections("me", "accounts").each do |a|
+      if a["id"].to_i == @organization.fb_id.to_i
+        if !@organization.users.include?(@user)
+          UserOrganization.create!(user_id: @user.id, organization_id: @organization.id)
+        end
+        token = AuthToken.issue_token({ organization_id: @organization.id })
+        render json: {organization: @organization,
                       token: token}
-          break
-        elsif @user_accounts == 0 && a["id"].to_i != @organization.fb_id.to_i
-          render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
+        break
+      elsif @user_accounts == 0 && a["id"].to_i != @organization.fb_id.to_i
+        render json: { error: 'Authorization header not valid'}, status: :unauthorized # 401 if no token, or invalid
       end
 
     end
@@ -172,15 +172,25 @@ class OrganizationsController < ApplicationController
 
   def recently_recorded_hours
     @current_organization_recorded_hours = Array.new
-    @current_organization.recorded_hours.each do |rh|
-      if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
-        @current_organization_recorded_hours.push(rh)
+    if @current_organization.organization_type.name === 'Nonprofit'
+      @current_organization.opportunities.each do |o|
+        o.recorded_hours.each do |rh|
+          if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
+            @current_organization_recorded_hours.push(rh)
+          end
+        end
+      end
+    elsif @current_organization.organization_type.name === 'Volunteer Group'
+      @current_organization.recorded_hours.each do |rh|
+        if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
+          @current_organization_recorded_hours.push(rh)
+        end
       end
     end
-
     render json: @current_organization_recorded_hours,
            each_serializer: RecordedHourSerializer
   end
+
 
   def daily_statistics
     @organization = Organization.find(params[:id])

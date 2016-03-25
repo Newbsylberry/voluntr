@@ -10,6 +10,7 @@ angular.module('voluntrApp').directive("organizationSearch", function () {
     restrict: 'E',
     controller: function ($scope, $http) {
       var resultsFormat = function(raw_result) {
+        console.log(raw_result)
         var base_result = raw_result._source
         var result = {}
           result.id = base_result.id;
@@ -40,7 +41,6 @@ angular.module('voluntrApp').directive("organizationSearch", function () {
             params: {query: $scope.search_query}
           }).
             success(function(data, status, headers, config) {
-              console.log(data)
               angular.forEach(data, resultsFormat)
               $scope.loading = false;
               $scope.loaded = true;

@@ -16,7 +16,7 @@
 <span class="ionicon ion-close-round"
       id="close-button"
       ng-click="organization = {}"
-      ng-show="organization.name"></span>
+      ng-show="organization.id"></span>
 <organization-search
   ng-hide="organization.name"
   organization="organization"
@@ -29,7 +29,7 @@
   <p class="check"><input type="checkbox" ng-model="contact_me">
     Please contact me about future volunteer  opportunites</p>
 </div>
-<button class="bbutton" style="border:none; font-size:20px;font-weight:300; float:none;margin-top:30px;" type="btn btn-lg" ng-click="recordHours()">Complete Sign In</button>
+<button class="bbutton" style="border:none; font-size:20px;font-weight:300; float:none;margin-top:30px;" type="btn btn-lg" ng-click="recordHours(organization)">Complete Sign In</button>
 </div>
 <div ng-show="confirmed">
     <h3>Thank you!</h3>

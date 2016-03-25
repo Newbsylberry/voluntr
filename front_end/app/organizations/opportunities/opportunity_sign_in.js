@@ -14,6 +14,9 @@ angular.module('voluntrApp')
   .controller('OpportunitySignInCtrl', function ($scope, People, $stateParams,
                                                        Opportunity, PersonOpportunity,
                                                         $modal, $filter, Facebook, $state, RecordedHours, $timeout) {
+    $scope.photo_consent = true;
+    $scope.contact_me = true;
+    $scope.recordedHour = {}
 
     $scope.confirmed = false;
 
@@ -35,13 +38,11 @@ angular.module('voluntrApp')
         (!$scope.opportunitySignIn.first_name || !$scope.opportunitySignIn.last_name) &&
         (!$scope.opportunitySignIn.email || !$scope.opportunitySignIn.phone || !$scope.opportunitySignIn.no_email_or_phone)
       ) {
-        console.log(false)
         $scope.form_complete = false;
       } else if (
         ($scope.opportunitySignIn.first_name && $scope.opportunitySignIn.last_name) &&
         ($scope.opportunitySignIn.email || $scope.opportunitySignIn.phone || $scope.opportunitySignIn.no_email_or_phone)
       ) {
-        console.log(true)
         $scope.form_complete = true;
       }
     });
@@ -65,7 +66,6 @@ angular.module('voluntrApp')
         $scope.opportunitySignIn.phone = "";
         $state.go('sign_in_form.confirmation_information', {opportunity_Id:$scope.opportunity.id})
       })
-      // $scope.opportunitySignInConfirmation('md', person, $scope.opportunity)
     };
 
     $scope.opportunitySignIn = {};
@@ -91,15 +91,8 @@ angular.module('voluntrApp')
     });
 
 
-
-
-
-    $scope.organization = {};
-    $scope.photo_consent = true;
-    $scope.contact_me = true;
-    $scope.recordedHour = {}
-
-    $scope.recordHours = function () {
+    $scope.recordHours = function (organization) {
+      console.log(organization)
       var attr = {};
       attr.hours = $scope.recordedHour.hours;
       attr.date_recorded = new Date().toString();
@@ -108,14 +101,13 @@ angular.module('voluntrApp')
       }
       attr.person_id = $scope.person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
-      if ($scope.organization.id) {
-        attr.organization_id = $scope.organization.id;
+      if (organization) {
+        attr.organization_id = organization.id;
       }
       attr.photo_consent = $scope.photo_consent;
       attr.contact_me = $scope.contact_me;
       attr.sign_in  = true;
       RecordedHours.create(attr);
-      console.log(attr)
       $scope.confirmed = true;
       $timeout(function() {
         $state.go('sign_in_form.initial_information', {opportunity_Id:$scope.opportunity.id}, {reload: true})
