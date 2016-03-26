@@ -226,16 +226,27 @@
           </div>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab6">
+      <md-tab id="tab6" md-on-select="grabData('additional')">
         <md-tab-label>Additional</md-tab-label>
         <md-tab-body>
               <div class="rscard">
                 <h3>Forms</h3>
                 <small>(These should be sent around, or opened in a new window)</small>
-                <a ui-sref="registration_form({opportunity_Id:opportunity.id})">
+                <a ui-sref="registration_form({opportunity_Id:opportunity.id})" target="_blank">
                   Registration Form for Opportunity</a>
-                <a ui-sref="sign_in_form.initial_information({opportunity_Id:opportunity.id})">
-                  Sign In Form for Opportunity</a>
+                <md-input-container ng-show="opportunity.instances.length > 1">
+                  <label>Choose Sign In Date to Open Sign In Window:</label>
+                  <md-select ng-model="instance_date_sign_in" aria-label="Choose Instance Date">
+                    <md-option ng-repeat="instance in opportunity.instances" value="{{instance.instance_date}}">
+                      {{instance.instance_date | date:'short'}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+                <a ng-show="opportunity.instances.length < 2"
+                  ui-sref="sign_in_form.initial_information({opportunity_Id:opportunity.id,instance_date:opportunity.instance_date})"
+                  target="_blank">
+                  Sign In Form For Opportunity
+                </a>
               </div>
               <div class="rscard">
                 <h3>Delete Opportunity:</h3>

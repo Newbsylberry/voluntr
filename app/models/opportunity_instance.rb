@@ -60,17 +60,25 @@ class OpportunityInstance < ActiveRecord::Base
     instance_recorded_hours = [];
     if !opportunity.recorded_hours.nil?
       opportunity.recorded_hours.each do |rh|
-        if rh.date_recorded?
-            if rh.date_recorded > instance_date.beginning_of_day and rh.date_recorded < instance_date.end_of_day
-              person = Person.find(rh.person_id)
-              if rh.opportunity_role_id
-                role = OpportunityRole.find(rh.opportunity_role_id)
-              end
-              if rh.organization_id
-                organization = Organization.find(rh.organization_id)
-              end
-              instance_recorded_hours << {person: person,opportunity_role: role, opportunity: opportunity, organization: organization, hours: rh.hours, id: rh.id}
-            end
+        if rh.date_recorded > instance_date.beginning_of_day and rh.date_recorded < instance_date.end_of_day
+          person = Person.find(rh.person_id)
+          if rh.opportunity_role_id
+            role = OpportunityRole.find(rh.opportunity_role_id)
+          end
+          if rh.organization_id
+            organization = Organization.find(rh.organization_id)
+          end
+          instance_recorded_hours << {person: person,opportunity_role: role, opportunity: opportunity, organization: organization, hours: rh.hours, id: rh.id}
+        elsif rh.instance && rh.instance === instance_date
+          ap rh.instance
+          person = Person.find(rh.person_id)
+          if rh.opportunity_role_id
+            role = OpportunityRole.find(rh.opportunity_role_id)
+          end
+          if rh.organization_id
+            organization = Organization.find(rh.organization_id)
+          end
+          instance_recorded_hours << {person: person,opportunity_role: role, opportunity: opportunity, organization: organization, hours: rh.hours, id: rh.id}
         end
       end
     end
@@ -92,7 +100,7 @@ class OpportunityInstance < ActiveRecord::Base
     end
     instance_recorded_hours.each do |rh|
       if rh[:person] && !instance_people.include?(rh[:person])
-          instance_people << rh[:person]
+        instance_people << rh[:person]
       end
     end
     return instance_people

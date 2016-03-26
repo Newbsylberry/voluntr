@@ -182,7 +182,7 @@ class OrganizationsController < ApplicationController
       end
     elsif @current_organization.organization_type.name === 'Volunteer Group'
       @current_organization.recorded_hours.each do |rh|
-        if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 14.days && @current_organization_recorded_hours.count < 14
+        if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 3.days
           @current_organization_recorded_hours.push(rh)
         end
       end

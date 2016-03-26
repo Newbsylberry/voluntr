@@ -370,7 +370,7 @@ angular
       })
 
       .state('sign_in_form', { //default page loaded for landing state
-        url: '/:opportunity_Id/sign_in',
+        url: '/:opportunity_Id/sign_in/:instance_date',
         abstract: true,
         templateUrl: 'organizations/opportunities/sign_in_form.html', // url for partial
         controller: 'OpportunitySignInCtrl'

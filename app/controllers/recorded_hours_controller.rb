@@ -22,7 +22,6 @@ class RecordedHoursController < ApplicationController
   def create
     @recorded_hour = RecordedHour.create(recorded_hours_params)
 
-
     @daily_statistic = DailyStatistic.create_with(locked: false)
                            .find_or_initialize_by(date: Time.now.beginning_of_day,
                                                   organization_id: @recorded_hour.organization_id)
@@ -67,7 +66,7 @@ class RecordedHoursController < ApplicationController
     params.require(:recorded_hour).permit(:id, :opportunity_id,
                                             :organization_id, :person_id, :hours, :description,
                                             :opportunity_role_id, :photo_consent, :group_id,
-                                          :date_recorded, :contact_me)
+                                          :date_recorded, :contact_me, :instance)
   end
 
 

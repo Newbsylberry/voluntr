@@ -11,6 +11,12 @@
              aria-label="rating">
   </md-slider>
 </md-input-container>
+  <md-input-container ng-show="opportunity.opportunity_roles.length > 0">
+    <label>Select Opportunity Role</label>
+    <md-select ng-model="recordedHour.opportunity_role">
+      <md-option ng-repeat="role in opportunity.opportunity_roles" value="{{role.id}}">{{role.name}}</md-option>
+    </md-select>
+  </md-input-container>
 <h3>Are You Here With an Organization?</h3>
 <h4>{{organization.name}}</h4>
 <span class="ionicon ion-close-round"

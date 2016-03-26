@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321005038) do
+ActiveRecord::Schema.define(version: 20160326151623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,7 @@ ActiveRecord::Schema.define(version: 20160321005038) do
     t.boolean  "photo_consent"
     t.integer  "group_id"
     t.boolean  "contact_me"
+    t.datetime "instance"
   end
 
   create_table "resources", force: :cascade do |t|

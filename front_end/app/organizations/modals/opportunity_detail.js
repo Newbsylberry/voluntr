@@ -17,6 +17,9 @@ angular.module('voluntrApp')
                                                  $cacheFactory, $timeout,OpportunityRole,
                                                  opportunity,$mdDialog) {
 
+    $scope.openForm = function(ev){
+      $mdOpenMenu(ev)
+    };
 
     $scope.cancel = function() {
       $mdDialog.cancel();
@@ -45,8 +48,15 @@ angular.module('voluntrApp')
         $scope.change_instance = false;
       }
     });
+    $scope.$watch('instance_date_sign_in',function(){
+      if ($scope.instance_date_sign_in) {
+        var url = $state.href('sign_in_form.initial_information', {opportunity_Id:$scope.opportunity.id,instance_date:$scope.instance_date_sign_in})
+        window.open(url,'_blank');
+      }
+    })
 
     $scope.$watch('change_instance',function(){
+      console.log("activiated")
       if ($scope.change_instance === true && !$scope.opportunity.instances) {
         var todaysdate = new Date($scope.opportunity.start_time);
         $http({
@@ -81,7 +91,7 @@ angular.module('voluntrApp')
           .then(function(data){
             $scope.opportunity.instance.instance_roles = data.data;
           })
-      } if (tab == 'schedule') {
+      } if (tab == 'schedule' || tab == 'additional') {
         if (!$scope.opportunity.instances) {
           var todaysdate = new Date($scope.opportunity.start_time);
           $http({

@@ -16,8 +16,7 @@ angular.module('voluntrApp')
                                                         $modal, $filter, Facebook, $state, RecordedHours, $timeout) {
     $scope.photo_consent = true;
     $scope.contact_me = true;
-    $scope.recordedHour = {}
-
+    $scope.recordedHour = {};
     $scope.confirmed = false;
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
@@ -92,21 +91,22 @@ angular.module('voluntrApp')
 
 
     $scope.recordHours = function (organization) {
-      console.log(organization)
       var attr = {};
       attr.hours = $scope.recordedHour.hours;
       attr.date_recorded = new Date().toString();
-      if ($scope.opportunity_role !== undefined) {
-        attr.opportunity_role_id = $scope.opportunity_role.id;
+      if ($scope.recordedHour.opportunity_role) {
+        attr.opportunity_role_id = $scope.recordedHour.opportunity_role;
       }
       attr.person_id = $scope.person.id;
       attr.opportunity_id = $stateParams.opportunity_Id;
       if (organization) {
         attr.organization_id = organization.id;
       }
+      attr.instance = new Date($stateParams.instance_date);
       attr.photo_consent = $scope.photo_consent;
       attr.contact_me = $scope.contact_me;
       attr.sign_in  = true;
+      console.log(attr)
       RecordedHours.create(attr);
       $scope.confirmed = true;
       $timeout(function() {

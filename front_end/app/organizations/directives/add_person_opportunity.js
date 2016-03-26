@@ -10,8 +10,9 @@ angular.module('voluntrApp').directive("addPersonOpportunity", function () {
     },
     restrict: 'E',
     controller: function ($scope,$mdDialog,PersonOpportunity) {
-      $scope.openForm = function(ev){
-        $mdOpenMenu(ev)
+
+      $scope.openForm = function(opportunity_instances){
+        $mdOpenMenu(opportunity_instances)
       };
 
       $scope.person = {};
@@ -38,7 +39,6 @@ angular.module('voluntrApp').directive("addPersonOpportunity", function () {
         } else if ($scope.person.phone){
           attr.phone = $scope.person.phone;
         }
-        console.log(attr)
         PersonOpportunity.create(attr)
         $scope.person = {};
         $scope.person_opportunity = {};
