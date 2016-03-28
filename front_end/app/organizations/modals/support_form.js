@@ -4,15 +4,15 @@ angular.module('voluntrApp')
     $scope.current_state = current_state;
 
     $scope.submitFeedback = function(){
+      $scope.sending = true;
       var attr = {};
       attr.email = $scope.email;
       attr.description = $scope.description;
       attr.current_state = current_state;
-      $http.post('api/v1/administration/feedback',{data: attr}).$promise
+      $http.post('api/v1/administration/feedback',{data: attr})
         .then(function(data) {
-
+          $modalInstance.close();
         })
-      $modalInstance.close();
     };
 
 

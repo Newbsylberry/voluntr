@@ -48,9 +48,9 @@ class PersonOpportunitiesController < ApplicationController
 
 
 
-    if !@person_opportunity.person.email.blank? || !@person_opportunity.person.email.nil?
-      OpportunityMailer.opportunity_registration_email(params[:email],@person_opportunity).deliver_now
-    end
+    # if !@person_opportunity.person.email.blank? || !@person_opportunity.person.email.nil?
+      # OpportunityMailer.opportunity_registration_email(params[:email],@person_opportunity).deliver_now
+    # end
 
 
     render json: @person

@@ -6,18 +6,28 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
       recurringLabelText: "@",
       startDateText: "@",
       calendar: "=",
+      type: "@"
     },
     restrict: 'E',
     controller: function ($scope, $http, Schedule) {
 
+      console.log($scope.calendar)
       $scope.calendar.repeat.monthly_repeat_type = {};
+
+
+
+      //if ($scope.start_time_set && $scope.end_time_set && $scope.calendar.repeating_event && $scope.type !== 'edit') {
+      //
+      //} else if (!$scope.start_time_set && !$scope.end_time_set) {
+      //  $scope.current_screen = 'beginning-information';
+      //}
 
       $scope.$watch('calendar', function(oldValue, newValue) {
         $scope.calendar.start_time = Date.parse($scope.calendar.raw_start);
+
         if (oldValue.duration === newValue.duration && oldValue.end_time === newValue.end_time) {
           var watch = true;
         }
-
 
         if ($scope.calendar.repeat.repeat_type === 'repeat_daily') {
           $scope.repeat_type_text = 'days'
@@ -29,8 +39,6 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
           $scope.repeat_type_text = 'years'
         }
 
-
-
         if ($scope.calendar.start_time && watch) {
           var attr = {};
           attr.calendar = $scope.calendar;
@@ -40,11 +48,11 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
         }
       }, true);
 
+      $scope.current_screen = 'beginning-information';
 
-      if ($scope.start_time_set && $scope.end_time_set && $scope.calendar.repeating_event) {
+      if ($scope.calendar.raw_start && $scope.calendar.duration && $scope.type === 'create-opportunity') {
+        $scope.calendar.repeating_event = true;
         $scope.current_screen = 'repeat_type';
-      } else if (!$scope.start_time_set && !$scope.end_time_set) {
-        $scope.current_screen = 'beginning-information';
       }
 
       $scope.$watch('calendar.duration', function () {
@@ -57,7 +65,6 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
             $scope.duration_label = 'hours'
           };
           $scope.calendar.end_time = $scope.calendar.raw_start.getTime() + $scope.calendar.duration;
-          console.log($scope.calendar.end_time)
         }
       });
 
@@ -94,7 +101,7 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
           if ($scope.calendar.repeat.repeat_type == 'repeat_daily' || $scope.calendar.repeat.repeat_type == 'repeat_annually') {
             $scope.current_screen = 'opportunity_end';
           } else if ($scope.calendar.repeat.repeat_type !== 'repeat_daily' && $scope.calendar.repeat.repeat_type !== 'repeat_annually') {
-          $scope.current_screen = $scope.calendar.repeat.repeat_type;
+            $scope.current_screen = $scope.calendar.repeat.repeat_type;
           }
         } if (current_screen === 'repeat_daily' ||
           current_screen === 'repeat_weekly' ||
@@ -102,7 +109,6 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
           current_screen === 'repeat_annually') {
           $scope.current_screen = 'opportunity_end';
         }
-        console.log($scope.current_screen)
       };
 
     }

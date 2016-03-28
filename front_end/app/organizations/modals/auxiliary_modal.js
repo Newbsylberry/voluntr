@@ -9,7 +9,6 @@ angular.module('voluntrApp')
                                                     $modalInstance, Opportunity,
                                                     People, object_id, uiCalendarConfig) {
 
-
     $scope.calendar = {};
     $scope.calendar.repeat = {};
     $scope.calendar.repeat.monthly_repeat_type = {};
@@ -37,12 +36,11 @@ angular.module('voluntrApp')
 
 
 
-    if ($scope.type == 'recurring-schedule') {
+    if ($scope.type == 'recurring-schedule' || $scope.type == 'create-opportunity') {
       $scope.calendar = object;
       $scope.calendar.repeating_event = true;
     }
 
-    // Are editing a calendar?
     if ($scope.type === 'edit-schedule') {
       if (object.duration) {
         $scope.calendar.duration = object.duration * 3600000
@@ -85,8 +83,7 @@ angular.module('voluntrApp')
       Opportunity.update_schedule(attr)
       var queryResult = document.getElementsByClassName("modal-dialog")
       queryResult[0].classList.remove('auxiliary-open')
-      console.log(uiCalendarConfig)
-      console.log("hello")
+
       $modalInstance.close();
     };
 
@@ -97,7 +94,6 @@ angular.module('voluntrApp')
       attr.id = object_id;
       People.add_schedule(attr).$promise.then(function(person){
         uiCalendarConfig.calendars['calendar'].fullCalendar('refetchEvents', $scope.eventSources);
-        console.log("hello")
         var queryResult = document.getElementsByClassName("modal-dialog")
         queryResult[0].classList.remove('auxiliary-open')
         $modalInstance.close();

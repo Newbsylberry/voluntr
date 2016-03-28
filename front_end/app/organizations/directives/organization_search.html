@@ -1,20 +1,9 @@
-<style>
-  md-list{
-  height: 200px;
-  overflow-x: auto;
-  border-width: 1px;
-  border-left: solid;
-  border-right: solid;
-  border-bottom: solid;
-  position: relative;
-  bottom: 38px;
-  }
-</style>
+
 <md-input-container class="md-block" style="text-align: left;">
   <label>Search and Select an Organization</label>
   <input ng-model="search_query">
 </md-input-container>
-<md-list ng-show="loaded" style="background-color: white;">
+<md-list ng-show="loaded" style="background-color: white;" id="organization-search">
   <md-list-item ng-repeat="organization in organizations"
                 class="md-2-line secondary-button-padding"
                 ng-click="addOrganization(organization)">

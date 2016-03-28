@@ -75,8 +75,9 @@
             </md-slider>
           </div>
           <md-button auxiliary-modal-window
-                     type="recurring-schedule"
+                     type="create-opportunity"
                      object="calendar"
+                     ng-disabled="!calendar.end_time || !calendar.raw_start"
                      ng-click="calendar.repeating_event = true">
             Is this a recurring schedule?
           </md-button>
