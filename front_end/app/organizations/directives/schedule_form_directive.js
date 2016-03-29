@@ -11,10 +11,8 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
     restrict: 'E',
     controller: function ($scope, $http, Schedule) {
 
-      console.log($scope.calendar)
+
       $scope.calendar.repeat.monthly_repeat_type = {};
-
-
 
       //if ($scope.start_time_set && $scope.end_time_set && $scope.calendar.repeating_event && $scope.type !== 'edit') {
       //
@@ -98,9 +96,9 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
           $scope.current_screen = 'repeat_frequency';
         } if (current_screen === 'repeat_frequency') {
           $scope.calendar.repeat.repeat_count = saved_value;
-          if ($scope.calendar.repeat.repeat_type == 'repeat_daily' || $scope.calendar.repeat.repeat_type == 'repeat_annually') {
+          if ($scope.calendar.repeat.repeat_type == 'repeat_annually') {
             $scope.current_screen = 'opportunity_end';
-          } else if ($scope.calendar.repeat.repeat_type !== 'repeat_daily' && $scope.calendar.repeat.repeat_type !== 'repeat_annually') {
+          } else if ($scope.calendar.repeat.repeat_type !== 'repeat_annually') {
             $scope.current_screen = $scope.calendar.repeat.repeat_type;
           }
         } if (current_screen === 'repeat_daily' ||

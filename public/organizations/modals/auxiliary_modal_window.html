@@ -35,9 +35,9 @@
     class="md-primary left-bottom-button"
     ng-click="closeWindow()">Close Window</md-button>
   <md-button
-    ng-show="type == 'recurring-schedule'"
+    ng-show="type == 'recurring-schedule' || type == 'create-opportunity'"
     class="md-primary right-bottom-button"
-    ng-click="closeWindow()">Save Schedule</md-button>
+    ng-click="saveSchedule()">Save Schedule</md-button>
   <md-button
     ng-show="type == 'edit-schedule'"
     class="md-primary right-bottom-button"

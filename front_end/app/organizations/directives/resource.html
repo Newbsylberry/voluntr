@@ -1,0 +1,53 @@
+<md-list-item class="md-3-line"
+              ng-repeat="resource in resourcesList" layout="row" layout-wrap id="opportunity-role">
+  <div flex="80">
+    <h4
+      >{{resource.name}}
+      <p>{{resource.description}}</p>
+    </h4>
+    <p ng-show="opportunity_role.description">{{resource.description}}</p>
+  </div>
+  <div flex="20">
+    <div class="hourlistr">
+      <md-button
+        class="md-warn hourlistb"
+        href=""
+        ng-click="deleteResource(resource)">
+        Delete
+      </md-button>
+      <md-button
+        class="md-primary hourlistb"
+        href=""
+        ng-click="editing = true">
+        Edit
+      </md-button>
+    </div>
+    <div ng-show="editing"
+         class="editzone" layout="row">
+      <md-input-container flex="15">
+        <label>What's the name?</label>
+        <input
+          ng-model="resource.name">
+        </input>
+      </md-input-container>
+      <md-input-container flex="50">
+        <label>What's the description?</label>
+                      <textarea
+                        md-maxlength="250"
+                        ng-model="resource.description">
+                      </textarea>
+      </md-input-container>
+      <md-input-container flex="35">
+
+      </md-input-container>
+      <div flex="5">
+        <md-button
+          class="md-primary hourlistb"
+          href=""
+          ng-click="updateResource(resource); editing = false">
+          Save
+        </md-button>
+      </div>
+    </div>
+  </div>
+</md-list-item>

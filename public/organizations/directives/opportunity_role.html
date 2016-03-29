@@ -3,7 +3,8 @@
     <div flex="80">
       <h3
         >{{opportunity_role.name}}
-        <p>{{opportunity_role.person_opportunities.length}} / {{opportunity_role.volunteers_required}}</p>
+        <p ng-show="opportunity_role.person_opportunities">{{opportunity_role.person_opportunities.length}} / {{opportunity_role.volunteers_required}}</p>
+        <p ng-show="!opportunity_role.person_opportunities">{{opportunity_role.volunteers_required}} volunteers</p>
       </h3>
       <p ng-show="opportunity_role.description">{{opportunity_role.description}}</p>
       <a href="" ng-click="show_volunteers = true" ng-show="!show_volunteers && opportunity_role.person_opportunities.length > 0" class="volunteer-toggle-link">Show Volunteers?</a>
@@ -24,7 +25,11 @@
           Edit
         </md-button>
         <add-person-opportunity
-          type="role" selected-object="opportunity_role" instance="opportunity.instance_date" opportunity="opportunity">
+          ng-show="type !== 'new'"
+          type="role"
+          selected-object="opportunity_role"
+          instance="opportunity.instance_date"
+          opportunity="opportunity">
         </add-person-opportunity>
       </div>
       <div ng-show="editing"
@@ -76,7 +81,8 @@
       </small>
       <a href=""
          ng-show="opportunity_role.person_opportunities.length > 5"
-         ng-click="viewVolunteers(opportunity_role)">
+         ng-click="viewVolunteers(opportunity_role)"
+         ng-show="type !== 'new'">
         See Additional Volunteers
       </a>
       </div>

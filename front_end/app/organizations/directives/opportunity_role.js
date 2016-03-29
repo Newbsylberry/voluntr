@@ -4,33 +4,35 @@ angular.module('voluntrApp').directive("opportunityRole", function () {
     templateUrl: 'organizations/directives/opportunity_role.html',
     scope: {
       rolesList: "=",
-      opportunity: "="
+      opportunity: "=",
+      type: "@"
     },
     restrict: 'E',
     controller: function ($scope, OpportunityRole, $mdDialog,$modal) {
 
-      console.log($scope.opportunity)
-      console.log("Hello World")
-
       $scope.updateOpportunityRole = function(opportunity_role) {
-        var attr = {};
-        attr.id = opportunity_role.id;
-        attr.name = opportunity_role.name;
-        attr.description = opportunity_role.description;
-        attr.volunteers_required = opportunity_role.volunteers_required;
-        attr.hours_required = opportunity_role.hours_required;
-        var opportunity_role = OpportunityRole.update(attr)
-        $scope.editing = false;
+        if ($scope.type !== 'new') {
+          var attr = {};
+          attr.id = opportunity_role.id;
+          attr.name = opportunity_role.name;
+          attr.description = opportunity_role.description;
+          attr.volunteers_required = opportunity_role.volunteers_required;
+          attr.hours_required = opportunity_role.hours_required;
+          var opportunity_role = OpportunityRole.update(attr)
+          $scope.editing = false;
+        }
       };
 
       $scope.deleteOpportunityRole = function(opportunity_role) {
-        var index = $scope.opportunity.opportunity_roles.indexOf(opportunity_role);
+        var index = $scope.rolesList.indexOf(opportunity_role);
         if (index > -1) {
-          $scope.opportunity.opportunity_roles.splice(index, 1);
+          $scope.rolesList.splice(index, 1);
         }
-        OpportunityRole.delete(opportunity_role.id)
-        $scope.opportunity_role.name = "";
-        $scope.opportunity_role.description = "";
+        if ($scope.type !== 'new') {
+          OpportunityRole.delete(opportunity_role.id)
+          $scope.opportunity_role.name = "";
+          $scope.opportunity_role.description = "";
+        }
       };
 
 

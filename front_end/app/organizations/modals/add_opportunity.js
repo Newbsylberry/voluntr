@@ -9,7 +9,7 @@
  */
 angular.module('voluntrApp')
   .controller('AddOpportunityCtrl', function ($scope, $timeout, Opportunity, $stateParams, $http, $modal,
-                                              $modalInstance, OpportunityRole, $state,Upload) {
+                                              OpportunityRole, $state,Upload,$mdDialog) {
 
 
 
@@ -40,6 +40,7 @@ angular.module('voluntrApp')
 
     $scope.roles = [];
     $scope.role = {};
+
     $scope.createRole = function(role) {
       var attr = {};
       attr.name = role.name;
@@ -50,7 +51,7 @@ angular.module('voluntrApp')
         attr.volunteers_required = role.volunteers_required;
       }
       if (role.hours_required) {
-        attr.volunteers_required = role.hours_required;
+        attr.hours_required = role.hours_required;
       }
       $scope.roles.push(attr)
       $scope.role.name = "";
@@ -67,7 +68,9 @@ angular.module('voluntrApp')
         resource.file = file
         $scope.resources.push(resource);
       })
-    })
+    });
+
+    $scope.resource_types = ['For Volunteers','Internal Use']
 
     $scope.newOpportunity = function(){
       var attr = {};
@@ -94,6 +97,7 @@ angular.module('voluntrApp')
           role.opportunity_id = opportunity.id;
           OpportunityRole.create(role)
         })
+        $mdDialog.cancel();
         if ($scope.files.length > 0) {
           angular.forEach($scope.resources, function (resource) {
             Upload.upload({
@@ -103,7 +107,8 @@ angular.module('voluntrApp')
                 "resource[name]": resource.name,
                 "resource[description]": resource.description,
                 "resource[resourceable_type]": "Opportunity",
-                "resource[resourceable_id]": opportunity.id
+                "resource[resourceable_id]": opportunity.id,
+                "resource_type": resource.resource_type
               },
               file: {'resource[resource]': resource.file}
             }).then(function (resp) {
@@ -120,7 +125,6 @@ angular.module('voluntrApp')
       if ($state.current.name === 'organizations.opportunities_home') {
         $state.go($state.current, {}, {reload: true});
       }
-      $modalInstance.dismiss('cancel');
     };
 
 

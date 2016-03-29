@@ -226,7 +226,18 @@
           </div>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab6" md-on-select="grabData('additional')">
+      <md-tab id="tab7" md-on-select="grabData('additional')">
+        <md-tab-label>Resources</md-tab-label>
+        <md-tab-body>
+          <resource
+            resources-list="opportunity.resources"
+            object="opportunity"
+            >
+          </resource>
+          <div class="fixer"></div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab8" md-on-select="grabData('additional')">
         <md-tab-label>Additional</md-tab-label>
         <md-tab-body>
               <div class="rscard">

@@ -104,6 +104,14 @@ angular.module('voluntrApp')
       var queryResult = document.getElementsByClassName("modal-dialog")
       queryResult[0].classList.remove('auxiliary-open')
       $modalInstance.close();
+      if ($scope.type === 'recurring-schedule' || $scope.type === 'create-opportunity') {
+        $scope.calendar.repeat = {};
+        $scope.calendar.repeating_event = false;
+      }
+    };
+
+    $scope.saveSchedule = function(){
+      $modalInstance.close();
     }
   });
 

@@ -2,23 +2,35 @@
  * Created by chrismccarthy on 3/9/15.
  */
   angular.module('voluntrApp')
-    .controller('FABCtrl', function ($scope, $modal, $rootScope, $state) {
+    .controller('FABCtrl', function ($scope, $modal, $rootScope, $state, $mdDialog) {
 
-      $scope.addVolunteerOpportunity = function (size) {
-        var organizationEventModal = $modal.open(
-          {
-            templateUrl: 'organizations/modals/add_opportunity.html',
-            controller: 'AddOpportunityCtrl',
-            windowClass: 'add-opportunity-modal',
-            size: size
+      $scope.addVolunteerOpportunity = function () {
+        $mdDialog.show({
+          controller: 'AddOpportunityCtrl',
+          templateUrl: 'organizations/modals/add_opportunity.html',
+          parent: angular.element(document.body),
+          clickOutsideToClose:true
+        })
+          .then(function(answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+          }, function() {
+            $scope.status = 'You cancelled the dialog.';
           });
 
-        organizationEventModal.result.then(function () {
-
-          },
-          function () {
-            console.log('Modal dismissed at: ' + new Date());
-          });
+        //var organizationEventModal = $modal.open(
+        //  {
+        //    templateUrl: 'organizations/modals/add_opportunity.html',
+        //    controller: 'AddOpportunityCtrl',
+        //    windowClass: 'add-opportunity-modal',
+        //    size: size
+        //  });
+        //
+        //organizationEventModal.result.then(function () {
+        //
+        //  },
+        //  function () {
+        //    console.log('Modal dismissed at: ' + new Date());
+        //  });
 
       };
 

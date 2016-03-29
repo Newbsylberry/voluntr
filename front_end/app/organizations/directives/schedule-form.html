@@ -36,29 +36,31 @@
       <h4>This Schedule Repeats Every</h4>
       <small class="schedule-direction-text">Choose the increment that this schedule will repeat.<a href="">
         See our support article for additional help.</a></small>
-      <md-radio-group ng-model="calendar.repeat.repeat_type" class="repeat-type-radio-group">
-        <md-radio-button  class="cradio"
-                          aria-label="Daily"
-                          value="repeat_daily">
-          Day
-        </md-radio-button>
-        <md-radio-button  class="cradio"
-                          aria-label="Weekly"
-                          value="repeat_weekly">
-          Week
-        </md-radio-button>
-        <md-radio-button  class="cradio"
-                          aria-label="Monthly"
-                          value="repeat_monthly">
-          Month
-        </md-radio-button>
-        <md-radio-button  class="cradio"
-                          aria-label="Annually"
-                          value="repeat_annually">
-          Year
-        </md-radio-button>
-        <div class="fixer"></div>
-      </md-radio-group>
+      <md-input-container>
+        <md-radio-group ng-model="calendar.repeat.repeat_type" class="repeat-type-radio-group">
+          <md-radio-button  class="cradio"
+                            aria-label="Daily"
+                            value="repeat_daily">
+            Day
+          </md-radio-button>
+          <md-radio-button  class="cradio"
+                            aria-label="Weekly"
+                            value="repeat_weekly">
+            Week
+          </md-radio-button>
+          <md-radio-button  class="cradio"
+                            aria-label="Monthly"
+                            value="repeat_monthly">
+            Month
+          </md-radio-button>
+          <md-radio-button  class="cradio"
+                            aria-label="Annually"
+                            value="repeat_annually">
+            Year
+          </md-radio-button>
+          <div class="fixer"></div>
+        </md-radio-group>
+      </md-input-container>
       <div class="schedule-button-bar">
         <md-button
           ng-click="previousScreen('repeat_type')"
@@ -99,7 +101,7 @@
     </div>
 
     <!-- SCREEN 3 - Weekly -->
-    <div class="schweekly" ng-show="current_screen === 'repeat_weekly'">
+    <div class="schweekly" ng-show="current_screen === 'repeat_weekly' || current_screen === 'repeat_daily'">
       <h4>What days of the week will the schedule repeat on?</h4>
       <small class="schedule-direction-text">Select the days the schedule<a href="">
         See our support article for additional help.</a></small>
@@ -136,7 +138,7 @@
       <small class="schedule-direction-text">If a schedule repeats on a day, for example the
         third day of every month, select 'On Day of the Month?', if it repeats on a day of the week
         like the first and last Tuesday of the month, select 'On Day of The Week'<a href="">
-        See our support article for additional help.</a></small>
+          See our support article for additional help.</a></small>
       <md-radio-group ng-model="calendar.repeat.monthly_repeat.type" style="display:block;">
         <md-radio-button  class="cradio"
                           aria-label="On Day of the Month?"
@@ -159,7 +161,6 @@
           <label>Which Day of the Month?</label>
           <input type="text" ng-model="calendar.repeat.monthly_repeat.day_of_month">
         </md-input-container>
-        {{calendar.repeat.monthly_repeat.day_of_month}}
       </div>
 
       <!-- SCREEN 3 - Monthly On Days of the Week -->
@@ -286,22 +287,22 @@
     </div>
     <!-- SCREEN 4 - Opportunity End -->
     <div class="schdefault" ng-show="current_screen === 'opportunity_end'">
-      <h4>When will the schedule end (if the schedule doesn't end than simply save the schedule)?</h4>
+      <h4>When will the schedule end (if the schedule doesn't end then simply save the schedule)?</h4>
       <small class="schedule-direction-text">Choose a number of times for the schedule to repeat, or
         a specific date that the schedule will end.<a href="">
-        See our support article for additional help.</a></small>
+          See our support article for additional help.</a></small>
       <div>
         <h4>Set Opportunity End:</h4>
         <md-radio-group ng-model="calendar.ends"style="display:block;">
           <md-radio-button class="cradio"
                            aria-label="occurrences"
                            value="after">
-            After certain occurrences?
+            After X occurrences
           </md-radio-button>
           <md-radio-button class="cradio"
                            aria-label="On a specific date"
                            value="on">
-            On a specific date?
+            On a specific date
           </md-radio-button>
           <div class="fixer"></div>
         </md-radio-group>

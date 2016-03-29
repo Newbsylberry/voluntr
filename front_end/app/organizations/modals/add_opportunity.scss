@@ -1,15 +1,38 @@
+#dialogContent_add-opportunity {
+  md-tab-content {
+    padding: 16px 12px;
+  }
+  .resource-list {
+    width: 100%;
+  }
+  #volunteer-required-input {
+    font-size: 12pt;
+  }
+  #add-opportunity-primary-information {
+    padding: 16px 0;
+    color: white;
+    small {
+      font-size: 10pt;
+    }
+    ul {
+      list-style: none;
+    }
+    label {
+      color: white;
+    }
+    input {
+      border-color: white;
+      font-size: 12pt;
+    }
+  }
+  textarea {
+    height: 60px;
+  }
+}
+
 .auxiliary-open {
   right: 22vw;
   width: 42vw;
-}
-.modal-dialog {
-
-}
-
-.add-opportunity-modal {
-  md-tab-body {
-    padding: 2vh 2vw;
-  }
 }
 
 #add-event-forms {
@@ -37,28 +60,3 @@
   }
 }
 
-#facebook-event-list {
-  margin-top: 16px;
-  #facebook-event-name {
-    display: inline-block;
-    float: left;
-    padding: 0px;
-    font-size: large;
-    color: black;
-  }
-  li {
-    list-style-type: none;
-    p {
-      display: inline-block;
-      padding-left: 50px;
-      font-size: small;
-      color: #808080;
-      padding-top: 6px;
-    }
-    a {
-      float: right;
-      margin-right: 16px;
-      padding-top: 6px;
-    }
-  }
-}
