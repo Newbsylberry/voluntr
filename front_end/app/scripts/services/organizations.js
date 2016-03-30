@@ -13,6 +13,7 @@ angular.module('voluntrApp')
       this.service = $resource('/api/v1/organizations/:organization_Id', //location of resource, tells it to look for ID
         {
           organization_Id: '@id'}, {
+          'get': {method: 'GET', cache: true},
           existence_check: {method: 'GET', url:'/api/v1/organizations/existence_check/:fb_id'},
           organization_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
           organization_information: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object'},
@@ -22,9 +23,11 @@ angular.module('voluntrApp')
           authorization: {method: 'GET', url:'/api/v1/organizations/:organization_Id/authorization'},
           get_by_url: {method: 'GET', url:'/api/v1/organizations/by_url/:organization_custom_Url'},
           update: {method: 'PATCH'}
-        })}; // sets ID variable, and update method (patch)
+        })
 
+      this.cache = {};
 
+      }; // sets ID variable, and update method (patch)
 
     // Loads all Organization records served up at /api/organizations
     Organization.prototype.all = function() {
@@ -33,6 +36,11 @@ angular.module('voluntrApp')
 
     // Loads a specific Organization when the ID is passed in
     Organization.prototype.get = function (id, successCallback, errorCallback) {
+      if (!this.cache['get']) {
+        this.cache['get'] = this.service.get(id, successCallback, errorCallback);
+      }
+      return this.cache['get'];
+
       return this.service.get(id, successCallback, errorCallback);
     };
 
