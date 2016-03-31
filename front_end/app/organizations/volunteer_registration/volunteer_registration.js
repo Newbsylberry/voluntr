@@ -8,7 +8,7 @@ angular.module('voluntrApp')
     Organization.get_by_url({organization_custom_Url: $stateParams.organization_custom_Url},
       function(successResponse) {
         // find the organizations information on facebook
-
+        console.log("get")
         $scope.organization = successResponse;
         Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization.picture = response.data.url;
@@ -18,7 +18,6 @@ angular.module('voluntrApp')
         if ($state.params.token) {
           People.get({person_Id: atob($state.params.token)}, function(successResponse) {
             $scope.person = successResponse;
-            console.log(successResponse)
             $scope.schedule = successResponse.schedule_update_form_settings;
             OrganizationPerson.get_by_organization_and_person_id(
               $scope.organization.id, $scope.person.id).$promise.then(function(successResponse) {
@@ -83,6 +82,8 @@ angular.module('voluntrApp')
       attr.phone = person.phone;
       attr.organization_name = person.organization_name;
       attr.occupation = person.occupation;
+      console.log($scope.organization_person)
+      console.log($scope.person)
       if (person.notes) {
         var org_per_attr = {};
         org_per_attr.id = $scope.organization_person.id;
@@ -90,11 +91,12 @@ angular.module('voluntrApp')
         OrganizationPerson.update(org_per_attr)
       }
       People.update(attr).$promise.then(function(person){
-        $state.go('organization_volunteer_registration.5', {token:btoa($scope.person.id)})
+        // $state.go('organization_volunteer_registration.5', {token:btoa($scope.person.id)})
+        $state.go('volunteer_home')
       });
     }
 
-    $scope.occupations = ['Management','Sales','Accounting','Marketing','Information Technology','Medial','Engineering']
+    $scope.occupations = ['Management','Sales','Accounting','Marketing','Information Technology','Media','Engineering']
     $scope.referrers =
       [
         'Through a Friend',

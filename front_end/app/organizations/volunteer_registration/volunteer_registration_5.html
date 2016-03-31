@@ -16,7 +16,7 @@
   </md-input-container><br>
   <label>How Did You Hear About {{organization.name}}?</label>
   <md-input-container>
-    <md-select ng-model="demographic.referred_from">
+    <md-select ng-model="person.referred_from">
       <md-option ng-repeat="referrer in referrers" value="{{referrer}}">
         {{referrer}}
       </md-option>
@@ -27,8 +27,7 @@
              ng-click="demographicData(demographic)">
     Submit Form!
   </md-button>
-
-  <md-button class="md-raised md-primary formbutton" aria-label="Use Android"  ui-sref="organization_volunteer_registration.3">
+  <md-button class="md-raised md-primary formbutton" aria-label="Use Android"  ui-sref="organization_volunteer_registration.4">
     Previous Step: Enter Additional Information
   </md-button>
 </div>
