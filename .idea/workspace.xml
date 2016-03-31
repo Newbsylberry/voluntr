@@ -2,35 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/resource.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/resource.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/scripts.5510728e.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/main.53ad95f4.css" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_end/app/scripts/services/resource.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/scripts.1699bcf9.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/main.797d3317.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/modals/add_opportunity.html" afterPath="$PROJECT_DIR$/public/organizations/modals/add_opportunity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/auxiliary_modal.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/auxiliary_modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/auxiliary_modal_window.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/auxiliary_modal_window.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/modals/auxiliary_modal_window.html" afterPath="$PROJECT_DIR$/public/organizations/modals/auxiliary_modal_window.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/directives/edit_object_directive.html" afterPath="$PROJECT_DIR$/public/organizations/directives/edit_object_directive.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/index.html" afterPath="$PROJECT_DIR$/front_end/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/log_in.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/log_in.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/styles/main.scss" afterPath="$PROJECT_DIR$/front_end/app/styles/main.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/modals/opportunity_detail.html" afterPath="$PROJECT_DIR$/public/organizations/modals/opportunity_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/directives/opportunity_role.html" afterPath="$PROJECT_DIR$/public/organizations/directives/opportunity_role.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/resource.rb" afterPath="$PROJECT_DIR$/app/models/resource.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/account/organization_account.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/account/organization_account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/account/organization_account.html" afterPath="$PROJECT_DIR$/public/organizations/account/organization_account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/account/organization_account.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/account/organization_account.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" afterPath="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/resource.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/resource.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/resource.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/resource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/resource_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/resource_serializer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/resources_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/directives/schedule-form.html" afterPath="$PROJECT_DIR$/public/organizations/directives/schedule-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/directives/schedule_form_directive.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/directives/schedule_form_directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" afterPath="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.js" afterPath="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.scss" afterPath="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
@@ -63,115 +65,139 @@
     <favorites_list name="voluntr_api" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="add_opportunity.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.7777777">
-              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="opportunity_detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1764708">
-              <caret line="230" column="21" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resources_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/resources_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resource.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3529413">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="side-menu.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front_end/app/navigation/side-menu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4368932">
-              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-              <folding>
-                <marker date="1459261487000" expanded="true" signature="723:860" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="12.914286">
-              <caret line="302" column="60" selection-start-line="302" selection-start-column="60" selection-end-line="302" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="opportunity_detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5555556">
-              <caret line="156" column="8" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resource.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8888888">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_opportunity.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8823528">
-              <caret line="134" column="29" selection-start-line="129" selection-start-column="10" selection-end-line="134" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#md-button#0;n#div#1;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#small#0;n#div#1;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="opportunity_role.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.7647059">
-              <caret line="6" column="115" selection-start-line="6" selection-start-column="115" selection-end-line="6" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="add_resource.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="2.96875">
+                  <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="resource.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-7.3333335">
+                  <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="resources_controller.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/resources_controller.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="resource_serializer.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/serializers/resource_serializer.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="opportunities_controller.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/opportunities_controller.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="54" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="opportunity_detail.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="79.07407">
+                  <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="opportunity_detail.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-44.431374">
+                  <caret line="283" column="14" selection-start-line="283" selection-start-column="14" selection-end-line="283" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config/routes.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-11.777778">
+                  <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="add_person_opportunity.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="add_person_opportunity.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-10.019608">
+                  <caret line="53" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="53" selection-end-column="10" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="add_resource.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.28301886">
+                  <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#md-list-item#0;n#md-list#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#a#0;n#div#0;n#md-list-item#0;n#md-list#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="resource.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-2.0588236">
+                  <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="53" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -197,31 +223,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/pdfs/organization_report_pdf.rb" />
-        <option value="$PROJECT_DIR$/app/pdfs/person_report_pdf.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/navigation/header.html" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/organization.html" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.js" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_1.html" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_2.html" />
-        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/opportunities/sign_in_form.html" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities.scss" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/organization_search.js" />
-        <option value="$PROJECT_DIR$/app/serializers/opportunity_role_serializer.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/opportunities/sign_in_form_confirmation_information.html" />
-        <option value="$PROJECT_DIR$/db/migrate/20160326151237_add_instances_to_recorded_hours.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20160326151623_drop_instances_from_recorded_hours.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/recorded_hours_controller.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.js" />
         <option value="$PROJECT_DIR$/front_end/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunity_sign_in.js" />
         <option value="$PROJECT_DIR$/app/models/opportunity_instance.rb" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/organization_search.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/organization_search.scss" />
-        <option value="$PROJECT_DIR$/front_end/app/styles/main.scss" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/support_form.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/support_form.html" />
         <option value="$PROJECT_DIR$/app/models/person.rb" />
@@ -235,19 +241,39 @@
         <option value="$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.scss" />
-        <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160329040302_create_resource_types.rb" />
         <option value="$PROJECT_DIR$/app/models/resource_type.rb" />
         <option value="$PROJECT_DIR$/app/models/resource.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160329042234_add_resource_type_idto_resources.rb" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/resource.js" />
+        <option value="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/account/organization_account.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/account/organization_account.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/log_in.js" />
+        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.js" />
+        <option value="$PROJECT_DIR$/front_end/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/organizations.js" />
+        <option value="$PROJECT_DIR$/app/controllers/organizations_controller.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_3.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.js" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html" />
         <option value="$PROJECT_DIR$/front_end/app/index.html" />
+        <option value="$PROJECT_DIR$/front_end/app/scripts/services/resource.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/resource.html" />
-        <option value="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/resource.js" />
+        <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
+        <option value="$PROJECT_DIR$/app/serializers/resource_serializer.rb" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.js" />
       </list>
     </option>
   </component>
@@ -266,10 +292,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
-    <option name="y" value="50" />
+    <option name="x" value="-895" />
+    <option name="y" value="-955" />
     <option name="width" value="1376" />
-    <option name="height" value="740" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -313,6 +339,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -341,24 +369,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voluntr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -373,23 +383,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front_end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="navigation" />
+              <option name="myItemId" value="serializers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,11 +414,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front_end/app/scripts/services" />
       <recent name="$PROJECT_DIR$/front_end/app/organizations/directives" />
       <recent name="$PROJECT_DIR$/app/pdfs" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/config/environments" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/controllers" />
@@ -623,7 +627,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="50" width="1376" height="740" extended-state="0" />
+    <frame x="-895" y="-955" width="1376" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31031978" sideWeight="0.527439" order="0" side_tool="false" content_ui="combo" />
@@ -694,232 +698,65 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/serializers/opportunity_role_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/recorded_hour_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.814816">
-          <caret line="188" column="7" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/workers/organization_worker.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/sign_in_form_confirmation_information.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.7058825">
-          <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160326151623_drop_instances_from_recorded_hours.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13452914">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160326151237_add_instances_to_recorded_hours.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.044843048">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20150915202727_add_instances_to_person_opportunity.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.044843048">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="3" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/volunteer_registration/volunteer_registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="92" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/organization_search.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2184466">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.691588">
-          <caret line="372" column="55" selection-start-line="372" selection-start-column="55" selection-end-line="372" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14563107">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/organization_search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#md-input-container#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunity_sign_in.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11214953">
-          <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/opportunity_instance.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79820627">
-          <caret line="106" column="5" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/recorded_hours_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7309417">
-          <caret line="68" column="80" selection-start-line="68" selection-start-column="80" selection-end-line="68" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/support_form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_1.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/side-menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4368932">
-          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/support_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46116504">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#md-toolbar#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/person_opportunity.rb">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/person.rb">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.37037">
-          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/auxiliary_modal_window.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/edit_object_directive.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5631068">
-          <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/auxiliary_modal.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/account/organization_account.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80487806">
-          <caret line="109" column="7" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/account/organization_account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="60" selection-start-line="72" selection-start-column="60" selection-end-line="72" selection-end-column="60" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="n#style#0;n#h4#1;n#div#0;n#md-tab-body#0;n#md-tab#3;n#md-tabs#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-tab-body#0;n#md-tab#3;n#md-tabs#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/log_in.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.4029126">
-          <caret line="305" column="28" selection-start-line="305" selection-start-column="28" selection-end-line="305" selection-end-column="28" />
+        <state vertical-scroll-proportion="-15.444445">
+          <caret line="60" column="29" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/schedule-form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55825245">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/person_opportunities_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1659193">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/schedule_form_directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34146342">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/log_in.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -929,29 +766,125 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/opportunities/opportunities_home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.666666">
-          <caret line="94" column="6" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
+        <state vertical-scroll-proportion="-16.37037">
+          <caret line="93" column="11" selection-start-line="78" selection-start-column="6" selection-end-line="93" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/global_modal_styles.scss">
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2923538">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="24" selection-start-line="27" selection-start-column="6" selection-end-line="29" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073051944">
+          <caret line="3" column="15" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/organizations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9444447">
+          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.705883">
-          <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+        <state vertical-scroll-proportion="-7.0588236">
+          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_details.scss">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17045455">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78303427">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73214287">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/user_organizations/user_organizations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4642857">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5546875">
+          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17045455">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/registration/organization_registration_email_3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60876626">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/create_organization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65625">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_resources.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -959,114 +892,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.111111">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        <state vertical-scroll-proportion="-15.555555">
+          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.777778">
-          <caret line="23" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4705882">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/resource.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/resource_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160329042234_add_resource_type_idto_resources.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06726457">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160321005038_add_address2_to_opportunities.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06726457">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/resources_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160329040302_create_resource_types.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5156951">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7647059">
-          <caret line="6" column="115" selection-start-line="6" selection-start-column="115" selection-end-line="6" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7777777">
-          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8888888">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5555556">
-          <caret line="156" column="8" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="27" />
+        <state vertical-scroll-proportion="-9.296296">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="29" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8823528">
-          <caret line="134" column="29" selection-start-line="129" selection-start-column="10" selection-end-line="134" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.8782467">
+          <caret line="168" column="18" selection-start-line="146" selection-start-column="8" selection-end-line="168" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
@@ -1076,36 +921,197 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/recorded_hour.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="12.914286">
-          <caret line="302" column="60" selection-start-line="302" selection-start-column="60" selection-end-line="302" selection-end-column="60" />
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html">
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/opportunity_role.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1764708">
-          <caret line="230" column="21" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+        <state vertical-scroll-proportion="-0.29411766">
+          <caret line="6" column="115" selection-start-line="6" selection-start-column="115" selection-end-line="6" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/people_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/profiles_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/organizations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.504762">
+          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.777778">
+          <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="79.07407">
+          <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.019608">
+          <caret line="53" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="53" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_person_opportunity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/scripts/services/resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.148148">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/opportunities_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="54" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3333335">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/resource.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/serializers/resource_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/resource.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3529413">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        <state vertical-scroll-proportion="-2.0588236">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/navigation/side-menu.html">
+    <entry file="file://$PROJECT_DIR$/app/controllers/resources_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4368932">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-44.431374">
+          <caret line="283" column="14" selection-start-line="283" selection-start-column="14" selection-end-line="283" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.96875">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/directives/add_resource.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28301886">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
           <folding>
-            <marker date="1459261487000" expanded="true" signature="723:860" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#md-list-item#0;n#md-list#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#md-list-item#0;n#md-list#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

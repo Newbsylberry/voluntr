@@ -15,11 +15,45 @@
         ng-click="deleteResource(resource)">
         Delete
       </md-button>
+      <md-menu md-position-mode="target-right target" md-offset="2 0">
+        <md-button
+          class="md-primary hourlistb"
+          href=""
+          aria-label="Edit"
+          ng-click="$mdOpenMenu()"
+          md-menu-origin
+          md-menu-align-target>
+          Edit
+        </md-button>
+        <md-menu-content>
+          <div layout="row" layout-wrap>
+            <md-input-container flex="20">
+              <label>File Name</label>
+              <input ng-model="resource.name">
+            </md-input-container>
+            <md-input-container flex="50">
+              <label>Description</label>
+              <textarea ng-model="resource.description" md-maxlength="150" md-select-on-focus></textarea>
+            </md-input-container>
+            <md-input-container flex="25">
+              <label>Resource Type</label>
+              <md-select ng-model="resource.type_name" ng-init="resource.resource_type = 'For Volunteers'">
+                <md-option ng-repeat="resource_type in resource_types" value="{{resource_type}}">
+                  {{resource_type}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            <md-button class="md-raised md-primary" flex="5" ng-click="updateResource(resource)">save</md-button>
+            </div>
+        </md-menu-content>
+      </md-menu>
+
       <md-button
         class="md-primary hourlistb"
-        href=""
-        ng-click="editing = true">
-        Edit
+        href="{{resource.resource.url}}"
+        target="_blank"
+        >
+        View
       </md-button>
     </div>
     <div ng-show="editing"

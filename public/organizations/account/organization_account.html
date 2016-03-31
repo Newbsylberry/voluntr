@@ -68,37 +68,24 @@
         </md-tab-body>
       </md-tab>
       <md-tab>
-        <md-tab-label>Organization Settings</md-tab-label>
+        <md-tab-label>External Pages</md-tab-label>
         <md-tab-body>
-          <div class="accountwrapper" id="settings-tab">
-            <h4>Upload Terms of Service:</h4>
-            <md-button class="md-raised md-primary"type="file" ngf-select="uploadFiles($file)"
-                    accept="application/pdf" ngf-max-height="1000" ngf-max-size="5MB">
-              Select File</md-button>
-            <br><br>
-            File:
-            <div style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
-      <span class="progress" ng-show="f.progress >= 0">
-          <div style="width:{{f.progress}}%"
-               ng-bind="f.progress + '%'"></div>
-      </span>
-            </div>
-            {{errorMsg}}
-            <md-list>
-              <md-list-item class="urledit">
+          <div class="accountwrapper" id="external-pages-tab">
+                <h4>Enter a one word name for your organization:</h4><br>
+            <p>This will be used to create a public page for your organization that volunteers can use to find
+            opportunities and register to volunteer in the future.</p>
                 <edit-object-directive
                   text_name="name"
                   model-type="organization"
                   attribute-name="custom_url"
                   model-id="{{organization.id}}"
                   text="{{organization.custom_url}}"
-                  placeholder="Enter the Custom URL for your Volu Resources (i.e. - volu will give
-                 you a volu/registration form for registering volunteers)"
+                  placeholder="Enter the Custom URL for your Volu Resources"
                   size="paragraph_text"
                   ></edit-object-directive>
                 <md-divider></md-divider>
-              </md-list-item>
-              <md-list-item class="urledit">
+
+                <h4>Enter a link to your website:</h4><br>
                 <edit-object-directive
                   text_name="name"
                   model-type="organization"
@@ -109,8 +96,8 @@
                   size="paragraph_text"
                   ></edit-object-directive>
                 <md-divider></md-divider>
-              </md-list-item>
-              <md-list-item class="urledit">
+
+                <h4>Enter a link to your Facebook page:</h4><br>
                 <edit-object-directive
                   text_name="name"
                   model-type="organization"
@@ -119,11 +106,49 @@
                   model-id="{{organization.id}}"
                   text="{{organization.facebook_url}}"
                   size="paragraph_text"
-                  ></edit-object-directive><md-divider></md-divider></md-list-item>
+                  ></edit-object-directive><md-divider></md-divider>
+            <h4>Enter a link to your Twitter Profile:</h4><br>
+            <edit-object-directive
+              text_name="name"
+              model-type="organization"
+              placeholder="Enter the URL of Your Twitter Profile"
+              attribute-name="twitter_url"
+              model-id="{{organization.id}}"
+              text="{{organization.twitter_url}}"
+              size="paragraph_text"
+              ></edit-object-directive><md-divider></md-divider>
+            <h4>Enter a link to your Instagram Page:</h4><br>
+            <edit-object-directive
+              text_name="name"
+              model-type="organization"
+              placeholder="Enter the URL of Your Instagram Page"
+              attribute-name="instagram_url"
+              model-id="{{organization.id}}"
+              text="{{organization.instagram_url}}"
+              size="paragraph_text"
+              ></edit-object-directive><md-divider></md-divider>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>Settings</md-tab-label>
+        <md-tab-body>
+          <div class="accountwrapper" id="settings-tab">
+            <h4>Upload Terms of Service:</h4>
+            <md-button class="md-raised md-primary"type="file" ngf-select="uploadFiles($file)"
+                       accept="application/pdf" ngf-max-height="1000" ngf-max-size="5MB">
+              Select File</md-button>
+            <br><br>
+            <div style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+          <div style="width:{{f.progress}}%"
+               ng-bind="f.progress + '%'"></div>
+      </span>
+            </div>
+            {{errorMsg}}
 
-            </md-list>
 
-            <h4>{{warning_message}}</h4>
+            <h4 style="color: red;margin-top:32px;">{{warning_message}}</h4>
             <md-divider style="margin: 12px 0 24px 0;"></md-divider>
 
             <h4>Delete Your Organization:</h4>

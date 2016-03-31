@@ -3,9 +3,9 @@
   ng-hide="editing || !title_text"
   >{{text}}
   <a
-     href=''
-     ng-click="editText()"
-     class="action-text"
+    href=''
+    ng-click="editText()"
+    class="action-text"
     >edit</a>
 </h2>
 <h3
@@ -32,6 +32,22 @@
       >edit</a>
   </p>
 </div>
+
+
+
+    <a href="{{text}}"
+       ng-hide="editing || !link">{{text}}</a>
+
+
+    <a
+      href=''
+      ng-click="editText()"
+      class="action-text"
+      ng-hide="editing || !link"
+      >edit</a>
+
+
+
 <md-input-container ng-show="editing && title_text || editing && subtitle_text">
   <label>{{placeholder}}</label>
   <input ng-model="text">

@@ -9,17 +9,25 @@
  */
 angular.module('voluntrApp')
   .controller('UserOrganizationsCtrl', function ($scope, Facebook, $http, Organization,
-                                                        $state, $stateParams, $modal, $localStorage) {
+                                                 $state, $stateParams, $modal,
+                                                 $localStorage, $mdDialog) {
 
     $scope.$watch(function () { return $localStorage.token; },function(){
       if ($localStorage.token && $localStorage.token !== undefined) {
         $scope.logged_in = true;
+        $scope.organizations = [];
         $http({
           url: 'api/v1/users/current/organizations'
         }).then(function successCallback(response) {
           // this callback will be called asynchronously
           // when the response is available
-          $scope.organizations = response.data;
+          angular.forEach(response.data, function(organization){
+          if (!organization.fb_id) {
+            $scope.organizations.push(organization)
+          }
+
+          })
+
         }, function errorCallback(response) {
           // called asynchronously if an error occurs
           // or server returns response with an error status.
@@ -34,6 +42,20 @@ angular.module('voluntrApp')
         $localStorage.token = data.token;
         $state.go('organizations.organization_home', {organization_Id:organization.id})
       })
+    };
+
+    $scope.createNewOrganization = function(user){
+      $mdDialog.show({
+        controller: 'CreateOrganizationModal',
+        templateUrl: 'organizations/modals/create_organization.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true
+      })
+        .then(function(answer) {
+
+        }, function() {
+
+        });
     };
 
     Facebook.getLoginStatus(function(response) {
@@ -76,7 +98,6 @@ angular.module('voluntrApp')
 
     // Write authorization method here, needs to send oauth key and organization id to server
     $scope.authorizeUser = function(organization) {
-      console.log($scope.user.id)
       Organization.authorization($scope.user.id, organization.v_id).$promise.then(function(data) {
         $localStorage.token = data.token;
         $state.go('organizations.organization_home', {organization_Id:data.organization.id})
@@ -85,7 +106,6 @@ angular.module('voluntrApp')
 
     $scope.$watch('connected_to_facebook', function () {
       if ($scope.connected_to_facebook){
-
         Facebook.api('/me/accounts', function (response) {
           angular.forEach(response.data, listOrganization)
         });

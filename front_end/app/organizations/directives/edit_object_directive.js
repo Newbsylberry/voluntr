@@ -18,6 +18,8 @@ angular.module('voluntrApp').directive("editObjectDirective", function () {
         $scope.subtitle_text = true
       } else if ($scope.size === "paragraph_text") {
         $scope.paragraph_text = true
+      } else if ($scope.size === "link") {
+        $scope.link = true
       }
 
       $scope.editText = function() {

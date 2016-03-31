@@ -58,7 +58,6 @@ angular.module('voluntrApp')
       logInCredentials.password = $scope.login.password;
       Auth.login(logInCredentials).then(function(object) {
         if (object.token){
-          console.log(object)
           $localStorage.token = object.token;
           $state.go('organizations.user_organizations');
           $modalInstance.close()

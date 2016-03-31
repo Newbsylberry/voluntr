@@ -21,6 +21,7 @@ angular.module('voluntrApp')
           organization_filtered_object: {method: 'GET', url:'/api/v1/organizations/:organization_Id/:object', isArray: true},
           authorization: {method: 'GET', url:'/api/v1/organizations/:organization_Id/authorization'},
           get_by_url: {method: 'GET', url:'/api/v1/organizations/by_url/:organization_custom_Url'},
+          create_with_email: {method: 'POST', url:'/api/v1/organizations/create/with_email'},
           update: {method: 'PATCH'}
         })}; // sets ID variable, and update method (patch)
 
@@ -39,6 +40,10 @@ angular.module('voluntrApp')
     // Calls the create function located in app/controllers/organizations_controller.rb
     Organization.prototype.create = function(attr) {
       return this.service.save(attr);
+    };
+
+    Organization.prototype.create_with_email = function(attr) {
+      return this.service.create_with_email(attr);
     };
 
     Organization.prototype.update = function(attr) {

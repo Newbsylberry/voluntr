@@ -52,7 +52,13 @@ class OrganizationsController < ApplicationController
 
   def create_with_email
     @organization = Organization.create(organization_params)
+
     token = AuthToken.issue_token({ organization_id: @organization.id })
+    UserOrganization.create(organization_id: @organization.id, user_id: @current_user.id)
+    @organization.organization_type = OrganizationType.find_by_name(params[:organization_type_name])
+    @organization.save
+
+
 
     render json: {organization: @organization, token: token}
   end

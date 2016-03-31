@@ -1,6 +1,11 @@
 .content .organization-login-list {
   clear: both;
+  text-align: center;
+  #create-organization-link {
+    font-size: 16pt;
+  }
   li {
+    text-align: left;
     img {
       display: inline-block;
       height: 75px;
