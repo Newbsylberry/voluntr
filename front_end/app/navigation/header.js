@@ -5,7 +5,7 @@ angular.module('voluntrApp')
 
     $scope.search_filter = searchService.search;
 
-
+    $scope.organizations = Organization.get({organization_Id: $stateParams.organization_Id});
 
 
     $scope.supportModal = function(size){
@@ -137,5 +137,3 @@ angular.module('voluntrApp')
 
 
   });
-
-
