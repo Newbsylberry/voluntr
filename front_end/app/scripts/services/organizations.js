@@ -37,10 +37,10 @@ angular.module('voluntrApp')
 
     // Loads a specific Organization when the ID is passed in
     Organization.prototype.get = function (id, successCallback, errorCallback) {
-      if (!this.cache['get']) {
-        this.cache['get'] = this.service.get(id, successCallback, errorCallback);
-      }
-      return this.cache['get'];
+      //if (!this.cache['get']) {
+      //  this.cache['get'] = this.service.get(id, successCallback, errorCallback);
+      //}
+      //return this.cache['get'];
 
       return this.service.get(id, successCallback, errorCallback);
     };

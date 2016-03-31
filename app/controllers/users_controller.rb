@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     @user.oauth_token = token["access_token"];
     @user.save
 
-    render json: @user, serializer: UserSerializer
+    user_token = AuthToken.issue_token({ user_id: @user.id})
+    render json: {user: @user, token: user_token}
   end
 
 
@@ -56,7 +57,8 @@ class UsersController < ApplicationController
   end
 
   def current_user_organizations
-    if !@current_user.organizations.empty?
+    if @current_user && !@current_user.organizations.empty?
+      ap @current_user.organizations
       render json: @current_user.organizations, each_serializer: OrganizationSerializer
     end
   end

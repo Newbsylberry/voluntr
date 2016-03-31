@@ -35,44 +35,37 @@ angular.module('voluntrApp')
     // information from facebook and see organizations
     // events and check whether they exist in the database
     // Get the organization from the volu database
-    Organization.get({
-      organization_Id: $stateParams.organization_Id,
-    }, function (successResponse) {
+    Organization.get({organization_Id: $stateParams.organization_Id}).$promise.then(function(response){
+      $scope.organization = response;
+      $rootScope.organization_name = response.name;
+    });
 
-      // DO FB STUFF HERE
-      if (successResponse.fb_id) {
-        Facebook.getLoginStatus(function (response) {
-          if (response.status === 'connected') {
-
-          }
+    $scope.$watch('organization',function() {
+      if($scope.organization && $scope.organization.id) {
+        Organization.recorded_hours($scope.organization.id, 'recently_recorded_hours').$promise.then(function (recorded_hours) {
+          $scope.organization.recorded_hours = recorded_hours;
         });
-      }
-      // find the organizations information on facebook
-      $scope.organization = successResponse
-      Organization.recorded_hours(successResponse.id, 'recently_recorded_hours').$promise.then(function (recorded_hours) {
-        $scope.organization.recorded_hours = recorded_hours;
-      });
-      Organization.daily_statistics(successResponse.id, 'daily_statistics').$promise.then(function (data) {
-        $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
-        angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
-      })
-      Organization.summary_statistics(successResponse.id, 'summary_statistics').$promise.then(function (data) {
-        $scope.organization.statistics = data;
-        if (!$scope.organization.statistics.average_hours_recorded) {
-          $scope.organization.statistics.average_hours_recorded = 0;
-        }
-        console.log($scope.organization.statistics)
-      })
-      Organization.contact_volunteers(successResponse.id, 'contact_volunteers').$promise.then(function (data) {
-        $scope.organization.contact_volunteers = data;
-      })
-      Organization.posts(successResponse.id, 'posts').$promise.then(function (data) {
-        $scope.organization.posts = $scope.organization.posts = $filter('orderBy')(data, 'post_time');
-        angular.forEach($scope.organization.posts, addPostToGraph)
-      })
-    }).$promise.then(function(){
+        Organization.daily_statistics($scope.organization.id, 'daily_statistics').$promise.then(function (data) {
+          $scope.organization.daily_statistics = $filter('orderBy')(data, 'date')
+          angular.forEach($scope.organization.daily_statistics, addDailyStatisticsToGraph)
+        })
+        Organization.summary_statistics($scope.organization.id, 'summary_statistics').$promise.then(function (data) {
+          $scope.organization.statistics = data;
+          if (!$scope.organization.statistics.average_hours_recorded) {
+            $scope.organization.statistics.average_hours_recorded = 0;
+          }
+        })
+        Organization.contact_volunteers($scope.organization.id, 'contact_volunteers').$promise.then(function (data) {
+          $scope.organization.contact_volunteers = data;
+        })
+        Organization.posts($scope.organization.id, 'posts').$promise.then(function (data) {
+          $scope.organization.posts = $scope.organization.posts = $filter('orderBy')(data, 'post_time');
+          angular.forEach($scope.organization.posts, addPostToGraph)
+        })
+
         $scope.loaded = true;
-      })
+      }
+    })
 
 
 

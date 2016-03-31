@@ -16,13 +16,15 @@ angular.module('voluntrApp')
       if ($localStorage.token && $localStorage.token !== undefined) {
         $scope.logged_in = true;
         $scope.organizations = [];
+        console.log(true)
         $http({
           url: 'api/v1/users/current/organizations'
         }).then(function successCallback(response) {
           // this callback will be called asynchronously
           // when the response is available
           angular.forEach(response.data, function(organization){
-          if (!organization.fb_id) {
+          console.log(organization)
+            if (!organization.fb_id) {
             $scope.organizations.push(organization)
           }
 
@@ -39,6 +41,7 @@ angular.module('voluntrApp')
 
     $scope.logInWithEmaiLregistration = function(organization){
       Organization.get_token(organization.id).$promise.then(function (data) {
+        delete $localStorage.token;
         $localStorage.token = data.token;
         $state.go('organizations.organization_home', {organization_Id:organization.id})
       })
@@ -99,6 +102,7 @@ angular.module('voluntrApp')
     // Write authorization method here, needs to send oauth key and organization id to server
     $scope.authorizeUser = function(organization) {
       Organization.authorization($scope.user.id, organization.v_id).$promise.then(function(data) {
+        delete $localStorage.token;
         $localStorage.token = data.token;
         $state.go('organizations.organization_home', {organization_Id:data.organization.id})
       })

@@ -1,0 +1,32 @@
+<div class="file-drop-box" ngf-select ngf-drop ng-model="files" ngf-multiple="true" >
+  <h4>Drop Files Here</h4>
+  <p>(Or Click to Select From Computer)</p>
+  <h4 class="ionicon ion-document-text" style="font-size: 36pt;left: 50px;text-align: left;"></h4>
+</div>
+<md-list style="margin-bottom: 60px;" ng-if="resources.length > 0">
+  <h4>Add More Information About Files Below</h4>
+  <md-list-item ng-repeat="resource in resources">
+    <div layout="row" style="width: 100%;">
+      <md-input-container flex="20">
+        <label>File Name</label>
+        <input ng-model="resource.name">
+      </md-input-container>
+      <md-input-container flex="50">
+        <label>Description</label>
+        <textarea ng-model="resource.description" md-maxlength="150" md-select-on-focus></textarea>
+      </md-input-container>
+      <md-input-container flex="25">
+        <label>Resource Type</label>
+        <md-select ng-model="resource.resource_type" ng-init="resource.resource_type = 'For Volunteers'">
+          <md-option ng-repeat="resource_type in resource_types" value="{{resource_type}}">
+            {{resource_type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <a flex="5" href="javascript:;"
+         ng-click="deleteResource(resource);"
+         class="ionicon ion-close-round" style="color: red;font-size: 22pt;margin-top: 12px;"></a>
+    </div>
+  </md-list-item>
+  <md-button ng-click="uploadFiles()" class="md-primary md-raised">Upload Files</md-button>
+</md-list>

@@ -32,7 +32,9 @@ angular.module('voluntrApp')
             url: '/api/v1/users/login/facebook_login',
             method: 'GET',
             params: attr
-          });
+          }).then(function(response){
+            $localStorage.token = response.data.token;
+            });
           $state.go('organizations.user_organizations');
           $modalInstance.close()
         });
@@ -58,6 +60,8 @@ angular.module('voluntrApp')
       logInCredentials.password = $scope.login.password;
       Auth.login(logInCredentials).then(function(object) {
         if (object.token){
+          console.log(object.token)
+          delete $localStorage.token;
           $localStorage.token = object.token;
           $state.go('organizations.user_organizations');
           $modalInstance.close()

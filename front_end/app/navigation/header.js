@@ -5,7 +5,10 @@ angular.module('voluntrApp')
 
     $scope.search_filter = searchService.search;
 
-    $scope.organizations = Organization.get({organization_Id: $stateParams.organization_Id});
+    //Organization.get({organization_Id: $stateParams.organization_Id}).$promise.then(function(response){
+    //  $scope.organization = response;
+    //
+    //});
 
 
     $scope.supportModal = function(size){
@@ -35,7 +38,6 @@ angular.module('voluntrApp')
     };
 
     $scope.open = function() {
-      console.log("open")
       $mdSidenav('left').open()
         .then(function () {
           $scope.menu_open = true;
