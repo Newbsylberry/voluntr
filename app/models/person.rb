@@ -129,8 +129,8 @@ class Person < ActiveRecord::Base
       @daily_statistic.save
     end
 
-    @organization_person.save
-    @organization_person.__elasticsearch__.index_document
+    # @organization_person.save
+    #@organization_person.__elasticsearch__.index_document
     return @organization_person
   end
 

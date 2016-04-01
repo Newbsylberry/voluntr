@@ -48,7 +48,6 @@ class Opportunity < ActiveRecord::Base
   end
 
   def add_organization(organization)
-    ap self
     @organization_opportunity = OrganizationOpportunity.new(
         organization_id: organization[:id],
         opportunity_id: self.id)
