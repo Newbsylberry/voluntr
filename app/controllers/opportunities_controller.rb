@@ -31,7 +31,7 @@ class OpportunitiesController < ApplicationController
       @opportunity.schedule  = SchedulerTool.schedule_from_params(params[:calendar], @opportunity)
     end
     @opportunity.save
-    # @opportunity.add_organization({id: @current_organization.id, administrator: true})
+    @opportunity.add_organization({id: @current_organization.id, administrator: true})
     if !params[:organizations].nil? && !params[:organizations].empty?
       params[:organizations].each do |o|
         @opportunity.add_organization(o)

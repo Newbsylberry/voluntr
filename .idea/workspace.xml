@@ -69,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/opportunities_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7421289">
-              <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+              <caret line="33" column="86" selection-start-line="33" selection-start-column="86" selection-end-line="33" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -230,8 +230,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-896" />
-    <option name="y" value="-894" />
+    <option name="y" value="23" />
     <option name="width" value="1376" />
     <option name="height" value="738" />
   </component>
@@ -565,7 +564,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-896" y="-894" width="1376" height="738" extended-state="0" />
+    <frame x="0" y="23" width="1376" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31031978" sideWeight="0.527439" order="0" side_tool="false" content_ui="combo" />
@@ -1001,7 +1000,7 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/opportunities_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7421289">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <caret line="33" column="86" selection-start-line="33" selection-start-column="86" selection-end-line="33" selection-end-column="86" />
           <folding />
         </state>
       </provider>
