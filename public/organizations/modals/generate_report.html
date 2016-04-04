@@ -8,5 +8,6 @@
        ng-model="date" />
 <md-button class="md-raised md-primary"
            ng-click="exportReport()"
+           ng-disabled="!date.startDate || !date.endDate"
   >Export Report
 </md-button>

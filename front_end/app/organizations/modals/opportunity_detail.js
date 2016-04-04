@@ -25,6 +25,9 @@ angular.module('voluntrApp')
       $mdDialog.cancel();
     };
 
+    $scope.opportunity = {};
+    $scope.opportunity.instance = {};
+
     $scope.$watch('opportunity.instance_date',function() {
       if ($scope.opportunity){
         $http.get('/api/v1/opportunity_instances/' + $scope.opportunity.id + '/' + new Date($scope.opportunity.instance_date))

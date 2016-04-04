@@ -50,8 +50,12 @@ angular.module('voluntrApp')
       $scope.calendar.schedule = object.ical;
       $scope.calendar.id = object.id;
       if($scope.calendar.schedule) {
+        console.log($scope.calendar.schedule)
         $scope.calendar.repeating_event = true;
         $scope.calendar.repeat = {};
+        if (typeof $scope.calendar.schedule.COUNT != 'undefined') {
+          $scope.calendar.repeat.number_of_occurrences = $scope.calendar.schedule.COUNT;
+        }
         $scope.calendar.repeat.repeat_count = parseInt($scope.calendar.schedule.INTERVAL);
         if ($scope.calendar.schedule.FREQ === "DAILY") {
           $scope.calendar.repeat.repeat_daily = true;
@@ -78,12 +82,13 @@ angular.module('voluntrApp')
       attr.calendar = $scope.calendar;
       if ($scope.calendar.repeat.repeat_until) {
         attr.calendar.repeat.repeat_until = $scope.calendar.repeat.repeat_until;
+      } else if ($scope.calendar.repeat.number_of_occurrences){
+        attr.calendar.repeat.repeat_number_of_occurrences = $scope.calendar.repeat.number_of_occurrences;
       }
       attr.id = $scope.calendar.id;
       Opportunity.update_schedule(attr)
       var queryResult = document.getElementsByClassName("modal-dialog")
       queryResult[0].classList.remove('auxiliary-open')
-
       $modalInstance.close();
     };
 

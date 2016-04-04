@@ -4,25 +4,28 @@ module SchedulerTool
   def SchedulerTool.schedule_from_params(params, object)
     start_time = Time.at(params[:start_time].to_i / 1000)
     end_time = Time.at(params[:end_time].to_i / 1000)
+
+
     if !object.schedule.nil?
       schedule = IceCube::Schedule.from_yaml(object.schedule)
       @hash = schedule.to_hash
-      if @hash[:start_date] > Time.now
-        @hash[:start_date] = start_time
-        @hash[:end_time] = end_time
-      end
-      ap @hash[:start_time]
-      if schedule.recurrence_rules
-        @hash[:rrules].each do |rr|
-          if rr[:until].nil?
-            rr[:until] = start_time
+      if @hash[:start_date] < Time.now
+        # @hash[:start_date] = start_time
+        # @hash[:end_time] = end_time
+
+        if schedule.recurrence_rules
+          @hash[:rrules].each do |rr|
+            if rr[:until].nil?
+              rr[:until] = start_time
+            end
           end
+          schedule = IceCube::Schedule.from_hash(@hash)
         end
-        schedule = IceCube::Schedule.from_hash(@hash)
       end
     end
 
-    if !schedule
+
+    if !schedule || @hash[:start_date] > Time.now
       schedule = Schedule.new(start_time)
       if params[:end_time]
         schedule.end_time = Time.at(params[:end_time].to_i / 1000)
@@ -129,8 +132,8 @@ module SchedulerTool
 
   def SchedulerTool.rule_creation(schedule, repeat_params, repeat_type)
     interval = repeat_params[:repeat_count]
-    if repeat_params[:number_of_repeats]
-      repeat_repititions = repeat_params[:number_of_repeats]
+    if repeat_params[:number_of_occurrences]
+      repeat_repititions = repeat_params[:number_of_occurrences]
     end
     if repeat_params[:repeat_until]
       repeat_stop_date = Time.parse(repeat_params[:repeat_until])
@@ -199,7 +202,7 @@ module SchedulerTool
     end
     @rule["interval"] = interval
 
-    @rule["validations"]["count"] = repeat_repititions.to_i unless repeat_repititions.to_i == 0 || repeat_repititions.null?
+    @rule["validations"]["count"] = repeat_repititions.to_i unless repeat_repititions.to_i == 0 || repeat_repititions.nil?
     @rule["validations"]["until"] = repeat_stop_date
     @rule["validations"]["day"] = @days
     schedule.add_recurrence_rule Rule.from_hash(@rule)

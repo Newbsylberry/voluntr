@@ -22,7 +22,7 @@ angular.module('voluntrApp').directive("scheduleForm", function () {
 
       $scope.$watch('calendar', function(oldValue, newValue) {
         $scope.calendar.start_time = Date.parse($scope.calendar.raw_start);
-
+        $scope.calendar.end_time = $scope.calendar.raw_start.getTime() + $scope.calendar.duration;
         if (oldValue.duration === newValue.duration && oldValue.end_time === newValue.end_time) {
           var watch = true;
         }
