@@ -108,7 +108,7 @@ class OpportunitiesController < ApplicationController
     @upcoming_opportunities = []
     @opportunities.near([params[:lat].to_f,params[:lng].to_f], params[:distance].to_f).each do |o|
       schedule = IceCube::Schedule.from_yaml(o.schedule)
-      if schedule.occurs_between?(Time.now, Time.now + 3.years)
+      if schedule.occurs_between?(Time.now + 24.hours, Time.now + 3.years)
         @upcoming_opportunities << o
       end
     end
