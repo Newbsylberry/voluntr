@@ -107,7 +107,7 @@ class AdministrationController < ApplicationController
       @group_events << {name: team[:name], value: team[:events]}
       # @group_per_person << {name: team[:name], value: team[:hours]}
     end
-    ap json:
+    render json:
                {
                    leaderboard:
                        {
