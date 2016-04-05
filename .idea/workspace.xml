@@ -50,8 +50,8 @@
           <file leaf-file-name="opportunities_controller.rb" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/controllers/opportunities_controller.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6927711">
-                  <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+                <state vertical-scroll-proportion="0.6325301">
+                  <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -998,8 +998,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/opportunities_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6927711">
-          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.6325301">
+          <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
           <folding />
         </state>
       </provider>
