@@ -72,8 +72,9 @@ class AdministrationController < ApplicationController
             @teams << {name: volunteer_group.name, hours: rh.hours, events: 1}
           end
         end
-        if @nonprofits.any?{|npo| npo[:name] === rh.organization.name}
-          existing_npos = nonprofits.select { |t| t[:name] == rh.organization.name }
+        ap @nonprofits
+        if @nonprofits.any?{|npo| npo[:name] == rh.opportunity.organization.name}
+          existing_npos = nonprofits.select { |t| t[:name] == rh.opportunity.organization.name }
           existing_npos.each do |npo|
             if npo[:hours]
               npo[:hours] += rh.hours
@@ -83,7 +84,7 @@ class AdministrationController < ApplicationController
             end
           end
         else
-          @nonprofits << {name: rh.organization.name, hours: rh.hours, events: 1}
+          @nonprofits << {name: rh.opportunity.organization.name, hours: rh.hours, events: 1}
         end
       end
     end
