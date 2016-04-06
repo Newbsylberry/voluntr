@@ -19,14 +19,11 @@
   </div>
   <div class="lb-stats" layout="column" layout-align="start start">
     <div layout="row">
-      <div flex>
-
-      </div>
       <div>
         <h2>Most Active Teams<a class="question-link" href="">(?)</a></h2>
         <ol>
           <li ng-repeat="team in data.lb.leaderboard.team_most_active | limitTo: teamMostActive.count" class="lb-list-text">
-            <span>{{team.name}}</span> <span>{{team.value}}</span>
+            <span>{{team.name}}</span> <span class="lb-number-text">{{team.value}} points</span>
           </li>
         </ol>
         <div class="lb-more-text" layout="row" layout-align="space-between start">
@@ -35,19 +32,13 @@
           <a ui-sref="team">more team stats</a>
         </div>
       </div>
-      <div flex>
-
-      </div>
     </div>
     <div layout="row">
-      <div flex>
-
-      </div>
       <div>
         <h2>Top Non-Profit By Hours</h2>
         <ol>
-          <li ng-repeat="nonprofit in data.lb.leaderboard.nonprofit_hours | limitTo: nonprofitHours.count" class="lb-list-text">
-            <span>{{nonprofit.name}}</span> <span>{{nonprofit.value}}</span>
+          <li ng-repeat="nonprofit in data.lb.leaderboard.non_profit_hours | limitTo: nonprofitHours.count" class="lb-list-text">
+            <span>{{nonprofit.name}}</span> <span class="lb-number-text">{{nonprofit.value}} hrs</span>
           </li>
         </ol>
         <div class="lb-more-text" layout="row" layout-align="space-between start">
@@ -56,19 +47,13 @@
           <a href="">more non-profit stats</a>
         </div>
       </div>
-      <div flex>
-
-      </div>
     </div>
     <div layout="row" layout-align="start start">
-      <div flex>
-
-      </div>
       <div>
         <h2>Top Individual By Hours</h2>
         <ol>
           <li ng-repeat="individual in data.lb.leaderboard.individual_hours | limitTo: individualHours.count" class="lb-list-text">
-            <span>{{individual.name}}</span> <span>{{individual.value}}</span>
+            <span>{{individual.name}}</span> <span class="lb-number-text">{{individual.value}} hrs</span>
           </li>
         </ol>
         <div class="lb-more-text" layout="row" layout-align="space-between start">
@@ -76,9 +61,6 @@
           <a ng-if="individualHours.more" ng-click="showMore(individualHours)">show less...</a>
           <a href="">more non-profit stats</a>
         </div>
-      </div>
-      <div flex>
-
       </div>
     </div>
   </div>

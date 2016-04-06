@@ -4,7 +4,7 @@ angular.module('voluntrApp')
   function($http) {
       return {
         get: function() {
-          return $http.get('./leaderboard/sample.json');
+          return $http.get('http://www.voluapp.com/api/v1/administration/volunteer_drive_leaderboard');
         }
       };
   }
