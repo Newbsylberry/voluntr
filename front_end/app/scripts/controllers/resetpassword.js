@@ -8,8 +8,18 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-.controller('ResetPasswordCtrl', ['$scope',
-function($scope) {
-  
+.controller('ResetPasswordCtrl', ['$scope','$http',
+function($scope,$http) {
+
+  $scope.formData = {};
+
+  $scope.requestReset = function() {
+    var data = $scope.formData;
+
+    $http.post('api/v1/users/reset_password', data)
+    .then(function() {
+        $scope.requestSent = true;
+    })
+  }
 }
 ]);

@@ -215,6 +215,7 @@ angular
         controller: 'ConfirmUserRegistrationCtrl'
       })
 
+
       //.state('organizations_public', {
       //  url: ':custom_url' + '.' + '/',
       //  templateUrl: 'organizations/public/organization_public.html',
@@ -392,16 +393,22 @@ angular
         controller: 'ProfileCtrl'
       })
 
-      .state('unauthenicated_forms', {
+      .state('unauthenticated_forms', {
         url: '/forms',
         abstract: true,
         templateUrl: 'views/unauthenticated_forms.html'
       })
 
-      .state('unauthenicated_forms.reset_password', {
+      .state('unauthenticated_forms.reset_password', {
         url: '/reset-password',
         templateUrl: 'views/reset_password.html',
         controller: 'ResetPasswordCtrl'
+      })
+
+      .state('unauthenticated_forms.user_reset_password', {
+        url: '/reset-password-2/:resetToken',
+        templateUrl: 'views/reset_password_2.html',
+        controller: 'UserResetPasswordCtrl'
       })
 
 
