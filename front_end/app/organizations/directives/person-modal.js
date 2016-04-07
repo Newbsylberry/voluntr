@@ -1,27 +1,21 @@
-angular.module('voluntrApp').directive("personModal", function ($modal) {
+angular.module('voluntrApp').directive("personModal", function ($mdDialog) {
     link: function link(scope, element, attrs) {
       element.bind('click', function () {
-        var personDetailModal = $modal.open(
-          {
-            templateUrl: 'organizations/modals/person_detail_modal.html',
-            controller: 'PersonDetailCtrl',
-            windowClass: 'add-event-modal-window',
-            size: attrs.size,
-            resolve: {
-              id: function () {
-                return attrs.id
-              }
-            }
-
+        $mdDialog.show({
+          controller: 'PersonDetailCtrl',
+          templateUrl: 'organizations/modals/person_detail.html',
+          parent: angular.element(document.body),
+          clickOutsideToClose:true,
+          locals: {
+            id: attrs.id
+          }
+        })
+          .then(function(answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+          }, function() {
+            $scope.status = 'You cancelled the dialog.';
           });
 
-
-        personDetailModal.result.then(function () {
-
-          },
-          function () {
-            console.log('Modal dismissed at: ' + new Date());
-          });
       });
     }
   return {

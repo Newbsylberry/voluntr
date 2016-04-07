@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 
       match '/users/update_password', to: 'users#update_password', via: :patch, defaults: {format: :json}
+      match '/users/reset_password', to: 'users#reset_password', via: :get, defaults: {format: :json}
       match '/users/current/organizations', to: 'users#current_user_organizations', via: :get, defaults: {format: :json}
       match '/users/login/facebook_login', to: 'users#facebook_login', via: :get, defaults: {format: :json}
       devise_for :users,
