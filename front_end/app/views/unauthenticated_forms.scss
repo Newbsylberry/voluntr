@@ -1,0 +1,37 @@
+.unauthenticated-forms-centered-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 16vh 12vw;
+  /* position: fixed; */
+  top: 0px;
+  z-index: -10;
+  text-align: center;
+  background-color: #35c0ff;
+  @include breakpoint($medium) {
+
+  }
+  @include breakpoint($tablet) {
+
+  }
+  @include breakpoint($mobile) {
+    padding: 0 0;
+  }
+  h2 {
+    color: #123994;
+  }
+  h4 {
+    margin: 24px 0;
+  }
+  md-input-container {
+    text-align: left;
+  }
+  button {
+    float: right;
+  }
+  .content {
+    position: relative;
+    overflow-x: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

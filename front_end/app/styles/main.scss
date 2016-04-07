@@ -22,6 +22,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../users/users.scss";
 @import "../users/confirm_registration/confirm_registration.scss";
 @import "../organizations/user_organizations/user_organizations.scss";
+@import "../views/unauthenticated_forms.scss";
 
 
 
@@ -238,4 +239,3 @@ Floating Action Button Styles
   bottom: 0px;
   position: fixed;
 }
-
