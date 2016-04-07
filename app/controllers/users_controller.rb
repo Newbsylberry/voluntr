@@ -44,6 +44,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def reset_password
+    User.find_by_email(params[:email]).send_reset_password_instructions
+  end
+
   def create_profile
     @current_user.profile = Profile.new(first_name: params[:first_name], last_name: params[:last_name])
     @current_user.save

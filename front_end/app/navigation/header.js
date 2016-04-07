@@ -96,7 +96,7 @@ angular.module('voluntrApp')
       if (result.type === 'person') {
         var personDetailModal = $modal.open(
           {
-            templateUrl: 'organizations/modals/person_detail_modal.html',
+            templateUrl: 'organizations/modals/person_detail.html',
             controller: 'PersonDetailCtrl',
             windowClass: 'add-event-modal-window',
             size: 'lg',

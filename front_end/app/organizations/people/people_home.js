@@ -31,6 +31,7 @@ angular.module('voluntrApp')
       $scope.loaded = true;
     }
 
+    $scope.query.contact_only = true;
     $scope.onChange = function () {
       return Organization.people(
         $stateParams.organization_Id,
