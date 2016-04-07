@@ -392,9 +392,17 @@ angular
         controller: 'ProfileCtrl'
       })
 
+      .state('unauthenicated_forms', {
+        url: '/forms',
+        abstract: true,
+        templateUrl: 'views/unauthenticated_forms.html'
+      })
 
-
-
+      .state('unauthenicated_forms.reset_password', {
+        url: '/reset-password',
+        templateUrl: 'views/reset_password.html',
+        controller: 'ResetPasswordCtrl'
+      })
 
 
 
