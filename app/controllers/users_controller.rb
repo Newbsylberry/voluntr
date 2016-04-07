@@ -45,7 +45,15 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-    User.find_by_email(params[:email]).send_reset_password_instructions
+    @user = User.find_by_email(params[:email])
+    if @user.nil?
+      render status: 200
+    else
+      @user.send_reset_password_instructions
+      render status: 200
+    end
+
+
   end
 
   def create_profile
