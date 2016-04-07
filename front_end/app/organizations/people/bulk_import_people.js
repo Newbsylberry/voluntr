@@ -232,7 +232,7 @@ angular.module('voluntrApp')
         // get the best guesses for how the row titles match volu database attributes
         $http({
           method: 'GET',
-          url: 'http://staging.voluapp.com/api/v1/spreadsheet_import/check',
+          url: 'api/v1/spreadsheet_import/check',
           params: {
             'row_titles[]': $scope.data.rowTitles
           }

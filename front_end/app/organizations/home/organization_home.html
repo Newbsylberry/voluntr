@@ -57,21 +57,19 @@
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
           </div>
           <div>
-            <md-list ng-repeat="volunteer in organization.contact_volunteers"
-                     ng-show="organization.contact_volunteers.length !== 0">
-              <md-list-item >
-                <p>{{volunteer.first_name}} {{volunteer.last_name}}</p>
-                <a href="mailto:{{volunteer.email}}"><md-icon md-svg-src ="../img/icons/email.svg"
-                         ng-if="volunteer.email"
-                         class="s36"
-                         aria-label="email"
-                  ></md-icon></a>
-                <a href="tel:{{volunteer.phone}}">
-                  <md-icon md-svg-src="../img/icons/phone.svg"
-                         class="s36"
-                         ng-if="volunteer.phone"
-                         aria-label="phone"
-                  ></md-icon></a>
+            <md-list
+              ng-show="organization.contact_volunteers.length !== 0"
+              >
+              <md-list-item ng-repeat="volunteer in organization.contact_volunteers" layout>
+
+                  <div flex="90">
+                    <a href="javascript:;" person-modal class="person-name" id="{{volunteer.id}}">{{volunteer.first_name}} {{volunteer.last_name}}</a>
+                  </div>
+                  <div flex="10">
+                    <a href="mailto:{{volunteer.email}}" class="ionicon ion-email" ng-if="volunteer.email"></a>
+                    <a href="tel:{{volunteer.phone}}" class="ionicon ion-ios-telephone" ng-if="volunteer.phone"></a>
+                  </div>
+
               </md-list-item>
             </md-list>
           </div>
