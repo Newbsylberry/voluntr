@@ -15,14 +15,19 @@ function($scope,$http,$stateParams) {
   $scope.resetPassword = function() {
     var data = {
       password: $scope.data.password,
-      reset_token: $stateParams.resetToken
+      reset_password_token: $stateParams.resetToken
     };
-    $http.post('/api/v1/users/update_password', data)
-    .then(function() {
-      $scope.passwordReset = true;
+    $http.post('/api/v1/users/update_password_reset', data)
+    .then(function(object) {
+      if (object.token){
+        delete $localStorage.token;
+        $localStorage.token = object.token;
+      } else if (!object.token) {
+        console.log("ERROR");
+      }
     })
     .catch(function() {
-      $scope.passwordReset = true;
+
     });
   }
 }

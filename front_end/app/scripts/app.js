@@ -400,13 +400,13 @@ angular
       })
 
       .state('unauthenticated_forms.reset_password', {
-        url: '/reset-password',
+        url: '/request-password-reset',
         templateUrl: 'views/reset_password.html',
         controller: 'ResetPasswordCtrl'
       })
 
       .state('unauthenticated_forms.user_reset_password', {
-        url: '/reset-password-2/:resetToken',
+        url: '/reset_password/:resetToken',
         templateUrl: 'views/reset_password_2.html',
         controller: 'UserResetPasswordCtrl'
       })
