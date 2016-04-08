@@ -81,7 +81,6 @@ class UsersController < ApplicationController
 
   def current_user_organizations
     if @current_user && !@current_user.organizations.empty?
-      ap @current_user.organizations
       render json: @current_user.organizations, each_serializer: OrganizationSerializer
     end
   end

@@ -94,26 +94,19 @@ angular.module('voluntrApp')
 
     $scope.openModal = function(result) {
       if (result.type === 'person') {
-        var personDetailModal = $modal.open(
-          {
-            templateUrl: 'organizations/modals/person_detail.html',
-            controller: 'PersonDetailCtrl',
-            windowClass: 'add-event-modal-window',
-            size: 'lg',
-            resolve: {
-              id: function () {
-                return result.id
-              }
-            }
-
-          });
-
-
-        personDetailModal.result.then(function () {
-
-          },
-          function () {
-            console.log('Modal dismissed at: ' + new Date());
+        $mdDialog.show({
+          controller: 'PersonDetailCtrl',
+          templateUrl: 'organizations/modals/person_detail.html',
+          parent: angular.element(document.body),
+          clickOutsideToClose:true,
+          locals: {
+            id: result.id
+          }
+        })
+          .then(function(answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+          }, function() {
+            $scope.status = 'You cancelled the dialog.';
           });
       } else if (result.type === 'opportunity') {
         $mdDialog.show({
