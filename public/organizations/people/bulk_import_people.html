@@ -80,8 +80,8 @@
                   <strong>{{attr}}</strong>
                 </div>
                 <div flex="80">
-                  <label>{{attr}}</label>
                   <md-select ng-model="data.checkResponse[attr]">
+                    <label>{{attr}}</label>
                     <md-option value="">No Match</md-option>
                     <md-option ng-repeat="title in data.rowTitles" value="{{title}}">
                       {{title}}

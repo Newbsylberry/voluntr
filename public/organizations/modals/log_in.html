@@ -11,7 +11,8 @@
   <label>Password</label>
   <input ng-model="login.password" type="password">
 </md-input-container>
-<p id="register-now-text">No account? <a ui-sref="organizations.registration" ng-click="close()">create an account now.</a></p>
+<p id="register-now-text">No account? <a href="" ui-sref="organizations.registration" ng-click="close()">create an account now.</a></p>
+<p id="register-now-text">Forgot password? <a href="" ui-sref="unauthenticated_forms.reset_password" ng-click="close()">click here to reset.</a></p>
 <md-button
   class="md-raised md-primary"
   ng-click="userSignIn()"
@@ -22,5 +23,3 @@
            id="facebook-log-in">
   Sign In With Facebook
 </md-button>
-
-
