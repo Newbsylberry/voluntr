@@ -15,19 +15,19 @@ class SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if User.exists?(email: params[:user][:email]) &&
-        User.find_by_email(params[:user][:email]).valid_password?(params[:user][:password]) &&
-        User.find_by_email(params[:user][:email]).confirmed?
+    if User.exists?(email: params[:user][:email].downcase) &&
+        User.find_by_email(params[:user][:email].downcase).valid_password?(params[:user][:password]) &&
+        User.find_by_email(params[:user][:email].downcase).confirmed?
       self.resource = warden.authenticate!(auth_options)
       sign_in(resource_name, resource)
       yield resource if block_given?
 
       token = AuthToken.issue_token({ user_id: resource.id})
       render json: { token: token }
-    elsif !User.exists?(email: params[:user][:email])
+    elsif !User.exists?(email: params[:user][:email].downcase)
       render json: { error: "That email address does not exist, perhaps you haven't registered yet!"  }
-    elsif User.exists?(email: params[:user][:email]) && !User.find_by_email(params[:user][:email]).confirmed?
-      User.find_by_email(params[:user][:email]).send_confirmation_instructions
+    elsif User.exists?(email: params[:user][:email].downcase) && !User.find_by_email(params[:user][:email].downcase).confirmed?
+      User.find_by_email(params[:user][:email].downcase).send_confirmation_instructions
       render json:
                  { error:
                          "That email address has not been confirmed, we've resent the confirmation email so you can do that!"
