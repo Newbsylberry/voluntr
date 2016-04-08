@@ -84,6 +84,7 @@ angular.module('voluntrApp')
         {
           templateUrl: 'views/tos_privacy.html',
           controller: 'LandingPageCtrl',
+          windowClass: 'tos-modal-window',
           size: size
         })
 

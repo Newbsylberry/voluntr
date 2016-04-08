@@ -2,37 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9ede78-0be6-4030-832a-28c309358288" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/config.82fd0918.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/oldieshim.bfe322b1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/scripts.ee91ade8.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor.313f82ad.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/main.f1eecb50.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/vendor.d3fa13c2.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/404.html" afterPath="$PROJECT_DIR$/public/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/_landing_page_header.html" afterPath="$PROJECT_DIR$/public/views/_landing_page_header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/about.html" afterPath="$PROJECT_DIR$/public/views/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/add_additional_data.html" afterPath="$PROJECT_DIR$/public/views/add_additional_data.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/modals/add_opportunity.html" afterPath="$PROJECT_DIR$/public/organizations/modals/add_opportunity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/static_pages/landing_page.html" afterPath="$PROJECT_DIR$/public/static_pages/landing_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/landing_page.html" afterPath="$PROJECT_DIR$/public/views/landing_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/landing_page_initial.html" afterPath="$PROJECT_DIR$/public/views/landing_page_initial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/main.html" afterPath="$PROJECT_DIR$/public/views/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/organization.html" afterPath="$PROJECT_DIR$/public/organizations/organization.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/organizations/organization_floating_action_button.html" afterPath="$PROJECT_DIR$/public/organizations/organization_floating_action_button.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/profile.html" afterPath="$PROJECT_DIR$/public/views/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/profile_create.html" afterPath="$PROJECT_DIR$/public/views/profile_create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/record_hours.html" afterPath="$PROJECT_DIR$/public/views/record_hours.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reset_password.html" afterPath="$PROJECT_DIR$/public/views/reset_password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reset_password_2.html" afterPath="$PROJECT_DIR$/public/views/reset_password_2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/tos_privacy.html" afterPath="$PROJECT_DIR$/public/views/tos_privacy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/unauthenticated_forms.html" afterPath="$PROJECT_DIR$/public/views/unauthenticated_forms.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/users/users.html" afterPath="$PROJECT_DIR$/public/users/users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/viewer.html" afterPath="$PROJECT_DIR$/public/partials/viewer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/volunteers/volunteer_export.html" afterPath="$PROJECT_DIR$/public/volunteers/volunteer_export.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/volunteers/volunteer_home.html" afterPath="$PROJECT_DIR$/public/volunteers/volunteer_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/volunteers/volunteers.html" afterPath="$PROJECT_DIR$/public/volunteers/volunteers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" afterPath="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html" afterPath="$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="voluntr_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,13 +38,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add_opportunity.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html">
+      <file leaf-file-name="person_detail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3524229">
-              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.27522936">
+              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
               <folding>
-                <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#edit-object-directive#0;n#div#1;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,8 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/front_end/app/index.html" />
-        <option value="$PROJECT_DIR$/front_end/app/scripts/services/resource.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/resource.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/resource.js" />
         <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
@@ -138,7 +111,6 @@
         <option value="$PROJECT_DIR$/app/controllers/opportunities_controller.rb" />
         <option value="$PROJECT_DIR$/front_end/app/navigation/side-menu.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/people/people_home.js" />
-        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/person-modal.js" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/people/people_home.html" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/directives/recorded_hour.html" />
@@ -154,6 +126,9 @@
         <option value="$PROJECT_DIR$/front_end/app/scripts/controllers/user_reset_password.js" />
         <option value="$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.erb" />
         <option value="$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html" />
+        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.js" />
+        <option value="$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss" />
+        <option value="$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html" />
       </list>
     </option>
   </component>
@@ -172,8 +147,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1042" />
-    <option name="y" value="-876" />
+    <option name="x" value="-1016" />
+    <option name="y" value="-925" />
     <option name="width" value="1476" />
     <option name="height" value="803" />
   </component>
@@ -569,7 +544,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1042" y="-876" width="1476" height="803" extended-state="0" />
+    <frame x="-1016" y="-925" width="1476" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2892954" sideWeight="0.527439" order="0" side_tool="false" content_ui="combo" />
@@ -640,23 +615,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front_end/app/images/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/images/V_Logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/schedule_tool.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6071964">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/opportunity_detail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46875">
@@ -743,13 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.882353">
           <caret line="58" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.117647">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1006,12 +957,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19823788">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/static_pages/landing_page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59574467">
+          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/add_opportunity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3524229">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.66079295">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#md-dialog#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/floating_action_button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_end/app/organizations/modals/person_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27522936">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#edit-object-directive#0;n#div#1;n#div#0;n#md-toolbar#0;n#md-dialog#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
