@@ -21,9 +21,9 @@ class SessionsController < Devise::SessionsController
       self.resource = warden.authenticate!(auth_options)
       sign_in(resource_name, resource)
       yield resource if block_given?
-      organization_id = User.find(resource.id).organizations.first.id
-      token = AuthToken.issue_token({ user_id: resource.id, organization_id: organization_id })
-      render json: { token: token, organization_id:  organization_id }
+
+      token = AuthToken.issue_token({ user_id: resource.id})
+      render json: { token: token }
     elsif !User.exists?(email: params[:user][:email])
       render json: { error: "That email address does not exist, perhaps you haven't registered yet!"  }
     elsif User.exists?(email: params[:user][:email]) && !User.find_by_email(params[:user][:email]).confirmed?
