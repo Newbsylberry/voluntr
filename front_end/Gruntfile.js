@@ -377,6 +377,7 @@ module.exports = function (grunt) {
             'users{,*/}*.html',
             'volunteers{,*/}*.html',
             'static_pages{,*/}*.html',
+            'leaderboard{,*/}*.html',
             'partials{,*/}*.html'],
           dest: '<%= yeoman.dist %>'
         }]
@@ -421,6 +422,7 @@ module.exports = function (grunt) {
             'users/**/*.html',
             'volunteers/**/*.html',
             'static_pages/**/*.html',
+            'leaderboard/**/*.html',
             'navigation/**/*.html',
             'partials/**/*.html',
             'images/**/*.{webp}',
