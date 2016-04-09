@@ -1,0 +1,53 @@
+.leaderboard {
+  margin-top: 18px;
+  background-color: $primary;
+  color: #FFFFFF;
+  font-family: 'Roboto';
+  height: 100vh;
+}
+
+.leaderboard-module {
+  padding: 0 18px;
+}
+
+.lb-big-number {
+  font-weight: bold;
+  font-size: 2.8125em;
+}
+
+.leaderboard h2 {
+  font-size: 1.875em;
+  font-weight: bold;
+}
+
+.question-link {
+  color: #FFFFFF;
+}
+
+.leaderboard h1 {
+  color: #FFFFFF;
+}
+
+.lb-number-text {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.lb-list-text {
+  font-size: 1.5em;
+}
+
+.leaderboard ol {
+  padding-left: 25px;
+}
+
+.lb-more-text a {
+  color: white;
+  font-size: 1em;
+  text-decoration: underline;
+  display: inline;
+}
+
+.lb-stats {
+  padding: 10px;
+}

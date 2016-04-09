@@ -91,7 +91,6 @@
 <script src="bower_components/angular-devise/lib/devise.js"></script>
 <script src="bower_components/angular-duration-format/dist/angular-duration-format.js"></script>
 <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
-<script src="bower_components/leaflet/dist/leaflet.js"></script>
 <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
 <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -165,6 +164,7 @@
 <script src="bower_components/ngstorage/ngStorage.js"></script>
 <script src="bower_components/flexslider/jquery.flexslider.js"></script>
 <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
+<script src="bower_components/d3/d3.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -199,6 +199,7 @@
 <script src="scripts/services/organization_mailing_service.js"></script>
 <script src="scripts/services/schedule.js"></script>
 <script src="scripts/services/resource.js"></script>
+<script src="scripts/services/leaderboard.js"></script>
 
 
 <script src="scripts/controllers/profilecreate.js"></script>
@@ -255,6 +256,9 @@
 <script src="users/users.js"></script>
 <script src="users/confirm_registration/confirm_registration.js"></script>
 
+<!-- Leaderboard Controllers -->
+<script src="leaderboard/leaderboard.js"></script>
+
 <!-- Modals -->
 <script src="organizations/modals/person_detail.js"></script>
 <script src="organizations/modals/opportunity_role.js"></script>
@@ -310,8 +314,13 @@
 <script src="organizations/directives/form_directives/form.js"></script>
 <script src="organizations/directives/form_directives/form_section.js"></script>
 <script src="organizations/directives/form_directives/form_group.js"></script>
+<script src="leaderboard/directives/horizontalBarChart.js"></script>
+<script src="leaderboard/directives/pieChart.js"></script>
+<script src="leaderboard/directives/stackedBarChart.js"></script>
+<script src="leaderboard/directives/podiumChart.js"></script>
 <!-- Filters -->
 <script src="scripts/filters/trusted_filter.js"></script>
+<script src="leaderboard/filters/startFrom.js"></script>
 
 
 <!-- endbuild -->

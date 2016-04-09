@@ -77,6 +77,11 @@ Organization Directive Styles
 @import "../organizations/modals/record_hours_modal.scss";
 @import "../organizations/modals/global_modal_styles.scss";
 
+/************************************************************
+Leaderboard Styles
+************************************************************/
+@import "../leaderboard/leaderboard_styles.scss";
+
 html {
   height: 100%;
   width: 100%;

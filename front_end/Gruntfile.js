@@ -73,7 +73,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/organizations/**/*.js',
           '<%= yeoman.app %>/users/**/*.js',
           '<%= yeoman.app %>/volunteers/**/*.js',
-          '<%= yeoman.app %>/static_pages/**/*.js'],
+          '<%= yeoman.app %>/static_pages/**/*.js',
+          '<%= yeoman.app %>/leaderboard/**/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -90,7 +91,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/users/**/*.{scss,sass}',
           '<%= yeoman.app %>/volunteers/**/*.{scss,sass}',
           '<%= yeoman.app %>/users/**/*.{scss,sass}',
-          '<%= yeoman.app %>/static_pages/**/*.{scss,sass}'],
+          '<%= yeoman.app %>/static_pages/**/*.{scss,sass}',
+          '<%= yeoman.app %>/leaderboard/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {

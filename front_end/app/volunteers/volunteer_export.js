@@ -20,9 +20,13 @@ angular.module('voluntrApp')
             end_date: $scope.date.endDate,
             email: $scope.email_address
           }
-        }).success(function(data){
+        }).then(function(data){
           $scope.report_sent = true;
-        });
+        },
+      function(error){
+        $scope.error = true;
+        $scope.error_message = error.data.error;
+      });
     }
   });
 

@@ -35,7 +35,7 @@ angular
     'ui.calendar',
     'snap',
     'leaflet-directive',
-    "kendo.directives",
+    'kendo.directives',
     'ngHandsontable',
     'angulartics',
     'angulartics.google.analytics',
@@ -398,11 +398,21 @@ angular
         abstract: true,
         templateUrl: 'views/unauthenticated_forms.html'
       })
+      .state('leaderboard', {
+        url: '/leaderboard',
+        templateUrl: 'leaderboard/leaderboard.html',
+        controller: 'LeaderboardCtrl'
+      })
 
       .state('unauthenticated_forms.reset_password', {
         url: '/request-password-reset',
         templateUrl: 'views/reset_password.html',
         controller: 'ResetPasswordCtrl'
+      })
+      .state('team', {
+        url: '/leaderboard/team',
+        templateUrl: 'leaderboard/team.html',
+        controller: 'LeaderboardCtrl'
       })
 
       .state('unauthenticated_forms.user_reset_password', {
