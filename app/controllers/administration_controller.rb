@@ -35,7 +35,21 @@ class AdministrationController < ApplicationController
         "Sammy Sweetheart: Sigma Alpha Mu and the Alzheimer's Association Student Org at SU: Closing Ceremony",
         "Alzheimer's Association Student Org at SU; Tabling",
         "On Point for College Celebration 2016",
-        "Kitchen Volunteer"
+        "Kitchen Volunteer",
+        "AEC Trip for Trail Maintenance",
+        "Girl Scout Teaching Day",
+        "Onondaga Earth Corps MGB Construction- ESF",
+        "Youth Aquatics and Fisheries Resource Education Workshop Volunteer-ESF",
+        "Pioneer Homes Community Garden (ESF Campus Day of Service)",
+        "THG Warehouse (ESF)",
+        "The MOST (ESF-AXS Volunteers)",
+        "MARSH! Montezuma Wetlands Complex- Invasive Species Removal",
+        "ESF Blood Drive 4/6/2016",
+        "Engineers Without Borders Thornden Park Fun Run (SUNY-ESF)",
+        "Earth Day Clean Up",
+        "Greyrock Farm-SUNY- ESF Volunteer Opp",
+        "Success by 6 Book Sort",
+        "Property Project"
     ].each do |name|
       opportunity = Opportunity.find_by_name(name.to_s)
       @volunteers_count += opportunity.total_people_recording
