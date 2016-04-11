@@ -18,6 +18,7 @@
           class="md-raised md-primary"
           ng-click="sendReport()"
           ng-disabled="!date && !email_address">Have Report Sent to Email Address</md-button>
+        <h4 style="color: red;display: block;">{{error_message}}</h4>
       </div>
       <div ng-show="report_sent" id="report-sent">
         <h1>Your Report Has Been Sent!</h1>

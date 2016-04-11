@@ -35,19 +35,15 @@ angular
     'ui.calendar',
     'snap',
     'leaflet-directive',
-    "kendo.directives",
+    'kendo.directives',
     'ngHandsontable',
     'angulartics',
     'angulartics.google.analytics',
     'ngIdle',
     'ngCsv',
-<<<<<<< HEAD
     'md.data.table',
-    'ngStorage'
-=======
-    'angular-flexslider',
-    'md.data.table'
->>>>>>> master
+    'ngStorage',
+    'angular-flexslider'
   ])
 
   .config(function(IdleProvider, KeepaliveProvider) {
@@ -59,9 +55,17 @@ angular
 
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('blue')
-      .accentPalette('pink')
-      .warnPalette('red');
+      .primaryPalette('light-blue', {
+        'default': 'A400', // by default use shade 400 from the pink palette for primary intentions
+        'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+        'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+        'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+      })
+      // If you specify less than all of the keys, it will inherit from the
+      // default shades
+      .accentPalette('pink', {
+        'default': '300' // use shade 200 for default, and keep all other shades the same
+      });
   })
 
 
@@ -116,19 +120,6 @@ angular
         controller: 'LandingPageCtrl'
       })
 
-<<<<<<< HEAD
-      .state('users', {
-        url: '/users',
-        absolute: true,
-        templateUrl: 'users/users.html',
-        controller: 'UsersCtrl'
-      })
-
-      .state('users.confirm_registration', {
-        url: '/confirm_registration/:token',
-        templateUrl: 'users/confirm_registration/confirm_registration.html',
-        controller: 'ConfirmUserRegistrationCtrl'
-=======
       .state('volunteer_drive_16', {
         url: '/volunteer_drive',
         templateUrl: 'static_pages/volunteer_drive_16/home.html',
@@ -149,7 +140,7 @@ angular
       })
 
       .state('volunteer_drive_16.sponsors', {
-        url: '',
+        url: '/sponsors',
         templateUrl: 'static_pages/volunteer_drive_16/sponsors.html',
         controller: 'VolunteerDrive16Ctrl'
       })
@@ -183,13 +174,25 @@ angular
       .state('volunteer_drive_16.non_profits.form', {
         url: '/form',
         templateUrl: 'static_pages/volunteer_drive_16/non_profits_form.html'
->>>>>>> master
       })
 
       .state('volunteer_home', { //default page loaded for landing state
         url: '/volunteer_home',
         templateUrl: 'volunteers/volunteer_home.html', // url for partial
         controller: 'VolunteerHomeCtrl'
+      })
+
+      .state('volunteers', { //default page loaded for landing state
+        url: '/volunteers',
+        abstract: true,
+        templateUrl: 'volunteers/volunteers.html', // url for partial
+        controller: 'VolunteerMainCtrl'
+      })
+
+      .state('volunteers.export_report', { //default page loaded for landing state
+        url: '/export_report',
+        templateUrl: 'volunteers/volunteer_export.html', // url for partial
+        controller: 'ExportVolunteerReportCtrl'
       })
 
       .state('organizations', {
@@ -199,12 +202,27 @@ angular
         controller: 'OrganizationMainCtrl'
       })
 
+      .state('users', {
+        url: '/users',
+        absolute: true,
+        templateUrl: 'users/users.html',
+        controller: 'UsersCtrl'
+      })
+
+      .state('users.confirm_registration', {
+        url: '/confirm_registration/:token',
+        templateUrl: 'users/confirm_registration/confirm_registration.html',
+        controller: 'ConfirmUserRegistrationCtrl'
+      })
+
+
       //.state('organizations_public', {
       //  url: ':custom_url' + '.' + '/',
       //  templateUrl: 'organizations/public/organization_public.html',
       //  controller: 'OrganizationPublicCtrl'
       //})
       //
+
       .state('organizations.registration', {
         url: '/registration',
         templateUrl: 'organizations/registration/organization_registration.html',
@@ -228,6 +246,11 @@ angular
         templateUrl: 'organizations/registration/organization_registration_email_2.html',
       })
 
+      .state('organizations.email_registration.3', {
+        url: '',
+        templateUrl: 'organizations/registration/organization_registration_email_3.html',
+      })
+
       .state('organizations.user_organizations', {
         url: '/user_organizations',
         templateUrl: 'organizations/user_organizations/user_organizations.html',
@@ -244,38 +267,32 @@ angular
 
       .state('organizations.tutorial.1', {
         url: '/1',
-        templateUrl: 'organizations/tutorial/tutorial_screen_1.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_1.html'
       })
 
       .state('organizations.tutorial.2', {
         url: '/2',
-        templateUrl: 'organizations/tutorial/tutorial_screen_2.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_2.html'
       })
 
       .state('organizations.tutorial.3', {
         url: '/3',
-        templateUrl: 'organizations/tutorial/tutorial_screen_3.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_3.html'
       })
 
       .state('organizations.tutorial.4', {
         url: '/4',
-        templateUrl: 'organizations/tutorial/tutorial_screen_4.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_4.html'
       })
 
       .state('organizations.tutorial.5', {
         url: '/5',
-        templateUrl: 'organizations/tutorial/tutorial_screen_5.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_5.html'
       })
 
       .state('organizations.tutorial.6', {
         url: '/6',
-        templateUrl: 'organizations/tutorial/tutorial_screen_6.html',
-        controller: 'OrganizationTutorialCtrl'
+        templateUrl: 'organizations/tutorial/tutorial_screen_6.html'
       })
 
       .state('organizations.organization_home', { //default page loaded for landing state
@@ -296,10 +313,16 @@ angular
         controller: 'PeopleHomeCtrl'
       })
 
-      .state('organizations.groups_home', { //default page loaded for landing state
-        url: '/:organization_Id/groups_home',
-        templateUrl: 'organizations/groups/groups_home.html', // url for partial
-        controller: 'GroupsHomeCtrl'
+      .state('organizations.bulk_import_people', { //default page loaded for landing state
+        url: '/:organization_Id/bulk_import',
+        templateUrl: 'organizations/people/bulk_import_people.html', // url for partial
+        controller: 'BulkImportPeopleCtrl'
+      })
+
+      .state('organizations.nearby_organizations', { //default page loaded for landing state
+        url: '/:organization_Id/nearby_organizations',
+        templateUrl: 'organizations/nearby_organizations/nearby_organizations.html', // url for partial
+        controller: 'NearbyOrganizationsCtrl'
       })
 
       .state('organizations.opportunities_home', { //default page loaded for landing state
@@ -335,6 +358,11 @@ angular
         templateUrl: 'organizations/volunteer_registration/volunteer_registration_4.html', // url for partial
       })
 
+      .state('organization_volunteer_registration.5', { //default page loaded for landing state
+        url: '/5?token',
+        templateUrl: 'organizations/volunteer_registration/volunteer_registration_5.html', // url for partial
+      })
+
 
       .state('registration_form', { //default page loaded for landing state
         url: '/:opportunity_Id/opportunity_registration',
@@ -343,9 +371,20 @@ angular
       })
 
       .state('sign_in_form', { //default page loaded for landing state
-        url: '/:opportunity_Id/sign_in',
+        url: '/:opportunity_Id/sign_in/:instance_date',
+        abstract: true,
         templateUrl: 'organizations/opportunities/sign_in_form.html', // url for partial
         controller: 'OpportunitySignInCtrl'
+      })
+
+      .state('sign_in_form.initial_information', { //default page loaded for landing state
+        url: '',
+        templateUrl: 'organizations/opportunities/sign_in_form_initial_information.html' // url for partial
+      })
+
+      .state('sign_in_form.confirmation_information', { //default page loaded for landing state
+        url: '',
+        templateUrl: 'organizations/opportunities/sign_in_form_confirmation_information.html' // url for partia
       })
 
       .state('profile', {
@@ -354,9 +393,38 @@ angular
         controller: 'ProfileCtrl'
       })
 
+<<<<<<< HEAD
+      .state('unauthenticated_forms', {
+        url: '/forms',
+        abstract: true,
+        templateUrl: 'views/unauthenticated_forms.html'
+      })
 
+      .state('unauthenticated_forms.reset_password', {
+        url: '/request-password-reset',
+        templateUrl: 'views/reset_password.html',
+        controller: 'ResetPasswordCtrl'
+      })
 
+      .state('unauthenticated_forms.user_reset_password', {
+        url: '/reset_password/:resetToken',
+        templateUrl: 'views/reset_password_2.html',
+        controller: 'UserResetPasswordCtrl'
+      })
+=======
+      .state('leaderboard', {
+        url: '/leaderboard',
+        templateUrl: 'leaderboard/leaderboard.html',
+        controller: 'LeaderboardCtrl'
+      })
 
+      .state('team', {
+        url: '/leaderboard/team',
+        templateUrl: 'leaderboard/team.html',
+        controller: 'LeaderboardCtrl'
+      })
+
+>>>>>>> 79f65e9276a9246b9f143e2c369347dffbc5c628
 
 
 

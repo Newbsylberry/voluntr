@@ -27,13 +27,15 @@ class ReportsController < ApplicationController
   end
 
   def export_person_report
-    ap params
     @person = Person.find_by_email(params[:email])
-
+    if !@person.nil?
     PersonMailer.send_report(
         params[:email],
         @person.generate_report(DateTime.parse(params[:start_date]), DateTime.parse(params[:end_date]))
     ).deliver_now
+    else
+      render json: {error: "We don't have a record of that email address, sorry!"}, status: 500
+    end
   end
 
   def organization

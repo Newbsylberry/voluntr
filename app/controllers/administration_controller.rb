@@ -35,7 +35,21 @@ class AdministrationController < ApplicationController
         "Sammy Sweetheart: Sigma Alpha Mu and the Alzheimer's Association Student Org at SU: Closing Ceremony",
         "Alzheimer's Association Student Org at SU; Tabling",
         "On Point for College Celebration 2016",
-        "Kitchen Volunteer"
+        "Kitchen Volunteer",
+        "AEC Trip for Trail Maintenance",
+        "Girl Scout Teaching Day",
+        "Onondaga Earth Corps MGB Construction- ESF",
+        "Youth Aquatics and Fisheries Resource Education Workshop Volunteer-ESF",
+        "Pioneer Homes Community Garden (ESF Campus Day of Service)",
+        "THG Warehouse (ESF)",
+        "The MOST (ESF-AXS Volunteers)",
+        "MARSH! Montezuma Wetlands Complex- Invasive Species Removal",
+        "ESF Blood Drive 4/6/2016",
+        "Engineers Without Borders Thornden Park Fun Run (SUNY-ESF)",
+        "Earth Day Clean Up",
+        "Greyrock Farm-SUNY- ESF Volunteer Opp",
+        "Success by 6 Book Sort",
+        "Property Project"
     ].each do |name|
       opportunity = Opportunity.find_by_name(name.to_s)
       @volunteers_count += opportunity.total_people_recording
@@ -67,14 +81,17 @@ class AdministrationController < ApplicationController
               if eg[:events]
                 eg[:events] += 1
               end
+              if !eg[:volunteers].include?(rh.person)
+                eg[:volunteers] << rh.person
+              end
             end
           else
-            @teams << {name: volunteer_group.name, hours: rh.hours, events: 1}
+            @teams << {name: volunteer_group.name, hours: rh.hours, events: 1, volunteers: [rh.person]}
           end
         end
-        ap @nonprofits
+
         if @nonprofits.any?{|npo| npo[:name] == rh.opportunity.organization.name}
-          existing_npos = nonprofits.select { |t| t[:name] == rh.opportunity.organization.name }
+          existing_npos = @nonprofits.select { |t| t[:name] == rh.opportunity.organization.name }
           existing_npos.each do |npo|
             if npo[:hours]
               npo[:hours] += rh.hours
@@ -93,6 +110,7 @@ class AdministrationController < ApplicationController
     @individual_hours = []
     @individual_events = []
     @group_hours = []
+    @group_activity_rates = [];
     @group_events = []
     @nonprofits.each do |npo|
       @non_profit_events << {name: npo[:name], value: npo[:events]}
@@ -105,8 +123,27 @@ class AdministrationController < ApplicationController
     @teams.each do |team|
       @group_hours << {name: team[:name], value: team[:hours]}
       @group_events << {name: team[:name], value: team[:events]}
+      if team[:name] === "40 Below"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 120.0).to_f)
+      elsif team[:name] === "The Salvation Army's Young Leaders"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 40.0).to_f)
+      elsif team[:name] === "SUNY-ESF"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 300.0).to_f)
+      elsif team[:name] === "Believe in Syracuse"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 200.0).to_f)
+      elsif team[:name] === "Syracuse University"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 200.0).to_f)
+      elsif team[:name] === "United Way of CNY Young Leaders"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 125.0).to_f)
+      elsif team[:name] === "Phi Theta Kappa, Onondaga Community College"
+        participation_rate =  (team[:hours] / team[:volunteers].count) * (1+(team[:volunteers].count / 100.0).to_f)
+      end
+      if !participation_rate.nil?
+        @group_activity_rates << {name: team[:name], value: participation_rate.round(1)}
+      end
       # @group_per_person << {name: team[:name], value: team[:hours]}
     end
+    ap @teams
     render json:
                {
                    leaderboard:
@@ -114,7 +151,7 @@ class AdministrationController < ApplicationController
                            volunteers:  @volunteers_count,
                            volunteer_hours:  @volunteer_hours,
                            volunteer_dollars: @volunteer_hours * 26.86,
-                           team_most_active: [],
+                           team_most_active: @group_activity_rates,
                            non_profit_hours: @non_profit_hours,
                            individual_hours: @individual_hours,
                            non_profit_additional: {
