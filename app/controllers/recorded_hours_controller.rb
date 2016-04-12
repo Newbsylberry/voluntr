@@ -20,7 +20,15 @@ class RecordedHoursController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @recorded_hour = RecordedHour.create(recorded_hours_params)
+    @recorded_hour = RecordedHour.create_with(locked: false).
+        find_or_initialize_by(person_id: params[:person_id], opportunity_id: params[:opportunity_id], instance: params[:instance])
+
+    if !@recorded_hour.persisted?
+      @recorded_hour.assign_attributes(recorded_hours_params)
+      @recorded_hour.send_sign_in_email
+      @recorded_hour.save
+    end
+
 
     @daily_statistic = DailyStatistic.create_with(locked: false)
                            .find_or_initialize_by(date: Time.now.beginning_of_day,
@@ -34,9 +42,10 @@ class RecordedHoursController < ApplicationController
     end
     @daily_statistic.save
 
-    @recorded_hour.send_sign_in_email
 
-    render @recorded_hour, serializer: RecordedHourSerializer
+
+
+    render json: @recorded_hour, serializer: RecordedHourSerializer
   end
 
 

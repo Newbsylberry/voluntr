@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def update_password_reset
     @user = User.find_by_reset_password_token(params[:reset_password_token])
-    ap "reset password"
+
     # @user.reset_password(params[:password], params[:password])
     if @user.reset_password(params[:password], params[:password])
       token = AuthToken.issue_token({ user_id: @user.id })
@@ -56,7 +56,8 @@ class UsersController < ApplicationController
 
   def reset_password
     @user = User.find_by_email(params[:email])
-    ap @user
+
+
     if @user.nil?
       render json: {status: 200}
     elsif !@user.nil?

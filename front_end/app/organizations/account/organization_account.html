@@ -3,7 +3,7 @@
     <md-tabs  md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
       <!-- Event Information -->
       <md-tab id="tab1">
-        <md-tab-label>Organization Information</md-tab-label>
+        <md-tab-label>Information</md-tab-label>
         <md-tab-body>
           <md-divider></md-divider>
           <div class="accountwrapper">
@@ -40,7 +40,7 @@
         </md-tab-body>
       </md-tab>
       <md-tab id="tab2">
-        <md-tab-label>Organization Integrations</md-tab-label>
+        <md-tab-label>Integrations</md-tab-label>
         <md-tab-body>
           <md-divider></md-divider>
           <div class="accountwrapper">
@@ -64,6 +64,24 @@
               </md-item>
             </md-list>
             <md-divider></md-divider>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2">
+        <md-tab-label>Resources</md-tab-label>
+        <md-tab-body>
+          <md-divider></md-divider>
+          <div class="accountwrapper">
+            <add-resource
+              object="organization"
+              type="organization"
+              resources-list="organization.resources"
+              ></add-resource>
+            <resource
+              resources-list="organization.resources"
+              object="organization"
+              >
+            </resource>
           </div>
         </md-tab-body>
       </md-tab>

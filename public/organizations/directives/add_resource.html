@@ -1,4 +1,11 @@
-<div class="file-drop-box" ngf-select ngf-drop ng-model="files" ngf-multiple="true" >
+<a href=""
+   ng-click="add_resource = true"
+   ng-hide="add_resource">Add New Resources</a>
+<a href=""
+   ng-click="add_resource = false"
+   ng-show="add_resource">Hide</a>
+<div ng-show="add_resource">
+<div class="file-drop-box" ngf-select ngf-drop ng-model="files" ngf-multiple="true">
   <h4>Drop Files Here</h4>
   <p>(Or Click to Select From Computer)</p>
   <h4 class="ionicon ion-document-text" style="font-size: 36pt;left: 50px;text-align: left;"></h4>
@@ -15,7 +22,7 @@
         <label>Description</label>
         <textarea ng-model="resource.description" md-maxlength="150" md-select-on-focus></textarea>
       </md-input-container>
-      <md-input-container flex="25">
+      <md-input-container flex="25" ng-if="type != 'person'">
         <label>Resource Type</label>
         <md-select ng-model="resource.resource_type" ng-init="resource.resource_type = 'For Volunteers'">
           <md-option ng-repeat="resource_type in resource_types" value="{{resource_type}}">
@@ -30,3 +37,4 @@
   </md-list-item>
   <md-button ng-click="uploadFiles()" class="md-primary md-raised">Upload Files</md-button>
 </md-list>
+</div>

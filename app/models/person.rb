@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :resources
+  has_many :resources, as: :resourceable, dependent: :destroy
   has_many :organization_people
   has_many :organizations, through: :organization_people
   has_many :person_opportunities
