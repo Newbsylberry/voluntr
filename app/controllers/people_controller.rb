@@ -25,11 +25,13 @@ class PeopleController < ApplicationController
   end
 
   def create
-    if params[:person][:email]
+    if params[:person][:email] && !params[:person][:email].blank? && !params[:person][:email].nil?
+      ap "email"
       @person = Person.create_with(locked: false)
                     .find_or_initialize_by(email: params[:person][:email])
-    elsif params[:person][:phone]
-    @person = Person.create_with(locked: false)
+    elsif params[:person][:phone] && !params[:person][:phone].blank? && !params[:person][:phone].nil?
+      ap "phone"
+      @person = Person.create_with(locked: false)
                   .find_or_initialize_by(phone: params[:person][:phone])
     else
       @person = Person.new
@@ -51,7 +53,7 @@ class PeopleController < ApplicationController
     if params[:organization_id]
       @person.add_to_organization(Organization.find(params[:organization_id]), params[:notes])
     end
-
+    ap @person
     render json: @person, serializer: PersonSerializer
   end
 
