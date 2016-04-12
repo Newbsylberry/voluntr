@@ -52,56 +52,58 @@ class AdministrationController < ApplicationController
         "Property Project"
     ].each do |name|
       opportunity = Opportunity.find_by_name(name.to_s)
-      @volunteers_count += opportunity.total_people_recording
-      @volunteer_hours += opportunity.recorded_hours.sum(:hours)
-      opportunity.recorded_hours.each do |rh|
-        if rh.person
-          if @volunteers.any?{|vol| vol[:name] === "#{rh.person.first_name} #{rh.person.last_name}"}
-            existing_volunteers = @volunteers.select { |t| t[:name] == "#{rh.person.first_name} #{rh.person.last_name}"}
-            existing_volunteers.each do |ev|
-              if ev[:hours]
-                ev[:hours] += rh.hours
+      if !opportunity.nil?
+        @volunteers_count += opportunity.total_people_recording
+        @volunteer_hours += opportunity.recorded_hours.sum(:hours)
+        opportunity.recorded_hours.each do |rh|
+          if rh.person
+            if @volunteers.any?{|vol| vol[:name] === "#{rh.person.first_name} #{rh.person.last_name}"}
+              existing_volunteers = @volunteers.select { |t| t[:name] == "#{rh.person.first_name} #{rh.person.last_name}"}
+              existing_volunteers.each do |ev|
+                if ev[:hours]
+                  ev[:hours] += rh.hours
+                end
+                if ev[:events]
+                  ev[:events] += 1
+                end
               end
-              if ev[:events]
-                ev[:events] += 1
-              end
+            else
+              @volunteers << {name: "#{rh.person.first_name} #{rh.person.last_name}", events: 1, hours: rh.hours}
             end
-          else
-            @volunteers << {name: "#{rh.person.first_name} #{rh.person.last_name}", events: 1, hours: rh.hours}
           end
-        end
-        if rh.organization_id
-          volunteer_group = Organization.find(rh.organization_id)
-          if @teams.any?{|team| team[:name] === volunteer_group.name}
-            existing_groups = @teams.select { |t| t[:name] == volunteer_group.name }
-            existing_groups.each do |eg|
-              if eg[:hours]
-                eg[:hours] += rh.hours
+          if rh.organization_id
+            volunteer_group = Organization.find(rh.organization_id)
+            if @teams.any?{|team| team[:name] === volunteer_group.name}
+              existing_groups = @teams.select { |t| t[:name] == volunteer_group.name }
+              existing_groups.each do |eg|
+                if eg[:hours]
+                  eg[:hours] += rh.hours
+                end
+                if eg[:events]
+                  eg[:events] += 1
+                end
+                if !eg[:volunteers].include?(rh.person)
+                  eg[:volunteers] << rh.person
+                end
               end
-              if eg[:events]
-                eg[:events] += 1
-              end
-              if !eg[:volunteers].include?(rh.person)
-                eg[:volunteers] << rh.person
-              end
+            else
+              @teams << {name: volunteer_group.name, hours: rh.hours, events: 1, volunteers: [rh.person]}
             end
-          else
-            @teams << {name: volunteer_group.name, hours: rh.hours, events: 1, volunteers: [rh.person]}
           end
-        end
 
-        if @nonprofits.any?{|npo| npo[:name] == rh.opportunity.organization.name}
-          existing_npos = @nonprofits.select { |t| t[:name] == rh.opportunity.organization.name }
-          existing_npos.each do |npo|
-            if npo[:hours]
-              npo[:hours] += rh.hours
+          if @nonprofits.any?{|npo| npo[:name] == rh.opportunity.organization.name}
+            existing_npos = @nonprofits.select { |t| t[:name] == rh.opportunity.organization.name }
+            existing_npos.each do |npo|
+              if npo[:hours]
+                npo[:hours] += rh.hours
+              end
+              if npo[:events]
+                npo[:events] += 1
+              end
             end
-            if npo[:events]
-              npo[:events] += 1
-            end
+          else
+            @nonprofits << {name: rh.opportunity.organization.name, hours: rh.hours, events: 1}
           end
-        else
-          @nonprofits << {name: rh.opportunity.organization.name, hours: rh.hours, events: 1}
         end
       end
     end
