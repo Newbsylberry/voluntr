@@ -1,18 +1,19 @@
 <md-dialog flex="90">
   <md-toolbar>
-    Send E-Maill to Volunteers
+    Send E-Mail to  Volunteers
   </md-toolbar>
   <md-dialog-content>
     <form name="emailForm" novalidate>
+      To: <a href="" ng-click="showVolunteers()">{{data.role}}</a>
       <md-input-container>
         <label>Subject</label>
-        <input name="subject" type="text" required ng-maxlength="77">
+        <input name="subject" type="text" ng-model="email.subject" required ng-maxlength="77">
       </md-input-container>
       <md-input-container>
         <label>Message</label>
-        <textarea name="message" rows="8" cols="40" required></textarea>
+        <textarea name="message" rows="8" ng-model="email.message" cols="40" required></textarea>
       </md-input-container>
-      <md-button class="md-raised">Send Email</md-button>
+      <md-button class="md-raised" ng-disabled="emailForm.$invalid">Send Email</md-button>
     </form>
   </md-dialog-content>
 </md-dialog>

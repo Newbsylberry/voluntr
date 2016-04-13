@@ -3,11 +3,17 @@
  */
 angular.module('voluntrApp')
 .controller('EmailVolunteersCtrl', [
-'$scope','volunteers',
-function($scope, volunteers) {
-  console.log($scope);
-  console.log(volunteers);
+'$scope','volunteers', 'role',
+function($scope, volunteers, role) {
+
+  $scope.data = {
+    role: role || "All Volunteers for this Opportunity"
+  };
+  $scope.email = {};
+
   console.log(JSON.parse(volunteers));
+
+  $scope.volunteers = JSON.parse(volunteers);
 
 
 }
