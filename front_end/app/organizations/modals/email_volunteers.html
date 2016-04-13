@@ -27,6 +27,19 @@
         <textarea name="message" rows="8" ng-model="email.message" cols="40" required></textarea>
       </md-input-container>
       <md-button class="md-raised md-primary" ng-disabled="emailForm.$invalid">Send Email</md-button>
+      <div
+      ng-messages="emailForm.subject.$error"
+      ng-show="emailForm.subject.$invalid && emailForm.subject.$touched"
+      >
+        <div ng-message="required">Subject Required.</div>
+        <div ng-message="maxlength">Subject Too Long.</div>
+      </div>
+      <div
+      ng-messages="emailForm.message.$error"
+      ng-show="emailForm.message.$invalid && emailForm.message.$touched"
+      >
+        <div ng-message="required">Message Required</div>
+      </div>
     </form>
   </md-dialog-content>
 </md-dialog>
