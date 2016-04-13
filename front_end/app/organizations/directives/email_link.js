@@ -5,7 +5,11 @@ angular.module('voluntrApp').directive("emailLink", function ($mdDialog) {
         controller: 'EmailVolunteersCtrl',
         templateUrl: 'organizations/modals/email_volunteers.html',
         parent: angular.element(document.body),
-        clickOutsideToClose: true
+        clickOutsideToClose: true,
+        locals: {
+          volunteers: attrs.volunteers
+        },
+        fullscreen: true
       });
     });
   }

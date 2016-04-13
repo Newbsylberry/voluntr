@@ -3,7 +3,7 @@
     Send E-Maill to Volunteers
   </md-toolbar>
   <md-dialog-content>
-    <form name="emailForm">
+    <form name="emailForm" novalidate>
       <md-input-container>
         <label>Subject</label>
         <input name="subject" type="text" required ng-maxlength="77">
@@ -12,6 +12,7 @@
         <label>Message</label>
         <textarea name="message" rows="8" cols="40" required></textarea>
       </md-input-container>
+      <md-button class="md-raised">Send Email</md-button>
     </form>
   </md-dialog-content>
 </md-dialog>

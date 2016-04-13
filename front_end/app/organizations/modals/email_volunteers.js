@@ -3,10 +3,11 @@
  */
 angular.module('voluntrApp')
 .controller('EmailVolunteersCtrl', [
-'$scope',
-function($scope) {
-
-
+'$scope','volunteers',
+function($scope, volunteers) {
+  console.log($scope);
+  console.log(volunteers);
+  console.log(JSON.parse(volunteers));
 
 
 }
