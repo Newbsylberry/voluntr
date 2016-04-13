@@ -3,8 +3,21 @@
     Send E-Mail to  Volunteers
   </md-toolbar>
   <md-dialog-content>
-    <form name="emailForm" novalidate>
-      To: <a href="" ng-click="showVolunteers()">{{data.role}}</a>
+    <form name="emailForm" ng-submit="sendEmail()" novalidate>
+      <span class="md-body-2">To:</span> <a ng-show="!data.viewEmails" href="" ng-click="showVolunteers()">{{data.role}}</a>
+      <span ng-show="data.viewEmails">
+        <md-chips ng-model="volunteers" readonly="true">
+          <md-chip-template>
+            <span ng-if="$chip.first_name && $chip.last_name">
+              {{$chip.first_name}} {{$chip.last_name}}
+            </span>
+            <span ng-if="!$chip.first_name || !$chip.last_name">
+              {{$chip.email}}
+            </span>
+          </md-chip-template>
+        </md-chips>
+        <a href="" ng-click="showVolunteers()">(hide)</a>
+      </span>
       <md-input-container>
         <label>Subject</label>
         <input name="subject" type="text" ng-model="email.subject" required ng-maxlength="77">
@@ -13,7 +26,7 @@
         <label>Message</label>
         <textarea name="message" rows="8" ng-model="email.message" cols="40" required></textarea>
       </md-input-container>
-      <md-button class="md-raised" ng-disabled="emailForm.$invalid">Send Email</md-button>
+      <md-button class="md-raised md-primary" ng-disabled="emailForm.$invalid">Send Email</md-button>
     </form>
   </md-dialog-content>
 </md-dialog>
