@@ -3,8 +3,8 @@
  */
 angular.module('voluntrApp')
 .controller('EmailVolunteersCtrl', [
-'$rootScope','$scope','volunteers', 'role',
-function($rootScope, $scope, volunteers, role) {
+'$scope','volunteers', 'role',
+function($scope, volunteers, role) {
 
   $scope.data = {
     viewEmails: false,
@@ -22,7 +22,7 @@ function($rootScope, $scope, volunteers, role) {
 
   $scope.sendEmail = function() {
     //Send Email
-    $rootScope.$broadcast('openOpportunityDetail');
+    $scope.$emit('openOpportunityDetail');
   };
 
   function mapVolunteers(vol) {

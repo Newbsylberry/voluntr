@@ -8,7 +8,7 @@
  * Controller of the voluntrApp
  */
 angular.module('voluntrApp')
-  .controller('OpportunitiesHomeCtrl', function ($scope, Facebook, $stateParams,
+  .controller('OpportunitiesHomeCtrl', function ($scope, $rootScope, Facebook, $stateParams,
                                                  $http, $state, $filter, uiCalendarConfig,
                                                  $modal, Opportunity,$mdDialog) {
 
@@ -97,7 +97,7 @@ angular.module('voluntrApp')
         });
     };
 
-    $scope.$on('openOpportunityDetail', function() {
+    $rootScope.$on('openOpportunityDetail', function() {
       $scope.opportunityDetail(opportunityDetailId, opportunityDetailStartTime);
 
     });
