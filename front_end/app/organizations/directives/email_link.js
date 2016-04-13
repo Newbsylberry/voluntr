@@ -3,6 +3,7 @@ angular.module('voluntrApp').directive("emailLink", function ($mdDialog) {
     element.bind('click', function () {
       console.log(attrs);
       console.log(attrs.role);
+      console.log(scope);
       var emailModal = $mdDialog.show({
         controller: 'EmailVolunteersCtrl',
         templateUrl: 'organizations/modals/email_volunteers.html',
@@ -12,6 +13,8 @@ angular.module('voluntrApp').directive("emailLink", function ($mdDialog) {
           volunteers: attrs.volunteers,
           role: attrs.role
         }
+      }).finally(function() {
+
       });
     });
   }

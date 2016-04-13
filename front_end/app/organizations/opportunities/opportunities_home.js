@@ -74,8 +74,11 @@ angular.module('voluntrApp')
     //      console.log('Modal dismissed at: ' + new Date());
     //    });
     //};
-
+    var opportunityDetailId;
+    var opportunityDetailStartTime;
     $scope.opportunityDetail = function(id, start_time){
+      opportunityDetailId = id;
+      opportunityDetailStartTime = start_time;
       $mdDialog.show({
         controller: 'OpportunityDetailCtrl',
         templateUrl: 'organizations/modals/opportunity_detail.html',
@@ -94,6 +97,10 @@ angular.module('voluntrApp')
         });
     };
 
+    $scope.$on('openOpportunityDetail', function() {
+      $scope.opportunityDetail(opportunityDetailId, opportunityDetailStartTime);
+
+    });
 
     $scope.uiConfig.myCalendar.eventClick = function(calEvent, jsEvent, view) {
       $scope.opportunityDetail(calEvent.id, calEvent._start._i);
