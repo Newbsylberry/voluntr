@@ -33,8 +33,10 @@ background-color:#35c0ff;
             padding:46px 30px 30px 30px;
             position:relative;">
 
+      <% if @organization.fb_id %>
       <%= image_tag("http://graph.facebook.com/v2.4/#{@organization.fb_id}/picture?type=large",
                     class: "organization_picture") %>
+      <% end %>
 
       <p style="color:rgba(0,0,0,0.7)">
         Dear <%= @person.first_name %>,
