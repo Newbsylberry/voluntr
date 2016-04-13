@@ -7,5 +7,10 @@
     background-color: white;
     position: absolute;
     width: 97%;
+    top: 74px;
+    text-align: left;
+    z-index: 1000;
+    height: 300px;
+    overflow: auto;
   }
 }

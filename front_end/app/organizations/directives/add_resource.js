@@ -8,7 +8,7 @@ angular.module('voluntrApp').directive("addResource", function () {
       type: "@"
     },
     restrict: 'E',
-    controller: function ($scope,Upload) {
+    controller: function ($scope,Upload,$stateParams) {
 
       $scope.resources = [];
 
@@ -35,6 +35,7 @@ angular.module('voluntrApp').directive("addResource", function () {
         var type = 'Opportunity'
       } else if ($scope.type === 'person') {
         var type = 'Person'
+        var organization_id = $stateParams.organization_Id;
       } else if ($scope.type === 'organization') {
         var type = 'Organization'
       }
@@ -50,6 +51,7 @@ angular.module('voluntrApp').directive("addResource", function () {
                 "resource[name]": resource.name,
                 "resource[description]": resource.description,
                 "resource[resourceable_type]": type,
+                "resource[organization_id]": organization_id,
                 "resource[resourceable_id]": $scope.object.id,
                 "resource_type": resource.resource_type
               },

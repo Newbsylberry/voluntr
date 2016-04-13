@@ -29,6 +29,6 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.require(:resource).permit(:id, :name, :description, :resourceable_id,
-                                        :resourceable_type, :resource)
+                                        :resourceable_type, :resource, :organization_id)
   end
 end

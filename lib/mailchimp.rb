@@ -20,6 +20,7 @@ module Mailchimp
     domain = token.split('-')[1]
     client = Mailchimp.client("https://#{domain}.api.mailchimp.com/3.0/")
     return OAuth2::AccessToken.new(client, token)
+    ap "success"
   end
 
 

@@ -4,7 +4,6 @@ class PersonOpportunitiesController < ApplicationController
 
 
   def create
-    ap params[:instances]
     person_params = {
         first_name: params[:first_name],
         last_name: params[:last_name],
@@ -47,10 +46,9 @@ class PersonOpportunitiesController < ApplicationController
     # end
 
 
-
-    # if !@person_opportunity.person.email.blank? || !@person_opportunity.person.email.nil?
-      # OpportunityMailer.opportunity_registration_email(params[:email],@person_opportunity).deliver_now
-    # end
+    if !@person_opportunity.person.email.blank? || !@person_opportunity.person.email.nil?
+      OpportunityMailer.opportunity_registration_email(@person_opportunity.person.email,@person_opportunity).deliver_now
+    end
 
 
     render json: @person

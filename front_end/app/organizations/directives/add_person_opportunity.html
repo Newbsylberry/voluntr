@@ -12,28 +12,7 @@
     <strong ng-show="type === 'role'">Add to {{selectedObject.name}}</strong>
     <strong ng-show="type === 'instance'">Add to {{selectedObject.instance_date | date:'short'}}</strong>
     <div layout="row" layout-wrap>
-      <md-input-container flex="33">
-        <label>First Name</label>
-        <input ng-model="person.first_name">
-      </md-input-container>
-      <md-input-container flex="33">
-        <label>Last Name</label>
-        <input ng-model="person.last_name">
-      </md-input-container>
-      <div flex="33">
-      <md-input-container  ng-if="!no_email">
-        <label>Email</label>
-        <input ng-model="person.email">
-      </md-input-container>
-      <md-input-container ng-if="no_email">
-        <label>Phone</label>
-        <input ng-model="person.phone">
-      </md-input-container>
-      </div>
-      <md-checkbox ng-model="no_email" flex="20">
-        No Email?
-      </md-checkbox><br>
-      <div flex="80"></div>
+      <find-person person="person" person-id="person.person_id"></find-person>
       <md-input-container flex="100">
         <label>Choose Role</label>
         <md-select ng-model="person_opportunity.opportunity_role" aria-label="Choose Role" ng-show="type !== 'role'">

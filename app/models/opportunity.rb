@@ -234,7 +234,7 @@ class Opportunity < ActiveRecord::Base
     # This function generates a report for an opportunity instance
     def generate_report(start_date, end_date)
       @resource = Resource.new
-      @resource.name = "report"
+      @resource.name = "Report - #{Time.now.strftime("%m/%d/%Y")}"
       @recorded_hours_series = Hash.new
       @recorded_hours_series["name"] = "Recorded Hours"
       @recorded_hours_series["data"] = Array.new

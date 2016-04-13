@@ -27,17 +27,15 @@ angular.module('voluntrApp')
     OrganizationPerson.get_by_organization_and_person_id($stateParams.organization_Id, id).$promise.then(function(successResponse) {
       $scope.organization_person_id = successResponse.id;
       $scope.person = successResponse.person;
-      console.log($scope.person)
+      console.log(successResponse)
+      $scope.person.resources = successResponse.resources;
       $scope.schedule = successResponse.person.schedule_update_form_settings;
       $scope.person.notes = successResponse.notes;
-      People.recorded_hours(id, 'recorded_hours').$promise.then(function(recorded_hours) {
-        $scope.person.recorded_hours = recorded_hours;
-        angular.forEach(recorded_hours, addRecordedHoursToDash)
-      });
-      People.opportunities(id, 'opportunities').$promise.then(function(opportunities) {
-        $scope.person.opportunities = opportunities;
-        angular.forEach($scope.person.opportunities, addToPersonOpportunitiesChart)
-      });
+      $scope.person.recorded_hours = successResponse.recorded_hours;
+      //People.opportunities(id, 'opportunities').$promise.then(function(opportunities) {
+      //  $scope.person.opportunities = opportunities;
+      //  angular.forEach($scope.person.opportunities, addToPersonOpportunitiesChart)
+      //});
     });
 
     $scope.custom_calendar = {};

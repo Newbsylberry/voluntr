@@ -256,9 +256,15 @@ class OrganizationsController < ApplicationController
   def search_people
     @current_organization = Organization.find(params[:id])
 
-    results = Elasticsearch::Model.search(
-        "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [OrganizationPerson])
-    render json: results
+
+
+    if !params[:query].blank?
+      results = Elasticsearch::Model.search(
+          "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [OrganizationPerson])
+    end
+
+    ap results
+      render json: results
   end
 
   def provide_token

@@ -221,17 +221,11 @@
       <md-tab id="tab7" md-on-select="grabData('additional')">
         <md-tab-label>Resources</md-tab-label>
         <md-tab-body>
-          <a href=""
-             ng-click="add_resource = true"
-             ng-hide="add_resource">Add New Resources</a>
-          <a href=""
-             ng-click="add_resource = false"
-             ng-show="add_resource">Hide</a>
           <add-resource
             object="opportunity"
             type="opportunity"
             resources-list="opportunity.resources"
-            ng-show="add_resource"></add-resource>
+            ></add-resource>
           <resource
             resources-list="opportunity.resources"
             object="opportunity"

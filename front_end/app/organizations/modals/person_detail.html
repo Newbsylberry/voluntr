@@ -113,14 +113,14 @@
             >Update Schedule</md-button>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab3">
-        <!-- The Opportunities Tab -->
+      <!--<md-tab id="tab3">
+        &lt;!&ndash; The Opportunities Tab &ndash;&gt;
         <md-tab-label>Opportunities</md-tab-label>
         <md-tab-body class="persontab">
           <div ng-show="person.opportunities.length == 0" class="no-data-div">
             <h2>This Person Hasn't Volunteered at Any Opportunities Yet!</h2>
           </div>
-          <highchart config="personOpportunitiesChart"></highchart>
+          &lt;!&ndash; <highchart config="personOpportunitiesChart"></highchart> &ndash;&gt;
           <md-list>
             <md-item ng-repeat="person_opportunity in person.opportunities">
               <md-item-content>
@@ -132,8 +132,8 @@
             </md-item>
           </md-list>
         </md-tab-body>
-      </md-tab>
-      <md-tab id="tab4">
+      </md-tab>-->
+      <md-tab id="tab3">
         <md-tab-label>Recorded Hours</md-tab-label>
         <md-tab-body class="persontab">
           <div ng-show="person.recorded_hours.length == 0" class="no-data-div">
@@ -147,9 +147,8 @@
           </md-list>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab1">
+      <md-tab id="tab4">
         <md-tab-label>Resources</md-tab-label>
-        <md-tab-body>
           <md-tab-body>
             <add-resource
               object="person"
