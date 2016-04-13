@@ -20,3 +20,6 @@
 
 # Ignore pngs in root 
 /*.png
+
+# Ignore pdfs in root
+/*.pdf
