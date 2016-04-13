@@ -13,6 +13,13 @@
     <div flex="20">
       <div class="hourlistr">
         <md-button
+          href=""
+          email-link
+          volunteers="{{opportunity_role.person_opportunities}}"
+          >
+          <md-icon md-svg-src="img/icons/email.svg"></md-icon>
+        </md-button>
+        <md-button
           class="md-warn hourlistb"
           href=""
           ng-click="deleteOpportunityRole(opportunity_role)">
