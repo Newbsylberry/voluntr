@@ -40,7 +40,13 @@
         <!--<md-button class="ion-close dialog-close-button" ng-click="cancel()">
         </md-button>-->
         <ul class="dialog-toolbar-action-list">
-          <li><a href="">Email Volunteers</a></li>
+          <li>
+            <a email-link
+               href="javascript:;"
+               volunteers="{{opportunity.instance.instance_volunteers}}"
+               href="">Email Volunteers
+            </a>
+          </li>
           <li><a report-link
                  type="opportunity"
                  id="{{opportunity.id}}"
