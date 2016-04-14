@@ -1,6 +1,6 @@
 <md-list-item class="md-3-line"
               ng-repeat="opportunity_role in rolesList" layout="row" layout-wrap id="opportunity-role">
-    <div flex="80">
+    <div flex="70" class="role-information">
       <h3
         >{{opportunity_role.name}}
         <p ng-show="opportunity_role.person_opportunities">{{opportunity_role.person_opportunities.length}} / {{opportunity_role.volunteers_required}}</p>
@@ -10,16 +10,8 @@
       <a href="" ng-click="show_volunteers = true" ng-show="!show_volunteers && opportunity_role.person_opportunities.length > 0" class="volunteer-toggle-link">Show Volunteers?</a>
       <a href="" ng-click="show_volunteers = false" ng-show="show_volunteers" class="volunteer-toggle-link">Hide Volunteers?</a>
     </div>
-    <div flex="20">
+    <div flex="30">
       <div class="hourlistr">
-        <md-button
-          href=""
-          email-link
-          role="{{opportunity_role.name}}"
-          volunteers="{{opportunity_role.person_opportunities}}"
-          >
-          <md-icon md-svg-src="img/icons/email.svg"></md-icon>
-        </md-button>
         <md-button
           class="md-warn hourlistb"
           href=""
@@ -31,6 +23,14 @@
           href=""
           ng-click="editing = true">
           Edit
+        </md-button>
+        <md-button
+          href=""
+          email-link
+          role="{{opportunity_role.name}}"
+          class="ionicon ion-email mail-icon"
+          volunteers="{{opportunity_role.person_opportunities}}"
+          >
         </md-button>
         <add-person-opportunity
           ng-show="type !== 'new'"

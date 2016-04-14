@@ -1,0 +1,19 @@
+#email-volunteers-modal {
+  md-dialog-content {
+  padding: 16px 18px;
+    overflow: auto;
+  }
+  h2 {
+    color: white;
+    text-align: center;
+  }
+  button {
+    float: right;
+  }
+  .error-messages {
+    color: red;
+  }
+  textarea {
+    height: 200px;
+  }
+}
