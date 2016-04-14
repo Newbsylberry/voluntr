@@ -14,7 +14,7 @@ function($scope, volunteers, role,$http) {
 
   volunteers = JSON.parse(volunteers);
 
-  $scope.data.volunteers = volunteers.map(mapVolunteers);
+  $scope.data.volunteers = volunteers.filter(filterVolunteers).map(mapVolunteers);
 
   $scope.showVolunteers = function() {
     $scope.data.viewEmails = !$scope.data.viewEmails;
@@ -22,17 +22,16 @@ function($scope, volunteers, role,$http) {
 
   $scope.sendEmail = sendEmail;
 
-  function mapVolunteers(vol) {
-    if (vol.email) {
-      return {
-        first_name: vol.first_name || null,
-        last_name: vol.last_name || null,
-        email: vol.email
-      };
-    } else {
-      return;
-    }
+  function filterVolunteers(vol) {
+    return vol.email;
+  }
 
+  function mapVolunteers(vol) {
+    return {
+      first_name: vol.first_name || null,
+      last_name: vol.last_name || null,
+      email: vol.email
+    };
   }
 
   function sendEmail() {
