@@ -15,7 +15,6 @@
     "angular-material-data-table": "~0.8.10",
     "angular-pdf": "~1.1.1",
     "angular-resource": "~1.4.0",
-    "angular-route": "~1.4.0",
     "angular-sanitize": "~1.4.0",
     "angular-scroll-watch": "~0.5.4",
     "angular-snap": "~1.8.1",

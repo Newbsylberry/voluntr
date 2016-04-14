@@ -14,7 +14,6 @@ angular
     'ngCookies',
     'daterangepicker',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
     'ngTouch',
     'facebook',
