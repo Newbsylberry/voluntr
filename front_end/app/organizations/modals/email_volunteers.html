@@ -5,10 +5,26 @@
     </h2>
   </md-toolbar>
   <md-dialog-content>
-    <form name="emailForm" ng-submit="sendEmail()" novalidate>
+    <div ng-show="data.emailSuccess">
+      Email Sent!
+      <md-button
+      class="md-raised md-primary"
+      ng-click="openOpportunityDetailDialog()">
+      Okay
+      </md-button>
+    </div>
+    <div ng-show="data.emailFailure">
+      Email Failure!
+      <md-button
+      class="md-raised md-primary"
+      ng-click="openOpportunityDetailDialog()">
+      Okay
+      </md-button>
+    </div>
+    <form name="emailForm" ng-submit="sendEmail()" ng-show="!data.emailSent" novalidate>
       <span class="md-body-2">To:</span> <a ng-show="!data.viewEmails" href="" ng-click="showVolunteers()">{{data.role}}</a>
       <span ng-show="data.viewEmails">
-        <md-chips ng-model="volunteers" readonly="true">
+        <md-chips ng-model="data.volunteers" readonly="true">
           <md-chip-template>
             <span ng-if="$chip.first_name && $chip.last_name">
               {{$chip.first_name}} {{$chip.last_name}}
@@ -28,7 +44,7 @@
         <label>Message</label>
         <textarea name="message" rows="8" cols="40" ng-model="email.message" required></textarea>
       </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="sendEmail()" ng-disabled="emailForm.$invalid">Send Email</md-button>
+      <md-button class="md-raised md-primary" ng-disabled="emailForm.$invalid && !data.pending">Send Email</md-button>
       <div
       ng-messages="emailForm.subject.$error"
       class="error-messages"
@@ -45,5 +61,6 @@
         <div ng-message="required">Message Required</div>
       </div>
     </form>
+    <md-button class="md-raised" ng-click="openOpportunityDetailDialog()">Close</md-button>
   </md-dialog-content>
 </md-dialog>

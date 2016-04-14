@@ -14,27 +14,13 @@ function($scope, volunteers, role,$http) {
 
   volunteers = JSON.parse(volunteers);
 
-  $scope.volunteers = volunteers.map(mapVolunteers);
+  $scope.data.volunteers = volunteers.map(mapVolunteers);
 
   $scope.showVolunteers = function() {
-    $scope.data.viewEmails = !$scope.data.viewEmails
+    $scope.data.viewEmails = !$scope.data.viewEmails;
   };
 
-  $scope.sendEmail = function() {
-    var attr = {};
-    attr.volunteers = $scope.volunteers;
-    attr.message = $scope.email.message;
-    attr.subject = $scope.email.subject;
-    $http({
-      method: 'post',
-      url: '/api/v1/administration/email_volunteers',
-      data: attr
-      }).then(function(data){
-      console.log(data)
-    });
-    //Send Email
-    // $scope.$emit('openOpportunityDetail');
-  };
+  $scope.sendEmail = sendEmail;
 
   function mapVolunteers(vol) {
     if (vol.email) {
@@ -47,6 +33,30 @@ function($scope, volunteers, role,$http) {
       return;
     }
 
+  }
+
+  function sendEmail() {
+    var attr = {};
+    attr.volunteers = $scope.data.volunteers;
+    attr.message = $scope.email.message;
+    attr.subject = $scope.email.subject;
+    $http({
+      method: 'post',
+      url: '/api/v1/administration/email_volunteers',
+      data: attr
+    })
+    .then(function(data){
+      $scope.data.emailSent = true;
+      $scope.data.emailSuccess = true;
+    })
+    .catch(function(){
+      $scope.data.emailSent = true;
+      $scope.data.emailFailure = true;
+    });
+  }
+
+  $scope.openOpportunityDetailDialog = function() {
+    $scope.$emit('openOpportunityDetail');
   }
 
 
