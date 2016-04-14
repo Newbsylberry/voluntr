@@ -110,9 +110,9 @@ class Person < ActiveRecord::Base
     @organization_person = OrganizationPerson.create_with(locked: false).
         find_or_initialize_by(person: self, organization: organization)
     @organization_person.notes = notes
-    if !organization.organization_mailing_services.empty? && !email.nil?
-       @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
-    end
+    # if !organization.organization_mailing_services.empty? && !email.nil?
+    #    @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
+    # end
     if !@organization_person.persisted? && !email.nil? && !email.blank?
       @organization_person.send_registration_confirmation
     end
