@@ -65,6 +65,12 @@
         "build/pdf.worker.js",
         "build/pdf.combined.js"
       ]
+    },
+    "highcharts": {
+      "main": [
+        "lib/highcharts.js",
+        "lib/modules/exporting.js"
+      ]
     }
   }
 }
