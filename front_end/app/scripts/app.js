@@ -23,7 +23,6 @@ angular
     'ngMaterial',
     'ngFileUpload',
     'pdf',
-    'ngMap',
     'Devise',
     'geolocation',
     'highcharts-ng',
