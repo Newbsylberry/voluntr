@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       resources :people, defaults: {format: :json}
       post '/user/contact_form', to: 'administration#contact_email', defaults: {format: :json}
       post '/administration/feedback', to: 'administration#feedback', defaults: {format: :json}
+      post '/administration/email_volunteers', to: 'administration#email_volunteers', defaults: {format: :json}
       get '/administration/volunteer_drive_leaderboard', to: 'administration#volunteer_drive_leaderboard', defaults: {format: :json}
       resources :profiles, defaults: {format: :json}
       resources :organizations, except: [:new, :edit], defaults: {format: :json}

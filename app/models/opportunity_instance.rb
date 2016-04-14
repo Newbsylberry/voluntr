@@ -40,11 +40,17 @@ class OpportunityInstance < ActiveRecord::Base
         role = {name: role.name, id: role.id, volunteers_required: role.volunteers_required, person_opportunities: []}
         if !registered_instance_volunteers.empty?
           registered_instance_volunteers.each do |v|
+            if v[:person][:email]
+              email = v[:person][:email]
+            else
+              email = nil
+            end
             if v[:opportunity_role] && v[:opportunity_role][:id] === role[:id]
-              role[:person_opportunities] << {first_name: v[:person][:first_name], last_name: v[:person][:last_name], id: v[:person][:id]}
+              role[:person_opportunities] << {first_name: v[:person][:first_name], last_name: v[:person][:last_name], id: v[:person][:id], email: email}
             end
           end
         end
+        
         instance_roles << role
       end
     end

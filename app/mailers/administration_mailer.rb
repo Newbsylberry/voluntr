@@ -7,6 +7,22 @@ class AdministrationMailer < ApplicationMailer
       mail(to: 'christian@voluapp.com', cc: 'aj@voluapp.com', subject: "Volu Contact Email")
     end
 
+    def volunteer_email(volunteer, subject, body, current_organization)
+      @volunteer = volunteer
+      @body = body
+
+
+      user_emails = [];
+      @organization = current_organization
+      @organization.users.each do |u|
+        user_emails << u.email
+      end
+
+
+
+      mail(to: @volunteer[:email], from: user_emails, subject: subject)
+    end
+
     def feedback_email(email, description, current_state)
       @email = email
       @description = description

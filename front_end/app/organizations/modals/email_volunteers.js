@@ -3,8 +3,8 @@
  */
 angular.module('voluntrApp')
 .controller('EmailVolunteersCtrl', [
-'$scope','volunteers', 'role',
-function($scope, volunteers, role) {
+'$scope','volunteers', 'role','$http',
+function($scope, volunteers, role,$http) {
 
   $scope.data = {
     viewEmails: false,
@@ -21,8 +21,19 @@ function($scope, volunteers, role) {
   };
 
   $scope.sendEmail = function() {
+    var attr = {};
+    attr.volunteers = $scope.volunteers;
+    attr.message = $scope.email.message;
+    attr.subject = $scope.email.subject;
+    $http({
+      method: 'post',
+      url: '/api/v1/administration/email_volunteers',
+      data: attr
+      }).then(function(data){
+      console.log(data)
+    });
     //Send Email
-    $scope.$emit('openOpportunityDetail');
+    // $scope.$emit('openOpportunityDetail');
   };
 
   function mapVolunteers(vol) {

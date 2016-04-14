@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,700,300" rel="stylesheet" type="text/css" />
+
+</head>
+<body style="
+background-color:#35c0ff;
+        font-family: 'Roboto', 'Arial', sans-serif;
+        font-weight:300;
+        margin:0px;
+">
+<div style="display:table;
+        width:100%;
+        height:100%;">
+  <div style="display:table-cell;
+          vertical-align:middle;">
+    <div style="background-color:#fff;
+            border-radius:4px;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
+            width:80%;
+            margin:20px auto;
+            padding:46px 30px 30px 30px;
+            position:relative;">
+
+      <% if @organization.fb_id %>
+      <%= image_tag("http://graph.facebook.com/v2.4/#{@organization.fb_id}/picture?type=large",
+                    class: "organization_picture", style: "height: 125px;") %>
+      <% end %>
+      <p style="color:rgba(0,0,0,0.7)">
+        Hello <%= "#{@volunteer["first_name"]} #{@volunteer["last_name"]}" %>,
+      </p>
+        <p><%= "You are receiving this message from #{@organization.name}, and can respond directly to it." %></p>
+      <p style="margin-left: 22px;text-align: left;">
+        <%= @body %>
+      </p>
+      <p>
+        You can respond directly to this message.
+      </p>
+      <p style="text-align:right;
+              color:rgba(0,0,0,0.4) !important;">Powered by VOLU</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

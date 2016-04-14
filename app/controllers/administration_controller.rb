@@ -1,4 +1,7 @@
 class AdministrationController < ApplicationController
+  before_filter :authenticate
+  before_filter :authenticate_user
+  skip_before_filter only: [:contact, :feedback, :volunteer_drive_leaderboard]
   def contact
     @email = params[:email]
     @content = params[:content]
@@ -12,6 +15,13 @@ class AdministrationController < ApplicationController
     AdministrationMailer.feedback_email(params[:data][:email],
                                         params[:data][:description],
                                         params[:data][:current_state]).deliver
+  end
+
+  def email_volunteers
+    ap params[:message]
+    params[:volunteers].each do |v|
+      AdministrationMailer.volunteer_email(v, params[:subject],params[:message], @current_organization).deliver
+    end
   end
 
   def volunteer_drive_leaderboard

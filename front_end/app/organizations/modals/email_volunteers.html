@@ -26,7 +26,7 @@
         <label>Message</label>
         <textarea name="message" rows="8" ng-model="email.message" cols="40" required></textarea>
       </md-input-container>
-      <md-button class="md-raised md-primary" ng-disabled="emailForm.$invalid">Send Email</md-button>
+      <md-button class="md-raised md-primary" ng-click="sendEmail()" ng-disabled="emailForm.$invalid">Send Email</md-button>
       <div
       ng-messages="emailForm.subject.$error"
       ng-show="emailForm.subject.$invalid && emailForm.subject.$touched"

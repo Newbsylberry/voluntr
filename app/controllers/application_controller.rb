@@ -30,6 +30,7 @@ class ApplicationController < ActionController::API
     begin
       token = request.headers['Authorization'].split(' ').last # token is taken from request headers
       payload, header = AuthToken.valid?(token) #checks to see if token is valid
+      ap payload['user_id']
       if payload['user_id']
         @current_user = User.find(payload['user_id'])
       end
