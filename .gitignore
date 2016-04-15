@@ -17,3 +17,9 @@
 
 # Ignore Mac OS X DS_store
 .DS_Store
+
+# Ignore pngs in root 
+/*.png
+
+# Ignore pdfs in root
+/*.pdf
