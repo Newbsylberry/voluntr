@@ -50,6 +50,8 @@ gem 'httparty'
 gem 'awesome_print'
 gem 'oauth2'
 
+gem 'slack-notifier'
+
 
 
 
