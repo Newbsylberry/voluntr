@@ -12,7 +12,17 @@
     <strong ng-show="type === 'role'">Add to {{selectedObject.name}}</strong>
     <strong ng-show="type === 'instance'">Add to {{selectedObject.instance_date | date:'short'}}</strong>
     <div layout="row" layout-wrap>
-      <find-person person="person" person-id="person.person_id"></find-person>
+      <!-- <find-person person="person" person-id="person.person_id"></find-person> -->
+      <md-contact-chips
+        md-contacts="asyncSearch($query)"
+        md-require-match="true"
+        md-contact-name="fullName"
+        md-contact-email="email"
+        placeholder="Jane Doe"
+        secondary-placeholder="John Doe"
+        filter-selected="true"
+        ng-model="contacts"
+      ></md-contact-chips>
       <md-input-container flex="100">
         <label>Choose Role</label>
         <md-select ng-model="person_opportunity.opportunity_role" aria-label="Choose Role" ng-show="type !== 'role'">
@@ -22,10 +32,10 @@
         </md-select>
       </md-input-container>
       <div flex="20">
-      <!--<md-button class="md-raised" style="float: left;">Add to {{type}} and Open</md-button>-->
       </div>
       <div flex="60"></div>
       <div flex="20">
+      <md-button class="md-raised" style="float: right;">Add Volunteer</md-button>
       <md-button class="md-raised md-primary" style="float: right;"ng-click="addPersonOpportunity()">Add to {{type}}</md-button>
       </div>
     </div>
