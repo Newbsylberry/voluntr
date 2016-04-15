@@ -21,7 +21,7 @@ class OpportunityInstance < ActiveRecord::Base
           po.instances.each do |i|
             if i > start.beginning_of_day and i < start.end_of_day
               person = Person.find(po.person_id)
-              if po.opportunity_role_id
+              if po.opportunity_role_id && OpportunityRole.exists?(id: po.opportunity_role_id)
                 role = OpportunityRole.find(po.opportunity_role_id)
               end
               instance_volunteers << {person: person,opportunity_role: role, opportunity: opportunity}
