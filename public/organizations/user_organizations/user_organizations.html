@@ -3,7 +3,8 @@
     <ul     class="list-group organization-login-list">
       <div ng-repeat="organization in organizations" ng-if="organizations.length > 0">
         <li class="list-group-item" ng-if="organization.exists === true || organization.users.length > 0">
-          <img class="organization-login-image" ng-src="{{organization.picture}}">
+          <img ng-if="organization.fb_picture && !organization.picture" class="organization-login-image" ng-src="{{organization.fb_picture}}">
+          <img ng-if="organization.picture" class="organization-login-image" ng-src="{{organization.picture.picture.url}}">
 
           <!-- Organization Name -->
           <p class="lead">{{organization.name}}</p>

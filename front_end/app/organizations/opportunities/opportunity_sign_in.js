@@ -21,9 +21,15 @@ angular.module('voluntrApp')
 
     Opportunity.get({opportunity_Id: $stateParams.opportunity_Id}, function(successResponse) {
       $scope.opportunity = successResponse;
-        Facebook.api('/' + successResponse.organization.fb_id + '/picture', {"type": "large"}, function (response) {
+      console.log(successResponse)
+      if (successResponse.organization.picture.url === null) {
+      Facebook.api('/' + successResponse.organization.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization_picture = response.data.url;
       })
+      } else if (successResponse.organization.picture.url !== null) {
+        console.log(successResponse.organization)
+        $scope.organization_picture = successResponse.organization.picture.url;
+      }
     });
 
     $scope.terms_of_service = true;

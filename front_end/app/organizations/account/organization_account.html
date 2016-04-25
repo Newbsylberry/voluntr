@@ -9,7 +9,9 @@
           <div class="accountwrapper">
             <div class="col-md-3">
               <!-- <div class="accimg"> -->
-              <img ng-src="{{organization.picture}}" class="accimg">
+              <img ng-if="organization.picture.picture.url !== null" ng-src="{{organization.picture.picture.url}}" class="accimg">
+              <img ng-if="organization.fb_picture" ng-src="{{organization.fb_picture}}" class="accimg">
+              <a href="javascript:;" ngf-select ng-model="file" ngf-multiple="false">Change Picture</a>
               <!-- </div> -->
             </div>
             <div class="col-md-9">

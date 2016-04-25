@@ -10,9 +10,13 @@ angular.module('voluntrApp')
         // find the organizations information on facebook
         console.log("get")
         $scope.organization = successResponse;
+        if ($scope.organization.picture.picture.url === null) {
         Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization.picture = response.data.url;
         });
+        } else if ($scope.organization.picture.picture.url !== null){
+          $scope.organization.picture = successResponse.picture.picture.url;
+        }
 
         $scope.submittable = false;
         if ($state.params.token) {
