@@ -40,11 +40,11 @@ angular.module('voluntrApp')
 
       Organization.get({organization_Id: successResponse.organization_id}, function(successResponse){
         $scope.custom_url = successResponse.custom_url;
-        if (!successResponse.picture) {
+        if (successResponse.picture.picture.url === null) {
         Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization_picture = response.data.url;
         });
-        } else if (successResponse.picture) {
+        } else if (successResponse.picture.picture.url !== null) {
           $scope.organization_picture = successResponse.picture.picture.url;
         }
       })

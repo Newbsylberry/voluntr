@@ -82,11 +82,11 @@ angular.module('voluntrApp')
           organization.exists = true;
           organization.v_id = data.id;
           organization.fb_id = data.fb_id;
-          if (!data.picture) {
+          if (data.picture.picture.url === null) {
             Facebook.api('/' + organization.id + '/picture', {"type": "large"}, function (response) {
               organization.fb_picture = response.data.url;
             });
-          } else if (data.picture){
+          } else if (data.picture.picture.url !== null){
             organization.picture = data.picture;
           }
           if (data.nonprofit) {
