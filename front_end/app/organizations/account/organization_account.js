@@ -16,8 +16,7 @@ angular.module('voluntrApp')
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
-      console.log(successResponse)
-      if (!$scope.organization.picture){
+      if ($scope.organization.picture.picture.url === null){
         Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
           $scope.organization.fb_picture = response.data.url;
         });
