@@ -75,7 +75,7 @@ class OrganizationPerson < ActiveRecord::Base
     @recorded_hours = Array.new
       if organization.organization_type.name = "Nonprofit"
         person.recorded_hours.each do |rh|
-          if rh.opportunity.organization.id === organization.id
+          if rh.opportunity && rh.opportunity.organization.id === self.organization.id
             if rh.opportunity_role
               @opportunity_role_name = rh.opportunity_role.name
             end
