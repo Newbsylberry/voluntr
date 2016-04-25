@@ -79,14 +79,22 @@ class OrganizationsController < ApplicationController
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
-    @current_organization = Organization.find(params[:id])
-
     if @current_organization.update(organization_params)
-      head :no_content
+      render json: @current_organization, serializer: OrganizationSerializer
     else
       render json: @current_organization.errors, status: :unprocessable_entity
     end
   end
+
+  # def update_picture
+  #   @current_organization = Organization.find(params[:id])
+  #
+  #   if @current_organization.update(organization_params)
+  #     head :no_content
+  #   else
+  #     render json: @current_organization.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   def existence_check
     @organization = Organization.find_by_fb_id(params[:fb_id])
@@ -214,7 +222,7 @@ class OrganizationsController < ApplicationController
                volunteers: @organization.total_people,
                total_hours: @organization.total_recorded_hours,
                total_opportunities: @organization.total_opportunities,
-               average_hours_recorded: @organization.average_hours_recorded
+               average_hours_recorded: @organization.average_hours_recorded.round(2)
            }
   end
 
@@ -281,7 +289,7 @@ class OrganizationsController < ApplicationController
   def organization_params
     params.require(:organization).permit(:id, :fb_id, :name, :description, :address_1, :address_2, :state, :city, :zip_code,
                                          :custom_url, :website_url, :facebook_url, :twitter_url, :instagram_url,
-                                         :terms_of_service_file)
+                                         :terms_of_service_file, :picture)
   end
 
 end

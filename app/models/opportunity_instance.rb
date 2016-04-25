@@ -72,7 +72,7 @@ class OpportunityInstance < ActiveRecord::Base
         elsif rh.instance && rh.instance === instance_date
           ap rh.instance
           person = Person.find(rh.person_id)
-          if rh.opportunity_role_id
+          if rh.opportunity_role_id && OpportunityRole.exists?(id: rh.opportunity_role_id)
             role = OpportunityRole.find(rh.opportunity_role_id)
           end
           if rh.organization_id

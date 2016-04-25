@@ -31,6 +31,13 @@ background-color:#35c0ff;
             margin:20px auto;
             padding:46px 30px 30px 30px;
             position:relative;">
+      <% if @organization.picture %>
+          <%= image_tag("#{@opportunity.organization.picture.url}",
+                        class: "organization_picture", style: "height: 125px;") %>
+      <% elsif @organization.fb_id %>
+          <%= image_tag("http://graph.facebook.com/v2.4/#{@opportunity.organization.fb_id}/picture?type=large",
+                        class: "organization_picture", style: "height: 125px;") %>
+      <% end %>
       <p style="color:rgba(0,0,0,0.7)">
         You are being contacted by <%= @organization.name %>, here is their message:
       </p>
