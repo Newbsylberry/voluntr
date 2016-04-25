@@ -5,8 +5,6 @@ class OpportunityMailer < ActionMailer::Base
     @email = email
     @person_opportunity = person_opportunity
 
-    ap @person_opportunity
-
     mail(to: email, subject: "Thanks for registering for #{@person_opportunity.opportunity.name}")
   end
 

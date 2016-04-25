@@ -86,16 +86,6 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # def update_picture
-  #   @current_organization = Organization.find(params[:id])
-  #
-  #   if @current_organization.update(organization_params)
-  #     head :no_content
-  #   else
-  #     render json: @current_organization.errors, status: :unprocessable_entity
-  #   end
-  # end
-
   def existence_check
     @organization = Organization.find_by_fb_id(params[:fb_id])
 
