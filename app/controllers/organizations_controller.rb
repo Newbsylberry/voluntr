@@ -186,7 +186,7 @@ class OrganizationsController < ApplicationController
       end
     elsif @current_organization.organization_type.name === 'Volunteer Group'
       @current_organization.recorded_hours.each do |rh|
-        if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 3.days
+        if !rh.date_recorded.nil? && rh.date_recorded > Time.now - 14.days
           @current_organization_recorded_hours.push(rh)
         end
       end
@@ -206,13 +206,11 @@ class OrganizationsController < ApplicationController
   end
 
   def summary_statistics
-    @organization = Organization.find(params[:id])
-
     render json: {
-               volunteers: @organization.total_people,
-               total_hours: @organization.total_recorded_hours,
-               total_opportunities: @organization.total_opportunities,
-               average_hours_recorded: @organization.average_hours_recorded.round(2)
+               volunteers: @current_organization.total_people,
+               total_hours: @current_organization.total_recorded_hours,
+               total_opportunities: @current_organization.total_opportunities,
+               average_hours_recorded: @current_organization.average_hours_recorded
            }
   end
 

@@ -37,6 +37,22 @@ class Organization < ActiveRecord::Base
     end
   end
 
+  def organization_recorded_hours
+    @current_organization_recorded_hours = Array.new
+    if organization_type.name === 'Nonprofit'
+      opportunities.each do |o|
+        o.recorded_hours.each do |rh|
+            @current_organization_recorded_hours.push(rh)
+        end
+      end
+    elsif organization_type.name === 'Volunteer Group'
+      recorded_hours.each do |rh|
+          @current_organization_recorded_hours.push(rh)
+      end
+    end
+    return @current_organization_recorded_hours
+  end
+
   def opportunities
     opportunities = [];
     OrganizationOpportunity.where(organization_id: id).each do |oo|
@@ -44,9 +60,17 @@ class Organization < ActiveRecord::Base
         opportunities.push(Opportunity.find(oo.opportunity_id))
       end
     end
-    Opportunity.where(organization_id: id).each do |o|
-      if !opportunities.include?(o)
-        opportunities.push(o)
+    if organization_type.name === "Nonprofit"
+      Opportunity.where(organization_id: id).each do |o|
+        if !opportunities.include?(o)
+          opportunities.push(o)
+        end
+      end
+    elsif organization_type.name === "Volunteer Group"
+      recorded_hours.each do |rh|
+        if rh.opportunity && !opportunities.include?(rh.opportunity)
+          opportunities << rh.opportunity
+        end
       end
     end
     return opportunities
@@ -84,15 +108,21 @@ class Organization < ActiveRecord::Base
   end
 
   def total_recorded_hours
-    recorded_hours.sum(:hours)
+    total_recorded_hours = 0
+    organization_recorded_hours.each do |rh|
+      if rh.hours
+        total_recorded_hours += rh.hours
+      end
+    end
+    return total_recorded_hours
   end
 
   def total_opportunities
-    opportunities.count
+      return opportunities.count
   end
 
   def average_hours_recorded
-    recorded_hours.average(:hours)
+    return total_recorded_hours / organization_recorded_hours.count
   end
 
   def terms_of_service_uploaded
@@ -136,7 +166,6 @@ class Organization < ActiveRecord::Base
       summary_graph["Total Volunteers Added"][ds.date.strftime("%m/%e")] = ds.total_added_volunteers
       summary_graph["Total Recorded Hours"][ds.date.strftime("%m/%e")] = ds.total_recorded_hours
     end
-    ap summary_graph
     recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
       if rh.person
         existing_volunteer = @organization_volunteers.find { |ov| ov[:id] == rh.person_id }
