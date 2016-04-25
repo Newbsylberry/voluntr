@@ -1,5 +1,12 @@
 class OrganizationReportPdf < Prawn::Document
-  def initialize(organization, summary_graph, start_date, end_date, top_volunteers, top_suffixes)
+  def initialize(organization,
+                 summary_graph,
+                 start_date,
+                 end_date,
+                 top_volunteers,
+                 top_suffixes,
+                 total_number_of_volunteers,
+                 total_hours)
     super()
     @organization = organization
     @summary_graph = summary_graph
@@ -8,9 +15,9 @@ class OrganizationReportPdf < Prawn::Document
     @end_date = end_date
     @top_volunteers = top_volunteers
     @top_suffixes = top_suffixes
-    @total_hours = organization.recorded_hours.where(:date_recorded => start_date..end_date).sum(:hours)
+    @total_hours = total_hours
     # @total_volunteers_registered = opportunity.person_opportunities.where(:created_at => start_date..end_date).count
-    @total_number_of_volunteers = organization.recorded_hours.where(:date_recorded => start_date..end_date).map(&:person_id).uniq.count
+    @total_number_of_volunteers = total_number_of_volunteers
     # @opportunities = opportunities
     header
     summary_chart

@@ -152,11 +152,12 @@ class Organization < ActiveRecord::Base
   # This function generates a report for an opportunity instance
   def generate_report(start_date, end_date)
     @resource = Resource.new
-    @resource.name = "report"
+    @resource.name = "report - #{Time.now.strftime("%T - %m/%e/%Y")}"
     @recorded_hours_series = Hash.new
     @recorded_hours_series["name"] = "Recorded Hours"
     @recorded_hours_series["data"] = Array.new
     @organization_volunteers = []
+    @total_hours = 0
     summary_graph = Hash.new
     summary_graph["Total Volunteers Added"] = Hash.new
     summary_graph["Total Recorded Hours"] = Hash.new
@@ -166,8 +167,9 @@ class Organization < ActiveRecord::Base
       summary_graph["Total Volunteers Added"][ds.date.strftime("%m/%e")] = ds.total_added_volunteers
       summary_graph["Total Recorded Hours"][ds.date.strftime("%m/%e")] = ds.total_recorded_hours
     end
-    recorded_hours.where(date_recorded: start_date..end_date).each do |rh|
-      if rh.person
+    organization_recorded_hours.each do |rh|
+      if rh.hours && rh.person && rh.instance && (start_date..end_date).cover?(rh.instance)
+        @total_hours += rh.hours
         existing_volunteer = @organization_volunteers.find { |ov| ov[:id] == rh.person_id }
         if existing_volunteer
           existing_volunteer[:hours] += rh.hours
@@ -197,12 +199,14 @@ class Organization < ActiveRecord::Base
 
 
 
-    pdf = OrganizationReportPdf.new(self, summary_graph, start_date, end_date, top_volunteers, top_suffixes)
-    pdf.render_file "hello.pdf"
+    pdf = OrganizationReportPdf.new(self, summary_graph, start_date, end_date, top_volunteers, top_suffixes, @organization_volunteers.count, @total_hours)
+    pdf.render_file "#{self.name} report #{Time.now.strftime("%m.%e.%Y.%H%M")}.pdf"
 
-    @resource.resource = File.open("hello.pdf")
+    @resource.resource = File.open("#{self.name} report #{Time.now.strftime("%m.%e.%Y.%H%M")}.pdf")
     @resource.resourceable = self
     @resource.save
+    File.delete("#{self.name} report #{Time.now.strftime("%m.%e.%Y.%H%M")}.pdf")
+
     return @resource
   end
 
