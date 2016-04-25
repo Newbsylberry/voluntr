@@ -19,6 +19,7 @@ class Organization < ActiveRecord::Base
   validates :custom_url, uniqueness: true
   validates :name, uniqueness: true
   mount_uploader :terms_of_service_file, TermsOfServiceUploader
+  mount_uploader :picture, PictureUploader
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode
 

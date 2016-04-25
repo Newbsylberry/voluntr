@@ -13,6 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    SlackNotificationTool.send_message("importantsiteactivity", "#{params[:user][:email]} just tried to create a #{params[:user][:organization][:organization_type_name]} account for their organization #{params[:user][:organization][:organization_name]}, we should reach out to them and make sure they're happy thus far!")
     @organization = Organization.create(name: params[:user][:organization][:organization_name])
     if !@organization.save
       render json:

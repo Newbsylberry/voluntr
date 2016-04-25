@@ -1,5 +1,6 @@
 class RecordedHour < ActiveRecord::Base
   include Elasticsearch::Model
+  after_initialize :set_defaults, unless: :persisted?
   belongs_to :group
   belongs_to :organization
   belongs_to :opportunity
@@ -10,6 +11,9 @@ class RecordedHour < ActiveRecord::Base
   # validates :person_id, uniqueness: { scope: :opportunity_id }, if: :already_recorded_for_instance?
 
 
+  def set_defaults
+    self.hours  ||= 1
+  end
 
 
   def send_sign_in_email

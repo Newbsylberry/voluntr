@@ -16,10 +16,11 @@ angular.module('voluntrApp')
 
     Organization.get({organization_Id: $stateParams.organization_Id}, function(successResponse) {
       $scope.organization = successResponse;
-      console.log(successResponse)
-      Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
-        $scope.organization.picture = response.data.url;
-      });
+      if ($scope.organization.picture.picture.url === null){
+        Facebook.api('/' + successResponse.fb_id + '/picture', {"type": "large"}, function (response) {
+          $scope.organization.fb_picture = response.data.url;
+        });
+      }
     });
 
 
@@ -101,6 +102,21 @@ angular.module('voluntrApp')
         });
       }
     }
+
+    $scope.$watch('file',function(){
+      if ($scope.file) {
+        Upload.upload({
+          url: '/api/v1/organizations/' + $scope.organization.id,
+          method: 'PATCH',
+          file: {'organization[picture]': $scope.file}
+        }).then(function (resp) {
+          $scope.organization.picture = resp.data.picture;
+        });
+      }
+    });
+
+
+
 
   });
 
