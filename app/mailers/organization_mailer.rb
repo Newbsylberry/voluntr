@@ -12,6 +12,6 @@ class OrganizationMailer < ApplicationMailer
     @organization = contacting_organization
     @message = message
     ap @administrator_emails
-    mail(to: @administrator_emails, from: @organization_emails, subject: "#{@organization.name} Contacting You From Volu")
+    mail(to: @administrator_emails, reply_to: @organization_emails, subject: "#{@organization.name} Contacting You From Volu")
   end
 end
