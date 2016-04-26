@@ -171,26 +171,30 @@ angular.module('voluntrApp')
     };
 
     $scope.getArray = function() {
-      var volunteers = []
-      angular.forEach($scope.opportunity.volunteers, function(volunteer) {
-        var v = {}
-        v.first_name = volunteer.first_name;
-        v.last_name = volunteer.last_name;
-        v.address_1 = volunteer.address_1;
-        v.address_2 = volunteer.address_2;
-        v.city = volunteer.city;
-        v.state = volunteer.state;
-        v.zip_code = volunteer.zip_code;
-        v.occupation = volunteer.occupation;
-        v.organization_name = volunteer.organization_name;
-        v.opportunity_role = volunteer.opportunity_role;
-        v.phone = volunteer.phone;
-        v.email_address = volunteer.email;
-        v.hours = volunteer.opportunity_hours;
-        volunteers.push(v)
-      })
-      return volunteers
-    };
+      return Opportunity.volunteers($scope.opportunity.id, 'volunteers').$promise.then(function (volunteers) {
+        var opportunity_volunteers = [];
+        angular.forEach(volunteers, function (volunteer) {
+          var v = {}
+          v.first_name = volunteer.first_name;
+          v.last_name = volunteer.last_name;
+          v.address_1 = volunteer.address_1;
+          v.address_2 = volunteer.address_2;
+          v.city = volunteer.city;
+          v.state = volunteer.state;
+          v.zip_code = volunteer.zip_code;
+          v.occupation = volunteer.occupation;
+          v.organization_name = volunteer.organization_name;
+          v.opportunity_role = volunteer.opportunity_role;
+          v.phone = volunteer.phone;
+          v.email_address = volunteer.email;
+          v.hours = volunteer.opportunity_hours;
+          opportunity_volunteers.push(v)
+        })
+        return opportunity_volunteers
+      });
+    }
+
+
 
 
     var series = []

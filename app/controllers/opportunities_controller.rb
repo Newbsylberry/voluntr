@@ -134,7 +134,7 @@ class OpportunitiesController < ApplicationController
 
 
   def volunteers
-    @opportunity = Opportunity.find_by_id(params[:id]).first
+    @opportunity = Opportunity.find_by_id(params[:id])
 
     render json: @opportunity.volunteers, each_serializer: PersonSerializer
   end

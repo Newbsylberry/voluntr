@@ -273,7 +273,7 @@ class Opportunity < ActiveRecord::Base
       top_volunteers = @opportunity_volunteers.sort_by { |i| i[:hours] }.reverse!.take(10)
       top_suffixes = @email_suffixes.sort_by { |i| i[:hours] }.reverse!.take(10)
 
-      recorded_hours = "#{name}_recorded_hours.png"
+      recorded_hours = "recorded_hours.png"
       Gchart.line(:size => '500x300',
                   :title => "Timeline of Recorded Hours at #{name}",
                   :bg => 'FFFFFF',
@@ -311,7 +311,7 @@ class Opportunity < ActiveRecord::Base
       end
 
       opportunity_roles_options["series"].push(@opportunity_roles_series)
-      opportunity_roles = "#{name}_opportunity_hours.png"
+      opportunity_roles = "opportunity_hours.png"
       open(opportunity_roles, 'wb') do |file|
         file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_roles_options))}").read
       end
@@ -343,18 +343,23 @@ class Opportunity < ActiveRecord::Base
       end
 
       opportunity_groups_options["series"].push(@opportunity_groups_series)
-      opportunity_groups = "#{name}_groups_opportunity_hours.png"
+      opportunity_groups = "groups_opportunity_hours.png"
       open(opportunity_groups, 'wb') do |file|
         file << open("http://export.highcharts.com/?async=false&type=png&width=500&options=#{URI.encode(JSON.generate(opportunity_groups_options))}").read
       end
 
 
       pdf = OpportunityReportPdf.new(self, recorded_hours, opportunity_roles, opportunity_groups, start_date, end_date, top_volunteers, top_suffixes)
-      pdf.render_file "hello.pdf"
+      pdf.render_file "Opportunity Report #{Time.now.strftime("%m.%e.%Y.%H%M")}"
 
-      @resource.resource = File.open("hello.pdf")
+      @resource.resource = File.open("Opportunity Report #{Time.now.strftime("%m.%e.%Y.%H%M")}")
       @resource.resourceable = self
       @resource.save
+      File.delete("groups_opportunity_hours.png")
+      File.delete("opportunity_hours.png")
+      File.delete("recorded_hours.png")
+      File.delete("Opportunity Report #{Time.now.strftime("%m.%e.%Y.%H%M")}")
+
       return @resource
     end
 

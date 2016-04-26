@@ -36,7 +36,7 @@
     "kendo-ui-core": "~2014.3.1204",
     "lodash": "~3.7.0",
     "md-date-time": "~0.0.12",
-    "ng-csv": "~0.3.3",
+    "ng-csv": "0.3.6",
     "ng-file-upload": "~7.2.2",
     "ng-file-upload-shim": "~7.2.2",
     "ng-idle": "~1.1.0",

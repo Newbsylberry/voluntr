@@ -190,6 +190,25 @@
       <md-tab id="tab5 opportunity-people" md-on-select="grabData('people')">
         <md-tab-label>People</md-tab-label>
         <md-tab-body>
+          <a href="javascript:;"
+             class="tab-body-main-link"
+             ng-csv="getArray()"
+             filename="{{opportunity.name}}_volunteers.csv"
+             lazy-load="true"
+             csv-header="[
+            'First Name',
+            'Last Name',
+            'Address 1',
+            'Address 2',
+            'City',
+            'State',
+            'Zip Code',
+            'Occupation',
+            'Organization Name',
+            'Opportunity Role',
+            'Phone',
+            'Email Address',
+            'Hours Recorded']">Export Spreadsheet</a>
               <md-list class="opportunity-volunteer-list">
                 <md-list-item class="md-2-line" ng-repeat="volunteer in opportunity.instance.instance_volunteers">
                   <div class="md-list-item-text">
