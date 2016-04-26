@@ -21,7 +21,7 @@ class PersonOrganizationMailer < ActionMailer::Base
       end
     end
 
-    mail(to: @email, from: @from_emails, subject: "Thanks for registering with #{@organization.name}")
+    mail(to: @email, reply_to: @from_emails, subject: "Thanks for registering with #{@organization.name}")
   end
 
 

@@ -17,7 +17,7 @@ class OpportunityMailer < ActionMailer::Base
       end
     end
 
-    mail(to: @email, from: @users_emails, subject: "Thanks for registering for #{@person_opportunity.opportunity.name}")
+    mail(to: @email, reply_to: @users_emails, subject: "Thanks for registering for #{@person_opportunity.opportunity.name}")
   end
 
   def upcoming_opportunities_information(person, person_opportunities)
@@ -41,7 +41,7 @@ class OpportunityMailer < ActionMailer::Base
     end
 
     mail(to: opportunity_emails,
-         from: organization_emails,
+         reply_to: organization_emails,
          subject: "#{@organization.name} wants to collaborate on #{@opportunity.name}")
   end
 
