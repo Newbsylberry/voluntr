@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :resources
+  has_many :resources, as: :resourceable, dependent: :destroy
   has_many :organization_people
   has_many :organizations, through: :organization_people
   has_many :person_opportunities
@@ -111,7 +111,7 @@ class Person < ActiveRecord::Base
         find_or_initialize_by(person: self, organization: organization)
     @organization_person.notes = notes
     if !organization.organization_mailing_services.empty? && !email.nil?
-       @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
+       # @organization_person.add_to_lists(Array.new << organization.default_list("mail_chimp"))
     end
     if !@organization_person.persisted? && !email.nil? && !email.blank?
       @organization_person.send_registration_confirmation

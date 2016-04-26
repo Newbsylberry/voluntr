@@ -8,13 +8,13 @@ angular.module('voluntrApp').directive("addResource", function () {
       type: "@"
     },
     restrict: 'E',
-    controller: function ($scope,Upload) {
+    controller: function ($scope,Upload,$stateParams) {
 
       $scope.resources = [];
 
-      $scope.$watch('files',function(){
+      $scope.$watch('files', function () {
         if ($scope.files && $scope.files.length > 0) {
-          angular.forEach($scope.files,function(file){
+          angular.forEach($scope.files, function (file) {
             var resource = {};
             resource.name = file.name;
             resource.file = file;
@@ -24,17 +24,21 @@ angular.module('voluntrApp').directive("addResource", function () {
         }
       });
 
-      $scope.deleteResource = function(resource){
+      $scope.deleteResource = function (resource) {
         var index = $scope.resources.indexOf(resource);
         if (index > -1) {
           $scope.resources.splice(index, 1);
         }
       };
 
-      if ($scope.type === 'opportunity'){
+      if ($scope.type === 'opportunity') {
         var type = 'Opportunity'
-      };
-
+      } else if ($scope.type === 'person') {
+        var type = 'Person'
+        var organization_id = $stateParams.organization_Id;
+      } else if ($scope.type === 'organization') {
+        var type = 'Organization'
+      }
       $scope.resource_types = ['For Volunteers','Internal Use'];
 
       $scope.uploadFiles = function() {
@@ -47,12 +51,15 @@ angular.module('voluntrApp').directive("addResource", function () {
                 "resource[name]": resource.name,
                 "resource[description]": resource.description,
                 "resource[resourceable_type]": type,
+                "resource[organization_id]": organization_id,
                 "resource[resourceable_id]": $scope.object.id,
                 "resource_type": resource.resource_type
               },
               file: {'resource[resource]': resource.file}
             }).then(function (resp) {
+              console.log(resp)
               $scope.resourcesList.push(resource);
+              $scope.add_resource = false;
             });
           })
         }

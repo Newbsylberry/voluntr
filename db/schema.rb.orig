@@ -12,10 +12,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160126230140) do
+ActiveRecord::Schema.define(version: 20160412230323) do
 =======
-ActiveRecord::Schema.define(version: 20160116204003) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 20160424230221) do
+>>>>>>> 583-person-modal-scoped
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,9 +76,12 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.string   "address"
+    t.string   "address_1"
     t.integer  "volunteer_goal"
     t.text     "schedule"
+    t.boolean  "collaborative"
+    t.json     "schedules"
+    t.string   "address_2"
   end
 
   create_table "opportunity_instances", force: :cascade do |t|
@@ -135,12 +138,21 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.integer  "default_list_id"
   end
 
+  create_table "organization_opportunities", force: :cascade do |t|
+    t.integer  "opportunity_id"
+    t.integer  "organization_id"
+    t.boolean  "administrator"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "organization_people", force: :cascade do |t|
     t.integer  "person_id"
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
+    t.json     "custom_fields"
   end
 
   create_table "organization_types", force: :cascade do |t|
@@ -157,7 +169,7 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.string   "name"
     t.text     "description"
     t.datetime "last_social_update"
-    t.string   "address"
+    t.string   "address_1"
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
@@ -168,6 +180,10 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.text     "instagram_url"
     t.string   "terms_of_service_file"
     t.integer  "organization_type_id"
+    t.string   "address_2"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "picture"
   end
 
   create_table "people", force: :cascade do |t|
@@ -232,6 +248,14 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.boolean  "photo_consent"
     t.integer  "group_id"
     t.boolean  "contact_me"
+    t.datetime "instance"
+  end
+
+  create_table "resource_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "resources", force: :cascade do |t|
@@ -242,6 +266,8 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "resource"
+    t.integer  "resource_type_id"
+    t.integer  "organization_id"
   end
 
   add_index "resources", ["resourceable_id"], name: "index_resources_on_resourceable_id", using: :btree
@@ -278,6 +304,11 @@ ActiveRecord::Schema.define(version: 20160116204003) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

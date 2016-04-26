@@ -36,7 +36,7 @@ background-color:#35c0ff;
       </p>
       <p>
         Thank you for registering to volunteer at <%= @person_opportunity.opportunity.name %>.  This opportunity is
-        located at the following addresss:
+        located at the following address:
       </p>
         <% if @person_opportunity.opportunity.address_1  && @person_opportunity.opportunity.address_2 %>
           <strong> <%= "#{@person_opportunity.opportunity.address_1} #{@person_opportunity.opportunity.address_2}" %></strong>
@@ -64,9 +64,17 @@ background-color:#35c0ff;
         <% end %>
       </ul>
       <p>
-        As those dates approach, we will send additional information about the opportunity.
+        We've attached some important documents related to the opportunity:
       </p>
+      <ul>
+        <% if @attachments.count > 0 %>
+          <% @attachments.each do |resource| %>
+                <li><%= "#{resource.name}" %> <% if resource.description %><%= "- #{resource.description}" %><% end %></li>
+          <% end %>
+        <% end %>
+      </ul>
       <p>
+        As those dates approach, we will send additional information about the opportunity, feel free to respond to this email to speak with a volunteer coordinator.
         Thank you again for helping us make this event a success!
       </p>
       <br/>

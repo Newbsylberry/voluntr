@@ -1,21 +1,41 @@
 class OrganizationReportPdf < Prawn::Document
-  def initialize(organization, summary_graph, start_date, end_date, top_volunteers, top_suffixes)
+  def initialize(organization,
+                 summary_graph,
+                 start_date,
+                 end_date,
+                 top_volunteers,
+                 top_suffixes,
+                 total_number_of_volunteers,
+                 total_hours,
+                 volunteer_table,
+                 opportunities,
+                 top_opportunities,
+                 opportunities_table)
     super()
     @organization = organization
+    @opportunities = opportunities
     @summary_graph = summary_graph
+    @top_opportunities = top_opportunities
     # @groups = groups
     @start_date = start_date
     @end_date = end_date
     @top_volunteers = top_volunteers
     @top_suffixes = top_suffixes
-    @total_hours = organization.recorded_hours.where(:date_recorded => start_date..end_date).sum(:hours)
+    @total_hours = total_hours
     # @total_volunteers_registered = opportunity.person_opportunities.where(:created_at => start_date..end_date).count
-    @total_number_of_volunteers = organization.recorded_hours.where(:date_recorded => start_date..end_date).map(&:person_id).uniq.count
+    @total_number_of_volunteers = total_number_of_volunteers
+    @volunteer_table = volunteer_table
+    @opportunities_table = opportunities_table
     # @opportunities = opportunities
+
     header
     summary_chart
     text_content
     top_lists
+    start_new_page
+    opportunities_page
+    start_new_page
+    person_list
     # opportunity_roles_graph
     # opportunity_role_text
     #start_new_page
@@ -26,7 +46,7 @@ class OrganizationReportPdf < Prawn::Document
   def header
     #This inserts an image in the pdf file and sets the size of the image
     bounding_box([0, cursor], :width => 600, :height => 25) do
-      text "#{@organization.name} Summary Between #{@start_date.strftime("%m-%d-%Y")} and #{@end_date.strftime("%m-%d-%Y")}", size: 16
+      text "Organization Summary Between #{@start_date.strftime("%m-%d-%Y")} and #{@end_date.strftime("%m-%d-%Y")}", size: 16
     end
 
     bounding_box([0, cursor], :width => 270, :height => 25) do
@@ -86,6 +106,22 @@ class OrganizationReportPdf < Prawn::Document
     end
   end
 
+  def opportunities_page
+      font_size(24) { text "Opportunities", align: :center }
+      bounding_box([50, 680], :width => 200, :height => 200) do
+        text "Top Opportunities", size: 12, align: :left
+        @top_opportunities.each do |to|
+          text "#{to[:name]}  #{to[:hours]} hours", size: 10
+        end
+      end
+      bounding_box([280, 680], :width => 200, :height => 200) do
+        image @opportunities
+      end
+      table(@opportunities_table)
+  end
+
+
+
 
     # bounding_box([300, y_position], :width => 270, :height => 400) do
     #   text "Useful Metrics:", size: 15, style: :bold
@@ -127,6 +163,11 @@ class OrganizationReportPdf < Prawn::Document
         font_size(18) {text "#{g.name}: #{g.total_recorded_hours} hours | #{g.total_people} people"}
       end
     end
+  end
+
+  def person_list
+    font_size(24) { text "All Volunteer Hours", align: :center }
+    table(@volunteer_table)
   end
 end
 

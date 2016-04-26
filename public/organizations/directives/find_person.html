@@ -1,19 +1,46 @@
 <div class="row" id="organization-people-search">
-  <md-input-container>
-    <label>Search for a volunteer to add...</label>
-    <input ng-model="volunteer_search" ng-keyup="people_search(volunteer_search)">
-  </md-input-container>
+  <div layout="row">
+    <md-input-container flex="25">
+      <label>First Name</label>
+      <input ng-model="person.first_name" ng-init="person.first_name = ''">
+    </md-input-container>
+    <md-input-container flex="25">
+      <label>Last Name</label>
+      <input ng-model="person.last_name" ng-init="person.last_name = ''">
+    </md-input-container>
+    <div flex="25">
+      <md-input-container  ng-show="!no_email">
+        <label>Email</label>
+        <input ng-model="person.email" ng-init="person.email = ''">
+      </md-input-container>
+      <md-input-container ng-show="no_email">
+        <label>Phone</label>
+        <input ng-model="person.phone" ng-init="person.phone = ''">
+      </md-input-container>
+    </div>
+    <md-checkbox ng-model="no_email" flex="25">
+      No Email?
+    </md-checkbox><br>
+  </div>
+  <div layout="row">
+    <div flex="66">
+      <md-list
+        id="organization-people-search"
+        ng-show="results && people.length > 0">
+        <md-list-item
+          ng-show="people"
+          ng-repeat="person in people
+              | orderBy : 'score'"
+          >
+          <a
+            ng-click="selectPerson(person)"
+            href="javascript:;"
+          md-prevent-menu-close="md-prevent-menu-close">{{person.first_name}} {{person.last_name}}</a>
+        </md-list-item>
+      </md-list>
+    </div>
+    <div flex="33">
 
-  <md-list
-    ng-show="!searching && !no_search"
-    id="organization-people-search">
-    <md-list-item
-      ng-show="people"
-      ng-repeat="person in people
-              | orderBy : 'score'">
-      <p>{{person.first_name}} {{person.last_name}}</p>
-      <a href="" ng-click="selectPerson(person)" style="float: right;">
-        Select</a>
-    </md-list-item>
-  </md-list>
+    </div>
+  </div>
 </div>

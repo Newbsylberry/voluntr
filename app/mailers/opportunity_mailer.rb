@@ -2,10 +2,22 @@ class OpportunityMailer < ActionMailer::Base
   default from: "admin@voluapp.com"
 
   def opportunity_registration_email(email, person_opportunity)
+    ap email
     @email = email
     @person_opportunity = person_opportunity
+    @users_emails = Array.new
+    @attachments = Array.new
+    person_opportunity.opportunity.organization.users.each do |u|
+      @users_emails << u.email
+    end
+    person_opportunity.opportunity.resources.each do |r|
+      if r.resource_type && r.resource_type.name == "For Volunteers"
+        @attachments << r
+        attachments["#{r.name}"] = open(r.resource.url).read
+      end
+    end
 
-    mail(to: email, subject: "Thanks for registering for #{@person_opportunity.opportunity.name}")
+    mail(to: @email, from: @users_emails, subject: "Thanks for registering for #{@person_opportunity.opportunity.name}")
   end
 
   def upcoming_opportunities_information(person, person_opportunities)

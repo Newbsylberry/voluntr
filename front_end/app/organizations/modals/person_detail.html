@@ -2,9 +2,9 @@
   <md-toolbar class="md-tall">
     <div layout="row" layout-xs="column">
       <div flex="20" style="padding: 16px 18px;">
-      <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
-           class="face"
-        style="height: 100px;">
+        <img src="http://graph.facebook.com/{{person.fb_id}}/picture?type=large"
+             class="face"
+             style="height: 100px;">
       </div>
       <div flex="60" class="object-dialog-toolbar-component">
         <h2>{{person.first_name}} {{person.last_name}}</h2>
@@ -33,9 +33,9 @@
       <md-tab id="tab2">
         <md-tab-label>Dashboard</md-tab-label>
         <md-tab-body >
-              <div class="row person-dashboard">
-                <highchart config="personStatisticGraphConfig"></highchart>
-              </div>
+          <div class="row person-dashboard">
+            <highchart config="personStatisticGraphConfig"></highchart>
+          </div>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab1">
@@ -83,87 +83,84 @@
           </div>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab1">
-        <md-tab-label>Availability Schedule</md-tab-label>
-        <md-tab-body >
-          <div class="tabcontrol">
-            <div class="tabcontrolin persontab" >
-              <md-button
-                ng-show="!edit_schedule"
-                ng-click="edit_schedule = true"
-                class="md-primary md-raised"
-                >Edit Default Schedule</md-button>
-              <md-button auxiliary-modal-window
-                         ng-show="!edit_schedule"
-                         type="person-custom-schedule"
-                         class="md-secondary md-raised"
-                         id="{{person.id}}"
-                         object="custom_calendar" >Add Custom Schedule</md-button>
-              <a href=""
-                 ng-show="edit_schedule"
-                 class="person-detail-edit-schedule-link"
-                 ng-click="edit_schedule = false">Back to Schedule</a>
-              <div
-                ng-show="!edit_schedule"
-                ui-calendar="uiConfig.myCalendar"
-                calendar="calendar"
-                ng-model="eventSources"
-                style="overflow:hidden;">
-              </div>
-              <person-schedule
-                ng-if="edit_schedule"
-                person-id="{{person.id}}"
-                schedule="schedule"></person-schedule>
-              <md-button
-                class="md-primary md-raised right-bottom-button"
-                ng-click="updateWithSchedule()"
-                ng-show="edit_schedule"
-                >Update Schedule</md-button>
-            </div>
-          </div>
-        </md-tab-body>
-      </md-tab>
       <md-tab id="tab2">
-        <!-- The Opportunities Tab -->
-        <md-tab-label>Opportunities</md-tab-label>
-        <md-tab-body>
-          <div class="tabcontrol">
-            <div class="tabcontrolin persontab">
-              <div ng-show="person.opportunities.length == 0" class="no-data-div">
-                <h2>This Person Hasn't Volunteered at Any Opportunities Yet!</h2>
-              </div>
-              <highchart config="personOpportunitiesChart"></highchart>
-              <md-list>
-                <md-item ng-repeat="person_opportunity in person.opportunities">
-                  <md-item-content>
-                    <div class="md-tile-content">
-                      <h3>{{person_opportunity.opportunity.name}}</h3>
-                      <h3>{{person_opportunity.total_hours}}</h3>
-                    </div>
-                  </md-item-content>
-                </md-item>
-              </md-list>
-            </div>
+        <md-tab-label>Availability Schedule</md-tab-label>
+        <md-tab-body class="persontab">
+          <md-button
+            ng-show="!edit_schedule"
+            ng-click="edit_schedule = true"
+            class="md-primary md-raised"
+            >Edit Default Schedule</md-button>
+          <a href=""
+             ng-show="edit_schedule"
+             class="person-detail-edit-schedule-link"
+             ng-click="edit_schedule = false">Back to Schedule</a>
+          <div
+            ng-show="!edit_schedule"
+            ui-calendar="uiConfig.myCalendar"
+            calendar="calendar"
+            ng-model="eventSources"
+            style="overflow:hidden;">
           </div>
+          <person-schedule
+            ng-if="edit_schedule"
+            person-id="{{person.id}}"
+            schedule="schedule"></person-schedule>
+          <md-button
+            class="md-primary md-raised right-bottom-button"
+            ng-click="updateWithSchedule()"
+            ng-show="edit_schedule"
+            >Update Schedule</md-button>
         </md-tab-body>
       </md-tab>
+      <!--<md-tab id="tab3">
+        &lt;!&ndash; The Opportunities Tab &ndash;&gt;
+        <md-tab-label>Opportunities</md-tab-label>
+        <md-tab-body class="persontab">
+          <div ng-show="person.opportunities.length == 0" class="no-data-div">
+            <h2>This Person Hasn't Volunteered at Any Opportunities Yet!</h2>
+          </div>
+          &lt;!&ndash; <highchart config="personOpportunitiesChart"></highchart> &ndash;&gt;
+          <md-list>
+            <md-item ng-repeat="person_opportunity in person.opportunities">
+              <md-item-content>
+                <div class="md-tile-content">
+                  <h3>{{person_opportunity.opportunity.name}}</h3>
+                  <h3>{{person_opportunity.total_hours}}</h3>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </md-tab-body>
+      </md-tab>-->
       <md-tab id="tab3">
         <md-tab-label>Recorded Hours</md-tab-label>
-        <md-tab-body>
-          <div class="tabcontrol">
-            <div class="tabcontrolin persontab" >
-              <div ng-show="person.recorded_hours.length == 0" class="no-data-div">
-                <h2>This Person Hasn't Recorded Any Hours!</h2>
-              </div>
-              <md-list>
-                <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
-                               recorded-hour="recorded_hour"
-                               recorded-hours="person.recorded_hours"
-                               type="person"></recorded-hour>
-              </md-list>
-            </div>
+        <md-tab-body class="persontab">
+          <div ng-show="person.recorded_hours.length == 0" class="no-data-div">
+            <h2>This Person Hasn't Recorded Any Hours!</h2>
           </div>
+          <md-list>
+            <recorded-hour ng-repeat="recorded_hour in person.recorded_hours"
+                           recorded-hour="recorded_hour"
+                           recorded-hours="person.recorded_hours"
+                           type="person"></recorded-hour>
+          </md-list>
         </md-tab-body>
+      </md-tab>
+      <md-tab id="tab4">
+        <md-tab-label>Resources</md-tab-label>
+          <md-tab-body>
+            <add-resource
+              object="person"
+              type="person"
+              resources-list="person.resources"
+              ></add-resource>
+            <resource
+              resources-list="person.resources"
+              object="person"
+              >
+            </resource>
+          </md-tab-body>
       </md-tab>
     </md-tabs>
   </md-dialog-content>

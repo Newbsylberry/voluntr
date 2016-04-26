@@ -10,6 +10,7 @@ angular.module('voluntrApp').directive("resource", function () {
     restrict: 'E',
     controller: function ($scope,$mdDialog,Resource) {
 
+
       $scope.deleteResource = function(resource){
         var index = $scope.resourcesList.indexOf(resource);
         if (index > -1) {
