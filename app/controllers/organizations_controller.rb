@@ -259,8 +259,7 @@ class OrganizationsController < ApplicationController
           "*#{params[:query]}* AND organization_id:#{@current_organization.id}", [OrganizationPerson])
     end
 
-    ap results
-      render json: results
+    render json: results
   end
 
   def provide_token

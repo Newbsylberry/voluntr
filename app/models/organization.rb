@@ -42,12 +42,12 @@ class Organization < ActiveRecord::Base
     if organization_type.name === 'Nonprofit'
       opportunities.each do |o|
         o.recorded_hours.each do |rh|
-            @current_organization_recorded_hours.push(rh)
+          @current_organization_recorded_hours.push(rh)
         end
       end
     elsif organization_type.name === 'Volunteer Group'
       recorded_hours.each do |rh|
-          @current_organization_recorded_hours.push(rh)
+        @current_organization_recorded_hours.push(rh)
       end
     end
     return @current_organization_recorded_hours
@@ -118,7 +118,7 @@ class Organization < ActiveRecord::Base
   end
 
   def total_opportunities
-      return opportunities.count
+    return opportunities.count
   end
 
   def average_hours_recorded
@@ -157,6 +157,16 @@ class Organization < ActiveRecord::Base
     @recorded_hours_series["name"] = "Recorded Hours"
     @recorded_hours_series["data"] = Array.new
     @organization_volunteers = []
+    @volunteer_table = []
+    @top_opportunities = []
+    @volunteer_table << ["Name", "Email", "Organization","Opportunity","Instance","Hours"]
+    @opportunities_table = []
+    if organization_type.name === "Volunteer Group"
+      @opportunities_table << ["Opportunity Name", "Organization Name", "Organization Contact","# of Volunteers","Total Hours"]
+    elsif organization_type.name === "Nonprofit"
+      @opportunities_table << ["Opportunity Name","# of Volunteers","Total Hours"]
+    end
+
     @total_hours = 0
     summary_graph = Hash.new
     summary_graph["Total Volunteers Added"] = Hash.new
@@ -170,15 +180,62 @@ class Organization < ActiveRecord::Base
     organization_recorded_hours.each do |rh|
       if rh.hours && rh.person && rh.instance && (start_date..end_date).cover?(rh.instance)
         @total_hours += rh.hours
+        if rh.opportunity && !rh.opportunity.nil?
+          opportunity_name = "#{rh.opportunity.name.to_s}"
+        else
+          opportunity_name = "No Opportunity Name"
+        end
+        if organization_type.name === "Nonprofit"
+          if rh.organization && !rh.organization.nil?
+            organization_name = "#{rh.organization.name.to_s}"
+          else
+            organization_name = "No Organization"
+          end
+        elsif organization_type.name === "Volunteer Group"
+          if rh.opportunity && Opportunity.exists?(id: rh.opportunity.id) && rh.opportunity.organization && Organization.exists?(id: rh.opportunity.organization.id)
+            organization_name = "#{rh.opportunity.organization.name.to_s}"
+          else
+            organization_name = "No Organization"
+          end
+        end
+        if !rh.person.first_name.nil?
+          person_first_name = "#{rh.person.first_name}"
+        else
+          person_first_name = ""
+        end
+        if !rh.person.last_name.nil?
+          person_last_name = "#{rh.person.last_name}"
+        else
+          person_last_name = ""
+        end
+        if !rh.person.email.nil?
+          person_email = "#{rh.person.email}"
+        else
+          person_email = ""
+        end
+        if rh.instance
+          instance = rh.instance.strftime("%I:%M%p - %m/%d/%Y")
+        else
+          instance = ""
+        end
+        @volunteer_table <<
+            [
+                "#{person_first_name} #{person_last_name}",
+                person_email,
+                organization_name,
+                opportunity_name,
+                instance,
+                "#{rh.hours.to_f}"
+            ]
         existing_volunteer = @organization_volunteers.find { |ov| ov[:id] == rh.person_id }
         if existing_volunteer
           existing_volunteer[:hours] += rh.hours
         else
           @organization_volunteers.push({
-                                           id: rh.person_id,
-                                           name: "#{rh.person.first_name} #{rh.person.last_name}",
-                                           hours: rh.hours
-                                       })
+                                            id: rh.person_id,
+                                            name: "#{rh.person.first_name} #{rh.person.last_name}",
+                                            hours: rh.hours
+                                        })
         end
         if rh.person.email
           existing_suffix = @email_suffixes.find { |es| es[:suffix] == rh.person.email.split("@").last }
@@ -194,18 +251,111 @@ class Organization < ActiveRecord::Base
       end
     end
 
+    # This is the pie chart for roles
+    @opportunities_series = Hash.new
+    @opportunities_series["name"] = "Opportunities"
+    @opportunities_series["data"] = Array.new
+    opportunities_options = {
+        title: {
+            text: ""
+        },
+        chart: {
+            type: 'pie'
+        },
+        xAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        }
+    }
+    opportunities_options["series"] = Array.new
+    if !opportunities.empty?
+      opportunities.each do |opr|
+        @people = []
+        total_recorded_hours = 0
+        total_volunteers = 0
+        if IceCube::Schedule.from_yaml(opr.schedule).occurs_between?(start_date, end_date)
+          opr.recorded_hours.each do |rh|
+            if rh.hours && (start_date..end_date).cover?(rh.instance) && (rh.organization_id === id || rh.opportunity.organization.id === id)
+              total_recorded_hours += rh.hours
+            end
+            if rh.person && !@people.include?(rh.person)
+              total_volunteers += 1
+              @people << rh.person
+            end
+          end
+        end
+        if opr.name
+          opportunity_name = "#{opr.name.to_s}"
+        else
+          opportunity_name = "No Opportunity Name"
+        end
+        if opr.organization && opr.organization.name
+          organization_name = "#{opr.organization.name.to_s}"
+        else
+          organization_name = "No Organization Name"
+        end
+        if !opr.organization && !opr.organization.users.empty?
+          ap opr.organization.users.first
+          if opr.organization.users.first.email?
+            contact_email = "#{opr.organization.users.first.email}"
+          end
+        else
+          contact_email = ""
+        end
+        if organization_type.name === "Volunteer Group"
+          @opportunities_table <<
+              [
+                  opportunity_name,
+                  organization_name,
+                  contact_email,
+                  total_volunteers,
+                  total_recorded_hours
+              ]
+        elsif organization_type.name === "Nonprofit"
+          @opportunities_table <<
+              [
+                  opportunity_name,
+                  total_volunteers,
+                  total_recorded_hours
+              ]
+        end
+
+        @top_opportunities << {name: "#{opr.name}", hours: total_recorded_hours}
+        @opportunities_series["data"].push({name: "#{opr.name}", y: total_recorded_hours})
+      end
+    end
+
+    opportunities_options["series"].push(@opportunities_series)
+    opportunities = "#{name}_opportunity_hours.png"
+    open(opportunities, 'wb') do |file|
+      file << open("http://export.highcharts.com/?async=false&type=png&width=300&options=#{URI.encode(JSON.generate(opportunities_options))}").read
+    end
+
     top_volunteers = @organization_volunteers.sort_by { |i| i[:hours] }.reverse!.take(10)
     top_suffixes = @email_suffixes.sort_by { |i| i[:hours] }.reverse!.take(10)
 
 
 
-    pdf = OrganizationReportPdf.new(self, summary_graph, start_date, end_date, top_volunteers, top_suffixes, @organization_volunteers.count, @total_hours)
+    pdf = OrganizationReportPdf.new(self,
+                                    summary_graph,
+                                    start_date,
+                                    end_date,
+                                    top_volunteers,
+                                    top_suffixes,
+                                    @organization_volunteers.count,
+                                    @total_hours,
+                                    @volunteer_table,
+                                    opportunities,
+                                    @top_opportunities.take(3),
+                                    @opportunities_table)
     pdf.render_file "#{self.name} report #{Time.now.strftime("%m.%e.%Y.%H%M")}.pdf"
 
     @resource.resource = File.open("#{self.name} report #{Time.now.strftime("%m.%e.%Y.%H%M")}.pdf")
     @resource.resourceable = self
     @resource.save
     File.delete("#{self.name} report #{Time.now.strftime("%m.%e.%Y.%H%M")}.pdf")
+    File.delete(opportunities)
 
     return @resource
   end
