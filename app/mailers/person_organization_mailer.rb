@@ -15,11 +15,14 @@ class PersonOrganizationMailer < ActionMailer::Base
       end
     end
 
-    @organization.resources.each do |resource|
-      if resource.resource_type.name = "For Volunteers"
-        attachments["#{resource.name}"] = open(resource.resource.url).read
+    if !@organization.resources.empty?
+      @organization.resources.each do |resource|
+        if !resource.resource_type.nil? && resource.resource_type.name = "For Volunteers"
+          attachments["#{resource.name}"] = open(resource.resource.url).read
+        end
       end
     end
+
 
     mail(to: @email, reply_to: @from_emails, subject: "Thanks for registering with #{@organization.name}")
   end
