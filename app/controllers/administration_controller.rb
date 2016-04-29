@@ -49,7 +49,18 @@ class AdministrationController < ApplicationController
         "Earth Day Clean Up",
         "Greyrock Farm-SUNY- ESF Volunteer Opp",
         "Success by 6 Book Sort",
-        "Property Project"
+        "Property Project",
+        "Brady Faith Sustainable Farm (ESF Spring Campus Day of Service)",
+        "A Tiny Home for Good- Bike Shelter Build (ESF Campus Day of Service)",
+        "Carpenter's Brook Fish Hatchery (ESF Campus Day of Service)",
+        "Comfort Tyler Park (ESF Campus Day of Service)",
+        "Dr. King Elementary Educational Garden (ESF Spring Campus Day of Service)",
+        "Morningside Cultural Trail (Ed Smith Stairs Trail)",
+        "Syracuse Grows Resource Drive Site #1 at Brady Faith Farm",
+        "Resource Drive Site #2 at Southwest Community Learning Farm",
+        "Climate Change Awareness & Action (CCAA)",
+        "Relay for Life (ESF participants-SU Dome)",
+        "On Point for College Celebration 2016"
     ].each do |name|
       opportunity = Opportunity.find_by_name(name.to_s)
       if !opportunity.nil?
